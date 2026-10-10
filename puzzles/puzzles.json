@@ -429,7 +429,8 @@
     "image": "bellini-an-episode-from-the-life-of-publius-cornelius-scipio.webp",
     "artist": "Giovanni Bellini",
     "name": "An Episode from the Life of Publius Cornelius Scipio",
-    "scientific": "after 1506"
+    "scientific": "after 1506",
+    "effect": "gallop"
   },
   {
     "image": "bellini-the-feast-of-the-gods.webp",
@@ -450,7 +451,8 @@
     "artist": "Sandro Botticelli",
     "name": "The Adoration of the Magi",
     "scientific": "c. 1478/1482",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "effect": "gallop"
   },
   {
     "image": "botticelli-giuliano-de-medici.webp",
@@ -491,7 +493,7 @@
     "name": "Saint Martin and the Beggar",
     "scientific": "1597/1599",
     "content": ["nudity"],
-    "effect": "sword"
+    "effect": ["sword", "gallop"]
   },
   {
     "image": "el-greco-madonna-and-child-with-saint-martina-and-saint-agnes.webp",
@@ -593,7 +595,7 @@
     "name": "Saint George and the Dragon",
     "scientific": "c. 1506",
     "content": ["violence", "frightening"],
-    "effect": "sword"
+    "effect": ["sword", "gallop"]
   },
   {
     "image": "raphael-the-niccolini-cowper-madonna.webp",
@@ -718,7 +720,8 @@
     "artist": "Peter Paul Rubens",
     "name": "The Fall of Phaeton",
     "scientific": "c. 1604/1605, probably reworked c. 1606/1608",
-    "content": ["nudity", "frightening"]
+    "content": ["nudity", "frightening"],
+    "effect": "gallop"
   },
   {
     "image": "rubens-marchesa-brigida-spinola-doria.webp",
@@ -757,7 +760,7 @@
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of Abraham and Melchizedek",
     "scientific": "c. 1626",
-    "effect": "sword"
+    "effect": ["sword", "gallop"]
   },
   {
     "image": "rubens-deborah-kip-wife-of-sir-balthasar-gerbier-and-her-children.webp",
@@ -771,7 +774,7 @@
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of David and Abigail",
     "scientific": "c. 1630",
-    "effect": "sword"
+    "effect": ["sword", "gallop"]
   },
   {
     "image": "titian-cupid-with-the-wheel-of-time.webp",
@@ -994,7 +997,8 @@
     "image": "degas-alexander-and-bucephalus.webp",
     "artist": "Edgar Degas",
     "name": "Alexander and Bucephalus",
-    "scientific": "1861/1862"
+    "scientific": "1861/1862",
+    "effect": "gallop"
   },
   {
     "image": "degas-edmondo-and-therese-morbilli.webp",
@@ -1013,7 +1017,8 @@
     "artist": "Edgar Degas",
     "name": "Scene from the Steeplechase: The Fallen Jockey",
     "scientific": "1866, reworked 1880-1881 and c. 1897",
-    "content": ["frightening"]
+    "content": ["frightening"],
+    "effect": "gallop"
   },
   {
     "image": "degas-the-dance-class.webp",
@@ -1031,13 +1036,15 @@
     "image": "degas-the-races.webp",
     "artist": "Edgar Degas",
     "name": "The Races",
-    "scientific": "1871-1872"
+    "scientific": "1871-1872",
+    "effect": "gallop"
   },
   {
     "image": "degas-horses-in-a-meadow.webp",
     "artist": "Edgar Degas",
     "name": "Horses in a Meadow",
-    "scientific": "1871"
+    "scientific": "1871",
+    "effect": "gallop"
   },
   {
     "image": "degas-madame-rene-de-gas.webp",
@@ -1085,7 +1092,8 @@
     "image": "degas-the-riders.webp",
     "artist": "Edgar Degas",
     "name": "The Riders",
-    "scientific": "c. 1885"
+    "scientific": "c. 1885",
+    "effect": "gallop"
   },
   {
     "image": "degas-before-the-ballet.webp",
@@ -1154,7 +1162,8 @@
     "image": "manet-at-the-races.webp",
     "artist": "Edouard Manet",
     "name": "At the Races",
-    "scientific": "c. 1875"
+    "scientific": "c. 1875",
+    "effect": "gallop"
   },
   {
     "image": "manet-tama-the-japanese-dog.webp",
@@ -1341,7 +1350,8 @@
     "image": "renoir-pont-neuf-paris.webp",
     "artist": "Auguste Renoir",
     "name": "Pont Neuf, Paris",
-    "scientific": "1872"
+    "scientific": "1872",
+    "effect": "gallop"
   },
   {
     "image": "renoir-claude-monet.webp",
@@ -1689,13 +1699,15 @@
     "image": "seurat-bathers.webp",
     "artist": "Georges Seurat",
     "name": "Bathers",
-    "scientific": "1883/1884"
+    "scientific": "1883/1884",
+    "effect": "gallop"
   },
   {
     "image": "seurat-horse-and-boats.webp",
     "artist": "Georges Seurat",
     "name": "Horse and Boats",
-    "scientific": "1883/1884"
+    "scientific": "1883/1884",
+    "effect": "gallop"
   },
   {
     "image": "seurat-the-seine-with-clothing-on-the-bank.webp",
@@ -1737,13 +1749,15 @@
     "image": "toulouse-lautrec-hussars.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Hussars",
-    "scientific": "1878"
+    "scientific": "1878",
+    "effect": "gallop"
   },
   {
     "image": "toulouse-lautrec-the-trap.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "The Trap",
-    "scientific": "1880"
+    "scientific": "1880",
+    "effect": "gallop"
   },
   {
     "image": "toulouse-lautrec-the-artists-dog-fleche.webp",
@@ -1888,13 +1902,15 @@
     "image": "corot-a-view-near-volterra.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "A View near Volterra",
-    "scientific": "1838"
+    "scientific": "1838",
+    "effect": "gallop"
   },
   {
     "image": "corot-view-near-epernon.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "View near Epernon",
-    "scientific": "1850/1860"
+    "scientific": "1850/1860",
+    "effect": "gallop"
   },
   {
     "image": "corot-portrait-of-a-young-girl.webp",
@@ -1985,7 +2001,8 @@
     "image": "corot-the-forest-of-coubron.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Forest of Coubron",
-    "scientific": "1872"
+    "scientific": "1872",
+    "effect": "gallop"
   },
   {
     "image": "corot-italian-woman.webp",
@@ -2095,7 +2112,8 @@
     "image": "pissarro-boulevard-des-italiens-morning-sunlight.webp",
     "artist": "Camille Pissarro",
     "name": "Boulevard des Italiens, Morning, Sunlight",
-    "scientific": "1897"
+    "scientific": "1897",
+    "effect": "gallop"
   },
   {
     "image": "pissarro-the-artists-garden-at-eragny.webp",
@@ -2278,7 +2296,8 @@
     "artist": "Hudson River School",
     "name": "The Rocky Mountains, Lander's Peak",
     "scientific": "Albert Bierstadt, 1863",
-    "content": ["violence"]
+    "content": ["violence"],
+    "effect": "gallop"
   },
   {
     "image": "cropsey-the-valley-of-wyoming.webp",

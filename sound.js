@@ -497,10 +497,15 @@ const sound = (() => {
     baldmountain: { by: 'Musopen' },
     newworld: { by: 'Musopen' },
   };
-  // A sound to go with the ending, for a puzzle whose `effect` names one, from
-  // the files in sound-effects/. lead = the seconds of silence the file
-  // opens on, which are skipped so that the sound comes in with the music.
-  const EFFECTS = { sword: { file: 'Sword.m4a', lead: 0.8 } };
+  // A sound to go with the ending, for a puzzle whose `effect` names one, or
+  // lists several, from the files in sound-effects/. lead = the seconds of
+  // silence the file opens on, which are skipped so that the sound comes in
+  // with the music; level = how loud it is played, fade =
+  // the seconds it takes to die away at its end, for one that would stop short.
+  const EFFECTS = {
+    sword: { file: 'Sword.m4a', lead: 0.8, level: 0.8 },
+    gallop: { file: 'Gallop.m4a', lead: 0.45, level: 0.35, fade: 1.5 },
+  };
 
   const SEMITONES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
   function midi(name) {
@@ -522,11 +527,12 @@ const sound = (() => {
   const clips = {};
   let clip = null;
   let playing = null;
-  // the same for the current puzzle's effect
+  // the same for the current puzzle's effects: the names asked for, and the
+  // buffers of those that are ready, by name
   const effects = {};
-  let wanted = null;
-  let effect = null;
-  let clashing = null;
+  let wanted = [];
+  let effect = {};
+  let clashing = [];
   // the credit the current tune's recording must carry, if any
   let owed = null;
   // the bowed voice's two instruments and the noise of its bow, made when first needed
@@ -671,23 +677,31 @@ const sound = (() => {
   }
 
   function hush() {
-    for (const source of [playing, clashing]) {
+    for (const source of [playing, ...clashing]) {
       try {
         if (source) source.stop();
       } catch {}
     }
-    playing = clashing = null;
+    playing = null;
+    clashing = [];
   }
 
   // a recording, played as it is, without the room the notes are given
-  // from = seconds into it to start from
-  function sample(buffer, level, delay, from = 0) {
+  // from = seconds into it to start from, fade = seconds it takes to die away
+  // at its end
+  function sample(buffer, level, delay, from = 0, fade = 0) {
     const gain = ctx.createGain();
     gain.gain.value = level;
     const source = ctx.createBufferSource();
     source.buffer = buffer;
     source.connect(gain).connect(ctx.destination);
-    source.start(ctx.currentTime + delay, from);
+    const start = ctx.currentTime + delay;
+    const end = start + buffer.duration - from;
+    if (fade) {
+      gain.gain.setValueAtTime(level, Math.max(start, end - fade));
+      gain.gain.linearRampToValueAtTime(0, end);
+    }
+    source.start(start, from);
     return source;
   }
 
@@ -751,18 +765,21 @@ const sound = (() => {
       heard = -1;
     },
 
-    // name is a key of EFFECTS, or nothing for a puzzle that ends on its music alone
-    setEffect(name) {
-      effect = null;
-      wanted = name;
-      if (!(name in EFFECTS) || !unlock()) return;
-      effects[name] = effects[name] || fetched(`sound-effects/${EFFECTS[name].file}`);
-      effects[name].then(
-        (buffer) => {
-          if (wanted === name) effect = buffer;
-        },
-        () => delete effects[name]
-      );
+    // names is a key of EFFECTS or a list of them, or nothing for a puzzle that
+    // ends on its music alone
+    setEffect(names) {
+      const asked = (wanted = [].concat(names || []).filter((name) => name in EFFECTS));
+      effect = {};
+      if (!asked.length || !unlock()) return;
+      for (const name of asked) {
+        effects[name] = effects[name] || fetched(`sound-effects/${EFFECTS[name].file}`);
+        effects[name].then(
+          (buffer) => {
+            if (wanted === asked) effect[name] = buffer;
+          },
+          () => delete effects[name]
+        );
+      }
     },
 
     // count = how many pieces just landed where they belong
@@ -786,12 +803,12 @@ const sound = (() => {
     // in tempo, to the first bar line that gives at least most of a bar. A bowed
     // tune can hold one note for a whole bar, which is no ending at all, so it
     // goes on bar by bar until four steps have sounded. A tune with a recording
-    // ends on that instead. Either way the puzzle's effect, if it has one, comes
+    // ends on that instead. Either way the puzzle's effects, if it has any, come
     // in with it.
     finish() {
       if (!unlock() || !steps.length) return;
       hush();
-      if (effect) clashing = sample(effect, 0.8, 0.7, EFFECTS[wanted].lead);
+      clashing = Object.keys(effect).map((name) => sample(effect[name], EFFECTS[name].level, 0.7, EFFECTS[name].lead, EFFECTS[name].fade));
       if (clip) {
         playing = sample(clip, 0.6, 0.7);
         return;
