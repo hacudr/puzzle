@@ -497,6 +497,10 @@ const sound = (() => {
     baldmountain: { by: 'Musopen' },
     newworld: { by: 'Musopen' },
   };
+  // A sound to go with the ending, for a puzzle whose `effect` names one, from
+  // the files in sound-effects/. The sword's clash comes most of
+  // a second into its file, which is when the music comes in.
+  const EFFECTS = { sword: 'Sword.m4a' };
 
   const SEMITONES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
   function midi(name) {
@@ -518,6 +522,11 @@ const sound = (() => {
   const clips = {};
   let clip = null;
   let playing = null;
+  // the same for the current puzzle's effect
+  const effects = {};
+  let wanted = null;
+  let effect = null;
+  let clashing = null;
   // the credit the current tune's recording must carry, if any
   let owed = null;
   // the bowed voice's two instruments and the noise of its bow, made when first needed
@@ -662,23 +671,36 @@ const sound = (() => {
   }
 
   function hush() {
-    if (!playing) return;
-    try {
-      playing.stop();
-    } catch {}
-    playing = null;
+    for (const source of [playing, clashing]) {
+      try {
+        if (source) source.stop();
+      } catch {}
+    }
+    playing = clashing = null;
   }
+
+  // a recording, played as it is, without the room the notes are given
+  function sample(buffer, level, delay) {
+    const gain = ctx.createGain();
+    gain.gain.value = level;
+    const source = ctx.createBufferSource();
+    source.buffer = buffer;
+    source.connect(gain).connect(ctx.destination);
+    source.start(ctx.currentTime + delay);
+    return source;
+  }
+
+  const fetched = (url) =>
+    fetch(url)
+      .then((res) => (res.ok ? res.arrayBuffer() : Promise.reject()))
+      .then((data) => new Promise((done, fail) => ctx.decodeAudioData(data, done, fail)));
 
   function loadClip(key) {
     clip = null;
     owed = null;
     hush();
     if (!(key in CLIPS) || !unlock()) return;
-    clips[key] =
-      clips[key] ||
-      fetch(`music/${key}.mp3`)
-        .then((res) => (res.ok ? res.arrayBuffer() : Promise.reject()))
-        .then((data) => new Promise((done, fail) => ctx.decodeAudioData(data, done, fail)));
+    clips[key] = clips[key] || fetched(`music/${key}.mp3`);
     clips[key].then(
       (buffer) => {
         if (TUNES[key] !== tune) return;
@@ -728,6 +750,20 @@ const sound = (() => {
       heard = -1;
     },
 
+    // name is a key of EFFECTS, or nothing for a puzzle that ends on its music alone
+    setEffect(name) {
+      effect = null;
+      wanted = name;
+      if (!(name in EFFECTS) || !unlock()) return;
+      effects[name] = effects[name] || fetched(`sound-effects/${EFFECTS[name]}`);
+      effects[name].then(
+        (buffer) => {
+          if (wanted === name) effect = buffer;
+        },
+        () => delete effects[name]
+      );
+    },
+
     // count = how many pieces just landed where they belong
     correct(count = 1) {
       if (!unlock() || !steps.length) return;
@@ -749,17 +785,14 @@ const sound = (() => {
     // in tempo, to the first bar line that gives at least most of a bar. A bowed
     // tune can hold one note for a whole bar, which is no ending at all, so it
     // goes on bar by bar until four steps have sounded. A tune with a recording
-    // ends on that instead.
+    // ends on that instead. Either way the puzzle's effect, if it has one, sounds
+    // along with it.
     finish() {
       if (!unlock() || !steps.length) return;
+      hush();
+      if (effect) clashing = sample(effect, 0.8, 0);
       if (clip) {
-        hush();
-        const level = ctx.createGain();
-        level.gain.value = 0.6;
-        playing = ctx.createBufferSource();
-        playing.buffer = clip;
-        playing.connect(level).connect(ctx.destination);
-        playing.start(ctx.currentTime + 0.7);
+        playing = sample(clip, 0.6, 0.7);
         return;
       }
       let i = (heard + 1) % steps.length;

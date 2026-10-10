@@ -490,7 +490,8 @@
     "artist": "El Greco",
     "name": "Saint Martin and the Beggar",
     "scientific": "1597/1599",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "effect": "sword"
   },
   {
     "image": "el-greco-madonna-and-child-with-saint-martina-and-saint-agnes.webp",
@@ -591,7 +592,8 @@
     "artist": "Raphael",
     "name": "Saint George and the Dragon",
     "scientific": "c. 1506",
-    "content": ["violence", "frightening"]
+    "content": ["violence", "frightening"],
+    "effect": "sword"
   },
   {
     "image": "raphael-the-niccolini-cowper-madonna.webp",
@@ -671,7 +673,8 @@
     "image": "rembrandt-van-rijn-the-apostle-paul.webp",
     "artist": "Rembrandt van Rijn",
     "name": "The Apostle Paul",
-    "scientific": "c. 1657"
+    "scientific": "c. 1657",
+    "effect": "sword"
   },
   {
     "image": "rembrandt-van-rijn-philemon-and-baucis.webp",
@@ -740,7 +743,8 @@
     "image": "rubens-decius-mus-addressing-the-legions.webp",
     "artist": "Peter Paul Rubens",
     "name": "Decius Mus Addressing the Legions",
-    "scientific": "probably 1616"
+    "scientific": "probably 1616",
+    "effect": "sword"
   },
   {
     "image": "rubens-head-of-one-of-the-three-kings-melchior-the-assyrian-king.webp",
@@ -752,7 +756,8 @@
     "image": "rubens-the-meeting-of-abraham-and-melchizedek.webp",
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of Abraham and Melchizedek",
-    "scientific": "c. 1626"
+    "scientific": "c. 1626",
+    "effect": "sword"
   },
   {
     "image": "rubens-deborah-kip-wife-of-sir-balthasar-gerbier-and-her-children.webp",
@@ -765,7 +770,8 @@
     "image": "rubens-the-meeting-of-david-and-abigail.webp",
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of David and Abigail",
-    "scientific": "c. 1630"
+    "scientific": "c. 1630",
+    "effect": "sword"
   },
   {
     "image": "titian-cupid-with-the-wheel-of-time.webp",
@@ -791,7 +797,8 @@
     "image": "titian-ranuccio-farnese.webp",
     "artist": "Titian",
     "name": "Ranuccio Farnese",
-    "scientific": "1541-1542"
+    "scientific": "1541-1542",
+    "effect": "sword"
   },
   {
     "image": "titian-doge-andrea-gritti.webp",
@@ -974,7 +981,8 @@
     "image": "degas-achille-de-gas-in-the-uniform-of-a-cadet.webp",
     "artist": "Edgar Degas",
     "name": "Achille De Gas in the Uniform of a Cadet",
-    "scientific": "1856/1857"
+    "scientific": "1856/1857",
+    "effect": "sword"
   },
   {
     "image": "degas-self-portrait-with-white-collar.webp",
@@ -1108,13 +1116,15 @@
     "artist": "Edouard Manet",
     "name": "The Dead Toreador",
     "scientific": "probably 1864",
-    "content": ["violence", "frightening"]
+    "content": ["violence", "frightening"],
+    "effect": "sword"
   },
   {
     "image": "manet-the-tragic-actor.webp",
     "artist": "Edouard Manet",
     "name": "The Tragic Actor",
-    "scientific": "1866"
+    "scientific": "1866",
+    "effect": "sword"
   },
   {
     "image": "manet-still-life-with-melon-and-peaches.webp",
@@ -2190,7 +2200,8 @@
     "name": "Judith Slaying Holofernes",
     "scientific": "c. 1614–1620",
     "music": "summer",
-    "content": ["violence", "frightening"]
+    "content": ["violence", "frightening"],
+    "effect": "sword"
   },
   {
     "image": "gentileschi-judith-and-her-maidservant.webp",
@@ -2198,7 +2209,8 @@
     "name": "Judith and Her Maidservant",
     "scientific": "c. 1623–1625",
     "music": "summer",
-    "content": ["violence", "frightening"]
+    "content": ["violence", "frightening"],
+    "effect": "sword"
   },
   {
     "image": "gentileschi-lucretia.webp",

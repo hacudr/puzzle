@@ -671,6 +671,7 @@ async function start(p, fresh = false) {
 
   if (stormy(p)) sound.setTune(p.music, puzzles.filter(stormy).indexOf(p), true);
   else sound.setTune(p.music, puzzles.indexOf(p));
+  sound.setEffect(p.effect);
   piecesEl.textContent = '';
   peekEl.classList.remove('show', 'reveal');
   peekEl.style.backgroundImage = `url("${p.image}")`;

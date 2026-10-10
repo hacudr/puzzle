@@ -16,6 +16,7 @@ const TYPES = {
   '.jpeg': 'image/jpeg',
   '.webp': 'image/webp',
   '.mp3': 'audio/mpeg',
+  '.m4a': 'audio/mp4',
   '.woff2': 'font/woff2',
 };
 
