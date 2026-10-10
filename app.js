@@ -4,14 +4,18 @@ const SOLVED_KEY = 'puzzle.solved';
 const LEVEL_KEY = 'puzzle.level';
 const GUIDE_KEY = 'puzzle.guide';
 const PROGRESS_KEY = 'puzzle.progress';
+const KIDS_KEY = 'puzzle.kids';
+const HIDE_KEY = 'puzzle.hide';
+// how long Off is held to leave Kids mode, in ms
+const KIDS_HOLD = 3000;
 // height of the reference picture, and limits for the reserve strip, in px
 const GUIDE_HEIGHT = 94;
 const STRIP_MIN = 64;
 const STRIP_MAX = 96;
 // approximate number of pieces at each difficulty
-const LEVELS = { kids: 10, easy: 40, medium: 100, hard: 200, expert: 200 };
+const LEVELS = { veryeasy: 10, easy: 40, medium: 100, hard: 200, expert: 200 };
 // levels that must never go over their number
-const CAPPED = { kids: 10 };
+const CAPPED = { veryeasy: 10 };
 // Expert is solved unseen: grey pieces, blurred cards and no reference picture
 const blind = () => level === 'expert';
 const mastered = (p) => solved.has(p.id + '|expert');
@@ -23,7 +27,11 @@ const guideEl = $('#guide');
 const reserveEl = $('#reserve');
 
 let puzzles = [];
-// one entry per artist: { name, note, cover, puzzles }
+// one entry per artist: { name, note, usual, all, cover, puzzles }; `all` and
+// `usual` are every picture and the listed cover, `puzzles` and `cover` what
+// is left of them once hidden pictures are taken out
+let everyone = [];
+// the artists with something on show
 let artists = [];
 // the artist whose puzzles are on show
 let artist = null;
@@ -31,8 +39,16 @@ let artist = null;
 let settingsFrom = 'gallery';
 // the difficulty a paused puzzle had when its settings were opened
 let levelBefore = null;
+// the artist's page the settings were opened from
+let artistBefore = null;
 let solved = loadSolved();
-let level = loadLevel();
+// Kids mode plays on Very Easy and hides every kind of picture that can be
+// hidden, whatever is chosen below; the choices are kept for when it goes off.
+let kids = loadKids();
+let chosen = loadLevel();
+let level = kids ? 'veryeasy' : chosen;
+// the kinds of picture switched off in the settings, from a puzzle's `content`
+let hide = loadHide();
 let progress = loadProgress();
 let game = null;
 let drag = null;
@@ -49,24 +65,106 @@ function loadSolved() {
 
 function loadLevel() {
   try {
-    const saved = localStorage.getItem(LEVEL_KEY);
+    // Very Easy was called Kids before Kids mode came along
+    const saved = (localStorage.getItem(LEVEL_KEY) || '').replace(/^kids$/, 'veryeasy');
     return saved in LEVELS ? saved : 'easy';
   } catch {
     return 'easy';
   }
 }
 
-function setLevel(next) {
-  level = next;
+function loadKids() {
   try {
-    localStorage.setItem(LEVEL_KEY, level);
+    return localStorage.getItem(KIDS_KEY) === 'on';
+  } catch {
+    return false;
+  }
+}
+
+function loadHide() {
+  try {
+    return new Set(JSON.parse(localStorage.getItem(HIDE_KEY) || '[]'));
+  } catch {
+    return new Set();
+  }
+}
+
+function setLevel(next) {
+  chosen = next;
+  try {
+    localStorage.setItem(LEVEL_KEY, chosen);
   } catch {}
-  document.querySelectorAll('#levels button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.level === level));
+  showLevel();
+}
+
+function showLevel() {
+  level = kids ? 'veryeasy' : chosen;
+  document.querySelectorAll('#levels button').forEach((b) => {
+    b.setAttribute('aria-pressed', b.dataset.level === level);
+    b.disabled = kids;
+  });
   // the collection says which difficulty is chosen, as "Easy · about 40 pieces"
-  const chosen = $(`#levels [data-level="${level}"]`);
-  const note = chosen.firstChild.textContent + ' · ' + chosen.querySelector('small').textContent;
+  const button = $(`#levels [data-level="${level}"]`);
+  const note = (kids ? 'Kids mode' : button.firstChild.textContent) + ' · ' + button.querySelector('small').textContent;
   document.querySelectorAll('.level-note').forEach((el) => (el.textContent = note));
   labelCards();
+}
+
+function setKids(on) {
+  kids = on;
+  try {
+    localStorage.setItem(KIDS_KEY, on ? 'on' : 'off');
+  } catch {}
+  showKids();
+  sift();
+  showLevel();
+}
+
+function showKids() {
+  document.querySelectorAll('#kids button').forEach((b) => b.setAttribute('aria-pressed', (b.dataset.kids === 'on') === kids));
+  $('#kidsHold').hidden = !kids;
+  showContent();
+}
+
+/* ---------- Hidden pictures ---------- */
+
+const hidden = (kind) => kids || hide.has(kind);
+const visible = (p) => !(p.content || []).some(hidden);
+
+function setHidden(kind, on) {
+  if (on) hide.add(kind);
+  else hide.delete(kind);
+  try {
+    localStorage.setItem(HIDE_KEY, JSON.stringify([...hide]));
+  } catch {}
+  showContent();
+  sift();
+}
+
+// Each kind is underlined while it is shown; Kids mode holds them all hidden.
+function showContent() {
+  document.querySelectorAll('#content button').forEach((b) => {
+    const off = hidden(b.dataset.content);
+    b.setAttribute('aria-pressed', !off);
+    b.disabled = kids;
+    b.querySelector('small').textContent = off ? 'hidden' : 'shown';
+  });
+  $('#contentNote').hidden = !kids;
+}
+
+// Take the hidden pictures out of every artist's page. An artist whose cover is
+// hidden shows their first picture left, and one with none left has no card.
+function sift() {
+  for (const a of everyone) {
+    a.puzzles = a.all.filter(visible);
+    const usual = a.all.find((p) => p.image === a.usual);
+    a.cover = usual && !visible(usual) ? a.puzzles[0] && a.puzzles[0].image : a.usual;
+  }
+  artists = everyone.filter((a) => a.puzzles.length);
+  // the open artist's page is drawn again when it is next opened
+  artist = null;
+  $('#grid').textContent = '';
+  renderGallery();
 }
 
 function showVoice() {
@@ -114,12 +212,14 @@ function saveSolved() {
 }
 
 // Unfinished puzzles are kept per picture and difficulty, so a half-done hard
-// puzzle survives someone else solving the same picture on Kids.
+// puzzle survives someone else solving the same picture on Very Easy.
 const progressKey = (p) => p.id + '|' + level;
 
 function loadProgress() {
   try {
-    return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {};
+    const saved = JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {};
+    // Very Easy was called Kids before Kids mode came along
+    return Object.fromEntries(Object.entries(saved).map(([key, state]) => [key.replace(/\|kids$/, '|veryeasy'), state]));
   } catch {
     return {};
   }
@@ -238,7 +338,7 @@ function drawVeil(card) {
 
 /* ---------- Gallery ---------- */
 
-const artistOf = (p) => artists.find((a) => a.puzzles.includes(p));
+const artistOf = (p) => everyone.find((a) => a.all.includes(p));
 
 function makeCard(image, line, name) {
   const card = document.createElement('button');
@@ -262,6 +362,7 @@ function renderGallery() {
   const grid = $('#artists');
   grid.textContent = '';
   $('#empty').hidden = puzzles.length > 0;
+  $('#allHidden').hidden = !puzzles.length || artists.length > 0;
   for (const a of artists) {
     const card = makeCard(a.cover, a.note, a.name);
     card.classList.add('solved');
@@ -817,6 +918,7 @@ $('#nextBtn').addEventListener('click', () => start(nextPuzzle(game.p)));
 document.querySelectorAll('.gear').forEach((b) =>
   b.addEventListener('click', () => {
     settingsFrom = b.closest('.screen').id;
+    artistBefore = artist;
     showVoice();
     show('settings');
   })
@@ -824,13 +926,45 @@ document.querySelectorAll('.gear').forEach((b) =>
 $('#settingsBack').addEventListener('click', async () => {
   // A new difficulty reopens the same picture at it, where that one was left
   // off; the old difficulty keeps its own progress.
-  if (settingsFrom === 'play' && level !== levelBefore) {
-    await start(game.p);
-    $('#pause').hidden = false;
+  if (settingsFrom === 'play') {
+    // a picture hidden while it was paused is put away
+    if (!visible(game.p)) return openGallery();
+    if (level !== levelBefore) {
+      await start(game.p);
+      $('#pause').hidden = false;
+    }
   }
+  // an artist's page comes back without the pictures hidden in the meantime
+  if (settingsFrom === 'artist') return artists.includes(artistBefore) ? openArtist(artistBefore) : openGallery();
   show(settingsFrom);
 });
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
+document.querySelectorAll('#content button').forEach((b) =>
+  b.addEventListener('click', () => setHidden(b.dataset.content, !hide.has(b.dataset.content)))
+);
+
+// Kids mode goes on at a tap. Coming out of it is for a grown-up: Off has to be
+// held down while its line fills.
+$('#kids [data-kids="on"]').addEventListener('click', () => kids || setKids(true));
+{
+  const off = $('#kids [data-kids="off"]');
+  let timer = 0;
+  const release = () => {
+    clearTimeout(timer);
+    off.classList.remove('holding');
+  };
+  off.style.setProperty('--hold', KIDS_HOLD + 'ms');
+  off.addEventListener('pointerdown', () => {
+    if (!kids) return;
+    off.classList.add('holding');
+    timer = setTimeout(() => {
+      release();
+      setKids(false);
+    }, KIDS_HOLD);
+  });
+  for (const type of ['pointerup', 'pointerleave', 'pointercancel']) off.addEventListener(type, release);
+  off.addEventListener('contextmenu', (e) => e.preventDefault());
+}
 document.querySelectorAll('#voices button').forEach((b) =>
   b.addEventListener('click', () => {
     sound.setVoice(b.dataset.voice);
@@ -846,7 +980,8 @@ document.addEventListener('gesturestart', (e) => e.preventDefault());
 
 async function boot() {
   setGuide(loadGuide());
-  setLevel(level);
+  showKids();
+  showLevel();
   try {
     const res = await fetch('puzzles/puzzles.json', { cache: 'no-cache' });
     // ids keep the .jpg the pictures first had, so saved progress survives the move to WebP
@@ -860,14 +995,14 @@ async function boot() {
   try {
     listed = await (await fetch('puzzles/artists.json', { cache: 'no-cache' })).json();
   } catch {}
-  artists = [...new Set([...listed.map((a) => a.name), ...puzzles.map((p) => p.artist)])]
+  everyone = [...new Set([...listed.map((a) => a.name), ...puzzles.map((p) => p.artist)])]
     .map((name) => {
-      const mine = puzzles.filter((p) => p.artist === name);
+      const all = puzzles.filter((p) => p.artist === name);
       const about = listed.find((a) => a.name === name) || {};
-      return { name, note: about.note, cover: about.cover ? 'puzzles/' + about.cover : mine[0] && mine[0].image, puzzles: mine };
+      return { name, note: about.note, usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, all };
     })
-    .filter((a) => a.puzzles.length);
-  renderGallery();
+    .filter((a) => a.all.length);
+  sift();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 }
 

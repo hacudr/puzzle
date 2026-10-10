@@ -313,7 +313,8 @@
     "image": "cassatt-woman-with-a-sunflower.webp",
     "artist": "Mary Cassatt",
     "name": "Woman with a Sunflower",
-    "scientific": "c. 1905"
+    "scientific": "c. 1905",
+    "content": ["nudity"]
   },
   {
     "image": "morisot-the-sisters.webp",
@@ -397,7 +398,8 @@
     "image": "bellini-madonna-and-child-in-a-landscape.webp",
     "artist": "Giovanni Bellini",
     "name": "Madonna and Child in a Landscape",
-    "scientific": "c. 1480/1485"
+    "scientific": "c. 1480/1485",
+    "content": ["nudity"]
   },
   {
     "image": "bellini-portrait-of-a-young-man.webp",
@@ -433,19 +435,22 @@
     "image": "bellini-the-feast-of-the-gods.webp",
     "artist": "Giovanni Bellini",
     "name": "The Feast of the Gods",
-    "scientific": "1514/1529"
+    "scientific": "1514/1529",
+    "content": ["nudity"]
   },
   {
     "image": "botticelli-madonna-and-child.webp",
     "artist": "Sandro Botticelli",
     "name": "Madonna and Child",
-    "scientific": "c. 1470"
+    "scientific": "c. 1470",
+    "content": ["nudity"]
   },
   {
     "image": "botticelli-the-adoration-of-the-magi.webp",
     "artist": "Sandro Botticelli",
     "name": "The Adoration of the Magi",
-    "scientific": "c. 1478/1482"
+    "scientific": "c. 1478/1482",
+    "content": ["nudity"]
   },
   {
     "image": "botticelli-giuliano-de-medici.webp",
@@ -457,7 +462,8 @@
     "image": "botticelli-the-virgin-adoring-the-child.webp",
     "artist": "Sandro Botticelli",
     "name": "The Virgin Adoring the Child",
-    "scientific": "1480/1490"
+    "scientific": "1480/1490",
+    "content": ["nudity"]
   },
   {
     "image": "botticelli-portrait-of-a-youth.webp",
@@ -469,25 +475,29 @@
     "image": "el-greco-christ-cleansing-the-temple.webp",
     "artist": "El Greco",
     "name": "Christ Cleansing the Temple",
-    "scientific": "probably before 1570"
+    "scientific": "probably before 1570",
+    "content": ["nudity", "violence"]
   },
   {
     "image": "el-greco-the-holy-family-with-saint-anne-and-the-infant-john-the-baptist.webp",
     "artist": "El Greco",
     "name": "The Holy Family with Saint Anne and the Infant John the Baptist",
-    "scientific": "c. 1595/1600"
+    "scientific": "c. 1595/1600",
+    "content": ["nudity"]
   },
   {
     "image": "el-greco-saint-martin-and-the-beggar.webp",
     "artist": "El Greco",
     "name": "Saint Martin and the Beggar",
-    "scientific": "1597/1599"
+    "scientific": "1597/1599",
+    "content": ["nudity"]
   },
   {
     "image": "el-greco-madonna-and-child-with-saint-martina-and-saint-agnes.webp",
     "artist": "El Greco",
     "name": "Madonna and Child with Saint Martina and Saint Agnes",
-    "scientific": "1597/1599"
+    "scientific": "1597/1599",
+    "content": ["nudity"]
   },
   {
     "image": "el-greco-saint-ildefonso.webp",
@@ -499,13 +509,15 @@
     "image": "el-greco-saint-jerome.webp",
     "artist": "El Greco",
     "name": "Saint Jerome",
-    "scientific": "c. 1610/1614"
+    "scientific": "c. 1610/1614",
+    "content": ["nudity"]
   },
   {
     "image": "el-greco-laocoon.webp",
     "artist": "El Greco",
     "name": "Laocoön",
-    "scientific": "c. 1610/1614"
+    "scientific": "c. 1610/1614",
+    "content": ["nudity", "violence", "frightening"]
   },
   {
     "image": "gogh-flower-beds-in-holland.webp",
@@ -571,25 +583,29 @@
     "image": "raphael-the-small-cowper-madonna.webp",
     "artist": "Raphael",
     "name": "The Small Cowper Madonna",
-    "scientific": "c. 1505"
+    "scientific": "c. 1505",
+    "content": ["nudity"]
   },
   {
     "image": "raphael-saint-george-and-the-dragon.webp",
     "artist": "Raphael",
     "name": "Saint George and the Dragon",
-    "scientific": "c. 1506"
+    "scientific": "c. 1506",
+    "content": ["violence", "frightening"]
   },
   {
     "image": "raphael-the-niccolini-cowper-madonna.webp",
     "artist": "Raphael",
     "name": "The Niccolini-Cowper Madonna",
-    "scientific": "1508"
+    "scientific": "1508",
+    "content": ["nudity"]
   },
   {
     "image": "raphael-the-alba-madonna.webp",
     "artist": "Raphael",
     "name": "The Alba Madonna",
-    "scientific": "c. 1510"
+    "scientific": "c. 1510",
+    "content": ["nudity"]
   },
   {
     "image": "raphael-bindo-altoviti.webp",
@@ -691,13 +707,15 @@
     "image": "rembrandt-van-rijn-lucretia.webp",
     "artist": "Rembrandt van Rijn",
     "name": "Lucretia",
-    "scientific": "1664"
+    "scientific": "1664",
+    "content": ["violence"]
   },
   {
     "image": "rubens-the-fall-of-phaeton.webp",
     "artist": "Peter Paul Rubens",
     "name": "The Fall of Phaeton",
-    "scientific": "c. 1604/1605, probably reworked c. 1606/1608"
+    "scientific": "c. 1604/1605, probably reworked c. 1606/1608",
+    "content": ["nudity", "frightening"]
   },
   {
     "image": "rubens-marchesa-brigida-spinola-doria.webp",
@@ -715,7 +733,8 @@
     "image": "rubens-daniel-in-the-lions-den.webp",
     "artist": "Peter Paul Rubens",
     "name": "Daniel in the Lions' Den",
-    "scientific": "c. 1614/1616"
+    "scientific": "c. 1614/1616",
+    "content": ["nudity", "frightening"]
   },
   {
     "image": "rubens-decius-mus-addressing-the-legions.webp",
@@ -739,7 +758,8 @@
     "image": "rubens-deborah-kip-wife-of-sir-balthasar-gerbier-and-her-children.webp",
     "artist": "Peter Paul Rubens",
     "name": "Deborah Kip, Wife of Sir Balthasar Gerbier, and Her Children",
-    "scientific": "1629/1630, reworked probably mid 1640s"
+    "scientific": "1629/1630, reworked probably mid 1640s",
+    "content": ["nudity"]
   },
   {
     "image": "rubens-the-meeting-of-david-and-abigail.webp",
@@ -751,7 +771,8 @@
     "image": "titian-cupid-with-the-wheel-of-time.webp",
     "artist": "Titian",
     "name": "Cupid with the Wheel of Time",
-    "scientific": "c. 1515/1520"
+    "scientific": "c. 1515/1520",
+    "content": ["nudity"]
   },
   {
     "image": "titian-cardinal-pietro-bembo.webp",
@@ -763,7 +784,8 @@
     "image": "titian-venus-and-adonis.webp",
     "artist": "Titian",
     "name": "Venus and Adonis",
-    "scientific": "c. 1540s/c. 1560-1565"
+    "scientific": "c. 1540s/c. 1560-1565",
+    "content": ["nudity"]
   },
   {
     "image": "titian-ranuccio-farnese.webp",
@@ -781,7 +803,8 @@
     "image": "titian-saint-john-the-evangelist-on-patmos.webp",
     "artist": "Titian",
     "name": "Saint John the Evangelist on Patmos",
-    "scientific": "c. 1553/1555"
+    "scientific": "c. 1553/1555",
+    "content": ["nudity"]
   },
   {
     "image": "titian-woman-holding-an-apple.webp",
@@ -799,7 +822,8 @@
     "image": "titian-venus-with-a-mirror.webp",
     "artist": "Titian",
     "name": "Venus with a Mirror",
-    "scientific": "c. 1555"
+    "scientific": "c. 1555",
+    "content": ["nudity"]
   },
   {
     "image": "cezanne-the-artists-father-reading-levenement.webp",
@@ -847,7 +871,8 @@
     "image": "cezanne-the-battle-of-love.webp",
     "artist": "Paul Cézanne",
     "name": "The Battle of Love",
-    "scientific": "c. 1880"
+    "scientific": "c. 1880",
+    "content": ["nudity", "violence"]
   },
   {
     "image": "cezanne-houses-in-provence-the-riaux-valley-near-lestaque.webp",
@@ -979,7 +1004,8 @@
     "image": "degas-scene-from-the-steeplechase-the-fallen-jockey.webp",
     "artist": "Edgar Degas",
     "name": "Scene from the Steeplechase: The Fallen Jockey",
-    "scientific": "1866, reworked 1880-1881 and c. 1897"
+    "scientific": "1866, reworked 1880-1881 and c. 1897",
+    "content": ["frightening"]
   },
   {
     "image": "degas-the-dance-class.webp",
@@ -1081,7 +1107,8 @@
     "image": "manet-the-dead-toreador.webp",
     "artist": "Edouard Manet",
     "name": "The Dead Toreador",
-    "scientific": "probably 1864"
+    "scientific": "probably 1864",
+    "content": ["violence", "frightening"]
   },
   {
     "image": "manet-the-tragic-actor.webp",
@@ -1219,31 +1246,36 @@
     "image": "gauguin-fatata-te-miti.webp",
     "artist": "Paul Gauguin",
     "name": "Fatata te Miti",
-    "scientific": "1892"
+    "scientific": "1892",
+    "content": ["nudity"]
   },
   {
     "image": "gauguin-parau-na-te-varua-ino.webp",
     "artist": "Paul Gauguin",
     "name": "Parau na te Varua ino",
-    "scientific": "1892"
+    "scientific": "1892",
+    "content": ["nudity", "frightening"]
   },
   {
     "image": "gauguin-the-bathers.webp",
     "artist": "Paul Gauguin",
     "name": "The Bathers",
-    "scientific": "1897"
+    "scientific": "1897",
+    "content": ["nudity"]
   },
   {
     "image": "gauguin-te-pape-nave-nave.webp",
     "artist": "Paul Gauguin",
     "name": "Te Pape Nave Nave",
-    "scientific": "1898"
+    "scientific": "1898",
+    "content": ["nudity"]
   },
   {
     "image": "gauguin-the-invocation.webp",
     "artist": "Paul Gauguin",
     "name": "The Invocation",
-    "scientific": "1903"
+    "scientific": "1903",
+    "content": ["nudity"]
   },
   {
     "image": "renoir-mademoiselle-sicot.webp",
@@ -1279,13 +1311,15 @@
     "image": "renoir-diana.webp",
     "artist": "Auguste Renoir",
     "name": "Diana",
-    "scientific": "1867"
+    "scientific": "1867",
+    "content": ["nudity", "violence"]
   },
   {
     "image": "renoir-odalisque.webp",
     "artist": "Auguste Renoir",
     "name": "Odalisque",
-    "scientific": "1870"
+    "scientific": "1870",
+    "content": ["nudity"]
   },
   {
     "image": "renoir-head-of-a-dog.webp",
@@ -1399,13 +1433,15 @@
     "image": "renoir-small-study-for-a-nude.webp",
     "artist": "Auguste Renoir",
     "name": "Small Study for a Nude",
-    "scientific": "1882"
+    "scientific": "1882",
+    "content": ["nudity"]
   },
   {
     "image": "renoir-nude-with-figure-in-background.webp",
     "artist": "Auguste Renoir",
     "name": "Nude with Figure in Background",
-    "scientific": "c. 1882"
+    "scientific": "c. 1882",
+    "content": ["nudity"]
   },
   {
     "image": "renoir-mlle-charlotte-berthier.webp",
@@ -1477,13 +1513,15 @@
     "image": "renoir-bather-arranging-her-hair.webp",
     "artist": "Auguste Renoir",
     "name": "Bather Arranging Her Hair",
-    "scientific": "1893"
+    "scientific": "1893",
+    "content": ["nudity"]
   },
   {
     "image": "renoir-nude.webp",
     "artist": "Auguste Renoir",
     "name": "Nude",
-    "scientific": "c. 1895"
+    "scientific": "c. 1895",
+    "content": ["nudity"]
   },
   {
     "image": "renoir-child-with-blond-hair.webp",
@@ -1537,7 +1575,8 @@
     "image": "modigliani-nude-on-a-blue-cushion.webp",
     "artist": "Amedeo Modigliani",
     "name": "Nude on a Blue Cushion",
-    "scientific": "1917"
+    "scientific": "1917",
+    "content": ["nudity"]
   },
   {
     "image": "modigliani-adrienne.webp",
@@ -1573,7 +1612,8 @@
     "image": "modigliani-nude-on-a-divan.webp",
     "artist": "Amedeo Modigliani",
     "name": "Nude on a Divan",
-    "scientific": "1918"
+    "scientific": "1918",
+    "content": ["nudity"]
   },
   {
     "image": "modigliani-madame-amedee.webp",
@@ -1789,7 +1829,8 @@
     "image": "turner-the-rape-of-proserpine.webp",
     "artist": "J. M. W. Turner",
     "name": "The Rape of Proserpine",
-    "scientific": "1839"
+    "scientific": "1839",
+    "content": ["violence"]
   },
   {
     "image": "turner-the-evening-of-the-deluge.webp",
@@ -1867,7 +1908,8 @@
     "image": "corot-the-repose.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Repose",
-    "scientific": "1860, reworked c. 1865/1870"
+    "scientific": "1860, reworked c. 1865/1870",
+    "content": ["nudity"]
   },
   {
     "image": "corot-the-moored-boatman-souvenir-of-an-italian-lake.webp",
@@ -1957,7 +1999,8 @@
     "image": "corot-saint-sebastian-succored-by-the-holy-women.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Saint Sebastian Succored by the Holy Women",
-    "scientific": "1874"
+    "scientific": "1874",
+    "content": ["nudity", "violence"]
   },
   {
     "image": "pissarro-a-creek-in-st-thomas.webp",
@@ -2035,7 +2078,8 @@
     "image": "pissarro-the-bather.webp",
     "artist": "Camille Pissarro",
     "name": "The Bather",
-    "scientific": "1895"
+    "scientific": "1895",
+    "content": ["nudity"]
   },
   {
     "image": "pissarro-boulevard-des-italiens-morning-sunlight.webp",

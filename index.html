@@ -27,6 +27,7 @@
     </button>
   </header>
   <div id="artists" class="grid"></div>
+  <p id="allHidden" class="empty" hidden>Every picture is hidden. Settings can show them again.</p>
   <p id="empty" class="empty" hidden>No puzzles yet. Add images to <code>puzzles/</code> and list them in <code>puzzles/puzzles.json</code>.</p>
 </main>
 
@@ -58,14 +59,31 @@
   <div class="settings-body">
     <h1>Settings</h1>
     <section>
+      <p class="eyebrow">Kids mode</p>
+      <div id="kids" class="levels" role="group" aria-label="Kids mode">
+        <button data-kids="on">On</button>
+        <button data-kids="off">Off<small id="kidsHold" hidden>hold for 3 seconds</small></button>
+      </div>
+      <p class="hint">Very Easy puzzles, and no pictures with nudity, violence or frightening scenes.</p>
+    </section>
+    <section>
       <p class="eyebrow">Difficulty</p>
       <div id="levels" class="levels" role="group" aria-label="Difficulty">
-        <button data-level="kids">Kids<small>up to 10 pieces</small></button>
+        <button data-level="veryeasy">Very Easy<small>up to 10 pieces</small></button>
         <button data-level="easy">Easy<small>about 40 pieces</small></button>
         <button data-level="medium">Medium<small>about 100 pieces</small></button>
         <button data-level="hard">Hard<small>about 200 pieces</small></button>
         <button data-level="expert">Expert<small>about 200 pieces, in black and white</small></button>
       </div>
+    </section>
+    <section>
+      <p class="eyebrow">Pictures with</p>
+      <div id="content" class="levels" role="group" aria-label="Pictures with">
+        <button data-content="nudity">Nudity<small></small></button>
+        <button data-content="violence">Violence<small></small></button>
+        <button data-content="frightening">Frightening scenes<small></small></button>
+      </div>
+      <p id="contentNote" class="hint" hidden>Always hidden in Kids mode.</p>
     </section>
     <section>
       <p class="eyebrow">Music</p>

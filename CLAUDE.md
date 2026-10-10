@@ -22,7 +22,9 @@ The user drops original pictures into `puzzles/images/` and says little more tha
 
 3. **Puzzle entry** — look at the picture, then add an entry to `puzzles/puzzles.json` with the same fields the existing entries use (`image`, `artist`, `name`, `scientific` for the italic line, plus any optional fields the neighbouring entries carry, such as `music`: `moonlight`, `clair`, `pathetique`, `arabesque`, `flaxen`, `reflets`, `lente`, `gondola1`, `gondola2` or `gondola3`; a puzzle without one takes the next tune in that order by its position in the list). Say which titles, dates or attributions are guesses. If the artist is new, add them to `puzzles/artists.json` too.
 
-4. **Check** — load the gallery in the preview and confirm the artist's card is there, every card on their page shows its picture and the new puzzle opens.
+   Give the entry a `content` list if the picture shows any of these, and leave it out otherwise: `nudity` (any visible nudity at all, including the naked infant in a Madonna and Child, cherubs and nude statues), `violence` (fighting, weapons in use, wounds, blood, killed animals, martyrdoms, abductions) and `frightening` (monsters, menacing beasts, corpses, human skulls, people in peril). Settings can hide each kind, and Kids mode hides all three, so when unsure, tag it. Say which pictures were tagged.
+
+4. **Check** — load the gallery in the preview and confirm the artist's card is there, every card on their page shows its picture and the new puzzle opens. Kids mode must be off for this (Settings, hold Off for three seconds), or tagged pictures will be missing.
 
 Thumbnails are part of adding a puzzle, never a separate request. If any listed puzzle is missing its file in `puzzles/thumbs/`, generate it.
 
