@@ -436,7 +436,7 @@
     "artist": "Giovanni Bellini",
     "name": "The Feast of the Gods",
     "scientific": "1514/1529",
-    "content": ["nudity"]
+    "content": ["nudity", "violence"]
   },
   {
     "image": "botticelli-madonna-and-child.webp",
@@ -2182,13 +2182,14 @@
     "artist": "Artemisia Gentileschi",
     "name": "Susanna and the Elders",
     "scientific": "1610",
-    "content": ["nudity", "frightening"]
+    "content": ["nudity", "violence", "frightening"]
   },
   {
     "image": "gentileschi-judith-slaying-holofernes.webp",
     "artist": "Artemisia Gentileschi",
     "name": "Judith Slaying Holofernes",
     "scientific": "c. 1614–1620",
+    "music": "summer",
     "content": ["violence", "frightening"]
   },
   {
@@ -2196,6 +2197,7 @@
     "artist": "Artemisia Gentileschi",
     "name": "Judith and Her Maidservant",
     "scientific": "c. 1623–1625",
+    "music": "summer",
     "content": ["violence", "frightening"]
   },
   {

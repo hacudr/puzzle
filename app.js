@@ -7,6 +7,7 @@ const TRAY_KEY = 'puzzle.tray';
 const PROGRESS_KEY = 'puzzle.progress';
 const KIDS_KEY = 'puzzle.kids';
 const HIDE_KEY = 'puzzle.hide';
+const SPELL_KEY = 'puzzle.spell';
 const THEME_KEY = 'puzzle.theme';
 // the colour of the page in each theme, for the bar round the app
 const THEMES = { blush: '#f3d9d1', lace: '#f1e6d0', celadon: '#c8d9d0', walnut: '#2b1f18' };
@@ -61,6 +62,8 @@ let chosen = loadLevel();
 let level = kids ? 'veryeasy' : chosen;
 // the kinds of picture switched off in the settings, from a puzzle's `content`
 let hide = loadHide();
+// whether a title's upsetting words are written in full
+let spell = loadSpell();
 let progress = loadProgress();
 let game = null;
 let drag = null;
@@ -100,6 +103,14 @@ function loadHide() {
     return new Set(JSON.parse(localStorage.getItem(HIDE_KEY) || '[]'));
   } catch {
     return new Set();
+  }
+}
+
+function loadSpell() {
+  try {
+    return localStorage.getItem(SPELL_KEY) === 'on';
+  } catch {
+    return false;
   }
 }
 
@@ -144,6 +155,8 @@ function showKids() {
 
 const hidden = (kind) => kids || hide.has(kind);
 const visible = (p) => !(p.content || []).some(hidden);
+// pictures of violence or fright are set to the stormy tunes, played on strings
+const stormy = (p) => (p.content || []).some((kind) => kind === 'violence' || kind === 'frightening');
 
 function setHidden(kind, on) {
   if (on) hide.add(kind);
@@ -157,12 +170,28 @@ function setHidden(kind, on) {
 
 // Each kind is underlined while it is shown; Kids mode holds them all hidden.
 function showContent() {
-  document.querySelectorAll('#content button').forEach((b) => {
+  document.querySelectorAll('#content [data-content]').forEach((b) => {
     const off = hidden(b.dataset.content);
     b.setAttribute('aria-pressed', !off);
     b.disabled = kids;
     b.querySelector('small').textContent = off ? 'hidden' : 'shown';
   });
+  const b = $('#spell');
+  b.setAttribute('aria-pressed', spelled());
+  b.disabled = kids;
+  b.querySelector('small').textContent = spelled() ? 'spelled out' : 'masked';
+}
+
+// Kids mode never spells them out
+const spelled = () => spell && !kids;
+
+function setSpell(on) {
+  spell = on;
+  try {
+    localStorage.setItem(SPELL_KEY, on ? 'on' : 'off');
+  } catch {}
+  showContent();
+  sift();
 }
 
 // Take the hidden pictures out of every artist's page. An artist whose cover is
@@ -412,6 +441,9 @@ function drawVeil(card) {
 const artistOf = (p) => everyone.find((a) => a.all.includes(p));
 // the category an artist's page goes back to: the open one if they are in it, or their period
 const periodOf = (a) => (period && period.all.includes(a) ? period : everyPeriod.find((t) => t.name === a.period));
+// a title is shown without the word "rape" spelled out, as The R+++ of Proserpine,
+// unless the settings ask for it in full
+const titleOf = (p) => (spelled() ? p.name : p.name.replace(/\b(r)ape\b/gi, '$1+++'));
 
 function makeCard(image, line, name) {
   const card = document.createElement('button');
@@ -482,7 +514,7 @@ function openArtist(a) {
     const grid = $('#grid');
     grid.textContent = '';
     for (const p of a.puzzles) {
-      const card = makeCard(p.image, p.scientific, p.name);
+      const card = makeCard(p.image, p.scientific, titleOf(p));
       card.addEventListener('click', () => start(p));
       grid.append(card);
     }
@@ -590,7 +622,8 @@ async function start(p, fresh = false) {
     scatter(game, cols * rows);
   }
 
-  sound.setTune(p.music, puzzles.indexOf(p));
+  if (stormy(p)) sound.setTune(p.music, puzzles.filter(stormy).indexOf(p), true);
+  else sound.setTune(p.music, puzzles.indexOf(p));
   piecesEl.textContent = '';
   peekEl.classList.remove('show', 'reveal');
   peekEl.style.backgroundImage = `url("${p.image}")`;
@@ -962,10 +995,12 @@ function showPlate(p) {
   plate.style.setProperty('--grow', Math.max(1, game.aspect / 0.8));
   $('#plateImg').style.backgroundImage = `url("${p.image}")`;
   $('#plateSci').textContent = p.scientific || '';
-  $('#plateName').textContent = p.name;
+  $('#plateName').textContent = titleOf(p);
   $('#plateArtist').textContent = p.artist || '';
   const credit = sound.credit();
-  $('#plateMusic').textContent = credit ? `Music: ${credit.composer}, ${credit.title}` : '';
+  $('#plateMusic').textContent = credit
+    ? `Music: ${credit.composer}, ${credit.title}` + (credit.performer ? ` · played by ${credit.performer}` : '')
+    : '';
   $('#plateMusic').hidden = !credit;
   $('#nextBtn').hidden = artistOf(p).puzzles.length < 2;
   // The solved screen fades in over the puzzle, which is only put away after.
@@ -1052,9 +1087,10 @@ $('#settingsBack').addEventListener('click', async () => {
   show(settingsFrom);
 });
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
-document.querySelectorAll('#content button').forEach((b) =>
+document.querySelectorAll('#content [data-content]').forEach((b) =>
   b.addEventListener('click', () => setHidden(b.dataset.content, !hide.has(b.dataset.content)))
 );
+$('#spell').addEventListener('click', () => setSpell(!spell));
 
 // Kids mode goes on at a tap. Coming out of it is for a grown-up: Off has to be
 // held down while its line fills.
