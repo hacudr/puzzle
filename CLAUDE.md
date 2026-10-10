@@ -2,7 +2,7 @@
 
 A picture-puzzle web app for iPad (plain HTML/CSS/JS, no build step), hosted on GitHub Pages from `main` at https://hacudr.github.io/puzzle/.
 
-The home page is a gallery of artists; tapping one opens a page of that artist's puzzles. Each puzzle in `puzzles/puzzles.json` names its `artist`, and `puzzles/artists.json` lists the artists in the order their cards appear, each with a `note` (the italic line, such as "French, 1840–1926") and a `cover` (one of their puzzle images).
+The home page is a gallery of periods; tapping one opens a page of that period's artists, and tapping an artist opens a page of their puzzles. Each puzzle in `puzzles/puzzles.json` names its `artist`, and `puzzles/artists.json` lists the artists in the order their cards appear, each with a `note` (the italic line, such as "French, 1840–1926"), a `period` and a `cover` (one of their puzzle images). `puzzles/periods.json` lists the home page's categories in the order their cards appear, each with a `note`: Female Artists first, then the periods. A category's card shows its first artist's cover. A woman artist also carries `"also": ["Female Artists"]`, so she appears there as well as under her period. Keep every category to at most 10 artists, splitting one that grows past that; an artist with no `period` lands under "Other artists".
 
 ## When the user adds images
 

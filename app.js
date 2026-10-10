@@ -7,6 +7,9 @@ const TRAY_KEY = 'puzzle.tray';
 const PROGRESS_KEY = 'puzzle.progress';
 const KIDS_KEY = 'puzzle.kids';
 const HIDE_KEY = 'puzzle.hide';
+const THEME_KEY = 'puzzle.theme';
+// the colour of the page in each theme, for the bar round the app
+const THEMES = { blush: '#f3d9d1', lace: '#f1e6d0', celadon: '#c8d9d0', walnut: '#2b1f18' };
 // how long Off is held to leave Kids mode, in ms
 const KIDS_HOLD = 3000;
 // height of the reference picture, and limits for the reserve strip, in px
@@ -36,12 +39,20 @@ let everyone = [];
 let artists = [];
 // the artist whose puzzles are on show
 let artist = null;
+// one entry per period: { name, note, all, artists, cover }; `all` is every
+// artist of the period, `artists` those with something on show
+let everyPeriod = [];
+// the periods with something on show
+let periods = [];
+// the period whose artists are on show
+let period = null;
 // where the settings page goes back to
 let settingsFrom = 'gallery';
 // the difficulty a paused puzzle had when its settings were opened
 let levelBefore = null;
-// the artist's page the settings were opened from
+// the artist's or period's page the settings were opened from
 let artistBefore = null;
+let periodBefore = null;
 let solved = loadSolved();
 // Kids mode plays on Very Easy and hides every kind of picture that can be
 // hidden, whatever is chosen below; the choices are kept for when it goes off.
@@ -163,10 +174,34 @@ function sift() {
     a.cover = usual && !visible(usual) ? a.puzzles[0] && a.puzzles[0].image : a.usual;
   }
   artists = everyone.filter((a) => a.puzzles.length);
-  // the open artist's page is drawn again when it is next opened
+  // a period shows its first artist's picture, and one with no artists left has no card
+  for (const t of everyPeriod) {
+    t.artists = t.all.filter((a) => a.puzzles.length);
+    t.cover = t.artists[0] && t.artists[0].cover;
+  }
+  periods = everyPeriod.filter((t) => t.artists.length);
+  // the open pages are drawn again when they are next opened
   artist = null;
+  period = null;
   $('#grid').textContent = '';
+  $('#artists').textContent = '';
   renderGallery();
+}
+
+// index.html puts the saved theme on the page before it is first drawn
+function setTheme(next) {
+  try {
+    localStorage.setItem(THEME_KEY, next);
+  } catch {}
+  document.documentElement.dataset.theme = next;
+  showTheme();
+}
+
+function showTheme() {
+  const theme = document.documentElement.dataset.theme in THEMES ? document.documentElement.dataset.theme : 'lace';
+  document.documentElement.dataset.theme = theme;
+  $('meta[name="theme-color"]').content = THEMES[theme];
+  document.querySelectorAll('#themes button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.theme === theme));
 }
 
 function showVoice() {
@@ -184,9 +219,13 @@ function labelCards() {
       progressKey(p) in progress ? 'In progress' : mastered(p) ? 'Solved in black and white' : solved.has(p.id) ? 'Solved' : '';
   });
   document.querySelectorAll('#artists .card').forEach((card, i) => {
-    const count = artists[i].puzzles.length;
-    const done = artists[i].puzzles.filter((p) => solved.has(p.id)).length;
+    const count = period.artists[i].puzzles.length;
+    const done = period.artists[i].puzzles.filter((p) => solved.has(p.id)).length;
     card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles') + (done ? ` · ${done} solved` : '');
+  });
+  document.querySelectorAll('#periods .card').forEach((card, i) => {
+    const count = periods[i].artists.length;
+    card.querySelector('small').textContent = count + (count === 1 ? ' artist' : ' artists');
   });
 }
 
@@ -371,6 +410,8 @@ function drawVeil(card) {
 /* ---------- Gallery ---------- */
 
 const artistOf = (p) => everyone.find((a) => a.all.includes(p));
+// the category an artist's page goes back to: the open one if they are in it, or their period
+const periodOf = (a) => (period && period.all.includes(a) ? period : everyPeriod.find((t) => t.name === a.period));
 
 function makeCard(image, line, name) {
   const card = document.createElement('button');
@@ -389,16 +430,16 @@ function makeCard(image, line, name) {
   return card;
 }
 
-// The home page: one card per artist, always lit.
+// The home page: one card per period, always lit.
 function renderGallery() {
-  const grid = $('#artists');
+  const grid = $('#periods');
   grid.textContent = '';
   $('#empty').hidden = puzzles.length > 0;
   $('#allHidden').hidden = !puzzles.length || artists.length > 0;
-  for (const a of artists) {
-    const card = makeCard(a.cover, a.note, a.name);
+  for (const t of periods) {
+    const card = makeCard(t.cover, t.note, t.name);
     card.classList.add('solved');
-    card.addEventListener('click', () => openArtist(a));
+    card.addEventListener('click', () => openPeriod(t));
     grid.append(card);
   }
   labelCards();
@@ -408,6 +449,27 @@ function openGallery() {
   game = null;
   labelCards();
   show('gallery');
+}
+
+// One period's artists, always lit. Coming back to the same period keeps the page where it was.
+function openPeriod(t) {
+  game = null;
+  if (t !== period) {
+    period = t;
+    $('#periodNote').textContent = t.note || '';
+    $('#periodName').textContent = t.name;
+    const grid = $('#artists');
+    grid.textContent = '';
+    for (const a of t.artists) {
+      const card = makeCard(a.cover, a.note, a.name);
+      card.classList.add('solved');
+      card.addEventListener('click', () => openArtist(a));
+      grid.append(card);
+    }
+    $('#period').scrollTop = 0;
+  }
+  labelCards();
+  show('period');
 }
 
 // One artist's puzzles. Coming back to the same artist keeps the page where it was.
@@ -426,6 +488,7 @@ function openArtist(a) {
     }
     $('#artist').scrollTop = 0;
   }
+  $('#artistBackName').textContent = periodOf(a).name;
   labelCards();
   show('artist');
 }
@@ -950,7 +1013,8 @@ guideEl.addEventListener('click', () => {
 
 $('#backBtn').addEventListener('click', () => openArtist(artistOf(game.p)));
 $('#doneHome').addEventListener('click', openGallery);
-$('#artistBack').addEventListener('click', openGallery);
+$('#artistBack').addEventListener('click', () => openPeriod(periodOf(artist)));
+$('#periodBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => start(nextPuzzle(game.p)));
 
@@ -958,6 +1022,7 @@ document.querySelectorAll('.gear').forEach((b) =>
   b.addEventListener('click', () => {
     settingsFrom = b.closest('.screen').id;
     artistBefore = artist;
+    periodBefore = period;
     showVoice();
     show('settings');
   })
@@ -974,7 +1039,12 @@ $('#settingsBack').addEventListener('click', async () => {
     }
   }
   // an artist's page comes back without the pictures hidden in the meantime
-  if (settingsFrom === 'artist') return artists.includes(artistBefore) ? openArtist(artistBefore) : openGallery();
+  if (settingsFrom === 'artist') {
+    if (!artists.includes(artistBefore)) return openGallery();
+    if (periods.includes(periodBefore)) openPeriod(periodBefore);
+    return openArtist(artistBefore);
+  }
+  if (settingsFrom === 'period') return periods.includes(periodBefore) ? openPeriod(periodBefore) : openGallery();
   show(settingsFrom);
 });
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
@@ -1010,6 +1080,7 @@ document.querySelectorAll('#voices button').forEach((b) =>
     showVoice();
   })
 );
+document.querySelectorAll('#themes button').forEach((b) => b.addEventListener('click', () => setTheme(b.dataset.theme)));
 
 window.addEventListener('resize', layout);
 document.addEventListener('pointerdown', () => sound.unlock(), true);
@@ -1021,6 +1092,7 @@ async function boot() {
   setGuide(loadGuide());
   showKids();
   showLevel();
+  showTheme();
   try {
     const res = await fetch('puzzles/puzzles.json', { cache: 'no-cache' });
     // ids keep the .jpg the pictures first had, so saved progress survives the move to WebP
@@ -1028,19 +1100,31 @@ async function boot() {
   } catch (err) {
     console.error('Could not read puzzles/puzzles.json', err);
   }
-  // artists.json sets the order of the gallery and what each card says; an
+  // artists.json sets the order of the artists and what each card says; an
   // artist missing from it still gets a card, after the others
   let listed = [];
   try {
     listed = await (await fetch('puzzles/artists.json', { cache: 'no-cache' })).json();
   } catch {}
+  // periods.json does the same for the categories on the home page; an artist
+  // with no period goes under Other artists, and `also` puts one in further
+  // categories, such as Female Artists
+  let eras = [];
+  try {
+    eras = await (await fetch('puzzles/periods.json', { cache: 'no-cache' })).json();
+  } catch {}
   everyone = [...new Set([...listed.map((a) => a.name), ...puzzles.map((p) => p.artist)])]
     .map((name) => {
       const all = puzzles.filter((p) => p.artist === name);
       const about = listed.find((a) => a.name === name) || {};
-      return { name, note: about.note, usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, all };
+      return { name, note: about.note, period: about.period || 'Other artists', also: about.also || [], usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, all };
     })
     .filter((a) => a.all.length);
+  everyPeriod = [...new Set([...eras.map((t) => t.name), ...everyone.map((a) => a.period)])].map((name) => ({
+    name,
+    note: (eras.find((t) => t.name === name) || {}).note,
+    all: everyone.filter((a) => a.period === name || a.also.includes(name)),
+  }));
   sift();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 }

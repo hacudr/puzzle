@@ -12,7 +12,8 @@ const sound = (() => {
   // Steps are separated by spaces; notes joined with + sound together. A step
   // lasts one of the tune's units unless /n gives another length, which is what
   // lets the ending be played in tempo. unit = seconds per unit, bar = units
-  // per bar, lead = units of silence before the first step.
+  // per bar, lead = units of silence before the first step, pause = the ending
+  // stops short of a step that comes more than this many units after the last.
   const octaveUp = (steps) => steps.replace(/[A-G][#b]?\d/g, (name) => name.slice(0, -1) + (+name.slice(-1) + 1));
   const PATHETIQUE = [
     'C4/4 Bb3/4',
@@ -54,8 +55,8 @@ const sound = (() => {
         'G#3+E5+E2+E3 B3 E4 G#3 B3 E4 G#3 B3 E4 G#3 B3 E4',
       ].join(' '),
     },
-    // Debussy, Clair de lune, bars 1-8; unit = a quaver. Notes tied over a bar
-    // line carry the extra length.
+    // Debussy, Clair de lune, bars 1-8, an octave below where it is written;
+    // unit = a quaver. Notes tied over a bar line carry the extra length.
     clair: {
       composer: 'Claude Debussy',
       title: 'Clair de lune',
@@ -63,14 +64,14 @@ const sound = (() => {
       bar: 9,
       lead: 1,
       steps: [
-        'Ab4+F4 Ab5+F5/4 F5+Db5/4',
-        'Eb5+C5 F5+Db5 Eb5+C5/7',
-        'Db5+Bb4 Eb5+C5 Db5/1.5 F5/3 Db5/2.5',
-        'C5+Ab4 Db5+Bb4 C5+Ab4/7',
-        'Bb4 C5 Bb4 Eb5 Bb4 Ab4 Bb4 Ab4/2',
-        'Gb4 Ab4 Gb4/3 F4/4',
-        'F4 Gb4 F4 Bb4 F4 Eb4 F4 Eb4/2',
-        'Db4 Eb4 Db4/3 C4/3',
+        'Ab3+F3 Ab4+F4/4 F4+Db4/4',
+        'Eb4+C4 F4+Db4 Eb4+C4/7',
+        'Db4+Bb3 Eb4+C4 Db4/1.5 F4/3 Db4/2.5',
+        'C4+Ab3 Db4+Bb3 C4+Ab3/7',
+        'Bb3 C4 Bb3 Eb4 Bb3 Ab3 Bb3 Ab3/2',
+        'Gb3 Ab3 Gb3/3 F3/4',
+        'F3 Gb3 F3 Bb3 F3 Eb3 F3 Eb3/2',
+        'Db3 Eb3 Db3/3 C3/3',
       ].join(' '),
     },
     // Beethoven, Sonata Op. 13 "Pathetique", Adagio cantabile, bars 1-16; unit = a semiquaver
@@ -79,6 +80,8 @@ const sound = (() => {
       title: 'Sonata Pathétique, Adagio cantabile',
       unit: 0.46,
       bar: 8,
+      // the dotted crotchets leave the quaver after them sounding like a straggler
+      pause: 5,
       steps: PATHETIQUE + ' ' + octaveUp(PATHETIQUE),
     },
     // Debussy, Arabesque No. 1, bars 1-9; unit = a triplet quaver. From bar 6
@@ -338,7 +341,9 @@ const sound = (() => {
       let i = (heard + 1) % steps.length;
       const from = steps[i].at;
       const until = Math.ceil((from + tune.bar * 0.75) / tune.bar) * tune.bar;
-      for (let lap = 0; steps[i].at + lap < until; ) {
+      for (let lap = 0, last = from; steps[i].at + lap < until; ) {
+        if (steps[i].at + lap - last > tune.pause) break;
+        last = steps[i].at + lap;
         const delay = 0.7 + (steps[i].at + lap - from) * tune.unit;
         steps[i].notes.forEach((name, k) => note(name, delay, k === 0 ? 1 : 0.7));
         if (++i === steps.length) {

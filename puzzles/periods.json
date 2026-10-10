@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Female Artists",
+    "note": "19th and 20th centuries"
+  },
+  {
+    "name": "Renaissance",
+    "note": "15th and 16th centuries"
+  },
+  {
+    "name": "Baroque",
+    "note": "17th century"
+  },
+  {
+    "name": "Romanticism and Realism",
+    "note": "Early 19th century"
+  },
+  {
+    "name": "Impressionism",
+    "note": "1860s–1880s"
+  },
+  {
+    "name": "Post-Impressionism",
+    "note": "1880s–1900s"
+  },
+  {
+    "name": "Modern",
+    "note": "Early 20th century"
+  }
+]

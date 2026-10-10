@@ -2,126 +2,155 @@
   {
     "name": "Claude Monet",
     "note": "French, 1840–1926",
+    "period": "Impressionism",
     "cover": "monet-woman-with-a-parasol.webp"
   },
   {
     "name": "Mary Cassatt",
     "note": "American, 1844–1926",
+    "period": "Impressionism",
+    "also": ["Female Artists"],
     "cover": "cassatt-children-playing-on-the-beach.webp"
   },
   {
     "name": "Berthe Morisot",
     "note": "French, 1841–1895",
+    "period": "Impressionism",
+    "also": ["Female Artists"],
     "cover": "morisot-the-artists-sister-at-a-window.webp"
   },
   {
     "name": "Giovanni Bellini",
     "note": "Italian, c. 1430–1516",
+    "period": "Renaissance",
     "cover": "bellini-the-infant-bacchus.webp"
   },
   {
     "name": "Sandro Botticelli",
     "note": "Italian, c. 1446–1510",
+    "period": "Renaissance",
     "cover": "botticelli-giuliano-de-medici.webp"
   },
   {
     "name": "El Greco",
     "note": "Greek, worked in Spain, 1541–1614",
+    "period": "Renaissance",
     "cover": "el-greco-saint-martin-and-the-beggar.webp"
   },
   {
     "name": "Vincent van Gogh",
     "note": "Dutch, 1853–1890",
+    "period": "Post-Impressionism",
     "cover": "gogh-self-portrait.webp"
   },
   {
     "name": "Raphael",
     "note": "Italian, 1483–1520",
+    "period": "Renaissance",
     "cover": "raphael-the-small-cowper-madonna.webp"
   },
   {
     "name": "Rembrandt van Rijn",
     "note": "Dutch, 1606–1669",
+    "period": "Baroque",
     "cover": "rembrandt-van-rijn-self-portrait.webp"
   },
   {
     "name": "Peter Paul Rubens",
     "note": "Flemish, 1577–1640",
+    "period": "Baroque",
     "cover": "rubens-daniel-in-the-lions-den.webp"
   },
   {
     "name": "Titian",
     "note": "Italian, c. 1488–1576",
+    "period": "Renaissance",
     "cover": "titian-ranuccio-farnese.webp"
   },
   {
     "name": "Paul Cézanne",
     "note": "French, 1839–1906",
+    "period": "Post-Impressionism",
     "cover": "cezanne-boy-in-a-red-waistcoat.webp"
   },
   {
     "name": "Edgar Degas",
     "note": "French, 1834–1917",
+    "period": "Impressionism",
     "cover": "degas-four-dancers.webp"
   },
   {
     "name": "Edouard Manet",
     "note": "French, 1832–1883",
+    "period": "Impressionism",
     "cover": "manet-the-railway.webp"
   },
   {
     "name": "Paul Gauguin",
     "note": "French, 1848–1903",
+    "period": "Post-Impressionism",
     "cover": "gauguin-breton-girls-dancing-pont-aven.webp"
   },
   {
     "name": "Auguste Renoir",
     "note": "French, 1841–1919",
+    "period": "Impressionism",
     "cover": "renoir-a-girl-with-a-watering-can.webp"
   },
   {
     "name": "Amedeo Modigliani",
     "note": "Italian, 1884–1920",
+    "period": "Modern",
     "cover": "modigliani-girl-in-a-green-blouse.webp"
   },
   {
     "name": "Georges Seurat",
     "note": "French, 1859–1891",
+    "period": "Post-Impressionism",
     "cover": "seurat-the-lighthouse-at-honfleur.webp"
   },
   {
     "name": "Henri de Toulouse-Lautrec",
     "note": "French, 1864–1901",
+    "period": "Post-Impressionism",
     "cover": "toulouse-lautrec-marcelle-lender-dancing-the-bolero-in-chilperic.webp"
   },
   {
     "name": "J. M. W. Turner",
     "note": "British, 1775–1851",
+    "period": "Romanticism and Realism",
     "cover": "turner-keelmen-heaving-in-coals-by-moonlight.webp"
   },
   {
     "name": "Jean-Baptiste-Camille Corot",
     "note": "French, 1796–1875",
+    "period": "Romanticism and Realism",
     "cover": "corot-agostina.webp"
   },
   {
     "name": "Camille Pissarro",
     "note": "French, 1830–1903",
+    "period": "Impressionism",
     "cover": "pissarro-orchard-in-bloom-louveciennes.webp"
   },
   {
     "name": "James McNeill Whistler",
     "note": "American, 1834–1903",
+    "period": "Impressionism",
     "cover": "whistler-symphony-in-white-no-1-the-white-girl.webp"
   },
   {
     "name": "Michalina Janoszanka",
     "note": "Polish, 1889–1952",
+    "period": "Modern",
+    "also": ["Female Artists"],
     "cover": "bird-of-paradise.webp"
   },
   {
     "name": "Virginia Frances Sterrett",
     "note": "American, 1900–1931",
+    "period": "Modern",
+    "also": ["Female Artists"],
     "cover": "marvellous-tree.webp"
   }
 ]
