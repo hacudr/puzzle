@@ -80,13 +80,14 @@ function renderGallery() {
   for (const p of puzzles) {
     const card = document.createElement('button');
     card.className = 'card' + (solved.has(p.id) ? ' solved' : '');
-    card.innerHTML = '<span class="card-img"></span><span class="card-label"><i></i><b></b><small></small></span>';
+    card.innerHTML = '<span class="card-img"><img alt=""></span><span class="card-label"><i></i><b></b><small></small></span>';
     // a small copy keeps the collection light; fall back to the full picture
-    const face = card.querySelector('.card-img');
-    const thumb = p.image.replace('puzzles/', 'puzzles/thumbs/');
-    loadImage(thumb)
-      .then(() => thumb, () => p.image)
-      .then((src) => (face.style.backgroundImage = `url("${src}")`));
+    const face = card.querySelector('img');
+    face.onerror = () => {
+      face.onerror = null;
+      face.src = p.image;
+    };
+    face.src = p.image.replace('puzzles/', 'puzzles/thumbs/');
     card.querySelector('i').textContent = p.scientific || '';
     card.querySelector('b').textContent = p.name;
     card.querySelector('small').textContent = solved.has(p.id) ? 'Solved' : '';
