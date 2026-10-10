@@ -50,7 +50,7 @@ function setGuide(on) {
   try {
     localStorage.setItem(GUIDE_KEY, on ? 'on' : 'off');
   } catch {}
-  guideEl.hidden = !on;
+  guideEl.classList.toggle('off', !on);
   $('#peekBtn').setAttribute('aria-pressed', on);
 }
 
@@ -443,7 +443,7 @@ $('#resumeBtn').addEventListener('click', () => ($('#pause').hidden = true));
 $('#restartBtn').addEventListener('click', () => start(game.p));
 $('#quitBtn').addEventListener('click', openGallery);
 
-$('#peekBtn').addEventListener('click', () => setGuide(guideEl.hidden));
+$('#peekBtn').addEventListener('click', () => setGuide(guideEl.classList.contains('off')));
 // tapping the reference picture shows it large for a moment
 guideEl.addEventListener('click', () => {
   clearTimeout(peekTimer);

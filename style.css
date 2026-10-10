@@ -148,6 +148,14 @@ button {
   border-radius: 3px;
   box-shadow: 0 0 0 1px rgba(40, 28, 16, .35), 0 3px 8px rgba(0, 0, 0, .3);
 }
+/* Kept in place but drawn as nothing at all: taking it out of the page left
+   stray lines of its edge behind on the iPad. */
+.guide.off {
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: none;
+  pointer-events: none;
+}
 .icon-btn:active { background: rgba(60, 40, 20, .08); }
 
 .stage {
