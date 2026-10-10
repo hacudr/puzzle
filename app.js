@@ -3,7 +3,9 @@ const $ = (s) => document.querySelector(s);
 const SOLVED_KEY = 'puzzle.solved';
 const LEVEL_KEY = 'puzzle.level';
 // approximate number of pieces at each difficulty
-const LEVELS = { easy: 40, medium: 100, hard: 200 };
+const LEVELS = { kids: 10, easy: 40, medium: 100, hard: 200 };
+// levels that must never go over their number
+const CAPPED = { kids: 10 };
 
 const board = $('#board');
 const piecesEl = $('#pieces');
@@ -97,11 +99,16 @@ function openGallery() {
 /* ---------- Puzzle setup ---------- */
 
 // Cells are twice as wide as they are tall; pick the grid whose cell count
-// lands closest to the target.
-function gridFor(aspect, target) {
+// lands closest to the target, without going over `most`. A picture too tall
+// to fit under `most` even at two columns gets fewer, taller rows instead.
+function gridFor(aspect, target, most = Infinity) {
   let best;
   for (let cols = 2; cols <= 30; cols++) {
-    const rows = Math.max(2, Math.round((cols * 2) / aspect));
+    let rows = Math.max(2, Math.round((cols * 2) / aspect));
+    if (cols * rows > most) {
+      if (best) break;
+      rows = Math.floor(most / cols);
+    }
     if (!best || Math.abs(cols * rows - target) < Math.abs(best.cols * best.rows - target)) best = { cols, rows };
   }
   return best;
@@ -183,7 +190,7 @@ async function start(p) {
   show('play');
 
   const aspect = img.naturalWidth / img.naturalHeight;
-  const { cols, rows } = gridFor(aspect, LEVELS[level]);
+  const { cols, rows } = gridFor(aspect, LEVELS[level], CAPPED[level]);
   game = { p, cols, rows, aspect, ...tableFor(cols, rows, aspect), els: [], done: false };
   scatter(game, cols * rows);
 
