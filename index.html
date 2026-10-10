@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Puzzle">
+<meta name="theme-color" content="#f3ebdd">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" href="icons/icon-180.png">
+<link rel="stylesheet" href="style.css">
+<title>Puzzle</title>
+</head>
+<body>
+
+<!-- Collection -->
+<main id="gallery" class="screen">
+  <header class="gallery-head">
+    <p class="eyebrow">The Collection</p>
+    <h1>Choose a puzzle</h1>
+  </header>
+  <div id="grid" class="grid"></div>
+  <p id="empty" class="empty" hidden>No puzzles yet. Add images to <code>puzzles/</code> and list them in <code>puzzles/puzzles.json</code>.</p>
+</main>
+
+<!-- Puzzle -->
+<main id="play" class="screen" hidden>
+  <div class="bar">
+    <button id="pauseBtn" class="icon-btn" aria-label="Pause">
+      <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+    </button>
+    <button id="peekBtn" class="icon-btn" aria-label="Peek at the finished picture">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+    </button>
+  </div>
+  <div id="stage" class="stage">
+    <div id="board" class="board">
+      <div id="pieces"></div>
+      <div id="peek" class="peek"></div>
+    </div>
+  </div>
+
+  <div id="pause" class="overlay" hidden>
+    <div class="menu">
+      <p class="eyebrow">Paused</p>
+      <button id="resumeBtn" class="link">Resume</button>
+      <button id="restartBtn" class="link">Start Over</button>
+      <button id="quitBtn" class="link">Collection</button>
+    </div>
+  </div>
+</main>
+
+<!-- Solved -->
+<main id="done" class="screen paper" hidden>
+  <div class="bar">
+    <button id="backBtn" class="back">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back
+    </button>
+  </div>
+  <div class="done-body">
+    <article class="plate">
+      <div class="plate-face">
+        <div id="plateImg" class="plate-img"></div>
+        <div id="plateText" class="plate-text" hidden></div>
+      </div>
+      <div class="plate-label">
+        <p id="plateSci" class="sci"></p>
+        <h2 id="plateName"></h2>
+      </div>
+    </article>
+    <nav class="done-links">
+      <button id="descBtn" class="link">Description</button>
+      <button id="againBtn" class="link">Solve Again</button>
+      <button id="nextBtn" class="link">Next Puzzle</button>
+    </nav>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
