@@ -4,7 +4,6 @@ const SOLVED_KEY = 'puzzle.solved';
 const LEVEL_KEY = 'puzzle.level';
 // approximate number of pieces at each difficulty
 const LEVELS = { easy: 40, medium: 100, hard: 200 };
-const DRAG_THRESHOLD = 8;
 
 const board = $('#board');
 const piecesEl = $('#pieces');
@@ -108,20 +107,68 @@ function gridFor(aspect, target) {
   return best;
 }
 
-// One horizontal rectangle per grid cell.
-function tile(cols, rows) {
-  const slots = [];
-  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) slots.push({ c, r, w: 1, h: 1 });
-  return slots;
+// The table is bigger than the picture, so there is always room to move pieces
+// and fused groups around: at least two spare columns and rows, and at least
+// 40% more cells than pieces. It grows to use whatever space the screen has.
+function tableFor(cols, rows, aspect) {
+  const stage = $('#stage');
+  const k = (aspect * rows) / cols; // cell width / cell height
+  let ch = Math.min(stage.clientWidth / (cols + 2) / k, stage.clientHeight / (rows + 2));
+  for (;;) {
+    const tcols = Math.floor(stage.clientWidth / (ch * k));
+    const trows = Math.floor(stage.clientHeight / ch);
+    if (tcols * trows >= cols * rows * 1.4) return { tcols, trows };
+    ch *= 0.97;
+  }
 }
 
-// at[slot] = piece sitting there. Rotating a shuffled order by one guarantees
-// every piece starts out of place.
-function scramble(slots) {
-  const at = [];
-  const order = shuffled(slots.map((_, i) => i));
-  order.forEach((slot, k) => (at[slot] = order[(k + 1) % order.length]));
-  return at;
+const DIRS = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+
+// Pieces are numbered by their place in the picture (row by row). g.pos[piece]
+// is the table cell it sits on and g.cell[i] the piece on that cell, or -1.
+// Is this piece sitting against its true neighbour in direction (dc, dr)?
+function joined(g, piece, dc, dr) {
+  const homeCol = (piece % g.cols) + dc;
+  const want = piece + dc + dr * g.cols;
+  if (homeCol < 0 || homeCol >= g.cols || want < 0 || want >= g.pos.length) return false;
+  const c = (g.pos[piece] % g.tcols) + dc;
+  const r = Math.floor(g.pos[piece] / g.tcols) + dr;
+  if (c < 0 || c >= g.tcols || r < 0 || r >= g.trows) return false;
+  return g.cell[r * g.tcols + c] === want;
+}
+
+// group[piece] = an id shared by every piece fused to it
+function findGroups(g) {
+  const group = new Array(g.pos.length).fill(-1);
+  let count = 0;
+  for (let first = 0; first < group.length; first++) {
+    if (group[first] >= 0) continue;
+    group[first] = count;
+    const stack = [first];
+    while (stack.length) {
+      const piece = stack.pop();
+      for (const [dc, dr] of DIRS) {
+        const next = piece + dc + dr * g.cols;
+        if (joined(g, piece, dc, dr) && group[next] < 0) {
+          group[next] = count;
+          stack.push(next);
+        }
+      }
+    }
+    count++;
+  }
+  return { group, count };
+}
+
+// Deal the pieces onto random table cells, retrying so none start out joined.
+function scatter(g, count) {
+  const cells = Array.from({ length: g.tcols * g.trows }, (_, i) => i);
+  for (let attempt = 0; attempt < 300; attempt++) {
+    g.pos = shuffled(cells).slice(0, count);
+    g.cell = new Array(cells.length).fill(-1);
+    g.pos.forEach((spot, piece) => (g.cell[spot] = piece));
+    if (findGroups(g).count === count) break;
+  }
 }
 
 async function start(p) {
@@ -132,136 +179,168 @@ async function start(p) {
     alert(err.message);
     return;
   }
+  $('#pause').hidden = true;
+  show('play');
+
   const aspect = img.naturalWidth / img.naturalHeight;
   const { cols, rows } = gridFor(aspect, LEVELS[level]);
-  const slots = tile(cols, rows);
-  const at = scramble(slots);
-  const where = [];
-  at.forEach((piece, slot) => (where[piece] = slot));
-  game = { p, cols, rows, slots, at, where, els: [], selected: null, done: false, aspect };
+  game = { p, cols, rows, aspect, ...tableFor(cols, rows, aspect), els: [], done: false };
+  scatter(game, cols * rows);
 
+  sound.setTune(p.music, puzzles.indexOf(p));
   piecesEl.textContent = '';
   peekEl.classList.remove('show');
   peekEl.style.backgroundImage = `url("${p.image}")`;
   board.style.setProperty('--cols', cols);
   board.style.setProperty('--rows', rows);
-  slots.forEach((src, id) => {
+  for (let id = 0; id < cols * rows; id++) {
     const el = document.createElement('div');
     el.className = 'piece';
     el.dataset.id = id;
     el.style.backgroundImage = `url("${p.image}")`;
-    el.style.setProperty('--w', src.w);
-    el.style.setProperty('--h', src.h);
-    el.style.setProperty('--sc', src.c);
-    el.style.setProperty('--sr', src.r);
+    el.style.setProperty('--sc', id % cols);
+    el.style.setProperty('--sr', Math.floor(id / cols));
     game.els[id] = el;
-    place(id);
     piecesEl.append(el);
-  });
-
-  $('#pause').hidden = true;
-  show('play');
+  }
+  refresh();
   layout();
 }
 
-function place(id) {
-  const slot = game.slots[game.where[id]];
-  const el = game.els[id];
-  el.style.setProperty('--c', slot.c);
-  el.style.setProperty('--r', slot.r);
-  el.classList.toggle('home', game.where[id] === id);
+// Work out which pieces are fused, then put every piece where the state says
+// it is and hide the seams between fused neighbours.
+function refresh() {
+  const { group, count } = findGroups(game);
+  game.group = group;
+  game.groups = count;
+  game.els.forEach((el, piece) => {
+    el.style.setProperty('--c', game.pos[piece] % game.tcols);
+    el.style.setProperty('--r', Math.floor(game.pos[piece] / game.tcols));
+    el.classList.toggle('jl', joined(game, piece, -1, 0));
+    el.classList.toggle('jr', joined(game, piece, 1, 0));
+    el.classList.toggle('jt', joined(game, piece, 0, -1));
+    el.classList.toggle('jb', joined(game, piece, 0, 1));
+  });
 }
 
-// Whole-pixel cells keep neighbouring pieces seamless.
+// Whole-pixel cells keep fused pieces seamless.
 function layout() {
   if (!game) return;
   const stage = $('#stage');
-  const width = Math.min(stage.clientWidth, stage.clientHeight * game.aspect);
-  const cw = Math.floor(width / game.cols);
-  const ch = Math.floor((cw * game.cols) / game.aspect / game.rows);
-  board.style.setProperty('--cw', cw + 'px');
-  board.style.setProperty('--ch', ch + 'px');
-  board.style.width = cw * game.cols + 'px';
-  board.style.height = ch * game.rows + 'px';
+  const k = (game.aspect * game.rows) / game.cols;
+  game.cw = Math.floor(Math.min(stage.clientWidth / game.tcols, (stage.clientHeight / game.trows) * k));
+  game.ch = Math.floor(game.cw / k);
+  board.style.setProperty('--cw', game.cw + 'px');
+  board.style.setProperty('--ch', game.ch + 'px');
+  board.style.width = game.cw * game.tcols + 'px';
+  board.style.height = game.ch * game.trows + 'px';
 }
 
 /* ---------- Moving pieces ---------- */
 
-function slotAt(x, y) {
-  const rect = board.getBoundingClientRect();
-  const c = Math.floor(((x - rect.left) / rect.width) * game.cols);
-  const r = Math.floor(((y - rect.top) / rect.height) * game.rows);
-  return game.slots.findIndex((s) => c >= s.c && c < s.c + s.w && r >= s.r && r < s.r + s.h);
-}
+const membersOf = (groupId) => game.group.flatMap((g, piece) => (g === groupId ? [piece] : []));
 
-function select(id) {
-  if (game.selected !== null) game.els[game.selected].classList.remove('selected');
-  game.selected = id;
-  if (id !== null) game.els[id].classList.add('selected');
-}
+// Move a piece and everything fused to it by (dc, dr) cells. Anything in the
+// way steps aside as a whole group to the nearest free space, so fused pieces
+// never come apart. Returns false, changing nothing, if there is no room.
+function moveGroup(id, dc, dr) {
+  const { tcols, trows } = game;
+  const cell = game.cell.slice();
+  const pos = game.pos.slice();
+  const shifted = (piece, oc, or) => {
+    const c = (pos[piece] % tcols) + oc;
+    const r = Math.floor(pos[piece] / tcols) + or;
+    return c < 0 || c >= tcols || r < 0 || r >= trows ? -1 : r * tcols + c;
+  };
+  const lift = (pieces) => pieces.forEach((piece) => (cell[pos[piece]] = -1));
+  const drop = (pieces, spots) => pieces.forEach((piece, i) => (cell[(pos[piece] = spots[i])] = piece));
 
-function nope(id) {
-  const el = game.els[id];
-  el.classList.remove('nope');
-  void el.offsetWidth;
-  el.classList.add('nope');
-}
+  const moving = membersOf(game.group[id]);
+  lift(moving);
+  const targets = moving.map((piece) => shifted(piece, dc, dr));
+  if (targets.includes(-1)) return false;
+  const inTheWay = [...new Set(targets.map((t) => cell[t]).filter((piece) => piece >= 0).map((piece) => game.group[piece]))]
+    .map(membersOf)
+    .sort((x, y) => y.length - x.length);
+  inTheWay.forEach(lift);
+  drop(moving, targets);
 
-function trySwap(id, target) {
-  const from = game.where[id];
-  if (target < 0 || target === from) return false;
-  const other = game.at[target];
-  if (other === target) return false;
-  game.at[from] = other;
-  game.at[target] = id;
-  game.where[id] = target;
-  game.where[other] = from;
-  for (const piece of [id, other]) {
-    const el = game.els[piece];
-    el.classList.add('moving');
-    setTimeout(() => el.classList.remove('moving'), 300);
-    place(piece);
+  for (const pieces of inTheWay) {
+    let best = null;
+    let bestDistance = Infinity;
+    for (let or = -trows; or <= trows; or++) {
+      for (let oc = -tcols; oc <= tcols; oc++) {
+        const distance = Math.hypot(oc * 2, or);
+        if (distance >= bestDistance) continue;
+        const spots = pieces.map((piece) => shifted(piece, oc, or));
+        if (spots.every((spot) => spot >= 0 && cell[spot] === -1)) {
+          best = spots;
+          bestDistance = distance;
+        }
+      }
+    }
+    if (!best) return false;
+    drop(pieces, best);
   }
-  select(null);
-  if (game.at.every((piece, slot) => piece === slot)) win();
+  game.cell = cell;
+  game.pos = pos;
   return true;
 }
 
-function tap(id) {
-  if (game.selected === null) select(id);
-  else if (game.selected === id) select(null);
-  else if (!trySwap(game.selected, game.where[id])) select(id);
+function flash(els, name) {
+  els.forEach((el) => el.classList.remove(name));
+  void board.offsetWidth;
+  els.forEach((el) => el.classList.add(name));
 }
 
 board.addEventListener('pointerdown', (e) => {
   const el = e.target.closest('.piece');
-  if (!el || !game || game.done || drag || el.classList.contains('home')) return;
+  if (!el || !game || game.done || drag) return;
   board.setPointerCapture(e.pointerId);
-  drag = { el, id: +el.dataset.id, x: e.clientX, y: e.clientY, pointer: e.pointerId, moved: false };
+  const id = +el.dataset.id;
+  const pieces = membersOf(game.group[id]);
+  drag = { id, pieces, els: pieces.map((piece) => game.els[piece]), x: e.clientX, y: e.clientY, pointer: e.pointerId };
+  drag.els.forEach((el) => el.classList.add('dragging'));
 });
 
 board.addEventListener('pointermove', (e) => {
   if (!drag || e.pointerId !== drag.pointer) return;
-  const dx = e.clientX - drag.x;
-  const dy = e.clientY - drag.y;
-  if (!drag.moved) {
-    if (Math.hypot(dx, dy) < DRAG_THRESHOLD) return;
-    drag.moved = true;
-    select(null);
-    drag.el.classList.add('dragging');
-  }
-  drag.el.style.transform = `translate(${dx}px, ${dy}px) scale(1.04)`;
+  const move = `translate(${e.clientX - drag.x}px, ${e.clientY - drag.y}px)`;
+  drag.els.forEach((el) => (el.style.transform = move));
 });
 
 function endDrag(e) {
   if (!drag || e.pointerId !== drag.pointer) return;
   const d = drag;
   drag = null;
-  d.el.classList.remove('dragging');
-  d.el.style.transform = '';
+  d.els.forEach((el) => {
+    el.classList.remove('dragging');
+    el.style.transform = '';
+  });
   if (e.type === 'pointercancel' || !game || game.done) return;
-  if (!d.moved) tap(d.id);
-  else if (!trySwap(d.id, slotAt(e.clientX, e.clientY))) nope(d.id);
+
+  // snap to the grid, keeping the whole group on the table
+  const cs = d.pieces.map((piece) => game.pos[piece] % game.tcols);
+  const rs = d.pieces.map((piece) => Math.floor(game.pos[piece] / game.tcols));
+  const clamp = (n, lo, hi) => Math.min(hi, Math.max(lo, n));
+  const dc = clamp(Math.round((e.clientX - d.x) / game.cw), -Math.min(...cs), game.tcols - 1 - Math.max(...cs));
+  const dr = clamp(Math.round((e.clientY - d.y) / game.ch), -Math.min(...rs), game.trows - 1 - Math.max(...rs));
+  if (!dc && !dr) return;
+
+  const groupsBefore = game.groups;
+  if (!moveGroup(d.id, dc, dr)) {
+    flash(d.els, 'nope');
+    return;
+  }
+  refresh();
+  // the tune moves on each time pieces fuse; otherwise it repeats its note
+  if (game.groups < groupsBefore) {
+    sound.correct(1);
+    flash(membersOf(game.group[d.id]).map((piece) => game.els[piece]), 'fused');
+  } else {
+    sound.swap();
+  }
+  if (game.groups === 1) win();
 }
 board.addEventListener('pointerup', endDrag);
 board.addEventListener('pointercancel', endDrag);
@@ -271,11 +350,19 @@ board.addEventListener('pointercancel', endDrag);
 function win() {
   game.done = true;
   const p = game.p;
+  // slide the finished picture to the middle of the table
+  const left = Math.floor((game.tcols - game.cols) / 2);
+  const top = Math.floor((game.trows - game.rows) / 2);
+  game.pos = game.pos.map((_, piece) => (top + Math.floor(piece / game.cols)) * game.tcols + left + (piece % game.cols));
+  game.cell.fill(-1);
+  game.pos.forEach((spot, piece) => (game.cell[spot] = piece));
+  refresh();
   solved.add(p.id);
   saveSolved();
+  sound.finish();
   setTimeout(() => {
     if (game && game.p === p) showPlate(p);
-  }, 1300);
+  }, 1800);
 }
 
 function showPlate(p) {
@@ -307,7 +394,14 @@ function nextPuzzle(p) {
 
 /* ---------- Controls ---------- */
 
-$('#pauseBtn').addEventListener('click', () => ($('#pause').hidden = false));
+$('#pauseBtn').addEventListener('click', () => {
+  $('#soundBtn').textContent = 'Sound: ' + sound.label();
+  $('#pause').hidden = false;
+});
+$('#soundBtn').addEventListener('click', () => {
+  sound.nextVoice();
+  $('#soundBtn').textContent = 'Sound: ' + sound.label();
+});
 $('#resumeBtn').addEventListener('click', () => ($('#pause').hidden = true));
 $('#restartBtn').addEventListener('click', () => start(game.p));
 $('#quitBtn').addEventListener('click', openGallery);
@@ -325,6 +419,7 @@ $('#nextBtn').addEventListener('click', () => start(nextPuzzle(game.p)));
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
 
 window.addEventListener('resize', layout);
+document.addEventListener('pointerdown', () => sound.unlock(), true);
 document.addEventListener('gesturestart', (e) => e.preventDefault());
 
 /* ---------- Boot ---------- */

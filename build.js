@@ -6,7 +6,7 @@ const dist = path.join(__dirname, 'dist');
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(path.join(dist, 'puzzles'), { recursive: true });
 
-for (const file of ['index.html', 'style.css', 'app.js', 'sw.js', 'manifest.webmanifest']) {
+for (const file of ['index.html', 'style.css', 'app.js', 'sound.js', 'sw.js', 'manifest.webmanifest']) {
   fs.copyFileSync(path.join(__dirname, file), path.join(dist, file));
 }
 fs.cpSync(path.join(__dirname, 'icons'), path.join(dist, 'icons'), { recursive: true });

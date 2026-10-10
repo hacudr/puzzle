@@ -3,24 +3,28 @@
     "image": "bird-of-paradise.jpg",
     "name": "Bird of Paradise",
     "scientific": "Rajski ptak",
+    "music": "pathetique",
     "description": "Michalina Janoszanka (1889–1952)\n\nA bright-feathered bird grips a golden branch among dark-hearted blossoms, set against deep black.\n\nJanoszanka, a Polish painter from Kraków, is best known for pictures like this one, painted in reverse on the back of a sheet of glass."
   },
   {
     "image": "butterfly.jpg",
     "name": "Butterfly",
     "scientific": "Motyl",
+    "music": "clair",
     "description": "Michalina Janoszanka (1889–1952)\n\nA patterned butterfly drifts past a gilded tree at the water's edge, under a night-black sky threaded with fine white lines.\n\nPainted in reverse on glass."
   },
   {
     "image": "spring.jpg",
     "name": "Spring",
     "scientific": "Wiosna",
+    "music": "pathetique",
     "description": "Michalina Janoszanka (1889–1952)\n\nA speckled frog sits among toadstools beside a dark pond of water lilies, beneath trees hung with blue blossom.\n\nPainted in reverse on glass."
   },
   {
     "image": "winter.jpg",
     "name": "Winter",
     "scientific": "Zima",
+    "music": "moonlight",
     "description": "Michalina Janoszanka (1889–1952)\n\nTwo ravens talk on a snow-covered branch in a forest of golden trunks and falling stars.\n\nPainted in reverse on glass."
   },
   {

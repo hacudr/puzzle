@@ -4,7 +4,9 @@
   --ink: #33291f;
   --ink-soft: #6f6051;
   --label: #c8ac97;
-  --seam: rgba(70, 52, 34, .42);
+  --seam: rgba(40, 28, 16, .5);
+  --seam-light: rgba(250, 243, 230, .4);
+  --table: #e6d9c3;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
 }
 
@@ -129,42 +131,49 @@ button {
   min-height: 0;
   display: grid;
   place-items: center;
-  margin: 0 24px 84px;
+  margin: 0 24px 28px;
 }
 
 .board {
   position: relative;
   touch-action: none;
-  background: var(--page);
-  box-shadow: 0 1px 2px rgba(60, 40, 20, .2), 0 18px 40px -18px rgba(60, 40, 20, .5);
+  background: var(--table);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 3px rgba(60, 40, 20, .25);
 }
 
 .piece {
+  --bl: 1px;
+  --br: 1px;
+  --bt: 1px;
+  --bb: 1px;
   position: absolute;
   left: calc(var(--cw) * var(--c));
   top: calc(var(--ch) * var(--r));
-  width: calc(var(--cw) * var(--w));
-  height: calc(var(--ch) * var(--h));
+  width: var(--cw);
+  height: var(--ch);
   background-repeat: no-repeat;
   background-size: calc(var(--cw) * var(--cols)) calc(var(--ch) * var(--rows));
   background-position: calc(var(--cw) * var(--sc) * -1) calc(var(--ch) * var(--sr) * -1);
-  box-shadow: inset 0 0 0 .5px rgba(245, 236, 220, .6), inset 0 0 0 1px var(--seam);
+  /* one hairline per side, switched off where the piece is fused to its neighbour */
+  box-shadow:
+    inset var(--bl) 0 0 0 var(--seam), inset calc(var(--br) * -1) 0 0 0 var(--seam),
+    inset 0 var(--bt) 0 0 var(--seam), inset 0 calc(var(--bb) * -1) 0 0 var(--seam),
+    inset calc(var(--bl) * 2) 0 0 0 var(--seam-light), inset calc(var(--br) * -2) 0 0 0 var(--seam-light),
+    inset 0 calc(var(--bt) * 2) 0 0 var(--seam-light), inset 0 calc(var(--bb) * -2) 0 0 var(--seam-light);
   transition: left .28s cubic-bezier(.3, .8, .3, 1), top .28s cubic-bezier(.3, .8, .3, 1),
-              transform .28s cubic-bezier(.3, .8, .3, 1), box-shadow .4s ease;
+              transform .28s cubic-bezier(.3, .8, .3, 1);
   z-index: 1;
 }
-/* pieces that are where they belong melt into the picture */
-.piece.home { box-shadow: none; z-index: 0; }
+.piece.jl { --bl: 0px; }
+.piece.jr { --br: 0px; }
+.piece.jt { --bt: 0px; }
+.piece.jb { --bb: 0px; }
 
-.piece.selected {
-  z-index: 3;
-  box-shadow: inset 0 0 0 3px var(--cream), 0 0 0 1.5px var(--ink), 0 8px 18px rgba(40, 25, 10, .35);
-}
-.piece.moving { z-index: 4; }
-.piece.dragging {
-  z-index: 5;
-  transition: box-shadow .2s ease;
-  box-shadow: 0 0 0 1px var(--cream), 0 14px 30px rgba(40, 25, 10, .45);
+.piece.dragging { z-index: 5; transition: none; filter: brightness(1.08); }
+.piece.fused { animation: fused .5s ease; }
+@keyframes fused {
+  30% { filter: brightness(1.35); }
 }
 .piece.nope { animation: nope .32s ease; }
 @keyframes nope {
@@ -176,7 +185,7 @@ button {
   position: absolute;
   inset: 0;
   z-index: 10;
-  background-size: 100% 100%;
+  background: rgba(243, 235, 221, .93) center / contain no-repeat;
   opacity: 0;
   pointer-events: none;
   transition: opacity .35s ease;
