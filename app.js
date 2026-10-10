@@ -728,7 +728,8 @@ function boxOf(pieces) {
 // in the way trades places with it: each block underneath moves whole, by the
 // same distance the other way if that is free, otherwise to the nearest free
 // cells, and into the reserve if the canvas has no room. Fused pieces never
-// come apart.
+// come apart. A tray that is put away is never brought out this way: the move
+// is refused instead, and nothing changes. Returns whether the block was placed.
 function place(pieces, targets, dc = 0, dr = 0) {
   const { cols, rows } = game;
   const cell = game.cell.slice();
@@ -770,6 +771,7 @@ function place(pieces, targets, dc = 0, dr = 0) {
     if (best) {
       drop(block, best);
     } else {
+      if (trayHidden()) return false;
       block.forEach((piece) => (pos[piece] = -1));
       held.unshift(block);
     }
@@ -777,6 +779,7 @@ function place(pieces, targets, dc = 0, dr = 0) {
   game.cell = cell;
   game.pos = pos;
   game.held = held;
+  return true;
 }
 
 // Take a block off the canvas and set it aside in the reserve.
@@ -808,7 +811,8 @@ function settle(blocksBefore, id) {
   else saveProgress();
 }
 
-const overReserve = (e) => !$('#play').classList.contains('no-tray') && e.clientY >= reserveEl.getBoundingClientRect().top;
+const trayHidden = () => $('#play').classList.contains('no-tray');
+const overReserve = (e) => !trayHidden() && e.clientY >= reserveEl.getBoundingClientRect().top;
 
 board.addEventListener('pointerdown', (e) => {
   const el = e.target.closest('.piece');
@@ -853,7 +857,7 @@ function endDrag(e) {
   const dc = clamp(Math.round((e.clientX - d.x) / game.cw), -Math.min(...cs), game.cols - 1 - Math.max(...cs));
   const dr = clamp(Math.round((e.clientY - d.y) / game.ch), -Math.min(...rs), game.rows - 1 - Math.max(...rs));
   if (!dc && !dr) return;
-  place(d.pieces, d.pieces.map((piece) => game.pos[piece] + dc + dr * game.cols), dc, dr);
+  if (!place(d.pieces, d.pieces.map((piece) => game.pos[piece] + dc + dr * game.cols), dc, dr)) return;
   settle(blocksBefore, d.id);
 }
 board.addEventListener('pointerup', endDrag);
