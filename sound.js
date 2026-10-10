@@ -499,7 +499,7 @@ const sound = (() => {
   };
   // A sound to go with the ending, for a puzzle whose `effect` names one, from
   // the files in sound-effects/. The sword's clash comes most of
-  // a second into its file, which is when the music comes in.
+  // a second into its file, which is how long the framed picture takes to arrive.
   const EFFECTS = { sword: 'Sword.m4a' };
 
   const SEMITONES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
@@ -785,12 +785,10 @@ const sound = (() => {
     // in tempo, to the first bar line that gives at least most of a bar. A bowed
     // tune can hold one note for a whole bar, which is no ending at all, so it
     // goes on bar by bar until four steps have sounded. A tune with a recording
-    // ends on that instead. Either way the puzzle's effect, if it has one, sounds
-    // along with it.
+    // ends on that instead.
     finish() {
       if (!unlock() || !steps.length) return;
       hush();
-      if (effect) clashing = sample(effect, 0.8, 0);
       if (clip) {
         playing = sample(clip, 0.6, 0.7);
         return;
@@ -811,6 +809,12 @@ const sound = (() => {
           lap += length;
         }
       }
+    },
+
+    // The puzzle's effect, if it has one, over the ending music: called as the
+    // framed picture comes in, so that the clash lands as the frame settles.
+    strike() {
+      if (effect && unlock()) clashing = sample(effect, 0.8, 0);
     },
 
     // who wrote the current tune and what it is, and who is playing where the
