@@ -30,6 +30,12 @@ const guideEl = $('#guide');
 const reserveEl = $('#reserve');
 
 let puzzles = [];
+// one entry per artist: { name, note, cover, puzzles }
+let artists = [];
+// the artist whose puzzles are on show
+let artist = null;
+// where the settings page goes back to
+let settingsFrom = 'gallery';
 let solved = loadSolved();
 let level = loadLevel();
 let progress = loadProgress();
@@ -64,7 +70,8 @@ function setLevel(next) {
   document.querySelectorAll('#levels button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.level === level));
   // the collection says which difficulty is chosen, as "Easy · about 40 pieces"
   const chosen = $(`#levels [data-level="${level}"]`);
-  $('#levelNote').textContent = chosen.firstChild.textContent + ' · ' + chosen.querySelector('small').textContent;
+  const note = chosen.firstChild.textContent + ' · ' + chosen.querySelector('small').textContent;
+  document.querySelectorAll('.level-note').forEach((el) => (el.textContent = note));
   labelCards();
 }
 
@@ -75,8 +82,14 @@ function showVoice() {
 // The line under each card's name; unfinished puzzles are per difficulty.
 function labelCards() {
   document.querySelectorAll('#grid .card').forEach((card, i) => {
-    const p = puzzles[i];
+    const p = artist.puzzles[i];
+    card.classList.toggle('solved', solved.has(p.id));
     card.querySelector('small').textContent = progressKey(p) in progress ? 'In progress' : solved.has(p.id) ? 'Solved' : '';
+  });
+  document.querySelectorAll('#artists .card').forEach((card, i) => {
+    const count = artists[i].puzzles.length;
+    const done = artists[i].puzzles.filter((p) => solved.has(p.id)).length;
+    card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles') + (done ? ` · ${done} solved` : '');
   });
 }
 
@@ -174,26 +187,35 @@ function shuffled(list) {
   return a;
 }
 
-/* ---------- Collection ---------- */
+/* ---------- Gallery ---------- */
 
+const artistOf = (p) => artists.find((a) => a.puzzles.includes(p));
+
+function makeCard(image, line, name) {
+  const card = document.createElement('button');
+  card.className = 'card';
+  card.innerHTML = '<span class="card-img"><img alt="" loading="lazy" decoding="async"></span><span class="card-label"><i></i><b></b><small></small></span>';
+  // a small copy keeps the gallery light; fall back to the full picture
+  const face = card.querySelector('img');
+  face.onerror = () => {
+    face.onerror = null;
+    face.src = image;
+  };
+  face.src = image.replace('puzzles/', 'puzzles/thumbs/');
+  card.querySelector('i').textContent = line || '';
+  card.querySelector('b').textContent = name;
+  return card;
+}
+
+// The home page: one card per artist, always lit.
 function renderGallery() {
-  const grid = $('#grid');
+  const grid = $('#artists');
   grid.textContent = '';
   $('#empty').hidden = puzzles.length > 0;
-  for (const p of puzzles) {
-    const card = document.createElement('button');
-    card.className = 'card' + (solved.has(p.id) ? ' solved' : '');
-    card.innerHTML = '<span class="card-img"><img alt=""></span><span class="card-label"><i></i><b></b><small></small></span>';
-    // a small copy keeps the collection light; fall back to the full picture
-    const face = card.querySelector('img');
-    face.onerror = () => {
-      face.onerror = null;
-      face.src = p.image;
-    };
-    face.src = p.image.replace('puzzles/', 'puzzles/thumbs/');
-    card.querySelector('i').textContent = p.scientific || '';
-    card.querySelector('b').textContent = p.name;
-    card.addEventListener('click', () => start(p));
+  for (const a of artists) {
+    const card = makeCard(a.cover, a.note, a.name);
+    card.classList.add('solved');
+    card.addEventListener('click', () => openArtist(a));
     grid.append(card);
   }
   labelCards();
@@ -201,8 +223,28 @@ function renderGallery() {
 
 function openGallery() {
   game = null;
-  renderGallery();
+  labelCards();
   show('gallery');
+}
+
+// One artist's puzzles. Coming back to the same artist keeps the page where it was.
+function openArtist(a) {
+  game = null;
+  if (a !== artist) {
+    artist = a;
+    $('#artistNote').textContent = a.note || '';
+    $('#artistName').textContent = a.name;
+    const grid = $('#grid');
+    grid.textContent = '';
+    for (const p of a.puzzles) {
+      const card = makeCard(p.image, p.scientific, p.name);
+      card.addEventListener('click', () => start(p));
+      grid.append(card);
+    }
+    $('#artist').scrollTop = 0;
+  }
+  labelCards();
+  show('artist');
 }
 
 /* ---------- Gallery wall ---------- */
@@ -320,6 +362,7 @@ async function start(p, fresh = false) {
     return;
   }
   $('#pause').hidden = true;
+  $('#quitBtn').textContent = $('#backName').textContent = artistOf(p).name;
   paintWall(p, img);
   show('play');
 
@@ -694,7 +737,7 @@ function showPlate(p) {
   $('#plateName').textContent = p.name;
   $('#plateText').textContent = p.description || '';
   $('#descBtn').hidden = !p.description;
-  $('#nextBtn').hidden = puzzles.length < 2;
+  $('#nextBtn').hidden = artistOf(p).puzzles.length < 2;
   toggleDescription(false);
   show('done');
 }
@@ -705,10 +748,11 @@ function toggleDescription(on) {
   $('#descBtn').textContent = on ? 'Picture' : 'Description';
 }
 
-// The next unsolved puzzle after this one, or simply the next one if all are solved.
+// The same artist's next unsolved puzzle, or simply their next one if all are solved.
 function nextPuzzle(p) {
-  const i = puzzles.indexOf(p);
-  const rest = [...puzzles.slice(i + 1), ...puzzles.slice(0, i)];
+  const list = artistOf(p).puzzles;
+  const i = list.indexOf(p);
+  const rest = [...list.slice(i + 1), ...list.slice(0, i)];
   return rest.find((q) => !solved.has(q.id)) || rest[0];
 }
 
@@ -724,7 +768,8 @@ $('#soundBtn').addEventListener('click', () => {
 });
 $('#resumeBtn').addEventListener('click', () => ($('#pause').hidden = true));
 $('#restartBtn').addEventListener('click', () => start(game.p, true));
-$('#quitBtn').addEventListener('click', openGallery);
+$('#quitBtn').addEventListener('click', () => openArtist(artistOf(game.p)));
+$('#homeBtn').addEventListener('click', openGallery);
 
 $('#peekBtn').addEventListener('click', () => setGuide(guideEl.classList.contains('off')));
 // tapping the reference picture shows it large for a moment
@@ -733,16 +778,21 @@ guideEl.addEventListener('click', () => {
   if (peekEl.classList.toggle('show')) peekTimer = setTimeout(() => peekEl.classList.remove('show'), 1800);
 });
 
-$('#backBtn').addEventListener('click', openGallery);
+$('#backBtn').addEventListener('click', () => openArtist(artistOf(game.p)));
+$('#doneHome').addEventListener('click', openGallery);
+$('#artistBack').addEventListener('click', openGallery);
 $('#descBtn').addEventListener('click', () => toggleDescription($('#plateText').hidden));
 $('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => start(nextPuzzle(game.p)));
 
-$('#settingsBtn').addEventListener('click', () => {
-  showVoice();
-  show('settings');
-});
-$('#settingsBack').addEventListener('click', () => show('gallery'));
+document.querySelectorAll('.gear').forEach((b) =>
+  b.addEventListener('click', () => {
+    settingsFrom = b.closest('.screen').id;
+    showVoice();
+    show('settings');
+  })
+);
+$('#settingsBack').addEventListener('click', () => show(settingsFrom));
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
 document.querySelectorAll('#voices button').forEach((b) =>
   b.addEventListener('click', () => {
@@ -762,10 +812,24 @@ async function boot() {
   setLevel(level);
   try {
     const res = await fetch('puzzles/puzzles.json', { cache: 'no-cache' });
-    puzzles = (await res.json()).map((p) => ({ ...p, id: p.id || p.image, image: 'puzzles/' + p.image }));
+    // ids keep the .jpg the pictures first had, so saved progress survives the move to WebP
+    puzzles = (await res.json()).map((p) => ({ ...p, id: p.id || p.image.replace(/\.\w+$/, '.jpg'), image: 'puzzles/' + p.image, artist: p.artist || 'Other pictures' }));
   } catch (err) {
     console.error('Could not read puzzles/puzzles.json', err);
   }
+  // artists.json sets the order of the gallery and what each card says; an
+  // artist missing from it still gets a card, after the others
+  let listed = [];
+  try {
+    listed = await (await fetch('puzzles/artists.json', { cache: 'no-cache' })).json();
+  } catch {}
+  artists = [...new Set([...listed.map((a) => a.name), ...puzzles.map((p) => p.artist)])]
+    .map((name) => {
+      const mine = puzzles.filter((p) => p.artist === name);
+      const about = listed.find((a) => a.name === name) || {};
+      return { name, note: about.note, cover: about.cover ? 'puzzles/' + about.cover : mine[0] && mine[0].image, puzzles: mine };
+    })
+    .filter((a) => a.puzzles.length);
   renderGallery();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 }

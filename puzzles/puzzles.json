@@ -1,6 +1,7 @@
 [
   {
-    "image": "bird-of-paradise.jpg",
+    "image": "bird-of-paradise.webp",
+    "artist": "Michalina Janoszanka",
     "wall": "aubergine",
     "name": "Bird of Paradise",
     "scientific": "Rajski ptak",
@@ -8,7 +9,8 @@
     "description": "Michalina Janoszanka (1889–1952)\n\nA bright-feathered bird grips a golden branch among dark-hearted blossoms, set against deep black.\n\nJanoszanka, a Polish painter from Kraków, is best known for pictures like this one, painted in reverse on the back of a sheet of glass."
   },
   {
-    "image": "butterfly.jpg",
+    "image": "butterfly.webp",
+    "artist": "Michalina Janoszanka",
     "wall": "peacock",
     "name": "Butterfly",
     "scientific": "Motyl",
@@ -16,7 +18,8 @@
     "description": "Michalina Janoszanka (1889–1952)\n\nA patterned butterfly drifts past a gilded tree at the water's edge, under a night-black sky threaded with fine white lines.\n\nPainted in reverse on glass."
   },
   {
-    "image": "spring.jpg",
+    "image": "spring.webp",
+    "artist": "Michalina Janoszanka",
     "wall": "emerald",
     "name": "Spring",
     "scientific": "Wiosna",
@@ -24,7 +27,8 @@
     "description": "Michalina Janoszanka (1889–1952)\n\nA speckled frog sits among toadstools beside a dark pond of water lilies, beneath trees hung with blue blossom.\n\nPainted in reverse on glass."
   },
   {
-    "image": "winter.jpg",
+    "image": "winter.webp",
+    "artist": "Michalina Janoszanka",
     "wall": "sapphire",
     "name": "Winter",
     "scientific": "Zima",
@@ -32,52 +36,291 @@
     "description": "Michalina Janoszanka (1889–1952)\n\nTwo ravens talk on a snow-covered branch in a forest of golden trunks and falling stars.\n\nPainted in reverse on glass."
   },
   {
-    "image": "marvellous-tree.jpg",
+    "image": "marvellous-tree.webp",
+    "artist": "Virginia Frances Sterrett",
     "wall": "garnet",
     "name": "The Marvellous Tree",
     "scientific": "The Little Grey Mouse",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nRosalie leans towards a twisting scarlet tree hung with grapes, plums and pears, in a walled garden under a starry sky.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
-    "image": "bonne-biche.jpg",
+    "image": "bonne-biche.webp",
+    "artist": "Virginia Frances Sterrett",
     "wall": "peacock",
     "name": "Bonne-Biche",
     "scientific": "Blondine, Bonne-Biche and Beau-Minon",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nBlondine throws her arms around the neck of the white hind Bonne-Biche, while the cat Beau-Minon sits by a coral curtain.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
-    "image": "tortoise.jpg",
+    "image": "tortoise.webp",
+    "artist": "Virginia Frances Sterrett",
     "wall": "emerald",
     "name": "The Tortoise",
     "scientific": "Blondine, Bonne-Biche and Beau-Minon",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nBlondine rides a great patterned tortoise through a forest of pale green trunks and trailing vines.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
-    "image": "giant.jpg",
+    "image": "giant.webp",
+    "artist": "Virginia Frances Sterrett",
     "wall": "garnet",
     "name": "The Giant",
     "scientific": "Good Little Henry",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nHenry, in red, shields his eyes as a green giant peers down at him over a wall of white stone and blossom.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
-    "image": "plant-of-life.jpg",
+    "image": "plant-of-life.webp",
+    "artist": "Virginia Frances Sterrett",
     "wall": "sapphire",
     "name": "The Plant of Life",
     "scientific": "Good Little Henry",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nHenry stands in a mountain garden thick with flowers while an old doctor in a black cloak bends over the beds with his book.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
-    "image": "rosette.jpg",
+    "image": "rosette.webp",
+    "artist": "Virginia Frances Sterrett",
     "wall": "amethyst",
     "name": "The Evening Walk",
     "scientific": "Princess Rosette",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nRosette, in a yellow gown, walks beside the prince before a pale palace of domes and spires under a sky full of stars.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
-    "image": "night-in-the-forest.jpg",
+    "image": "night-in-the-forest.webp",
+    "artist": "Virginia Frances Sterrett",
     "wall": "peacock",
     "name": "Night in the Forest",
     "scientific": "Ourson",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nViolette sleeps on the moss in her wide yellow dress while Ourson keeps watch beneath trees hung with lichen and a single bright star.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
+  },
+  {
+    "image": "monet-still-life-with-bottle-carafe-bread-and-wine.webp",
+    "artist": "Claude Monet",
+    "wall": "aubergine",
+    "name": "Still Life with Bottle, Carafe, Bread, and Wine",
+    "scientific": "c. 1862/1863",
+    "description": "Claude Monet (1840–1926)\n\nA dark wine bottle, a carafe of water, a glass and a torn loaf stand on a rumpled white cloth, with a black-handled knife pointing in from the corner.\n\nOne of his earliest surviving pictures, painted in his early twenties.\n\nC. 1862/1863, oil on canvas. National Gallery of Art, Washington, Collection of Mr. and Mrs. Paul Mellon."
+  },
+  {
+    "image": "monet-bazille-and-camille.webp",
+    "artist": "Claude Monet",
+    "wall": "emerald",
+    "name": "Bazille and Camille",
+    "scientific": "1865",
+    "description": "Claude Monet (1840–1926)\n\nA woman in a sweeping grey gown walks away beside a man in a dark suit and cap, under trees that scatter leaf shadows over her skirt.\n\nA study for his huge picnic scene Déjeuner sur l’Herbe. The models are his friend the painter Frédéric Bazille and Camille Doncieux, later his wife.\n\n1865, oil on canvas. National Gallery of Art, Washington, Ailsa Mellon Bruce Collection."
+  },
+  {
+    "image": "monet-the-luncheon-on-the-grass.webp",
+    "artist": "Claude Monet",
+    "wall": "sapphire",
+    "name": "The Luncheon on the Grass",
+    "scientific": "c. 1865, black chalk",
+    "description": "Claude Monet (1840–1926)\n\nQuick chalk lines set out a picnic in a forest clearing: two women in long dresses stand at the left while others sit and lie around a cloth spread on the ground.\n\nA drawing for Déjeuner sur l’Herbe, the vast picnic painting he never finished.\n\nC. 1865, black chalk on blue laid paper. National Gallery of Art, Washington, Collection of Mr. and Mrs. Paul Mellon."
+  },
+  {
+    "image": "monet-the-cradle.webp",
+    "artist": "Claude Monet",
+    "wall": "sapphire",
+    "name": "The Cradle",
+    "scientific": "1867",
+    "description": "Claude Monet (1840–1926)\n\nA wide-eyed baby lies tucked in a cradle hung with flowered blue cloth, a toy windmill beside him, while a woman in a white cap watches over him.\n\nThe baby is Jean, his first son, born in 1867.\n\n1867, oil on canvas. National Gallery of Art, Washington, Collection of Mr. and Mrs. Paul Mellon."
+  },
+  {
+    "image": "monet-sainte-adresse.webp",
+    "artist": "Claude Monet",
+    "wall": "peacock",
+    "name": "Sainte-Adresse",
+    "scientific": "1867",
+    "description": "Claude Monet (1840–1926)\n\nDark fishing boats lie pulled up on a pale beach under a heavy grey sky, with a few figures at the water’s edge and cliffs curving away behind.\n\nSainte-Adresse is on the Normandy coast beside Le Havre, where he grew up.\n\n1867, oil on canvas. National Gallery of Art, Washington, Gift of Catherine Gamble Curran and Family, in Honor of the 50th Anniversary of the National Gallery of Art."
+  },
+  {
+    "image": "monet-interior-after-dinner.webp",
+    "artist": "Claude Monet",
+    "wall": "garnet",
+    "name": "Interior, after Dinner",
+    "scientific": "1868/1869",
+    "description": "Claude Monet (1840–1926)\n\nA brass lamp throws a pool of yellow light on a round table where two women sit sewing, while a man leans against the mantelpiece by the fire.\n\n1868/1869, oil on canvas. National Gallery of Art, Washington, Collection of Mr. and Mrs. Paul Mellon."
+  },
+  {
+    "image": "monet-argenteuil.webp",
+    "artist": "Claude Monet",
+    "wall": "sapphire",
+    "name": "Argenteuil",
+    "scientific": "c. 1872",
+    "description": "Claude Monet (1840–1926)\n\nA sunlit path runs beside the river under a row of tall trees, with small sails on the water and the chimneys of the town on the horizon.\n\nHe lived at Argenteuil, on the Seine just outside Paris, from 1871 to 1878.\n\nC. 1872, oil on canvas. National Gallery of Art, Washington, Ailsa Mellon Bruce Collection."
+  },
+  {
+    "image": "monet-ships-riding-on-the-seine-at-rouen.webp",
+    "artist": "Claude Monet",
+    "wall": "sapphire",
+    "name": "Ships Riding on the Seine at Rouen",
+    "scientific": "1872/1873",
+    "description": "Claude Monet (1840–1926)\n\nTwo tall sailing ships ride at anchor on a rippling blue river, their pale sails and rigging mirrored in the water, with the spires of Rouen behind.\n\n1872/1873, oil on canvas. National Gallery of Art, Washington, Ailsa Mellon Bruce Collection."
+  },
+  {
+    "image": "monet-the-artists-garden-in-argenteuil.webp",
+    "artist": "Claude Monet",
+    "wall": "garnet",
+    "name": "The Artist’s Garden in Argenteuil",
+    "scientific": "1873",
+    "description": "Claude Monet (1840–1926)\n\nA great bank of red, pink and yellow dahlias fills the garden in front of a white house with blue shutters, and a couple stroll by the fence beyond.\n\nIts full title adds: A Corner of the Garden with Dahlias.\n\n1873, oil on canvas. National Gallery of Art, Washington, Gift of Janice H. Levin, in Honor of the 50th Anniversary of the National Gallery of Art."
+  },
+  {
+    "image": "monet-the-bridge-at-argenteuil.webp",
+    "artist": "Claude Monet",
+    "wall": "sapphire",
+    "name": "The Bridge at Argenteuil",
+    "scientific": "1874",
+    "description": "Claude Monet (1840–1926)\n\nSailing boats lie moored on a glittering blue river beside a stone road bridge, under a sky of piled white clouds.\n\n1874, oil on canvas. National Gallery of Art, Washington, Collection of Mr. and Mrs. Paul Mellon."
+  },
+  {
+    "image": "monet-woman-with-a-parasol.webp",
+    "artist": "Claude Monet",
+    "wall": "emerald",
+    "name": "Woman with a Parasol",
+    "scientific": "1875",
+    "description": "Claude Monet (1840–1926)\n\nSeen from below on a windy hillside, a woman in white turns to look down from under a green parasol, her veil and skirts blowing, with a small boy in a straw hat behind her.\n\nHis wife Camille and their son Jean, painted outdoors, probably in a single sitting. Its full title adds: Madame Monet and Her Son.\n\n1875, oil on canvas. National Gallery of Art, Washington, Collection of Mr. and Mrs. Paul Mellon."
+  },
+  {
+    "image": "monet-bridge-at-argenteuil-on-a-gray-day.webp",
+    "artist": "Claude Monet",
+    "wall": "peacock",
+    "name": "Bridge at Argenteuil on a Gray Day",
+    "scientific": "c. 1876",
+    "description": "Claude Monet (1840–1926)\n\nSmall boats sit on still grey water in front of a yellow boathouse, under the iron arches of a bridge and an overcast sky.\n\nC. 1876, oil on canvas. National Gallery of Art, Washington, Ailsa Mellon Bruce Collection."
+  },
+  {
+    "image": "monet-banks-of-the-seine-vetheuil.webp",
+    "artist": "Claude Monet",
+    "wall": "emerald",
+    "name": "Banks of the Seine, Vétheuil",
+    "scientific": "1880",
+    "description": "Claude Monet (1840–1926)\n\nTall grass thick with yellow and white wildflowers fills the near bank; beyond it the blue river runs past a line of poplars under a clouded sky.\n\nHe lived in the village of Vétheuil from 1878 to 1881.\n\n1880, oil on canvas. National Gallery of Art, Washington, Chester Dale Collection."
+  },
+  {
+    "image": "monet-woman-seated-under-the-willows.webp",
+    "artist": "Claude Monet",
+    "wall": "emerald",
+    "name": "Woman Seated under the Willows",
+    "scientific": "1880",
+    "description": "Claude Monet (1840–1926)\n\nA woman in a pale dress sits reading in long grass under slender willows, with a river and the houses of a village behind her.\n\nThe gallery suggests she may be Alice Hoschedé, later his second wife.\n\n1880, oil on canvas. National Gallery of Art, Washington, Chester Dale Collection."
+  },
+  {
+    "image": "monet-jerusalem-artichoke-flowers.webp",
+    "artist": "Claude Monet",
+    "wall": "garnet",
+    "name": "Jerusalem Artichoke Flowers",
+    "scientific": "1880",
+    "description": "Claude Monet (1840–1926)\n\nA big loose bunch of yellow flowers with orange centres stands in a white vase on a round table, against a wall of pink and grey strokes.\n\n1880, oil on canvas. National Gallery of Art, Washington, Chester Dale Collection."
+  },
+  {
+    "image": "monet-the-willows.webp",
+    "artist": "Claude Monet",
+    "wall": "emerald",
+    "name": "The Willows",
+    "scientific": "1880",
+    "description": "Claude Monet (1840–1926)\n\nTall, thin willows in fresh spring green rise from a meadow by the river, with the houses of the far bank showing between their trunks.\n\n1880, oil on canvas. National Gallery of Art, Washington, Corcoran Collection (Edward C. and Mary Walker Collection, 1937)."
+  },
+  {
+    "image": "monet-the-artists-garden-at-vetheuil.webp",
+    "artist": "Claude Monet",
+    "wall": "sapphire",
+    "name": "The Artist’s Garden at Vétheuil",
+    "scientific": "1881",
+    "description": "Claude Monet (1840–1926)\n\nA small child stands on a sunlit path between blue-and-white pots, under towering sunflowers, with steps climbing to the house behind.\n\n1881, oil on canvas. National Gallery of Art, Washington, Ailsa Mellon Bruce Collection."
+  },
+  {
+    "image": "monet-cliffs-at-pourville.webp",
+    "artist": "Claude Monet",
+    "wall": "emerald",
+    "name": "Cliffs at Pourville",
+    "scientific": "1882",
+    "description": "Claude Monet (1840–1926)\n\nTwo women rest on a green clifftop above a wide, pale blue sea scattered with tiny white sails.\n\nPourville is a fishing village on the Normandy coast, where he spent much of 1882.\n\n1882, oil on canvas. National Gallery of Art, Washington, Collection of Mr. and Mrs. Paul Mellon."
+  },
+  {
+    "image": "monet-morning-haze.webp",
+    "artist": "Claude Monet",
+    "wall": "amethyst",
+    "name": "Morning Haze",
+    "scientific": "1888",
+    "description": "Claude Monet (1840–1926)\n\nA few trees are just visible as soft shapes in a field of white, pale blue and pink mist.\n\n1888, oil on canvas. National Gallery of Art, Washington, Chester Dale Collection."
+  },
+  {
+    "image": "monet-rouen-cathedral-west-facade.webp",
+    "artist": "Claude Monet",
+    "wall": "sapphire",
+    "name": "Rouen Cathedral, West Façade",
+    "scientific": "1894",
+    "description": "Claude Monet (1840–1926)\n\nThe carved front of the cathedral fills the canvas, its doors, gable and rose window dissolved into blue and violet shadow.\n\nOne of more than thirty views of the same façade that he painted to catch it at different hours and in different weather.\n\n1894, oil on canvas. National Gallery of Art, Washington, Chester Dale Collection."
+  },
+  {
+    "image": "monet-rouen-cathedral-west-facade-sunlight.webp",
+    "artist": "Claude Monet",
+    "wall": "sapphire",
+    "name": "Rouen Cathedral, West Façade, Sunlight",
+    "scientific": "1894",
+    "description": "Claude Monet (1840–1926)\n\nThe carved front of the cathedral blazes cream and gold in full sun against a clear blue sky.\n\nOne of more than thirty views of the same façade that he painted to catch it at different hours and in different weather.\n\n1894, oil on canvas. National Gallery of Art, Washington, Chester Dale Collection."
+  },
+  {
+    "image": "monet-the-seine-at-giverny.webp",
+    "artist": "Claude Monet",
+    "wall": "amethyst",
+    "name": "The Seine at Giverny",
+    "scientific": "1897",
+    "description": "Claude Monet (1840–1926)\n\nRounded trees on the far bank are mirrored almost exactly in the still, pink-white water of the river at dawn.\n\nFrom his Mornings on the Seine, painted from a boat near his home at Giverny.\n\n1897, oil on canvas. National Gallery of Art, Washington, Chester Dale Collection."
+  },
+  {
+    "image": "monet-the-japanese-footbridge.webp",
+    "artist": "Claude Monet",
+    "wall": "emerald",
+    "name": "The Japanese Footbridge",
+    "scientific": "1899",
+    "description": "Claude Monet (1840–1926)\n\nA blue-green wooden bridge arches over a pond covered with pink and white water lilies, closed in by reeds and willows.\n\nThe bridge and pond were in the water garden he made for himself at Giverny.\n\n1899, oil on canvas. National Gallery of Art, Washington, Gift of Victoria Nebeker Coberly, in memory of her son John W. Mudd, and Walter H. and Leonore Annenberg."
+  },
+  {
+    "image": "monet-waterloo-bridge.webp",
+    "artist": "Claude Monet",
+    "wall": "sapphire",
+    "name": "Waterloo Bridge",
+    "scientific": "1901, pastel",
+    "description": "Claude Monet (1840–1926)\n\nThe arches of the bridge are a few smudges of blue and lilac, nearly lost in bright fog.\n\nHe painted and drew the Thames again and again from his window at the Savoy Hotel in London.\n\n1901, pastel on blue wove paper. National Gallery of Art, Washington, Florian Carr Fund."
+  },
+  {
+    "image": "monet-the-houses-of-parliament-sunset.webp",
+    "artist": "Claude Monet",
+    "wall": "amethyst",
+    "name": "The Houses of Parliament, Sunset",
+    "scientific": "1903",
+    "description": "Claude Monet (1840–1926)\n\nThe towers of Parliament stand as a blue silhouette against a pink and gold sky, their reflection broken up in the river below, where a single small boat passes.\n\n1903, oil on canvas. National Gallery of Art, Washington, Chester Dale Collection."
+  },
+  {
+    "image": "monet-waterloo-bridge-gray-day.webp",
+    "artist": "Claude Monet",
+    "wall": "aubergine",
+    "name": "Waterloo Bridge, Gray Day",
+    "scientific": "1903",
+    "description": "Claude Monet (1840–1926)\n\nSmoke and steam drift over the arches of the bridge, with factory chimneys behind and barges on the dull water below.\n\nHe painted and drew the Thames again and again from his window at the Savoy Hotel in London.\n\n1903, oil on canvas. National Gallery of Art, Washington, Chester Dale Collection."
+  },
+  {
+    "image": "monet-waterloo-bridge-london-at-dusk.webp",
+    "artist": "Claude Monet",
+    "wall": "peacock",
+    "name": "Waterloo Bridge, London, at Dusk",
+    "scientific": "1904",
+    "description": "Claude Monet (1840–1926)\n\nThe bridge is barely there, a darker band across a haze of turquoise and green, with specks of light moving along it.\n\n1904, oil on canvas. National Gallery of Art, Washington, Collection of Mr. and Mrs. Paul Mellon."
+  },
+  {
+    "image": "monet-waterloo-bridge-london-at-sunset.webp",
+    "artist": "Claude Monet",
+    "wall": "amethyst",
+    "name": "Waterloo Bridge, London, at Sunset",
+    "scientific": "1904",
+    "description": "Claude Monet (1840–1926)\n\nThe arches of the bridge glow pink and apricot in a pale blue-green mist, and their colours run together in the water.\n\n1904, oil on canvas. National Gallery of Art, Washington, Collection of Mr. and Mrs. Paul Mellon."
+  },
+  {
+    "image": "monet-palazzo-da-mula-venice.webp",
+    "artist": "Claude Monet",
+    "wall": "sapphire",
+    "name": "Palazzo da Mula, Venice",
+    "scientific": "1908",
+    "description": "Claude Monet (1840–1926)\n\nA palace front with rows of pointed windows rises straight from the green-blue canal, where two gondolas wait at a doorway.\n\nPainted on his only visit to Venice, in the autumn of 1908.\n\n1908, oil on canvas. National Gallery of Art, Washington, Chester Dale Collection."
   }
 ]
