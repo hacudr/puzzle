@@ -137,6 +137,17 @@ button {
   place-items: center;
   border-radius: 50%;
 }
+.icon-btn[aria-pressed="false"] { opacity: .45; }
+
+/* the lid of the puzzle box: a small, faded copy of the finished picture */
+.guide {
+  height: 72px;
+  max-width: 45%;
+  object-fit: contain;
+  opacity: .7;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(40, 28, 16, .35), 0 3px 8px rgba(0, 0, 0, .3);
+}
 .icon-btn:active { background: rgba(60, 40, 20, .08); }
 
 .stage {

@@ -2,6 +2,7 @@ const $ = (s) => document.querySelector(s);
 
 const SOLVED_KEY = 'puzzle.solved';
 const LEVEL_KEY = 'puzzle.level';
+const GUIDE_KEY = 'puzzle.guide';
 // approximate number of pieces at each difficulty
 const LEVELS = { kids: 10, easy: 40, medium: 100, hard: 200 };
 // levels that must never go over their number
@@ -10,6 +11,7 @@ const CAPPED = { kids: 10 };
 const board = $('#board');
 const piecesEl = $('#pieces');
 const peekEl = $('#peek');
+const guideEl = $('#guide');
 
 let puzzles = [];
 let solved = loadSolved();
@@ -41,6 +43,23 @@ function setLevel(next) {
     localStorage.setItem(LEVEL_KEY, level);
   } catch {}
   document.querySelectorAll('#levels button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.level === level));
+}
+
+// The reference picture in the top bar stays on unless it has been switched off.
+function setGuide(on) {
+  try {
+    localStorage.setItem(GUIDE_KEY, on ? 'on' : 'off');
+  } catch {}
+  guideEl.hidden = !on;
+  $('#peekBtn').setAttribute('aria-pressed', on);
+}
+
+function loadGuide() {
+  try {
+    return localStorage.getItem(GUIDE_KEY) !== 'off';
+  } catch {
+    return true;
+  }
 }
 
 function saveSolved() {
@@ -204,6 +223,11 @@ async function start(p) {
   piecesEl.textContent = '';
   peekEl.classList.remove('show');
   peekEl.style.backgroundImage = `url("${p.image}")`;
+  guideEl.onerror = () => {
+    guideEl.onerror = null;
+    guideEl.src = p.image;
+  };
+  guideEl.src = p.image.replace('puzzles/', 'puzzles/thumbs/');
   board.style.setProperty('--cols', cols);
   board.style.setProperty('--rows', rows);
   for (let id = 0; id < cols * rows; id++) {
@@ -419,7 +443,9 @@ $('#resumeBtn').addEventListener('click', () => ($('#pause').hidden = true));
 $('#restartBtn').addEventListener('click', () => start(game.p));
 $('#quitBtn').addEventListener('click', openGallery);
 
-$('#peekBtn').addEventListener('click', () => {
+$('#peekBtn').addEventListener('click', () => setGuide(guideEl.hidden));
+// tapping the reference picture shows it large for a moment
+guideEl.addEventListener('click', () => {
   clearTimeout(peekTimer);
   if (peekEl.classList.toggle('show')) peekTimer = setTimeout(() => peekEl.classList.remove('show'), 1800);
 });
@@ -438,6 +464,7 @@ document.addEventListener('gesturestart', (e) => e.preventDefault());
 /* ---------- Boot ---------- */
 
 async function boot() {
+  setGuide(loadGuide());
   setLevel(level);
   try {
     const res = await fetch('puzzles/puzzles.json', { cache: 'no-cache' });
