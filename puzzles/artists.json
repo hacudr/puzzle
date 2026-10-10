@@ -152,5 +152,12 @@
     "period": "Modern",
     "also": ["Female Artists"],
     "cover": "marvellous-tree.webp"
+  },
+  {
+    "name": "Artemisia Gentileschi",
+    "note": "Italian, 1593–after 1654",
+    "period": "Baroque",
+    "also": ["Female Artists"],
+    "cover": "gentileschi-self-portrait-as-the-allegory-of-painting.webp"
   }
 ]

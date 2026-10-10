@@ -2158,5 +2158,57 @@
     "artist": "James McNeill Whistler",
     "name": "George W. Vanderbilt",
     "scientific": "1897/1903"
+  },
+  {
+    "image": "gentileschi-esther-before-ahasuerus.webp",
+    "artist": "Artemisia Gentileschi",
+    "name": "Esther before Ahasuerus",
+    "scientific": "1620s"
+  },
+  {
+    "image": "gentileschi-mary-magdalene-in-ecstasy.webp",
+    "artist": "Artemisia Gentileschi",
+    "name": "Mary Magdalene in Ecstasy",
+    "scientific": "c. 1625"
+  },
+  {
+    "image": "gentileschi-self-portrait-as-a-female-martyr.webp",
+    "artist": "Artemisia Gentileschi",
+    "name": "Self-Portrait as a Female Martyr",
+    "scientific": "c. 1615"
+  },
+  {
+    "image": "gentileschi-susanna-and-the-elders.webp",
+    "artist": "Artemisia Gentileschi",
+    "name": "Susanna and the Elders",
+    "scientific": "1610",
+    "content": ["nudity", "frightening"]
+  },
+  {
+    "image": "gentileschi-judith-slaying-holofernes.webp",
+    "artist": "Artemisia Gentileschi",
+    "name": "Judith Slaying Holofernes",
+    "scientific": "c. 1614–1620",
+    "content": ["violence", "frightening"]
+  },
+  {
+    "image": "gentileschi-judith-and-her-maidservant.webp",
+    "artist": "Artemisia Gentileschi",
+    "name": "Judith and Her Maidservant",
+    "scientific": "c. 1623–1625",
+    "content": ["violence", "frightening"]
+  },
+  {
+    "image": "gentileschi-lucretia.webp",
+    "artist": "Artemisia Gentileschi",
+    "name": "Lucretia",
+    "scientific": "c. 1623–1625",
+    "content": ["nudity", "violence"]
+  },
+  {
+    "image": "gentileschi-self-portrait-as-the-allegory-of-painting.webp",
+    "artist": "Artemisia Gentileschi",
+    "name": "Self-Portrait as the Allegory of Painting",
+    "scientific": "1638–1639"
   }
 ]
