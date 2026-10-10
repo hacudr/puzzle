@@ -149,7 +149,6 @@ function showContent() {
     b.disabled = kids;
     b.querySelector('small').textContent = off ? 'hidden' : 'shown';
   });
-  $('#contentNote').hidden = !kids;
 }
 
 // Take the hidden pictures out of every artist's page. An artist whose cover is
