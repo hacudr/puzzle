@@ -1,6 +1,7 @@
 [
   {
     "image": "bird-of-paradise.jpg",
+    "wall": "aubergine",
     "name": "Bird of Paradise",
     "scientific": "Rajski ptak",
     "music": "pathetique",
@@ -8,6 +9,7 @@
   },
   {
     "image": "butterfly.jpg",
+    "wall": "peacock",
     "name": "Butterfly",
     "scientific": "Motyl",
     "music": "clair",
@@ -15,6 +17,7 @@
   },
   {
     "image": "spring.jpg",
+    "wall": "emerald",
     "name": "Spring",
     "scientific": "Wiosna",
     "music": "pathetique",
@@ -22,6 +25,7 @@
   },
   {
     "image": "winter.jpg",
+    "wall": "sapphire",
     "name": "Winter",
     "scientific": "Zima",
     "music": "moonlight",
@@ -29,42 +33,49 @@
   },
   {
     "image": "marvellous-tree.jpg",
+    "wall": "garnet",
     "name": "The Marvellous Tree",
     "scientific": "The Little Grey Mouse",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nRosalie leans towards a twisting scarlet tree hung with grapes, plums and pears, in a walled garden under a starry sky.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
     "image": "bonne-biche.jpg",
+    "wall": "peacock",
     "name": "Bonne-Biche",
     "scientific": "Blondine, Bonne-Biche and Beau-Minon",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nBlondine throws her arms around the neck of the white hind Bonne-Biche, while the cat Beau-Minon sits by a coral curtain.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
     "image": "tortoise.jpg",
+    "wall": "emerald",
     "name": "The Tortoise",
     "scientific": "Blondine, Bonne-Biche and Beau-Minon",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nBlondine rides a great patterned tortoise through a forest of pale green trunks and trailing vines.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
     "image": "giant.jpg",
+    "wall": "garnet",
     "name": "The Giant",
     "scientific": "Good Little Henry",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nHenry, in red, shields his eyes as a green giant peers down at him over a wall of white stone and blossom.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
     "image": "plant-of-life.jpg",
+    "wall": "sapphire",
     "name": "The Plant of Life",
     "scientific": "Good Little Henry",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nHenry stands in a mountain garden thick with flowers while an old doctor in a black cloak bends over the beds with his book.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
     "image": "rosette.jpg",
+    "wall": "amethyst",
     "name": "The Evening Walk",
     "scientific": "Princess Rosette",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nRosette, in a yellow gown, walks beside the prince before a pale palace of domes and spires under a sky full of stars.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."
   },
   {
     "image": "night-in-the-forest.jpg",
+    "wall": "peacock",
     "name": "Night in the Forest",
     "scientific": "Ourson",
     "description": "Virginia Frances Sterrett (1900–1931)\n\nViolette sleeps on the moss in her wide yellow dress while Ourson keeps watch beneath trees hung with lichen and a single bright star.\n\nFrom Old French Fairy Tales by the Comtesse de Ségur, 1920."

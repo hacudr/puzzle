@@ -7,6 +7,10 @@
   --seam: rgba(40, 28, 16, .5);
   --seam-light: rgba(250, 243, 230, .4);
   --table: #e6d9c3;
+  /* gallery wall colour, set per puzzle */
+  --h: 350;
+  --s: 58%;
+  --l: 17%;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
 }
 
@@ -119,6 +123,44 @@ button {
 
 .empty { text-align: center; padding: 40px; color: var(--ink-soft); font-size: 1.1rem; }
 
+/* ---------- Gallery wall ---------- */
+
+.wall {
+  --lit: hsl(var(--h) var(--s) calc(var(--l) + 24%));
+  --deep: hsl(var(--h) var(--s) calc(var(--l) * .38));
+  --ink: #f1e6cf;
+  --ink-soft: #cbbd9f;
+  color: var(--ink);
+  background: hsl(var(--h) var(--s) var(--l));
+}
+.wall::before, .wall::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+/* a warm lamp from above, falling off into the corners */
+.wall::before {
+  background:
+    radial-gradient(ellipse 60% 46% at 50% 26%, rgba(255, 214, 150, .28), transparent 72%),
+    radial-gradient(ellipse 78% 62% at 50% 34%, var(--lit), transparent 72%),
+    radial-gradient(ellipse 120% 100% at 50% 40%, transparent 45%, var(--deep) 100%);
+}
+/* plaster grain */
+.wall::after {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .07;
+  mix-blend-mode: overlay;
+}
+.wall > * { position: relative; z-index: 1; }
+.wall > .overlay { position: absolute; z-index: 20; }
+
+/* slim gilt frame, lit from above */
+.frame {
+  border: 9px solid;
+  border-color: #f4dc8c #bd8f30 #8c641b #d6ad4c;
+  padding: 3px;
+  background: #4f360b;
+  box-shadow:
+    0 0 0 1px #4a3108, inset 0 0 0 1px #f0d584,
+    0 8px 10px rgba(0, 0, 0, .45), 0 28px 38px -10px rgba(0, 0, 0, .7);
+}
+
 /* ---------- Puzzle ---------- */
 
 .bar {
@@ -140,38 +182,72 @@ button {
 .icon-btn[aria-pressed="false"] { opacity: .45; }
 
 /* the lid of the puzzle box: a small, faded copy of the finished picture */
-.guide {
-  height: 72px;
-  max-width: 45%;
-  object-fit: contain;
-  opacity: .7;
-  border-radius: 3px;
-  box-shadow: 0 0 0 1px rgba(40, 28, 16, .35), 0 3px 8px rgba(0, 0, 0, .3);
-}
+.guide { flex: none; }
 /* Kept in place but drawn as nothing at all: taking it out of the page left
    stray lines of its edge behind on the iPad. */
 .guide.off {
   visibility: hidden;
-  opacity: 0;
-  box-shadow: none;
   pointer-events: none;
 }
-.icon-btn:active { background: rgba(60, 40, 20, .08); }
+/* room for the reference picture */
+#play .bar { height: 110px; }
+.icon-btn:active { background: rgba(255, 240, 200, .14); }
 
 .stage {
   flex: 1;
   min-height: 0;
   display: grid;
   place-items: center;
-  margin: 0 24px 28px;
+  /* leaves room for the frame, which sits outside the board */
+  margin: 0 clamp(26px, 5vw, 44px) clamp(32px, 5vh, 48px);
 }
+
+/* while a block is dragged off the canvas it must pass over the reserve */
+.wall > .stage.lifting { z-index: 3; }
+
+/* A shallow tray under the frame for pieces set aside. It scrolls sideways. */
+.reserve {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: calc(var(--strip, 80px) + 20px);
+  margin: 0 clamp(14px, 3vw, 28px) 14px;
+  padding: 10px 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, .28);
+  box-shadow: inset 0 2px 7px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 236, 190, .1);
+  transition: background .15s ease, box-shadow .15s ease;
+}
+.reserve::-webkit-scrollbar { display: none; }
+.reserve.over {
+  background: rgba(0, 0, 0, .42);
+  box-shadow: inset 0 2px 7px rgba(0, 0, 0, .5), 0 0 0 2px rgba(244, 220, 140, .7);
+}
+.reserve-hint { margin: auto; font-style: italic; color: var(--ink-soft); pointer-events: none; }
+.reserve:not(.empty) .reserve-hint { display: none; }
+
+.held { position: relative; flex: none; touch-action: pan-x; }
+.wall > .held.floating { position: fixed; z-index: 30; pointer-events: none; }
 
 .board {
   position: relative;
   touch-action: none;
   background: var(--table);
-  border-radius: 6px;
-  box-shadow: inset 0 1px 3px rgba(60, 40, 20, .25);
+}
+/* the frame's shadow falling on the table */
+.board::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  box-shadow: inset 0 7px 9px -5px rgba(0, 0, 0, .5), inset 0 0 0 1px rgba(0, 0, 0, .3);
 }
 
 .piece {
@@ -207,11 +283,6 @@ button {
 @keyframes fused {
   30% { filter: brightness(1.35); }
 }
-.piece.nope { animation: nope .32s ease; }
-@keyframes nope {
-  25% { transform: translateX(-6px); }
-  60% { transform: translateX(5px); }
-}
 
 .peek {
   position: absolute;
@@ -230,7 +301,7 @@ button {
   z-index: 20;
   display: grid;
   place-items: center;
-  background: rgba(243, 235, 221, .94);
+  background: hsl(var(--h) var(--s) calc(var(--l) * .5) / .88);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
@@ -247,12 +318,6 @@ button {
 .link:active { opacity: .55; }
 
 /* ---------- Solved ---------- */
-
-.paper {
-  background:
-    radial-gradient(120% 80% at 50% 0%, rgba(255, 250, 240, .9), transparent 70%),
-    linear-gradient(180deg, #f1e6d3, #e9dcc6);
-}
 
 .back { display: inline-flex; align-items: center; gap: 4px; font: 500 1.05rem/1 -apple-system, "Helvetica Neue", sans-serif; padding: 12px 8px; }
 
@@ -274,19 +339,19 @@ button {
   min-height: 0;
   --base: 440px;
   width: min(calc(var(--base) * var(--grow, 1)), 100%);
-  border-radius: 18px;
-  overflow: hidden;
-  background: var(--label);
-  box-shadow: 0 2px 4px rgba(60, 40, 20, .2), 0 28px 50px -22px rgba(60, 40, 20, .6);
+  align-items: center;
+  gap: 26px;
+  color: #33291f;
   animation: rise .7s cubic-bezier(.2, .8, .2, 1) both;
 }
 @keyframes rise { from { opacity: 0; transform: translateY(24px) scale(.97); } }
 
-.plate-face { position: relative; aspect-ratio: var(--aspect, .8); min-height: 0; background: var(--cream); }
-.plate-img { position: absolute; inset: 0; background: center / cover no-repeat; }
+.plate-face { position: relative; box-sizing: content-box; align-self: stretch; aspect-ratio: var(--aspect, .8); min-height: 0; }
+.plate-img { position: absolute; inset: 3px; background: center / cover no-repeat; }
 .plate-text {
   position: absolute;
-  inset: 0;
+  inset: 3px;
+  background: var(--cream);
   overflow-y: auto;
   padding: 30px 30px;
   font-size: 1.2rem;
@@ -296,9 +361,17 @@ button {
   user-select: text;
 }
 
-.plate-label { flex: none; padding: 18px 24px 24px; }
-.sci { margin: 0 0 4px; font-style: italic; font-size: 1.25rem; }
-.plate-label h2 { margin: 0; font-weight: 500; font-size: 2.5rem; line-height: 1.1; }
+/* the wall label under the picture */
+.plate-label {
+  flex: none;
+  padding: 12px 22px 14px;
+  text-align: center;
+  background: var(--label);
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 18px -8px rgba(0, 0, 0, .6);
+}
+.sci { margin: 0 0 2px; font-style: italic; font-size: 1rem; }
+.plate-label h2 { margin: 0; font-weight: 500; font-size: 1.6rem; line-height: 1.15; }
 
 .done-links { flex: none; display: flex; flex-direction: column; align-items: center; gap: 18px; }
 
@@ -306,5 +379,5 @@ button {
   .done-body { gap: 20px; padding-bottom: 20px; }
   .done-links { flex-direction: row; gap: 28px; }
   .plate { --base: 340px; }
-  .stage { margin-bottom: 28px; }
+  .stage { margin-bottom: 32px; }
 }

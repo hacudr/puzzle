@@ -3,22 +3,39 @@ const $ = (s) => document.querySelector(s);
 const SOLVED_KEY = 'puzzle.solved';
 const LEVEL_KEY = 'puzzle.level';
 const GUIDE_KEY = 'puzzle.guide';
+// height of the reference picture, and limits for the reserve strip, in px
+const GUIDE_HEIGHT = 94;
+const STRIP_MIN = 64;
+const STRIP_MAX = 96;
 // approximate number of pieces at each difficulty
 const LEVELS = { kids: 10, easy: 40, medium: 100, hard: 200 };
 // levels that must never go over their number
 const CAPPED = { kids: 10 };
+// Gallery wall colours a puzzle can name as "wall": hue, saturation %, lightness %
+const WALLS = {
+  garnet: [350, 58, 17],
+  emerald: [156, 55, 14],
+  peacock: [190, 62, 15],
+  sapphire: [224, 55, 18],
+  amethyst: [272, 40, 19],
+  aubergine: [315, 42, 16],
+};
+const PAGE_COLOR = '#f3ebdd';
 
 const board = $('#board');
 const piecesEl = $('#pieces');
 const peekEl = $('#peek');
 const guideEl = $('#guide');
+const reserveEl = $('#reserve');
 
 let puzzles = [];
 let solved = loadSolved();
 let level = loadLevel();
 let game = null;
 let drag = null;
+let hold = null;
 let peekTimer = 0;
+let wallColor = PAGE_COLOR;
 
 function loadSolved() {
   try {
@@ -70,6 +87,7 @@ function saveSolved() {
 
 function show(id) {
   document.querySelectorAll('.screen').forEach((s) => (s.hidden = s.id !== id));
+  $('meta[name="theme-color"]').content = id === 'gallery' ? PAGE_COLOR : wallColor;
 }
 
 function loadImage(src) {
@@ -121,6 +139,42 @@ function openGallery() {
   show('gallery');
 }
 
+/* ---------- Gallery wall ---------- */
+
+// For a puzzle with no "wall" of its own: the jewel tone nearest to the colour
+// the picture has most of. Golds are skipped, they belong to the frame.
+function wallFor(img) {
+  const size = 48;
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = size;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 0, 0, size, size);
+  const data = ctx.getImageData(0, 0, size, size).data;
+  const names = Object.keys(WALLS);
+  const weight = names.map(() => 0);
+  for (let i = 0; i < data.length; i += 4) {
+    const r = data[i] / 255, g = data[i + 1] / 255, b = data[i + 2] / 255;
+    const max = Math.max(r, g, b);
+    const chroma = max - Math.min(r, g, b);
+    if (chroma < 0.12) continue;
+    const sixth = max === r ? ((g - b) / chroma) % 6 : max === g ? (b - r) / chroma + 2 : (r - g) / chroma + 4;
+    const hue = (sixth * 60 + 360) % 360;
+    if (hue > 25 && hue < 70) continue;
+    const away = names.map((n) => Math.abs(((hue - WALLS[n][0] + 540) % 360) - 180));
+    weight[away.indexOf(Math.min(...away))] += chroma;
+  }
+  return names[weight.indexOf(Math.max(...weight))];
+}
+
+function paintWall(p, img) {
+  const [h, s, l] = WALLS[p.wall] || WALLS[wallFor(img)];
+  const root = document.documentElement.style;
+  root.setProperty('--h', h);
+  root.setProperty('--s', s + '%');
+  root.setProperty('--l', l + '%');
+  wallColor = `hsl(${h} ${s}% ${l}%)`;
+}
+
 /* ---------- Puzzle setup ---------- */
 
 // Cells are twice as wide as they are tall; pick the grid whose cell count
@@ -139,42 +193,29 @@ function gridFor(aspect, target, most = Infinity) {
   return best;
 }
 
-// The table is bigger than the picture, so there is always room to move pieces
-// and fused groups around: at least two spare columns and rows, and at least
-// 40% more cells than pieces. It grows to use whatever space the screen has.
-function tableFor(cols, rows, aspect) {
-  const stage = $('#stage');
-  const k = (aspect * rows) / cols; // cell width / cell height
-  let ch = Math.min(stage.clientWidth / (cols + 2) / k, stage.clientHeight / (rows + 2));
-  for (;;) {
-    const tcols = Math.floor(stage.clientWidth / (ch * k));
-    const trows = Math.floor(stage.clientHeight / ch);
-    if (tcols * trows >= cols * rows * 1.4) return { tcols, trows };
-    ch *= 0.97;
-  }
-}
-
 const DIRS = [[-1, 0], [1, 0], [0, -1], [0, 1]];
 
-// Pieces are numbered by their place in the picture (row by row). g.pos[piece]
-// is the table cell it sits on and g.cell[i] the piece on that cell, or -1.
+// The canvas is a grid exactly the size of the picture. Pieces are numbered by
+// their place in the picture (row by row). g.pos[piece] is the canvas cell a
+// piece sits on, or -1 while it is in the reserve; g.cell[i] is the piece on
+// that cell, or -1. g.held lists the blocks in the reserve.
 // Is this piece sitting against its true neighbour in direction (dc, dr)?
 function joined(g, piece, dc, dr) {
   const homeCol = (piece % g.cols) + dc;
   const want = piece + dc + dr * g.cols;
-  if (homeCol < 0 || homeCol >= g.cols || want < 0 || want >= g.pos.length) return false;
-  const c = (g.pos[piece] % g.tcols) + dc;
-  const r = Math.floor(g.pos[piece] / g.tcols) + dr;
-  if (c < 0 || c >= g.tcols || r < 0 || r >= g.trows) return false;
-  return g.cell[r * g.tcols + c] === want;
+  if (g.pos[piece] < 0 || homeCol < 0 || homeCol >= g.cols || want < 0 || want >= g.pos.length) return false;
+  const c = (g.pos[piece] % g.cols) + dc;
+  const r = Math.floor(g.pos[piece] / g.cols) + dr;
+  if (c < 0 || c >= g.cols || r < 0 || r >= g.rows) return false;
+  return g.cell[r * g.cols + c] === want;
 }
 
-// group[piece] = an id shared by every piece fused to it
+// group[piece] = an id shared by every piece fused to it on the canvas
 function findGroups(g) {
   const group = new Array(g.pos.length).fill(-1);
   let count = 0;
   for (let first = 0; first < group.length; first++) {
-    if (group[first] >= 0) continue;
+    if (group[first] >= 0 || g.pos[first] < 0) continue;
     group[first] = count;
     const stack = [first];
     while (stack.length) {
@@ -192,12 +233,12 @@ function findGroups(g) {
   return { group, count };
 }
 
-// Deal the pieces onto random table cells, retrying so none start out joined.
+// Deal the pieces over the whole canvas, retrying so none start out joined.
 function scatter(g, count) {
-  const cells = Array.from({ length: g.tcols * g.trows }, (_, i) => i);
-  for (let attempt = 0; attempt < 300; attempt++) {
-    g.pos = shuffled(cells).slice(0, count);
-    g.cell = new Array(cells.length).fill(-1);
+  const cells = Array.from({ length: count }, (_, i) => i);
+  for (let attempt = 0; attempt < 500; attempt++) {
+    g.pos = shuffled(cells);
+    g.cell = [];
     g.pos.forEach((spot, piece) => (g.cell[spot] = piece));
     if (findGroups(g).count === count) break;
   }
@@ -212,24 +253,23 @@ async function start(p) {
     return;
   }
   $('#pause').hidden = true;
+  paintWall(p, img);
   show('play');
 
   const aspect = img.naturalWidth / img.naturalHeight;
   const { cols, rows } = gridFor(aspect, LEVELS[level], CAPPED[level]);
-  game = { p, cols, rows, aspect, ...tableFor(cols, rows, aspect), els: [], done: false };
+  game = { p, cols, rows, aspect, held: [], els: [], done: false };
   scatter(game, cols * rows);
 
   sound.setTune(p.music, puzzles.indexOf(p));
   piecesEl.textContent = '';
   peekEl.classList.remove('show');
   peekEl.style.backgroundImage = `url("${p.image}")`;
-  guideEl.onerror = () => {
-    guideEl.onerror = null;
-    guideEl.src = p.image;
-  };
-  guideEl.src = p.image.replace('puzzles/', 'puzzles/thumbs/');
-  board.style.setProperty('--cols', cols);
-  board.style.setProperty('--rows', rows);
+  loadImage(p.image.replace('puzzles/', 'puzzles/thumbs/'))
+    .catch(() => img)
+    .then(drawGuide);
+  $('#play').style.setProperty('--cols', cols);
+  $('#play').style.setProperty('--rows', rows);
   for (let id = 0; id < cols * rows; id++) {
     const el = document.createElement('div');
     el.className = 'piece';
@@ -240,8 +280,24 @@ async function start(p) {
     game.els[id] = el;
     piecesEl.append(el);
   }
-  refresh();
   layout();
+  refresh();
+}
+
+// The reference picture is drawn onto a canvas at the screen's own pixel size,
+// already faded. A scaled, see-through <img> showed white lines on the iPad.
+function drawGuide(img) {
+  const wide = Math.round(Math.min((GUIDE_HEIGHT * img.naturalWidth) / img.naturalHeight, window.innerWidth * 0.45));
+  const high = Math.round((wide * img.naturalHeight) / img.naturalWidth);
+  const scale = window.devicePixelRatio || 1;
+  guideEl.width = Math.round(wide * scale);
+  guideEl.height = Math.round(high * scale);
+  guideEl.style.width = wide + 'px';
+  guideEl.style.height = high + 'px';
+  const ctx = guideEl.getContext('2d');
+  ctx.globalAlpha = 0.7;
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(img, 0, 0, guideEl.width, guideEl.height);
 }
 
 // Work out which pieces are fused, then put every piece where the state says
@@ -249,79 +305,155 @@ async function start(p) {
 function refresh() {
   const { group, count } = findGroups(game);
   game.group = group;
-  game.groups = count;
+  // every separate block, on the canvas or in the reserve
+  game.groups = count + game.held.length;
   game.els.forEach((el, piece) => {
-    el.style.setProperty('--c', game.pos[piece] % game.tcols);
-    el.style.setProperty('--r', Math.floor(game.pos[piece] / game.tcols));
+    if (game.pos[piece] < 0) return;
+    if (el.parentNode !== piecesEl) piecesEl.append(el);
+    el.style.setProperty('--c', game.pos[piece] % game.cols);
+    el.style.setProperty('--r', Math.floor(game.pos[piece] / game.cols));
     el.classList.toggle('jl', joined(game, piece, -1, 0));
     el.classList.toggle('jr', joined(game, piece, 1, 0));
     el.classList.toggle('jt', joined(game, piece, 0, -1));
     el.classList.toggle('jb', joined(game, piece, 0, 1));
   });
+  drawReserve();
 }
 
-// Whole-pixel cells keep fused pieces seamless.
+// Blocks in the reserve keep their shape but are drawn small enough to fit
+// the strip; a single piece stays full size.
+function drawReserve() {
+  const scroll = reserveEl.scrollLeft;
+  reserveEl.querySelectorAll('.held').forEach((item) => item.remove());
+  const { cols } = game;
+  game.held.forEach((pieces, index) => {
+    const box = boxOf(pieces);
+    const scale = Math.min(1, game.strip / (box.h * game.ch), (game.strip * 3) / (box.w * game.cw));
+    const cw = Math.max(2, Math.floor(game.cw * scale));
+    const ch = Math.max(1, Math.floor(game.ch * scale));
+    const item = document.createElement('div');
+    item.className = 'held';
+    item.dataset.index = index;
+    item.style.setProperty('--cw', cw + 'px');
+    item.style.setProperty('--ch', ch + 'px');
+    item.style.width = box.w * cw + 'px';
+    item.style.height = box.h * ch + 'px';
+    const inBlock = new Set(pieces);
+    for (const piece of pieces) {
+      const el = game.els[piece];
+      el.style.setProperty('--c', (piece % cols) - box.c);
+      el.style.setProperty('--r', Math.floor(piece / cols) - box.r);
+      el.classList.toggle('jl', piece % cols > 0 && inBlock.has(piece - 1));
+      el.classList.toggle('jr', piece % cols < cols - 1 && inBlock.has(piece + 1));
+      el.classList.toggle('jt', inBlock.has(piece - cols));
+      el.classList.toggle('jb', inBlock.has(piece + cols));
+      item.append(el);
+    }
+    reserveEl.append(item);
+  });
+  reserveEl.classList.toggle('empty', !game.held.length);
+  reserveEl.scrollLeft = scroll;
+}
+
+// Whole-pixel cells keep fused pieces seamless. The reserve strip is as tall
+// as one piece, within limits, and the canvas takes the space that leaves.
 function layout() {
   if (!game) return;
   const stage = $('#stage');
-  const k = (game.aspect * game.rows) / game.cols;
-  game.cw = Math.floor(Math.min(stage.clientWidth / game.tcols, (stage.clientHeight / game.trows) * k));
-  game.ch = Math.floor(game.cw / k);
-  board.style.setProperty('--cw', game.cw + 'px');
-  board.style.setProperty('--ch', game.ch + 'px');
-  board.style.width = game.cw * game.tcols + 'px';
-  board.style.height = game.ch * game.trows + 'px';
+  const play = $('#play');
+  const k = (game.aspect * game.rows) / game.cols; // cell width / cell height
+  game.strip = STRIP_MAX;
+  for (let pass = 0; pass < 2; pass++) {
+    play.style.setProperty('--strip', game.strip + 'px');
+    game.cw = Math.floor(Math.min(stage.clientWidth / game.cols, (stage.clientHeight / game.rows) * k));
+    game.ch = Math.floor(game.cw / k);
+    game.strip = clamp(game.ch, STRIP_MIN, STRIP_MAX);
+  }
+  play.style.setProperty('--strip', game.strip + 'px');
+  play.style.setProperty('--cw', game.cw + 'px');
+  play.style.setProperty('--ch', game.ch + 'px');
+  board.style.width = game.cw * game.cols + 'px';
+  board.style.height = game.ch * game.rows + 'px';
+  if (game.group) drawReserve();
 }
 
 /* ---------- Moving pieces ---------- */
 
 const membersOf = (groupId) => game.group.flatMap((g, piece) => (g === groupId ? [piece] : []));
+const clamp = (n, lo, hi) => Math.min(hi, Math.max(lo, n));
 
-// Move a piece and everything fused to it by (dc, dr) cells. Anything in the
-// way steps aside as a whole group to the nearest free space, so fused pieces
-// never come apart. Returns false, changing nothing, if there is no room.
-function moveGroup(id, dc, dr) {
-  const { tcols, trows } = game;
+// Where a block sits in the picture: its top-left corner and size, in cells.
+function boxOf(pieces) {
+  const cs = pieces.map((piece) => piece % game.cols);
+  const rs = pieces.map((piece) => Math.floor(piece / game.cols));
+  const c = Math.min(...cs);
+  const r = Math.min(...rs);
+  return { c, r, w: Math.max(...cs) - c + 1, h: Math.max(...rs) - r + 1 };
+}
+
+// Put a block of fused pieces on the given canvas cells; it may come from
+// elsewhere on the canvas, moved by (dc, dr), or from the reserve. Whatever is
+// in the way trades places with it: each block underneath moves whole, by the
+// same distance the other way if that is free, otherwise to the nearest free
+// cells, and into the reserve if the canvas has no room. Fused pieces never
+// come apart.
+function place(pieces, targets, dc = 0, dr = 0) {
+  const { cols, rows } = game;
   const cell = game.cell.slice();
   const pos = game.pos.slice();
+  const held = game.held.filter((block) => block !== pieces);
   const shifted = (piece, oc, or) => {
-    const c = (pos[piece] % tcols) + oc;
-    const r = Math.floor(pos[piece] / tcols) + or;
-    return c < 0 || c >= tcols || r < 0 || r >= trows ? -1 : r * tcols + c;
+    const c = (pos[piece] % cols) + oc;
+    const r = Math.floor(pos[piece] / cols) + or;
+    return c < 0 || c >= cols || r < 0 || r >= rows ? -1 : r * cols + c;
   };
-  const lift = (pieces) => pieces.forEach((piece) => (cell[pos[piece]] = -1));
-  const drop = (pieces, spots) => pieces.forEach((piece, i) => (cell[(pos[piece] = spots[i])] = piece));
+  const lift = (block) => block.forEach((piece) => pos[piece] >= 0 && (cell[pos[piece]] = -1));
+  const drop = (block, spots) => block.forEach((piece, i) => (cell[(pos[piece] = spots[i])] = piece));
+  const free = (spots) => spots.every((spot) => spot >= 0 && cell[spot] === -1);
 
-  const moving = membersOf(game.group[id]);
-  lift(moving);
-  const targets = moving.map((piece) => shifted(piece, dc, dr));
-  if (targets.includes(-1)) return false;
+  lift(pieces);
   const inTheWay = [...new Set(targets.map((t) => cell[t]).filter((piece) => piece >= 0).map((piece) => game.group[piece]))]
     .map(membersOf)
     .sort((x, y) => y.length - x.length);
   inTheWay.forEach(lift);
-  drop(moving, targets);
+  drop(pieces, targets);
 
-  for (const pieces of inTheWay) {
-    let best = null;
-    let bestDistance = Infinity;
-    for (let or = -trows; or <= trows; or++) {
-      for (let oc = -tcols; oc <= tcols; oc++) {
-        const distance = Math.hypot(oc * 2, or);
-        if (distance >= bestDistance) continue;
-        const spots = pieces.map((piece) => shifted(piece, oc, or));
-        if (spots.every((spot) => spot >= 0 && cell[spot] === -1)) {
-          best = spots;
-          bestDistance = distance;
+  for (const block of inTheWay) {
+    let best = dc || dr ? block.map((piece) => shifted(piece, -dc, -dr)) : null;
+    if (!best || !free(best)) {
+      best = null;
+      let bestDistance = Infinity;
+      for (let or = -rows; or <= rows; or++) {
+        for (let oc = -cols; oc <= cols; oc++) {
+          const distance = Math.hypot(oc * 2, or);
+          if (distance >= bestDistance) continue;
+          const spots = block.map((piece) => shifted(piece, oc, or));
+          if (free(spots)) {
+            best = spots;
+            bestDistance = distance;
+          }
         }
       }
     }
-    if (!best) return false;
-    drop(pieces, best);
+    if (best) {
+      drop(block, best);
+    } else {
+      block.forEach((piece) => (pos[piece] = -1));
+      held.unshift(block);
+    }
   }
   game.cell = cell;
   game.pos = pos;
-  return true;
+  game.held = held;
+}
+
+// Take a block off the canvas and set it aside in the reserve.
+function setAside(pieces) {
+  pieces.forEach((piece) => {
+    game.cell[game.pos[piece]] = -1;
+    game.pos[piece] = -1;
+  });
+  game.held.unshift(pieces);
 }
 
 function flash(els, name) {
@@ -330,20 +462,38 @@ function flash(els, name) {
   els.forEach((el) => el.classList.add(name));
 }
 
+// After a move: redraw, then the tune moves on if pieces fused and repeats its
+// note if not, and the puzzle ends once everything is one block.
+function settle(blocksBefore, id) {
+  refresh();
+  if (game.groups < blocksBefore) {
+    sound.correct(1);
+    flash(membersOf(game.group[id]).map((piece) => game.els[piece]), 'fused');
+  } else {
+    sound.swap();
+  }
+  if (game.groups === 1 && !game.held.length) win();
+}
+
+const overReserve = (e) => e.clientY >= reserveEl.getBoundingClientRect().top;
+
 board.addEventListener('pointerdown', (e) => {
   const el = e.target.closest('.piece');
-  if (!el || !game || game.done || drag) return;
+  if (!el || !game || game.done || drag || hold) return;
   board.setPointerCapture(e.pointerId);
   const id = +el.dataset.id;
   const pieces = membersOf(game.group[id]);
   drag = { id, pieces, els: pieces.map((piece) => game.els[piece]), x: e.clientX, y: e.clientY, pointer: e.pointerId };
   drag.els.forEach((el) => el.classList.add('dragging'));
+  // the reserve is drawn after the canvas, so lift the canvas above it
+  $('#stage').classList.add('lifting');
 });
 
 board.addEventListener('pointermove', (e) => {
   if (!drag || e.pointerId !== drag.pointer) return;
   const move = `translate(${e.clientX - drag.x}px, ${e.clientY - drag.y}px)`;
   drag.els.forEach((el) => (el.style.transform = move));
+  reserveEl.classList.toggle('over', overReserve(e));
 });
 
 function endDrag(e) {
@@ -354,46 +504,86 @@ function endDrag(e) {
     el.classList.remove('dragging');
     el.style.transform = '';
   });
+  $('#stage').classList.remove('lifting');
+  reserveEl.classList.remove('over');
   if (e.type === 'pointercancel' || !game || game.done) return;
 
-  // snap to the grid, keeping the whole group on the table
-  const cs = d.pieces.map((piece) => game.pos[piece] % game.tcols);
-  const rs = d.pieces.map((piece) => Math.floor(game.pos[piece] / game.tcols));
-  const clamp = (n, lo, hi) => Math.min(hi, Math.max(lo, n));
-  const dc = clamp(Math.round((e.clientX - d.x) / game.cw), -Math.min(...cs), game.tcols - 1 - Math.max(...cs));
-  const dr = clamp(Math.round((e.clientY - d.y) / game.ch), -Math.min(...rs), game.trows - 1 - Math.max(...rs));
-  if (!dc && !dr) return;
-
-  const groupsBefore = game.groups;
-  if (!moveGroup(d.id, dc, dr)) {
-    flash(d.els, 'nope');
+  const blocksBefore = game.groups;
+  if (overReserve(e)) {
+    setAside(d.pieces);
+    settle(blocksBefore, d.id);
     return;
   }
-  refresh();
-  // the tune moves on each time pieces fuse; otherwise it repeats its note
-  if (game.groups < groupsBefore) {
-    sound.correct(1);
-    flash(membersOf(game.group[d.id]).map((piece) => game.els[piece]), 'fused');
-  } else {
-    sound.swap();
-  }
-  if (game.groups === 1) win();
+  // snap to the grid, keeping the whole block on the canvas
+  const cs = d.pieces.map((piece) => game.pos[piece] % game.cols);
+  const rs = d.pieces.map((piece) => Math.floor(game.pos[piece] / game.cols));
+  const dc = clamp(Math.round((e.clientX - d.x) / game.cw), -Math.min(...cs), game.cols - 1 - Math.max(...cs));
+  const dr = clamp(Math.round((e.clientY - d.y) / game.ch), -Math.min(...rs), game.rows - 1 - Math.max(...rs));
+  if (!dc && !dr) return;
+  place(d.pieces, d.pieces.map((piece) => game.pos[piece] + dc + dr * game.cols), dc, dr);
+  settle(blocksBefore, d.id);
 }
 board.addEventListener('pointerup', endDrag);
 board.addEventListener('pointercancel', endDrag);
+
+// Taking a block back out of the reserve. The strip scrolls sideways, so a
+// block only comes out once the finger moves; it then follows at full size.
+reserveEl.addEventListener('pointerdown', (e) => {
+  const item = e.target.closest('.held');
+  if (!item || !game || game.done || hold || drag) return;
+  reserveEl.setPointerCapture(e.pointerId);
+  hold = { item, pieces: game.held[+item.dataset.index], x: e.clientX, y: e.clientY, pointer: e.pointerId, out: false };
+});
+
+reserveEl.addEventListener('pointermove', (e) => {
+  if (!hold || e.pointerId !== hold.pointer) return;
+  if (!hold.out) {
+    if (Math.hypot(e.clientX - hold.x, e.clientY - hold.y) < 8) return;
+    hold.out = true;
+    hold.box = boxOf(hold.pieces);
+    hold.item.classList.add('floating');
+    hold.item.style.setProperty('--cw', game.cw + 'px');
+    hold.item.style.setProperty('--ch', game.ch + 'px');
+    hold.item.style.width = hold.box.w * game.cw + 'px';
+    hold.item.style.height = hold.box.h * game.ch + 'px';
+    $('#play').append(hold.item);
+  }
+  hold.item.style.left = e.clientX - (hold.box.w * game.cw) / 2 + 'px';
+  hold.item.style.top = e.clientY - (hold.box.h * game.ch) / 2 + 'px';
+});
+
+function endHold(e) {
+  if (!hold || e.pointerId !== hold.pointer) return;
+  const h = hold;
+  hold = null;
+  if (!h.out || !game) return;
+  const rect = board.getBoundingClientRect();
+  const onCanvas =
+    e.type === 'pointerup' && !game.done &&
+    e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+  if (onCanvas) {
+    // centre the block under the finger, snapped to the grid and kept on the canvas
+    const c0 = clamp(Math.round((e.clientX - rect.left) / game.cw - h.box.w / 2), 0, game.cols - h.box.w);
+    const r0 = clamp(Math.round((e.clientY - rect.top) / game.ch - h.box.h / 2), 0, game.rows - h.box.h);
+    const blocksBefore = game.groups;
+    const targets = h.pieces.map(
+      (piece) => (r0 + Math.floor(piece / game.cols) - h.box.r) * game.cols + c0 + (piece % game.cols) - h.box.c
+    );
+    place(h.pieces, targets);
+    settle(blocksBefore, h.pieces[0]);
+  } else {
+    refresh();
+  }
+  h.item.remove();
+}
+reserveEl.addEventListener('pointerup', endHold);
+reserveEl.addEventListener('pointercancel', endHold);
 
 /* ---------- Solved ---------- */
 
 function win() {
   game.done = true;
   const p = game.p;
-  // slide the finished picture to the middle of the table
-  const left = Math.floor((game.tcols - game.cols) / 2);
-  const top = Math.floor((game.trows - game.rows) / 2);
-  game.pos = game.pos.map((_, piece) => (top + Math.floor(piece / game.cols)) * game.tcols + left + (piece % game.cols));
-  game.cell.fill(-1);
-  game.pos.forEach((spot, piece) => (game.cell[spot] = piece));
-  refresh();
   solved.add(p.id);
   saveSolved();
   sound.finish();
