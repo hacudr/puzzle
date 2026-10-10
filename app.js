@@ -62,7 +62,14 @@ function setLevel(next) {
     localStorage.setItem(LEVEL_KEY, level);
   } catch {}
   document.querySelectorAll('#levels button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.level === level));
+  // the collection says which difficulty is chosen, as "Easy · about 40 pieces"
+  const chosen = $(`#levels [data-level="${level}"]`);
+  $('#levelNote').textContent = chosen.firstChild.textContent + ' · ' + chosen.querySelector('small').textContent;
   labelCards();
+}
+
+function showVoice() {
+  document.querySelectorAll('#voices button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.voice === sound.voice()));
 }
 
 // The line under each card's name; unfinished puzzles are per difficulty.
@@ -146,7 +153,7 @@ function savedProgress(p, cols, rows) {
 
 function show(id) {
   document.querySelectorAll('.screen').forEach((s) => (s.hidden = s.id !== id));
-  $('meta[name="theme-color"]').content = id === 'gallery' ? PAGE_COLOR : wallColor;
+  $('meta[name="theme-color"]').content = id === 'play' || id === 'done' ? wallColor : PAGE_COLOR;
 }
 
 function loadImage(src) {
@@ -596,19 +603,34 @@ function endDrag(e) {
 board.addEventListener('pointerup', endDrag);
 board.addEventListener('pointercancel', endDrag);
 
-// Taking a block back out of the reserve. The strip scrolls sideways, so a
-// block only comes out once the finger moves; it then follows at full size.
+// Taking a block back out of the reserve; it follows the finger at full size.
+// A finger on a block is ours to read, not the browser's: left to the browser,
+// a pull that set off sideways (the canvas is rarely straight above) was taken
+// for scrolling the strip and the block never came out. So a full strip is
+// scrolled from here, by a sideways pull that stays inside it; any other pull
+// brings the block out.
 reserveEl.addEventListener('pointerdown', (e) => {
   const item = e.target.closest('.held');
   if (!item || !game || game.done || hold || drag) return;
   reserveEl.setPointerCapture(e.pointerId);
-  hold = { item, pieces: game.held[+item.dataset.index], x: e.clientX, y: e.clientY, pointer: e.pointerId, out: false };
+  hold = {
+    item, pieces: game.held[+item.dataset.index], x: e.clientX, y: e.clientY, pointer: e.pointerId,
+    out: false, scroll: reserveEl.scrollLeft, scrolling: false,
+  };
 });
 
 reserveEl.addEventListener('pointermove', (e) => {
   if (!hold || e.pointerId !== hold.pointer) return;
   if (!hold.out) {
-    if (Math.hypot(e.clientX - hold.x, e.clientY - hold.y) < 8) return;
+    const dx = e.clientX - hold.x;
+    const dy = e.clientY - hold.y;
+    if (!hold.scrolling && Math.hypot(dx, dy) < 8) return;
+    const full = reserveEl.scrollWidth > reserveEl.clientWidth;
+    if (overReserve(e) && (hold.scrolling || (full && Math.abs(dx) > Math.abs(dy)))) {
+      hold.scrolling = true;
+      reserveEl.scrollLeft = hold.scroll - dx;
+      return;
+    }
     hold.out = true;
     hold.box = boxOf(hold.pieces);
     hold.item.classList.add('floating');
@@ -716,7 +738,18 @@ $('#descBtn').addEventListener('click', () => toggleDescription($('#plateText').
 $('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => start(nextPuzzle(game.p)));
 
+$('#settingsBtn').addEventListener('click', () => {
+  showVoice();
+  show('settings');
+});
+$('#settingsBack').addEventListener('click', () => show('gallery'));
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
+document.querySelectorAll('#voices button').forEach((b) =>
+  b.addEventListener('click', () => {
+    sound.setVoice(b.dataset.voice);
+    showVoice();
+  })
+);
 
 window.addEventListener('resize', layout);
 document.addEventListener('pointerdown', () => sound.unlock(), true);

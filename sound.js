@@ -192,10 +192,18 @@ const sound = (() => {
 
     label: () => VOICES[voice].label,
 
+    voice: () => voice,
+
     // Piano -> Harp -> Off
     nextVoice() {
       const names = Object.keys(VOICES);
-      voice = names[(names.indexOf(voice) + 1) % names.length];
+      this.setVoice(names[(names.indexOf(voice) + 1) % names.length]);
+    },
+
+    // name is a key of VOICES; plays a short chord so the choice can be heard
+    setVoice(name) {
+      if (!(name in VOICES)) return;
+      voice = name;
       try {
         localStorage.setItem(VOICE_KEY, voice);
       } catch {}

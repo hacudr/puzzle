@@ -58,10 +58,20 @@ button {
 
 #gallery { overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--page); }
 
-.gallery-head { text-align: center; padding: 56px 24px 8px; }
-.gallery-head h1 { margin: 4px 0 0; font-weight: 500; font-size: 2.6rem; letter-spacing: .01em; }
+.gallery-head { position: relative; text-align: center; padding: 56px 24px 8px; }
+.gallery-head h1, .settings-body h1 { margin: 4px 0 0; font-weight: 500; font-size: 2.6rem; letter-spacing: .01em; }
+.level-note { margin: 10px 0 0; font-style: italic; color: var(--ink-soft); }
+.gear { position: absolute; top: 18px; right: 22px; color: var(--ink-soft); }
+.gear:active { background: rgba(51, 41, 31, .1); }
+
+/* ---------- Settings ---------- */
+
+#settings { overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--page); }
+.settings-body { text-align: center; padding: 0 24px 72px; }
+.settings-body section { margin-top: 48px; }
 
 .levels { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 14px 34px; margin-top: 26px; }
+.settings-body .levels { margin-top: 12px; }
 .levels button {
   font-size: 1.35rem;
   font-weight: 500;
@@ -90,7 +100,8 @@ button {
   text-align: left;
   border-radius: 14px;
   overflow: hidden;
-  background: var(--label);
+  background: #111;
+  color: var(--cream);
   box-shadow: 0 1px 2px rgba(60, 40, 20, .18), 0 12px 28px -12px rgba(60, 40, 20, .45);
   transition: transform .18s ease;
 }
@@ -117,9 +128,9 @@ button {
 .card.solved .card-img img { opacity: 1; }
 
 .card-label { display: block; padding: 12px 16px 16px; }
-.card-label i { display: block; font-size: .95rem; color: rgba(51, 41, 31, .8); }
+.card-label i { display: block; font-size: .95rem; color: rgba(243, 235, 221, .8); }
 .card-label b { display: block; font-weight: 500; font-size: 1.45rem; line-height: 1.15; }
-.card-label small { display: block; margin-top: 6px; font-size: .8rem; font-style: italic; color: rgba(51, 41, 31, .7); }
+.card-label small { display: block; margin-top: 6px; font-size: .8rem; font-style: italic; color: rgba(243, 235, 221, .7); }
 
 .empty { text-align: center; padding: 40px; color: var(--ink-soft); font-size: 1.1rem; }
 
@@ -232,7 +243,8 @@ button {
 .reserve-hint { margin: auto; font-style: italic; color: var(--ink-soft); pointer-events: none; }
 .reserve:not(.empty) .reserve-hint { display: none; }
 
-.held { position: relative; flex: none; touch-action: pan-x; }
+/* touches on a block are handled in app.js, which also scrolls a full strip */
+.held { position: relative; flex: none; touch-action: none; }
 .wall > .held.floating { position: fixed; z-index: 30; pointer-events: none; }
 
 .board {
