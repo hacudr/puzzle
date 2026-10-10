@@ -355,12 +355,6 @@ const sound = (() => {
 
     voice: () => voice,
 
-    // Piano -> Harp -> Off
-    nextVoice() {
-      const names = Object.keys(VOICES);
-      this.setVoice(names[(names.indexOf(voice) + 1) % names.length]);
-    },
-
     // name is a key of VOICES; plays a short chord so the choice can be heard
     setVoice(name) {
       if (!(name in VOICES)) return;

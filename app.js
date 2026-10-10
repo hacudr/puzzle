@@ -29,6 +29,8 @@ let artists = [];
 let artist = null;
 // where the settings page goes back to
 let settingsFrom = 'gallery';
+// the difficulty a paused puzzle had when its settings were opened
+let levelBefore = null;
 let solved = loadSolved();
 let level = loadLevel();
 let progress = loadProgress();
@@ -374,7 +376,7 @@ async function start(p, fresh = false) {
     return;
   }
   $('#pause').hidden = true;
-  $('#quitBtn').textContent = $('#backName').textContent = artistOf(p).name;
+  $('#quitName').textContent =$('#backName').textContent = artistOf(p).name;
   show('play');
 
   const aspect = img.naturalWidth / img.naturalHeight;
@@ -759,6 +761,7 @@ function showPlate(p) {
   $('#plateImg').style.backgroundImage = `url("${p.image}")`;
   $('#plateSci').textContent = p.scientific || '';
   $('#plateName').textContent = p.name;
+  $('#plateArtist').textContent = p.artist || '';
   const credit = sound.credit();
   $('#plateMusic').textContent = credit ? `Music: ${credit.composer}, ${credit.title}` : '';
   $('#plateMusic').hidden = !credit;
@@ -784,13 +787,13 @@ function nextPuzzle(p) {
 
 /* ---------- Controls ---------- */
 
-$('#pauseBtn').addEventListener('click', () => {
-  $('#soundBtn').textContent = 'Sound: ' + sound.label();
-  $('#pause').hidden = false;
-});
-$('#soundBtn').addEventListener('click', () => {
-  sound.nextVoice();
-  $('#soundBtn').textContent = 'Sound: ' + sound.label();
+$('#pauseBtn').addEventListener('click', () => ($('#pause').hidden = false));
+// Settings from a paused puzzle: the puzzle waits behind them, still paused.
+$('#pauseSettings').addEventListener('click', () => {
+  settingsFrom = 'play';
+  levelBefore = level;
+  showVoice();
+  show('settings');
 });
 $('#resumeBtn').addEventListener('click', () => ($('#pause').hidden = true));
 $('#restartBtn').addEventListener('click', () => start(game.p, true));
@@ -818,7 +821,15 @@ document.querySelectorAll('.gear').forEach((b) =>
     show('settings');
   })
 );
-$('#settingsBack').addEventListener('click', () => show(settingsFrom));
+$('#settingsBack').addEventListener('click', async () => {
+  // A new difficulty reopens the same picture at it, where that one was left
+  // off; the old difficulty keeps its own progress.
+  if (settingsFrom === 'play' && level !== levelBefore) {
+    await start(game.p);
+    $('#pause').hidden = false;
+  }
+  show(settingsFrom);
+});
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
 document.querySelectorAll('#voices button').forEach((b) =>
   b.addEventListener('click', () => {

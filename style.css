@@ -1,5 +1,15 @@
+/* Spectral, bundled so the app needs nothing from outside */
+@font-face { font-family: Spectral; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/spectral-400-normal.woff2") format("woff2"); }
+@font-face { font-family: Spectral; font-weight: 400; font-style: italic; font-display: swap; src: url("fonts/spectral-400-italic.woff2") format("woff2"); }
+@font-face { font-family: Spectral; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/spectral-500-normal.woff2") format("woff2"); }
+@font-face { font-family: Spectral; font-weight: 500; font-style: italic; font-display: swap; src: url("fonts/spectral-500-italic.woff2") format("woff2"); }
+@font-face { font-family: "Averia Serif"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/averia-serif-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Averia Serif"; font-weight: 400; font-style: italic; font-display: swap; src: url("fonts/averia-serif-400-italic.woff2") format("woff2"); }
+
 :root {
   --cream: #f3ebdd;
+  /* the mat, and the lettering on the label under it */
+  --offwhite: #f2ecdf;
   --page: #f3d9d1;
   --ink: #33291f;
   --ink-soft: #6f6051;
@@ -8,7 +18,7 @@
   --table: #e6d9c3;
   /* width of the white mat between the frame and the picture */
   --mat: clamp(16px, 2.6vw, 28px);
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --serif: "Averia Serif", Spectral, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -140,16 +150,27 @@ button {
 
 /* the same paper as the gallery pages */
 .wall { background: var(--page); }
+/* a vignette: lightest where the picture hangs, a little darker toward the edges */
+.wall::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 46%, rgba(255, 250, 246, .5), transparent 70%),
+    radial-gradient(ellipse 110% 95% at 50% 46%, transparent 42%, rgba(120, 66, 50, .36) 100%);
+}
 .wall > * { position: relative; z-index: 1; }
 .wall > .overlay { position: absolute; z-index: 20; }
 
-/* slim frame in worn, antique gilt, with a white mat inside it */
+/* slim frame in worn, antique gilt, with an off-white mat inside it */
 .frame {
   border: 9px solid;
   border-color: #c9b077 #94773f #6c5429 #ad9158;
   padding: var(--mat);
-  background: #fbf9f4;
-  box-shadow: 0 0 0 1px #46361a, inset 0 0 0 1px #bfa468, inset 0 3px 6px rgba(0, 0, 0, .22);
+  background: var(--offwhite);
+  /* the outline catches the light along the top */
+  box-shadow: 0 -1px 0 0 #e3cf96, 0 0 0 1px #8a7044, inset 0 0 0 1px #bfa468, inset 0 3px 6px rgba(0, 0, 0, .22);
 }
 
 /* ---------- Puzzle ---------- */
@@ -315,6 +336,28 @@ button {
 }
 .link:active { opacity: .55; }
 
+/* Pause menu: an icon beside each name. The rows start at the same edge so
+   the icons line up, and the underline stays under the words alone. */
+.menu .link {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+  border-bottom: 0;
+}
+.menu .link span { padding: 4px 2px 1px; border-bottom: 1.5px solid var(--ink); }
+.menu .link svg {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* ---------- Solved ---------- */
 
 .back { display: inline-flex; align-items: center; gap: 4px; font: 500 1.05rem/1 -apple-system, "Helvetica Neue", sans-serif; padding: 12px 8px; }
@@ -337,12 +380,12 @@ button {
   min-height: 0;
   --base: 620px;
   /* height taken by everything but the picture: bar, frame and mat, label, links */
-  --rest: 385px;
+  --rest: 400px;
   /* no wider than lets the whole picture show at its own shape */
   width: min(calc(var(--base) * var(--grow, 1)), 100%, calc((100dvh - var(--rest)) * var(--aspect, .8) + 2 * var(--mat) + 18px));
   align-items: center;
   gap: 20px;
-  color: var(--cream);
+  color: var(--offwhite);
 }
 
 /* Arriving: the screen fades in over the finished puzzle, then the picture
@@ -370,15 +413,19 @@ button {
   background: #111;
   border-radius: 3px;
 }
-.sci { margin: 0 0 2px; font-style: italic; font-size: 1rem; color: rgba(243, 235, 221, .8); }
-.plate-label h2 { margin: 0; font-weight: 500; font-size: 1.6rem; line-height: 1.15; }
-.music { margin: 6px 0 0; font-size: .8rem; font-style: italic; color: rgba(243, 235, 221, .7); }
+/* the date, on the same line as the title */
+.sci { font-style: italic; font-weight: 400; font-size: 1rem; opacity: .8; }
+.sci:not(:empty)::before { content: ", "; }
+.plate-label h2 { margin: 0; font-weight: 500; font-size: 1.35rem; line-height: 1.15; }
+.by { margin: 4px 0 0; font-size: 1.05rem; }
+/* what was played, on the wall under the label */
+.music { flex: none; margin: -8px 0 0; font-size: .85rem; font-style: italic; text-align: center; color: var(--ink-soft); }
 
 .done-links { flex: none; display: flex; align-items: center; gap: 30px; }
 .done-links .link { font-size: 1.05rem; padding: 10px 4px 2px; border-bottom-width: 1px; }
 
 @media (max-height: 760px) {
   .done-body { gap: 16px; padding-bottom: 16px; }
-  .plate { --base: 340px; --rest: 340px; }
+  .plate { --base: 340px; --rest: 355px; }
   .stage { margin-bottom: calc(32px + var(--mat)); }
 }
