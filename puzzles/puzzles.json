@@ -2210,5 +2210,90 @@
     "artist": "Artemisia Gentileschi",
     "name": "Self-Portrait as the Allegory of Painting",
     "scientific": "1638–1639"
+  },
+  {
+    "image": "cole-the-titans-goblet.webp",
+    "artist": "Hudson River School",
+    "name": "The Titan's Goblet",
+    "scientific": "Thomas Cole, 1833"
+  },
+  {
+    "image": "cole-the-oxbow.webp",
+    "artist": "Hudson River School",
+    "name": "The Oxbow",
+    "scientific": "Thomas Cole, 1836"
+  },
+  {
+    "image": "durand-the-beeches.webp",
+    "artist": "Hudson River School",
+    "name": "The Beeches",
+    "scientific": "Asher Brown Durand, 1845"
+  },
+  {
+    "image": "durand-in-the-woods.webp",
+    "artist": "Hudson River School",
+    "name": "In the Woods",
+    "scientific": "Asher Brown Durand, 1855"
+  },
+  {
+    "image": "church-heart-of-the-andes.webp",
+    "artist": "Hudson River School",
+    "name": "Heart of the Andes",
+    "scientific": "Frederic Edwin Church, 1859"
+  },
+  {
+    "image": "heade-approaching-thunder-storm.webp",
+    "artist": "Hudson River School",
+    "name": "Approaching Thunder Storm",
+    "scientific": "Martin Johnson Heade, 1859"
+  },
+  {
+    "image": "gifford-a-gorge-in-the-mountains.webp",
+    "artist": "Hudson River School",
+    "name": "A Gorge in the Mountains (Kauterskill Clove)",
+    "scientific": "Sanford Robinson Gifford, 1862"
+  },
+  {
+    "image": "lane-stage-fort-across-gloucester-harbor.webp",
+    "artist": "Hudson River School",
+    "name": "Stage Fort across Gloucester Harbor",
+    "scientific": "Fitz Henry Lane, 1862"
+  },
+  {
+    "image": "bierstadt-the-rocky-mountains-landers-peak.webp",
+    "artist": "Hudson River School",
+    "name": "The Rocky Mountains, Lander's Peak",
+    "scientific": "Albert Bierstadt, 1863",
+    "content": ["violence"]
+  },
+  {
+    "image": "cropsey-the-valley-of-wyoming.webp",
+    "artist": "Hudson River School",
+    "name": "The Valley of Wyoming",
+    "scientific": "Jasper Francis Cropsey, 1865"
+  },
+  {
+    "image": "kensett-lake-george.webp",
+    "artist": "Hudson River School",
+    "name": "Lake George",
+    "scientific": "John Frederick Kensett, 1869"
+  },
+  {
+    "image": "whittredge-the-trout-pool.webp",
+    "artist": "Hudson River School",
+    "name": "The Trout Pool",
+    "scientific": "Worthington Whittredge, 1870"
+  },
+  {
+    "image": "kensett-eatons-neck-long-island.webp",
+    "artist": "Hudson River School",
+    "name": "Eaton's Neck, Long Island",
+    "scientific": "John Frederick Kensett, 1872"
+  },
+  {
+    "image": "heade-newburyport-meadows.webp",
+    "artist": "Hudson River School",
+    "name": "Newburyport Meadows",
+    "scientific": "Martin Johnson Heade, c. 1876–1881"
   }
 ]
