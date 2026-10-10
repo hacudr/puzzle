@@ -28,7 +28,7 @@ Thumbnails are part of adding a puzzle, never a separate request. If any listed 
 
 ## Pulling pictures from the National Gallery of Art
 
-`node nga.js "Claude Monet"` fetches every open-access picture by that artist from the gallery's open data into `puzzles/images/` (4096 px on the longest side, as JPEGs named ready to use as the slug) and writes `puzzles/images/<surname>.nga.json` with the gallery's title, date, medium, credit line and a description of each picture. It skips pictures already downloaded. Then carry out the four steps above for each one, taking titles and dates from that file rather than guessing.
+`node nga.js "Claude Monet"` fetches every open-access picture by that artist from the gallery's open data into `puzzles/images/` (4096 px on the longest side, as JPEGs named ready to use as the slug) and writes `puzzles/images/<surname>.nga.json` with the gallery's title, date, medium, credit line and a description of each picture. It skips pictures already downloaded. A second word keeps to one kind of work, for an artist the gallery also holds hundreds of prints by: `node nga.js "Mary Cassatt" Painting`. Then carry out the four steps above for each one, taking titles and dates from that file rather than guessing.
 
 ## Publishing
 

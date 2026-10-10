@@ -2,6 +2,7 @@
 // open data (https://github.com/NationalGalleryOfArt/opendata) into
 // puzzles/images/, with a <lastname>.nga.json of what the gallery says about
 // each one: node nga.js "Claude Monet"
+// A second word keeps to one kind of work: node nga.js "Mary Cassatt" Painting
 const fs = require('fs');
 const path = require('path');
 
@@ -58,7 +59,8 @@ const slug = (s) => plain(s.replace(/\(.*?\)/g, '').split(' - ')[0]).replace(/['
 
 async function main() {
   const wanted = process.argv[2];
-  if (!wanted) throw new Error('Usage: node nga.js "Artist Name"');
+  const kind = process.argv[3];
+  if (!wanted) throw new Error('Usage: node nga.js "Artist Name" [Painting|Drawing|Print]');
   const artists = await rows('constituents', (r) => plain(r.forwarddisplayname) === plain(wanted) || plain(r.preferreddisplayname) === plain(wanted));
   if (artists.length !== 1) {
     throw new Error(`${artists.length} artists match "${wanted}"` + artists.map((a) => `\n  ${a.forwarddisplayname}, ${a.displaydate}`).join(''));
@@ -69,7 +71,7 @@ async function main() {
   const roles = new Map();
   await rows('objects_constituents', (r) => r.constituentid === artist.constituentid && r.roletype === 'artist' && roles.set(r.objectid, r.role));
   const [objects, images, terms] = await Promise.all([
-    rows('objects', (r) => roles.has(r.objectid)),
+    rows('objects', (r) => roles.has(r.objectid) && (!kind || plain(r.classification) === plain(kind))),
     rows('published_images', (r) => roles.has(r.depictstmsobjectid) && r.viewtype === 'primary' && r.openaccess === '1'),
     rows('objects_terms', (r) => roles.has(r.objectid) && r.termtype !== 'Systematic Catalogue Volume'),
   ]);
