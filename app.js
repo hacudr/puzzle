@@ -3,6 +3,7 @@ const $ = (s) => document.querySelector(s);
 const SOLVED_KEY = 'puzzle.solved';
 const LEVEL_KEY = 'puzzle.level';
 const GUIDE_KEY = 'puzzle.guide';
+const PROGRESS_KEY = 'puzzle.progress';
 // height of the reference picture, and limits for the reserve strip, in px
 const GUIDE_HEIGHT = 94;
 const STRIP_MIN = 64;
@@ -31,6 +32,7 @@ const reserveEl = $('#reserve');
 let puzzles = [];
 let solved = loadSolved();
 let level = loadLevel();
+let progress = loadProgress();
 let game = null;
 let drag = null;
 let hold = null;
@@ -60,6 +62,15 @@ function setLevel(next) {
     localStorage.setItem(LEVEL_KEY, level);
   } catch {}
   document.querySelectorAll('#levels button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.level === level));
+  labelCards();
+}
+
+// The line under each card's name; unfinished puzzles are per difficulty.
+function labelCards() {
+  document.querySelectorAll('#grid .card').forEach((card, i) => {
+    const p = puzzles[i];
+    card.querySelector('small').textContent = progressKey(p) in progress ? 'In progress' : solved.has(p.id) ? 'Solved' : '';
+  });
 }
 
 // The reference picture in the top bar stays on unless it has been switched off.
@@ -83,6 +94,54 @@ function saveSolved() {
   try {
     localStorage.setItem(SOLVED_KEY, JSON.stringify([...solved]));
   } catch {}
+}
+
+// Unfinished puzzles are kept per picture and difficulty, so a half-done hard
+// puzzle survives someone else solving the same picture on Kids.
+const progressKey = (p) => p.id + '|' + level;
+
+function loadProgress() {
+  try {
+    return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
+function writeProgress() {
+  try {
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+  } catch {}
+}
+
+function saveProgress() {
+  const { p, cols, rows, pos, held } = game;
+  progress[progressKey(p)] = { cols, rows, pos, held };
+  writeProgress();
+}
+
+function clearProgress(p) {
+  if (!(progressKey(p) in progress)) return;
+  delete progress[progressKey(p)];
+  writeProgress();
+}
+
+// The saved state for this picture, if it still fits the grid and accounts for
+// every piece exactly once.
+function savedProgress(p, cols, rows) {
+  const s = progress[progressKey(p)];
+  const count = cols * rows;
+  if (!s || s.cols !== cols || s.rows !== rows || !Array.isArray(s.pos) || !Array.isArray(s.held)) return null;
+  if (s.pos.length !== count || !s.held.every(Array.isArray)) return null;
+  const inReserve = new Set(s.held.flat());
+  const spots = new Set();
+  for (let piece = 0; piece < count; piece++) {
+    const spot = s.pos[piece];
+    if (!Number.isInteger(spot) || spot >= count || (spot < 0) !== inReserve.has(piece) || spots.has(spot)) return null;
+    if (spot >= 0) spots.add(spot);
+  }
+  if (inReserve.size !== s.held.flat().length || inReserve.size + spots.size !== count) return null;
+  return s;
 }
 
 function show(id) {
@@ -127,10 +186,10 @@ function renderGallery() {
     face.src = p.image.replace('puzzles/', 'puzzles/thumbs/');
     card.querySelector('i').textContent = p.scientific || '';
     card.querySelector('b').textContent = p.name;
-    card.querySelector('small').textContent = solved.has(p.id) ? 'Solved' : '';
     card.addEventListener('click', () => start(p));
     grid.append(card);
   }
+  labelCards();
 }
 
 function openGallery() {
@@ -244,7 +303,8 @@ function scatter(g, count) {
   }
 }
 
-async function start(p) {
+// Opens a puzzle where it was left off; `fresh` deals it again from scratch.
+async function start(p, fresh = false) {
   let img;
   try {
     img = await loadImage(p.image);
@@ -259,7 +319,16 @@ async function start(p) {
   const aspect = img.naturalWidth / img.naturalHeight;
   const { cols, rows } = gridFor(aspect, LEVELS[level], CAPPED[level]);
   game = { p, cols, rows, aspect, held: [], els: [], done: false };
-  scatter(game, cols * rows);
+  if (fresh) clearProgress(p);
+  const saved = savedProgress(p, cols, rows);
+  if (saved) {
+    game.pos = saved.pos.slice();
+    game.held = saved.held.map((block) => block.slice());
+    game.cell = new Array(cols * rows).fill(-1);
+    game.pos.forEach((spot, piece) => spot >= 0 && (game.cell[spot] = piece));
+  } else {
+    scatter(game, cols * rows);
+  }
 
   sound.setTune(p.music, puzzles.indexOf(p));
   piecesEl.textContent = '';
@@ -473,6 +542,7 @@ function settle(blocksBefore, id) {
     sound.swap();
   }
   if (game.groups === 1 && !game.held.length) win();
+  else saveProgress();
 }
 
 const overReserve = (e) => e.clientY >= reserveEl.getBoundingClientRect().top;
@@ -586,6 +656,7 @@ function win() {
   const p = game.p;
   solved.add(p.id);
   saveSolved();
+  clearProgress(p);
   sound.finish();
   setTimeout(() => {
     if (game && game.p === p) showPlate(p);
@@ -630,7 +701,7 @@ $('#soundBtn').addEventListener('click', () => {
   $('#soundBtn').textContent = 'Sound: ' + sound.label();
 });
 $('#resumeBtn').addEventListener('click', () => ($('#pause').hidden = true));
-$('#restartBtn').addEventListener('click', () => start(game.p));
+$('#restartBtn').addEventListener('click', () => start(game.p, true));
 $('#quitBtn').addEventListener('click', openGallery);
 
 $('#peekBtn').addEventListener('click', () => setGuide(guideEl.classList.contains('off')));
@@ -642,7 +713,7 @@ guideEl.addEventListener('click', () => {
 
 $('#backBtn').addEventListener('click', openGallery);
 $('#descBtn').addEventListener('click', () => toggleDescription($('#plateText').hidden));
-$('#againBtn').addEventListener('click', () => start(game.p));
+$('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => start(nextPuzzle(game.p)));
 
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
