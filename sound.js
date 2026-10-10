@@ -1,14 +1,18 @@
-// Synthesised piano / harp / string notes. Each correctly placed piece plays the next
+// Synthesised piano and lute notes. Each correctly placed piece plays the next
 // step of the puzzle's tune, so solving the puzzle slowly plays the music; any
 // other swap repeats the step it has reached.
 const sound = (() => {
-  const VOICE_KEY = 'puzzle.sound';
+  // Settings can turn off the music (the notes, and the recording a puzzle ends
+  // on) and the sound effects (the sword and the hooves), each on its own.
+  const KEYS = { music: 'puzzle.music', effects: 'puzzle.effects' };
   const VOICES = {
-    piano: { label: 'Piano', attack: 0.006, decay: 2.4, partials: [[1, 1], [2, 0.45], [3, 0.2], [4, 0.1], [5, 0.05]] },
-    harp: { label: 'Harp', attack: 0.003, decay: 1.5, partials: [[1, 1], [2, 0.22], [3, 0.07]] },
-    // a violin, and a cello below its bottom G: bowed, so a note holds for its length instead of dying away
-    strings: { label: 'Strings', bowed: true, attack: 0.07, release: 0.3 },
-    off: { label: 'Off' },
+    piano: { attack: 0.006, decay: 2.4, partials: [[1, 1], [2, 0.45], [3, 0.2], [4, 0.1], [5, 0.05]] },
+    // The lute is worked out string by string. decay = seconds for middle C to
+    // die away, cutoff = how bright the pluck is, in Hz, damping = how fast the
+    // top of the sound goes (0.5 at most), and each string is [pitch as a
+    // multiple, seconds late, where along it is plucked, level].
+    // a lute: a course of two gut strings, plucked with the fingertip well along them
+    lute: { plucked: true, decay: 2.6, cutoff: 2200, damping: 0.5, strings: [[1, 0, 0.27, 1], [1.0015, 0.005, 0.31, 0.9]] },
   };
 
   // Steps are separated by spaces; notes joined with + sound together. A step
@@ -16,10 +20,10 @@ const sound = (() => {
   // lets the ending be played in tempo. unit = seconds per unit, bar = units
   // per bar, lead = units of silence before the first step, pause = the ending
   // stops short of a step that comes more than this many units after the last.
-  // A tune with a voice is always played in it, whatever the settings say, and
-  // is kept for the pictures of violence and fright. For the bowed voice a note
-  // may carry its own length (F3:12 holds for twelve units while the steps above
-  // it move on), and a step ending in ~ is a tremolo: one note, bowed once a unit.
+  // A tune is played on the piano unless it names another voice; those that do
+  // are kept for the pictures of violence and fright. A note may carry its own
+  // length (F3:12 is twelve units long while the steps above it move on), and a
+  // step ending in ~ is a tremolo: one note, plucked again every unit.
   const octaveUp = (steps) => steps.replace(/[A-G][#b]?\d/g, (name) => name.slice(0, -1) + (+name.slice(-1) + 1));
   const octaves = (steps) => steps.replace(/[A-G][#b]?\d/g, (name) => name + '+' + name.slice(0, -1) + (name.slice(-1) - 1));
   const PATHETIQUE = [
@@ -257,7 +261,7 @@ const sound = (() => {
     summer: {
       composer: 'Antonio Vivaldi',
       title: 'The Four Seasons, “Summer”, Presto',
-      voice: 'strings',
+      voice: 'lute',
       unit: 0.1,
       bar: 12,
       steps: [
@@ -275,7 +279,7 @@ const sound = (() => {
     fate: {
       composer: 'Ludwig van Beethoven',
       title: 'Symphony No. 5, first movement',
-      voice: 'strings',
+      voice: 'lute',
       unit: 0.17,
       bar: 4,
       lead: 1,
@@ -291,7 +295,7 @@ const sound = (() => {
     diesirae: {
       composer: 'Wolfgang Amadeus Mozart',
       title: 'Requiem, Dies irae',
-      voice: 'strings',
+      voice: 'lute',
       unit: 0.24,
       bar: 8,
       steps: [
@@ -320,7 +324,7 @@ const sound = (() => {
     strife: {
       composer: 'Pyotr Ilyich Tchaikovsky',
       title: 'Romeo and Juliet, Fantasy-Overture',
-      voice: 'strings',
+      voice: 'lute',
       unit: 0.115,
       bar: 16,
       steps: [
@@ -335,7 +339,7 @@ const sound = (() => {
     lamentoso: {
       composer: 'Pyotr Ilyich Tchaikovsky',
       title: 'Symphony No. 6 “Pathétique”, finale',
-      voice: 'strings',
+      voice: 'lute',
       unit: 0.28,
       bar: 12,
       steps: [
@@ -352,7 +356,7 @@ const sound = (() => {
     mountainking: {
       composer: 'Edvard Grieg',
       title: 'In the Hall of the Mountain King',
-      voice: 'strings',
+      voice: 'lute',
       unit: 0.21,
       bar: 8,
       steps: MOUNTAIN_KING + ' ' + octaveUp(MOUNTAIN_KING),
@@ -362,7 +366,7 @@ const sound = (() => {
     valkyries: {
       composer: 'Richard Wagner',
       title: 'Ride of the Valkyries',
-      voice: 'strings',
+      voice: 'lute',
       unit: 0.12,
       bar: 18,
       lead: 16,
@@ -385,7 +389,7 @@ const sound = (() => {
     mars: {
       composer: 'Gustav Holst',
       title: 'Mars, the Bringer of War',
-      voice: 'strings',
+      voice: 'lute',
       unit: 0.065,
       bar: 30,
       steps: [
@@ -406,7 +410,7 @@ const sound = (() => {
     baldmountain: {
       composer: 'Modest Mussorgsky',
       title: 'Night on Bald Mountain',
-      voice: 'strings',
+      voice: 'lute',
       unit: 0.115,
       bar: 12,
       steps: [
@@ -448,7 +452,7 @@ const sound = (() => {
     newworld: {
       composer: 'Antonín Dvořák',
       title: 'Symphony No. 9 “From the New World”, finale',
-      voice: 'strings',
+      voice: 'lute',
       unit: 0.2,
       bar: 8,
       steps: octaves(
@@ -515,7 +519,7 @@ const sound = (() => {
 
   let ctx = null;
   let master = null;
-  let voice = 'piano';
+  const on = { music: true, effects: true };
   // each step: { notes, at } with at = when it sounds, in units from the start
   let steps = [];
   let tune = null;
@@ -535,18 +539,18 @@ const sound = (() => {
   let clashing = [];
   // the credit the current tune's recording must carry, if any
   let owed = null;
-  // the bowed voice's two instruments and the noise of its bow, made when first needed
-  let boxes = null;
-  let hiss = null;
+  // the lute's notes worked out so far, by pitch
+  const plucks = {};
 
   try {
-    const saved = localStorage.getItem(VOICE_KEY);
-    if (saved in VOICES) voice = saved;
+    // the one setting there used to be, which silenced everything
+    const silent = localStorage.getItem('puzzle.sound') === 'off';
+    for (const kind in KEYS) on[kind] = (localStorage.getItem(KEYS[kind]) || (silent ? 'off' : 'on')) === 'on';
   } catch {}
 
   // Must first run inside a touch or click, or iOS keeps the audio silent.
   function unlock() {
-    if (voice === 'off') return false;
+    if (!on.music && !on.effects) return false;
     if (!ctx) {
       const Ctx = window.AudioContext || window.webkitAudioContext;
       if (!Ctx) return false;
@@ -571,92 +575,111 @@ const sound = (() => {
     return true;
   }
 
-  // The box of the instrument: resonances that stay where they are whatever note
-  // is played, so that each harmonic swells and fades as the vibrato carries it
-  // across them. That, more than anything, is what tells a violin from a
-  // synthesiser. scale moves them all down, for a cello.
-  function box(scale, level) {
-    const input = ctx.createGain();
-    input.gain.value = level;
-    let last = input;
-    const add = (type, freq, q, db) => {
-      const filter = ctx.createBiquadFilter();
-      filter.type = type;
-      filter.frequency.value = freq;
-      filter.Q.value = q;
-      filter.gain.value = db;
-      last.connect(filter);
-      last = filter;
-    };
-    add('highpass', 180 * scale, 0.7, 0);
-    // the air in the box, two of the wood, the nasal dip and the bridge
-    for (const [freq, q, db] of [[275, 4, 5], [460, 5, 6], [550, 5, 4], [1500, 1.2, -5], [2600, 1.2, 6]]) add('peaking', freq * scale, q, db);
-    add('lowpass', 3800 * Math.sqrt(scale), 0.7, 0);
-    last.connect(master);
-    return input;
+  // One plucked string, added to data from the sample at: a delay line as long
+  // as the note's period, fed back through a filter that takes a little off the
+  // top each time round, which is how a string loses its brightness as it
+  // rings (Karplus and Strong's string, tuned as Jaffe and Smith tuned it).
+  // seconds = how long the note's fundamental takes to die away.
+  function string(data, at, freq, v, pick, level, seconds) {
+    const period = ctx.sampleRate / freq;
+    // the top notes would be gone at once if they lost as much each time round
+    const S = v.damping * Math.min(1, 523 / freq);
+    // the filter delays by S and the all-pass after it by the fraction left over
+    let size = Math.floor(period - S);
+    let rest = period - S - size;
+    if (rest < 0.1) {
+      size--;
+      rest++;
+    }
+    const C = (1 - rest) / (1 + rest);
+    const w = (2 * Math.PI) / period;
+    const loss = Math.min(0.9999, Math.pow(10, -3 / (freq * seconds)) / Math.sqrt(1 - 2 * S * (1 - S) * (1 - Math.cos(w))));
+    // the pluck: a click, dulled, and its echo from the near end of the string
+    const b = 1 - Math.exp((-2 * Math.PI * v.cutoff) / ctx.sampleRate);
+    const gap = Math.max(1, Math.round(pick * period));
+    const click = new Float32Array(gap + Math.ceil(8 / b));
+    for (let i = 0, h = b; i < click.length; i++, h *= 1 - b) {
+      click[i] += h;
+      if (i + gap < click.length) click[i + gap] -= h;
+    }
+    const line = new Float32Array(size);
+    let before = 0;
+    let mean = 0;
+    let passed = 0;
+    for (let i = 0, k = 0; at + i < data.length; i++, k = k + 1 === size ? 0 : k + 1) {
+      const back = line[k];
+      const now = (1 - S) * back + S * before;
+      before = back;
+      passed = C * now + mean - C * passed;
+      mean = now;
+      const y = (i < click.length ? click[i] : 0) + loss * passed;
+      line[k] = y;
+      data[at + i] += level * y;
+    }
   }
 
-  // A bowed note: one string, a sawtooth as a bowed string is, with the hiss of
-  // the hair on it, loudest as the bow bites, and a vibrato that comes in once
-  // the note has settled, no two at quite the same rate. Notes below the
-  // violin's bottom G go to a cello. shake = bow strokes a second, for a tremolo.
-  function bow(v, freq, when, level, hold, shake) {
-    if (!boxes) {
-      boxes = { violin: box(1, 0.8), cello: box(0.4, 0.8) };
-      hiss = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate);
-      const data = hiss.getChannelData(0);
-      for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+  // The note the lute makes at a pitch, worked out once and kept.
+  function plucked(v, pitch) {
+    const id = pitch;
+    const freq = 440 * Math.pow(2, (pitch - 69) / 12);
+    if (plucks[id]) return plucks[id];
+    // low notes ring longer than high ones
+    const seconds = v.decay * Math.min(1.6, Math.max(0.5, Math.pow(262 / freq, 0.35)));
+    const buffer = ctx.createBuffer(1, Math.floor(ctx.sampleRate * Math.min(3.5, seconds)), ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (const [multiple, late, pick, level] of v.strings) {
+      if (freq * multiple < ctx.sampleRate / 8) string(data, Math.round(late * ctx.sampleRate), freq * multiple, v, pick, level, seconds);
     }
-    const release = Math.min(v.release, 0.08 + hold / 2);
-    const end = when + hold;
-    const body = shake ? level * 0.7 : level;
+    let peak = 0;
+    for (let i = 0; i < data.length; i++) peak = Math.max(peak, Math.abs(data[i]));
+    const tail = Math.floor(ctx.sampleRate * 0.05);
+    for (let i = 0; i < data.length; i++) data[i] *= Math.min(1, (data.length - i) / tail) / peak;
+    return (plucks[id] = buffer);
+  }
+
+  // A plucked note rings on its own, and is damped once its length is up.
+  // shake = plucks a second, for a tremolo.
+  function pluck(v, pitch, when, level, hold, shake) {
+    if (shake) {
+      for (let k = 0; k < Math.max(1, Math.round(hold * shake)); k++) pluck(v, pitch, when + k / shake, level * 0.8, 1 / shake, 0);
+      return;
+    }
+    const end = when + Math.max(hold, 0.8);
     const env = ctx.createGain();
-    env.gain.setValueAtTime(0.0001, when);
-    env.gain.exponentialRampToValueAtTime(body, when + Math.min(v.attack, hold * 0.4));
-    env.gain.setValueAtTime(body, end);
-    env.gain.exponentialRampToValueAtTime(0.0001, end + release);
-    env.connect(freq < 190 ? boxes.cello : boxes.violin);
-    const sources = [];
-    // a slow oscillator that wobbles whatever it is connected to by depth, from a moment after the note starts
-    const wobble = (rate, depth, after) => {
-      const osc = ctx.createOscillator();
-      const g = ctx.createGain();
-      osc.frequency.value = rate;
-      g.gain.setValueAtTime(0, when + after);
-      g.gain.linearRampToValueAtTime(depth, when + after + 0.15);
-      osc.connect(g);
-      sources.push(osc);
-      return g;
-    };
-    if (shake) wobble(shake, level * 0.3, 0).connect(env.gain);
-    const string = ctx.createOscillator();
-    string.type = 'sawtooth';
-    string.frequency.value = freq;
-    // nobody stops a string dead in tune
-    string.detune.value = Math.random() * 8 - 4;
-    if (hold > 0.4 && !shake) wobble(5.2 + Math.random() * 0.8, freq * 0.008, 0.2).connect(string.frequency);
-    string.connect(env);
-    sources.push(string);
-    const hair = ctx.createBufferSource();
-    hair.buffer = hiss;
-    hair.loop = true;
-    const scrape = ctx.createGain();
-    scrape.gain.setValueAtTime(0.3, when);
-    scrape.gain.exponentialRampToValueAtTime(0.04, when + 0.09);
-    hair.connect(scrape).connect(env);
-    sources.push(hair);
-    for (const source of sources) {
-      source.start(when);
-      source.stop(end + release + 0.05);
-    }
+    env.gain.setValueAtTime(level, when);
+    env.gain.setValueAtTime(level, end);
+    env.gain.exponentialRampToValueAtTime(0.0001, end + 0.25);
+    env.connect(master);
+    const source = ctx.createBufferSource();
+    source.buffer = plucked(v, pitch);
+    source.connect(env);
+    source.start(when);
+    source.stop(end + 0.3);
   }
 
-  // hold = seconds a bowed note lasts; v = the voice, which the tune may have chosen
-  function note(name, delay = 0, volume = 1, hold = 0.8, shake = 0, v = VOICES[(tune && tune.voice) || voice]) {
+  // Works out the current tune's notes ahead of their turn, if it is played on
+  // the lute, one at a time between other things, so that the first piece to
+  // land does not have to wait.
+  function ready() {
+    const mine = tune;
+    const v = VOICES[tune.voice || 'piano'];
+    if (!ctx || !v.plucked) return;
+    const pitches = [...new Set(steps.flatMap((step) => step.notes.map((n) => midi(n.name))))];
+    const next = () => {
+      if (tune !== mine || !pitches.length) return;
+      plucked(v, pitches.shift());
+      setTimeout(next, 30);
+    };
+    setTimeout(next, 300);
+  }
+
+  // hold = seconds the note is written to last
+  function note(name, delay = 0, volume = 1, hold = 0.8, shake = 0) {
+    const v = VOICES[(tune && tune.voice) || 'piano'];
     const pitch = midi(name);
     const freq = 440 * Math.pow(2, (pitch - 69) / 12);
     const when = ctx.currentTime + delay;
-    if (v.bowed) return bow(v, freq, when, 0.17 * volume, hold, shake);
+    if (v.plucked) return pluck(v, pitch, when, 0.3 * volume * (pitch < 48 ? 0.7 : 1), hold, shake);
     // low notes ring longer than high ones; bass notes sit behind the tune
     const decay = v.decay * Math.min(1.6, Math.max(0.5, Math.pow(262 / freq, 0.35)));
     const level = 0.3 * volume * (pitch < 48 ? 0.5 : 1);
@@ -763,6 +786,7 @@ const sound = (() => {
       });
       length = at;
       heard = -1;
+      ready();
     },
 
     // names is a key of EFFECTS or a list of them, or nothing for a puzzle that
@@ -784,7 +808,7 @@ const sound = (() => {
 
     // count = how many pieces just landed where they belong
     correct(count = 1) {
-      if (!unlock() || !steps.length) return;
+      if (!on.music || !unlock() || !steps.length) return;
       for (let i = 0; i < count; i++) {
         const step = steps[++heard % steps.length];
         play(step, i * 0.2, 1, 0.7);
@@ -793,14 +817,14 @@ const sound = (() => {
 
     // a swap that put nothing in place: repeat the note the tune has reached
     swap() {
-      if (!unlock() || !steps.length) return;
+      if (!on.music || !unlock() || !steps.length) return;
       if (heard < 0) heard = 0;
       const step = steps[heard % steps.length];
       play(step, 0, 0.7, 0.5);
     },
 
     // The puzzle is finished: carry on from the step after the last one heard,
-    // in tempo, to the first bar line that gives at least most of a bar. A bowed
+    // in tempo, to the first bar line that gives at least most of a bar. A stormy
     // tune can hold one note for a whole bar, which is no ending at all, so it
     // goes on bar by bar until four steps have sounded. A tune with a recording
     // ends on that instead. Either way the puzzle's effects, if it has any, come
@@ -808,7 +832,8 @@ const sound = (() => {
     finish() {
       if (!unlock() || !steps.length) return;
       hush();
-      clashing = Object.keys(effect).map((name) => sample(effect[name], EFFECTS[name].level, 0.7, EFFECTS[name].lead, EFFECTS[name].fade));
+      if (on.effects) clashing = Object.keys(effect).map((name) => sample(effect[name], EFFECTS[name].level, 0.7, EFFECTS[name].lead, EFFECTS[name].fade));
+      if (!on.music) return;
       if (clip) {
         playing = sample(clip, 0.6, 0.7);
         return;
@@ -832,22 +857,26 @@ const sound = (() => {
     },
 
     // who wrote the current tune and what it is, and who is playing where the
-    // recording asks to be credited; null with the sound off
-    credit: () => (voice === 'off' || !tune ? null : { composer: tune.composer, title: tune.title, performer: owed }),
+    // recording asks to be credited; null with the music off
+    credit: () => (!on.music || !tune ? null : { composer: tune.composer, title: tune.title, performer: owed }),
 
-    label: () => VOICES[voice].label,
+    // kind is 'music' or 'effects'
+    on: (kind) => on[kind],
 
-    voice: () => voice,
-
-    // name is a key of VOICES; plays a short chord so the choice can be heard
-    setVoice(name) {
-      if (!(name in VOICES)) return;
-      voice = name;
-      if (voice === 'off') hush();
+    // turns the music or the effects on or off; music coming on plays a short
+    // chord, so that it can be heard to have come on
+    set(kind, value) {
+      if (!(kind in KEYS)) return;
+      on[kind] = !!value;
+      if (!value) hush();
       try {
-        localStorage.setItem(VOICE_KEY, voice);
+        localStorage.setItem(KEYS[kind], value ? 'on' : 'off');
       } catch {}
-      if (unlock()) ['C4', 'E4', 'G4'].forEach((name, i) => note(name, i * 0.12, 1, 0.8, 0, VOICES[voice]));
+      if (!value || kind !== 'music' || !unlock()) return;
+      const playing = tune;
+      tune = null;
+      ['C4', 'E4', 'G4'].forEach((name, i) => note(name, i * 0.12));
+      tune = playing;
     },
   };
 })();

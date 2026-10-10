@@ -158,7 +158,7 @@ function showKids() {
 
 const hidden = (kind) => kids || hide.has(kind);
 const visible = (p) => !(p.content || []).some(hidden);
-// pictures of violence or fright are set to the stormy tunes, played on strings
+// pictures of violence or fright are set to the stormy tunes, played on the lute
 const stormy = (p) => (p.content || []).some((kind) => kind === 'violence' || kind === 'frightening');
 
 function setHidden(kind, on) {
@@ -236,8 +236,11 @@ function showTheme() {
   document.querySelectorAll('#themes button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.theme === theme));
 }
 
-function showVoice() {
-  document.querySelectorAll('#voices button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.voice === sound.voice()));
+function showSound() {
+  document.querySelectorAll('#sounds button').forEach((b) => {
+    b.setAttribute('aria-pressed', sound.on(b.dataset.sound));
+    b.querySelector('small').textContent = sound.on(b.dataset.sound) ? 'on' : 'off';
+  });
 }
 
 // The line under each card's name; unfinished puzzles are per difficulty.
@@ -1077,7 +1080,7 @@ $('#pauseBtn').addEventListener('click', () => ($('#pause').hidden = false));
 $('#pauseSettings').addEventListener('click', () => {
   settingsFrom = 'play';
   levelBefore = level;
-  showVoice();
+  showSound();
   show('settings');
 });
 $('#resumeBtn').addEventListener('click', () => ($('#pause').hidden = true));
@@ -1110,7 +1113,7 @@ document.querySelectorAll('.gear').forEach((b) =>
     settingsFrom = b.closest('.screen').id;
     artistBefore = artist;
     periodBefore = period;
-    showVoice();
+    showSound();
     show('settings');
   })
 );
@@ -1162,10 +1165,10 @@ $('#kids [data-kids="on"]').addEventListener('click', () => kids || setKids(true
   for (const type of ['pointerup', 'pointerleave', 'pointercancel']) off.addEventListener(type, release);
   off.addEventListener('contextmenu', (e) => e.preventDefault());
 }
-document.querySelectorAll('#voices button').forEach((b) =>
+document.querySelectorAll('#sounds button').forEach((b) =>
   b.addEventListener('click', () => {
-    sound.setVoice(b.dataset.voice);
-    showVoice();
+    sound.set(b.dataset.sound, !sound.on(b.dataset.sound));
+    showSound();
   })
 );
 document.querySelectorAll('#themes button').forEach((b) => b.addEventListener('click', () => setTheme(b.dataset.theme)));
