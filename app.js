@@ -3,6 +3,7 @@ const $ = (s) => document.querySelector(s);
 const SOLVED_KEY = 'puzzle.solved';
 const LEVEL_KEY = 'puzzle.level';
 const GUIDE_KEY = 'puzzle.guide';
+const TRAY_KEY = 'puzzle.tray';
 const PROGRESS_KEY = 'puzzle.progress';
 const KIDS_KEY = 'puzzle.kids';
 const HIDE_KEY = 'puzzle.hide';
@@ -54,6 +55,8 @@ let game = null;
 let drag = null;
 let hold = null;
 let peekTimer = 0;
+// whether the tray for pieces set aside is switched on
+let trayOn = loadTray();
 
 function loadSolved() {
   try {
@@ -187,13 +190,43 @@ function labelCards() {
   });
 }
 
-// The reference picture in the top bar stays on unless it has been switched off.
+// The reference picture in the top bar stays on unless it has been switched
+// off; without it the bar is slimmer and the puzzle takes the room.
 function setGuide(on) {
   try {
     localStorage.setItem(GUIDE_KEY, on ? 'on' : 'off');
   } catch {}
   guideEl.classList.toggle('off', !on);
+  $('#play').classList.toggle('no-guide', !on);
   $('#peekBtn').setAttribute('aria-pressed', on);
+  layout();
+}
+
+function loadTray() {
+  try {
+    return localStorage.getItem(TRAY_KEY) !== 'off';
+  } catch {
+    return true;
+  }
+}
+
+function setTray(on) {
+  trayOn = on;
+  try {
+    localStorage.setItem(TRAY_KEY, on ? 'on' : 'off');
+  } catch {}
+  showTray();
+}
+
+// The tray is on show while it is switched on or has anything in it; a full
+// canvas can still push a block into it. Hidden, it leaves its room to the puzzle.
+function showTray() {
+  const play = $('#play');
+  const off = !trayOn && !(game && game.held.length);
+  $('#trayBtn').setAttribute('aria-pressed', !off);
+  if (play.classList.contains('no-tray') === off) return;
+  play.classList.toggle('no-tray', off);
+  layout();
 }
 
 function loadGuide() {
@@ -499,6 +532,7 @@ async function start(p, fresh = false) {
   peekEl.classList.remove('show', 'reveal');
   peekEl.style.backgroundImage = `url("${p.image}")`;
   $('#play').classList.toggle('blind', game.blind);
+  showTray();
   loadImage(p.image.replace('puzzles/', 'puzzles/thumbs/'))
     .catch(() => img)
     .then(drawGuide);
@@ -551,6 +585,7 @@ function refresh() {
     el.classList.toggle('jt', joined(game, piece, 0, -1));
     el.classList.toggle('jb', joined(game, piece, 0, 1));
   });
+  showTray();
   drawReserve();
 }
 
@@ -710,7 +745,7 @@ function settle(blocksBefore, id) {
   else saveProgress();
 }
 
-const overReserve = (e) => e.clientY >= reserveEl.getBoundingClientRect().top;
+const overReserve = (e) => !$('#play').classList.contains('no-tray') && e.clientY >= reserveEl.getBoundingClientRect().top;
 
 board.addEventListener('pointerdown', (e) => {
   const el = e.target.closest('.piece');
@@ -901,6 +936,11 @@ $('#quitBtn').addEventListener('click', () => openArtist(artistOf(game.p)));
 $('#homeBtn').addEventListener('click', openGallery);
 
 $('#peekBtn').addEventListener('click', () => setGuide(guideEl.classList.contains('off')));
+// a tray with pieces in it stays, and shows why
+$('#trayBtn').addEventListener('click', () => {
+  if (trayOn && game.held.length) return flash([reserveEl], 'nudge');
+  setTray(!trayOn);
+});
 // tapping the reference picture shows it large for a moment
 guideEl.addEventListener('click', () => {
   if (game.blind) return;

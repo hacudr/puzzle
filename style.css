@@ -13,8 +13,8 @@
   --page: #f3d9d1;
   --ink: #33291f;
   --ink-soft: #6f6051;
-  --seam: rgba(40, 28, 16, .5);
-  --seam-light: rgba(250, 243, 230, .4);
+  /* the line round a puzzle piece */
+  --seam: #b39270;
   --table: #e6d9c3;
   /* width of the white mat between the frame and the picture */
   --mat: clamp(16px, 2.6vw, 28px);
@@ -252,25 +252,28 @@ button {
 }
 /* Expert has no reference picture, nor the button that shows and hides it */
 #play.blind .guide, #play.blind #peekBtn { visibility: hidden; pointer-events: none; }
-/* room for the reference picture */
+/* room for the reference picture, and a slimmer bar without it */
 #play .bar { height: 110px; }
+#play.no-guide .bar, #play.blind .bar { height: 60px; }
+/* as wide on both sides, so the reference picture stays in the middle */
+.tools { display: flex; gap: 6px; width: 102px; }
+.tools:last-child { justify-content: flex-end; }
 .icon-btn:active { background: rgba(51, 41, 31, .1); }
 
 .stage {
   flex: 1;
   min-height: 0;
   display: grid;
-  /* one cell the size of the stage, so the frame overhangs it evenly */
   grid-template: minmax(0, 1fr) / minmax(0, 1fr);
   place-items: center;
-  /* leaves room for the frame, which sits outside the board */
-  margin: calc(var(--mat) + 16px) calc(clamp(26px, 5vw, 44px) + var(--mat)) calc(clamp(32px, 5vh, 48px) + var(--mat));
+  /* the puzzle is worked bare; its frame and mat come with the finished picture */
+  margin: 6px clamp(14px, 3vw, 28px) 18px;
 }
 
 /* while a block is dragged off the canvas it must pass over the reserve */
 .wall > .stage.lifting { z-index: 3; }
 
-/* A shallow tray under the frame for pieces set aside. It scrolls sideways. */
+/* A shallow tray under the puzzle for pieces set aside. It scrolls sideways. */
 .reserve {
   flex: none;
   display: flex;
@@ -294,6 +297,12 @@ button {
   background: rgba(51, 41, 31, .14);
   box-shadow: inset 0 1px 4px rgba(51, 41, 31, .25), 0 0 0 2px #94773f;
 }
+#play.no-tray .reserve { display: none; }
+/* asked to go while it still holds pieces */
+.reserve.nudge { animation: nudge .5s ease; }
+@keyframes nudge {
+  30% { box-shadow: inset 0 1px 4px rgba(51, 41, 31, .25), 0 0 0 2px #94773f; }
+}
 .reserve-hint { margin: auto; font-style: italic; color: var(--ink-soft); pointer-events: none; }
 .reserve:not(.empty) .reserve-hint { display: none; }
 
@@ -306,14 +315,14 @@ button {
   touch-action: none;
   background: var(--table);
 }
-/* the cut edge of the mat, shading the table a little */
+/* a hairline round the table */
 .board::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 6;
   pointer-events: none;
-  box-shadow: inset 0 3px 5px -3px rgba(0, 0, 0, .4), inset 0 0 0 1px rgba(0, 0, 0, .22);
+  box-shadow: inset 0 0 0 1px var(--seam);
 }
 
 .piece {
@@ -332,9 +341,7 @@ button {
   /* one hairline per side, switched off where the piece is fused to its neighbour */
   box-shadow:
     inset var(--bl) 0 0 0 var(--seam), inset calc(var(--br) * -1) 0 0 0 var(--seam),
-    inset 0 var(--bt) 0 0 var(--seam), inset 0 calc(var(--bb) * -1) 0 0 var(--seam),
-    inset calc(var(--bl) * 2) 0 0 0 var(--seam-light), inset calc(var(--br) * -2) 0 0 0 var(--seam-light),
-    inset 0 calc(var(--bt) * 2) 0 0 var(--seam-light), inset 0 calc(var(--bb) * -2) 0 0 var(--seam-light);
+    inset 0 var(--bt) 0 0 var(--seam), inset 0 calc(var(--bb) * -1) 0 0 var(--seam);
   transition: left .28s cubic-bezier(.3, .8, .3, 1), top .28s cubic-bezier(.3, .8, .3, 1),
               transform .28s cubic-bezier(.3, .8, .3, 1);
   z-index: 1;
