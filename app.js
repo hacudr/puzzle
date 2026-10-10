@@ -735,6 +735,9 @@ function showPlate(p) {
   $('#plateImg').style.backgroundImage = `url("${p.image}")`;
   $('#plateSci').textContent = p.scientific || '';
   $('#plateName').textContent = p.name;
+  const credit = sound.credit();
+  $('#plateMusic').textContent = credit ? `Music: ${credit.composer}, ${credit.title}` : '';
+  $('#plateMusic').hidden = !credit;
   $('#plateText').textContent = p.description || '';
   $('#descBtn').hidden = !p.description;
   $('#nextBtn').hidden = artistOf(p).puzzles.length < 2;

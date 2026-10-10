@@ -24,9 +24,22 @@ const sound = (() => {
     'Db4/4 C4 Bb3 Ab3 G3',
     'Bb3/4 Ab3/4',
   ].join(' ');
+  // Bars that come round again; ~ is where the theme's first bass note goes.
+  const ARABESQUE_THEME = '~/1.5 B2/1.5 E5+E3 F#5/.5 G#3/.5 C#5 E5+B3 B4/.5 G#3/.5 C#5 G#4+E3 B4/.5 B2/.5 F#4';
+  const ARABESQUE_ANSWER = 'G#4+E2 E4/.5 C#3/.5 G#4 D#4+E3/1.5 G#3/1.5 C#4/1.5 G#3/1.5 C#4+E3/1.5 B2/1.5';
+  const GONDOLA1_ANSWER = 'C5+A4+G2 A3+C4 Bb4+G4+D3 A4+F#4+G2 A3+C4 C5+A4+D3';
+  const GONDOLA2_ROCK = 'F#2 C#3 F#3+A3 C#3 F#3+A3 C#4';
+  const GONDOLA2_UPBEAT = 'G#3+B3 C#3 F#3+A3 E#3+G#3 A4+F#3+A3 B4+G#3+B3';
+  const GONDOLA2_OPENING = [
+    'C#5+F#2 C#3 F#3+A3 C#5+C#3 F#3+A3 C#4',
+    'C#5+F#2 C#3 E#3+G#3 C#3 E#3+G#3 C#5+C#4',
+    'C#5+F#2 A5+C#3 G#5+F#3+A3 F#5+C#3 E5+F#3+A3 D5+C#4',
+  ].join(' ');
   const TUNES = {
     // Beethoven, Sonata Op. 27 No. 2, first movement, bars 1-9; unit = a triplet quaver
     moonlight: {
+      composer: 'Ludwig van Beethoven',
+      title: 'Moonlight Sonata, first movement',
       unit: 0.37,
       bar: 12,
       steps: [
@@ -44,6 +57,8 @@ const sound = (() => {
     // Debussy, Clair de lune, bars 1-8; unit = a quaver. Notes tied over a bar
     // line carry the extra length.
     clair: {
+      composer: 'Claude Debussy',
+      title: 'Clair de lune',
       unit: 0.43,
       bar: 9,
       lead: 1,
@@ -60,9 +75,152 @@ const sound = (() => {
     },
     // Beethoven, Sonata Op. 13 "Pathetique", Adagio cantabile, bars 1-16; unit = a semiquaver
     pathetique: {
+      composer: 'Ludwig van Beethoven',
+      title: 'Sonata Pathétique, Adagio cantabile',
       unit: 0.46,
       bar: 8,
       steps: PATHETIQUE + ' ' + octaveUp(PATHETIQUE),
+    },
+    // Debussy, Arabesque No. 1, bars 1-9; unit = a triplet quaver. From bar 6
+    // the left hand plays two quavers against each triplet, hence the halves.
+    arabesque: {
+      composer: 'Claude Debussy',
+      title: 'Arabesque No. 1',
+      unit: 0.27,
+      bar: 12,
+      steps: [
+        'C#4 E4 A4 C#5 E5 F#5 G#5 D#5 B4 G#4 D#4 B3',
+        'A3 C#4 F#4 A4 C#5 D#5 E5 B4 G#4 E4 B3 G#3',
+        'F#3 A3 C#4 C#5 F#4 A4 F#5+E3 A3 C#4 C#5 F#4 A4',
+        'D#3 A3 C#4 C#5 F#4 A4 F#5+C#3 A3 E4 A5 A4 C#5',
+        'B2 F#3 A3 A5+C#4 D#4 F#4 A4 C#5 D#5 C#5 G#5+B4 F#5+A4',
+        ARABESQUE_THEME.replace('~', 'E2'),
+        ARABESQUE_ANSWER,
+        ARABESQUE_THEME.replace('~', 'B3+E2'),
+        ARABESQUE_ANSWER,
+      ].join(' '),
+    },
+    // Debussy, La fille aux cheveux de lin, bars 1-4; unit = a semiquaver
+    flaxen: {
+      composer: 'Claude Debussy',
+      title: 'La fille aux cheveux de lin',
+      unit: 0.23,
+      bar: 12,
+      steps: [
+        'Db5/6 Bb4 Gb4 Eb4/2 Gb4 Bb4',
+        'Db5/2 Bb4 Gb4 Eb4/2 Gb4 Bb4 Gb4/2 Gb4+Cb4+Eb3+Cb3 Eb4',
+        'Gb4+Bb3+Gb3+Db3+Gb2/2 F4 Eb4 Db4/20',
+      ].join(' '),
+    },
+    // Debussy, Reflets dans l'eau, bars 1-4; unit = a semiquaver. The three
+    // notes under the chords (Ab, F, Eb) are the tune.
+    reflets: {
+      composer: 'Claude Debussy',
+      title: 'Reflets dans l’eau',
+      unit: 0.38,
+      bar: 8,
+      steps: [
+        'Db2+Ab2 Db4+Bb3+Gb3 Ab4+F4+C4 Eb4+Db4+Bb3 Ab4 Db5+Bb4+Gb4 Ab5+F5+C5 Eb5+Db5+Bb4',
+        'F4+Db6+Bb5+Gb5 Ab6+F6+C6 Eb6+Db6+Bb5 Ab5+F5+C5 Eb4+Eb5+Db5+Bb4 Ab4+F4+C4 Eb4+Db4+Bb3 Gb3+Ab2',
+        'Db2 Eb4+Ab3+F3 Bb4+F4+Db4 F4+Eb4+C4 F4+Db4+Bb3 Eb5+Ab4+F4 Bb5+F5+Db5 Eb5+Db5+Bb4',
+        'F5+Db5+Bb4 Eb6+Ab5+F5 Bb6+F6+Db6 F6+Eb6+C6 F6+Db6+Bb5 Db6+Bb5+F5 Bb5+F5+Db5 F5+Db5+Bb4',
+      ].join(' '),
+    },
+    // Debussy, La plus que lente, upbeat and bars 1-7; unit = a quaver. The
+    // A3 in the chords is written B double flat.
+    lente: {
+      composer: 'Claude Debussy',
+      title: 'La plus que lente',
+      unit: 0.32,
+      bar: 6,
+      lead: 2,
+      steps: [
+        'Db4/2 Eb4/2',
+        'F4+Gb2/2 Db4+A3+Db3 Ab4 F4+Db2/2',
+        'Gb2 Ab4+Db3 F4+Db4+A3 Ab4 F4+Db2 Ab4',
+        'F4+Gb2/2 Db4+A3+Db3/2 F4+Db2/2',
+        'Gb2 Db3 Db4+A3/2 Db2 Eb4',
+        'F4+Gb2/2 Db4+A3+Db3 Ab4 F4+Db2/2',
+        'Gb2 Ab4+Db3 F4+Db4+A3 Ab4 Gb4+Db4+Bb3+Gb2 Bb4',
+        'Eb5/6',
+      ].join(' '),
+    },
+    // Mendelssohn, Venetian Boat Song No. 1, Op. 19b No. 6, bars 1-17; unit = a quaver
+    gondola1: {
+      composer: 'Felix Mendelssohn',
+      title: 'Venetian Boat Song No. 1, Op. 19b No. 6',
+      unit: 0.42,
+      bar: 6,
+      steps: [
+        'G2 G3+Bb3 D3 G2 G3+Bb3 D3',
+        'G2 G3+Bb3 D3 G2 G3+A3+C4 Eb3',
+        'D4+G1+G2 G3+Bb3 D3 F4+F1+F2 A3+C4 F3',
+        'Bb1+Bb2 Bb3+D4 F3 Eb4+C2+C3 G3+C4 Eb3',
+        'D4+D2 G3+Bb3 D3 D2 G3+Bb3 D3',
+        'D2 A3+C4 D3 D2 F#3+A3 D3',
+        'G2 G3+Bb3 D3 G2 G3+Bb3 D5+Bb4+D3',
+        GONDOLA1_ANSWER,
+        'Bb4+D4+G2 G3+Bb3 A4+C4+D3 G4+Bb3+G2 G3+Bb3 D4+D3',
+        'Eb4+C4+G2 G3 Eb4+C4+Eb3 Eb4+C4+G2/.5 F4+D4/.5 G4+Eb4+G3+C4 Eb4+C4+Eb3',
+        'G2 G3+Bb3 D3 G2 G3+Bb3 D5+Bb4+D3',
+        GONDOLA1_ANSWER,
+        'Bb4+D4+G2 G3+Bb3 A4+C4+D3 G4+Bb3+G2 G4+G3 A4+D3',
+        'Bb4+G2 C#5+Bb3+D4 D5+G3 F5+C#5+G2 E5+Bb3+C#4 D5+G3',
+        'A5+D5+F2 A3+D4 F5+F3 D5+F2 A3+D4 A4+F3',
+        'Bb4+G2 C#5+E4+Bb3+D4 D5+F4+G3 F5+A4+A2 E5+G4+C#4 D5+F4+A3',
+        'D5+F4+D3 A3+D4 F3 D3 A3+D4 F3',
+      ].join(' '),
+    },
+    // Mendelssohn, Venetian Boat Song No. 2, Op. 30 No. 6, upbeat and bars 1-21; unit = a quaver
+    gondola2: {
+      composer: 'Felix Mendelssohn',
+      title: 'Venetian Boat Song No. 2, Op. 30 No. 6',
+      unit: 0.36,
+      bar: 6,
+      lead: 5,
+      steps: [
+        'C#3',
+        GONDOLA2_ROCK,
+        GONDOLA2_ROCK,
+        'E#4+F#2 C#3 E#3+G#3 C#3 E#3+G#3 C#4',
+        'G#4+F#2 C#3 E#3+G#3 C#3 E#3+G#3 C#4',
+        'F#2 C#3 G#3+B3 B3+D4 C#3 A3+C#4',
+        GONDOLA2_UPBEAT,
+        GONDOLA2_OPENING,
+        'C#5+F#2 C#3 F#3+A3 F#4+C#3 F#3+A3 C#4',
+        'A4+F#2 C#3 F#3+A3 C#3 F#3+A3 B4+C#4',
+        'C#5+A1 C#3 F#3+A3 F#5+C#3 F#3+A3 C#4',
+        'E#5+C#2 C#3 G#3+B3 G#5+B3+D4 C#3 A3+C#4',
+        GONDOLA2_UPBEAT,
+        GONDOLA2_OPENING,
+        'C#5+F#2 F#5+C#3 E5+F#3+A3 D5+C#3 C#5+F#3+A3 B#4+C#4',
+        'C#5+A1 A4+C#3 C#5+F#3+A3 F#4+C#3 F#3+A3 C#4',
+        'C#2 C#3 G#4+G#3+B3 E#4+C#3 G#3+B3 G#4+C#4',
+        'F#4+F#2 C#3 F#3+A3 C#3 F#3+A3 C#4',
+      ].join(' '),
+    },
+    // Mendelssohn, Venetian Boat Song No. 3, Op. 62 No. 5, upbeat and bars 1-12; unit = a quaver
+    gondola3: {
+      composer: 'Felix Mendelssohn',
+      title: 'Venetian Boat Song No. 3, Op. 62 No. 5',
+      unit: 0.42,
+      bar: 6,
+      lead: 5,
+      steps: [
+        'E3',
+        'C4+A3 A2 E3 C4+A3 A2 E3',
+        'A4+C4+A3 A2 E3 E4+C4+A3 A2 E3',
+        'C4+A3 A2 E3 C4+A3 A2 E3',
+        'C4+A3+E3 A2 E3 E5+C5+C4+A3 E2 C5+A4+E3',
+        'A4+E4+C4+A3 A1 B4+G#4+E3 C5+A4+C4+A3 D5+B4+A2 E5+C5+E3',
+        'G5+E5+D4+A3 A2 F5+D5+F3 D4+A3 E5+C5+A2 D5+B4+F3',
+        'E5+C5+C4+A3 A2 C5+A4+E3 A4+C4+A3 G#4+E4+A2 A4+F#4+E3',
+        'B4+G#4+B3+G#3 E2 E3 E5+G#4+D4+B3 E2 C5+E3',
+        'A4+E4+C4+A3 A2 B4+G#4+E3 C5+A4+C4+A3 D5+B4+A2 E5+C5+E3',
+        'G5+D5+D4+B3 E5+B2 F5+G3 E5+E4+C4 F5+D5+C3 G3/.5 E5+C5/.5',
+        'E5+C5+F4+D4 D5+B4+D3 A3/.5 C5+A4/.5 C5+A4+E4 B4+G#4+E3 D4/.5 A4/.5',
+        'A4+C4+A3 A2 E3 C4+A3 A2 E3',
+      ].join(' '),
     },
   };
   const ORDER = Object.keys(TUNES);
@@ -189,6 +347,9 @@ const sound = (() => {
         }
       }
     },
+
+    // who wrote the current tune and what it is, or null with the sound off
+    credit: () => (voice === 'off' || !tune ? null : { composer: tune.composer, title: tune.title }),
 
     label: () => VOICES[voice].label,
 
