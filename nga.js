@@ -61,7 +61,10 @@ async function main() {
   const wanted = process.argv[2];
   const kind = process.argv[3];
   if (!wanted) throw new Error('Usage: node nga.js "Artist Name" [Painting|Drawing|Print]');
-  const artists = await rows('constituents', (r) => plain(r.forwarddisplayname) === plain(wanted) || plain(r.preferreddisplayname) === plain(wanted));
+  let artists = await rows('constituents', (r) => plain(r.forwarddisplayname) === plain(wanted) || plain(r.preferreddisplayname) === plain(wanted));
+  // Paul Cezanne and his son Paul Cézanne differ only by the accent
+  const exact = artists.filter((r) => r.forwarddisplayname === wanted || r.preferreddisplayname === wanted);
+  if (exact.length === 1) artists = exact;
   if (artists.length !== 1) {
     throw new Error(`${artists.length} artists match "${wanted}"` + artists.map((a) => `\n  ${a.forwarddisplayname}, ${a.displaydate}`).join(''));
   }

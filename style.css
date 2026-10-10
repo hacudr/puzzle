@@ -1,15 +1,13 @@
 :root {
   --cream: #f3ebdd;
-  --page: #efe4d2;
+  --page: #f3d9d1;
   --ink: #33291f;
   --ink-soft: #6f6051;
   --seam: rgba(40, 28, 16, .5);
   --seam-light: rgba(250, 243, 230, .4);
   --table: #e6d9c3;
-  /* gallery wall colour, set per puzzle */
-  --h: 350;
-  --s: 58%;
-  --l: 17%;
+  /* width of the white mat between the frame and the picture */
+  --mat: clamp(16px, 2.6vw, 28px);
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
 }
 
@@ -43,7 +41,7 @@ button {
   display: flex;
   flex-direction: column;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  background: var(--cream);
+  background: var(--page);
 }
 
 .eyebrow {
@@ -140,39 +138,19 @@ button {
 
 /* ---------- Gallery wall ---------- */
 
-.wall {
-  --lit: hsl(var(--h) var(--s) calc(var(--l) + 24%));
-  --deep: hsl(var(--h) var(--s) calc(var(--l) * .38));
-  --ink: #f1e6cf;
-  --ink-soft: #cbbd9f;
-  color: var(--ink);
-  background: hsl(var(--h) var(--s) var(--l));
-}
-.wall::before, .wall::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
-/* a warm lamp from above, falling off into the corners */
-.wall::before {
-  background:
-    radial-gradient(ellipse 60% 46% at 50% 26%, rgba(255, 214, 150, .28), transparent 72%),
-    radial-gradient(ellipse 78% 62% at 50% 34%, var(--lit), transparent 72%),
-    radial-gradient(ellipse 120% 100% at 50% 40%, transparent 45%, var(--deep) 100%);
-}
-/* plaster grain */
-.wall::after {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: .07;
-  mix-blend-mode: overlay;
-}
+/* the same paper as the gallery pages */
+.wall { background: var(--page); }
 .wall > * { position: relative; z-index: 1; }
 .wall > .overlay { position: absolute; z-index: 20; }
 
-/* slim gilt frame, lit from above */
+/* slim gilt frame, lit from above, with a white mat inside it */
 .frame {
   border: 9px solid;
   border-color: #f4dc8c #bd8f30 #8c641b #d6ad4c;
-  padding: 3px;
-  background: #4f360b;
+  padding: var(--mat);
+  background: #fbf9f4;
   box-shadow:
-    0 0 0 1px #4a3108, inset 0 0 0 1px #f0d584,
+    0 0 0 1px #4a3108, inset 0 0 0 1px #f0d584, inset 0 3px 6px rgba(0, 0, 0, .22),
     0 8px 10px rgba(0, 0, 0, .45), 0 28px 38px -10px rgba(0, 0, 0, .7);
 }
 
@@ -208,15 +186,17 @@ button {
 #play.blind .guide, #play.blind #peekBtn { visibility: hidden; pointer-events: none; }
 /* room for the reference picture */
 #play .bar { height: 110px; }
-.icon-btn:active { background: rgba(255, 240, 200, .14); }
+.icon-btn:active { background: rgba(51, 41, 31, .1); }
 
 .stage {
   flex: 1;
   min-height: 0;
   display: grid;
+  /* one cell the size of the stage, so the frame overhangs it evenly */
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
   place-items: center;
   /* leaves room for the frame, which sits outside the board */
-  margin: 0 clamp(26px, 5vw, 44px) clamp(32px, 5vh, 48px);
+  margin: calc(var(--mat) + 16px) calc(clamp(26px, 5vw, 44px) + var(--mat)) calc(clamp(32px, 5vh, 48px) + var(--mat));
 }
 
 /* while a block is dragged off the canvas it must pass over the reserve */
@@ -237,14 +217,14 @@ button {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   border-radius: 10px;
-  background: rgba(0, 0, 0, .28);
-  box-shadow: inset 0 2px 7px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 236, 190, .1);
+  background: rgba(51, 41, 31, .08);
+  box-shadow: inset 0 1px 4px rgba(51, 41, 31, .25);
   transition: background .15s ease, box-shadow .15s ease;
 }
 .reserve::-webkit-scrollbar { display: none; }
 .reserve.over {
-  background: rgba(0, 0, 0, .42);
-  box-shadow: inset 0 2px 7px rgba(0, 0, 0, .5), 0 0 0 2px rgba(244, 220, 140, .7);
+  background: rgba(51, 41, 31, .14);
+  box-shadow: inset 0 1px 4px rgba(51, 41, 31, .25), 0 0 0 2px #bd8f30;
 }
 .reserve-hint { margin: auto; font-style: italic; color: var(--ink-soft); pointer-events: none; }
 .reserve:not(.empty) .reserve-hint { display: none; }
@@ -258,14 +238,14 @@ button {
   touch-action: none;
   background: var(--table);
 }
-/* the frame's shadow falling on the table */
+/* the cut edge of the mat, shading the table a little */
 .board::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 6;
   pointer-events: none;
-  box-shadow: inset 0 7px 9px -5px rgba(0, 0, 0, .5), inset 0 0 0 1px rgba(0, 0, 0, .3);
+  box-shadow: inset 0 3px 5px -3px rgba(0, 0, 0, .4), inset 0 0 0 1px rgba(0, 0, 0, .22);
 }
 
 .piece {
@@ -321,7 +301,7 @@ button {
   z-index: 20;
   display: grid;
   place-items: center;
-  background: hsl(var(--h) var(--s) calc(var(--l) * .5) / .88);
+  background: rgba(243, 217, 209, .88);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
@@ -348,8 +328,8 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 34px;
-  padding: 0 24px 48px;
+  gap: 24px;
+  padding: 0 24px 28px;
 }
 
 .plate {
@@ -357,33 +337,36 @@ button {
   flex-direction: column;
   flex: 0 1 auto;
   min-height: 0;
-  --base: 440px;
-  width: min(calc(var(--base) * var(--grow, 1)), 100%);
+  --base: 620px;
+  /* height taken by everything but the picture: bar, frame and mat, label, links */
+  --rest: 385px;
+  /* no wider than lets the whole picture show at its own shape */
+  width: min(calc(var(--base) * var(--grow, 1)), 100%, calc((100dvh - var(--rest)) * var(--aspect, .8) + 2 * var(--mat) + 18px));
   align-items: center;
-  gap: 26px;
+  gap: 20px;
   color: var(--cream);
-  animation: rise .7s cubic-bezier(.2, .8, .2, 1) both;
 }
-@keyframes rise { from { opacity: 0; transform: translateY(24px) scale(.97); } }
+
+/* Arriving: the screen fades in over the finished puzzle, then the picture
+   settles and the label and links follow. Only opacity and transform move. */
+#done.arriving { animation: fade .9s ease both; }
+#done.arriving .plate-face { animation: settle 1.1s cubic-bezier(.22, .8, .25, 1) both; }
+#done.arriving .plate-label { animation: settle .9s .35s cubic-bezier(.22, .8, .25, 1) both; }
+#done.arriving .done-links, #done.arriving .bar { animation: fade .8s .6s ease both; }
+@keyframes fade { from { opacity: 0; } }
+@keyframes settle { from { opacity: 0; transform: translateY(10px) scale(.985); } }
+/* the puzzle's tools fade away once it is solved */
+#play .bar { transition: opacity .9s ease; }
+#play .reserve { transition: opacity .9s ease, background .15s ease, box-shadow .15s ease; }
+#play.won .bar, #play.won .reserve { opacity: 0; pointer-events: none; }
 
 .plate-face { position: relative; box-sizing: content-box; align-self: stretch; aspect-ratio: var(--aspect, .8); min-height: 0; }
-.plate-img { position: absolute; inset: 3px; background: center / cover no-repeat; }
-.plate-text {
-  position: absolute;
-  inset: 3px;
-  background: #111;
-  overflow-y: auto;
-  padding: 30px 30px;
-  font-size: 1.2rem;
-  line-height: 1.55;
-  white-space: pre-line;
-  -webkit-user-select: text;
-  user-select: text;
-}
-
+.plate-img { position: absolute; inset: var(--mat); background: center / cover no-repeat; }
 /* the wall label under the picture */
 .plate-label {
   flex: none;
+  /* as wide as the frame above it */
+  align-self: stretch;
   padding: 12px 22px 14px;
   text-align: center;
   background: #111;
@@ -394,11 +377,11 @@ button {
 .plate-label h2 { margin: 0; font-weight: 500; font-size: 1.6rem; line-height: 1.15; }
 .music { margin: 6px 0 0; font-size: .8rem; font-style: italic; color: rgba(243, 235, 221, .7); }
 
-.done-links { flex: none; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.done-links { flex: none; display: flex; align-items: center; gap: 30px; }
+.done-links .link { font-size: 1.05rem; padding: 10px 4px 2px; border-bottom-width: 1px; }
 
 @media (max-height: 760px) {
-  .done-body { gap: 20px; padding-bottom: 20px; }
-  .done-links { flex-direction: row; gap: 28px; }
-  .plate { --base: 340px; }
-  .stage { margin-bottom: 32px; }
+  .done-body { gap: 16px; padding-bottom: 16px; }
+  .plate { --base: 340px; --rest: 340px; }
+  .stage { margin-bottom: calc(32px + var(--mat)); }
 }

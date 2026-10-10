@@ -15,16 +15,6 @@ const CAPPED = { kids: 10 };
 // Expert is solved unseen: grey pieces, blurred cards and no reference picture
 const blind = () => level === 'expert';
 const mastered = (p) => solved.has(p.id + '|expert');
-// Gallery wall colours a puzzle can name as "wall": hue, saturation %, lightness %
-const WALLS = {
-  garnet: [350, 58, 17],
-  emerald: [156, 55, 14],
-  peacock: [190, 62, 15],
-  sapphire: [224, 55, 18],
-  amethyst: [272, 40, 19],
-  aubergine: [315, 42, 16],
-};
-const PAGE_COLOR = '#f3ebdd';
 
 const board = $('#board');
 const piecesEl = $('#pieces');
@@ -46,7 +36,6 @@ let game = null;
 let drag = null;
 let hold = null;
 let peekTimer = 0;
-let wallColor = PAGE_COLOR;
 
 function loadSolved() {
   try {
@@ -172,7 +161,6 @@ function savedProgress(p, cols, rows) {
 
 function show(id) {
   document.querySelectorAll('.screen').forEach((s) => (s.hidden = s.id !== id));
-  $('meta[name="theme-color"]').content = id === 'play' || id === 'done' ? wallColor : PAGE_COLOR;
 }
 
 function loadImage(src) {
@@ -307,42 +295,6 @@ function openArtist(a) {
   show('artist');
 }
 
-/* ---------- Gallery wall ---------- */
-
-// For a puzzle with no "wall" of its own: the jewel tone nearest to the colour
-// the picture has most of. Golds are skipped, they belong to the frame.
-function wallFor(img) {
-  const size = 48;
-  const canvas = document.createElement('canvas');
-  canvas.width = canvas.height = size;
-  const ctx = canvas.getContext('2d');
-  ctx.drawImage(img, 0, 0, size, size);
-  const data = ctx.getImageData(0, 0, size, size).data;
-  const names = Object.keys(WALLS);
-  const weight = names.map(() => 0);
-  for (let i = 0; i < data.length; i += 4) {
-    const r = data[i] / 255, g = data[i + 1] / 255, b = data[i + 2] / 255;
-    const max = Math.max(r, g, b);
-    const chroma = max - Math.min(r, g, b);
-    if (chroma < 0.12) continue;
-    const sixth = max === r ? ((g - b) / chroma) % 6 : max === g ? (b - r) / chroma + 2 : (r - g) / chroma + 4;
-    const hue = (sixth * 60 + 360) % 360;
-    if (hue > 25 && hue < 70) continue;
-    const away = names.map((n) => Math.abs(((hue - WALLS[n][0] + 540) % 360) - 180));
-    weight[away.indexOf(Math.min(...away))] += chroma;
-  }
-  return names[weight.indexOf(Math.max(...weight))];
-}
-
-function paintWall(p, img) {
-  const [h, s, l] = WALLS[p.wall] || WALLS[wallFor(img)];
-  const root = document.documentElement.style;
-  root.setProperty('--h', h);
-  root.setProperty('--s', s + '%');
-  root.setProperty('--l', l + '%');
-  wallColor = `hsl(${h} ${s}% ${l}%)`;
-}
-
 /* ---------- Puzzle setup ---------- */
 
 // Cells are twice as wide as they are tall; pick the grid whose cell count
@@ -423,7 +375,6 @@ async function start(p, fresh = false) {
   }
   $('#pause').hidden = true;
   $('#quitBtn').textContent = $('#backName').textContent = artistOf(p).name;
-  paintWall(p, img);
   show('play');
 
   const aspect = img.naturalWidth / img.naturalHeight;
@@ -790,9 +741,15 @@ function win() {
   saveSolved();
   clearProgress(p);
   sound.finish();
-  setTimeout(() => {
+  // the tools step back, and the picture is ready before its screen comes in
+  $('#play').classList.add('won');
+  const ready = loadImage(p.image).then((img) => img.decode && img.decode()).catch(() => {});
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  // never held up for long by a picture that is slow to decode
+  Promise.all([Promise.race([ready, wait(3000)]), wait(1800)]).then(() => {
     if (game && game.p === p) showPlate(p);
-  }, 1800);
+    else $('#play').classList.remove('won');
+  });
 }
 
 function showPlate(p) {
@@ -805,17 +762,16 @@ function showPlate(p) {
   const credit = sound.credit();
   $('#plateMusic').textContent = credit ? `Music: ${credit.composer}, ${credit.title}` : '';
   $('#plateMusic').hidden = !credit;
-  $('#plateText').textContent = p.description || '';
-  $('#descBtn').hidden = !p.description;
   $('#nextBtn').hidden = artistOf(p).puzzles.length < 2;
-  toggleDescription(false);
-  show('done');
-}
-
-function toggleDescription(on) {
-  $('#plateText').hidden = !on;
-  $('#plateImg').hidden = on;
-  $('#descBtn').textContent = on ? 'Picture' : 'Description';
+  // The solved screen fades in over the puzzle, which is only put away after.
+  const done = $('#done');
+  done.classList.add('arriving');
+  done.hidden = false;
+  setTimeout(() => {
+    done.classList.remove('arriving');
+    $('#play').classList.remove('won');
+    if (!done.hidden) show('done');
+  }, 1000);
 }
 
 // The same artist's next unsolved puzzle, or simply their next one if all are solved.
@@ -852,7 +808,6 @@ guideEl.addEventListener('click', () => {
 $('#backBtn').addEventListener('click', () => openArtist(artistOf(game.p)));
 $('#doneHome').addEventListener('click', openGallery);
 $('#artistBack').addEventListener('click', openGallery);
-$('#descBtn').addEventListener('click', () => toggleDescription($('#plateText').hidden));
 $('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => start(nextPuzzle(game.p)));
 

@@ -20,7 +20,7 @@ The user drops original pictures into `puzzles/images/` and says little more tha
    ffmpeg -y -v error -i "puzzles/<slug>.webp" -vf "scale='if(gt(iw,ih),-2,600)':'if(gt(iw,ih),600,-2)':flags=lanczos" -c:v libwebp -quality 75 -compression_level 6 "puzzles/thumbs/<slug>.webp"
    ```
 
-3. **Puzzle entry** — look at the picture, then add an entry to `puzzles/puzzles.json` with the same fields the existing entries use (`image`, `artist`, `name`, `scientific` for the italic line, `description`, plus any optional fields the neighbouring entries carry, such as `music`: `moonlight`, `clair`, `pathetique`, `arabesque`, `flaxen`, `reflets`, `lente`, `gondola1`, `gondola2` or `gondola3`; a puzzle without one takes the next tune in that order by its position in the list). Say which titles, dates or attributions are guesses. If the artist is new, add them to `puzzles/artists.json` too. End the description of a museum picture with its date, medium and the museum's credit line.
+3. **Puzzle entry** — look at the picture, then add an entry to `puzzles/puzzles.json` with the same fields the existing entries use (`image`, `artist`, `name`, `scientific` for the italic line, plus any optional fields the neighbouring entries carry, such as `music`: `moonlight`, `clair`, `pathetique`, `arabesque`, `flaxen`, `reflets`, `lente`, `gondola1`, `gondola2` or `gondola3`; a puzzle without one takes the next tune in that order by its position in the list). Say which titles, dates or attributions are guesses. If the artist is new, add them to `puzzles/artists.json` too.
 
 4. **Check** — load the gallery in the preview and confirm the artist's card is there, every card on their page shows its picture and the new puzzle opens.
 
