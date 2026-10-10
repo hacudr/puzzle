@@ -6,20 +6,6 @@
     "cover": "monet-woman-with-a-parasol.webp"
   },
   {
-    "name": "Mary Cassatt",
-    "note": "American, 1844–1926",
-    "period": "Impressionism",
-    "also": ["Female Artists"],
-    "cover": "cassatt-children-playing-on-the-beach.webp"
-  },
-  {
-    "name": "Berthe Morisot",
-    "note": "French, 1841–1895",
-    "period": "Impressionism",
-    "also": ["Female Artists"],
-    "cover": "morisot-the-artists-sister-at-a-window.webp"
-  },
-  {
     "name": "Giovanni Bellini",
     "note": "Italian, c. 1430–1516",
     "period": "Renaissance",
@@ -60,6 +46,27 @@
     "note": "Flemish, 1577–1640",
     "period": "Baroque",
     "cover": "rubens-daniel-in-the-lions-den.webp"
+  },
+  {
+    "name": "Artemisia Gentileschi",
+    "note": "Italian, 1593–after 1654",
+    "period": "Baroque",
+    "also": ["Female Artists"],
+    "cover": "gentileschi-self-portrait-as-the-allegory-of-painting.webp"
+  },
+  {
+    "name": "Berthe Morisot",
+    "note": "French, 1841–1895",
+    "period": "Impressionism",
+    "also": ["Female Artists"],
+    "cover": "morisot-the-artists-sister-at-a-window.webp"
+  },
+  {
+    "name": "Mary Cassatt",
+    "note": "American, 1844–1926",
+    "period": "Impressionism",
+    "also": ["Female Artists"],
+    "cover": "cassatt-children-playing-on-the-beach.webp"
   },
   {
     "name": "Titian",
@@ -158,12 +165,5 @@
     "period": "Modern",
     "also": ["Female Artists"],
     "cover": "marvellous-tree.webp"
-  },
-  {
-    "name": "Artemisia Gentileschi",
-    "note": "Italian, 1593–after 1654",
-    "period": "Baroque",
-    "also": ["Female Artists"],
-    "cover": "gentileschi-self-portrait-as-the-allegory-of-painting.webp"
   }
 ]
