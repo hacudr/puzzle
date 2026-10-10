@@ -77,6 +77,7 @@ button {
 #settings { overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--page); }
 .settings-body { text-align: center; padding: 0 24px 72px; }
 .settings-body section { margin-top: 48px; }
+.settings-body .eyebrow { font-size: 1.5rem; }
 
 .levels { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 14px 34px; margin-top: 26px; }
 .settings-body .levels { margin-top: 12px; }
