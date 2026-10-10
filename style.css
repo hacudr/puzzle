@@ -126,6 +126,10 @@ button {
   opacity: .72;
 }
 .card.solved .card-img img { opacity: 1; }
+/* Expert: a grey blur until the picture has been solved that way */
+.veil { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+.card.veiled .card-img img { opacity: 0; }
+.card:not(.veiled) .veil { display: none; }
 
 .card-label { display: block; padding: 12px 16px 16px; }
 .card-label i { display: block; font-size: .95rem; color: rgba(243, 235, 221, .8); }
@@ -200,6 +204,8 @@ button {
   visibility: hidden;
   pointer-events: none;
 }
+/* Expert has no reference picture, nor the button that shows and hides it */
+#play.blind .guide, #play.blind #peekBtn { visibility: hidden; pointer-events: none; }
 /* room for the reference picture */
 #play .bar { height: 110px; }
 .icon-btn:active { background: rgba(255, 240, 200, .14); }
@@ -306,6 +312,8 @@ button {
   transition: opacity .35s ease;
 }
 .peek.show { opacity: 1; }
+/* the colour coming back over a puzzle solved in black and white */
+.peek.reveal { background-color: transparent; background-size: 100% 100%; transition-duration: 1.4s; }
 
 .overlay {
   position: absolute;

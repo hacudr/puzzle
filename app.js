@@ -9,9 +9,12 @@ const GUIDE_HEIGHT = 94;
 const STRIP_MIN = 64;
 const STRIP_MAX = 96;
 // approximate number of pieces at each difficulty
-const LEVELS = { kids: 10, easy: 40, medium: 100, hard: 200 };
+const LEVELS = { kids: 10, easy: 40, medium: 100, hard: 200, expert: 200 };
 // levels that must never go over their number
 const CAPPED = { kids: 10 };
+// Expert is solved unseen: grey pieces, blurred cards and no reference picture
+const blind = () => level === 'expert';
+const mastered = (p) => solved.has(p.id + '|expert');
 // Gallery wall colours a puzzle can name as "wall": hue, saturation %, lightness %
 const WALLS = {
   garnet: [350, 58, 17],
@@ -84,7 +87,10 @@ function labelCards() {
   document.querySelectorAll('#grid .card').forEach((card, i) => {
     const p = artist.puzzles[i];
     card.classList.toggle('solved', solved.has(p.id));
-    card.querySelector('small').textContent = progressKey(p) in progress ? 'In progress' : solved.has(p.id) ? 'Solved' : '';
+    card.classList.toggle('veiled', blind() && !mastered(p));
+    drawVeil(card);
+    card.querySelector('small').textContent =
+      progressKey(p) in progress ? 'In progress' : mastered(p) ? 'Solved in black and white' : solved.has(p.id) ? 'Solved' : '';
   });
   document.querySelectorAll('#artists .card').forEach((card, i) => {
     const count = artists[i].puzzles.length;
@@ -187,6 +193,59 @@ function shuffled(list) {
   return a;
 }
 
+/* ---------- Black and white ---------- */
+
+// These are drawn on canvases; CSS filters can fail to paint in Safari.
+function scaled(src, wide, high) {
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.max(1, Math.round(wide));
+  canvas.height = Math.max(1, Math.round(high));
+  const ctx = canvas.getContext('2d');
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(src, 0, 0, canvas.width, canvas.height);
+  return canvas;
+}
+
+function greyed(canvas) {
+  const ctx = canvas.getContext('2d');
+  const shot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const d = shot.data;
+  for (let i = 0; i < d.length; i += 4) d[i] = d[i + 1] = d[i + 2] = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
+  ctx.putImageData(shot, 0, 0);
+  return canvas;
+}
+
+// A grey blur of a picture: halved until its shorter side is near `fine`
+// pixels, then doubled back up until that side reaches `size`. Going by steps
+// keeps it smooth.
+function blurred(img, fine, size) {
+  const full = [img.naturalWidth || img.width, img.naturalHeight || img.height];
+  const shrink = fine / Math.min(...full);
+  let [wide, high] = full;
+  let canvas = img;
+  while (Math.min(wide, high) > fine * 2) canvas = scaled(canvas, (wide /= 2), (high /= 2));
+  canvas = greyed(scaled(canvas, full[0] * shrink, full[1] * shrink));
+  while (Math.min(canvas.width, canvas.height) < size) canvas = scaled(canvas, canvas.width * 2, canvas.height * 2);
+  return canvas;
+}
+
+// The whole picture in black and white, as an address the pieces can use.
+let greyUrl = '';
+function greyPicture(img) {
+  URL.revokeObjectURL(greyUrl);
+  const canvas = greyed(scaled(img, img.naturalWidth, img.naturalHeight));
+  return new Promise((resolve) => canvas.toBlob((blob) => resolve((greyUrl = URL.createObjectURL(blob))), 'image/jpeg', 0.9));
+}
+
+// A veiled card shows the blur in place of its picture, made once the picture is in.
+function drawVeil(card) {
+  const face = card.querySelector('img');
+  if (!card.classList.contains('veiled') || card.querySelector('.veil') || !face.naturalWidth) return;
+  const veil = blurred(face, 7, 240);
+  veil.className = 'veil';
+  face.after(veil);
+}
+
 /* ---------- Gallery ---------- */
 
 const artistOf = (p) => artists.find((a) => a.puzzles.includes(p));
@@ -201,6 +260,7 @@ function makeCard(image, line, name) {
     face.onerror = null;
     face.src = image;
   };
+  face.onload = () => drawVeil(card);
   face.src = image.replace('puzzles/', 'puzzles/thumbs/');
   card.querySelector('i').textContent = line || '';
   card.querySelector('b').textContent = name;
@@ -368,7 +428,8 @@ async function start(p, fresh = false) {
 
   const aspect = img.naturalWidth / img.naturalHeight;
   const { cols, rows } = gridFor(aspect, LEVELS[level], CAPPED[level]);
-  game = { p, cols, rows, aspect, held: [], els: [], done: false };
+  game = { p, cols, rows, aspect, held: [], els: [], done: false, blind: blind() };
+  const face = game.blind ? await greyPicture(img) : p.image;
   if (fresh) clearProgress(p);
   const saved = savedProgress(p, cols, rows);
   if (saved) {
@@ -382,8 +443,9 @@ async function start(p, fresh = false) {
 
   sound.setTune(p.music, puzzles.indexOf(p));
   piecesEl.textContent = '';
-  peekEl.classList.remove('show');
+  peekEl.classList.remove('show', 'reveal');
   peekEl.style.backgroundImage = `url("${p.image}")`;
+  $('#play').classList.toggle('blind', game.blind);
   loadImage(p.image.replace('puzzles/', 'puzzles/thumbs/'))
     .catch(() => img)
     .then(drawGuide);
@@ -393,7 +455,7 @@ async function start(p, fresh = false) {
     const el = document.createElement('div');
     el.className = 'piece';
     el.dataset.id = id;
-    el.style.backgroundImage = `url("${p.image}")`;
+    el.style.backgroundImage = `url("${face}")`;
     el.style.setProperty('--sc', id % cols);
     el.style.setProperty('--sr', Math.floor(id / cols));
     game.els[id] = el;
@@ -720,6 +782,11 @@ function win() {
   game.done = true;
   const p = game.p;
   solved.add(p.id);
+  // the colour comes back over the finished picture
+  if (game.blind) {
+    solved.add(p.id + '|expert');
+    peekEl.classList.add('reveal', 'show');
+  }
   saveSolved();
   clearProgress(p);
   sound.finish();
@@ -756,7 +823,7 @@ function nextPuzzle(p) {
   const list = artistOf(p).puzzles;
   const i = list.indexOf(p);
   const rest = [...list.slice(i + 1), ...list.slice(0, i)];
-  return rest.find((q) => !solved.has(q.id)) || rest[0];
+  return rest.find((q) => !(blind() ? mastered(q) : solved.has(q.id))) || rest[0];
 }
 
 /* ---------- Controls ---------- */
@@ -777,6 +844,7 @@ $('#homeBtn').addEventListener('click', openGallery);
 $('#peekBtn').addEventListener('click', () => setGuide(guideEl.classList.contains('off')));
 // tapping the reference picture shows it large for a moment
 guideEl.addEventListener('click', () => {
+  if (game.blind) return;
   clearTimeout(peekTimer);
   if (peekEl.classList.toggle('show')) peekTimer = setTimeout(() => peekEl.classList.remove('show'), 1800);
 });
