@@ -18,5 +18,10 @@ for (const p of list) {
   const to = path.join(dist, 'puzzles', p.image);
   fs.mkdirSync(path.dirname(to), { recursive: true });
   fs.copyFileSync(path.join(__dirname, 'puzzles', p.image), to);
+  const thumb = path.join(__dirname, 'puzzles', 'thumbs', p.image);
+  if (fs.existsSync(thumb)) {
+    fs.mkdirSync(path.join(dist, 'puzzles', 'thumbs'), { recursive: true });
+    fs.copyFileSync(thumb, path.join(dist, 'puzzles', 'thumbs', p.image));
+  }
 }
 console.log(`dist/ is ready with ${list.length} puzzles`);

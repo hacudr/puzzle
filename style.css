@@ -93,7 +93,10 @@ button {
 .card:active { transform: scale(.97); }
 
 .card-img {
-  aspect-ratio: 4 / 5;
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-top: 125%;
   background: var(--cream) center / cover no-repeat;
   filter: saturate(.35) opacity(.75);
 }
