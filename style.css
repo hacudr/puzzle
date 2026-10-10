@@ -55,6 +55,18 @@ button {
 .gallery-head { text-align: center; padding: 56px 24px 8px; }
 .gallery-head h1 { margin: 4px 0 0; font-weight: 500; font-size: 2.6rem; letter-spacing: .01em; }
 
+.levels { display: inline-flex; gap: 34px; margin-top: 26px; }
+.levels button {
+  font-size: 1.35rem;
+  font-weight: 500;
+  padding: 6px 2px 3px;
+  min-width: 88px;
+  color: var(--ink-soft);
+  border-bottom: 1.5px solid transparent;
+}
+.levels button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.levels small { display: block; margin-top: 2px; font-size: .8rem; font-style: italic; font-weight: 400; }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 260px));

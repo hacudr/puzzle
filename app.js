@@ -1,8 +1,9 @@
 const $ = (s) => document.querySelector(s);
 
 const SOLVED_KEY = 'puzzle.solved';
-// piece shapes in grid cells: [width, height, weight]
-const SIZES = [[1, 1, 3], [2, 1, 4], [1, 2, 2], [2, 2, 3], [1, 3, 1], [2, 3, 1]];
+const LEVEL_KEY = 'puzzle.level';
+// approximate number of pieces at each difficulty
+const LEVELS = { easy: 40, medium: 100, hard: 200 };
 const DRAG_THRESHOLD = 8;
 
 const board = $('#board');
@@ -11,6 +12,7 @@ const peekEl = $('#peek');
 
 let puzzles = [];
 let solved = loadSolved();
+let level = loadLevel();
 let game = null;
 let drag = null;
 let peekTimer = 0;
@@ -21,6 +23,23 @@ function loadSolved() {
   } catch {
     return new Set();
   }
+}
+
+function loadLevel() {
+  try {
+    const saved = localStorage.getItem(LEVEL_KEY);
+    return saved in LEVELS ? saved : 'easy';
+  } catch {
+    return 'easy';
+  }
+}
+
+function setLevel(next) {
+  level = next;
+  try {
+    localStorage.setItem(LEVEL_KEY, level);
+  } catch {}
+  document.querySelectorAll('#levels button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.level === level));
 }
 
 function saveSolved() {
@@ -51,8 +70,6 @@ function shuffled(list) {
   return a;
 }
 
-const shape = (s) => s.w + 'x' + s.h;
-
 /* ---------- Collection ---------- */
 
 function renderGallery() {
@@ -80,45 +97,30 @@ function openGallery() {
 
 /* ---------- Puzzle setup ---------- */
 
-// Cover a cols x rows grid with random rectangles. Pieces can only trade places
-// with pieces of the same shape, so retry until no shape is one of a kind.
-function tile(cols, rows) {
-  let slots;
-  for (let attempt = 0; attempt < 300; attempt++) {
-    const used = new Array(cols * rows).fill(false);
-    slots = [];
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        if (used[r * cols + c]) continue;
-        const fits = SIZES.filter(([w, h]) => {
-          if (c + w > cols || r + h > rows) return false;
-          for (let y = r; y < r + h; y++) for (let x = c; x < c + w; x++) if (used[y * cols + x]) return false;
-          return true;
-        });
-        let n = Math.random() * fits.reduce((sum, f) => sum + f[2], 0);
-        const [w, h] = fits.find((f) => (n -= f[2]) < 0) || fits[0];
-        for (let y = r; y < r + h; y++) for (let x = c; x < c + w; x++) used[y * cols + x] = true;
-        slots.push({ c, r, w, h });
-      }
-    }
-    const counts = {};
-    for (const s of slots) counts[shape(s)] = (counts[shape(s)] || 0) + 1;
-    if (Object.values(counts).every((n) => n > 1)) break;
+// Cells are twice as wide as they are tall; pick the grid whose cell count
+// lands closest to the target.
+function gridFor(aspect, target) {
+  let best;
+  for (let cols = 2; cols <= 30; cols++) {
+    const rows = Math.max(2, Math.round((cols * 2) / aspect));
+    if (!best || Math.abs(cols * rows - target) < Math.abs(best.cols * best.rows - target)) best = { cols, rows };
   }
+  return best;
+}
+
+// One horizontal rectangle per grid cell.
+function tile(cols, rows) {
+  const slots = [];
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) slots.push({ c, r, w: 1, h: 1 });
   return slots;
 }
 
-// at[slot] = piece sitting there. Rotating each shape group by one guarantees
+// at[slot] = piece sitting there. Rotating a shuffled order by one guarantees
 // every piece starts out of place.
 function scramble(slots) {
-  const at = slots.map((_, i) => i);
-  const groups = {};
-  slots.forEach((s, i) => (groups[shape(s)] ||= []).push(i));
-  for (const group of Object.values(groups)) {
-    if (group.length < 2) continue;
-    const order = shuffled(group);
-    order.forEach((slot, k) => (at[slot] = order[(k + 1) % order.length]));
-  }
+  const at = [];
+  const order = shuffled(slots.map((_, i) => i));
+  order.forEach((slot, k) => (at[slot] = order[(k + 1) % order.length]));
   return at;
 }
 
@@ -130,10 +132,8 @@ async function start(p) {
     alert(err.message);
     return;
   }
-  // cells are twice as wide as they are tall; aim for about 40 of them
   const aspect = img.naturalWidth / img.naturalHeight;
-  const cols = p.cols || Math.max(3, Math.round(Math.sqrt(20 * aspect)));
-  const rows = p.rows || Math.max(2, Math.round((cols * 2) / aspect));
+  const { cols, rows } = gridFor(aspect, LEVELS[level]);
   const slots = tile(cols, rows);
   const at = scramble(slots);
   const where = [];
@@ -211,7 +211,7 @@ function trySwap(id, target) {
   const from = game.where[id];
   if (target < 0 || target === from) return false;
   const other = game.at[target];
-  if (other === target || shape(game.slots[other]) !== shape(game.slots[id])) return false;
+  if (other === target) return false;
   game.at[from] = other;
   game.at[target] = id;
   game.where[id] = target;
@@ -322,12 +322,15 @@ $('#descBtn').addEventListener('click', () => toggleDescription($('#plateText').
 $('#againBtn').addEventListener('click', () => start(game.p));
 $('#nextBtn').addEventListener('click', () => start(nextPuzzle(game.p)));
 
+document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
+
 window.addEventListener('resize', layout);
 document.addEventListener('gesturestart', (e) => e.preventDefault());
 
 /* ---------- Boot ---------- */
 
 async function boot() {
+  setLevel(level);
   try {
     const res = await fetch('puzzles/puzzles.json', { cache: 'no-cache' });
     puzzles = (await res.json()).map((p) => ({ ...p, id: p.id || p.image, image: 'puzzles/' + p.image }));
