@@ -108,6 +108,57 @@ button {
   color: var(--ink-soft);
 }
 
+/* ---------- Splash ---------- */
+
+/* Over everything, each time the app is opened afresh: a picture filling the
+   screen, a title card on it and the picture's name along the foot. Its
+   colours are the card's own, whatever the theme. */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  place-items: center;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background: var(--page);
+  cursor: pointer;
+  transition: opacity .7s ease;
+}
+:root[data-splash] .splash { display: grid; }
+.splash.leaving { opacity: 0; pointer-events: none; }
+.splash-img { position: absolute; inset: 0; background: center / cover no-repeat; opacity: 0; transition: opacity 1.2s ease; }
+.splash-img.in { opacity: 1; }
+/* a shade along the foot, for the picture's name to be read against */
+.splash-img::after { content: ""; position: absolute; inset: auto 0 0; height: 30%; background: linear-gradient(transparent, rgba(0, 0, 0, .55)); }
+.splash-card {
+  position: relative;
+  margin: 24px;
+  padding: 38px 54px 30px;
+  text-align: center;
+  background: var(--offwhite);
+  color: #33291f;
+  box-shadow: 0 0 0 1px #8a7044, 0 18px 44px -14px rgba(0, 0, 0, .6);
+  animation: settle 1.1s cubic-bezier(.22, .8, .25, 1) both;
+}
+.splash-card h1 { margin: 0; font-weight: 500; font-size: clamp(1.9rem, 5vw, 2.8rem); letter-spacing: .01em; line-height: 1.15; }
+.splash-card .eyebrow { margin-top: 8px; font-size: 1.3rem; color: #6f6051; }
+.splash-begin { margin: 26px 0 0; font-size: .95rem; letter-spacing: .14em; text-transform: uppercase; color: #6f6051; }
+.splash-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(22px + env(safe-area-inset-bottom));
+  margin: 0;
+  padding: 0 24px;
+  text-align: center;
+  font-style: italic;
+  color: var(--cream);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.splash-img.in ~ .splash-caption { opacity: 1; }
+
 /* ---------- Collection ---------- */
 
 #gallery, #period, #artist { overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--page); }

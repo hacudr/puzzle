@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="style.css">
 <!-- the chosen theme, set before anything is drawn -->
 <script>try { document.documentElement.dataset.theme = localStorage.getItem("puzzle.theme") || "lace"; } catch {}</script>
+<!-- the splash covers the gallery from the first, each time the app is opened afresh -->
+<script>try { if (!sessionStorage.getItem("puzzle.welcomed")) document.documentElement.dataset.splash = "on"; } catch {}</script>
 <title>Puzzle</title>
 </head>
 <body>
@@ -210,6 +212,17 @@
     </nav>
   </div>
 </main>
+
+<!-- Splash: a picture and a title card, until it is tapped -->
+<div id="splash" class="splash" role="button" aria-label="Begin">
+  <div id="splashImg" class="splash-img"></div>
+  <div class="splash-card">
+    <h1>Welcome to Art History</h1>
+    <p class="eyebrow">Best played with music</p>
+    <p class="splash-begin">Tap to begin</p>
+  </div>
+  <p id="splashCaption" class="splash-caption"></p>
+</div>
 
 <script src="sound.js"></script>
 <script src="app.js"></script>

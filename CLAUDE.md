@@ -4,6 +4,8 @@ A picture-puzzle web app for iPad (plain HTML/CSS/JS, no build step), hosted on 
 
 The home page is a gallery of periods; tapping one opens a page of that period's artists, and tapping an artist opens a page of their puzzles. Each puzzle in `puzzles/puzzles.json` names its `artist`, and `puzzles/artists.json` lists the artists in the order their cards appear, each with a `note` (the italic line, such as "French, 1840–1926"), a `period` and a `cover` (one of their puzzle images). `puzzles/periods.json` lists the home page's categories in the order their cards appear, each with a `note`: Female Artists first, then the periods. A category's card shows its first artist's cover. A woman artist also carries `"also": ["Female Artists"]`, so she appears there as well as under her period. Keep every category to at most 10 artists, splitting one that grows past that; an artist with no `period` lands under "Other artists".
 
+Each time the app is opened afresh it starts on a splash: one picture filling the screen under a title card, "Welcome to Art History · Best played with music", put away with a tap. The picture is never one with a `content` tag, whatever the settings show, and each opening takes one not shown before until every such picture has had a turn. A reload in the same tab does not bring the splash back.
+
 ## When the user adds images
 
 The user drops original pictures into `puzzles/images/` and says little more than "I added some images". Whenever there are pictures in `puzzles/images/` that are not yet in `puzzles/puzzles.json`, do all of the following for each one without being asked and without asking first:
@@ -24,7 +26,7 @@ The user drops original pictures into `puzzles/images/` and says little more tha
 
    Give the entry a `content` list if the picture shows any of these, and leave it out otherwise: `nudity` (any visible nudity at all, including the naked infant in a Madonna and Child, cherubs and nude statues), `violence` (fighting, weapons in use, wounds, blood, killed animals, martyrdoms, abductions, menace against women, as in Susanna and the Elders, and any reference to rape, in the title or the story the picture tells, however calm the picture looks, as in Lucretia or The Feast of the Gods) and `frightening` (monsters, menacing beasts, corpses, human skulls, people in peril). Settings can hide each kind, and Kids mode hides all three, so when unsure, tag it. Say which pictures were tagged.
 
-4. **Check** — load the gallery in the preview and confirm the artist's card is there, every card on their page shows its picture and the new puzzle opens. Kids mode must be off for this (Settings, hold Off for three seconds), or tagged pictures will be missing.
+4. **Check** — load the gallery in the preview and confirm the artist's card is there, every card on their page shows its picture and the new puzzle opens. Tap the splash away first. Kids mode must be off for this (Settings, hold Off for three seconds), or tagged pictures will be missing.
 
 Thumbnails are part of adding a puzzle, never a separate request. If any listed puzzle is missing its file in `puzzles/thumbs/`, generate it.
 

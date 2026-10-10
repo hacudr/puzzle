@@ -9,6 +9,9 @@ const KIDS_KEY = 'puzzle.kids';
 const HIDE_KEY = 'puzzle.hide';
 const SPELL_KEY = 'puzzle.spell';
 const THEME_KEY = 'puzzle.theme';
+// the pictures the splash has shown, and whether it has been shown since the app was opened
+const SPLASH_KEY = 'puzzle.splash';
+const WELCOMED_KEY = 'puzzle.welcomed';
 // the colour of the page in each theme, for the bar round the app
 const THEMES = { blush: '#f3d9d1', lace: '#f1e6d0', celadon: '#c8d9d0', walnut: '#2b1f18' };
 // how long Off is held to leave Kids mode, in ms
@@ -435,6 +438,50 @@ function drawVeil(card) {
   veil.className = 'veil';
   face.after(veil);
 }
+
+/* ---------- Splash ---------- */
+
+// The app opens on a picture and a title card, once each time it is opened.
+// The picture is never one with a `content` tag, whatever the settings show,
+// and each opening takes one not shown yet until they have all had a turn.
+async function showSplash() {
+  if (!('splash' in document.documentElement.dataset)) return;
+  const mild = puzzles.filter((p) => !(p.content || []).length);
+  let seen = [];
+  try {
+    seen = JSON.parse(localStorage.getItem(SPLASH_KEY)) || [];
+  } catch {}
+  let fresh = mild.filter((p) => !seen.includes(p.id));
+  if (!fresh.length) {
+    // round again, but not straight back to the last one
+    fresh = mild.length > 1 ? mild.filter((p) => p.id !== seen[seen.length - 1]) : mild;
+    seen = [];
+  }
+  const p = fresh[Math.floor(Math.random() * fresh.length)];
+  if (!p) return;
+  try {
+    localStorage.setItem(SPLASH_KEY, JSON.stringify([...seen, p.id]));
+  } catch {}
+  try {
+    await loadImage(p.image);
+  } catch {
+    return;
+  }
+  $('#splashCaption').textContent = titleOf(p) + ' · ' + p.artist;
+  $('#splashImg').style.backgroundImage = `url("${p.image}")`;
+  $('#splashImg').classList.add('in');
+}
+
+// A tap anywhere puts it away until the app is next opened.
+$('#splash').addEventListener('click', () => {
+  const el = $('#splash');
+  try {
+    sessionStorage.setItem(WELCOMED_KEY, 'on');
+  } catch {}
+  el.classList.add('leaving');
+  // gone once it has faded
+  setTimeout(() => delete document.documentElement.dataset.splash, 700);
+});
 
 /* ---------- Gallery ---------- */
 
@@ -1166,6 +1213,7 @@ async function boot() {
     all: everyone.filter((a) => a.period === name || a.also.includes(name)),
   }));
   sift();
+  showSplash();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 }
 
