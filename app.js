@@ -1055,7 +1055,6 @@ function showPlate(p) {
   const done = $('#done');
   done.classList.add('arriving');
   done.hidden = false;
-  sound.strike();
   setTimeout(() => {
     done.classList.remove('arriving');
     $('#play').classList.remove('won');
