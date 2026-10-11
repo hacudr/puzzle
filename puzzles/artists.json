@@ -171,5 +171,17 @@
     "period": "Modern",
     "also": ["Female Artists"],
     "cover": "marvellous-tree.webp"
+  },
+  {
+    "name": "Gustav Klimt",
+    "note": "Austrian, 1862–1918",
+    "period": "Modern",
+    "cover": "klimt-mada-primavesi.webp"
+  },
+  {
+    "name": "Walter Crane",
+    "note": "British, 1845–1915",
+    "period": "Post-Impressionism",
+    "cover": "crane-valentine-765291.webp"
   }
 ]

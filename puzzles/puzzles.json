@@ -1814,6 +1814,95 @@
     "scientific": "1896"
   },
   {
+    "image": "toulouse-lautrec-a-woman-and-a-man-on-horseback.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "A Woman and a Man on Horseback",
+    "scientific": "1879–81",
+    "effect": "gallop"
+  },
+  {
+    "image": "toulouse-lautrec-the-clown-m-joret.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "The Clown",
+    "scientific": "M. Joret, 1885"
+  },
+  {
+    "image": "toulouse-lautrec-albert-grenier.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "Albert Grenier",
+    "scientific": "1887"
+  },
+  {
+    "image": "toulouse-lautrec-woman-in-the-garden-of-monsieur-forest.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "Woman in the Garden of Monsieur Forest",
+    "scientific": "1889–91"
+  },
+  {
+    "image": "toulouse-lautrec-the-streetwalker.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "The Streetwalker",
+    "scientific": "c. 1890–91"
+  },
+  {
+    "image": "toulouse-lautrec-the-englishman-at-the-moulin-rouge.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "The Englishman at the Moulin Rouge",
+    "scientific": "William Tom Warrener, 1892"
+  },
+  {
+    "image": "toulouse-lautrec-preliminary-design-for-the-playbill-to-le-chariot-de-terre-cuite.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "Design for the Playbill to “Le Chariot de terre cuite”",
+    "scientific": "1894"
+  },
+  {
+    "image": "toulouse-lautrec-the-sofa.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "The Sofa",
+    "scientific": "c. 1894–96",
+    "content": ["nudity"]
+  },
+  {
+    "image": "toulouse-lautrec-madame-thadee-natanson-at-the-theater.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "Madame Thadée Natanson at the Theater",
+    "scientific": "Misia Godebska, 1895"
+  },
+  {
+    "image": "toulouse-lautrec-woman-before-a-mirror.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "Woman before a Mirror",
+    "scientific": "1897",
+    "content": ["nudity"]
+  },
+  {
+    "image": "toulouse-lautrec-emilie.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "Émilie",
+    "scientific": "late 1890s",
+    "effect": "gallop"
+  },
+  {
+    "image": "toulouse-lautrec-mademoiselle-nys.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "Mademoiselle Nys",
+    "scientific": "1899"
+  },
+  {
+    "image": "toulouse-lautrec-at-the-circus-the-spanish-walk.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "At the Circus: The Spanish Walk",
+    "scientific": "Au Cirque: Le Pas espagnol, 1899",
+    "effect": "gallop"
+  },
+  {
+    "image": "toulouse-lautrec-two-dogs.webp",
+    "artist": "Henri de Toulouse-Lautrec",
+    "name": "Two Dogs",
+    "scientific": "undated"
+  },
+  {
     "image": "turner-boats-carrying-out-anchors-to-the-dutch-men-of-war.webp",
     "artist": "J. M. W. Turner",
     "name": "Boats Carrying Out Anchors to the Dutch Men of War",
@@ -2499,5 +2588,115 @@
     "artist": "Auguste Rodin",
     "name": "Victoria Sackville-West, Lady Sackville",
     "scientific": "1913–1914"
+  },
+  {
+    "image": "klimt-serena-pulitzer-lederer.webp",
+    "artist": "Gustav Klimt",
+    "name": "Serena Pulitzer Lederer",
+    "scientific": "1899"
+  },
+  {
+    "image": "klimt-mada-primavesi.webp",
+    "artist": "Gustav Klimt",
+    "name": "Mäda Primavesi",
+    "scientific": "1912–13"
+  },
+  {
+    "image": "klimt-standing-nude.webp",
+    "artist": "Gustav Klimt",
+    "name": "Standing Nude",
+    "scientific": "1906–07",
+    "content": ["nudity"]
+  },
+  {
+    "image": "klimt-reclining-nude.webp",
+    "artist": "Gustav Klimt",
+    "name": "Reclining Nude",
+    "scientific": "c. 1912–13",
+    "content": ["nudity"]
+  },
+  {
+    "image": "klimt-reclining-nude-with-drapery.webp",
+    "artist": "Gustav Klimt",
+    "name": "Reclining Nude with Drapery",
+    "scientific": "c. 1912–13",
+    "content": ["nudity"]
+  },
+  {
+    "image": "klimt-two-studies-for-a-crouching-woman.webp",
+    "artist": "Gustav Klimt",
+    "name": "Two Studies for a Crouching Woman",
+    "scientific": "1914–15",
+    "content": ["nudity"]
+  },
+  {
+    "image": "klimt-reclining-nude-with-drapery-back-view.webp",
+    "artist": "Gustav Klimt",
+    "name": "Reclining Nude with Drapery, Back View",
+    "scientific": "1917–1918",
+    "content": ["nudity"]
+  },
+  {
+    "image": "klimt-half-figure-of-a-young-woman.webp",
+    "artist": "Gustav Klimt",
+    "name": "Half-figure of a Young Woman",
+    "scientific": "1918"
+  },
+  {
+    "image": "crane-woman-seated-on-a-sofa.webp",
+    "artist": "Walter Crane",
+    "name": "Woman Seated on a Sofa",
+    "scientific": "undated"
+  },
+  {
+    "image": "crane-italian-farmhouse.webp",
+    "artist": "Walter Crane",
+    "name": "Italian Farmhouse",
+    "scientific": "1871–73"
+  },
+  {
+    "image": "crane-goody-two-shoes-picture-book.webp",
+    "artist": "Walter Crane",
+    "name": "Goody Two Shoes’ Picture Book",
+    "scientific": "1874–76"
+  },
+  {
+    "image": "crane-valentine.webp",
+    "artist": "Walter Crane",
+    "name": "Valentine",
+    "scientific": "a couple at a stile, 1876"
+  },
+  {
+    "image": "crane-valentine-765291.webp",
+    "artist": "Walter Crane",
+    "name": "Valentine",
+    "scientific": "a woman picking blossom, 1876"
+  },
+  {
+    "image": "crane-valentine-767102.webp",
+    "artist": "Walter Crane",
+    "name": "Valentine",
+    "scientific": "To My Love, 1876"
+  },
+  {
+    "image": "crane-design-for-trade-card.webp",
+    "artist": "Walter Crane",
+    "name": "Design for a Trade Card",
+    "scientific": "The Sun Life Assurance Society, 1880–89",
+    "content": ["violence"],
+    "effect": ["sword", "gallop"]
+  },
+  {
+    "image": "crane-the-mirror-of-venus.webp",
+    "artist": "Walter Crane",
+    "name": "The Mirror of Venus",
+    "scientific": "L’Art et Vie, c. 1890",
+    "content": ["nudity"]
+  },
+  {
+    "image": "crane-dancing-nymph.webp",
+    "artist": "Walter Crane",
+    "name": "Dancing Nymph",
+    "scientific": "Nymphe Danseuse, 1895"
   }
 ]
