@@ -514,9 +514,6 @@ const sound = (() => {
   let playing = null;
   // the noise a tap on a button is cut from, once it has been made
   let hiss = null;
-  // the splash's music, while it sounds, and whether it has been given up
-  let greeting = null;
-  let forgone = false;
   // the same for the current puzzle's effects: the names asked for, and the
   // buffers of those that are ready, by name
   const effects = {};
@@ -748,31 +745,6 @@ const sound = (() => {
   return {
     unlock,
 
-    // The splash's music: the first ten seconds of a recording, music/welcome.mp3,
-    // which dies away over its last five, played well under the level of the
-    // music a puzzle ends on. A browser that allows no sound before the first
-    // touch keeps it waiting until then.
-    welcome() {
-      if (!on.music || !unlock()) return;
-      fetched('music/welcome.mp3').then(
-        (buffer) => {
-          if (on.music && !forgone) greeting = sample(buffer, 0.2, 0);
-        },
-        () => {}
-      );
-    },
-
-    // The splash has gone by itself. Its music is given up if it has not begun,
-    // for want of a touch or of its file, so that it does not break out later.
-    forgo() {
-      if (ctx && ctx.state === 'running' && greeting) return;
-      forgone = true;
-      try {
-        if (greeting) greeting.stop();
-      } catch {}
-      greeting = null;
-    },
-
     // A button was tapped: a stroke of a paintbrush on canvas. A breath of noise
     // with the bottom and the top taken off, which swells, darkens as it is
     // drawn out and is gone in under half a second, with a faint shiver in it
@@ -921,12 +893,6 @@ const sound = (() => {
       if (!(kind in KEYS)) return;
       on[kind] = !!value;
       if (!value) hush();
-      if (!value && kind === 'music' && greeting) {
-        try {
-          greeting.stop();
-        } catch {}
-        greeting = null;
-      }
       try {
         localStorage.setItem(KEYS[kind], value ? 'on' : 'off');
       } catch {}

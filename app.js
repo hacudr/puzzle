@@ -12,8 +12,7 @@ const THEME_KEY = 'puzzle.theme';
 const VIEW_KEY = 'puzzle.view';
 // the pictures the splash has shown, and whether it has been shown since the app was opened
 const SPLASH_KEY = 'puzzle.splash';
-// how long the splash stays, in ms, once its picture is up: as long as its
-// music plays at its full level
+// how long the splash stays, in ms, once its picture is up
 const SPLASH_STAY = 5000;
 const WELCOMED_KEY = 'puzzle.welcomed';
 // the colour of the page in each theme, for the bar round the app
@@ -488,7 +487,6 @@ function drawVeil(card) {
 // and each opening takes one not shown yet until they have all had a turn.
 async function showSplash() {
   if (!('splash' in document.documentElement.dataset)) return;
-  sound.welcome();
   const mild = puzzles.filter((p) => !(p.content || []).length);
   let seen = [];
   try {
@@ -513,11 +511,7 @@ async function showSplash() {
   $('#splashCaption').textContent = titleOf(p) + ' · ' + p.artist;
   $('#splashImg').style.backgroundImage = `url("${p.image}")`;
   $('#splashImg').classList.add('in');
-  setTimeout(() => {
-    // not at a tap, which would have set the music going
-    if (!$('#splash').classList.contains('leaving')) sound.forgo();
-    leaveSplash();
-  }, SPLASH_STAY);
+  setTimeout(leaveSplash, SPLASH_STAY);
 }
 
 // It goes by itself once its time is up, or sooner at a tap, and is not seen
