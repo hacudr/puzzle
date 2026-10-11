@@ -2698,5 +2698,350 @@
     "artist": "Walter Crane",
     "name": "Dancing Nymph",
     "scientific": "Nymphe Danseuse, 1895"
+  },
+  {
+    "image": "leonardo-da-vinci-mona-lisa.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Mona Lisa",
+    "scientific": "c. 1503–1519"
+  },
+  {
+    "image": "leonardo-da-vinci-the-last-supper.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "The Last Supper",
+    "scientific": "c. 1495–1498",
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-lady-with-an-ermine.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Lady with an Ermine",
+    "scientific": "c. 1489–1491"
+  },
+  {
+    "image": "leonardo-da-vinci-ginevra-de-benci.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Ginevra de' Benci",
+    "scientific": "c. 1474/1478"
+  },
+  {
+    "image": "leonardo-da-vinci-annunciation.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Annunciation",
+    "scientific": "c. 1472–1476",
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-the-baptism-of-christ.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "The Baptism of Christ",
+    "scientific": "with Andrea del Verrocchio, c. 1470–1475",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-madonna-of-the-carnation.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Madonna of the Carnation",
+    "scientific": "c. 1473–1478",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-benois-madonna.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Benois Madonna",
+    "scientific": "c. 1478–1480",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-adoration-of-the-magi.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Adoration of the Magi",
+    "scientific": "unfinished, c. 1481–1482",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-saint-jerome-in-the-wilderness.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Saint Jerome in the Wilderness",
+    "scientific": "unfinished, c. 1480–1490",
+    "content": ["nudity", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-virgin-of-the-rocks.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Virgin of the Rocks",
+    "scientific": "Paris, c. 1483–1486",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-portrait-of-a-musician.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Portrait of a Musician",
+    "scientific": "c. 1483–1487"
+  },
+  {
+    "image": "leonardo-da-vinci-la-belle-ferronniere.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "La Belle Ferronnière",
+    "scientific": "c. 1490–1497"
+  },
+  {
+    "image": "leonardo-da-vinci-the-virgin-and-child-with-saint-anne.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "The Virgin and Child with Saint Anne",
+    "scientific": "c. 1503–1519",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-saint-john-the-baptist.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Saint John the Baptist",
+    "scientific": "c. 1513–1516",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-the-virgin-and-child-with-saint-anne-and-saint-john-the-baptist.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "The Virgin and Child with Saint Anne and Saint John the Baptist",
+    "scientific": "cartoon, c. 1499–1508",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-la-scapigliata.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "La Scapigliata",
+    "scientific": "c. 1506–1508"
+  },
+  {
+    "image": "leonardo-da-vinci-vitruvian-man.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Vitruvian Man",
+    "scientific": "c. 1490",
+    "content": ["nudity"]
+  },
+  {
+    "image": "leonardo-da-vinci-portrait-of-a-man-in-red-chalk.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Portrait of a Man in Red Chalk",
+    "scientific": "thought to be a self-portrait, c. 1512"
+  },
+  {
+    "image": "leonardo-da-vinci-study-for-the-head-of-a-girl.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Study for the Head of a Girl",
+    "scientific": "c. 1483"
+  },
+  {
+    "image": "leonardo-da-vinci-the-head-of-the-virgin.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "The Head of the Virgin",
+    "scientific": "1510–13",
+    "sacred": true
+  },
+  {
+    "image": "leonardo-da-vinci-head-of-a-man-in-profile.webp",
+    "artist": "Leonardo da Vinci",
+    "name": "Head of a Man in Profile",
+    "scientific": "1490–94"
+  },
+  {
+    "image": "michelangelo-the-creation-of-adam.webp",
+    "artist": "Michelangelo",
+    "name": "The Creation of Adam",
+    "scientific": "Sistine Chapel ceiling, c. 1511",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-separation-of-light-from-darkness.webp",
+    "artist": "Michelangelo",
+    "name": "The Separation of Light from Darkness",
+    "scientific": "Sistine Chapel ceiling, c. 1512",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-creation-of-the-sun-moon-and-plants.webp",
+    "artist": "Michelangelo",
+    "name": "The Creation of the Sun, Moon and Plants",
+    "scientific": "Sistine Chapel ceiling, c. 1511",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-creation-of-eve.webp",
+    "artist": "Michelangelo",
+    "name": "The Creation of Eve",
+    "scientific": "Sistine Chapel ceiling, c. 1510",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-fall-and-expulsion-from-paradise.webp",
+    "artist": "Michelangelo",
+    "name": "The Fall and Expulsion from Paradise",
+    "scientific": "Sistine Chapel ceiling, c. 1509–1510",
+    "content": ["nudity", "violence"],
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-sacrifice-of-noah.webp",
+    "artist": "Michelangelo",
+    "name": "The Sacrifice of Noah",
+    "scientific": "Sistine Chapel ceiling, c. 1509",
+    "content": ["nudity", "violence"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-deluge.webp",
+    "artist": "Michelangelo",
+    "name": "The Deluge",
+    "scientific": "Sistine Chapel ceiling, c. 1508–1509",
+    "content": ["nudity", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-drunkenness-of-noah.webp",
+    "artist": "Michelangelo",
+    "name": "The Drunkenness of Noah",
+    "scientific": "Sistine Chapel ceiling, c. 1509",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-delphic-sibyl-fresco.webp",
+    "artist": "Michelangelo",
+    "name": "The Delphic Sibyl",
+    "scientific": "Sistine Chapel ceiling, c. 1509",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-libyan-sibyl.webp",
+    "artist": "Michelangelo",
+    "name": "The Libyan Sibyl",
+    "scientific": "Sistine Chapel ceiling, c. 1511",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-erythraean-sibyl.webp",
+    "artist": "Michelangelo",
+    "name": "The Erythraean Sibyl",
+    "scientific": "Sistine Chapel ceiling, c. 1509",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-persian-sibyl-fresco.webp",
+    "artist": "Michelangelo",
+    "name": "The Persian Sibyl",
+    "scientific": "Sistine Chapel ceiling, c. 1511",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-prophet-daniel.webp",
+    "artist": "Michelangelo",
+    "name": "The Prophet Daniel",
+    "scientific": "Sistine Chapel ceiling, c. 1511",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-prophet-isaiah.webp",
+    "artist": "Michelangelo",
+    "name": "The Prophet Isaiah",
+    "scientific": "Sistine Chapel ceiling, c. 1509",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-prophet-joel-fresco.webp",
+    "artist": "Michelangelo",
+    "name": "The Prophet Joel",
+    "scientific": "Sistine Chapel ceiling, c. 1509",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-prophet-jonah.webp",
+    "artist": "Michelangelo",
+    "name": "The Prophet Jonah",
+    "scientific": "Sistine Chapel ceiling, c. 1512",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-prophet-ezekiel-fresco.webp",
+    "artist": "Michelangelo",
+    "name": "The Prophet Ezekiel",
+    "scientific": "Sistine Chapel ceiling, c. 1510",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-torment-of-saint-anthony.webp",
+    "artist": "Michelangelo",
+    "name": "The Torment of Saint Anthony",
+    "scientific": "c. 1487–1488",
+    "content": ["violence", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-manchester-madonna.webp",
+    "artist": "Michelangelo",
+    "name": "The Manchester Madonna",
+    "scientific": "unfinished, c. 1497",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-entombment.webp",
+    "artist": "Michelangelo",
+    "name": "The Entombment",
+    "scientific": "unfinished, c. 1500–1501",
+    "content": ["nudity", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-the-conversion-of-saul.webp",
+    "artist": "Michelangelo",
+    "name": "The Conversion of Saul",
+    "scientific": "Cappella Paolina, c. 1542–1545",
+    "content": ["nudity"],
+    "effect": "gallop",
+    "sacred": true
+  },
+  {
+    "image": "michelangelo-studies-for-the-libyan-sibyl.webp",
+    "artist": "Michelangelo",
+    "name": "Studies for the Libyan Sibyl",
+    "scientific": "red chalk, c. 1510–11",
+    "content": ["nudity"]
+  },
+  {
+    "image": "michelangelo-study-for-the-nude-youth-over-the-prophet-daniel.webp",
+    "artist": "Michelangelo",
+    "name": "Study for the Nude Youth over the Prophet Daniel",
+    "scientific": "red chalk, 1510–11",
+    "content": ["nudity"]
+  },
+  {
+    "image": "michelangelo-two-nudes-fighting.webp",
+    "artist": "Michelangelo",
+    "name": "Two Nudes Fighting",
+    "scientific": "c. 1505",
+    "content": ["nudity", "violence"]
   }
 ]

@@ -76,6 +76,19 @@
     "cover": "titian-ranuccio-farnese.webp"
   },
   {
+    "name": "Leonardo da Vinci",
+    "sort": "Leonardo",
+    "note": "Italian, 1452–1519",
+    "period": "Renaissance",
+    "cover": "leonardo-da-vinci-mona-lisa.webp"
+  },
+  {
+    "name": "Michelangelo",
+    "note": "Italian, 1475–1564",
+    "period": "Renaissance",
+    "cover": "michelangelo-the-creation-of-adam.webp"
+  },
+  {
     "name": "Paul Cézanne",
     "note": "French, 1839–1906",
     "period": "Post-Impressionism",
