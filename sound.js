@@ -512,6 +512,13 @@ const sound = (() => {
   const clips = {};
   let clip = null;
   let playing = null;
+  // the noise a tap on a button is cut from, once it has been made
+  let hiss = null;
+  // true once the splash's music is asked for, then the time on the context's
+  // clock at which it was set going; false without it
+  let opening = false;
+  // the splash's music, while it sounds
+  let greeting = null;
   // the same for the current puzzle's effects: the names asked for, and the
   // buffers of those that are ready, by name
   const effects = {};
@@ -743,6 +750,67 @@ const sound = (() => {
   return {
     unlock,
 
+    // The splash's music: the first ten seconds of a recording, music/welcome.mp3,
+    // which dies away over its last five. Nothing may sound before the first
+    // touch on an iPad, so there it waits for the first tap on the splash.
+    welcome() {
+      if (!on.music || !unlock()) return;
+      opening = true;
+      fetched('music/welcome.mp3').then(
+        (buffer) => {
+          if (!on.music) return (opening = false);
+          greeting = sample(buffer, 0.6, 0);
+          // the context's clock stands still until it may sound
+          opening = ctx.currentTime;
+        },
+        () => (opening = false)
+      );
+    },
+
+    // whether the splash's music is only now starting, having had to wait for
+    // a touch, or for its file
+    starting: () => on.music && (opening === true || (opening !== false && ctx.currentTime - opening < 1)),
+
+    // A button was tapped: a stroke of a paintbrush on canvas. A breath of noise
+    // with the bottom and the top taken off, which swells, darkens as it is
+    // drawn out and is gone in under half a second, with a faint shiver in it
+    // for the weave of the cloth. It is a little different each time, and dry,
+    // without the room the notes are given. It goes with the effects.
+    tap() {
+      if (!on.effects || !unlock()) return;
+      if (!hiss) {
+        hiss = ctx.createBuffer(1, Math.floor(ctx.sampleRate * 0.5), ctx.sampleRate);
+        const data = hiss.getChannelData(0);
+        for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+      }
+      const now = ctx.currentTime;
+      const end = now + 0.4;
+      const source = ctx.createBufferSource();
+      source.buffer = hiss;
+      source.loop = true;
+      const band = ctx.createBiquadFilter();
+      band.type = 'bandpass';
+      band.Q.value = 0.7;
+      band.frequency.setValueAtTime(2400 + Math.random() * 600, now);
+      band.frequency.exponentialRampToValueAtTime(1100, end);
+      const env = ctx.createGain();
+      env.gain.setValueAtTime(0.0001, now);
+      env.gain.exponentialRampToValueAtTime(0.045, now + 0.09);
+      env.gain.exponentialRampToValueAtTime(0.0001, end);
+      // the weave: the level wavers a little, some thirty times a second
+      const weave = ctx.createGain();
+      const waver = ctx.createOscillator();
+      waver.frequency.value = 28 + Math.random() * 8;
+      const depth = ctx.createGain();
+      depth.gain.value = 0.25;
+      waver.connect(depth).connect(weave.gain);
+      source.connect(band).connect(env).connect(weave).connect(ctx.destination);
+      source.start(now, Math.random() * 0.4);
+      waver.start(now);
+      source.stop(end + 0.02);
+      waver.stop(end + 0.02);
+    },
+
     // name is a key of TUNES; anything else picks a tune by the puzzle's
     // position, among the stormy or the sacred tunes if kind is 'stormy' or 'sacred'
     setTune(name, index = 0, kind = '') {
@@ -787,9 +855,10 @@ const sound = (() => {
       }
     },
 
-    // count = how many pieces just landed where they belong
+    // count = how many pieces just landed where they belong; the notes the
+    // pieces play go with the effects, not the music
     correct(count = 1) {
-      if (!on.music || !unlock() || !steps.length) return;
+      if (!on.effects || !unlock() || !steps.length) return;
       for (let i = 0; i < count; i++) {
         const step = steps[++heard % steps.length];
         play(step, i * 0.2, 1, 0.7);
@@ -798,7 +867,7 @@ const sound = (() => {
 
     // a swap that put nothing in place: repeat the note the tune has reached
     swap() {
-      if (!on.music || !unlock() || !steps.length) return;
+      if (!on.effects || !unlock() || !steps.length) return;
       if (heard < 0) heard = 0;
       const step = steps[heard % steps.length];
       play(step, 0, 0.7, 0.5);
@@ -850,6 +919,12 @@ const sound = (() => {
       if (!(kind in KEYS)) return;
       on[kind] = !!value;
       if (!value) hush();
+      if (!value && kind === 'music' && greeting) {
+        try {
+          greeting.stop();
+        } catch {}
+        greeting = null;
+      }
       try {
         localStorage.setItem(KEYS[kind], value ? 'on' : 'off');
       } catch {}

@@ -12,6 +12,8 @@ const THEME_KEY = 'puzzle.theme';
 const VIEW_KEY = 'puzzle.view';
 // the pictures the splash has shown, and whether it has been shown since the app was opened
 const SPLASH_KEY = 'puzzle.splash';
+// how long the splash stays, in ms, once a tap has set its music going
+const SPLASH_MUSIC = 5000;
 const WELCOMED_KEY = 'puzzle.welcomed';
 // the colour of the page in each theme, for the bar round the app
 const THEMES = { blush: '#f3d9d1', lace: '#f1e6d0', celadon: '#c8d9d0', walnut: '#2b1f18' };
@@ -485,6 +487,7 @@ function drawVeil(card) {
 // and each opening takes one not shown yet until they have all had a turn.
 async function showSplash() {
   if (!('splash' in document.documentElement.dataset)) return;
+  sound.welcome();
   const mild = puzzles.filter((p) => !(p.content || []).length);
   let seen = [];
   try {
@@ -511,16 +514,27 @@ async function showSplash() {
   $('#splashImg').classList.add('in');
 }
 
-// A tap anywhere puts it away until the app is next opened.
-$('#splash').addEventListener('click', () => {
+// A tap anywhere puts it away until the app is next opened. Where its music
+// had to wait for that tap, the splash stays while the music plays, and goes
+// as the music begins to die away, or at a second tap.
+{
   const el = $('#splash');
-  try {
-    sessionStorage.setItem(WELCOMED_KEY, 'on');
-  } catch {}
-  el.classList.add('leaving');
-  // gone once it has faded
-  setTimeout(() => delete document.documentElement.dataset.splash, 700);
-});
+  let timer = 0;
+  const leave = () => {
+    clearTimeout(timer);
+    el.classList.add('leaving');
+    // gone once it has faded
+    setTimeout(() => delete document.documentElement.dataset.splash, 700);
+  };
+  el.addEventListener('click', () => {
+    try {
+      sessionStorage.setItem(WELCOMED_KEY, 'on');
+    } catch {}
+    if (el.classList.contains('begun') || !sound.starting()) return leave();
+    el.classList.add('begun');
+    timer = setTimeout(leave, SPLASH_MUSIC);
+  });
+}
 
 /* ---------- Gallery ---------- */
 
@@ -1227,6 +1241,12 @@ document.querySelectorAll('#themes button').forEach((b) => b.addEventListener('c
 
 window.addEventListener('resize', layout);
 document.addEventListener('pointerdown', () => sound.unlock(), true);
+// Every button answers a tap with a soft sound, but for the music's own, which
+// plays a chord as it comes on, and Off for Kids mode, which a tap does not work.
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (b && !b.matches('[data-sound="music"], [data-kids="off"]')) sound.tap();
+});
 document.addEventListener('gesturestart', (e) => e.preventDefault());
 
 /* ---------- Boot ---------- */
