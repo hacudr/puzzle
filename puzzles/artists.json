@@ -63,17 +63,17 @@
     "cover": "gentileschi-self-portrait-as-the-allegory-of-painting.webp"
   },
   {
-    "name": "Caravaggio",
-    "note": "Italian, 1571–1610",
-    "period": "Baroque",
-    "cover": "caravaggio-boy-with-a-basket-of-fruit.webp"
-  },
-  {
     "name": "Berthe Morisot",
     "note": "French, 1841–1895",
     "period": "Impressionism",
     "also": ["Female Artists"],
     "cover": "morisot-the-artists-sister-at-a-window.webp"
+  },
+  {
+    "name": "Caravaggio",
+    "note": "Italian, 1571–1610",
+    "period": "Baroque",
+    "cover": "caravaggio-boy-with-a-basket-of-fruit.webp"
   },
   {
     "name": "Mary Cassatt",

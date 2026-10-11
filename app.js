@@ -48,7 +48,7 @@ let byName = [];
 let view = loadView();
 // the artist whose puzzles are on show
 let artist = null;
-// one entry per period: { name, note, all, artists, cover }; `all` is every
+// one entry per period: { name, note, usual, all, artists, cover }; `all` is every
 // artist of the period, `artists` those with something on show
 let everyPeriod = [];
 // the periods with something on show
@@ -238,10 +238,12 @@ function sift() {
   }
   artists = everyone.filter((a) => a.puzzles.length);
   byName = [...artists].sort((a, b) => a.sort.localeCompare(b.sort));
-  // a period shows its first artist's picture, and one with no artists left has no card
+  // a period shows the picture it names, or its first artist's where it names
+  // none or that one is hidden, and one with no artists left has no card
   for (const t of everyPeriod) {
     t.artists = t.all.filter((a) => a.puzzles.length);
-    t.cover = t.artists[0] && t.artists[0].cover;
+    const named = t.artists.some((a) => a.puzzles.some((p) => p.image === t.usual));
+    t.cover = named ? t.usual : t.artists[0] && t.artists[0].cover;
   }
   periods = everyPeriod.filter((t) => t.artists.length);
   // the open pages are drawn again when they are next opened
@@ -1265,6 +1267,7 @@ async function boot() {
   everyPeriod = [...new Set([...eras.map((t) => t.name), ...everyone.map((a) => a.period)])].map((name) => ({
     name,
     note: (eras.find((t) => t.name === name) || {}).note,
+    usual: (eras.find((t) => t.name === name) || {}).cover && 'puzzles/' + eras.find((t) => t.name === name).cover,
     all: everyone.filter((a) => a.period === name || a.also.includes(name)),
   }));
   sift();
