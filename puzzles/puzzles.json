@@ -480,6 +480,396 @@
     "scientific": "c. 1482/1485"
   },
   {
+    "image": "botticelli-the-birth-of-venus.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Birth of Venus",
+    "scientific": "c. 1484–1486",
+    "content": ["nudity"]
+  },
+  {
+    "image": "botticelli-primavera.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Primavera",
+    "scientific": "c. 1477–1482",
+    "content": ["nudity", "violence"]
+  },
+  {
+    "image": "botticelli-pallas-and-the-centaur.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Pallas and the Centaur",
+    "scientific": "c. 1482",
+    "content": ["nudity"]
+  },
+  {
+    "image": "botticelli-venus-and-mars.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Venus and Mars",
+    "scientific": "c. 1485",
+    "content": ["nudity"]
+  },
+  {
+    "image": "botticelli-the-calumny-of-apelles.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Calumny of Apelles",
+    "scientific": "c. 1494–1495",
+    "content": ["nudity", "violence"]
+  },
+  {
+    "image": "botticelli-fortitude.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Fortitude",
+    "scientific": "1470"
+  },
+  {
+    "image": "botticelli-idealized-portrait-of-a-lady.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Idealized Portrait of a Lady",
+    "scientific": "c. 1480–1485"
+  },
+  {
+    "image": "botticelli-portrait-of-a-lady-known-as-smeralda-bandinelli.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Portrait of a Lady Known as Smeralda Bandinelli",
+    "scientific": "c. 1470–1475"
+  },
+  {
+    "image": "botticelli-portrait-of-a-young-man.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Portrait of a Young Man",
+    "scientific": "c. 1480–1485"
+  },
+  {
+    "image": "botticelli-portrait-of-a-young-man-holding-a-roundel.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Portrait of a Young Man Holding a Roundel",
+    "scientific": "c. 1480"
+  },
+  {
+    "image": "botticelli-portrait-of-michele-marullo-tarcaniota.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Portrait of Michele Marullo Tarcaniota",
+    "scientific": "c. 1497"
+  },
+  {
+    "image": "botticelli-portrait-of-dante.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Portrait of Dante",
+    "scientific": "c. 1495"
+  },
+  {
+    "image": "botticelli-venus-and-the-three-graces-presenting-gifts-to-a-young-woman.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Venus and the Three Graces Presenting Gifts to a Young Woman",
+    "scientific": "fresco, c. 1483–1486"
+  },
+  {
+    "image": "botticelli-a-young-man-being-introduced-to-the-seven-liberal-arts.webp",
+    "artist": "Sandro Botticelli",
+    "name": "A Young Man Being Introduced to the Seven Liberal Arts",
+    "scientific": "fresco, c. 1483–1486"
+  },
+  {
+    "image": "botticelli-the-story-of-nastagio-degli-onesti-i.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Story of Nastagio degli Onesti, I",
+    "scientific": "1483",
+    "content": ["nudity", "violence", "frightening"],
+    "effect": ["sword", "gallop"]
+  },
+  {
+    "image": "botticelli-the-story-of-nastagio-degli-onesti-ii.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Story of Nastagio degli Onesti, II",
+    "scientific": "1483",
+    "content": ["nudity", "violence", "frightening"],
+    "effect": ["sword", "gallop"]
+  },
+  {
+    "image": "botticelli-the-story-of-nastagio-degli-onesti-iii.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Story of Nastagio degli Onesti, III",
+    "scientific": "1483",
+    "content": ["nudity", "violence", "frightening"],
+    "effect": ["sword", "gallop"]
+  },
+  {
+    "image": "botticelli-the-story-of-virginia.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Story of Virginia",
+    "scientific": "c. 1500–1504",
+    "content": ["violence"],
+    "effect": "gallop"
+  },
+  {
+    "image": "botticelli-the-story-of-lucretia.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Story of Lucretia",
+    "scientific": "c. 1500–1501",
+    "content": ["violence", "frightening"],
+    "effect": "sword"
+  },
+  {
+    "image": "botticelli-the-adoration-of-the-magi-florence.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Adoration of the Magi",
+    "scientific": "Florence, c. 1475",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-adoration-of-the-magi-london.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Adoration of the Magi",
+    "scientific": "London, c. 1470–1475",
+    "content": ["nudity"],
+    "effect": "gallop",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-madonna-and-child-with-two-angels.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Madonna and Child with Two Angels",
+    "scientific": "c. 1468–1469",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-sant-ambrogio-altarpiece.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Sant'Ambrogio Altarpiece",
+    "scientific": "c. 1470",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-madonna-and-child-with-singing-angels.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Madonna and Child with Singing Angels",
+    "scientific": "c. 1477",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-virgin-and-child-with-an-angel.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Virgin and Child with an Angel",
+    "scientific": "c. 1475–1485",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-madonna-of-the-book.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Madonna of the Book",
+    "scientific": "c. 1480–1481",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-madonna-of-the-magnificat.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Madonna of the Magnificat",
+    "scientific": "c. 1483",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-bardi-madonna.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Bardi Madonna",
+    "scientific": "1484–1485",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-virgin-adoring-the-sleeping-christ-child.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Virgin Adoring the Sleeping Christ Child",
+    "scientific": "c. 1485",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-madonna-of-the-pomegranate.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Madonna of the Pomegranate",
+    "scientific": "c. 1487",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-virgin-and-child-with-the-young-saint-john-the-baptist.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Virgin and Child with the Young Saint John the Baptist",
+    "scientific": "c. 1490",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-madonna-del-padiglione.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Madonna del Padiglione",
+    "scientific": "c. 1493",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-cestello-annunciation.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Cestello Annunciation",
+    "scientific": "c. 1489–1490",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-annunciation-glasgow.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Annunciation",
+    "scientific": "Glasgow, c. 1490–1495",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-annunciation.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Annunciation",
+    "scientific": "New York, c. 1490",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-return-of-judith-to-bethulia.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Return of Judith to Bethulia",
+    "scientific": "c. 1470–1472",
+    "content": ["violence", "frightening"],
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-discovery-of-the-body-of-holofernes.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Discovery of the Body of Holofernes",
+    "scientific": "c. 1470–1472",
+    "content": ["nudity", "violence", "frightening"],
+    "effect": ["sword", "gallop"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-judith-with-the-head-of-holofernes.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Judith with the Head of Holofernes",
+    "scientific": "c. 1497–1500",
+    "content": ["violence", "frightening"],
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-saint-sebastian.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Saint Sebastian",
+    "scientific": "1474",
+    "content": ["nudity", "violence"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-saint-augustine-in-his-study.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Saint Augustine in His Study",
+    "scientific": "fresco, 1480",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-saint-augustine-in-his-cell.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Saint Augustine in His Cell",
+    "scientific": "c. 1490–1494",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-trials-of-moses.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Trials of Moses",
+    "scientific": "Sistine Chapel, 1481–1482",
+    "content": ["violence"],
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-temptations-of-christ.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Temptations of Christ",
+    "scientific": "Sistine Chapel, 1481–1482",
+    "content": ["frightening"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-punishment-of-korah.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Punishment of Korah",
+    "scientific": "Sistine Chapel, 1481–1482",
+    "content": ["violence"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-lamentation-over-the-dead-christ.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Lamentation over the Dead Christ",
+    "scientific": "c. 1490–1495",
+    "content": ["nudity", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-last-communion-of-saint-jerome.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Last Communion of Saint Jerome",
+    "scientific": "early 1490s",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-mystic-crucifixion.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Mystic Crucifixion",
+    "scientific": "c. 1500",
+    "content": ["violence", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-mystical-nativity.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Mystical Nativity",
+    "scientific": "1500–1501",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-four-scenes-from-the-early-life-of-saint-zenobius.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Four Scenes from the Early Life of Saint Zenobius",
+    "scientific": "c. 1500",
+    "sacred": true
+  },
+  {
+    "image": "botticelli-three-miracles-of-saint-zenobius-london.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Three Miracles of Saint Zenobius",
+    "scientific": "London, c. 1500",
+    "content": ["frightening"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-three-miracles-of-saint-zenobius.webp",
+    "artist": "Sandro Botticelli",
+    "name": "Three Miracles of Saint Zenobius",
+    "scientific": "New York, c. 1500",
+    "content": ["frightening"],
+    "sacred": true
+  },
+  {
+    "image": "botticelli-the-last-miracle-and-the-death-of-saint-zenobius.webp",
+    "artist": "Sandro Botticelli",
+    "name": "The Last Miracle and the Death of Saint Zenobius",
+    "scientific": "c. 1500",
+    "content": ["violence", "frightening"],
+    "sacred": true
+  },
+  {
     "image": "el-greco-christ-cleansing-the-temple.webp",
     "artist": "El Greco",
     "name": "Christ Cleansing the Temple",
