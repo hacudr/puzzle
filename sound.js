@@ -432,11 +432,30 @@ const sound = (() => {
         ].join(' ')
       ),
     },
+    // Bach, Mass in B minor, Kyrie eleison, bars 1-4, the Adagio the chorus
+    // opens with: the first sopranos over the basses, with the seconds and the
+    // tenors where they move; unit = a semiquaver
+    kyrie: {
+      composer: 'Johann Sebastian Bach',
+      title: 'Mass in B minor, Kyrie eleison',
+      sacred: true,
+      unit: 0.45,
+      bar: 16,
+      steps: [
+        'D5+B4+F#4+B3+B2/6 D5+B4+F#4+B3+B2/2 E5:4+B4+E4:4+G3:4+C#3:4/2 A#4/2 C#5/2 E5/2',
+        'F#5:6+A4+F#3+D#3:6/2 C5:4+A3/2 D#4/2 F#5+B4+F#4+D#3/2 F#5+G4:4+E3:4/2 B4/2 E5/2 G5/2',
+        'G5+A#4:6+A#2:8/2 F#5/4 E5/2 D5+F#4:4+B2:4/2 E5/2 F#5:6/2 A2/2',
+        'G3:8+G2:8/2 E5 D5 E5/4 F#5+C#5+A#4+F#3+F#2/8',
+      ].join(' '),
+    },
   };
   // the tunes that take turns by a puzzle's position: the gentle ones for most
-  // pictures, the stormy ones for those of violence and fright
-  const ORDER = Object.keys(TUNES).filter((name) => !TUNES[name].voice);
+  // pictures, the stormy ones for those of violence and fright, and the sacred
+  // ones for the religious pictures that are neither
+  const ORDER = Object.keys(TUNES).filter((name) => !TUNES[name].voice && !TUNES[name].sacred);
   const STORMY = Object.keys(TUNES).filter((name) => TUNES[name].voice);
+  const SACRED = Object.keys(TUNES).filter((name) => TUNES[name].sacred);
+  const TURNS = { stormy: STORMY, sacred: SACRED };
   // A few seconds of the real thing for a tune to end on, in music/<name>.mp3,
   // cut from a recording on Wikimedia Commons; music/CREDITS.md has the sources.
   // by = who is playing. A recording with a licence must be credited, which the
@@ -461,6 +480,7 @@ const sound = (() => {
     valkyries: { by: 'American Symphony Orchestra, 1921' },
     baldmountain: { by: 'Musopen' },
     newworld: { by: 'Musopen' },
+    kyrie: { by: 'unnamed performers, from Musopen' },
   };
   // A sound to go with the ending, for a puzzle whose `effect` names one, or
   // lists several, from the files in sound-effects/. lead = the seconds of
@@ -724,9 +744,9 @@ const sound = (() => {
     unlock,
 
     // name is a key of TUNES; anything else picks a tune by the puzzle's
-    // position, among the stormy tunes if stormy is set
-    setTune(name, index = 0, stormy = false) {
-      const turns = stormy ? STORMY : ORDER;
+    // position, among the stormy or the sacred tunes if kind is 'stormy' or 'sacred'
+    setTune(name, index = 0, kind = '') {
+      const turns = TURNS[kind] || ORDER;
       const key = name in TUNES ? name : turns[index % turns.length];
       tune = TUNES[key];
       loadClip(key);

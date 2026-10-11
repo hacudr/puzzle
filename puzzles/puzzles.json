@@ -392,14 +392,16 @@
     "image": "bellini-madonna-and-child.webp",
     "artist": "Giovanni Bellini",
     "name": "Madonna and Child",
-    "scientific": "c. 1480/1485"
+    "scientific": "c. 1480/1485",
+    "sacred": true
   },
   {
     "image": "bellini-madonna-and-child-in-a-landscape.webp",
     "artist": "Giovanni Bellini",
     "name": "Madonna and Child in a Landscape",
     "scientific": "c. 1480/1485",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "bellini-portrait-of-a-young-man.webp",
@@ -417,7 +419,8 @@
     "image": "bellini-saint-jerome-reading.webp",
     "artist": "Giovanni Bellini",
     "name": "Saint Jerome Reading",
-    "scientific": "1505"
+    "scientific": "1505",
+    "sacred": true
   },
   {
     "image": "bellini-the-infant-bacchus.webp",
@@ -444,7 +447,8 @@
     "artist": "Sandro Botticelli",
     "name": "Madonna and Child",
     "scientific": "c. 1470",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "botticelli-the-adoration-of-the-magi.webp",
@@ -452,7 +456,8 @@
     "name": "The Adoration of the Magi",
     "scientific": "c. 1478/1482",
     "content": ["nudity"],
-    "effect": "gallop"
+    "effect": "gallop",
+    "sacred": true
   },
   {
     "image": "botticelli-giuliano-de-medici.webp",
@@ -465,7 +470,8 @@
     "artist": "Sandro Botticelli",
     "name": "The Virgin Adoring the Child",
     "scientific": "1480/1490",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "botticelli-portrait-of-a-youth.webp",
@@ -478,14 +484,16 @@
     "artist": "El Greco",
     "name": "Christ Cleansing the Temple",
     "scientific": "probably before 1570",
-    "content": ["nudity", "violence"]
+    "content": ["nudity", "violence"],
+    "sacred": true
   },
   {
     "image": "el-greco-the-holy-family-with-saint-anne-and-the-infant-john-the-baptist.webp",
     "artist": "El Greco",
     "name": "The Holy Family with Saint Anne and the Infant John the Baptist",
     "scientific": "c. 1595/1600",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "el-greco-saint-martin-and-the-beggar.webp",
@@ -493,27 +501,31 @@
     "name": "Saint Martin and the Beggar",
     "scientific": "1597/1599",
     "content": ["nudity"],
-    "effect": ["sword", "gallop"]
+    "effect": ["sword", "gallop"],
+    "sacred": true
   },
   {
     "image": "el-greco-madonna-and-child-with-saint-martina-and-saint-agnes.webp",
     "artist": "El Greco",
     "name": "Madonna and Child with Saint Martina and Saint Agnes",
     "scientific": "1597/1599",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "el-greco-saint-ildefonso.webp",
     "artist": "El Greco",
     "name": "Saint Ildefonso",
-    "scientific": "c. 1603/1614"
+    "scientific": "c. 1603/1614",
+    "sacred": true
   },
   {
     "image": "el-greco-saint-jerome.webp",
     "artist": "El Greco",
     "name": "Saint Jerome",
     "scientific": "c. 1610/1614",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "el-greco-laocoon.webp",
@@ -587,7 +599,8 @@
     "artist": "Raphael",
     "name": "The Small Cowper Madonna",
     "scientific": "c. 1505",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "raphael-saint-george-and-the-dragon.webp",
@@ -595,21 +608,24 @@
     "name": "Saint George and the Dragon",
     "scientific": "c. 1506",
     "content": ["violence", "frightening"],
-    "effect": ["sword", "gallop"]
+    "effect": ["sword", "gallop"],
+    "sacred": true
   },
   {
     "image": "raphael-the-niccolini-cowper-madonna.webp",
     "artist": "Raphael",
     "name": "The Niccolini-Cowper Madonna",
     "scientific": "1508",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "raphael-the-alba-madonna.webp",
     "artist": "Raphael",
     "name": "The Alba Madonna",
     "scientific": "c. 1510",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "raphael-bindo-altoviti.webp",
@@ -676,7 +692,8 @@
     "artist": "Rembrandt van Rijn",
     "name": "The Apostle Paul",
     "scientific": "c. 1657",
-    "effect": "sword"
+    "effect": "sword",
+    "sacred": true
   },
   {
     "image": "rembrandt-van-rijn-philemon-and-baucis.webp",
@@ -700,7 +717,8 @@
     "image": "rembrandt-van-rijn-the-circumcision.webp",
     "artist": "Rembrandt van Rijn",
     "name": "The Circumcision",
-    "scientific": "1661"
+    "scientific": "1661",
+    "sacred": true
   },
   {
     "image": "rembrandt-van-rijn-portrait-of-a-man-in-a-tall-hat.webp",
@@ -740,7 +758,8 @@
     "artist": "Peter Paul Rubens",
     "name": "Daniel in the Lions' Den",
     "scientific": "c. 1614/1616",
-    "content": ["nudity", "frightening"]
+    "content": ["nudity", "frightening"],
+    "sacred": true
   },
   {
     "image": "rubens-decius-mus-addressing-the-legions.webp",
@@ -753,14 +772,16 @@
     "image": "rubens-head-of-one-of-the-three-kings-melchior-the-assyrian-king.webp",
     "artist": "Peter Paul Rubens",
     "name": "Head of One of the Three Kings: Melchior, The Assyrian King",
-    "scientific": "c. 1618"
+    "scientific": "c. 1618",
+    "sacred": true
   },
   {
     "image": "rubens-the-meeting-of-abraham-and-melchizedek.webp",
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of Abraham and Melchizedek",
     "scientific": "c. 1626",
-    "effect": ["sword", "gallop"]
+    "effect": ["sword", "gallop"],
+    "sacred": true
   },
   {
     "image": "rubens-deborah-kip-wife-of-sir-balthasar-gerbier-and-her-children.webp",
@@ -774,7 +795,8 @@
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of David and Abigail",
     "scientific": "c. 1630",
-    "effect": ["sword", "gallop"]
+    "effect": ["sword", "gallop"],
+    "sacred": true
   },
   {
     "image": "titian-cupid-with-the-wheel-of-time.webp",
@@ -814,7 +836,8 @@
     "artist": "Titian",
     "name": "Saint John the Evangelist on Patmos",
     "scientific": "c. 1553/1555",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "titian-woman-holding-an-apple.webp",
@@ -1949,7 +1972,8 @@
     "image": "turner-the-evening-of-the-deluge.webp",
     "artist": "J. M. W. Turner",
     "name": "The Evening of the Deluge",
-    "scientific": "c. 1843"
+    "scientific": "c. 1843",
+    "sacred": true
   },
   {
     "image": "turner-the-dogana-and-santa-maria-della-salute-venice.webp",
@@ -2116,7 +2140,8 @@
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Saint Sebastian Succored by the Holy Women",
     "scientific": "1874",
-    "content": ["nudity", "violence"]
+    "content": ["nudity", "violence"],
+    "sacred": true
   },
   {
     "image": "pissarro-a-creek-in-st-thomas.webp",
@@ -2280,26 +2305,30 @@
     "image": "gentileschi-esther-before-ahasuerus.webp",
     "artist": "Artemisia Gentileschi",
     "name": "Esther before Ahasuerus",
-    "scientific": "1620s"
+    "scientific": "1620s",
+    "sacred": true
   },
   {
     "image": "gentileschi-mary-magdalene-in-ecstasy.webp",
     "artist": "Artemisia Gentileschi",
     "name": "Mary Magdalene in Ecstasy",
-    "scientific": "c. 1625"
+    "scientific": "c. 1625",
+    "sacred": true
   },
   {
     "image": "gentileschi-self-portrait-as-a-female-martyr.webp",
     "artist": "Artemisia Gentileschi",
     "name": "Self-Portrait as a Female Martyr",
-    "scientific": "c. 1615"
+    "scientific": "c. 1615",
+    "sacred": true
   },
   {
     "image": "gentileschi-susanna-and-the-elders.webp",
     "artist": "Artemisia Gentileschi",
     "name": "Susanna and the Elders",
     "scientific": "1610",
-    "content": ["nudity", "violence", "frightening"]
+    "content": ["nudity", "violence", "frightening"],
+    "sacred": true
   },
   {
     "image": "gentileschi-judith-slaying-holofernes.webp",
@@ -2308,7 +2337,8 @@
     "scientific": "c. 1614–1620",
     "music": "summer",
     "content": ["violence", "frightening"],
-    "effect": "sword"
+    "effect": "sword",
+    "sacred": true
   },
   {
     "image": "gentileschi-judith-and-her-maidservant.webp",
@@ -2317,7 +2347,8 @@
     "scientific": "c. 1623–1625",
     "music": "summer",
     "content": ["violence", "frightening"],
-    "effect": "sword"
+    "effect": "sword",
+    "sacred": true
   },
   {
     "image": "gentileschi-lucretia.webp",
@@ -2476,7 +2507,8 @@
     "artist": "Auguste Rodin",
     "name": "Eve",
     "scientific": "model c. 1881, carved 1890/1891",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "rodin-a-burgher-of-calais.webp",
@@ -2524,7 +2556,8 @@
     "artist": "Auguste Rodin",
     "name": "Hand of God",
     "scientific": "model before 1898, cast by 1903",
-    "content": ["nudity"]
+    "content": ["nudity"],
+    "sacred": true
   },
   {
     "image": "rodin-the-evil-spirits.webp",
@@ -2698,6 +2731,502 @@
     "artist": "Walter Crane",
     "name": "Dancing Nymph",
     "scientific": "Nymphe Danseuse, 1895"
+  },
+  {
+    "image": "caravaggio-young-sick-bacchus.webp",
+    "artist": "Caravaggio",
+    "name": "Young Sick Bacchus",
+    "scientific": "c. 1593",
+    "content": ["nudity"]
+  },
+  {
+    "image": "caravaggio-boy-with-a-basket-of-fruit.webp",
+    "artist": "Caravaggio",
+    "name": "Boy with a Basket of Fruit",
+    "scientific": "c. 1593"
+  },
+  {
+    "image": "caravaggio-the-fortune-teller.webp",
+    "artist": "Caravaggio",
+    "name": "The Fortune Teller",
+    "scientific": "Rome, c. 1594",
+    "effect": "sword"
+  },
+  {
+    "image": "caravaggio-the-fortune-teller-louvre.webp",
+    "artist": "Caravaggio",
+    "name": "The Fortune Teller",
+    "scientific": "Paris, c. 1595–1598",
+    "effect": "sword"
+  },
+  {
+    "image": "caravaggio-the-cardsharps.webp",
+    "artist": "Caravaggio",
+    "name": "The Cardsharps",
+    "scientific": "c. 1595"
+  },
+  {
+    "image": "caravaggio-boy-bitten-by-a-lizard.webp",
+    "artist": "Caravaggio",
+    "name": "Boy Bitten by a Lizard",
+    "scientific": "c. 1594–1596"
+  },
+  {
+    "image": "caravaggio-penitent-magdalene.webp",
+    "artist": "Caravaggio",
+    "name": "Penitent Magdalene",
+    "scientific": "c. 1594–1595",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-saint-francis-of-assisi-in-ecstasy.webp",
+    "artist": "Caravaggio",
+    "name": "Saint Francis of Assisi in Ecstasy",
+    "scientific": "c. 1595",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-musicians.webp",
+    "artist": "Caravaggio",
+    "name": "The Musicians",
+    "scientific": "1597",
+    "content": ["nudity"]
+  },
+  {
+    "image": "caravaggio-the-lute-player.webp",
+    "artist": "Caravaggio",
+    "name": "The Lute Player",
+    "scientific": "c. 1596"
+  },
+  {
+    "image": "caravaggio-bacchus.webp",
+    "artist": "Caravaggio",
+    "name": "Bacchus",
+    "scientific": "c. 1596–1597",
+    "content": ["nudity"]
+  },
+  {
+    "image": "caravaggio-rest-on-the-flight-into-egypt.webp",
+    "artist": "Caravaggio",
+    "name": "Rest on the Flight into Egypt",
+    "scientific": "c. 1597",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-narcissus.webp",
+    "artist": "Caravaggio",
+    "name": "Narcissus",
+    "scientific": "c. 1597–1599"
+  },
+  {
+    "image": "caravaggio-portrait-of-maffeo-barberini.webp",
+    "artist": "Caravaggio",
+    "name": "Portrait of Maffeo Barberini",
+    "scientific": "c. 1598"
+  },
+  {
+    "image": "caravaggio-saint-catherine-of-alexandria.webp",
+    "artist": "Caravaggio",
+    "name": "Saint Catherine of Alexandria",
+    "scientific": "c. 1598–1599",
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-martha-and-mary-magdalene.webp",
+    "artist": "Caravaggio",
+    "name": "Martha and Mary Magdalene",
+    "scientific": "c. 1598",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-judith-beheading-holofernes.webp",
+    "artist": "Caravaggio",
+    "name": "Judith Beheading Holofernes",
+    "scientific": "c. 1598–1599",
+    "content": ["nudity", "violence", "frightening"],
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-basket-of-fruit.webp",
+    "artist": "Caravaggio",
+    "name": "Basket of Fruit",
+    "scientific": "c. 1599"
+  },
+  {
+    "image": "caravaggio-david-and-goliath.webp",
+    "artist": "Caravaggio",
+    "name": "David and Goliath",
+    "scientific": "c. 1599",
+    "content": ["violence", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-calling-of-saint-matthew.webp",
+    "artist": "Caravaggio",
+    "name": "The Calling of Saint Matthew",
+    "scientific": "1599–1600",
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-martyrdom-of-saint-matthew.webp",
+    "artist": "Caravaggio",
+    "name": "The Martyrdom of Saint Matthew",
+    "scientific": "1599–1600",
+    "content": ["nudity", "violence", "frightening"],
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-conversion-of-saint-paul.webp",
+    "artist": "Caravaggio",
+    "name": "The Conversion of Saint Paul",
+    "scientific": "1600–1601",
+    "content": ["nudity", "violence"],
+    "effect": "gallop",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-conversion-on-the-way-to-damascus.webp",
+    "artist": "Caravaggio",
+    "name": "Conversion on the Way to Damascus",
+    "scientific": "1601",
+    "effect": ["sword", "gallop"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-crucifixion-of-saint-peter.webp",
+    "artist": "Caravaggio",
+    "name": "Crucifixion of Saint Peter",
+    "scientific": "1601",
+    "content": ["nudity", "violence", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-supper-at-emmaus.webp",
+    "artist": "Caravaggio",
+    "name": "The Supper at Emmaus",
+    "scientific": "London, 1601",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-amor-vincit-omnia.webp",
+    "artist": "Caravaggio",
+    "name": "Amor Vincit Omnia",
+    "scientific": "1601–1602",
+    "content": ["nudity"]
+  },
+  {
+    "image": "caravaggio-the-incredulity-of-saint-thomas.webp",
+    "artist": "Caravaggio",
+    "name": "The Incredulity of Saint Thomas",
+    "scientific": "1601–1602",
+    "content": ["nudity", "violence"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-saint-john-the-baptist-youth-with-a-ram.webp",
+    "artist": "Caravaggio",
+    "name": "Saint John the Baptist (Youth with a Ram)",
+    "scientific": "1602",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-taking-of-christ.webp",
+    "artist": "Caravaggio",
+    "name": "The Taking of Christ",
+    "scientific": "c. 1602",
+    "content": ["violence"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-inspiration-of-saint-matthew.webp",
+    "artist": "Caravaggio",
+    "name": "The Inspiration of Saint Matthew",
+    "scientific": "1602",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-crowning-with-thorns.webp",
+    "artist": "Caravaggio",
+    "name": "The Crowning with Thorns",
+    "scientific": "c. 1603",
+    "content": ["nudity", "violence"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-sacrifice-of-isaac.webp",
+    "artist": "Caravaggio",
+    "name": "The Sacrifice of Isaac",
+    "scientific": "c. 1603",
+    "content": ["nudity", "violence", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-entombment-of-christ.webp",
+    "artist": "Caravaggio",
+    "name": "The Entombment of Christ",
+    "scientific": "1603–1604",
+    "content": ["nudity", "violence", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-calling-of-saints-peter-and-andrew.webp",
+    "artist": "Caravaggio",
+    "name": "The Calling of Saints Peter and Andrew",
+    "scientific": "c. 1603–1606",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-saint-john-the-baptist-in-the-wilderness.webp",
+    "artist": "Caravaggio",
+    "name": "Saint John the Baptist in the Wilderness",
+    "scientific": "c. 1604",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-saint-john-the-baptist-corsini.webp",
+    "artist": "Caravaggio",
+    "name": "Saint John the Baptist",
+    "scientific": "Palazzo Corsini, Rome, c. 1604",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-madonna-di-loreto.webp",
+    "artist": "Caravaggio",
+    "name": "Madonna di Loreto",
+    "scientific": "1604–1606",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-death-of-the-virgin.webp",
+    "artist": "Caravaggio",
+    "name": "Death of the Virgin",
+    "scientific": "c. 1601–1606",
+    "content": ["frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-ecce-homo.webp",
+    "artist": "Caravaggio",
+    "name": "Ecce Homo",
+    "scientific": "c. 1605",
+    "content": ["nudity", "violence"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-madonna-and-child-with-saint-anne.webp",
+    "artist": "Caravaggio",
+    "name": "Madonna and Child with Saint Anne",
+    "scientific": "1605–1606",
+    "content": ["nudity", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-saint-jerome-writing.webp",
+    "artist": "Caravaggio",
+    "name": "Saint Jerome Writing",
+    "scientific": "Rome, c. 1605–1606",
+    "content": ["nudity", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-saint-francis-in-prayer.webp",
+    "artist": "Caravaggio",
+    "name": "Saint Francis in Prayer",
+    "scientific": "c. 1606",
+    "content": ["frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-saint-francis-in-meditation.webp",
+    "artist": "Caravaggio",
+    "name": "Saint Francis in Meditation",
+    "scientific": "c. 1606",
+    "content": ["frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-supper-at-emmaus-milan.webp",
+    "artist": "Caravaggio",
+    "name": "Supper at Emmaus",
+    "scientific": "Milan, 1606",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-seven-works-of-mercy.webp",
+    "artist": "Caravaggio",
+    "name": "The Seven Works of Mercy",
+    "scientific": "1607",
+    "content": ["nudity", "frightening"],
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-madonna-of-the-rosary.webp",
+    "artist": "Caravaggio",
+    "name": "Madonna of the Rosary",
+    "scientific": "c. 1607",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-crucifixion-of-saint-andrew.webp",
+    "artist": "Caravaggio",
+    "name": "The Crucifixion of Saint Andrew",
+    "scientific": "1606–1607",
+    "content": ["nudity", "violence", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-david-with-the-head-of-goliath-vienna.webp",
+    "artist": "Caravaggio",
+    "name": "David with the Head of Goliath",
+    "scientific": "Vienna, c. 1607",
+    "content": ["nudity", "violence", "frightening"],
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-flagellation-of-christ.webp",
+    "artist": "Caravaggio",
+    "name": "The Flagellation of Christ",
+    "scientific": "1607",
+    "content": ["nudity", "violence"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-christ-at-the-column.webp",
+    "artist": "Caravaggio",
+    "name": "Christ at the Column",
+    "scientific": "c. 1607",
+    "content": ["nudity", "violence"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-portrait-of-alof-de-wignacourt-and-his-page.webp",
+    "artist": "Caravaggio",
+    "name": "Portrait of Alof de Wignacourt and his Page",
+    "scientific": "1607–1608"
+  },
+  {
+    "image": "caravaggio-saint-jerome-writing-valletta.webp",
+    "artist": "Caravaggio",
+    "name": "Saint Jerome Writing",
+    "scientific": "Valletta, 1607–1608",
+    "content": ["nudity", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-portrait-of-fra-antonio-martelli.webp",
+    "artist": "Caravaggio",
+    "name": "Portrait of Fra Antonio Martelli",
+    "scientific": "c. 1608",
+    "effect": "sword"
+  },
+  {
+    "image": "caravaggio-the-beheading-of-saint-john-the-baptist.webp",
+    "artist": "Caravaggio",
+    "name": "The Beheading of Saint John the Baptist",
+    "scientific": "1608",
+    "content": ["nudity", "violence", "frightening"],
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-sleeping-cupid.webp",
+    "artist": "Caravaggio",
+    "name": "Sleeping Cupid",
+    "scientific": "1608",
+    "content": ["nudity"]
+  },
+  {
+    "image": "caravaggio-the-burial-of-saint-lucy.webp",
+    "artist": "Caravaggio",
+    "name": "The Burial of Saint Lucy",
+    "scientific": "1608",
+    "content": ["nudity", "violence", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-raising-of-lazarus.webp",
+    "artist": "Caravaggio",
+    "name": "The Raising of Lazarus",
+    "scientific": "1609",
+    "content": ["nudity", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-adoration-of-the-shepherds.webp",
+    "artist": "Caravaggio",
+    "name": "Adoration of the Shepherds",
+    "scientific": "1609",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-nativity-with-saint-francis-and-saint-lawrence.webp",
+    "artist": "Caravaggio",
+    "name": "Nativity with Saint Francis and Saint Lawrence",
+    "scientific": "1600 or 1609",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-salome-with-the-head-of-john-the-baptist-madrid.webp",
+    "artist": "Caravaggio",
+    "name": "Salome with the Head of John the Baptist",
+    "scientific": "Madrid, c. 1609",
+    "content": ["nudity", "violence", "frightening"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-salome-with-the-head-of-john-the-baptist.webp",
+    "artist": "Caravaggio",
+    "name": "Salome with the Head of John the Baptist",
+    "scientific": "London, c. 1609–1610",
+    "content": ["nudity", "violence", "frightening"],
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-saint-john-the-baptist.webp",
+    "artist": "Caravaggio",
+    "name": "Saint John the Baptist",
+    "scientific": "Galleria Borghese, Rome, 1610",
+    "content": ["nudity"],
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-david-with-the-head-of-goliath.webp",
+    "artist": "Caravaggio",
+    "name": "David with the Head of Goliath",
+    "scientific": "Rome, c. 1610",
+    "content": ["nudity", "violence", "frightening"],
+    "effect": "sword",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-denial-of-saint-peter.webp",
+    "artist": "Caravaggio",
+    "name": "The Denial of Saint Peter",
+    "scientific": "1610",
+    "sacred": true
+  },
+  {
+    "image": "caravaggio-the-martyrdom-of-saint-ursula.webp",
+    "artist": "Caravaggio",
+    "name": "The Martyrdom of Saint Ursula",
+    "scientific": "1610",
+    "content": ["violence", "frightening"],
+    "sacred": true
   },
   {
     "image": "leonardo-da-vinci-mona-lisa.webp",

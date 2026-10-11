@@ -1,6 +1,6 @@
 # Recordings
 
-Each file here is an excerpt of six seconds, cut from a recording on Wikimedia Commons, with the level raised or lowered and a fade at each end. The music itself is in the public domain in every case.
+Each file here is an excerpt of six seconds, cut from a recording on Wikimedia Commons, or on Musopen where the table says so, with the level raised or lowered and a fade at each end. The music itself is in the public domain in every case.
 
 ## Used under a licence
 
@@ -31,3 +31,4 @@ These excerpts are shared under the same licence as the recording they were cut 
 | `valkyries.mp3` | Wagner, Ride of the Valkyries | American Symphony Orchestra, for Edison Records, 1921 | [Commons](https://commons.wikimedia.org/wiki/File:Richard_Wagner_-_Ride_of_the_Valkyries.ogg) |
 | `baldmountain.mp3` | Mussorgsky, Night on Bald Mountain | from Musopen | [Commons](https://commons.wikimedia.org/wiki/File:Modest_Mussorgsky_-_night_on_bald_mountain.ogg) |
 | `newworld.mp3` | Dvořák, Symphony No. 9, finale | from Musopen | [Commons](https://commons.wikimedia.org/wiki/File:Antonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27,_op._95_-_iv._allegro_con_fuoco.ogg) |
+| `kyrie.mp3` | Bach, Mass in B minor, Kyrie eleison, the opening bars | not named; marked public domain at Musopen | [Musopen](https://musopen.org/music/3874-mass-in-b-minor-bwv-232/) |

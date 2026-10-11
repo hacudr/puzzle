@@ -8,7 +8,7 @@
 
 :root {
   --cream: #f3ebdd;
-  /* the mat, and the lettering on the label under it */
+  /* the knobs of the switches, and the light lettering */
   --offwhite: #f2ecdf;
   /* Blush; the others are set out below, and the app starts in Antique Lace */
   --page: #f3d9d1;
@@ -30,8 +30,10 @@
   /* the line round a puzzle piece */
   --seam: #b39270;
   --table: #e6d9c3;
-  /* width of the white mat between the frame and the picture */
-  --mat: clamp(16px, 2.6vw, 28px);
+  /* width of the gilt frame round the finished picture, which has no mat */
+  --frame: 15px;
+  /* width of the black fillet between the frame and the picture */
+  --fillet: 5px;
   --serif: "Averia Serif", Spectral, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
 }
 
@@ -317,12 +319,12 @@ button {
 .wall > * { position: relative; z-index: 1; }
 .wall > .overlay { position: absolute; z-index: 20; }
 
-/* slim frame in worn, antique gilt, with an off-white mat inside it */
+/* a frame in worn, antique gilt, with a black fillet between it and the picture */
 .frame {
-  border: 9px solid;
+  border: var(--frame) solid;
   border-color: #c9b077 #94773f #6c5429 #ad9158;
-  padding: var(--mat);
-  background: var(--offwhite);
+  padding: var(--fillet);
+  background: #14110e;
   /* the outline catches the light along the top */
   box-shadow: 0 -1px 0 0 #e3cf96, 0 0 0 1px #8a7044, inset 0 0 0 1px #bfa468, inset 0 3px 6px rgba(0, 0, 0, .22);
 }
@@ -371,7 +373,7 @@ button {
   display: grid;
   grid-template: minmax(0, 1fr) / minmax(0, 1fr);
   place-items: center;
-  /* the puzzle is worked bare; its frame and mat come with the finished picture */
+  /* the puzzle is worked bare; its frame comes with the finished picture */
   margin: 6px clamp(14px, 3vw, 28px) 18px;
 }
 
@@ -540,10 +542,10 @@ button {
   flex: 0 1 auto;
   min-height: 0;
   --base: 620px;
-  /* height taken by everything but the picture: bar, frame and mat, label, links */
+  /* height taken by everything but the picture: bar, frame, label, links */
   --rest: 400px;
   /* no wider than lets the whole picture show at its own shape */
-  width: min(calc(var(--base) * var(--grow, 1)), 100%, calc((100dvh - var(--rest)) * var(--aspect, .8) + 2 * var(--mat) + 18px));
+  width: min(calc(var(--base) * var(--grow, 1)), 100%, calc((100dvh - var(--rest)) * var(--aspect, .8) + 2 * var(--frame) + 2 * var(--fillet)));
   align-items: center;
   gap: 20px;
   color: var(--offwhite);
@@ -563,7 +565,7 @@ button {
 #play.won .bar, #play.won .reserve { opacity: 0; pointer-events: none; }
 
 .plate-face { position: relative; box-sizing: content-box; align-self: stretch; aspect-ratio: var(--aspect, .8); min-height: 0; }
-.plate-img { position: absolute; inset: var(--mat); background: center / cover no-repeat; }
+.plate-img { position: absolute; inset: var(--fillet); background: center / cover no-repeat; }
 /* the wall label under the picture */
 .plate-label {
   flex: none;
@@ -588,5 +590,5 @@ button {
 @media (max-height: 760px) {
   .done-body { gap: 16px; padding-bottom: 16px; }
   .plate { --base: 340px; --rest: 355px; }
-  .stage { margin-bottom: calc(32px + var(--mat)); }
+  .stage { margin-bottom: 48px; }
 }

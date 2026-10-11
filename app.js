@@ -189,6 +189,8 @@ const hidden = (kind) => kids || hide.has(kind);
 const visible = (p) => !(p.content || []).some(hidden);
 // pictures of violence or fright are set to the stormy tunes, played on the lute
 const stormy = (p) => (p.content || []).some((kind) => kind === 'violence' || kind === 'frightening');
+// a religious picture that is not also a stormy one
+const sacred = (p) => p.sacred && !stormy(p);
 
 function setHidden(kind, on) {
   if (on) hide.add(kind);
@@ -718,7 +720,8 @@ async function start(p, fresh = false) {
     scatter(game, cols * rows);
   }
 
-  if (stormy(p)) sound.setTune(p.music, puzzles.filter(stormy).indexOf(p), true);
+  if (stormy(p)) sound.setTune(p.music, puzzles.filter(stormy).indexOf(p), 'stormy');
+  else if (p.sacred) sound.setTune(p.music, puzzles.filter(sacred).indexOf(p), 'sacred');
   else sound.setTune(p.music, puzzles.indexOf(p));
   sound.setEffect(p.effect);
   piecesEl.textContent = '';

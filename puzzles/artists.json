@@ -6,6 +6,13 @@
     "cover": "monet-woman-with-a-parasol.webp"
   },
   {
+    "name": "Leonardo da Vinci",
+    "sort": "Leonardo",
+    "note": "Italian, 1452–1519",
+    "period": "Renaissance",
+    "cover": "leonardo-da-vinci-mona-lisa.webp"
+  },
+  {
     "name": "Giovanni Bellini",
     "note": "Italian, c. 1430–1516",
     "period": "Renaissance",
@@ -56,6 +63,12 @@
     "cover": "gentileschi-self-portrait-as-the-allegory-of-painting.webp"
   },
   {
+    "name": "Caravaggio",
+    "note": "Italian, 1571–1610",
+    "period": "Baroque",
+    "cover": "caravaggio-boy-with-a-basket-of-fruit.webp"
+  },
+  {
     "name": "Berthe Morisot",
     "note": "French, 1841–1895",
     "period": "Impressionism",
@@ -74,13 +87,6 @@
     "note": "Italian, c. 1488–1576",
     "period": "Renaissance",
     "cover": "titian-ranuccio-farnese.webp"
-  },
-  {
-    "name": "Leonardo da Vinci",
-    "sort": "Leonardo",
-    "note": "Italian, 1452–1519",
-    "period": "Renaissance",
-    "cover": "leonardo-da-vinci-mona-lisa.webp"
   },
   {
     "name": "Michelangelo",
