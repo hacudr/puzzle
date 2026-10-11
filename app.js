@@ -9,6 +9,7 @@ const KIDS_KEY = 'puzzle.kids';
 const HIDE_KEY = 'puzzle.hide';
 const SPELL_KEY = 'puzzle.spell';
 const THEME_KEY = 'puzzle.theme';
+const VIEW_KEY = 'puzzle.view';
 // the pictures the splash has shown, and whether it has been shown since the app was opened
 const SPLASH_KEY = 'puzzle.splash';
 const WELCOMED_KEY = 'puzzle.welcomed';
@@ -35,12 +36,16 @@ const guideEl = $('#guide');
 const reserveEl = $('#reserve');
 
 let puzzles = [];
-// one entry per artist: { name, note, usual, all, cover, puzzles }; `all` and
+// one entry per artist: { name, note, sort, usual, all, cover, puzzles }; `all` and
 // `usual` are every picture and the listed cover, `puzzles` and `cover` what
 // is left of them once hidden pictures are taken out
 let everyone = [];
 // the artists with something on show
 let artists = [];
+// the same artists in the order of their surnames, for the list
+let byName = [];
+// what the home page shows: 'gallery' for the categories, 'list' for every artist by name
+let view = loadView();
 // the artist whose puzzles are on show
 let artist = null;
 // one entry per period: { name, note, all, artists, cover }; `all` is every
@@ -115,6 +120,30 @@ function loadSpell() {
   } catch {
     return false;
   }
+}
+
+function loadView() {
+  try {
+    return localStorage.getItem(VIEW_KEY) === 'list' ? 'list' : 'gallery';
+  } catch {
+    return 'gallery';
+  }
+}
+
+function setView(next) {
+  view = next;
+  try {
+    localStorage.setItem(VIEW_KEY, next);
+  } catch {}
+  showView();
+  $('#gallery').scrollTop = 0;
+}
+
+function showView() {
+  document.querySelectorAll('#views button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.view === view));
+  $('#galleryTitle').textContent = view === 'list' ? 'Choose an artist' : 'Choose a collection';
+  $('#periods').hidden = view === 'list';
+  $('#names').hidden = view !== 'list';
 }
 
 function setLevel(next) {
@@ -206,6 +235,7 @@ function sift() {
     a.cover = usual && !visible(usual) ? a.puzzles[0] && a.puzzles[0].image : a.usual;
   }
   artists = everyone.filter((a) => a.puzzles.length);
+  byName = [...artists].sort((a, b) => a.sort.localeCompare(b.sort));
   // a period shows its first artist's picture, and one with no artists left has no card
   for (const t of everyPeriod) {
     t.artists = t.all.filter((a) => a.puzzles.length);
@@ -253,11 +283,13 @@ function labelCards() {
     card.querySelector('small').textContent =
       progressKey(p) in progress ? 'In progress' : mastered(p) ? 'Solved in black and white' : solved.has(p.id) ? 'Solved' : '';
   });
-  document.querySelectorAll('#artists .card').forEach((card, i) => {
-    const count = period.artists[i].puzzles.length;
-    const done = period.artists[i].puzzles.filter((p) => solved.has(p.id)).length;
+  const tally = (list) => (card, i) => {
+    const count = list[i].puzzles.length;
+    const done = list[i].puzzles.filter((p) => solved.has(p.id)).length;
     card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles') + (done ? ` · ${done} solved` : '');
-  });
+  };
+  if (period) document.querySelectorAll('#artists .card').forEach(tally(period.artists));
+  document.querySelectorAll('#names .card').forEach(tally(byName));
   document.querySelectorAll('#periods .card').forEach((card, i) => {
     const count = periods[i].artists.length;
     card.querySelector('small').textContent = count + (count === 1 ? ' artist' : ' artists');
@@ -512,7 +544,8 @@ function makeCard(image, line, name) {
   return card;
 }
 
-// The home page: one card per period, always lit.
+// The home page: one card per period, always lit, and behind it the list of
+// every artist by surname, on cards without pictures.
 function renderGallery() {
   const grid = $('#periods');
   grid.textContent = '';
@@ -524,6 +557,18 @@ function renderGallery() {
     card.addEventListener('click', () => openPeriod(t));
     grid.append(card);
   }
+  const list = $('#names');
+  list.textContent = '';
+  for (const a of byName) {
+    const card = document.createElement('button');
+    card.className = 'card';
+    card.innerHTML = '<span class="card-label"><i></i><b></b><small></small></span>';
+    card.querySelector('i').textContent = a.note || '';
+    card.querySelector('b').textContent = a.name;
+    card.addEventListener('click', () => openArtist(a));
+    list.append(card);
+  }
+  showView();
   labelCards();
 }
 
@@ -570,7 +615,8 @@ function openArtist(a) {
     }
     $('#artist').scrollTop = 0;
   }
-  $('#artistBackName').textContent = periodOf(a).name;
+  // from the list of artists, the way back is to the list
+  $('#artistBackName').textContent = view === 'list' ? 'Artists' : periodOf(a).name;
   labelCards();
   show('artist');
 }
@@ -1103,7 +1149,7 @@ guideEl.addEventListener('click', () => {
 
 $('#backBtn').addEventListener('click', () => openArtist(artistOf(game.p)));
 $('#doneHome').addEventListener('click', openGallery);
-$('#artistBack').addEventListener('click', () => openPeriod(periodOf(artist)));
+$('#artistBack').addEventListener('click', () => (view === 'list' ? openGallery() : openPeriod(periodOf(artist))));
 $('#periodBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => start(nextPuzzle(game.p)));
@@ -1137,6 +1183,7 @@ $('#settingsBack').addEventListener('click', async () => {
   if (settingsFrom === 'period') return periods.includes(periodBefore) ? openPeriod(periodBefore) : openGallery();
   show(settingsFrom);
 });
+document.querySelectorAll('#views button').forEach((b) => b.addEventListener('click', () => setView(b.dataset.view)));
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
 document.querySelectorAll('#content [data-content]').forEach((b) =>
   b.addEventListener('click', () => setHidden(b.dataset.content, !hide.has(b.dataset.content)))
@@ -1192,7 +1239,8 @@ async function boot() {
     console.error('Could not read puzzles/puzzles.json', err);
   }
   // artists.json sets the order of the artists and what each card says; an
-  // artist missing from it still gets a card, after the others
+  // artist missing from it still gets a card, after the others. The list of
+  // artists goes by the last word of the name, or by `sort` where that is wrong
   let listed = [];
   try {
     listed = await (await fetch('puzzles/artists.json', { cache: 'no-cache' })).json();
@@ -1208,7 +1256,7 @@ async function boot() {
     .map((name) => {
       const all = puzzles.filter((p) => p.artist === name);
       const about = listed.find((a) => a.name === name) || {};
-      return { name, note: about.note, period: about.period || 'Other artists', also: about.also || [], usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, all };
+      return { name, note: about.note, sort: about.sort || name.split(' ').pop(), period: about.period || 'Other artists', also: about.also || [], usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, all };
     })
     .filter((a) => a.all.length);
   everyPeriod = [...new Set([...eras.map((t) => t.name), ...everyone.map((a) => a.period)])].map((name) => ({

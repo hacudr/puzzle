@@ -37,6 +37,7 @@
   },
   {
     "name": "Rembrandt van Rijn",
+    "sort": "Rembrandt",
     "note": "Dutch, 1606–1669",
     "period": "Baroque",
     "cover": "rembrandt-van-rijn-self-portrait.webp"
@@ -142,6 +143,7 @@
   },
   {
     "name": "Hudson River School",
+    "sort": "Hudson",
     "note": "American, 1825–1880",
     "period": "Romanticism and Realism",
     "cover": "cole-the-oxbow.webp"
