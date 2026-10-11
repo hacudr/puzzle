@@ -514,11 +514,9 @@ const sound = (() => {
   let playing = null;
   // the noise a tap on a button is cut from, once it has been made
   let hiss = null;
-  // true once the splash's music is asked for, then the time on the context's
-  // clock at which it was set going; false without it
-  let opening = false;
-  // the splash's music, while it sounds
+  // the splash's music, while it sounds, and whether it has been given up
   let greeting = null;
+  let forgone = false;
   // the same for the current puzzle's effects: the names asked for, and the
   // buffers of those that are ready, by name
   const effects = {};
@@ -751,25 +749,29 @@ const sound = (() => {
     unlock,
 
     // The splash's music: the first ten seconds of a recording, music/welcome.mp3,
-    // which dies away over its last five. Nothing may sound before the first
-    // touch on an iPad, so there it waits for the first tap on the splash.
+    // which dies away over its last five, played well under the level of the
+    // music a puzzle ends on. A browser that allows no sound before the first
+    // touch keeps it waiting until then.
     welcome() {
       if (!on.music || !unlock()) return;
-      opening = true;
       fetched('music/welcome.mp3').then(
         (buffer) => {
-          if (!on.music) return (opening = false);
-          greeting = sample(buffer, 0.6, 0);
-          // the context's clock stands still until it may sound
-          opening = ctx.currentTime;
+          if (on.music && !forgone) greeting = sample(buffer, 0.2, 0);
         },
-        () => (opening = false)
+        () => {}
       );
     },
 
-    // whether the splash's music is only now starting, having had to wait for
-    // a touch, or for its file
-    starting: () => on.music && (opening === true || (opening !== false && ctx.currentTime - opening < 1)),
+    // The splash has gone by itself. Its music is given up if it has not begun,
+    // for want of a touch or of its file, so that it does not break out later.
+    forgo() {
+      if (ctx && ctx.state === 'running' && greeting) return;
+      forgone = true;
+      try {
+        if (greeting) greeting.stop();
+      } catch {}
+      greeting = null;
+    },
 
     // A button was tapped: a stroke of a paintbrush on canvas. A breath of noise
     // with the bottom and the top taken off, which swells, darkens as it is

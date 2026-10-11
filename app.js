@@ -12,8 +12,9 @@ const THEME_KEY = 'puzzle.theme';
 const VIEW_KEY = 'puzzle.view';
 // the pictures the splash has shown, and whether it has been shown since the app was opened
 const SPLASH_KEY = 'puzzle.splash';
-// how long the splash stays, in ms, once a tap has set its music going
-const SPLASH_MUSIC = 5000;
+// how long the splash stays, in ms, once its picture is up: as long as its
+// music plays at its full level
+const SPLASH_STAY = 5000;
 const WELCOMED_KEY = 'puzzle.welcomed';
 // the colour of the page in each theme, for the bar round the app
 const THEMES = { blush: '#f3d9d1', lace: '#f1e6d0', celadon: '#c8d9d0', walnut: '#2b1f18' };
@@ -500,41 +501,38 @@ async function showSplash() {
     seen = [];
   }
   const p = fresh[Math.floor(Math.random() * fresh.length)];
-  if (!p) return;
+  if (!p) return leaveSplash();
   try {
     localStorage.setItem(SPLASH_KEY, JSON.stringify([...seen, p.id]));
   } catch {}
   try {
     await loadImage(p.image);
   } catch {
-    return;
+    return leaveSplash();
   }
   $('#splashCaption').textContent = titleOf(p) + ' · ' + p.artist;
   $('#splashImg').style.backgroundImage = `url("${p.image}")`;
   $('#splashImg').classList.add('in');
+  setTimeout(() => {
+    // not at a tap, which would have set the music going
+    if (!$('#splash').classList.contains('leaving')) sound.forgo();
+    leaveSplash();
+  }, SPLASH_STAY);
 }
 
-// A tap anywhere puts it away until the app is next opened. Where its music
-// had to wait for that tap, the splash stays while the music plays, and goes
-// as the music begins to die away, or at a second tap.
-{
+// It goes by itself once its time is up, or sooner at a tap, and is not seen
+// again until the app is next opened.
+function leaveSplash() {
   const el = $('#splash');
-  let timer = 0;
-  const leave = () => {
-    clearTimeout(timer);
-    el.classList.add('leaving');
-    // gone once it has faded
-    setTimeout(() => delete document.documentElement.dataset.splash, 700);
-  };
-  el.addEventListener('click', () => {
-    try {
-      sessionStorage.setItem(WELCOMED_KEY, 'on');
-    } catch {}
-    if (el.classList.contains('begun') || !sound.starting()) return leave();
-    el.classList.add('begun');
-    timer = setTimeout(leave, SPLASH_MUSIC);
-  });
+  if (el.classList.contains('leaving')) return;
+  try {
+    sessionStorage.setItem(WELCOMED_KEY, 'on');
+  } catch {}
+  el.classList.add('leaving');
+  // gone once it has faded
+  setTimeout(() => delete document.documentElement.dataset.splash, 700);
 }
+$('#splash').addEventListener('click', leaveSplash);
 
 /* ---------- Gallery ---------- */
 
