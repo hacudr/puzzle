@@ -62,7 +62,6 @@ const sound = (() => {
     'A4+D3 F#4 D4+A3 F#4 B4+B2/4',
   ].join(' ');
   const SUMMER_RUN = 'D5 C5 Bb4 A4 G4 F#4 E4 D4 C4 Bb3 A3';
-  const MARS_DRUM = 'G3+G2/2 G3+G2/2 G3+G2/2 G3+G2/6 G3+G2/6 G3+G2/3 G3+G2/3 G3+G2/6';
   const WHIRL = 'A5+A4 G#5 A5 Bb5 A5 G#5 A5 G#5 A5 Bb5 A5 G#5';
   const WHIRL_TREAD = 'A5+A3 G#5 A5 Bb5+G#3 A5 G#5 A5+Bb3 G#5 A5 Bb5+G#3 A5 G#5';
   // four quavers of chatter, x y y x, with the bass note that comes in under them
@@ -275,21 +274,6 @@ const sound = (() => {
         'G4/12~',
       ].join(' '),
     },
-    // Beethoven, Symphony No. 5, first movement, bars 1-13; unit = a quaver
-    fate: {
-      composer: 'Ludwig van Beethoven',
-      title: 'Symphony No. 5, first movement',
-      voice: 'lute',
-      unit: 0.17,
-      bar: 4,
-      lead: 1,
-      steps: [
-        'G4+G3 G4+G3 G4+G3 Eb4+Eb3/5',
-        'F4+F3 F4+F3 F4+F3 D4+D3/9',
-        'G4 G4 G4 Eb4:5 Ab4 Ab4 Ab4 G4:5 Eb5 Eb5 Eb5 C5+G4+Eb4/5',
-        'G4 G4 G4 D4:5 Ab4 Ab4 Ab4 G4:5 F5 F5 F5 D5+G4+D4/4',
-      ].join(' '),
-    },
     // Mozart, Requiem, Dies irae, bars 1-19: the sopranos over the basses, and
     // the violins' climb in bar 9; unit = a quaver
     diesirae: {
@@ -384,27 +368,6 @@ const sound = (() => {
         ].join(' ')
       ),
     },
-    // Holst, The Planets, Mars: the rhythm, the first theme over it (an octave
-    // up, to be heard), then the second and third; unit = a sixth of a crotchet
-    mars: {
-      composer: 'Gustav Holst',
-      title: 'Mars, the Bringer of War',
-      voice: 'lute',
-      unit: 0.065,
-      bar: 30,
-      steps: [
-        MARS_DRUM,
-        MARS_DRUM.replace('G3+G2', 'G4:48+G3+G2'),
-        MARS_DRUM.replace('G3+G2/3', 'D5:12+D4:12+G3+G2/3'),
-        MARS_DRUM.replace('G3+G2', 'Db5:48+Db4:48+G3+G2'),
-        MARS_DRUM,
-        'Ab3+F3+Db3/9 G3+E3+C3/3 F#3+D#3+B2/9 G3+E3+C3/3 Ab3+F3+Db3/9',
-        'Bb3+G3+Eb3/3 C4+A3+F3/9 D4+B3+G3/3 Eb4+C4+Ab3/9 D4+B3+G3/3',
-        'D4/6 D4/6 D4/6 D4/2 C#4/2 D4/2 D4/2 C#4/2 D4/2',
-        'F4/12 D4/4.5 D4/1.5 F4/6 D4/6',
-        'B4+G4/4.5 B4+G4/1.5 B4+G4/2 A#4+D4/2 B4+G4/2 D5+B4/2 B4+G4/2 G4+D4/2 D4/12',
-      ].join(' '),
-    },
     // Mussorgsky, Night on Bald Mountain, from the piano arrangement by Chernov:
     // the opening whirl and the first theme in the bass; unit = a triplet quaver
     baldmountain: {
@@ -492,12 +455,10 @@ const sound = (() => {
     gondola3: { by: 'Bernd Krueger', licence: 'CC BY-SA 3.0 DE' },
     summer: { by: 'Modena Chamber Orchestra' },
     diesirae: { by: 'unnamed performers, from IMSLP', licence: 'CC BY-SA 3.0' },
-    fate: { by: 'Musopen' },
     strife: { by: 'Skidmore College Orchestra' },
     lamentoso: { by: 'Musopen' },
     mountainking: { by: 'Czech National Symphony Orchestra' },
     valkyries: { by: 'American Symphony Orchestra, 1921' },
-    mars: { by: 'United States Air Force Band' },
     baldmountain: { by: 'Musopen' },
     newworld: { by: 'Musopen' },
   };
