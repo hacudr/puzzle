@@ -10,6 +10,7 @@ const HIDE_KEY = 'puzzle.hide';
 const SPELL_KEY = 'puzzle.spell';
 const THEME_KEY = 'puzzle.theme';
 const VIEW_KEY = 'puzzle.view';
+const FRAME_KEY = 'puzzle.frame';
 // the pictures the splash has shown, and whether it has been shown since the app was opened
 const SPLASH_KEY = 'puzzle.splash';
 const WELCOMED_KEY = 'puzzle.welcomed';
@@ -268,6 +269,30 @@ function showTheme() {
   document.documentElement.dataset.theme = theme;
   $('meta[name="theme-color"]').content = THEMES[theme];
   document.querySelectorAll('#themes button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.theme === theme));
+}
+
+// A solved puzzle hangs in the photographed frame unless the plain one, drawn
+// by the styles, has been chosen.
+function loadFrame() {
+  try {
+    return localStorage.getItem(FRAME_KEY) === 'plain' ? 'plain' : 'ornate';
+  } catch {
+    return 'ornate';
+  }
+}
+
+function setFrame(next) {
+  try {
+    localStorage.setItem(FRAME_KEY, next);
+  } catch {}
+  showFrame();
+}
+
+function showFrame() {
+  const plain = loadFrame() === 'plain';
+  $('.plate').classList.toggle('plain', plain);
+  $('.plate-face').classList.toggle('frame', plain);
+  document.querySelectorAll('#frames button').forEach((b) => b.setAttribute('aria-pressed', (b.dataset.frame === 'plain') === plain));
 }
 
 function showSound() {
@@ -1088,7 +1113,7 @@ function win() {
   // the tools step back, and the picture is ready before its screen comes in
   $('#play').classList.add('won');
   const ready = loadImage(p.image).then((img) => img.decode && img.decode()).catch(() => {});
-  loadImage(game.aspect > 1 ? 'frames/gilt-frame-landscape.webp' : 'frames/gilt-frame.webp').catch(() => {});
+  if (loadFrame() === 'ornate') loadImage(game.aspect > 1 ? 'frames/gilt-frame-landscape.webp' : 'frames/gilt-frame.webp').catch(() => {});
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   // never held up for long by a picture that is slow to decode
   Promise.all([Promise.race([ready, wait(3000)]), wait(1800)]).then(() => {
@@ -1233,6 +1258,7 @@ document.querySelectorAll('#sounds button').forEach((b) =>
   })
 );
 document.querySelectorAll('#themes button').forEach((b) => b.addEventListener('click', () => setTheme(b.dataset.theme)));
+document.querySelectorAll('#frames button').forEach((b) => b.addEventListener('click', () => setFrame(b.dataset.frame)));
 
 window.addEventListener('resize', layout);
 document.addEventListener('pointerdown', () => sound.unlock(), true);
@@ -1251,6 +1277,7 @@ async function boot() {
   showKids();
   showLevel();
   showTheme();
+  showFrame();
   try {
     const res = await fetch('puzzles/puzzles.json', { cache: 'no-cache' });
     // ids keep the .jpg the pictures first had, so saved progress survives the move to WebP

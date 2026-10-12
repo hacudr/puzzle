@@ -30,7 +30,7 @@
   /* the line round a puzzle piece */
   --seam: #b39270;
   --table: #e6d9c3;
-  /* width of the drawn gilt frame, kept in reserve with .frame below */
+  /* width of the drawn gilt frame, .frame below */
   --frame: 15px;
   /* width of the black fillet between the frame and the picture */
   --fillet: 5px;
@@ -319,10 +319,10 @@ button {
 .wall > * { position: relative; z-index: 1; }
 .wall > .overlay { position: absolute; z-index: 20; }
 
-/* In reserve, used by nothing now: a frame drawn by the styles alone, in worn,
-   antique gilt, with a black fillet between it and the picture. The finished
-   picture hangs in a photographed frame instead (.plate-face). To use this one,
-   give a box the class, and inset its picture by var(--fillet). */
+/* A frame drawn by the styles alone, in worn, antique gilt, with a black fillet
+   between it and the picture. The finished picture hangs in it when Settings
+   has Minimalist chosen (.plate.plain), in place of the photographed frame. To
+   use it, give a box the class, and inset its picture by var(--fillet). */
 .frame {
   border: var(--frame) solid;
   border-color: #c9b077 #94773f #6c5429 #ad9158;
@@ -608,6 +608,17 @@ button {
   border-image: var(--frame-img) var(--ft) var(--fr) var(--fb) var(--fl) stretch;
   pointer-events: none;
 }
+/* The minimalist frame: the one the styles draw, .frame, sized as it was
+   before the photograph came. */
+.plate.plain {
+  /* height taken by everything but the picture: bar, frame, label, links */
+  --rest: 400px;
+  /* no wider than lets the whole picture show at its own shape */
+  width: min(calc(var(--base) * var(--grow, 1)), 100%, calc((100dvh - var(--rest)) * var(--aspect, .8) + 2 * var(--frame) + 2 * var(--fillet)));
+}
+.plate.plain .plate-face { box-sizing: content-box; height: auto; aspect-ratio: var(--aspect, .8); min-height: 0; filter: none; }
+.plate.plain .plate-img { inset: var(--fillet); }
+.plate.plain .plate-face::after { content: none; }
 /* the wall label under the picture */
 .plate-label {
   flex: none;
@@ -632,5 +643,6 @@ button {
 @media (max-height: 760px) {
   .done-body { gap: 16px; padding-bottom: 16px; }
   .plate { --base: 340px; --rest: 300px; }
+  .plate.plain { --rest: 355px; }
   .stage { margin-bottom: 48px; }
 }
