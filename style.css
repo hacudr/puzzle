@@ -144,6 +144,7 @@ button {
 }
 .splash-card h1 { margin: 0; font-weight: 500; font-size: clamp(1.9rem, 5vw, 2.8rem); letter-spacing: .01em; line-height: 1.15; }
 .splash-card .eyebrow { margin-top: 8px; font-size: 1.3rem; color: #6f6051; }
+.splash-begin { margin: 26px 0 0; font-size: .95rem; letter-spacing: .14em; text-transform: uppercase; color: #6f6051; }
 .splash-caption {
   position: absolute;
   left: 0;

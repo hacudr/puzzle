@@ -512,6 +512,10 @@ const sound = (() => {
   const clips = {};
   let clip = null;
   let playing = null;
+  // the splash's music: its recording once asked for, and the sound of it
+  // once it is playing
+  let intro = null;
+  let greeting = null;
   // the noise a tap on a button is cut from, once it has been made
   let hiss = null;
   // the same for the current puzzle's effects: the names asked for, and the
@@ -682,6 +686,14 @@ const sound = (() => {
     }
   }
 
+  // stops the splash's music, if it is still going
+  function part() {
+    try {
+      if (greeting) greeting.stop();
+    } catch {}
+    greeting = null;
+  }
+
   function hush() {
     for (const source of [playing, ...clashing]) {
       try {
@@ -744,6 +756,22 @@ const sound = (() => {
 
   return {
     unlock,
+
+    // The splash's music: the opening of a recording, music/welcome.mp3, thirty
+    // seconds of it and five more in which it dies away, played softly, at a
+    // quarter of the level of the music a puzzle ends on. It is fetched while
+    // the splash is up and played at the tap that puts the splash away, since
+    // nothing may sound before the first touch. start = play it now.
+    welcome(start) {
+      if (!on.music || !unlock()) return;
+      intro = intro || fetched('music/welcome.mp3');
+      intro.then(
+        (buffer) => {
+          if (start && on.music && !greeting) greeting = sample(buffer, 0.15, 0);
+        },
+        () => {}
+      );
+    },
 
     // A button was tapped: a stroke of a paintbrush on canvas. A breath of noise
     // with the bottom and the top taken off, which swells, darkens as it is
@@ -858,6 +886,7 @@ const sound = (() => {
       hush();
       if (on.effects) clashing = Object.keys(effect).map((name) => sample(effect[name], EFFECTS[name].level, 0.7, EFFECTS[name].lead, EFFECTS[name].fade));
       if (!on.music) return;
+      part();
       if (clip) {
         playing = sample(clip, 0.6, 0.7);
         return;
@@ -893,6 +922,7 @@ const sound = (() => {
       if (!(kind in KEYS)) return;
       on[kind] = !!value;
       if (!value) hush();
+      if (!value && kind === 'music') part();
       try {
         localStorage.setItem(KEYS[kind], value ? 'on' : 'off');
       } catch {}

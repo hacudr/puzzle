@@ -12,8 +12,6 @@ const THEME_KEY = 'puzzle.theme';
 const VIEW_KEY = 'puzzle.view';
 // the pictures the splash has shown, and whether it has been shown since the app was opened
 const SPLASH_KEY = 'puzzle.splash';
-// how long the splash stays, in ms, once its picture is up
-const SPLASH_STAY = 5000;
 const WELCOMED_KEY = 'puzzle.welcomed';
 // the colour of the page in each theme, for the bar round the app
 const THEMES = { blush: '#f3d9d1', lace: '#f1e6d0', celadon: '#c8d9d0', walnut: '#2b1f18' };
@@ -487,6 +485,8 @@ function drawVeil(card) {
 // and each opening takes one not shown yet until they have all had a turn.
 async function showSplash() {
   if (!('splash' in document.documentElement.dataset)) return;
+  // fetched now, to be ready for the tap
+  sound.welcome();
   const mild = puzzles.filter((p) => !(p.content || []).length);
   let seen = [];
   try {
@@ -499,34 +499,32 @@ async function showSplash() {
     seen = [];
   }
   const p = fresh[Math.floor(Math.random() * fresh.length)];
-  if (!p) return leaveSplash();
+  if (!p) return;
   try {
     localStorage.setItem(SPLASH_KEY, JSON.stringify([...seen, p.id]));
   } catch {}
   try {
     await loadImage(p.image);
   } catch {
-    return leaveSplash();
+    return;
   }
   $('#splashCaption').textContent = titleOf(p) + ' · ' + p.artist;
   $('#splashImg').style.backgroundImage = `url("${p.image}")`;
   $('#splashImg').classList.add('in');
-  setTimeout(leaveSplash, SPLASH_STAY);
 }
 
-// It goes by itself once its time is up, or sooner at a tap, and is not seen
-// again until the app is next opened.
-function leaveSplash() {
+// A tap anywhere sets its music going and puts it away until the app is next
+// opened.
+$('#splash').addEventListener('click', () => {
   const el = $('#splash');
-  if (el.classList.contains('leaving')) return;
   try {
     sessionStorage.setItem(WELCOMED_KEY, 'on');
   } catch {}
+  sound.welcome(true);
   el.classList.add('leaving');
   // gone once it has faded
   setTimeout(() => delete document.documentElement.dataset.splash, 700);
-}
-$('#splash').addEventListener('click', leaveSplash);
+});
 
 /* ---------- Gallery ---------- */
 
