@@ -21,7 +21,7 @@ The app is to be sold to users in the United States. Assume that of every file t
 
 Never take a file under a licence with NC or ND in it. Do not take CC BY or CC BY-SA pictures either: the app has nowhere to credit a photographer. A photograph that shows the frame, the wall or the room, or a work that is not flat (a sculpture, a painted shield), is the photographer's own work and needs their CC0, whatever the age of the thing shown; a thin edge of frame or stretcher on a CC0 file may be cropped off in the puzzle copy. Do not download from a museum's own site when its terms forbid commercial use; they bind as a contract even where no copyright exists.
 
-**Record the source.** Every picture has an entry in a file beside the originals, `puzzles/images/<surname>.<source>.json` (`nga`, `met`, `commons`), giving the page it came from and its licence. A picture with no such record has not been cleared.
+**Record the source.** Every picture has an entry in a file beside the originals, `puzzles/images/<surname>.<source>.json` (`nga`, `met`, `commons`, or `user` for a photograph the user took themselves, square-on and without the frame), giving the page it came from and its licence. A picture with no such record has not been cleared.
 
 **Italy.** Italian law asks for permission and a fee for commercial reproductions of works in Italian state collections, public domain or not. It has no force in the United States, which is one reason the app is sold there only; the Commons record marks such pictures with `italianHeritageNotice`. Raise it with the user before the app is offered in Italy or the rest of Europe.
 
@@ -32,6 +32,7 @@ Never take a file under a licence with NC or ND in it. Do not take CC BY or CC B
 Not yet cleared, to be settled before the app is sold:
 
 - The pictures by Michalina Janoszanka (died 1952, so the 95-year test matters), Virginia Frances Sterrett, the Hudson River School and all but one by Artemisia Gentileschi have no record of where their files came from.
+- Joseph Stella died in 1946, so the 95-year test matters. That each picture was published before 1931 rests on its Commons tag alone, and the Met, Chicago and Cleveland mark their own Stellas as not in the public domain. Two are weaker still: Purissima, which Commons tags as unpublished, and Coney Island, which the Met gave to Commons as CC0 but no longer lists as open access.
 - `sound-effects/` has no record of sources or licences.
 - The solved screen names the player of a licensed recording but not the licence, which CC BY and CC BY-SA ask to be named and linked. The app needs a credits page for that.
 - `fonts/` has no copy of the Open Font Licence that Spectral and Averia Serif come under.

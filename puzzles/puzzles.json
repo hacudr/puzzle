@@ -314,7 +314,15 @@
     "artist": "Mary Cassatt",
     "name": "Woman with a Sunflower",
     "scientific": "c. 1905",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "cassatt-francoise-holding-a-little-dog-looking-far-to-the-right.webp",
+    "artist": "Mary Cassatt",
+    "name": "Françoise, Holding a Little Dog, Looking Far to the Right",
+    "scientific": "pastel, 1909"
   },
   {
     "image": "morisot-the-sisters.webp",
@@ -400,7 +408,9 @@
     "artist": "Giovanni Bellini",
     "name": "Madonna and Child in a Landscape",
     "scientific": "c. 1480/1485",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -440,14 +450,19 @@
     "artist": "Giovanni Bellini",
     "name": "The Feast of the Gods",
     "scientific": "1514/1529",
-    "content": ["nudity", "violence"]
+    "content": [
+      "nudity",
+      "violence"
+    ]
   },
   {
     "image": "botticelli-madonna-and-child.webp",
     "artist": "Sandro Botticelli",
     "name": "Madonna and Child",
     "scientific": "c. 1470",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -455,7 +470,9 @@
     "artist": "Sandro Botticelli",
     "name": "The Adoration of the Magi",
     "scientific": "c. 1478/1482",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "effect": "gallop",
     "sacred": true
   },
@@ -470,7 +487,9 @@
     "artist": "Sandro Botticelli",
     "name": "The Virgin Adoring the Child",
     "scientific": "1480/1490",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -484,35 +503,47 @@
     "artist": "Sandro Botticelli",
     "name": "The Birth of Venus",
     "scientific": "c. 1484–1486",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "botticelli-primavera.webp",
     "artist": "Sandro Botticelli",
     "name": "Primavera",
     "scientific": "c. 1477–1482",
-    "content": ["nudity", "violence"]
+    "content": [
+      "nudity",
+      "violence"
+    ]
   },
   {
     "image": "botticelli-pallas-and-the-centaur.webp",
     "artist": "Sandro Botticelli",
     "name": "Pallas and the Centaur",
     "scientific": "c. 1482",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "botticelli-venus-and-mars.webp",
     "artist": "Sandro Botticelli",
     "name": "Venus and Mars",
     "scientific": "c. 1485",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "botticelli-the-calumny-of-apelles.webp",
     "artist": "Sandro Botticelli",
     "name": "The Calumny of Apelles",
     "scientific": "c. 1494–1495",
-    "content": ["nudity", "violence"]
+    "content": [
+      "nudity",
+      "violence"
+    ]
   },
   {
     "image": "botticelli-fortitude.webp",
@@ -573,31 +604,54 @@
     "artist": "Sandro Botticelli",
     "name": "The Story of Nastagio degli Onesti, I",
     "scientific": "1483",
-    "content": ["nudity", "violence", "frightening"],
-    "effect": ["sword", "gallop"]
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
+    "effect": [
+      "sword",
+      "gallop"
+    ]
   },
   {
     "image": "botticelli-the-story-of-nastagio-degli-onesti-ii.webp",
     "artist": "Sandro Botticelli",
     "name": "The Story of Nastagio degli Onesti, II",
     "scientific": "1483",
-    "content": ["nudity", "violence", "frightening"],
-    "effect": ["sword", "gallop"]
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
+    "effect": [
+      "sword",
+      "gallop"
+    ]
   },
   {
     "image": "botticelli-the-story-of-nastagio-degli-onesti-iii.webp",
     "artist": "Sandro Botticelli",
     "name": "The Story of Nastagio degli Onesti, III",
     "scientific": "1483",
-    "content": ["nudity", "violence", "frightening"],
-    "effect": ["sword", "gallop"]
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
+    "effect": [
+      "sword",
+      "gallop"
+    ]
   },
   {
     "image": "botticelli-the-story-of-virginia.webp",
     "artist": "Sandro Botticelli",
     "name": "The Story of Virginia",
     "scientific": "c. 1500–1504",
-    "content": ["violence"],
+    "content": [
+      "violence"
+    ],
     "effect": "gallop"
   },
   {
@@ -605,7 +659,10 @@
     "artist": "Sandro Botticelli",
     "name": "The Story of Lucretia",
     "scientific": "c. 1500–1501",
-    "content": ["violence", "frightening"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
     "effect": "sword"
   },
   {
@@ -613,7 +670,9 @@
     "artist": "Sandro Botticelli",
     "name": "The Adoration of the Magi",
     "scientific": "Florence, c. 1475",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -621,7 +680,9 @@
     "artist": "Sandro Botticelli",
     "name": "The Adoration of the Magi",
     "scientific": "London, c. 1470–1475",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "effect": "gallop",
     "sacred": true
   },
@@ -630,7 +691,9 @@
     "artist": "Sandro Botticelli",
     "name": "Madonna and Child with Two Angels",
     "scientific": "c. 1468–1469",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -638,7 +701,9 @@
     "artist": "Sandro Botticelli",
     "name": "The Sant'Ambrogio Altarpiece",
     "scientific": "c. 1470",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -646,7 +711,9 @@
     "artist": "Sandro Botticelli",
     "name": "Madonna and Child with Singing Angels",
     "scientific": "c. 1477",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -661,7 +728,9 @@
     "artist": "Sandro Botticelli",
     "name": "Madonna of the Book",
     "scientific": "c. 1480–1481",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -669,7 +738,9 @@
     "artist": "Sandro Botticelli",
     "name": "Madonna of the Magnificat",
     "scientific": "c. 1483",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -677,7 +748,9 @@
     "artist": "Sandro Botticelli",
     "name": "The Bardi Madonna",
     "scientific": "1484–1485",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -685,7 +758,9 @@
     "artist": "Sandro Botticelli",
     "name": "The Virgin Adoring the Sleeping Christ Child",
     "scientific": "c. 1485",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -693,7 +768,9 @@
     "artist": "Sandro Botticelli",
     "name": "Madonna of the Pomegranate",
     "scientific": "c. 1487",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -701,7 +778,9 @@
     "artist": "Sandro Botticelli",
     "name": "Virgin and Child with the Young Saint John the Baptist",
     "scientific": "c. 1490",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -709,7 +788,9 @@
     "artist": "Sandro Botticelli",
     "name": "Madonna del Padiglione",
     "scientific": "c. 1493",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -738,7 +819,10 @@
     "artist": "Sandro Botticelli",
     "name": "The Return of Judith to Bethulia",
     "scientific": "c. 1470–1472",
-    "content": ["violence", "frightening"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -747,8 +831,15 @@
     "artist": "Sandro Botticelli",
     "name": "The Discovery of the Body of Holofernes",
     "scientific": "c. 1470–1472",
-    "content": ["nudity", "violence", "frightening"],
-    "effect": ["sword", "gallop"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
+    "effect": [
+      "sword",
+      "gallop"
+    ],
     "sacred": true
   },
   {
@@ -756,7 +847,10 @@
     "artist": "Sandro Botticelli",
     "name": "Judith with the Head of Holofernes",
     "scientific": "c. 1497–1500",
-    "content": ["violence", "frightening"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -765,7 +859,10 @@
     "artist": "Sandro Botticelli",
     "name": "Saint Sebastian",
     "scientific": "1474",
-    "content": ["nudity", "violence"],
+    "content": [
+      "nudity",
+      "violence"
+    ],
     "sacred": true
   },
   {
@@ -787,7 +884,9 @@
     "artist": "Sandro Botticelli",
     "name": "The Trials of Moses",
     "scientific": "Sistine Chapel, 1481–1482",
-    "content": ["violence"],
+    "content": [
+      "violence"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -796,7 +895,9 @@
     "artist": "Sandro Botticelli",
     "name": "The Temptations of Christ",
     "scientific": "Sistine Chapel, 1481–1482",
-    "content": ["frightening"],
+    "content": [
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -804,7 +905,9 @@
     "artist": "Sandro Botticelli",
     "name": "The Punishment of Korah",
     "scientific": "Sistine Chapel, 1481–1482",
-    "content": ["violence"],
+    "content": [
+      "violence"
+    ],
     "sacred": true
   },
   {
@@ -812,7 +915,10 @@
     "artist": "Sandro Botticelli",
     "name": "Lamentation over the Dead Christ",
     "scientific": "c. 1490–1495",
-    "content": ["nudity", "frightening"],
+    "content": [
+      "nudity",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -827,7 +933,10 @@
     "artist": "Sandro Botticelli",
     "name": "Mystic Crucifixion",
     "scientific": "c. 1500",
-    "content": ["violence", "frightening"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -835,7 +944,9 @@
     "artist": "Sandro Botticelli",
     "name": "The Mystical Nativity",
     "scientific": "1500–1501",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -850,7 +961,9 @@
     "artist": "Sandro Botticelli",
     "name": "Three Miracles of Saint Zenobius",
     "scientific": "London, c. 1500",
-    "content": ["frightening"],
+    "content": [
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -858,7 +971,9 @@
     "artist": "Sandro Botticelli",
     "name": "Three Miracles of Saint Zenobius",
     "scientific": "New York, c. 1500",
-    "content": ["frightening"],
+    "content": [
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -866,7 +981,10 @@
     "artist": "Sandro Botticelli",
     "name": "The Last Miracle and the Death of Saint Zenobius",
     "scientific": "c. 1500",
-    "content": ["violence", "frightening"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -874,7 +992,10 @@
     "artist": "El Greco",
     "name": "Christ Cleansing the Temple",
     "scientific": "probably before 1570",
-    "content": ["nudity", "violence"],
+    "content": [
+      "nudity",
+      "violence"
+    ],
     "sacred": true
   },
   {
@@ -882,7 +1003,9 @@
     "artist": "El Greco",
     "name": "The Holy Family with Saint Anne and the Infant John the Baptist",
     "scientific": "c. 1595/1600",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -890,8 +1013,13 @@
     "artist": "El Greco",
     "name": "Saint Martin and the Beggar",
     "scientific": "1597/1599",
-    "content": ["nudity"],
-    "effect": ["sword", "gallop"],
+    "content": [
+      "nudity"
+    ],
+    "effect": [
+      "sword",
+      "gallop"
+    ],
     "sacred": true
   },
   {
@@ -899,7 +1027,9 @@
     "artist": "El Greco",
     "name": "Madonna and Child with Saint Martina and Saint Agnes",
     "scientific": "1597/1599",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -914,7 +1044,9 @@
     "artist": "El Greco",
     "name": "Saint Jerome",
     "scientific": "c. 1610/1614",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -922,7 +1054,11 @@
     "artist": "El Greco",
     "name": "Laocoön",
     "scientific": "c. 1610/1614",
-    "content": ["nudity", "violence", "frightening"]
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ]
   },
   {
     "image": "gogh-flower-beds-in-holland.webp",
@@ -989,7 +1125,9 @@
     "artist": "Raphael",
     "name": "The Small Cowper Madonna",
     "scientific": "c. 1505",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -997,8 +1135,14 @@
     "artist": "Raphael",
     "name": "Saint George and the Dragon",
     "scientific": "c. 1506",
-    "content": ["violence", "frightening"],
-    "effect": ["sword", "gallop"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
+    "effect": [
+      "sword",
+      "gallop"
+    ],
     "sacred": true
   },
   {
@@ -1006,7 +1150,9 @@
     "artist": "Raphael",
     "name": "The Niccolini-Cowper Madonna",
     "scientific": "1508",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -1014,7 +1160,9 @@
     "artist": "Raphael",
     "name": "The Alba Madonna",
     "scientific": "c. 1510",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -1121,14 +1269,19 @@
     "artist": "Rembrandt van Rijn",
     "name": "Lucretia",
     "scientific": "1664",
-    "content": ["violence"]
+    "content": [
+      "violence"
+    ]
   },
   {
     "image": "rubens-the-fall-of-phaeton.webp",
     "artist": "Peter Paul Rubens",
     "name": "The Fall of Phaeton",
     "scientific": "c. 1604/1605, probably reworked c. 1606/1608",
-    "content": ["nudity", "frightening"],
+    "content": [
+      "nudity",
+      "frightening"
+    ],
     "effect": "gallop"
   },
   {
@@ -1148,7 +1301,10 @@
     "artist": "Peter Paul Rubens",
     "name": "Daniel in the Lions' Den",
     "scientific": "c. 1614/1616",
-    "content": ["nudity", "frightening"],
+    "content": [
+      "nudity",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -1170,7 +1326,10 @@
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of Abraham and Melchizedek",
     "scientific": "c. 1626",
-    "effect": ["sword", "gallop"],
+    "effect": [
+      "sword",
+      "gallop"
+    ],
     "sacred": true
   },
   {
@@ -1178,14 +1337,19 @@
     "artist": "Peter Paul Rubens",
     "name": "Deborah Kip, Wife of Sir Balthasar Gerbier, and Her Children",
     "scientific": "1629/1630, reworked probably mid 1640s",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rubens-the-meeting-of-david-and-abigail.webp",
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of David and Abigail",
     "scientific": "c. 1630",
-    "effect": ["sword", "gallop"],
+    "effect": [
+      "sword",
+      "gallop"
+    ],
     "sacred": true
   },
   {
@@ -1193,7 +1357,9 @@
     "artist": "Titian",
     "name": "Cupid with the Wheel of Time",
     "scientific": "c. 1515/1520",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "titian-cardinal-pietro-bembo.webp",
@@ -1206,7 +1372,9 @@
     "artist": "Titian",
     "name": "Venus and Adonis",
     "scientific": "c. 1540s/c. 1560-1565",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "titian-ranuccio-farnese.webp",
@@ -1226,7 +1394,9 @@
     "artist": "Titian",
     "name": "Saint John the Evangelist on Patmos",
     "scientific": "c. 1553/1555",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -1246,7 +1416,9 @@
     "artist": "Titian",
     "name": "Venus with a Mirror",
     "scientific": "c. 1555",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "cezanne-the-artists-father-reading-levenement.webp",
@@ -1295,7 +1467,10 @@
     "artist": "Paul Cézanne",
     "name": "The Battle of Love",
     "scientific": "c. 1880",
-    "content": ["nudity", "violence"]
+    "content": [
+      "nudity",
+      "violence"
+    ]
   },
   {
     "image": "cezanne-houses-in-provence-the-riaux-valley-near-lestaque.webp",
@@ -1430,7 +1605,9 @@
     "artist": "Edgar Degas",
     "name": "Scene from the Steeplechase: The Fallen Jockey",
     "scientific": "1866, reworked 1880-1881 and c. 1897",
-    "content": ["frightening"],
+    "content": [
+      "frightening"
+    ],
     "effect": "gallop"
   },
   {
@@ -1537,7 +1714,10 @@
     "artist": "Edouard Manet",
     "name": "The Dead Toreador",
     "scientific": "probably 1864",
-    "content": ["violence", "frightening"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
     "effect": "sword"
   },
   {
@@ -1679,35 +1859,46 @@
     "artist": "Paul Gauguin",
     "name": "Fatata te Miti",
     "scientific": "1892",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "gauguin-parau-na-te-varua-ino.webp",
     "artist": "Paul Gauguin",
     "name": "Parau na te Varua ino",
     "scientific": "1892",
-    "content": ["nudity", "frightening"]
+    "content": [
+      "nudity",
+      "frightening"
+    ]
   },
   {
     "image": "gauguin-the-bathers.webp",
     "artist": "Paul Gauguin",
     "name": "The Bathers",
     "scientific": "1897",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "gauguin-te-pape-nave-nave.webp",
     "artist": "Paul Gauguin",
     "name": "Te Pape Nave Nave",
     "scientific": "1898",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "gauguin-the-invocation.webp",
     "artist": "Paul Gauguin",
     "name": "The Invocation",
     "scientific": "1903",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "renoir-mademoiselle-sicot.webp",
@@ -1744,14 +1935,19 @@
     "artist": "Auguste Renoir",
     "name": "Diana",
     "scientific": "1867",
-    "content": ["nudity", "violence"]
+    "content": [
+      "nudity",
+      "violence"
+    ]
   },
   {
     "image": "renoir-odalisque.webp",
     "artist": "Auguste Renoir",
     "name": "Odalisque",
     "scientific": "1870",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "renoir-head-of-a-dog.webp",
@@ -1867,14 +2063,18 @@
     "artist": "Auguste Renoir",
     "name": "Small Study for a Nude",
     "scientific": "1882",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "renoir-nude-with-figure-in-background.webp",
     "artist": "Auguste Renoir",
     "name": "Nude with Figure in Background",
     "scientific": "c. 1882",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "renoir-mlle-charlotte-berthier.webp",
@@ -1947,14 +2147,18 @@
     "artist": "Auguste Renoir",
     "name": "Bather Arranging Her Hair",
     "scientific": "1893",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "renoir-nude.webp",
     "artist": "Auguste Renoir",
     "name": "Nude",
     "scientific": "c. 1895",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "renoir-child-with-blond-hair.webp",
@@ -1987,6 +2191,19 @@
     "scientific": "1906/1907"
   },
   {
+    "image": "renoir-woman-arranging-her-hat.webp",
+    "artist": "Auguste Renoir",
+    "name": "Woman Arranging Her Hat",
+    "scientific": "oil on canvas, c. 1890"
+  },
+  {
+    "image": "renoir-nude-in-a-chair.webp",
+    "artist": "Auguste Renoir",
+    "name": "Nude in a Chair",
+    "scientific": "pastel, 1885–1890",
+    "content": ["nudity"]
+  },
+  {
     "image": "modigliani-monsieur-deleu.webp",
     "artist": "Amedeo Modigliani",
     "name": "Monsieur Deleu",
@@ -2009,7 +2226,9 @@
     "artist": "Amedeo Modigliani",
     "name": "Nude on a Blue Cushion",
     "scientific": "1917",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "modigliani-adrienne.webp",
@@ -2046,7 +2265,9 @@
     "artist": "Amedeo Modigliani",
     "name": "Nude on a Divan",
     "scientific": "1918",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "modigliani-madame-amedee.webp",
@@ -2274,7 +2495,9 @@
     "artist": "Henri de Toulouse-Lautrec",
     "name": "The Sofa",
     "scientific": "c. 1894–96",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "toulouse-lautrec-madame-thadee-natanson-at-the-theater.webp",
@@ -2287,7 +2510,9 @@
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Woman before a Mirror",
     "scientific": "1897",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "toulouse-lautrec-emilie.webp",
@@ -2356,7 +2581,9 @@
     "artist": "J. M. W. Turner",
     "name": "The Rape of Proserpine",
     "scientific": "1839",
-    "content": ["violence"]
+    "content": [
+      "violence"
+    ]
   },
   {
     "image": "turner-the-evening-of-the-deluge.webp",
@@ -2438,7 +2665,9 @@
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Repose",
     "scientific": "1860, reworked c. 1865/1870",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "corot-the-moored-boatman-souvenir-of-an-italian-lake.webp",
@@ -2530,7 +2759,10 @@
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Saint Sebastian Succored by the Holy Women",
     "scientific": "1874",
-    "content": ["nudity", "violence"],
+    "content": [
+      "nudity",
+      "violence"
+    ],
     "sacred": true
   },
   {
@@ -2610,7 +2842,9 @@
     "artist": "Camille Pissarro",
     "name": "The Bather",
     "scientific": "1895",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "pissarro-boulevard-des-italiens-morning-sunlight.webp",
@@ -2717,7 +2951,11 @@
     "artist": "Artemisia Gentileschi",
     "name": "Susanna and the Elders",
     "scientific": "1610",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -2726,7 +2964,10 @@
     "name": "Judith Slaying Holofernes",
     "scientific": "c. 1614–1620",
     "music": "summer",
-    "content": ["violence", "frightening"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -2736,7 +2977,10 @@
     "name": "Judith and Her Maidservant",
     "scientific": "c. 1623–1625",
     "music": "summer",
-    "content": ["violence", "frightening"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -2745,7 +2989,10 @@
     "artist": "Artemisia Gentileschi",
     "name": "Lucretia",
     "scientific": "c. 1623–1625",
-    "content": ["nudity", "violence"]
+    "content": [
+      "nudity",
+      "violence"
+    ]
   },
   {
     "image": "gentileschi-self-portrait-as-the-allegory-of-painting.webp",
@@ -2806,7 +3053,9 @@
     "artist": "Hudson River School",
     "name": "The Rocky Mountains, Lander's Peak",
     "scientific": "Albert Bierstadt, 1863",
-    "content": ["violence"],
+    "content": [
+      "violence"
+    ],
     "effect": "gallop"
   },
   {
@@ -2862,42 +3111,54 @@
     "artist": "Auguste Rodin",
     "name": "The Age of Bronze",
     "scientific": "L’Age d’Airain, model 1875–1876, cast 1903–1904",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rodin-the-walking-man.webp",
     "artist": "Auguste Rodin",
     "name": "The Walking Man",
     "scientific": "L’Homme qui marche, model 1878–1900, cast probably 1903",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rodin-the-thinker.webp",
     "artist": "Auguste Rodin",
     "name": "The Thinker",
     "scientific": "Le Penseur, model 1880, cast 1901",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rodin-the-kiss.webp",
     "artist": "Auguste Rodin",
     "name": "The Kiss",
     "scientific": "Le Baiser, model 1880–1887, cast c. 1898/1902",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rodin-figure-of-a-woman-the-sphinx.webp",
     "artist": "Auguste Rodin",
     "name": "The Sphinx",
     "scientific": "model early 1880s, carved 1909",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rodin-eve.webp",
     "artist": "Auguste Rodin",
     "name": "Eve",
     "scientific": "model c. 1881, carved 1890/1891",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -2905,28 +3166,36 @@
     "artist": "Auguste Rodin",
     "name": "A Burgher of Calais",
     "scientific": "Jean d’Aire, model 1884–1889, cast probably 1895",
-    "content": ["frightening"]
+    "content": [
+      "frightening"
+    ]
   },
   {
     "image": "rodin-jean-daire.webp",
     "artist": "Auguste Rodin",
     "name": "Jean d’Aire",
     "scientific": "model 1884–1889, cast probably early 20th century",
-    "content": ["frightening"]
+    "content": [
+      "frightening"
+    ]
   },
   {
     "image": "rodin-woman-and-child.webp",
     "artist": "Auguste Rodin",
     "name": "Woman and Child",
     "scientific": "model c. 1885, carved c. 1900–1901",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rodin-the-sirens.webp",
     "artist": "Auguste Rodin",
     "name": "The Sirens",
     "scientific": "model before 1887, cast probably 1900/1920",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rodin-head-of-mrs-john-peter-russell.webp",
@@ -2939,14 +3208,18 @@
     "artist": "Auguste Rodin",
     "name": "La Douleur",
     "scientific": "model 1889, cast 1983",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rodin-hand-of-god.webp",
     "artist": "Auguste Rodin",
     "name": "Hand of God",
     "scientific": "model before 1898, cast by 1903",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -2954,7 +3227,9 @@
     "artist": "Auguste Rodin",
     "name": "The Evil Spirits",
     "scientific": "c. 1899",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rodin-katherine-seney-simpson.webp",
@@ -2973,14 +3248,18 @@
     "artist": "Auguste Rodin",
     "name": "Aurora and Tithonus",
     "scientific": "1905 or 1906",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rodin-morning.webp",
     "artist": "Auguste Rodin",
     "name": "Morning",
     "scientific": "1906",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "rodin-memorial-relief.webp",
@@ -3029,35 +3308,45 @@
     "artist": "Gustav Klimt",
     "name": "Standing Nude",
     "scientific": "1906–07",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "klimt-reclining-nude.webp",
     "artist": "Gustav Klimt",
     "name": "Reclining Nude",
     "scientific": "c. 1912–13",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "klimt-reclining-nude-with-drapery.webp",
     "artist": "Gustav Klimt",
     "name": "Reclining Nude with Drapery",
     "scientific": "c. 1912–13",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "klimt-two-studies-for-a-crouching-woman.webp",
     "artist": "Gustav Klimt",
     "name": "Two Studies for a Crouching Woman",
     "scientific": "1914–15",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "klimt-reclining-nude-with-drapery-back-view.webp",
     "artist": "Gustav Klimt",
     "name": "Reclining Nude with Drapery, Back View",
     "scientific": "1917–1918",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "klimt-half-figure-of-a-young-woman.webp",
@@ -3106,15 +3395,22 @@
     "artist": "Walter Crane",
     "name": "Design for a Trade Card",
     "scientific": "The Sun Life Assurance Society, 1880–89",
-    "content": ["violence"],
-    "effect": ["sword", "gallop"]
+    "content": [
+      "violence"
+    ],
+    "effect": [
+      "sword",
+      "gallop"
+    ]
   },
   {
     "image": "crane-the-mirror-of-venus.webp",
     "artist": "Walter Crane",
     "name": "The Mirror of Venus",
     "scientific": "L’Art et Vie, c. 1890",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "crane-dancing-nymph.webp",
@@ -3127,7 +3423,9 @@
     "artist": "Caravaggio",
     "name": "Young Sick Bacchus",
     "scientific": "c. 1593",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "caravaggio-boy-with-a-basket-of-fruit.webp",
@@ -3166,7 +3464,9 @@
     "artist": "Caravaggio",
     "name": "Saint Francis of Assisi in Ecstasy",
     "scientific": "c. 1595",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3174,7 +3474,9 @@
     "artist": "Caravaggio",
     "name": "The Musicians",
     "scientific": "1597",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "caravaggio-the-lute-player.webp",
@@ -3187,14 +3489,18 @@
     "artist": "Caravaggio",
     "name": "Bacchus",
     "scientific": "c. 1596–1597",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "caravaggio-rest-on-the-flight-into-egypt.webp",
     "artist": "Caravaggio",
     "name": "Rest on the Flight into Egypt",
     "scientific": "c. 1597",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3229,7 +3535,11 @@
     "artist": "Caravaggio",
     "name": "Judith Beheading Holofernes",
     "scientific": "c. 1598–1599",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -3244,7 +3554,10 @@
     "artist": "Caravaggio",
     "name": "David and Goliath",
     "scientific": "c. 1599",
-    "content": ["violence", "frightening"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3260,7 +3573,11 @@
     "artist": "Caravaggio",
     "name": "The Martyrdom of Saint Matthew",
     "scientific": "1599–1600",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -3269,7 +3586,10 @@
     "artist": "Caravaggio",
     "name": "The Conversion of Saint Paul",
     "scientific": "1600–1601",
-    "content": ["nudity", "violence"],
+    "content": [
+      "nudity",
+      "violence"
+    ],
     "effect": "gallop",
     "sacred": true
   },
@@ -3278,7 +3598,10 @@
     "artist": "Caravaggio",
     "name": "Conversion on the Way to Damascus",
     "scientific": "1601",
-    "effect": ["sword", "gallop"],
+    "effect": [
+      "sword",
+      "gallop"
+    ],
     "sacred": true
   },
   {
@@ -3286,7 +3609,11 @@
     "artist": "Caravaggio",
     "name": "Crucifixion of Saint Peter",
     "scientific": "1601",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3301,14 +3628,19 @@
     "artist": "Caravaggio",
     "name": "Amor Vincit Omnia",
     "scientific": "1601–1602",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "caravaggio-the-incredulity-of-saint-thomas.webp",
     "artist": "Caravaggio",
     "name": "The Incredulity of Saint Thomas",
     "scientific": "1601–1602",
-    "content": ["nudity", "violence"],
+    "content": [
+      "nudity",
+      "violence"
+    ],
     "sacred": true
   },
   {
@@ -3316,7 +3648,9 @@
     "artist": "Caravaggio",
     "name": "Saint John the Baptist (Youth with a Ram)",
     "scientific": "1602",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3324,7 +3658,9 @@
     "artist": "Caravaggio",
     "name": "The Taking of Christ",
     "scientific": "c. 1602",
-    "content": ["violence"],
+    "content": [
+      "violence"
+    ],
     "sacred": true
   },
   {
@@ -3339,7 +3675,10 @@
     "artist": "Caravaggio",
     "name": "The Crowning with Thorns",
     "scientific": "c. 1603",
-    "content": ["nudity", "violence"],
+    "content": [
+      "nudity",
+      "violence"
+    ],
     "sacred": true
   },
   {
@@ -3347,7 +3686,11 @@
     "artist": "Caravaggio",
     "name": "The Sacrifice of Isaac",
     "scientific": "c. 1603",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3355,7 +3698,11 @@
     "artist": "Caravaggio",
     "name": "The Entombment of Christ",
     "scientific": "1603–1604",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3370,7 +3717,9 @@
     "artist": "Caravaggio",
     "name": "Saint John the Baptist in the Wilderness",
     "scientific": "c. 1604",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3378,7 +3727,9 @@
     "artist": "Caravaggio",
     "name": "Saint John the Baptist",
     "scientific": "Palazzo Corsini, Rome, c. 1604",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3386,7 +3737,9 @@
     "artist": "Caravaggio",
     "name": "Madonna di Loreto",
     "scientific": "1604–1606",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3394,7 +3747,9 @@
     "artist": "Caravaggio",
     "name": "Death of the Virgin",
     "scientific": "c. 1601–1606",
-    "content": ["frightening"],
+    "content": [
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3402,7 +3757,10 @@
     "artist": "Caravaggio",
     "name": "Ecce Homo",
     "scientific": "c. 1605",
-    "content": ["nudity", "violence"],
+    "content": [
+      "nudity",
+      "violence"
+    ],
     "sacred": true
   },
   {
@@ -3410,7 +3768,10 @@
     "artist": "Caravaggio",
     "name": "Madonna and Child with Saint Anne",
     "scientific": "1605–1606",
-    "content": ["nudity", "frightening"],
+    "content": [
+      "nudity",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3418,7 +3779,10 @@
     "artist": "Caravaggio",
     "name": "Saint Jerome Writing",
     "scientific": "Rome, c. 1605–1606",
-    "content": ["nudity", "frightening"],
+    "content": [
+      "nudity",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3426,7 +3790,9 @@
     "artist": "Caravaggio",
     "name": "Saint Francis in Prayer",
     "scientific": "c. 1606",
-    "content": ["frightening"],
+    "content": [
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3434,7 +3800,9 @@
     "artist": "Caravaggio",
     "name": "Saint Francis in Meditation",
     "scientific": "c. 1606",
-    "content": ["frightening"],
+    "content": [
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3449,7 +3817,10 @@
     "artist": "Caravaggio",
     "name": "The Seven Works of Mercy",
     "scientific": "1607",
-    "content": ["nudity", "frightening"],
+    "content": [
+      "nudity",
+      "frightening"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -3458,7 +3829,9 @@
     "artist": "Caravaggio",
     "name": "Madonna of the Rosary",
     "scientific": "c. 1607",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3466,7 +3839,11 @@
     "artist": "Caravaggio",
     "name": "The Crucifixion of Saint Andrew",
     "scientific": "1606–1607",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3474,7 +3851,11 @@
     "artist": "Caravaggio",
     "name": "David with the Head of Goliath",
     "scientific": "Vienna, c. 1607",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -3483,7 +3864,10 @@
     "artist": "Caravaggio",
     "name": "The Flagellation of Christ",
     "scientific": "1607",
-    "content": ["nudity", "violence"],
+    "content": [
+      "nudity",
+      "violence"
+    ],
     "sacred": true
   },
   {
@@ -3491,7 +3875,10 @@
     "artist": "Caravaggio",
     "name": "Christ at the Column",
     "scientific": "c. 1607",
-    "content": ["nudity", "violence"],
+    "content": [
+      "nudity",
+      "violence"
+    ],
     "sacred": true
   },
   {
@@ -3505,7 +3892,10 @@
     "artist": "Caravaggio",
     "name": "Saint Jerome Writing",
     "scientific": "Valletta, 1607–1608",
-    "content": ["nudity", "frightening"],
+    "content": [
+      "nudity",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3520,7 +3910,11 @@
     "artist": "Caravaggio",
     "name": "The Beheading of Saint John the Baptist",
     "scientific": "1608",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -3529,14 +3923,20 @@
     "artist": "Caravaggio",
     "name": "Sleeping Cupid",
     "scientific": "1608",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "caravaggio-the-burial-of-saint-lucy.webp",
     "artist": "Caravaggio",
     "name": "The Burial of Saint Lucy",
     "scientific": "1608",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3544,7 +3944,10 @@
     "artist": "Caravaggio",
     "name": "The Raising of Lazarus",
     "scientific": "1609",
-    "content": ["nudity", "frightening"],
+    "content": [
+      "nudity",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3559,7 +3962,9 @@
     "artist": "Caravaggio",
     "name": "Nativity with Saint Francis and Saint Lawrence",
     "scientific": "1600 or 1609",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3567,7 +3972,11 @@
     "artist": "Caravaggio",
     "name": "Salome with the Head of John the Baptist",
     "scientific": "Madrid, c. 1609",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3575,7 +3984,11 @@
     "artist": "Caravaggio",
     "name": "Salome with the Head of John the Baptist",
     "scientific": "London, c. 1609–1610",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -3584,7 +3997,9 @@
     "artist": "Caravaggio",
     "name": "Saint John the Baptist",
     "scientific": "Galleria Borghese, Rome, 1610",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3592,7 +4007,11 @@
     "artist": "Caravaggio",
     "name": "David with the Head of Goliath",
     "scientific": "Rome, c. 1610",
-    "content": ["nudity", "violence", "frightening"],
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -3608,7 +4027,10 @@
     "artist": "Caravaggio",
     "name": "The Martyrdom of Saint Ursula",
     "scientific": "1610",
-    "content": ["violence", "frightening"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3648,7 +4070,9 @@
     "artist": "Leonardo da Vinci",
     "name": "The Baptism of Christ",
     "scientific": "with Andrea del Verrocchio, c. 1470–1475",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3656,7 +4080,9 @@
     "artist": "Leonardo da Vinci",
     "name": "Madonna of the Carnation",
     "scientific": "c. 1473–1478",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3664,7 +4090,9 @@
     "artist": "Leonardo da Vinci",
     "name": "Benois Madonna",
     "scientific": "c. 1478–1480",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3672,7 +4100,9 @@
     "artist": "Leonardo da Vinci",
     "name": "Adoration of the Magi",
     "scientific": "unfinished, c. 1481–1482",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3680,7 +4110,10 @@
     "artist": "Leonardo da Vinci",
     "name": "Saint Jerome in the Wilderness",
     "scientific": "unfinished, c. 1480–1490",
-    "content": ["nudity", "frightening"],
+    "content": [
+      "nudity",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3688,7 +4121,9 @@
     "artist": "Leonardo da Vinci",
     "name": "Virgin of the Rocks",
     "scientific": "Paris, c. 1483–1486",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3708,7 +4143,9 @@
     "artist": "Leonardo da Vinci",
     "name": "The Virgin and Child with Saint Anne",
     "scientific": "c. 1503–1519",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3716,7 +4153,9 @@
     "artist": "Leonardo da Vinci",
     "name": "Saint John the Baptist",
     "scientific": "c. 1513–1516",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3724,7 +4163,9 @@
     "artist": "Leonardo da Vinci",
     "name": "The Virgin and Child with Saint Anne and Saint John the Baptist",
     "scientific": "cartoon, c. 1499–1508",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3738,7 +4179,9 @@
     "artist": "Leonardo da Vinci",
     "name": "Vitruvian Man",
     "scientific": "c. 1490",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "leonardo-da-vinci-portrait-of-a-man-in-red-chalk.webp",
@@ -3770,7 +4213,9 @@
     "artist": "Michelangelo",
     "name": "The Creation of Adam",
     "scientific": "Sistine Chapel ceiling, c. 1511",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3778,7 +4223,9 @@
     "artist": "Michelangelo",
     "name": "The Separation of Light from Darkness",
     "scientific": "Sistine Chapel ceiling, c. 1512",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3786,7 +4233,9 @@
     "artist": "Michelangelo",
     "name": "The Creation of the Sun, Moon and Plants",
     "scientific": "Sistine Chapel ceiling, c. 1511",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3794,7 +4243,9 @@
     "artist": "Michelangelo",
     "name": "The Creation of Eve",
     "scientific": "Sistine Chapel ceiling, c. 1510",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3802,7 +4253,10 @@
     "artist": "Michelangelo",
     "name": "The Fall and Expulsion from Paradise",
     "scientific": "Sistine Chapel ceiling, c. 1509–1510",
-    "content": ["nudity", "violence"],
+    "content": [
+      "nudity",
+      "violence"
+    ],
     "effect": "sword",
     "sacred": true
   },
@@ -3811,7 +4265,10 @@
     "artist": "Michelangelo",
     "name": "The Sacrifice of Noah",
     "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": ["nudity", "violence"],
+    "content": [
+      "nudity",
+      "violence"
+    ],
     "sacred": true
   },
   {
@@ -3819,7 +4276,10 @@
     "artist": "Michelangelo",
     "name": "The Deluge",
     "scientific": "Sistine Chapel ceiling, c. 1508–1509",
-    "content": ["nudity", "frightening"],
+    "content": [
+      "nudity",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3827,7 +4287,9 @@
     "artist": "Michelangelo",
     "name": "The Drunkenness of Noah",
     "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3835,7 +4297,9 @@
     "artist": "Michelangelo",
     "name": "The Delphic Sibyl",
     "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3843,7 +4307,9 @@
     "artist": "Michelangelo",
     "name": "The Libyan Sibyl",
     "scientific": "Sistine Chapel ceiling, c. 1511",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3851,7 +4317,9 @@
     "artist": "Michelangelo",
     "name": "The Erythraean Sibyl",
     "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3859,7 +4327,9 @@
     "artist": "Michelangelo",
     "name": "The Persian Sibyl",
     "scientific": "Sistine Chapel ceiling, c. 1511",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3867,7 +4337,9 @@
     "artist": "Michelangelo",
     "name": "The Prophet Daniel",
     "scientific": "Sistine Chapel ceiling, c. 1511",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3875,7 +4347,9 @@
     "artist": "Michelangelo",
     "name": "The Prophet Isaiah",
     "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3883,7 +4357,9 @@
     "artist": "Michelangelo",
     "name": "The Prophet Joel",
     "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3891,7 +4367,9 @@
     "artist": "Michelangelo",
     "name": "The Prophet Jonah",
     "scientific": "Sistine Chapel ceiling, c. 1512",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3899,7 +4377,9 @@
     "artist": "Michelangelo",
     "name": "The Prophet Ezekiel",
     "scientific": "Sistine Chapel ceiling, c. 1510",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3907,7 +4387,10 @@
     "artist": "Michelangelo",
     "name": "The Torment of Saint Anthony",
     "scientific": "c. 1487–1488",
-    "content": ["violence", "frightening"],
+    "content": [
+      "violence",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3915,7 +4398,9 @@
     "artist": "Michelangelo",
     "name": "The Manchester Madonna",
     "scientific": "unfinished, c. 1497",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "sacred": true
   },
   {
@@ -3923,7 +4408,10 @@
     "artist": "Michelangelo",
     "name": "The Entombment",
     "scientific": "unfinished, c. 1500–1501",
-    "content": ["nudity", "frightening"],
+    "content": [
+      "nudity",
+      "frightening"
+    ],
     "sacred": true
   },
   {
@@ -3931,7 +4419,9 @@
     "artist": "Michelangelo",
     "name": "The Conversion of Saul",
     "scientific": "Cappella Paolina, c. 1542–1545",
-    "content": ["nudity"],
+    "content": [
+      "nudity"
+    ],
     "effect": "gallop",
     "sacred": true
   },
@@ -3940,20 +4430,1217 @@
     "artist": "Michelangelo",
     "name": "Studies for the Libyan Sibyl",
     "scientific": "red chalk, c. 1510–11",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "michelangelo-study-for-the-nude-youth-over-the-prophet-daniel.webp",
     "artist": "Michelangelo",
     "name": "Study for the Nude Youth over the Prophet Daniel",
     "scientific": "red chalk, 1510–11",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "michelangelo-two-nudes-fighting.webp",
     "artist": "Michelangelo",
     "name": "Two Nudes Fighting",
     "scientific": "c. 1505",
-    "content": ["nudity", "violence"]
+    "content": [
+      "nudity",
+      "violence"
+    ]
+  },
+  {
+    "image": "stella-battle-of-lights-coney-island-mardi-gras.webp",
+    "artist": "Joseph Stella",
+    "name": "Battle of Lights, Coney Island, Mardi Gras",
+    "scientific": "oil on canvas, 1913–14"
+  },
+  {
+    "image": "stella-coney-island.webp",
+    "artist": "Joseph Stella",
+    "name": "Coney Island",
+    "scientific": "oil on canvas, c. 1914"
+  },
+  {
+    "image": "stella-luna-park.webp",
+    "artist": "Joseph Stella",
+    "name": "Luna Park",
+    "scientific": "c. 1913"
+  },
+  {
+    "image": "stella-der-rosenkavalier.webp",
+    "artist": "Joseph Stella",
+    "name": "Der Rosenkavalier",
+    "scientific": "1913–14"
+  },
+  {
+    "image": "stella-dog-in-motion.webp",
+    "artist": "Joseph Stella",
+    "name": "Dog in Motion",
+    "scientific": "1914"
+  },
+  {
+    "image": "stella-brooklyn-bridge.webp",
+    "artist": "Joseph Stella",
+    "name": "Brooklyn Bridge",
+    "scientific": "oil on canvas, 1919–20"
+  },
+  {
+    "image": "stella-study-for-brooklyn-bridge.webp",
+    "artist": "Joseph Stella",
+    "name": "Study for Brooklyn Bridge",
+    "scientific": "watercolour, 1922"
+  },
+  {
+    "image": "stella-skyscrapers.webp",
+    "artist": "Joseph Stella",
+    "name": "Skyscrapers",
+    "scientific": "watercolour, 1920"
+  },
+  {
+    "image": "stella-tree-of-my-life.webp",
+    "artist": "Joseph Stella",
+    "name": "Tree of My Life",
+    "scientific": "oil on canvas, 1919"
+  },
+  {
+    "image": "stella-tropical-sonata.webp",
+    "artist": "Joseph Stella",
+    "name": "Tropical Sonata",
+    "scientific": "1920–21"
+  },
+  {
+    "image": "stella-madonna.webp",
+    "artist": "Joseph Stella",
+    "name": "Madonna",
+    "scientific": "c. 1920",
+    "sacred": true
+  },
+  {
+    "image": "stella-purissima.webp",
+    "artist": "Joseph Stella",
+    "name": "Purissima",
+    "scientific": "oil on canvas, 1927",
+    "sacred": true
+  },
+  {
+    "image": "stella-sirens.webp",
+    "artist": "Joseph Stella",
+    "name": "Sirens (The Serene)",
+    "scientific": "1929",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "stella-self-portrait.webp",
+    "artist": "Joseph Stella",
+    "name": "Self-Portrait",
+    "scientific": "c. 1900"
+  },
+  {
+    "image": "decamp-the-seamstress.webp",
+    "artist": "Joseph DeCamp",
+    "name": "The Seamstress",
+    "scientific": "oil on canvas, 1916"
+  },
+  {
+    "image": "decamp-the-blue-mandarin-coat.webp",
+    "artist": "Joseph DeCamp",
+    "name": "The Blue Mandarin Coat",
+    "scientific": "1922"
+  },
+  {
+    "image": "decamp-the-kreutzer-sonata.webp",
+    "artist": "Joseph DeCamp",
+    "name": "The Kreutzer Sonata (The Violinist II)",
+    "scientific": "1912"
+  },
+  {
+    "image": "decamp-the-listener.webp",
+    "artist": "Joseph DeCamp",
+    "name": "The Listener (Woman at the Theatre)",
+    "scientific": "c. 1904"
+  },
+  {
+    "image": "decamp-carnation-and-black.webp",
+    "artist": "Joseph DeCamp",
+    "name": "Carnation and Black",
+    "scientific": "oil on canvas, 1892"
+  },
+  {
+    "image": "decamp-sally.webp",
+    "artist": "Joseph DeCamp",
+    "name": "Sally",
+    "scientific": "c. 1907"
+  },
+  {
+    "image": "decamp-portrait-of-edith-the-artists-wife.webp",
+    "artist": "Joseph DeCamp",
+    "name": "Portrait of Edith, the Artist's Wife",
+    "scientific": "c. 1895"
+  },
+  {
+    "image": "decamp-our-nanny.webp",
+    "artist": "Joseph DeCamp",
+    "name": "Our Nanny",
+    "scientific": "c. 1895"
+  },
+  {
+    "image": "decamp-portrait-of-a-young-lady.webp",
+    "artist": "Joseph DeCamp",
+    "name": "Portrait of a Young Lady",
+    "scientific": "c. 1896"
+  },
+  {
+    "image": "decamp-gloucester.webp",
+    "artist": "Joseph DeCamp",
+    "name": "Gloucester",
+    "scientific": "1900"
+  },
+  {
+    "image": "decamp-red-roofs.webp",
+    "artist": "Joseph DeCamp",
+    "name": "Red Roofs",
+    "scientific": "undated"
+  },
+  {
+    "image": "decamp-street-scene-in-venice.webp",
+    "artist": "Joseph DeCamp",
+    "name": "Street Scene in Venice",
+    "scientific": "oil on canvas, 1881"
+  },
+  {
+    "image": "decamp-cleveland-ohio.webp",
+    "artist": "Joseph DeCamp",
+    "name": "Cleveland, Ohio",
+    "scientific": "etching, c. 1883"
+  },
+  {
+    "image": "decamp-sir-general-arthur-william-currie.webp",
+    "artist": "Joseph DeCamp",
+    "name": "Sir General Arthur William Currie",
+    "scientific": "1920"
+  },
+  {
+    "image": "decamp-sir-robert-laird-borden.webp",
+    "artist": "Joseph DeCamp",
+    "name": "Sir Robert Laird Borden",
+    "scientific": "1920"
+  },
+  {
+    "image": "millais-ophelia.webp",
+    "artist": "John Everett Millais",
+    "name": "Ophelia",
+    "scientific": "1851–1852",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "millais-the-blind-girl.webp",
+    "artist": "John Everett Millais",
+    "name": "The Blind Girl",
+    "scientific": "1854–1856"
+  },
+  {
+    "image": "millais-christ-in-the-house-of-his-parents.webp",
+    "artist": "John Everett Millais",
+    "name": "Christ in the House of His Parents",
+    "scientific": "1849–1850",
+    "content": [
+      "violence"
+    ],
+    "sacred": true
+  },
+  {
+    "image": "millais-isabella.webp",
+    "artist": "John Everett Millais",
+    "name": "Isabella",
+    "scientific": "1848–1849"
+  },
+  {
+    "image": "millais-mariana.webp",
+    "artist": "John Everett Millais",
+    "name": "Mariana",
+    "scientific": "1851"
+  },
+  {
+    "image": "millais-the-black-brunswicker.webp",
+    "artist": "John Everett Millais",
+    "name": "The Black Brunswicker",
+    "scientific": "1860"
+  },
+  {
+    "image": "millais-the-order-of-release-1746.webp",
+    "artist": "John Everett Millais",
+    "name": "The Order of Release, 1746",
+    "scientific": "1852–1853"
+  },
+  {
+    "image": "millais-the-return-of-the-dove-to-the-ark.webp",
+    "artist": "John Everett Millais",
+    "name": "The Return of the Dove to the Ark",
+    "scientific": "1851",
+    "sacred": true
+  },
+  {
+    "image": "millais-the-rescue.webp",
+    "artist": "John Everett Millais",
+    "name": "The Rescue",
+    "scientific": "1855",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "millais-the-north-west-passage.webp",
+    "artist": "John Everett Millais",
+    "name": "The North-West Passage",
+    "scientific": "1874"
+  },
+  {
+    "image": "millais-hearts-are-trumps.webp",
+    "artist": "John Everett Millais",
+    "name": "Hearts are Trumps",
+    "scientific": "1872"
+  },
+  {
+    "image": "millais-lenfant-du-regiment.webp",
+    "artist": "John Everett Millais",
+    "name": "L'Enfant du Régiment",
+    "scientific": "1854–1855",
+    "content": [
+      "violence"
+    ]
+  },
+  {
+    "image": "millais-the-princes-in-the-tower.webp",
+    "artist": "John Everett Millais",
+    "name": "The Princes in the Tower",
+    "scientific": "1878"
+  },
+  {
+    "image": "millais-autumn-leaves.webp",
+    "artist": "John Everett Millais",
+    "name": "Autumn Leaves",
+    "scientific": "1855–1856"
+  },
+  {
+    "image": "millais-the-vale-of-rest.webp",
+    "artist": "John Everett Millais",
+    "name": "The Vale of Rest",
+    "scientific": "1858–1859"
+  },
+  {
+    "image": "rossetti-proserpine.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "Proserpine",
+    "scientific": "1874"
+  },
+  {
+    "image": "rossetti-beata-beatrix.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "Beata Beatrix",
+    "scientific": "c. 1864–1870"
+  },
+  {
+    "image": "rossetti-bocca-baciata.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "Bocca Baciata",
+    "scientific": "1859"
+  },
+  {
+    "image": "rossetti-ecce-ancilla-domini.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "Ecce Ancilla Domini",
+    "scientific": "1849–1850",
+    "sacred": true
+  },
+  {
+    "image": "rossetti-the-day-dream.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "The Day Dream",
+    "scientific": "1880"
+  },
+  {
+    "image": "rossetti-a-vision-of-fiammetta.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "A Vision of Fiammetta",
+    "scientific": "1878"
+  },
+  {
+    "image": "rossetti-found.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "Found",
+    "scientific": "begun 1854, unfinished"
+  },
+  {
+    "image": "rossetti-la-pia-de-tolomei.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "La Pia de' Tolomei",
+    "scientific": "1868–1880"
+  },
+  {
+    "image": "rossetti-a-sea-spell.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "A Sea-Spell",
+    "scientific": "1877"
+  },
+  {
+    "image": "rossetti-monna-vanna.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "Monna Vanna",
+    "scientific": "1866"
+  },
+  {
+    "image": "rossetti-la-ghirlandata.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "La Ghirlandata",
+    "scientific": "1873"
+  },
+  {
+    "image": "rossetti-joan-of-arc.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "Joan of Arc",
+    "scientific": "1882",
+    "sacred": true,
+    "effect": "sword"
+  },
+  {
+    "image": "rossetti-the-loving-cup.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "The Loving Cup",
+    "scientific": "1867"
+  },
+  {
+    "image": "rossetti-fair-rosamund.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "Fair Rosamund",
+    "scientific": "1861"
+  },
+  {
+    "image": "rossetti-the-salutation-of-beatrice.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "The Salutation of Beatrice",
+    "scientific": "1880–1882"
+  },
+  {
+    "image": "rossetti-lady-lilith.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "Lady Lilith",
+    "scientific": "1866–1868, altered 1872–1873"
+  },
+  {
+    "image": "rossetti-the-blue-bower.webp",
+    "artist": "Dante Gabriel Rossetti",
+    "name": "The Blue Bower",
+    "scientific": "1865"
+  },
+  {
+    "image": "hunt-the-awakening-conscience.webp",
+    "artist": "William Holman Hunt",
+    "name": "The Awakening Conscience",
+    "scientific": "1853"
+  },
+  {
+    "image": "hunt-the-scapegoat.webp",
+    "artist": "William Holman Hunt",
+    "name": "The Scapegoat",
+    "scientific": "1854–1856",
+    "sacred": true
+  },
+  {
+    "image": "hunt-our-english-coasts-1852-strayed-sheep.webp",
+    "artist": "William Holman Hunt",
+    "name": "Our English Coasts, 1852 (Strayed Sheep)",
+    "scientific": "1852"
+  },
+  {
+    "image": "hunt-isabella-and-the-pot-of-basil.webp",
+    "artist": "William Holman Hunt",
+    "name": "Isabella and the Pot of Basil",
+    "scientific": "1866–1868",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "hunt-the-finding-of-the-saviour-in-the-temple.webp",
+    "artist": "William Holman Hunt",
+    "name": "The Finding of the Saviour in the Temple",
+    "scientific": "1854–1860",
+    "sacred": true
+  },
+  {
+    "image": "hunt-a-converted-british-family-sheltering-a-christian-missionary.webp",
+    "artist": "William Holman Hunt",
+    "name": "A Converted British Family Sheltering a Christian Missionary from the Persecution of the Druids",
+    "scientific": "1850",
+    "content": [
+      "nudity",
+      "violence"
+    ],
+    "sacred": true
+  },
+  {
+    "image": "hunt-claudio-and-isabella.webp",
+    "artist": "William Holman Hunt",
+    "name": "Claudio and Isabella",
+    "scientific": "1850"
+  },
+  {
+    "image": "hunt-the-lady-of-shalott.webp",
+    "artist": "William Holman Hunt",
+    "name": "The Lady of Shalott",
+    "scientific": "c. 1888–1905"
+  },
+  {
+    "image": "hunt-the-miracle-of-the-holy-fire.webp",
+    "artist": "William Holman Hunt",
+    "name": "The Miracle of the Holy Fire",
+    "scientific": "1892–1899"
+  },
+  {
+    "image": "hunt-the-triumph-of-the-innocents.webp",
+    "artist": "William Holman Hunt",
+    "name": "The Triumph of the Innocents",
+    "scientific": "1870–1903",
+    "content": [
+      "nudity"
+    ],
+    "sacred": true
+  },
+  {
+    "image": "hunt-the-light-of-the-world.webp",
+    "artist": "William Holman Hunt",
+    "name": "The Light of the World",
+    "scientific": "1851–1853",
+    "sacred": true
+  },
+  {
+    "image": "hunt-london-bridge-on-the-night-of-the-marriage-of-the-prince-and.webp",
+    "artist": "William Holman Hunt",
+    "name": "London Bridge on the Night of the Marriage of the Prince and Princess of Wales",
+    "scientific": "1863–1866"
+  },
+  {
+    "image": "hunt-may-morning-on-magdalen-tower.webp",
+    "artist": "William Holman Hunt",
+    "name": "May Morning on Magdalen Tower",
+    "scientific": "1888–1891"
+  },
+  {
+    "image": "hunt-the-lantern-makers-courtship.webp",
+    "artist": "William Holman Hunt",
+    "name": "The Lantern Maker's Courtship",
+    "scientific": "1854–1861"
+  },
+  {
+    "image": "hunt-dante-gabriel-rossetti-at-22.webp",
+    "artist": "William Holman Hunt",
+    "name": "Dante Gabriel Rossetti at 22",
+    "scientific": "1882–1883"
+  },
+  {
+    "image": "brown-the-last-of-england.webp",
+    "artist": "Ford Madox Brown",
+    "name": "The Last of England",
+    "scientific": "1852–1855"
+  },
+  {
+    "image": "brown-work.webp",
+    "artist": "Ford Madox Brown",
+    "name": "Work",
+    "scientific": "1852–1865",
+    "effect": "gallop"
+  },
+  {
+    "image": "brown-take-your-son-sir.webp",
+    "artist": "Ford Madox Brown",
+    "name": "Take your Son, Sir!",
+    "scientific": "1851–1857, unfinished",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "brown-the-pretty-baa-lambs.webp",
+    "artist": "Ford Madox Brown",
+    "name": "The Pretty Baa-Lambs",
+    "scientific": "1851–1859"
+  },
+  {
+    "image": "brown-manfred-on-the-jungfrau.webp",
+    "artist": "Ford Madox Brown",
+    "name": "Manfred on the Jungfrau",
+    "scientific": "1840–1861",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "brown-stages-of-cruelty.webp",
+    "artist": "Ford Madox Brown",
+    "name": "Stages of Cruelty",
+    "scientific": "1856–1890",
+    "content": [
+      "violence"
+    ]
+  },
+  {
+    "image": "brown-the-irish-girl.webp",
+    "artist": "Ford Madox Brown",
+    "name": "The Irish Girl",
+    "scientific": "1860"
+  },
+  {
+    "image": "brown-an-english-autumn-afternoon.webp",
+    "artist": "Ford Madox Brown",
+    "name": "An English Autumn Afternoon",
+    "scientific": "1852–1855"
+  },
+  {
+    "image": "brown-carrying-corn.webp",
+    "artist": "Ford Madox Brown",
+    "name": "Carrying Corn",
+    "scientific": "1854–1855"
+  },
+  {
+    "image": "brown-the-coat-of-many-colours.webp",
+    "artist": "Ford Madox Brown",
+    "name": "The Coat of Many Colours",
+    "scientific": "1864–1866",
+    "sacred": true
+  },
+  {
+    "image": "brown-cordelia-parting-from-her-sisters.webp",
+    "artist": "Ford Madox Brown",
+    "name": "Cordelia Parting from Her Sisters",
+    "scientific": "1854"
+  },
+  {
+    "image": "brown-elijah-and-the-widows-son.webp",
+    "artist": "Ford Madox Brown",
+    "name": "Elijah and the Widow's Son",
+    "scientific": "1864",
+    "sacred": true
+  },
+  {
+    "image": "brown-the-finding-of-don-juan-by-haidee.webp",
+    "artist": "Ford Madox Brown",
+    "name": "The Finding of Don Juan by Haidée",
+    "scientific": "1869–1870",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "brown-the-death-of-sir-tristram.webp",
+    "artist": "Ford Madox Brown",
+    "name": "The Death of Sir Tristram",
+    "scientific": "1864",
+    "content": [
+      "violence"
+    ]
+  },
+  {
+    "image": "hughes-april-love.webp",
+    "artist": "Arthur Hughes",
+    "name": "April Love",
+    "scientific": "1855–1856"
+  },
+  {
+    "image": "hughes-the-long-engagement.webp",
+    "artist": "Arthur Hughes",
+    "name": "The Long Engagement",
+    "scientific": "1859"
+  },
+  {
+    "image": "hughes-la-belle-dame-sans-merci.webp",
+    "artist": "Arthur Hughes",
+    "name": "La Belle Dame sans Merci",
+    "scientific": "1863",
+    "effect": "gallop"
+  },
+  {
+    "image": "hughes-fair-rosamund.webp",
+    "artist": "Arthur Hughes",
+    "name": "Fair Rosamund",
+    "scientific": "1854"
+  },
+  {
+    "image": "hughes-self-portrait.webp",
+    "artist": "Arthur Hughes",
+    "name": "Self-Portrait",
+    "scientific": "1851"
+  },
+  {
+    "image": "hughes-a-christmas-carol-at-bracken-dene.webp",
+    "artist": "Arthur Hughes",
+    "name": "A Christmas Carol at Bracken Dene",
+    "scientific": "1878–1879"
+  },
+  {
+    "image": "hughes-the-nativity.webp",
+    "artist": "Arthur Hughes",
+    "name": "The Nativity",
+    "scientific": "1857–1858",
+    "sacred": true
+  },
+  {
+    "image": "hughes-home-from-sea.webp",
+    "artist": "Arthur Hughes",
+    "name": "Home from Sea",
+    "scientific": "1856–1862"
+  },
+  {
+    "image": "hughes-mrs-leathart-and-her-three-children.webp",
+    "artist": "Arthur Hughes",
+    "name": "Mrs Leathart and Her Three Children",
+    "scientific": "1863–1865"
+  },
+  {
+    "image": "hughes-the-potters-courtship.webp",
+    "artist": "Arthur Hughes",
+    "name": "The Potter's Courtship",
+    "scientific": "1886"
+  },
+  {
+    "image": "hughes-uncertainty.webp",
+    "artist": "Arthur Hughes",
+    "name": "Uncertainty",
+    "scientific": "1878"
+  },
+  {
+    "image": "hughes-silver-and-gold.webp",
+    "artist": "Arthur Hughes",
+    "name": "Silver and Gold",
+    "scientific": "1864"
+  },
+  {
+    "image": "hughes-the-landslip.webp",
+    "artist": "Arthur Hughes",
+    "name": "The Landslip",
+    "scientific": "c. 1916"
+  },
+  {
+    "image": "burne-jones-the-beguiling-of-merlin.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "The Beguiling of Merlin",
+    "scientific": "1872–1877"
+  },
+  {
+    "image": "burne-jones-king-cophetua-and-the-beggar-maid.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "King Cophetua and the Beggar Maid",
+    "scientific": "1884"
+  },
+  {
+    "image": "burne-jones-the-golden-stairs.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "The Golden Stairs",
+    "scientific": "1880"
+  },
+  {
+    "image": "burne-jones-the-merciful-knight.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "The Merciful Knight",
+    "scientific": "1863",
+    "sacred": true,
+    "effect": "sword"
+  },
+  {
+    "image": "burne-jones-the-star-of-bethlehem.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "The Star of Bethlehem",
+    "scientific": "1887–1891",
+    "content": [
+      "nudity"
+    ],
+    "sacred": true
+  },
+  {
+    "image": "burne-jones-the-wheel-of-fortune.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "The Wheel of Fortune",
+    "scientific": "1875–1883",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "burne-jones-hope.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "Hope",
+    "scientific": "1896"
+  },
+  {
+    "image": "burne-jones-the-last-sleep-of-arthur-in-avalon.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "The Last Sleep of Arthur in Avalon",
+    "scientific": "1881–1898"
+  },
+  {
+    "image": "burne-jones-the-garden-of-pan.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "The Garden of Pan",
+    "scientific": "1886–1887",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "burne-jones-love-among-the-ruins.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "Love Among the Ruins",
+    "scientific": "1894"
+  },
+  {
+    "image": "burne-jones-the-tree-of-forgiveness.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "The Tree of Forgiveness",
+    "scientific": "1881–1882",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "burne-jones-the-mirror-of-venus.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "The Mirror of Venus",
+    "scientific": "1877"
+  },
+  {
+    "image": "burne-jones-the-wizard.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "The Wizard",
+    "scientific": "c. 1891–1898"
+  },
+  {
+    "image": "burne-jones-the-feast-of-peleus.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "The Feast of Peleus",
+    "scientific": "1872–1881",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "burne-jones-sidonia-von-bork.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "Sidonia von Bork",
+    "scientific": "1860"
+  },
+  {
+    "image": "burne-jones-vespertina-quies.webp",
+    "artist": "Edward Burne-Jones",
+    "name": "Vespertina Quies",
+    "scientific": "1893"
+  },
+  {
+    "image": "stillman-loves-messenger.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "Love's Messenger",
+    "scientific": "1885"
+  },
+  {
+    "image": "stillman-beatrice.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "Beatrice",
+    "scientific": "1895"
+  },
+  {
+    "image": "stillman-fiammetta-singing.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "Fiammetta Singing",
+    "scientific": "1879"
+  },
+  {
+    "image": "stillman-how-the-virgin-mary-came-to-brother-conrad-of-offida-and.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "How the Virgin Mary Came to Brother Conrad of Offida and Laid Her Son in His Arms",
+    "scientific": "1892",
+    "content": [
+      "nudity"
+    ],
+    "sacred": true
+  },
+  {
+    "image": "stillman-mariana.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "Mariana",
+    "scientific": "c. 1867–1869"
+  },
+  {
+    "image": "stillman-the-lake-of-nemi.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "The Lake of Nemi",
+    "scientific": "c. 1890s"
+  },
+  {
+    "image": "stillman-a-lady-with-peacocks-in-a-garden.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "A Lady with Peacocks in a Garden",
+    "scientific": "c. 1896"
+  },
+  {
+    "image": "stillman-the-enchanted-garden-of-messer-ansaldo.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "The Enchanted Garden of Messer Ansaldo",
+    "scientific": "1889"
+  },
+  {
+    "image": "stillman-saint-barbara.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "Saint Barbara",
+    "scientific": "c. 1870",
+    "sacred": true
+  },
+  {
+    "image": "stillman-mia-suora-rachel.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "Mia Suora Rachel",
+    "scientific": "c. 1870s"
+  },
+  {
+    "image": "stillman-the-last-sight-of-fiammetta.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "The Last Sight of Fiammetta",
+    "scientific": "1876"
+  },
+  {
+    "image": "stillman-afternoon-in-the-colonna-garden.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "Afternoon in the Colonna Garden",
+    "scientific": "c. 1890s"
+  },
+  {
+    "image": "stillman-the-first-meeting-of-petrarch-and-laura.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "The First Meeting of Petrarch and Laura",
+    "scientific": "1889"
+  },
+  {
+    "image": "stillman-a-lady-in-the-garden-at-kelmscott-manor.webp",
+    "artist": "Marie Spartali Stillman",
+    "name": "A Lady in the Garden at Kelmscott Manor",
+    "scientific": "c. 1905"
+  },
+  {
+    "image": "de-morgan-the-love-potion.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "The Love Potion",
+    "scientific": "1903"
+  },
+  {
+    "image": "de-morgan-flora.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "Flora",
+    "scientific": "1894"
+  },
+  {
+    "image": "de-morgan-helen-of-troy.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "Helen of Troy",
+    "scientific": "1898"
+  },
+  {
+    "image": "de-morgan-night-and-sleep.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "Night and Sleep",
+    "scientific": "1878"
+  },
+  {
+    "image": "de-morgan-the-gilded-cage.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "The Gilded Cage",
+    "scientific": "c. 1900–1919"
+  },
+  {
+    "image": "de-morgan-cadmus-and-harmonia.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "Cadmus and Harmonia",
+    "scientific": "1877",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "de-morgan-the-angel-of-death.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "The Angel of Death",
+    "scientific": "1880",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "de-morgan-earthbound.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "Earthbound",
+    "scientific": "1897"
+  },
+  {
+    "image": "de-morgan-moonbeams-dipping-into-the-sea.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "Moonbeams Dipping into the Sea",
+    "scientific": "c. 1900",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "de-morgan-the-sea-maidens.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "The Sea Maidens",
+    "scientific": "1885–1886",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "de-morgan-cassandra.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "Cassandra",
+    "scientific": "1898"
+  },
+  {
+    "image": "de-morgan-the-dryad.webp",
+    "artist": "Evelyn De Morgan",
+    "name": "The Dryad",
+    "scientific": "1884–1885",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "waterhouse-the-lady-of-shalott.webp",
+    "artist": "John William Waterhouse",
+    "name": "The Lady of Shalott",
+    "scientific": "1888"
+  },
+  {
+    "image": "waterhouse-hylas-and-the-nymphs.webp",
+    "artist": "John William Waterhouse",
+    "name": "Hylas and the Nymphs",
+    "scientific": "1896",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "waterhouse-echo-and-narcissus.webp",
+    "artist": "John William Waterhouse",
+    "name": "Echo and Narcissus",
+    "scientific": "1903",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "waterhouse-circe-offering-the-cup-to-ulysses.webp",
+    "artist": "John William Waterhouse",
+    "name": "Circe Offering the Cup to Ulysses",
+    "scientific": "1891",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "waterhouse-circe-invidiosa.webp",
+    "artist": "John William Waterhouse",
+    "name": "Circe Invidiosa",
+    "scientific": "1892"
+  },
+  {
+    "image": "waterhouse-saint-eulalia.webp",
+    "artist": "John William Waterhouse",
+    "name": "Saint Eulalia",
+    "scientific": "1885",
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
+    "sacred": true
+  },
+  {
+    "image": "waterhouse-the-favourites-of-the-emperor-honorius.webp",
+    "artist": "John William Waterhouse",
+    "name": "The Favourites of the Emperor Honorius",
+    "scientific": "1883"
+  },
+  {
+    "image": "waterhouse-ulysses-and-the-sirens.webp",
+    "artist": "John William Waterhouse",
+    "name": "Ulysses and the Sirens",
+    "scientific": "1891",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "waterhouse-jason-and-medea.webp",
+    "artist": "John William Waterhouse",
+    "name": "Jason and Medea",
+    "scientific": "1907"
+  },
+  {
+    "image": "waterhouse-ophelia.webp",
+    "artist": "John William Waterhouse",
+    "name": "Ophelia",
+    "scientific": "1894"
+  },
+  {
+    "image": "waterhouse-a-mermaid.webp",
+    "artist": "John William Waterhouse",
+    "name": "A Mermaid",
+    "scientific": "1900",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "waterhouse-gather-ye-rosebuds-while-ye-may.webp",
+    "artist": "John William Waterhouse",
+    "name": "Gather Ye Rosebuds While Ye May",
+    "scientific": "1908"
+  },
+  {
+    "image": "waterhouse-i-am-half-sick-of-shadows-said-the-lady-of-shalott.webp",
+    "artist": "John William Waterhouse",
+    "name": "\"I Am Half-Sick of Shadows,\" Said the Lady of Shalott",
+    "scientific": "1915"
+  },
+  {
+    "image": "waterhouse-a-tale-from-the-decameron.webp",
+    "artist": "John William Waterhouse",
+    "name": "A Tale from the Decameron",
+    "scientific": "1916"
+  },
+  {
+    "image": "waterhouse-mariana-in-the-south.webp",
+    "artist": "John William Waterhouse",
+    "name": "Mariana in the South",
+    "scientific": "c. 1897"
+  },
+  {
+    "image": "waterhouse-destiny.webp",
+    "artist": "John William Waterhouse",
+    "name": "Destiny",
+    "scientific": "1900"
+  },
+  {
+    "image": "waterhouse-the-soul-of-the-rose.webp",
+    "artist": "John William Waterhouse",
+    "name": "The Soul of the Rose",
+    "scientific": "1908"
+  },
+  {
+    "image": "waterhouse-la-belle-dame-sans-merci.webp",
+    "artist": "John William Waterhouse",
+    "name": "La Belle Dame sans Merci",
+    "scientific": "1893"
+  },
+  {
+    "image": "waterhouse-psyche-opening-the-golden-box.webp",
+    "artist": "John William Waterhouse",
+    "name": "Psyche Opening the Golden Box",
+    "scientific": "1903",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "waterhouse-lamia.webp",
+    "artist": "John William Waterhouse",
+    "name": "Lamia",
+    "scientific": "1905"
+  },
+  {
+    "image": "waterhouse-the-magic-circle.webp",
+    "artist": "John William Waterhouse",
+    "name": "The Magic Circle",
+    "scientific": "1886",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "waterhouse-consulting-the-oracle.webp",
+    "artist": "John William Waterhouse",
+    "name": "Consulting the Oracle",
+    "scientific": "1884",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "edward-robert-hughes-night-with-her-train-of-stars.webp",
+    "artist": "Edward Robert Hughes",
+    "name": "Night with Her Train of Stars",
+    "scientific": "1912",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "edward-robert-hughes-midsummer-eve.webp",
+    "artist": "Edward Robert Hughes",
+    "name": "Midsummer Eve",
+    "scientific": "c. 1908"
+  },
+  {
+    "image": "edward-robert-hughes-twilight-fantasies.webp",
+    "artist": "Edward Robert Hughes",
+    "name": "Twilight Fantasies",
+    "scientific": "1911"
+  },
+  {
+    "image": "edward-robert-hughes-wings-of-the-morning.webp",
+    "artist": "Edward Robert Hughes",
+    "name": "Wings of the Morning",
+    "scientific": "1905",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "edward-robert-hughes-dianas-maidens.webp",
+    "artist": "Edward Robert Hughes",
+    "name": "Diana's Maidens",
+    "scientific": "1898",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "edward-robert-hughes-a-rainy-sunday.webp",
+    "artist": "Edward Robert Hughes",
+    "name": "A Rainy Sunday",
+    "scientific": "c. 1872"
+  },
+  {
+    "image": "edward-robert-hughes-orlando.webp",
+    "artist": "Edward Robert Hughes",
+    "name": "Orlando",
+    "scientific": "c. 1890s"
+  },
+  {
+    "image": "edward-robert-hughes-the-princess-out-of-school.webp",
+    "artist": "Edward Robert Hughes",
+    "name": "The Princess Out of School",
+    "scientific": "1901"
+  },
+  {
+    "image": "edward-robert-hughes-bell-and-dorothy-freeman.webp",
+    "artist": "Edward Robert Hughes",
+    "name": "Bell and Dorothy Freeman",
+    "scientific": "1889"
   }
 ]

@@ -59,14 +59,18 @@
     "name": "Artemisia Gentileschi",
     "note": "Italian, 1593–after 1654",
     "period": "Baroque",
-    "also": ["Female Artists"],
+    "also": [
+      "Female Artists"
+    ],
     "cover": "gentileschi-self-portrait-as-the-allegory-of-painting.webp"
   },
   {
     "name": "Berthe Morisot",
     "note": "French, 1841–1895",
     "period": "Impressionism",
-    "also": ["Female Artists"],
+    "also": [
+      "Female Artists"
+    ],
     "cover": "morisot-the-artists-sister-at-a-window.webp"
   },
   {
@@ -79,7 +83,9 @@
     "name": "Mary Cassatt",
     "note": "American, 1844–1926",
     "period": "Impressionism",
-    "also": ["Female Artists"],
+    "also": [
+      "Female Artists"
+    ],
     "cover": "cassatt-children-playing-on-the-beach.webp"
   },
   {
@@ -180,17 +186,27 @@
     "cover": "whistler-symphony-in-white-no-1-the-white-girl.webp"
   },
   {
+    "name": "Joseph DeCamp",
+    "note": "American, 1858–1923",
+    "period": "Impressionism",
+    "cover": "decamp-the-seamstress.webp"
+  },
+  {
     "name": "Michalina Janoszanka",
     "note": "Polish, 1889–1952",
     "period": "Modern",
-    "also": ["Female Artists"],
+    "also": [
+      "Female Artists"
+    ],
     "cover": "bird-of-paradise.webp"
   },
   {
     "name": "Virginia Frances Sterrett",
     "note": "American, 1900–1931",
     "period": "Modern",
-    "also": ["Female Artists"],
+    "also": [
+      "Female Artists"
+    ],
     "cover": "marvellous-tree.webp"
   },
   {
@@ -200,9 +216,82 @@
     "cover": "klimt-mada-primavesi.webp"
   },
   {
+    "name": "Joseph Stella",
+    "note": "American, 1877–1946",
+    "period": "Modern",
+    "cover": "stella-brooklyn-bridge.webp"
+  },
+  {
     "name": "Walter Crane",
     "note": "British, 1845–1915",
     "period": "Post-Impressionism",
     "cover": "crane-valentine-765291.webp"
+  },
+  {
+    "name": "John Everett Millais",
+    "note": "British, 1829–1896",
+    "period": "Pre-Raphaelites",
+    "cover": "millais-the-blind-girl.webp"
+  },
+  {
+    "name": "Dante Gabriel Rossetti",
+    "note": "British, 1828–1882",
+    "period": "Pre-Raphaelites",
+    "cover": "rossetti-the-day-dream.webp"
+  },
+  {
+    "name": "William Holman Hunt",
+    "note": "British, 1827–1910",
+    "period": "Pre-Raphaelites",
+    "cover": "hunt-our-english-coasts-1852-strayed-sheep.webp"
+  },
+  {
+    "name": "Ford Madox Brown",
+    "note": "British, 1821–1893",
+    "period": "Pre-Raphaelites",
+    "cover": "brown-the-last-of-england.webp"
+  },
+  {
+    "name": "Arthur Hughes",
+    "note": "British, 1832–1915",
+    "period": "Pre-Raphaelites",
+    "cover": "hughes-april-love.webp"
+  },
+  {
+    "name": "Edward Burne-Jones",
+    "note": "British, 1833–1898",
+    "period": "Pre-Raphaelites",
+    "cover": "burne-jones-the-golden-stairs.webp"
+  },
+  {
+    "name": "Marie Spartali Stillman",
+    "note": "British, 1844–1927",
+    "period": "Pre-Raphaelites",
+    "also": [
+      "Female Artists"
+    ],
+    "cover": "stillman-loves-messenger.webp"
+  },
+  {
+    "name": "Evelyn De Morgan",
+    "sort": "De Morgan",
+    "note": "British, 1855–1919",
+    "period": "Pre-Raphaelites",
+    "also": [
+      "Female Artists"
+    ],
+    "cover": "de-morgan-flora.webp"
+  },
+  {
+    "name": "John William Waterhouse",
+    "note": "British, 1849–1917",
+    "period": "Pre-Raphaelites",
+    "cover": "waterhouse-the-lady-of-shalott.webp"
+  },
+  {
+    "name": "Edward Robert Hughes",
+    "note": "British, 1851–1914",
+    "period": "Pre-Raphaelites",
+    "cover": "edward-robert-hughes-midsummer-eve.webp"
   }
 ]
