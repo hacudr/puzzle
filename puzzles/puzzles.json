@@ -2201,7 +2201,9 @@
     "artist": "Auguste Renoir",
     "name": "Nude in a Chair",
     "scientific": "pastel, 1885–1890",
-    "content": ["nudity"]
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "modigliani-monsieur-deleu.webp",
@@ -4874,7 +4876,8 @@
     "artist": "William Holman Hunt",
     "name": "The Finding of the Saviour in the Temple",
     "scientific": "1854–1860",
-    "sacred": true
+    "sacred": true,
+    "effect": "knock"
   },
   {
     "image": "hunt-a-converted-british-family-sheltering-a-christian-missionary.webp",
@@ -4920,7 +4923,8 @@
     "artist": "William Holman Hunt",
     "name": "The Light of the World",
     "scientific": "1851–1853",
-    "sacred": true
+    "sacred": true,
+    "effect": "knock"
   },
   {
     "image": "hunt-london-bridge-on-the-night-of-the-marriage-of-the-prince-and.webp",
@@ -5642,5 +5646,242 @@
     "artist": "Edward Robert Hughes",
     "name": "Bell and Dorothy Freeman",
     "scientific": "1889"
+  },
+  {
+    "image": "leighton-flaming-june.webp",
+    "artist": "Frederic Leighton",
+    "name": "Flaming June",
+    "scientific": "1895",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "leighton-the-music-lesson.webp",
+    "artist": "Frederic Leighton",
+    "name": "The Music Lesson",
+    "scientific": "1877"
+  },
+  {
+    "image": "leighton-cimabues-celebrated-madonna.webp",
+    "artist": "Frederic Leighton",
+    "name": "Cimabue's Celebrated Madonna",
+    "scientific": "1853–1855",
+    "effect": "gallop"
+  },
+  {
+    "image": "leighton-the-bath-of-psyche.webp",
+    "artist": "Frederic Leighton",
+    "name": "The Bath of Psyche",
+    "scientific": "1890",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "leighton-perseus-and-andromeda.webp",
+    "artist": "Frederic Leighton",
+    "name": "Perseus and Andromeda",
+    "scientific": "1891",
+    "content": [
+      "nudity",
+      "frightening"
+    ]
+  },
+  {
+    "image": "leighton-the-garden-of-the-hesperides.webp",
+    "artist": "Frederic Leighton",
+    "name": "The Garden of the Hesperides",
+    "scientific": "c. 1892",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "leighton-cymon-and-iphigenia.webp",
+    "artist": "Frederic Leighton",
+    "name": "Cymon and Iphigenia",
+    "scientific": "1884"
+  },
+  {
+    "image": "leighton-captive-andromache.webp",
+    "artist": "Frederic Leighton",
+    "name": "Captive Andromache",
+    "scientific": "c. 1888",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "leighton-daphnephoria.webp",
+    "artist": "Frederic Leighton",
+    "name": "The Daphnephoria",
+    "scientific": "1874–1876",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "leighton-greek-girls-playing-at-ball.webp",
+    "artist": "Frederic Leighton",
+    "name": "Greek Girls Playing at Ball",
+    "scientific": "1889"
+  },
+  {
+    "image": "leighton-winding-the-skein.webp",
+    "artist": "Frederic Leighton",
+    "name": "Winding the Skein",
+    "scientific": "c. 1878"
+  },
+  {
+    "image": "leighton-wedded.webp",
+    "artist": "Frederic Leighton",
+    "name": "Wedded",
+    "scientific": "1881–1882"
+  },
+  {
+    "image": "leighton-lachrymae.webp",
+    "artist": "Frederic Leighton",
+    "name": "Lachrymae",
+    "scientific": "1894–1895"
+  },
+  {
+    "image": "leighton-electra-at-the-tomb-of-agamemnon.webp",
+    "artist": "Frederic Leighton",
+    "name": "Electra at the Tomb of Agamemnon",
+    "scientific": "1868–1869"
+  },
+  {
+    "image": "leighton-orpheus-and-eurydice.webp",
+    "artist": "Frederic Leighton",
+    "name": "Orpheus and Eurydice",
+    "scientific": "1864"
+  },
+  {
+    "image": "leighton-lieder-ohne-worte.webp",
+    "artist": "Frederic Leighton",
+    "name": "Lieder ohne Worte",
+    "scientific": "c. 1861"
+  },
+  {
+    "image": "leighton-light-of-the-harem.webp",
+    "artist": "Frederic Leighton",
+    "name": "Light of the Harem",
+    "scientific": "c. 1880"
+  },
+  {
+    "image": "leighton-crenaia-the-nymph-of-the-dargle.webp",
+    "artist": "Frederic Leighton",
+    "name": "Crenaia, the Nymph of the Dargle",
+    "scientific": "1880",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "leighton-the-fisherman-and-the-syren.webp",
+    "artist": "Frederic Leighton",
+    "name": "The Fisherman and the Syren",
+    "scientific": "1856–1858",
+    "content": [
+      "nudity",
+      "frightening"
+    ]
+  },
+  {
+    "image": "leighton-the-feigned-death-of-juliet.webp",
+    "artist": "Frederic Leighton",
+    "name": "The Feigned Death of Juliet",
+    "scientific": "1856–1858",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "leighton-a-condottiere.webp",
+    "artist": "Frederic Leighton",
+    "name": "A Condottiere",
+    "scientific": "1871–1872",
+    "effect": "sword"
+  },
+  {
+    "image": "leighton-and-the-sea-gave-up-the-dead-which-were-in-it.webp",
+    "artist": "Frederic Leighton",
+    "name": "And the Sea Gave Up the Dead Which Were in It",
+    "scientific": "1892",
+    "content": [
+      "nudity",
+      "frightening"
+    ],
+    "sacred": true
+  },
+  {
+    "image": "leighton-elijah-in-the-wilderness.webp",
+    "artist": "Frederic Leighton",
+    "name": "Elijah in the Wilderness",
+    "scientific": "1877–1878",
+    "content": [
+      "nudity"
+    ],
+    "sacred": true
+  },
+  {
+    "image": "leighton-jonathans-token-to-david.webp",
+    "artist": "Frederic Leighton",
+    "name": "Jonathan's Token to David",
+    "scientific": "c. 1868",
+    "content": [
+      "nudity"
+    ],
+    "sacred": true
+  },
+  {
+    "image": "leighton-david.webp",
+    "artist": "Frederic Leighton",
+    "name": "David",
+    "scientific": "1865",
+    "sacred": true
+  },
+  {
+    "image": "leighton-portrait-of-may-sartoris.webp",
+    "artist": "Frederic Leighton",
+    "name": "May Sartoris",
+    "scientific": "c. 1860"
+  },
+  {
+    "image": "leighton-may-sartoris-mrs-henry-evans-gordon.webp",
+    "artist": "Frederic Leighton",
+    "name": "May Sartoris, Mrs Henry Evans Gordon",
+    "scientific": "1875"
+  },
+  {
+    "image": "leighton-mrs-james-guthrie.webp",
+    "artist": "Frederic Leighton",
+    "name": "Mrs James Guthrie",
+    "scientific": "1864–1865"
+  },
+  {
+    "image": "leighton-lucia.webp",
+    "artist": "Frederic Leighton",
+    "name": "Lucia",
+    "scientific": "c. 1877"
+  },
+  {
+    "image": "leighton-garden-of-an-inn-capri.webp",
+    "artist": "Frederic Leighton",
+    "name": "Garden of an Inn, Capri",
+    "scientific": "1859"
+  },
+  {
+    "image": "leighton-lindos-rhodes.webp",
+    "artist": "Frederic Leighton",
+    "name": "Lindos, Rhodes",
+    "scientific": "1867"
+  },
+  {
+    "image": "leighton-the-return-of-persephone.webp",
+    "artist": "Frederic Leighton",
+    "name": "The Return of Persephone (oil sketch)",
+    "scientific": "c. 1890–1891"
   }
 ]

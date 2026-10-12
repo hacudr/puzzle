@@ -3,7 +3,7 @@
 // other swap repeats the step it has reached.
 const sound = (() => {
   // Settings can turn off the music (the notes, and the recording a puzzle ends
-  // on) and the sound effects (the sword and the hooves), each on its own.
+  // on) and the sound effects (the sword, the hooves and the knock), each on its own.
   const KEYS = { music: 'puzzle.music', effects: 'puzzle.effects' };
   const VOICES = {
     piano: { attack: 0.006, decay: 2.4, partials: [[1, 1], [2, 0.45], [3, 0.2], [4, 0.1], [5, 0.05]] },
@@ -490,6 +490,7 @@ const sound = (() => {
   const EFFECTS = {
     sword: { file: 'Sword.m4a', lead: 0.8, level: 0.8 },
     gallop: { file: 'Gallop.m4a', lead: 0.45, level: 0.35, fade: 1.5 },
+    knock: { file: 'Door knock.m4a', lead: 0.28, level: 0.3 },
   };
 
   const SEMITONES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
@@ -516,6 +517,7 @@ const sound = (() => {
   // once it is playing
   let intro = null;
   let greeting = null;
+  let parted = false;
   // the noise a tap on a button is cut from, once it has been made
   let hiss = null;
   // the same for the current puzzle's effects: the names asked for, and the
@@ -686,10 +688,19 @@ const sound = (() => {
     }
   }
 
-  // stops the splash's music, if it is still going
-  function part() {
+  // stops the splash's music, if it is still going, and keeps it from starting
+  // if it has not yet; fade = the seconds it takes to die away
+  function part(fade = 0) {
+    parted = true;
     try {
-      if (greeting) greeting.stop();
+      if (greeting && fade) {
+        const now = ctx.currentTime;
+        const gain = greeting.level.gain;
+        gain.cancelScheduledValues(now);
+        gain.setValueAtTime(gain.value, now);
+        gain.linearRampToValueAtTime(0, now + fade);
+        greeting.stop(now + fade);
+      } else if (greeting) greeting.stop();
     } catch {}
     greeting = null;
   }
@@ -720,6 +731,7 @@ const sound = (() => {
       gain.gain.linearRampToValueAtTime(0, end);
     }
     source.start(start, from);
+    source.level = gain;
     return source;
   }
 
@@ -763,14 +775,20 @@ const sound = (() => {
     // the splash is up and played at the tap that puts the splash away, since
     // nothing may sound before the first touch. start = play it now.
     welcome(start) {
+      if (start) parted = false;
       if (!on.music || !unlock()) return;
       intro = intro || fetched('music/welcome.mp3');
       intro.then(
         (buffer) => {
-          if (start && on.music && !greeting) greeting = sample(buffer, 0.15, 0);
+          if (start && on.music && !greeting && !parted) greeting = sample(buffer, 0.15, 0);
         },
         () => {}
       );
+    },
+
+    // A puzzle is opened: the splash's music dies away over a second and a half.
+    begin() {
+      part(1.5);
     },
 
     // A button was tapped: a stroke of a paintbrush on canvas. A breath of noise

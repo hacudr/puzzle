@@ -730,6 +730,7 @@ async function start(p, fresh = false) {
   else if (p.sacred) sound.setTune(p.music, puzzles.filter(sacred).indexOf(p), 'sacred');
   else sound.setTune(p.music, puzzles.indexOf(p));
   sound.setEffect(p.effect);
+  sound.begin();
   piecesEl.textContent = '';
   peekEl.classList.remove('show', 'reveal');
   peekEl.style.backgroundImage = `url("${p.image}")`;
@@ -1087,6 +1088,7 @@ function win() {
   // the tools step back, and the picture is ready before its screen comes in
   $('#play').classList.add('won');
   const ready = loadImage(p.image).then((img) => img.decode && img.decode()).catch(() => {});
+  loadImage(game.aspect > 1 ? 'frames/gilt-frame-landscape.webp' : 'frames/gilt-frame.webp').catch(() => {});
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   // never held up for long by a picture that is slow to decode
   Promise.all([Promise.race([ready, wait(3000)]), wait(1800)]).then(() => {
@@ -1099,6 +1101,9 @@ function showPlate(p) {
   const plate = $('.plate');
   plate.style.setProperty('--aspect', game.aspect);
   plate.style.setProperty('--grow', Math.max(1, game.aspect / 0.8));
+  // the frame is as thick as suits the picture's longer side, and lies on its side for a wide one
+  plate.style.setProperty('--k', Math.max(1, 1 / game.aspect));
+  plate.classList.toggle('wide', game.aspect > 1);
   $('#plateImg').style.backgroundImage = `url("${p.image}")`;
   $('#plateSci').textContent = p.scientific || '';
   $('#plateName').textContent = titleOf(p);

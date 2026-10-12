@@ -9,7 +9,9 @@ fs.mkdirSync(path.join(dist, 'puzzles'), { recursive: true });
 for (const file of ['index.html', 'style.css', 'app.js', 'sound.js', 'sw.js', 'manifest.webmanifest']) {
   fs.copyFileSync(path.join(__dirname, file), path.join(dist, file));
 }
-fs.cpSync(path.join(__dirname, 'icons'), path.join(dist, 'icons'), { recursive: true });
+for (const dir of ['icons', 'frames']) {
+  fs.cpSync(path.join(__dirname, dir), path.join(dist, dir), { recursive: true });
+}
 
 // only the pictures listed in puzzles.json, not the full-size originals
 const list = JSON.parse(fs.readFileSync(path.join(__dirname, 'puzzles', 'puzzles.json'), 'utf8'));

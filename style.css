@@ -30,7 +30,7 @@
   /* the line round a puzzle piece */
   --seam: #b39270;
   --table: #e6d9c3;
-  /* width of the gilt frame round the finished picture, which has no mat */
+  /* width of the drawn gilt frame, kept in reserve with .frame below */
   --frame: 15px;
   /* width of the black fillet between the frame and the picture */
   --fillet: 5px;
@@ -319,7 +319,10 @@ button {
 .wall > * { position: relative; z-index: 1; }
 .wall > .overlay { position: absolute; z-index: 20; }
 
-/* a frame in worn, antique gilt, with a black fillet between it and the picture */
+/* In reserve, used by nothing now: a frame drawn by the styles alone, in worn,
+   antique gilt, with a black fillet between it and the picture. The finished
+   picture hangs in a photographed frame instead (.plate-face). To use this one,
+   give a box the class, and inset its picture by var(--fillet). */
 .frame {
   border: var(--frame) solid;
   border-color: #c9b077 #94773f #6c5429 #ad9158;
@@ -542,13 +545,32 @@ button {
   flex: 0 1 auto;
   min-height: 0;
   --base: 620px;
-  /* height taken by everything but the picture: bar, frame, label, links */
-  --rest: 400px;
-  /* no wider than lets the whole picture show at its own shape */
-  width: min(calc(var(--base) * var(--grow, 1)), 100%, calc((100dvh - var(--rest)) * var(--aspect, .8) + 2 * var(--frame) + 2 * var(--fillet)));
+  /* height taken by everything but the framed picture: bar, label, links */
+  --rest: 340px;
+  /* The frame is a photograph of a carved, gilt one, frames/gilt-frame.webp:
+     the width of its four sides in the file's own pixels, and the longer side
+     of its opening. Its corners keep their shape; the runs between them
+     stretch to the picture. --frame-weight below 1 makes a slimmer frame. */
+  --frame-img: url("frames/gilt-frame.webp");
+  --ft: 369; --fr: 354; --fb: 380; --fl: 362;
+  --frame-long: 1218;
+  --frame-weight: 1;
+  /* the frame's share: how many picture widths the whole is wide, and high */
+  --fw: calc(1 + var(--k, 1.25) * var(--frame-weight) * (var(--fl) + var(--fr)) / var(--frame-long));
+  --fh: calc(1 / var(--aspect, .8) + var(--k, 1.25) * var(--frame-weight) * (var(--ft) + var(--fb)) / var(--frame-long));
+  /* the picture's width: as large as lets it all show, frame included */
+  --pic: min(calc(min(var(--base) * var(--grow, 1), 100vw - 48px) / var(--fw)), calc((100dvh - var(--rest)) / var(--fh)));
+  /* one pixel of the frame's file, on the screen */
+  --u: calc(var(--pic) * var(--k, 1.25) * var(--frame-weight) / var(--frame-long));
+  width: calc(var(--pic) * var(--fw));
   align-items: center;
   gap: 20px;
   color: var(--offwhite);
+}
+/* a wide picture takes the same frame turned on its side */
+.plate.wide {
+  --frame-img: url("frames/gilt-frame-landscape.webp");
+  --ft: 362; --fr: 369; --fb: 354; --fl: 380;
 }
 
 /* Arriving: the screen fades in over the finished puzzle, then the picture
@@ -564,8 +586,28 @@ button {
 #play .reserve { transition: opacity .9s ease, background .15s ease, box-shadow .15s ease; }
 #play.won .bar, #play.won .reserve { opacity: 0; pointer-events: none; }
 
-.plate-face { position: relative; box-sizing: content-box; align-self: stretch; aspect-ratio: var(--aspect, .8); min-height: 0; }
-.plate-img { position: absolute; inset: var(--fillet); background: center / cover no-repeat; }
+.plate-face {
+  position: relative;
+  flex: none;
+  align-self: stretch;
+  height: calc(var(--pic) * var(--fh));
+  filter: drop-shadow(0 8px 10px rgba(var(--shadow-rgb), .45));
+}
+/* the picture runs a little way under the frame's lip, so no gap shows */
+.plate-img {
+  position: absolute;
+  inset: calc(var(--u) * (var(--ft) - 4)) calc(var(--u) * (var(--fr) - 4)) calc(var(--u) * (var(--fb) - 4)) calc(var(--u) * (var(--fl) - 4));
+  background: center / cover no-repeat;
+}
+.plate-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-style: solid;
+  border-width: calc(var(--u) * var(--ft)) calc(var(--u) * var(--fr)) calc(var(--u) * var(--fb)) calc(var(--u) * var(--fl));
+  border-image: var(--frame-img) var(--ft) var(--fr) var(--fb) var(--fl) stretch;
+  pointer-events: none;
+}
 /* the wall label under the picture */
 .plate-label {
   flex: none;
@@ -589,6 +631,6 @@ button {
 
 @media (max-height: 760px) {
   .done-body { gap: 16px; padding-bottom: 16px; }
-  .plate { --base: 340px; --rest: 355px; }
+  .plate { --base: 340px; --rest: 300px; }
   .stage { margin-bottom: 48px; }
 }
