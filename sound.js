@@ -448,6 +448,26 @@ const sound = (() => {
         'G3:8+G2:8/2 E5 D5 E5/4 F#5+C#5+A#4+F#3+F#2/8',
       ].join(' '),
     },
+    // Schubert, Ellens dritter Gesang, D. 839, bars 3-4, where the voice comes
+    // in: the voice over the piano's sextuplets and its octaves in the bass;
+    // unit = a sextuplet semiquaver
+    avemaria: {
+      composer: 'Franz Schubert',
+      title: 'Ave Maria, D. 839',
+      sacred: true,
+      unit: 0.3,
+      bar: 24,
+      steps: [
+        'Bb4:9+Bb1:3+Bb2:3 D4+F4 F4+Bb4 Bb4+D5 F4+Bb4 D4+F4',
+        'G1:3+G2:3 D4+E4 E4+Bb4 A4:1.5+Bb4+D5 E4+Bb4/.5 Bb4:1.5/.5 D4+E4',
+        'D5:10.5+F1:3+F2:3 D4+F4 F4+Bb4 Bb4+D5 F4+Bb4 D4+F4',
+        'F1:3+F2:3 Eb4+A4 A4+C5 C5+Eb5 A4+C5/.5 C5:1.5/.5 Eb4+A4',
+        'Bb4:6+G1:3+G2:3 D4+G4 G4+Bb4 Bb4+D5 G4+Bb4 D4+G4',
+        'G1:3+G2:3 D4+G4 G4+Bb4 Bb4+D5 G4+Bb4 D4+G4',
+        'C5:6+Eb1:3+Eb2:3 Eb4+G4 G4+C5 C5+Eb5 G4+C5 Eb4+G4',
+        'Bb4:1.5+F1:3+F2:3 Eb4+F4/.5 A4:1.5/.5 F4+A4 G4:1.5+A4+C5 F4+A4/.5 A4:1.5/.5 Eb4+F4',
+      ].join(' '),
+    },
   };
   // the tunes that take turns by a puzzle's position: the gentle ones for most
   // pictures, the stormy ones for those of violence and fright, and the sacred
@@ -481,6 +501,7 @@ const sound = (() => {
     baldmountain: { by: 'Musopen' },
     newworld: { by: 'Musopen' },
     kyrie: { by: 'unnamed performers, from Musopen' },
+    avemaria: { by: 'Free Tim' },
   };
   // A sound to go with the ending, for a puzzle whose `effect` names one, or
   // lists several, from the files in sound-effects/. lead = the seconds of

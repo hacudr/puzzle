@@ -1,6 +1,6 @@
 # Recordings
 
-Each file here is an excerpt of six seconds (thirty-five for `welcome.mp3`), cut from a recording on Wikimedia Commons, or on Musopen where the table says so, with the level raised or lowered and a fade at each end. The music itself is in the public domain in every case.
+Each file here is an excerpt of six seconds (thirty-five for `welcome.mp3`, and under twelve for `avemaria.mp3`), cut from a recording on Wikimedia Commons, or on Musopen where the table says so, with the level raised or lowered and a fade at each end. The music itself is in the public domain in every case.
 
 ## Used under a licence
 
@@ -32,4 +32,5 @@ These excerpts are shared under the same licence as the recording they were cut 
 | `baldmountain.mp3` | Mussorgsky, Night on Bald Mountain | from Musopen | [Commons](https://commons.wikimedia.org/wiki/File:Modest_Mussorgsky_-_night_on_bald_mountain.ogg) |
 | `newworld.mp3` | Dvořák, Symphony No. 9, finale | from Musopen | [Commons](https://commons.wikimedia.org/wiki/File:Antonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27,_op._95_-_iv._allegro_con_fuoco.ogg) |
 | `kyrie.mp3` | Bach, Mass in B minor, Kyrie eleison, the opening bars | not named; marked public domain at Musopen | [Musopen](https://musopen.org/music/3874-mass-in-b-minor-bwv-232/) |
+| `avemaria.mp3` | Schubert, Ave Maria (Ellens dritter Gesang), D. 839, sung with the piano, the first "Ave Maria", 15.6 to 27.2 seconds in; this one is 11.6 seconds long | published as Free Tim, 2009, the players not named; marked Public Domain at the Free Music Archive and CC0 at Commons, though the file itself carries an older tag reading CC BY-NC-SA 3.0, and Commons has not reviewed the licence | [Commons](https://commons.wikimedia.org/wiki/File:Free_Tim_-_Schuberts_Ave_Maria.ogg), from the [Free Music Archive](https://freemusicarchive.org/music/Free_Tim/Franz_Schuberts_Ave_Maria/Schuberts_Ave_Maria) |
 | `welcome.mp3` | Bach, Harpsichord Concerto No. 3 in D major, BWV 1054, I. Allegro, the first thirty-five seconds, for the splash | European Archive; marked public domain at Musopen | [Musopen](https://musopen.org/music/3519-harpsichord-concerto-no-3-in-d-major-bwv-1054/), the fourth recording |
