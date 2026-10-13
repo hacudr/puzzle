@@ -21,7 +21,7 @@
   --card-shadow: 0 1px 2px rgba(60, 40, 20, .18), 0 12px 28px -12px rgba(60, 40, 20, .45);
   /* the wall behind a puzzle: light where the picture hangs, darker at the edges */
   --glow: rgba(255, 250, 246, .5);
-  --shade: rgba(120, 66, 50, .36);
+  --shade: rgba(112, 56, 40, .62);
   /* the sheet the reference picture is shown on, over the puzzle */
   --peek: rgba(243, 235, 221, .93);
   /* the knob of a switch, off and on */
@@ -42,7 +42,7 @@
   --page: #f1e6d0;
   --page-rgb: 241, 230, 208;
   --glow: rgba(255, 252, 244, .55);
-  --shade: rgba(122, 94, 52, .3);
+  --shade: rgba(100, 70, 30, .6);
 }
 
 /* Celadon: a soft, greyed blue-green, between sage and robin's egg */
@@ -51,7 +51,16 @@
   --page-rgb: 200, 217, 208;
   --ink-soft: #5d5a4d;
   --glow: rgba(246, 252, 248, .5);
-  --shade: rgba(52, 84, 76, .32);
+  --shade: rgba(36, 70, 62, .6);
+}
+
+/* Antiqued Sage: a muted, slightly yellowed grey-green, as of old paint */
+:root[data-theme="sage"] {
+  --page: #b9c5a3;
+  --page-rgb: 185, 197, 163;
+  --ink-soft: #55593f;
+  --glow: rgba(250, 250, 232, .5);
+  --shade: rgba(42, 62, 34, .6);
 }
 
 /* Walnut: deep brown, with the lettering in off-white */
@@ -64,9 +73,25 @@
   --shadow-rgb: 0, 0, 0;
   --card-shadow: 0 0 0 1px rgba(242, 236, 223, .09), 0 12px 28px -12px rgba(0, 0, 0, .7);
   --glow: rgba(150, 108, 78, .28);
-  --shade: rgba(0, 0, 0, .5);
+  --shade: rgba(0, 0, 0, .8);
   --table: #3a2c22;
   --peek: rgba(43, 31, 24, .93);
+  --knob-on: var(--page);
+}
+
+/* Burgundy: a deep wine, between burgundy and plum, with the lettering in off-white */
+:root[data-theme="burgundy"] {
+  --page: #3b1827;
+  --page-rgb: 59, 24, 39;
+  --ink: #f2ecdf;
+  --ink-rgb: 242, 236, 223;
+  --ink-soft: #c9adb8;
+  --shadow-rgb: 0, 0, 0;
+  --card-shadow: 0 0 0 1px rgba(242, 236, 223, .09), 0 12px 28px -12px rgba(0, 0, 0, .7);
+  --glow: rgba(176, 96, 120, .3);
+  --shade: rgba(14, 2, 8, .8);
+  --table: #4b2234;
+  --peek: rgba(59, 24, 39, .93);
   --knob-on: var(--page);
 }
 
@@ -352,7 +377,8 @@ button {
 
 /* the same paper as the gallery pages */
 .wall { background: var(--page); }
-/* a vignette: lightest where the picture hangs, a little darker toward the edges */
+/* a vignette: lightest where the picture hangs, falling away to a deep shade at
+   the edges, the sides as much as the corners */
 .wall::before {
   content: "";
   position: absolute;
@@ -360,7 +386,7 @@ button {
   pointer-events: none;
   background:
     radial-gradient(ellipse 70% 60% at 50% 46%, var(--glow), transparent 70%),
-    radial-gradient(ellipse 110% 95% at 50% 46%, transparent 42%, var(--shade) 100%);
+    radial-gradient(ellipse 66% 62% at 50% 46%, transparent 30%, var(--shade) 100%);
 }
 /* on a phone, held upright, the shade is drawn in closer, or it would lie
    almost wholly off the sides of the screen */
@@ -368,7 +394,7 @@ button {
   .wall::before {
     background:
       radial-gradient(ellipse 80% 50% at 50% 46%, var(--glow), transparent 70%),
-      radial-gradient(ellipse 95% 78% at 50% 46%, transparent 34%, var(--shade) 100%);
+      radial-gradient(ellipse 76% 58% at 50% 46%, transparent 26%, var(--shade) 100%);
   }
 }
 .wall > * { position: relative; z-index: 1; }
