@@ -643,7 +643,7 @@ function openArtist(a) {
     grid.textContent = '';
     for (const p of a.puzzles) {
       const card = makeCard(p.image, p.scientific, titleOf(p));
-      card.addEventListener('click', () => start(p));
+      card.addEventListener('click', () => visit(p));
       grid.append(card);
     }
     $('#artist').scrollTop = 0;
@@ -721,6 +721,27 @@ function scatter(g, count) {
     g.pos.forEach((spot, piece) => (g.cell[spot] = piece));
     if (findGroups(g).count === count) break;
   }
+}
+
+// A picture already solved at this difficulty, and not begun again since, hangs
+// finished in its frame, where Solve Again deals it afresh. On Expert that
+// takes having solved it in black and white, or the picture would be given away.
+const finished = (p) => (blind() ? mastered(p) : solved.has(p.id)) && !(progressKey(p) in progress);
+
+// Opens a picture from its card: the finished one if it has been solved, the
+// puzzle if not.
+async function visit(p) {
+  if (!finished(p)) return start(p);
+  let img;
+  try {
+    img = await loadImage(p.image);
+  } catch (err) {
+    alert(err.message);
+    return;
+  }
+  game = { p, aspect: img.naturalWidth / img.naturalHeight, held: [], done: true };
+  $('#backName').textContent = artistOf(p).name;
+  showPlate(p, false);
 }
 
 // Opens a puzzle where it was left off; `fresh` deals it again from scratch.
@@ -855,7 +876,8 @@ function drawReserve() {
 // Whole-pixel cells keep fused pieces seamless. The reserve strip is as tall
 // as one piece, within limits, and the canvas takes the space that leaves.
 function layout() {
-  if (!game) return;
+  // a finished picture on show has no pieces to lay out
+  if (!game || !game.cols) return;
   const stage = $('#stage');
   const play = $('#play');
   const k = (game.aspect * game.rows) / game.cols; // cell width / cell height
@@ -1122,7 +1144,8 @@ function win() {
   });
 }
 
-function showPlate(p) {
+// played = the puzzle has just been solved, and its music is to be named
+function showPlate(p, played = true) {
   const plate = $('.plate');
   plate.style.setProperty('--aspect', game.aspect);
   plate.style.setProperty('--grow', Math.max(1, game.aspect / 0.8));
@@ -1133,7 +1156,7 @@ function showPlate(p) {
   $('#plateSci').textContent = p.scientific || '';
   $('#plateName').textContent = titleOf(p);
   $('#plateArtist').textContent = p.artist || '';
-  const credit = sound.credit();
+  const credit = played && sound.credit();
   $('#plateMusic').textContent = credit
     ? `Music: ${credit.composer}, ${credit.title}` + (credit.performer ? ` · played by ${credit.performer}` : '')
     : '';
@@ -1191,7 +1214,7 @@ $('#doneHome').addEventListener('click', openGallery);
 $('#artistBack').addEventListener('click', () => (view === 'list' ? openGallery() : openPeriod(periodOf(artist))));
 $('#periodBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
-$('#nextBtn').addEventListener('click', () => start(nextPuzzle(game.p)));
+$('#nextBtn').addEventListener('click', () => visit(nextPuzzle(game.p)));
 
 document.querySelectorAll('.gear').forEach((b) =>
   b.addEventListener('click', () => {

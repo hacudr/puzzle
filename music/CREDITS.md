@@ -1,6 +1,6 @@
 # Recordings
 
-Each file here is an excerpt of six seconds (thirty-five for `welcome.mp3`, and under twelve for `avemaria.mp3`), cut from a recording on Wikimedia Commons, or on Musopen where the table says so, with the level raised or lowered and a fade at each end. The music itself is in the public domain in every case.
+Each file here is an excerpt of about six seconds (thirty-five for `welcome.mp3`, and under twelve for `avemaria.mp3`), cut from a recording on Wikimedia Commons, or on Musopen where the table says so, with the level raised or lowered and a fade at each end. The music itself is in the public domain in every case.
 
 ## Used under a licence
 
@@ -9,6 +9,7 @@ These excerpts are shared under the same licence as the recording they were cut 
 | File | Piece | Played by | Licence | Source |
 |---|---|---|---|---|
 | `clair.mp3` | Debussy, Clair de lune | Laurens Goedhart, 2011 | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) | [Commons](https://commons.wikimedia.org/wiki/File:Clair_de_lune_(Claude_Debussy)_Suite_bergamasque.ogg) |
+| `welcome.mp3` | Debussy, Clair de lune, thirty-five seconds from 2.2 seconds in, for the splash, raised by 7 dB | Laurens Goedhart, 2011 | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) | [Commons](https://commons.wikimedia.org/wiki/File:Clair_de_lune_(Claude_Debussy)_Suite_bergamasque.ogg) |
 | `arabesque.mp3` | Debussy, Arabesque No. 1 | Patrizia Prati, 2016 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons](https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_Premi%C3%A8re_Arabesque_-_Patrizia_Prati.ogg) |
 | `flaxen.mp3` | Debussy, La fille aux cheveux de lin | Patrizia Prati, 2016 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons](https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_I_Livre_Prelude_VIII..._(...La_fille_aux_cheveux_de_lin)_-_Patrizia_Prati.ogg) |
 | `reflets.mp3` | Debussy, Reflets dans l'eau | Giorgi Latso, recorded by Asuas, 2017 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons](https://commons.wikimedia.org/wiki/File:Debussy_,_Reflets_dans_l%27eau.ogg) |
@@ -33,4 +34,10 @@ These excerpts are shared under the same licence as the recording they were cut 
 | `newworld.mp3` | Dvořák, Symphony No. 9, finale | from Musopen | [Commons](https://commons.wikimedia.org/wiki/File:Antonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27,_op._95_-_iv._allegro_con_fuoco.ogg) |
 | `kyrie.mp3` | Bach, Mass in B minor, Kyrie eleison, the opening bars | not named; marked public domain at Musopen | [Musopen](https://musopen.org/music/3874-mass-in-b-minor-bwv-232/) |
 | `avemaria.mp3` | Schubert, Ave Maria (Ellens dritter Gesang), D. 839, sung with the piano, the first "Ave Maria", 15.6 to 27.2 seconds in; this one is 11.6 seconds long | published as Free Tim, 2009, the players not named; marked Public Domain at the Free Music Archive and CC0 at Commons, though the file itself carries an older tag reading CC BY-NC-SA 3.0, and Commons has not reviewed the licence | [Commons](https://commons.wikimedia.org/wiki/File:Free_Tim_-_Schuberts_Ave_Maria.ogg), from the [Free Music Archive](https://freemusicarchive.org/music/Free_Tim/Franz_Schuberts_Ave_Maria/Schuberts_Ave_Maria) |
-| `welcome.mp3` | Bach, Harpsichord Concerto No. 3 in D major, BWV 1054, I. Allegro, the first thirty-five seconds, for the splash | European Archive; marked public domain at Musopen | [Musopen](https://musopen.org/music/3519-harpsichord-concerto-no-3-in-d-major-bwv-1054/), the fourth recording |
+
+## The owner's own recordings
+
+| File | Piece | Played by | Source |
+|---|---|---|---|
+| `gnossienne.mp3` | Satie, Gnossienne No. 1 (published 1893; Satie died in 1925), the first phrase; this one is 6.1 seconds long | The app's owner, at the piano (stated 12 October 2026) | `Gnossienne no 1 - Hannah Dreher copy.m4a`, the owner's recording, 58 seconds long |
+| `gnossienne2.mp3` | The same piece, its second theme, seven seconds from 27.95 seconds in | as above | as above, lowered by 3 dB |

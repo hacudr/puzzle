@@ -160,20 +160,40 @@ button {
   transition: opacity 1.2s ease;
 }
 .splash-img.in ~ .splash-caption { opacity: 1; }
+/* who is playing, which the recording's licence asks to be said */
+.splash-caption small { display: block; margin-top: 4px; font-size: .75rem; opacity: .85; }
 
 /* ---------- Collection ---------- */
 
 #gallery, #period, #artist { overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--page); }
 
-.gallery-head { position: relative; text-align: center; padding: 56px 24px 8px; }
+/* The way back and the settings stay at the top while the page scrolls under
+   them. The bar takes the room the screen would leave for a notch, so that
+   nothing shows above it. */
+#gallery, #period, #artist, #settings { padding-top: 0; }
+.top, #settings .bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  flex: none;
+  display: flex;
+  align-items: center;
+  height: calc(60px + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) 22px 0 14px;
+  background: rgba(var(--page-rgb), .9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.top .back, .top .gear { color: var(--ink-soft); }
+.top .gear { margin-left: auto; }
+
+.gallery-head { position: relative; text-align: center; padding: 0 24px 8px; }
 .gallery-head h1, .settings-body h1 { margin: 4px 0 0; font-weight: 500; font-size: 2.6rem; letter-spacing: .01em; }
 .level-note { margin: 10px 0 0; font-style: italic; color: var(--ink-soft); }
-.gear { position: absolute; top: 18px; right: 22px; color: var(--ink-soft); }
 .gear:active { background: rgba(var(--ink-rgb), .1); }
 /* Categories or Artists, on the home page */
 #views { margin-top: 18px; }
 #views button { font-size: 1.15rem; min-width: 0; }
-.gallery-head .back { position: absolute; top: 20px; left: 14px; color: var(--ink-soft); }
 
 /* ---------- Settings ---------- */
 
@@ -315,6 +335,15 @@ button {
   background:
     radial-gradient(ellipse 70% 60% at 50% 46%, var(--glow), transparent 70%),
     radial-gradient(ellipse 110% 95% at 50% 46%, transparent 42%, var(--shade) 100%);
+}
+/* on a phone, held upright, the shade is drawn in closer, or it would lie
+   almost wholly off the sides of the screen */
+@media (max-width: 600px) {
+  .wall::before {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 46%, var(--glow), transparent 70%),
+      radial-gradient(ellipse 95% 78% at 50% 46%, transparent 34%, var(--shade) 100%);
+  }
 }
 .wall > * { position: relative; z-index: 1; }
 .wall > .overlay { position: absolute; z-index: 20; }
@@ -591,7 +620,15 @@ button {
   flex: none;
   align-self: stretch;
   height: calc(var(--pic) * var(--fh));
-  filter: drop-shadow(0 8px 10px rgba(var(--shadow-rgb), .45));
+}
+/* The frame's shadow on the wall, cast by a box set a little inside its carved
+   edge. A drop-shadow filter followed the carving, but Safari on the iPhone
+   cut it off square, part of the way out. */
+.plate-face::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--u) * 60);
+  box-shadow: 0 8px 16px 3px rgba(var(--shadow-rgb), .5);
 }
 /* the picture runs a little way under the frame's lip, so no gap shows */
 .plate-img {
@@ -616,9 +653,9 @@ button {
   /* no wider than lets the whole picture show at its own shape */
   width: min(calc(var(--base) * var(--grow, 1)), 100%, calc((100dvh - var(--rest)) * var(--aspect, .8) + 2 * var(--frame) + 2 * var(--fillet)));
 }
-.plate.plain .plate-face { box-sizing: content-box; height: auto; aspect-ratio: var(--aspect, .8); min-height: 0; filter: none; }
+.plate.plain .plate-face { box-sizing: content-box; height: auto; aspect-ratio: var(--aspect, .8); min-height: 0; }
 .plate.plain .plate-img { inset: var(--fillet); }
-.plate.plain .plate-face::after { content: none; }
+.plate.plain .plate-face::before, .plate.plain .plate-face::after { content: none; }
 /* the wall label under the picture */
 .plate-label {
   flex: none;

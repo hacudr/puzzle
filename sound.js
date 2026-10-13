@@ -61,6 +61,8 @@ const sound = (() => {
     'B3+B2 C#4 D4+F#3 E4 F#4+B2 D4 F#4+F#3 B4',
     'A4+D3 F#4 D4+A3 F#4 B4+B2/4',
   ].join(' ');
+  // the second theme's bar: B flat falling to G over the chord, and back up
+  const GNOSSIENNE_SWAY = 'Bb4+Bb2/2 F3+Bb3+Db4/1.5 Ab4/.5 G4/2 F3+Bb3+Db4/1.5 Ab4/.5';
   const SUMMER_RUN = 'D5 C5 Bb4 A4 G4 F#4 E4 D4 C4 Bb3 A3';
   const WHIRL = 'A5+A4 G#5 A5 Bb5 A5 G#5 A5 G#5 A5 Bb5 A5 G#5';
   const WHIRL_TREAD = 'A5+A3 G#5 A5 Bb5+G#3 A5 G#5 A5+Bb3 G#5 A5 Bb5+G#3 A5 G#5';
@@ -253,6 +255,41 @@ const sound = (() => {
         'G5+D5+D4+B3 E5+B2 F5+G3 E5+E4+C4 F5+D5+C3 G3/.5 E5+C5/.5',
         'E5+C5+F4+D4 D5+B4+D3 A3/.5 C5+A4/.5 C5+A4+E4 B4+G#4+E3 D4/.5 A4/.5',
         'A4+C4+A3 A2 E3 C4+A3 A2 E3',
+      ].join(' '),
+    },
+    // Satie, Gnossienne No. 1, the opening phrases, taken down by ear from the
+    // recording; unit = a quaver. It is written without bar lines, and the left
+    // hand's low F comes round every eight quavers.
+    gnossienne: {
+      composer: 'Erik Satie',
+      title: 'Gnossienne No. 1',
+      unit: 0.38,
+      bar: 8,
+      steps: [
+        'F2/2 C5+Ab3+C4+F4 Eb5 D5/2 C5+Ab3+C4+F4/2',
+        'B4+F2/2 Ab3+C4+F4 C5 B4/2 C5+Ab3+C4+F4/2',
+        'B4+F2/2 C5+Ab3+C4+F4 Eb5 D5/2 C5+Ab3+C4+F4/2',
+        'F5+F2/2 Ab3+C4+F4 F5 E5/2 C5+Ab3+C4+F4/2',
+        'F2/2 C5+Ab3+C4+F4 Eb5 D5/2 C5+Ab3+C4+F4/2',
+        'B4+F2/2 Ab3+C4+F4 C5 Ab4/.5 G4/1.5 C5+Ab3+C4+F4/2',
+        'G4+F2/2 Ab3+C4+F4/6',
+      ].join(' '),
+    },
+    // The same piece's second theme, where the bass moves to B flat, from 28
+    // seconds into the recording and taken down from it in the same way
+    gnossienne2: {
+      composer: 'Erik Satie',
+      title: 'Gnossienne No. 1',
+      unit: 0.36,
+      bar: 8,
+      steps: [
+        GNOSSIENNE_SWAY,
+        GNOSSIENNE_SWAY,
+        'G4+F2/2 Ab3+C4+F4/4 Ab3+C4+F4/2',
+        'F2/2 Ab4+Ab3+C4+F4/4 C5+Ab3+C4+F4/2',
+        GNOSSIENNE_SWAY,
+        GNOSSIENNE_SWAY,
+        'G4+F2/2 Ab3+C4+F4/6',
       ].join(' '),
     },
     // Vivaldi, The Four Seasons, "Summer", Presto, bars 1-19 without the silent
@@ -492,6 +529,8 @@ const sound = (() => {
     gondola1: { by: 'FAE Piano cafe', licence: 'CC BY 3.0' },
     gondola2: { by: 'Membeth' },
     gondola3: { by: 'Bernd Krueger', licence: 'CC BY-SA 3.0 DE' },
+    gnossienne: { by: 'Hannah Dreher' },
+    gnossienne2: { by: 'Hannah Dreher' },
     summer: { by: 'Modena Chamber Orchestra' },
     diesirae: { by: 'unnamed performers, from IMSLP', licence: 'CC BY-SA 3.0' },
     strife: { by: 'Skidmore College Orchestra' },
@@ -790,9 +829,10 @@ const sound = (() => {
   return {
     unlock,
 
-    // The splash's music: the opening of a recording, music/welcome.mp3, thirty
-    // seconds of it and five more in which it dies away, played softly, at a
-    // quarter of the level of the music a puzzle ends on. It is fetched while
+    // The splash's music: the opening of Clair de lune, music/welcome.mp3, thirty
+    // seconds of it and five more in which it dies away, played softly, at
+    // half the level of the music a puzzle ends on. The recording is under CC BY,
+    // so the splash names its player. It is fetched while
     // the splash is up and played at the tap that puts the splash away, since
     // nothing may sound before the first touch. start = play it now.
     welcome(start) {
@@ -801,7 +841,7 @@ const sound = (() => {
       intro = intro || fetched('music/welcome.mp3');
       intro.then(
         (buffer) => {
-          if (start && on.music && !greeting && !parted) greeting = sample(buffer, 0.15, 0);
+          if (start && on.music && !greeting && !parted) greeting = sample(buffer, 0.3, 0);
         },
         () => {}
       );
