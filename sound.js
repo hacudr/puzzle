@@ -382,29 +382,6 @@ const sound = (() => {
       bar: 8,
       steps: MOUNTAIN_KING + ' ' + octaveUp(MOUNTAIN_KING),
     },
-    // Wagner, Ride of the Valkyries, the theme and its answer a third higher;
-    // unit = a semiquaver
-    valkyries: {
-      composer: 'Richard Wagner',
-      title: 'Ride of the Valkyries',
-      voice: 'lute',
-      unit: 0.12,
-      bar: 18,
-      lead: 16,
-      steps: octaves(
-        [
-          'F#3/2',
-          'B3/3 F#3 B3/2 D4/6 B3/6',
-          'D4/3 B3 D4/2 F#4/6 D4/6',
-          'F#4/3 D4 F#4/2 A4/6 A3/6',
-          'D4/3 A3 D4/2 F#4/10 A3/2',
-          'D4/3 A3 D4/2 F#4/6 D4/6',
-          'F#4/3 D4 F#4/2 A4/6 F#4/6',
-          'A4/3 F#4 A4/2 C#5/6 C#4/6',
-          'F#4/3 C#4 F#4/2 A#4/12',
-        ].join(' ')
-      ),
-    },
     // Mussorgsky, Night on Bald Mountain, from the piano arrangement by Chernov:
     // the opening whirl and the first theme in the bass; unit = a triplet quaver
     baldmountain: {
@@ -536,7 +513,6 @@ const sound = (() => {
     strife: { by: 'Skidmore College Orchestra' },
     lamentoso: { by: 'Musopen' },
     mountainking: { by: 'Czech National Symphony Orchestra' },
-    valkyries: { by: 'American Symphony Orchestra, 1921' },
     baldmountain: { by: 'Musopen' },
     newworld: { by: 'Musopen' },
     kyrie: { by: 'unnamed performers, from Musopen' },
@@ -561,10 +537,20 @@ const sound = (() => {
 
   let ctx = null;
   let master = null;
+  // iOS puts the audio to sleep when the app is put away, the screen locks or a
+  // call comes in, and can bring it back dead: still saying it is running, or
+  // refusing to be woken, with nothing sounding until the app is closed. So a
+  // context that has run and since been away, or whose clock has stopped, is
+  // replaced by a new one at the next touch. ran = this context has run, away =
+  // it has been put away since, seen = the last time its clock was seen moving.
+  let ran = false;
+  let away = false;
+  let seen = null;
   const on = { music: true, effects: true };
   // each step: { notes, at } with at = when it sounds, in units from the start
   let steps = [];
   let tune = null;
+  let tuneKey = null;
   let length = 0;
   // index of the step most recently heard, -1 before the first sound
   let heard = -1;
@@ -597,13 +583,70 @@ const sound = (() => {
     for (const kind in KEYS) on[kind] = (localStorage.getItem(KEYS[kind]) || (silent ? 'off' : 'on')) === 'on';
   } catch {}
 
-  // Must first run inside a touch or click, or iOS keeps the audio silent.
+  // The page has been put away: if its audio has run, it may not come back.
+  function leave() {
+    if (ran) away = true;
+  }
+  document.addEventListener('visibilitychange', () => document.hidden && leave());
+  window.addEventListener('pagehide', leave);
+
+  // Is the clock of a context that says it is running standing still? Judged
+  // only when it has stood for over a second since it was last seen to move.
+  function frozen() {
+    if (ctx.state !== 'running') {
+      seen = null;
+      return false;
+    }
+    const now = performance.now();
+    if (!seen || ctx.currentTime > seen.time + 0.1) {
+      seen = { time: ctx.currentTime, at: now };
+      return false;
+    }
+    return now - seen.at > 1000;
+  }
+
+  // Lets go of a context that has died, and of everything made for it, so that
+  // the next unlock starts afresh.
+  function retire() {
+    const old = ctx;
+    ctx = null;
+    master = null;
+    ran = false;
+    away = false;
+    seen = null;
+    clip = null;
+    owed = null;
+    effect = {};
+    playing = null;
+    clashing = [];
+    greeting = null;
+    intro = null;
+    hiss = null;
+    for (const group of [plucks, clips, effects]) for (const id in group) delete group[id];
+    try {
+      old.close().catch(() => {});
+    } catch {}
+  }
+
+  // Must first run inside a touch or click, or iOS keeps the audio silent. It is
+  // called at every touch, so that sound comes back after the app has been away.
   function unlock() {
     if (!on.music && !on.effects) return false;
+    let renewed = false;
+    if (ctx && (ctx.state === 'closed' || (ran && (away || frozen())))) {
+      retire();
+      renewed = true;
+    }
     if (!ctx) {
       const Ctx = window.AudioContext || window.webkitAudioContext;
       if (!Ctx) return false;
       ctx = new Ctx();
+      const mine = ctx;
+      mine.onstatechange = () => {
+        if (mine !== ctx) return;
+        if (mine.state === 'running') ran = true;
+        else if (mine.state === 'interrupted') leave();
+      };
       master = ctx.createGain();
       master.gain.value = 0.5;
       master.connect(ctx.destination);
@@ -620,7 +663,21 @@ const sound = (() => {
       wet.gain.value = 0.28;
       master.connect(reverb).connect(wet).connect(ctx.destination);
     }
-    if (ctx.state !== 'running') ctx.resume();
+    if (ctx.state !== 'running') {
+      // a context that cannot be woken, or does not wake, is dealt with at the next touch
+      const mine = ctx;
+      const woken = mine.resume();
+      if (woken && woken.catch) woken.catch(leave);
+      setTimeout(() => mine === ctx && mine.state !== 'running' && leave(), 600);
+    }
+    if (ctx.state === 'running') ran = true;
+    // a new context starts with nothing: the recording and effects the puzzle
+    // now open ends on, and its notes, are made again
+    if (renewed && tune) {
+      loadClip(tuneKey);
+      askEffects(wanted);
+      ready();
+    }
     return true;
   }
 
@@ -816,6 +873,22 @@ const sound = (() => {
     );
   }
 
+  // fetches the effects a puzzle ends on, to be ready by the time it does
+  function askEffects(names) {
+    const asked = (wanted = [].concat(names || []).filter((name) => name in EFFECTS));
+    effect = {};
+    if (!asked.length || !unlock()) return;
+    for (const name of asked) {
+      effects[name] = effects[name] || fetched(`sound-effects/${EFFECTS[name].file}`);
+      effects[name].then(
+        (buffer) => {
+          if (wanted === asked) effect[name] = buffer;
+        },
+        () => delete effects[name]
+      );
+    }
+  }
+
   // Sounds a step. In tempo its notes last as written; on its own, a note
   // lasts long enough to be heard.
   function play(step, delay, first, rest, tempo) {
@@ -898,6 +971,7 @@ const sound = (() => {
       const turns = TURNS[kind] || ORDER;
       const key = name in TUNES ? name : turns[index % turns.length];
       tune = TUNES[key];
+      tuneKey = key;
       loadClip(key);
       let at = tune.lead || 0;
       steps = tune.steps.split(' ').map((step) => {
@@ -921,20 +995,7 @@ const sound = (() => {
 
     // names is a key of EFFECTS or a list of them, or nothing for a puzzle that
     // ends on its music alone
-    setEffect(names) {
-      const asked = (wanted = [].concat(names || []).filter((name) => name in EFFECTS));
-      effect = {};
-      if (!asked.length || !unlock()) return;
-      for (const name of asked) {
-        effects[name] = effects[name] || fetched(`sound-effects/${EFFECTS[name].file}`);
-        effects[name].then(
-          (buffer) => {
-            if (wanted === asked) effect[name] = buffer;
-          },
-          () => delete effects[name]
-        );
-      }
-    },
+    setEffect: (names) => askEffects(names),
 
     // count = how many pieces just landed where they belong; the notes the
     // pieces play go with the effects, not the music

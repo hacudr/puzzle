@@ -29,7 +29,6 @@ These excerpts are shared under the same licence as the recording they were cut 
 | `strife.mp3` | Tchaikovsky, Romeo and Juliet | Skidmore College Orchestra, from Musopen | [Commons](https://commons.wikimedia.org/wiki/File:Pyotr_Ilyich_Tchaikovsky_-_romeo_and_juliet-_overture-fantasy.ogg) |
 | `lamentoso.mp3` | Tchaikovsky, Symphony No. 6, finale | from Musopen | [Commons](https://commons.wikimedia.org/wiki/File:Tchaikovsky,_Symphony_No._6_in_B_minor,_Op._74,_%27Pathetique%27_-_IV._Finale_Adagio_lamentoso.ogg) |
 | `mountainking.mp3` | Grieg, In the Hall of the Mountain King | Czech National Symphony Orchestra, as the Musopen Symphony Orchestra | [Commons](https://commons.wikimedia.org/wiki/File:Musopen_-_In_the_Hall_Of_The_Mountain_King.ogg) |
-| `valkyries.mp3` | Wagner, Ride of the Valkyries | American Symphony Orchestra, for Edison Records, 1921 | [Commons](https://commons.wikimedia.org/wiki/File:Richard_Wagner_-_Ride_of_the_Valkyries.ogg) |
 | `baldmountain.mp3` | Mussorgsky, Night on Bald Mountain | from Musopen | [Commons](https://commons.wikimedia.org/wiki/File:Modest_Mussorgsky_-_night_on_bald_mountain.ogg) |
 | `newworld.mp3` | Dvořák, Symphony No. 9, finale | from Musopen | [Commons](https://commons.wikimedia.org/wiki/File:Antonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27,_op._95_-_iv._allegro_con_fuoco.ogg) |
 | `kyrie.mp3` | Bach, Mass in B minor, Kyrie eleison, the opening bars | not named; marked public domain at Musopen | [Musopen](https://musopen.org/music/3874-mass-in-b-minor-bwv-232/) |

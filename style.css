@@ -311,6 +311,32 @@ button {
 .card.veiled .card-img img { opacity: 0; }
 .card:not(.veiled) .veil { display: none; }
 
+/* The shape of a puzzle's picture, drawn as a small outline in a corner of its
+   card (the card crops every picture to the same upright shape): tall, wide or square */
+.shape {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(20, 16, 12, .62);
+  box-shadow: 0 0 0 1px rgba(243, 235, 221, .18);
+  pointer-events: none;
+}
+.shape::before {
+  content: "";
+  box-sizing: border-box;
+  border: 2px solid var(--cream);
+  border-radius: 2px;
+  background: rgba(243, 235, 221, .22);
+}
+.shape.tall::before { width: 14px; height: 20px; }
+.shape.wide::before { width: 20px; height: 14px; }
+.shape.square::before { width: 17px; height: 17px; }
+
 .card-label { display: block; padding: 12px 16px 16px; }
 .card-label i { display: block; font-size: .95rem; color: rgba(243, 235, 221, .8); }
 .card-label b { display: block; font-weight: 500; font-size: 1.45rem; line-height: 1.15; }

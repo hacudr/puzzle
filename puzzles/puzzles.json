@@ -1016,10 +1016,7 @@
     "content": [
       "nudity"
     ],
-    "effect": [
-      "sword",
-      "gallop"
-    ],
+    "effect": "gallop",
     "sacred": true
   },
   {
@@ -1230,7 +1227,6 @@
     "artist": "Rembrandt van Rijn",
     "name": "The Apostle Paul",
     "scientific": "c. 1657",
-    "effect": "sword",
     "sacred": true
   },
   {
@@ -1311,8 +1307,7 @@
     "image": "rubens-decius-mus-addressing-the-legions.webp",
     "artist": "Peter Paul Rubens",
     "name": "Decius Mus Addressing the Legions",
-    "scientific": "probably 1616",
-    "effect": "sword"
+    "scientific": "probably 1616"
   },
   {
     "image": "rubens-head-of-one-of-the-three-kings-melchior-the-assyrian-king.webp",
@@ -1326,10 +1321,7 @@
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of Abraham and Melchizedek",
     "scientific": "c. 1626",
-    "effect": [
-      "sword",
-      "gallop"
-    ],
+    "effect": "gallop",
     "sacred": true
   },
   {
@@ -1346,10 +1338,7 @@
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of David and Abigail",
     "scientific": "c. 1630",
-    "effect": [
-      "sword",
-      "gallop"
-    ],
+    "effect": "gallop",
     "sacred": true
   },
   {
@@ -1380,8 +1369,7 @@
     "image": "titian-ranuccio-farnese.webp",
     "artist": "Titian",
     "name": "Ranuccio Farnese",
-    "scientific": "1541-1542",
-    "effect": "sword"
+    "scientific": "1541-1542"
   },
   {
     "image": "titian-doge-andrea-gritti.webp",
@@ -1572,8 +1560,7 @@
     "image": "degas-achille-de-gas-in-the-uniform-of-a-cadet.webp",
     "artist": "Edgar Degas",
     "name": "Achille De Gas in the Uniform of a Cadet",
-    "scientific": "1856/1857",
-    "effect": "sword"
+    "scientific": "1856/1857"
   },
   {
     "image": "degas-self-portrait-with-white-collar.webp",
@@ -1717,15 +1704,13 @@
     "content": [
       "violence",
       "frightening"
-    ],
-    "effect": "sword"
+    ]
   },
   {
     "image": "manet-the-tragic-actor.webp",
     "artist": "Edouard Manet",
     "name": "The Tragic Actor",
-    "scientific": "1866",
-    "effect": "sword"
+    "scientific": "1866"
   },
   {
     "image": "manet-still-life-with-melon-and-peaches.webp",
@@ -3439,8 +3424,7 @@
     "image": "caravaggio-the-fortune-teller-louvre.webp",
     "artist": "Caravaggio",
     "name": "The Fortune Teller",
-    "scientific": "c. 1595–1598",
-    "effect": "sword"
+    "scientific": "c. 1595–1598"
   },
   {
     "image": "caravaggio-the-cardsharps.webp",
@@ -3506,6 +3490,16 @@
     "sacred": true
   },
   {
+    "image": "caravaggio-medusa.webp",
+    "artist": "Caravaggio",
+    "name": "Medusa",
+    "scientific": "c. 1597",
+    "content": [
+      "violence",
+      "frightening"
+    ]
+  },
+  {
     "image": "caravaggio-narcissus.webp",
     "artist": "Caravaggio",
     "name": "Narcissus",
@@ -3522,7 +3516,6 @@
     "artist": "Caravaggio",
     "name": "Saint Catherine of Alexandria",
     "scientific": "c. 1598–1599",
-    "effect": "sword",
     "sacred": true
   },
   {
@@ -3567,7 +3560,6 @@
     "artist": "Caravaggio",
     "name": "The Calling of Saint Matthew",
     "scientific": "1599–1600",
-    "effect": "sword",
     "sacred": true
   },
   {
@@ -3600,10 +3592,7 @@
     "artist": "Caravaggio",
     "name": "Conversion on the Way to Damascus",
     "scientific": "1601",
-    "effect": [
-      "sword",
-      "gallop"
-    ],
+    "effect": "gallop",
     "sacred": true
   },
   {
@@ -3823,7 +3812,6 @@
       "nudity",
       "frightening"
     ],
-    "effect": "sword",
     "sacred": true
   },
   {
@@ -3904,8 +3892,7 @@
     "image": "caravaggio-portrait-of-fra-antonio-martelli.webp",
     "artist": "Caravaggio",
     "name": "Portrait of Fra Antonio Martelli",
-    "scientific": "c. 1608",
-    "effect": "sword"
+    "scientific": "c. 1608"
   },
   {
     "image": "caravaggio-the-beheading-of-saint-john-the-baptist.webp",
@@ -4810,8 +4797,7 @@
     "artist": "Dante Gabriel Rossetti",
     "name": "Joan of Arc",
     "scientific": "1882",
-    "sacred": true,
-    "effect": "sword"
+    "sacred": true
   },
   {
     "image": "rossetti-the-loving-cup.webp",
@@ -5155,8 +5141,7 @@
     "artist": "Edward Burne-Jones",
     "name": "The Merciful Knight",
     "scientific": "1863",
-    "sacred": true,
-    "effect": "sword"
+    "sacred": true
   },
   {
     "image": "burne-jones-the-star-of-bethlehem.webp",
@@ -5801,8 +5786,7 @@
     "image": "leighton-a-condottiere.webp",
     "artist": "Frederic Leighton",
     "name": "A Condottiere",
-    "scientific": "1871–1872",
-    "effect": "sword"
+    "scientific": "1871–1872"
   },
   {
     "image": "leighton-and-the-sea-gave-up-the-dead-which-were-in-it.webp",

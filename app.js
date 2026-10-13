@@ -141,7 +141,7 @@ function setView(next) {
 }
 
 function showView() {
-  document.querySelectorAll('#views button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.view === view));
+  document.querySelectorAll('#views [data-view]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.view === view));
   $('#galleryTitle').textContent = view === 'list' ? 'Choose an artist' : 'Choose a collection';
   $('#periods').hidden = view === 'list';
   $('#names').hidden = view !== 'list';
@@ -577,6 +577,24 @@ function makeCard(image, line, name) {
   return card;
 }
 
+// A puzzle's card crops every picture to the same upright shape, so it carries
+// a small outline of the picture's own, tall, wide or square, once it is in.
+function markShape(card) {
+  const face = card.querySelector('img');
+  const mark = () => {
+    if (!face.naturalWidth || card.querySelector('.shape')) return;
+    const ratio = face.naturalWidth / face.naturalHeight;
+    const kind = ratio > 1.08 ? 'wide' : ratio < 0.92 ? 'tall' : 'square';
+    const el = document.createElement('span');
+    el.className = 'shape ' + kind;
+    el.setAttribute('role', 'img');
+    el.setAttribute('aria-label', { tall: 'Upright picture', wide: 'Wide picture', square: 'Square picture' }[kind]);
+    card.querySelector('.card-img').append(el);
+  };
+  face.addEventListener('load', mark);
+  if (face.complete) mark();
+}
+
 // The home page: one card per period, always lit, and behind it the list of
 // every artist by surname, on cards without pictures.
 function renderGallery() {
@@ -584,6 +602,7 @@ function renderGallery() {
   grid.textContent = '';
   $('#empty').hidden = puzzles.length > 0;
   $('#allHidden').hidden = !puzzles.length || artists.length > 0;
+  $('#surprise').hidden = !artists.length;
   for (const t of periods) {
     const card = makeCard(t.cover, t.note, t.name);
     card.classList.add('solved');
@@ -643,6 +662,7 @@ function openArtist(a) {
     grid.textContent = '';
     for (const p of a.puzzles) {
       const card = makeCard(p.image, p.scientific, titleOf(p));
+      markShape(card);
       card.addEventListener('click', () => visit(p));
       grid.append(card);
     }
@@ -1181,6 +1201,18 @@ function nextPuzzle(p) {
   return rest.find((q) => !(blind() ? mastered(q) : solved.has(q.id))) || rest[0];
 }
 
+// Surprise Me: one of the pictures not yet solved, drawn by chance from all the
+// settings leave on show, or any one of them once every picture is solved. It
+// opens on the pieces, so a solved one is dealt afresh.
+function surprise() {
+  const pool = artists.flatMap((a) => a.puzzles);
+  const fresh = pool.filter((p) => !(blind() ? mastered(p) : solved.has(p.id)));
+  const from = fresh.length ? fresh : pool;
+  if (!from.length) return;
+  const p = from[Math.floor(Math.random() * from.length)];
+  start(p, finished(p));
+}
+
 /* ---------- Controls ---------- */
 
 $('#pauseBtn').addEventListener('click', () => ($('#pause').hidden = false));
@@ -1245,7 +1277,8 @@ $('#settingsBack').addEventListener('click', async () => {
   if (settingsFrom === 'period') return periods.includes(periodBefore) ? openPeriod(periodBefore) : openGallery();
   show(settingsFrom);
 });
-document.querySelectorAll('#views button').forEach((b) => b.addEventListener('click', () => setView(b.dataset.view)));
+document.querySelectorAll('#views [data-view]').forEach((b) => b.addEventListener('click', () => setView(b.dataset.view)));
+$('#surprise').addEventListener('click', surprise);
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
 document.querySelectorAll('#content [data-content]').forEach((b) =>
   b.addEventListener('click', () => setHidden(b.dataset.content, !hide.has(b.dataset.content)))
@@ -1284,7 +1317,10 @@ document.querySelectorAll('#themes button').forEach((b) => b.addEventListener('c
 document.querySelectorAll('#frames button').forEach((b) => b.addEventListener('click', () => setFrame(b.dataset.frame)));
 
 window.addEventListener('resize', layout);
-document.addEventListener('pointerdown', () => sound.unlock(), true);
+// Every touch, at its start and at its end, wakes the audio or renews it if it
+// has died: iOS lets sound begin only at the end of a touch, and may have put it
+// to sleep while the app was away.
+for (const type of ['pointerdown', 'pointerup', 'touchend', 'click']) document.addEventListener(type, () => sound.unlock(), { capture: true, passive: true });
 // Every button answers a tap with a soft sound, but for the music's own, which
 // plays a chord as it comes on, and Off for Kids mode, which a tap does not work.
 document.addEventListener('click', (e) => {
