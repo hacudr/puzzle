@@ -633,7 +633,7 @@ button {
      of its opening. Its corners keep their shape; the runs between them
      stretch to the picture. --frame-weight below 1 makes a slimmer frame. */
   --frame-img: url("frames/gilt-frame.webp");
-  --ft: 369; --fr: 354; --fb: 380; --fl: 362;
+  --ft: 377; --fr: 362; --fb: 388; --fl: 370;
   --frame-long: 1218;
   --frame-weight: 1;
   /* the frame's share: how many picture widths the whole is wide, and high */
@@ -651,7 +651,7 @@ button {
 /* a wide picture takes the same frame turned on its side */
 .plate.wide {
   --frame-img: url("frames/gilt-frame-landscape.webp");
-  --ft: 362; --fr: 369; --fb: 354; --fl: 380;
+  --ft: 370; --fr: 377; --fb: 362; --fl: 388;
 }
 
 /* Arriving: the screen fades in over the finished puzzle, then the picture
@@ -675,11 +675,14 @@ button {
 }
 /* The frame's shadow on the wall, cast by a box set a little inside its carved
    edge. A drop-shadow filter followed the carving, but Safari on the iPhone
-   cut it off square, part of the way out. */
+   cut it off square, part of the way out. A box casts no shadow under itself, so
+   its edge must lie well inside the frame's, or a strip of bare wall shows
+   between them as a light line: the straight sides of the carving stand 49 to 70
+   pixels of the file in from its edge, and the box 74. */
 .plate-face::before {
   content: "";
   position: absolute;
-  inset: calc(var(--u) * 60);
+  inset: calc(var(--u) * 74);
   box-shadow: 0 8px 16px 3px rgba(var(--shadow-rgb), .5);
 }
 /* the picture runs a little way under the frame's lip, so no gap shows */
