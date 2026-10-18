@@ -190,12 +190,12 @@ button {
 
 /* ---------- Collection ---------- */
 
-#gallery, #period, #artist { overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--page); }
+#gallery, #collection, #period, #artist { overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--page); }
 
 /* The way back and the settings stay at the top while the page scrolls under
    them. The bar takes the room the screen would leave for a notch, so that
    nothing shows above it. */
-#gallery, #period, #artist, #settings { padding-top: 0; }
+#gallery, #collection, #period, #artist, #settings { padding-top: 0; }
 .top, #settings .bar {
   position: sticky;
   top: 0;
@@ -366,6 +366,21 @@ button {
 .card-label i { display: block; font-size: .95rem; color: rgba(243, 235, 221, .8); }
 .card-label b { display: block; font-weight: 500; font-size: 1.45rem; line-height: 1.15; }
 .card-label small { display: block; margin-top: 6px; font-size: .8rem; font-style: italic; color: rgba(243, 235, 221, .7); }
+
+/* the collections on the home page: wide cards, one under another, the picture
+   beside its label; on a phone they stay upright */
+@media (min-width: 600px) {
+  #collections { grid-template-columns: minmax(0, 760px); gap: 28px; }
+  #collections .card { flex-direction: row; align-items: stretch; }
+  #collections .card-img { flex: 0 0 58%; height: auto; min-height: 220px; padding-top: 0; }
+  /* cropped wide, a portrait keeps its face in view */
+  #collections .card-img img { object-position: 50% 22%; }
+  #collections .card-label { display: flex; flex-direction: column; justify-content: center; padding: 20px 24px; }
+  #collections .card-label b { font-size: 1.8rem; }
+}
+/* a collection's card has no italic line; its number stands on a line of its own above the name */
+#collections .card-label i { display: none; }
+#collections .card-label b span { display: block; }
 
 /* the list of artists: the same cards without their pictures */
 #names { grid-template-columns: repeat(auto-fit, minmax(210px, 300px)); gap: 18px 24px; padding-top: 32px; }

@@ -50,8 +50,18 @@ let byName = [];
 let view = loadView();
 // the artist whose puzzles are on show
 let artist = null;
-// one entry per period: { name, note, usual, all, artists, cover }; `all` is every
-// artist of the period, `artists` those with something on show
+// one entry per collection on the home page: { name, number, usual, all, everyone,
+// periods, cover, count }; `all` is its categories and `everyone` its artists,
+// `periods` the categories with something on show and `count` their puzzles
+let everyCollection = [];
+// the collections with something on show
+let collections = [];
+// the collection whose categories are on show
+let collection = null;
+// one entry per category in a collection: { name, note, usual, collection, across,
+// all, artists, cover }; `all` is every artist of the category, `artists` those with
+// something on show. A category that cuts across the periods, as Female Artists
+// does, has one entry in each collection, holding that collection's artists
 let everyPeriod = [];
 // the periods with something on show
 let periods = [];
@@ -64,6 +74,7 @@ let levelBefore = null;
 // the artist's or period's page the settings were opened from
 let artistBefore = null;
 let periodBefore = null;
+let collectionBefore = null;
 let solved = loadSolved();
 // Kids mode plays on Very Easy and hides every kind of picture that can be
 // hidden, whatever is chosen below; the choices are kept for when it goes off.
@@ -144,7 +155,7 @@ function setView(next) {
 function showView() {
   document.querySelectorAll('#views [data-view]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.view === view));
   $('#galleryTitle').textContent = view === 'list' ? 'Choose an artist' : 'Choose a collection';
-  $('#periods').hidden = view === 'list';
+  $('#collections').hidden = view === 'list';
   $('#names').hidden = view !== 'list';
 }
 
@@ -250,11 +261,22 @@ function sift() {
     t.cover = named ? t.usual : t.artists[0] && t.artists[0].cover;
   }
   periods = everyPeriod.filter((t) => t.artists.length);
+  // a collection does the same, falling back on its first period's picture
+  for (const c of everyCollection) {
+    c.periods = c.all.filter((t) => t.artists.length);
+    c.count = c.everyone.reduce((n, a) => n + a.puzzles.length, 0);
+    const named = c.everyone.some((a) => a.puzzles.some((p) => p.image === c.usual));
+    const first = c.periods.find((t) => !t.across) || c.periods[0];
+    c.cover = named ? c.usual : first && first.cover;
+  }
+  collections = everyCollection.filter((c) => c.periods.length);
   // the open pages are drawn again when they are next opened
   artist = null;
   period = null;
+  collection = null;
   $('#grid').textContent = '';
   $('#artists').textContent = '';
+  $('#periods').textContent = '';
   renderGallery();
 }
 
@@ -322,9 +344,14 @@ function labelCards() {
   };
   if (period) document.querySelectorAll('#artists .card').forEach(tally(period.artists));
   document.querySelectorAll('#names .card').forEach(tally(byName));
-  document.querySelectorAll('#periods .card').forEach((card, i) => {
-    const count = periods[i].artists.length;
-    card.querySelector('small').textContent = count + (count === 1 ? ' artist' : ' artists');
+  if (collection)
+    document.querySelectorAll('#periods .card').forEach((card, i) => {
+      const count = collection.periods[i].artists.length;
+      card.querySelector('small').textContent = count + (count === 1 ? ' artist' : ' artists');
+    });
+  document.querySelectorAll('#collections .card').forEach((card, i) => {
+    const count = collections[i].count;
+    card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles');
   });
 }
 
@@ -598,18 +625,20 @@ function markShape(card) {
   if (face.complete) mark();
 }
 
-// The home page: one card per period, always lit, and behind it the list of
+// The home page: one card per collection, always lit, and behind it the list of
 // every artist by surname, on cards without pictures.
 function renderGallery() {
-  const grid = $('#periods');
+  const grid = $('#collections');
   grid.textContent = '';
   $('#empty').hidden = puzzles.length > 0;
   $('#allHidden').hidden = !puzzles.length || artists.length > 0;
   $('#surprise').hidden = !artists.length;
-  for (const t of periods) {
-    const card = makeCard(t.cover, t.note, t.name);
+  for (const c of collections) {
+    // no italic line: its number and name, as large as each other
+    const card = makeCard(c.cover, '', c.name);
+    card.querySelector('b').prepend(Object.assign(document.createElement('span'), { textContent: c.number + ':' }));
     card.classList.add('solved');
-    card.addEventListener('click', () => openPeriod(t));
+    card.addEventListener('click', () => openCollection(c));
     grid.append(card);
   }
   const list = $('#names');
@@ -633,11 +662,33 @@ function openGallery() {
   show('gallery');
 }
 
+// One collection's categories, always lit. Coming back to the same collection keeps the page where it was.
+function openCollection(c) {
+  game = null;
+  if (c !== collection) {
+    collection = c;
+    $('#collectionNote').textContent = c.number;
+    $('#collectionName').textContent = c.name;
+    const grid = $('#periods');
+    grid.textContent = '';
+    for (const t of c.periods) {
+      const card = makeCard(t.cover, t.note, t.name);
+      card.classList.add('solved');
+      card.addEventListener('click', () => openPeriod(t));
+      grid.append(card);
+    }
+    $('#collection').scrollTop = 0;
+  }
+  labelCards();
+  show('collection');
+}
+
 // One period's artists, always lit. Coming back to the same period keeps the page where it was.
 function openPeriod(t) {
   game = null;
   if (t !== period) {
     period = t;
+    $('#periodBackName').textContent = t.collection.name;
     $('#periodNote').textContent = t.note || '';
     $('#periodName').textContent = t.name;
     const grid = $('#artists');
@@ -1311,7 +1362,8 @@ $('#doneAbout').addEventListener('click', (e) => {
   if (e.target === e.currentTarget) e.currentTarget.hidden = true;
 });
 $('#artistBack').addEventListener('click', () => (view === 'list' ? openGallery() : openPeriod(periodOf(artist))));
-$('#periodBack').addEventListener('click', openGallery);
+$('#periodBack').addEventListener('click', () => openCollection(period.collection));
+$('#collectionBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => visit(nextPuzzle(game.p)));
 
@@ -1320,6 +1372,7 @@ document.querySelectorAll('.gear').forEach((b) =>
     settingsFrom = b.closest('.screen').id;
     artistBefore = artist;
     periodBefore = period;
+    collectionBefore = collection;
     showSound();
     show('settings');
   })
@@ -1340,10 +1393,15 @@ $('#settingsBack').addEventListener('click', async () => {
   // an artist's page comes back without the pictures hidden in the meantime
   if (settingsFrom === 'artist') {
     if (!artists.includes(artistBefore)) return openGallery();
+    if (collections.includes(collectionBefore)) openCollection(collectionBefore);
     if (periods.includes(periodBefore)) openPeriod(periodBefore);
     return openArtist(artistBefore);
   }
-  if (settingsFrom === 'period') return periods.includes(periodBefore) ? openPeriod(periodBefore) : openGallery();
+  if (settingsFrom === 'period') {
+    if (collections.includes(collectionBefore)) openCollection(collectionBefore);
+    return periods.includes(periodBefore) ? openPeriod(periodBefore) : openGallery();
+  }
+  if (settingsFrom === 'collection') return collections.includes(collectionBefore) ? openCollection(collectionBefore) : openGallery();
   show(settingsFrom);
 });
 document.querySelectorAll('#views [data-view]').forEach((b) => b.addEventListener('click', () => setView(b.dataset.view)));
@@ -1425,12 +1483,17 @@ async function boot() {
   try {
     listed = await (await fetch('puzzles/artists.json', { cache: 'no-cache' })).json();
   } catch {}
-  // periods.json does the same for the categories on the home page; an artist
-  // with no period goes under Other artists, and `also` puts one in further
-  // categories, such as Female Artists
+  // periods.json does the same for the categories, naming the collection each
+  // is in; an artist with no period goes under Other artists, and `also` puts
+  // one in further categories, such as Female Artists. collections.json sets the
+  // order of the collections on the home page and what each card says
   let eras = [];
   try {
     eras = await (await fetch('puzzles/periods.json', { cache: 'no-cache' })).json();
+  } catch {}
+  let shelves = [];
+  try {
+    shelves = await (await fetch('puzzles/collections.json', { cache: 'no-cache' })).json();
   } catch {}
   everyone = [...new Set([...listed.map((a) => a.name), ...puzzles.map((p) => p.artist)])]
     .map((name) => {
@@ -1439,12 +1502,31 @@ async function boot() {
       return { name, note: about.note, sort: about.sort || name.split(' ').pop(), period: about.period || 'Other artists', also: about.also || [], usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, all };
     })
     .filter((a) => a.all.length);
-  everyPeriod = [...new Set([...eras.map((t) => t.name), ...everyone.map((a) => a.period)])].map((name) => ({
-    name,
-    note: (eras.find((t) => t.name === name) || {}).note,
-    usual: (eras.find((t) => t.name === name) || {}).cover && 'puzzles/' + eras.find((t) => t.name === name).cover,
-    all: everyone.filter((a) => a.period === name || a.also.includes(name)),
-  }));
+  const era = (name) => eras.find((t) => t.name === name) || {};
+  // a category nobody has as their own period, only through `also`, cuts across the collections
+  const across = (name) => !everyone.some((a) => a.period === name);
+  const shelf = (name) => era(name).collection || 'Other pictures';
+  const names = [...new Set([...eras.map((t) => t.name), ...everyone.map((a) => a.period)])];
+  everyCollection = [...new Set([...shelves.map((c) => c.name), ...names.filter((n) => !across(n)).map(shelf)])].map((name, i) => {
+    const about = shelves.find((c) => c.name === name) || {};
+    // each is numbered in its order, as Collection 1
+    return { name, number: `Collection ${i + 1}`, usual: about.cover && 'puzzles/' + about.cover, all: [], everyone: everyone.filter((a) => shelf(a.period) === name) };
+  });
+  everyPeriod = [];
+  for (const c of everyCollection)
+    for (const name of names) {
+      const all = across(name)
+        ? c.everyone.filter((a) => a.also.includes(name))
+        : shelf(name) === c.name
+          ? everyone.filter((a) => a.period === name || a.also.includes(name))
+          : [];
+      if (!all.length) continue;
+      // one that cuts across names its artists in this collection in place of the dates
+      const note = across(name) ? (all.length === 1 ? all[0].name : all.map((a) => a.sort).join(', ')) : era(name).note;
+      const t = { name, note, usual: era(name).cover && 'puzzles/' + era(name).cover, collection: c, across: across(name), all };
+      c.all.push(t);
+      everyPeriod.push(t);
+    }
   // what the About card says of each picture; a picture missing from it has no card.
   // It is large and not wanted until a puzzle is solved, so nothing waits for it.
   fetch('puzzles/blurbs.json', { cache: 'no-cache' })

@@ -6,46 +6,57 @@
   },
   {
     "name": "Ancient Art",
-    "note": "Egypt, the Near East, Greece and Rome"
+    "note": "Egypt, the Near East, Greece and Rome",
+    "collection": "Ancient Art & Old Masters"
   },
   {
     "name": "Anglo-Saxon and Saxon Art",
-    "note": "England and Saxony, 450–1270"
+    "note": "England and Saxony, 450–1270",
+    "collection": "Ancient Art & Old Masters"
   },
   {
     "name": "Renaissance",
-    "note": "15th and 16th centuries"
+    "note": "15th and 16th centuries",
+    "collection": "Ancient Art & Old Masters"
   },
   {
     "name": "Baroque",
-    "note": "17th century"
+    "note": "17th century",
+    "collection": "Ancient Art & Old Masters"
   },
   {
     "name": "Romanticism and Realism",
-    "note": "Early 19th century"
+    "note": "Early 19th century",
+    "collection": "Romantics & Realism"
   },
   {
     "name": "Pre-Raphaelites",
-    "note": "1848–1910s"
+    "note": "1848–1910s",
+    "collection": "Romantics & Realism"
   },
   {
     "name": "Victorian Classicism",
-    "note": "1850s–1890s"
+    "note": "1850s–1890s",
+    "collection": "Romantics & Realism"
   },
   {
     "name": "Japanese Prints",
-    "note": "Ukiyo-e, 1760s–1880s"
+    "note": "Ukiyo-e, 1760s–1880s",
+    "collection": "Romantics & Realism"
   },
   {
     "name": "Impressionism",
-    "note": "1860s–1880s"
+    "note": "1860s–1880s",
+    "collection": "Impressionism to Modern"
   },
   {
     "name": "Post-Impressionism",
-    "note": "1880s–1900s"
+    "note": "1880s–1900s",
+    "collection": "Impressionism to Modern"
   },
   {
     "name": "Modern",
-    "note": "Early 20th century"
+    "note": "Early 20th century",
+    "collection": "Impressionism to Modern"
   }
 ]
