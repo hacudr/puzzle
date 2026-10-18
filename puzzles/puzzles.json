@@ -6483,7 +6483,10 @@
     "image": "hiroshige-sudden-shower-at-shono.webp",
     "artist": "Utagawa Hiroshige",
     "name": "Sudden Shower at Shōno",
-    "scientific": "Fifty-three Stations of the Tōkaidō, 1834–35"
+    "scientific": "Fifty-three Stations of the Tōkaidō, 1834–35",
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "hiroshige-maples-at-mama.webp",
@@ -6504,7 +6507,10 @@
     "image": "utamaro-a-woman-and-a-cat.webp",
     "artist": "Kitagawa Utamaro",
     "name": "A Woman and a Cat",
-    "scientific": "c. 1793–94"
+    "scientific": "c. 1793–94",
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "utamaro-geisha-walking-through-the-snow-at-night.webp",
@@ -6516,7 +6522,10 @@
     "image": "utamaro-women-weaving-silk-cloth.webp",
     "artist": "Kitagawa Utamaro",
     "name": "Women Weaving Silk Cloth",
-    "scientific": "c. 1800"
+    "scientific": "c. 1800",
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "utamaro-butterfly-and-dragonfly.webp",
@@ -6676,7 +6685,10 @@
     "image": "kunisada-danjuro-vii-as-fudo-myoo.webp",
     "artist": "Utagawa Kunisada",
     "name": "Danjūrō VII as Fudō Myōō",
-    "scientific": "Surimono, c. 1824"
+    "scientific": "Surimono, c. 1824",
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "eisen-koi.webp",
@@ -6701,7 +6713,10 @@
     "image": "eisen-clearing-weather-at-nihonbashi.webp",
     "artist": "Keisai Eisen",
     "name": "Clearing Weather at Nihonbashi",
-    "scientific": "Eight Views of Edo, 1843–47"
+    "scientific": "Eight Views of Edo, 1843–47",
+    "content": [
+      "nudity"
+    ]
   },
   {
     "image": "eisen-kegon-waterfall.webp",
