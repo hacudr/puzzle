@@ -222,7 +222,7 @@
         <div id="plateImg" class="plate-img"></div>
       </div>
       <div class="plate-label">
-        <h2><span id="plateName"></span><span id="plateSci" class="sci"></span></h2>
+        <h2><span id="plateName"></span><span id="plateSci" class="sci"></span><button id="aboutBtn" class="info" aria-label="About the painting" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg></button></h2>
         <p id="plateArtist" class="by"></p>
       </div>
       <p id="plateMusic" class="music"></p>
@@ -259,6 +259,18 @@
         <span>Settings</span>
       </button>
     </div>
+  </div>
+
+  <!-- About the painting: a wall card over the finished picture, put away with a tap outside it -->
+  <div id="doneAbout" class="overlay" hidden>
+    <article class="about" role="dialog" aria-labelledby="aboutName">
+      <p class="eyebrow">About the painting</p>
+      <h2><span id="aboutName"></span><span id="aboutSci" class="sci"></span></h2>
+      <p id="aboutArtist" class="by"></p>
+      <p id="aboutText" class="about-text"></p>
+      <p id="aboutCredit" class="about-credit"></p>
+      <button id="aboutClose" class="link">Close</button>
+    </article>
   </div>
 </main>
 

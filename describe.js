@@ -1,0 +1,134 @@
+// Writes the "About the painting" text for each puzzle in a category into
+// puzzles/blurbs.json: the opening of the painting's English Wikipedia article
+// where it has one (CC BY-SA 4.0, credited on the card), and otherwise the
+// museum's own description: Cleveland's (CC0), the Art Institute of Chicago's
+// (CC BY 4.0, credited) or the National Gallery of Art's (CC0).
+// node describe.js Impressionism
+// node describe.js all
+// Records kept in another folder are read too with --records <folder>.
+const fs = require('fs');
+const path = require('path');
+
+const UA = 'ArtHistoryPuzzle/1.0 (https://hacudr.github.io/puzzle/)';
+// an excerpt is cut at the end of a sentence once it has this many words
+const WORDS = 120;
+const dir = path.join(__dirname, 'puzzles');
+const read = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const args = process.argv.slice(2);
+const folders = [path.join(dir, 'images')];
+for (let i = args.indexOf('--records'); i >= 0; i = args.indexOf('--records')) folders.push(...args.splice(i, 2).slice(1));
+const category = args[0];
+if (!category) throw new Error('Name a category, or all: node describe.js Impressionism');
+const artists = read(path.join(dir, 'artists.json'))
+  .filter((a) => category === 'all' || a.period === category || (a.also || []).includes(category))
+  .map((a) => a.name);
+const puzzles = read(path.join(dir, 'puzzles.json')).filter((p) => category === 'all' || artists.includes(p.artist));
+if (!puzzles.length) throw new Error(`No puzzles under ${category}`);
+
+// Every record beside the originals, by the slug of each picture in it.
+const records = {};
+for (const folder of folders) {
+  for (const file of fs.readdirSync(folder).filter((f) => f.endsWith('.json'))) {
+    const source = file.split('.').slice(-2, -1)[0];
+    for (const w of read(path.join(folder, file)).works || []) {
+      const slug = w.file.replace(/\.\w+$/, '');
+      (records[slug] = records[slug] || []).push({ ...w, source });
+    }
+  }
+}
+
+async function get(url) {
+  for (let tries = 0; ; tries++) {
+    const res = await fetch(url, { headers: { 'User-Agent': UA } });
+    if (res.ok) return res.json();
+    if (tries > 2 || res.status === 404) throw new Error(`${url}: ${res.status}`);
+    await wait(3000);
+  }
+}
+
+const plain = (html) => html.replace(/<\/p>/g, '\n').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&');
+
+// Whole sentences, up to about WORDS words, and always at least the first.
+function excerpt(text) {
+  const sentences = text.replace(/\s+/g, ' ').match(/[^.!?]+(?:[.!?]+["”’)]*|$)\s*/g) || [text];
+  let out = '';
+  for (const s of sentences) {
+    if (out && (out + s).split(/\s+/).length > WORDS) break;
+    out += s;
+  }
+  return out.replace(/\s+/g, ' ').trim();
+}
+
+async function main() {
+  const wanted = puzzles.map((p) => {
+    const recs = records[p.image.replace(/\.\w+$/, '')] || [];
+    const of = (source) => recs.find((r) => r.source === source);
+    return { p, wikidata: (recs.find((r) => r.wikidata) || {}).wikidata, met: of('met'), aic: of('aic'), cma: of('cma'), nga: of('nga') };
+  });
+
+  // The Met's records name no Wikidata item, but its API does. It wants asking slowly.
+  for (const w of wanted.filter((w) => !w.wikidata && w.met)) {
+    try {
+      const o = await get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${w.met.id}`);
+      w.wikidata = (o.objectWikidata_URL || '').split('/').pop() || undefined;
+    } catch (err) {
+      console.warn('Met', w.met.id, err.message);
+    }
+    await wait(1000);
+  }
+
+  // Wikidata gives the English article, if there is one, of each picture.
+  // some records give the item's whole address rather than its id
+  for (const w of wanted) w.wikidata = w.wikidata && w.wikidata.split('/').pop();
+  const ids = [...new Set(wanted.map((w) => w.wikidata).filter((id) => /^Q\d+$/.test(id || '')))];
+  const article = {};
+  for (let i = 0; i < ids.length; i += 50) {
+    const data = await get(`https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&props=sitelinks&sitefilter=enwiki&ids=${ids.slice(i, i + 50).join('|')}`);
+    for (const [id, e] of Object.entries(data.entities)) if (e.sitelinks && e.sitelinks.enwiki) article[id] = e.sitelinks.enwiki.title;
+  }
+
+  // The opening of each article, as plain text.
+  const titles = [...new Set(Object.values(article))];
+  const intro = {};
+  for (let i = 0; i < titles.length; i += 20) {
+    const q = encodeURIComponent(titles.slice(i, i + 20).join('|'));
+    const data = await get(`https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=extracts|info&exintro=1&explaintext=1&exlimit=20&inprop=url&redirects=1&titles=${q}`);
+    const back = Object.fromEntries((data.query.redirects || []).map((r) => [r.to, r.from]));
+    for (const page of data.query.pages) if (page.extract) intro[back[page.title] || page.title] = { title: page.title, url: page.fullurl, text: page.extract };
+  }
+
+  const file = path.join(dir, 'blurbs.json');
+  const blurbs = fs.existsSync(file) ? read(file) : {};
+  const tally = {};
+  const none = [];
+  for (const w of wanted) {
+    let b;
+    const wiki = intro[article[w.wikidata]];
+    if (wiki) {
+      b = { text: excerpt(wiki.text), source: 'Wikipedia', article: wiki.title, url: wiki.url, licence: 'CC BY-SA 4.0', licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0/' };
+    } else if (w.cma) {
+      const d = (await get(`https://openaccess-api.clevelandart.org/api/artworks/${w.cma.id}`)).data;
+      const text = d.wall_description || d.description;
+      if (text) b = { text: excerpt(plain(text)), source: 'Cleveland Museum of Art', url: w.cma.url, licence: 'CC0' };
+    }
+    if (!b && w.aic) {
+      const d = (await get(`https://api.artic.edu/api/v1/artworks/${w.aic.id}?fields=description`)).data;
+      if (d.description) b = { text: excerpt(plain(d.description)), source: 'Art Institute of Chicago', url: w.aic.url, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/' };
+    }
+    if (!b && w.nga && w.nga.looks) b = { text: excerpt(w.nga.looks), source: 'National Gallery of Art', licence: 'CC0' };
+    if (b) {
+      blurbs[w.p.image] = b;
+      tally[b.source] = (tally[b.source] || 0) + 1;
+    } else {
+      delete blurbs[w.p.image];
+      none.push(w.p.image);
+    }
+  }
+  fs.writeFileSync(file, JSON.stringify(blurbs, null, 2) + '\n');
+  console.log(`${category}:`, tally, `${none.length} with none`);
+  for (const image of none) console.log('  none:', image);
+}
+
+main();

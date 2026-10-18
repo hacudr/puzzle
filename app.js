@@ -37,6 +37,7 @@ const guideEl = $('#guide');
 const reserveEl = $('#reserve');
 
 let puzzles = [];
+let blurbs = {};
 // one entry per artist: { name, note, sort, usual, all, cover, puzzles }; `all` and
 // `usual` are every picture and the listed cover, `puzzles` and `cover` what
 // is left of them once hidden pictures are taken out
@@ -176,6 +177,8 @@ function setKids(on) {
   showKids();
   sift();
   showLevel();
+  // turned on from Settings over a solved picture, which then loses its About card
+  if (game) showAboutBtn(game.p);
 }
 
 function showKids() {
@@ -1184,6 +1187,8 @@ function showPlate(p, played = true) {
     : '';
   $('#plateMusic').hidden = !credit;
   $('#nextBtn').hidden = artistOf(p).puzzles.length < 2;
+  showAboutBtn(p);
+  $('#doneAbout').hidden = true;
   // The solved screen fades in over the puzzle, which is only put away after.
   const done = $('#done');
   $('#donePause').hidden = true;
@@ -1194,6 +1199,43 @@ function showPlate(p, played = true) {
     $('#play').classList.remove('won');
     if (!done.hidden) show('done');
   }, 1000);
+}
+
+// What is said about a picture on its card, from puzzles/blurbs.json.
+const blurbOf = (p) => blurbs[p.image.replace(/^puzzles\//, '')];
+// Kids mode has no descriptions: an article can speak plainly of what the settings hide.
+// With one, the ⓘ beside the title and the painting itself both open the card.
+function showAboutBtn(p) {
+  const on = !kids && !!blurbOf(p);
+  $('#aboutBtn').hidden = !on;
+  $('.plate').classList.toggle('has-about', on);
+}
+
+// The card: the text, then where it came from. Wikipedia's text is CC BY-SA,
+// which asks for the article to be named and linked and the licence named.
+function showAbout(p) {
+  const b = blurbOf(p);
+  if (!b) return;
+  $('#aboutName').textContent = titleOf(p);
+  $('#aboutSci').textContent = p.scientific || '';
+  $('#aboutArtist').textContent = p.artist || '';
+  $('#aboutText').textContent = b.text;
+  const link = (href, text) => {
+    if (!href) return text;
+    const a = document.createElement('a');
+    a.href = href;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = text;
+    return a;
+  };
+  const credit = $('#aboutCredit');
+  credit.replaceChildren();
+  if (b.source === 'Wikipedia') credit.append('From ', link(b.url, `“${b.article}”`), ' on Wikipedia, excerpted');
+  else credit.append('Description from the ', link(b.url, b.source));
+  // CC0 asks for nothing; a licence that asks for credit is named and linked
+  if (b.licenceUrl) credit.append(', ', link(b.licenceUrl, b.licence));
+  $('#doneAbout').hidden = false;
 }
 
 // The same artist's next unsolved puzzle, or simply their next one if all are solved.
@@ -1257,6 +1299,17 @@ $('#doneSettings').addEventListener('click', () => {
 $('#doneArtist').addEventListener('click', () => openArtist(artistOf(game.p)));
 $('#doneHome').addEventListener('click', openGallery);
 $('#doneSurprise').addEventListener('click', surprise);
+$('#aboutBtn').addEventListener('click', () => showAbout(game.p));
+$('.plate-face').addEventListener('click', () => {
+  if (!$('#aboutBtn').hidden) {
+    sound.tap();
+    showAbout(game.p);
+  }
+});
+$('#aboutClose').addEventListener('click', () => ($('#doneAbout').hidden = true));
+$('#doneAbout').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) e.currentTarget.hidden = true;
+});
 $('#artistBack').addEventListener('click', () => (view === 'list' ? openGallery() : openPeriod(periodOf(artist))));
 $('#periodBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
@@ -1392,6 +1445,12 @@ async function boot() {
     usual: (eras.find((t) => t.name === name) || {}).cover && 'puzzles/' + eras.find((t) => t.name === name).cover,
     all: everyone.filter((a) => a.period === name || a.also.includes(name)),
   }));
+  // what the About card says of each picture; a picture missing from it has no card.
+  // It is large and not wanted until a puzzle is solved, so nothing waits for it.
+  fetch('puzzles/blurbs.json', { cache: 'no-cache' })
+    .then((res) => res.json())
+    .then((all) => (blurbs = all))
+    .catch(() => {});
   sift();
   showSplash();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});

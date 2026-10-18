@@ -729,6 +729,43 @@ button {
 .music { flex: none; margin: -8px 0 0; font-size: .85rem; font-style: italic; text-align: center; color: var(--ink-soft); }
 
 .done-links { flex: none; display: flex; align-items: center; gap: 30px; }
+
+/* the ⓘ after the title; the tap area reaches well past the small circle */
+.info {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: -10px -10px -10px -2px;
+  vertical-align: middle;
+  color: var(--ink-soft);
+}
+.info:active { opacity: .55; }
+.info svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; pointer-events: none; }
+.plate.has-about .plate-face { cursor: pointer; }
+
+/* About the painting: a museum's wall card, paper on the wall */
+.about {
+  box-sizing: border-box;
+  width: min(560px, calc(100vw - 32px));
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  padding: 30px 34px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--cream);
+  color: #33291f;
+  border-radius: 3px;
+  box-shadow: var(--card-shadow);
+}
+.about h2 { margin: 10px 0 0; font-weight: 500; font-size: 1.35rem; line-height: 1.2; }
+.about .eyebrow { color: #6f6051; }
+.about-text { margin: 18px 0 0; font-family: Spectral, var(--serif); font-size: 1.08rem; line-height: 1.55; text-align: left; hyphens: auto; }
+.about-credit { margin: 16px 0 0; font-size: .82rem; font-style: italic; color: #6f6051; }
+.about-credit a { color: inherit; }
+.about .link { margin-top: 20px; font-size: 1.05rem; border-bottom: 1px solid #33291f; }
 .done-links .link, #doneSurprise { font-size: 1.05rem; padding: 10px 4px 2px; border-bottom-width: 1px; }
 
 @media (max-height: 760px) {
