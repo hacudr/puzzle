@@ -42,6 +42,9 @@ Not yet cleared, to be settled before the app is sold:
 - `music/avemaria.mp3` is marked Public Domain at the Free Music Archive and CC0 at Commons, but the file there carries an older tag reading CC BY-NC-SA 3.0, and Commons has not reviewed the licence. The page's word is the later one; it wants confirming.
 - The solved screen names the player of a licensed recording but not the licence, which CC BY and CC BY-SA ask to be named and linked. The app needs a credits page for that.
 - `fonts/` has no copy of the Open Font Licence that Spectral and Averia Serif come under.
+- The About cards' text from the Art Institute of Chicago (8 of them) comes under CC BY 4.0, as its API says, but also under the terms of artic.edu, which have not been read. The card names the museum and links the licence; confirm the terms allow use in a paid app, or drop those eight back to no card.
+- The source records of the Met puzzles (Ancient Art, Anglo-Saxon and Saxon Art, Japanese Prints) are not in this folder's `puzzles/images/`, only in the `puzzle - monetize` folder beside it, which `describe.js` was pointed at with `--records`. Since `puzzles/images/` is git-ignored, keep a copy of them here, or somewhere backed up.
+- Caravaggio's Saint Francis in Prayer and Saint Francis in Meditation carry each other's names on Wikipedia, which calls the Cremona picture Meditation and the Rome one Prayer. Each About card is matched to its picture by Wikidata, so its text is right, but it opens under the other title. Scholars use both names for both; decide whether to rename the puzzles.
 
 ## When the user adds images
 
