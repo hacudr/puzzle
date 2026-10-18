@@ -1064,6 +1064,36 @@
     "scientific": "c. 1883"
   },
   {
+    "image": "gogh-peasant-woman-digging.webp",
+    "artist": "Vincent van Gogh",
+    "name": "A Peasant Woman Digging in Front of Her Cottage",
+    "scientific": "c. 1885"
+  },
+  {
+    "image": "gogh-moulin-de-blute-fin.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Terrace and Observation Deck at the Moulin de Blute-Fin, Montmartre",
+    "scientific": "Early 1887"
+  },
+  {
+    "image": "gogh-fishing-in-spring.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Fishing in Spring, the Pont de Clichy",
+    "scientific": "Asnières, 1887"
+  },
+  {
+    "image": "gogh-self-portrait-1887.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Self-Portrait",
+    "scientific": "1887"
+  },
+  {
+    "image": "gogh-grapes-lemons-pears-and-apples.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Grapes, Lemons, Pears, and Apples",
+    "scientific": "1887"
+  },
+  {
     "image": "gogh-roulins-baby.webp",
     "artist": "Vincent van Gogh",
     "name": "Roulin's Baby",
@@ -1079,6 +1109,12 @@
     "image": "gogh-farmhouse-in-provence.webp",
     "artist": "Vincent van Gogh",
     "name": "Farmhouse in Provence",
+    "scientific": "1888"
+  },
+  {
+    "image": "gogh-the-poets-garden.webp",
+    "artist": "Vincent van Gogh",
+    "name": "The Poet's Garden",
     "scientific": "1888"
   },
   {
@@ -1100,6 +1136,30 @@
     "scientific": "1889"
   },
   {
+    "image": "gogh-the-bedroom.webp",
+    "artist": "Vincent van Gogh",
+    "name": "The Bedroom",
+    "scientific": "1889"
+  },
+  {
+    "image": "gogh-la-berceuse.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Madame Roulin Rocking the Cradle (La Berceuse)",
+    "scientific": "1889"
+  },
+  {
+    "image": "gogh-the-large-plane-trees.webp",
+    "artist": "Vincent van Gogh",
+    "name": "The Large Plane Trees (Road Menders at Saint-Rémy)",
+    "scientific": "1889"
+  },
+  {
+    "image": "gogh-two-poplars.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Two Poplars in the Alpilles near Saint-Rémy",
+    "scientific": "1889"
+  },
+  {
     "image": "gogh-girl-in-white.webp",
     "artist": "Vincent van Gogh",
     "name": "Girl in White",
@@ -1115,6 +1175,18 @@
     "image": "gogh-green-wheat-fields-auvers.webp",
     "artist": "Vincent van Gogh",
     "name": "Green Wheat Fields, Auvers",
+    "scientific": "1890"
+  },
+  {
+    "image": "gogh-the-drinkers.webp",
+    "artist": "Vincent van Gogh",
+    "name": "The Drinkers (after Daumier)",
+    "scientific": "1890"
+  },
+  {
+    "image": "gogh-adeline-ravoux.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Adeline Ravoux",
     "scientific": "1890"
   },
   {

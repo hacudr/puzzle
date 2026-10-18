@@ -25,7 +25,7 @@ The app is to be sold to users in the United States. Assume that of every file t
 
 Never take a file under a licence with NC or ND in it. Do not take CC BY or CC BY-SA pictures either: the app has nowhere to credit a photographer. A photograph that shows the frame, the wall or the room, or a work that is not flat (a sculpture, a painted shield), is the photographer's own work and needs their CC0, whatever the age of the thing shown; a thin edge of frame or stretcher on a CC0 file may be cropped off in the puzzle copy. Do not download from a museum's own site when its terms forbid commercial use; they bind as a contract even where no copyright exists.
 
-**Record the source.** Every picture has an entry in a file beside the originals, `puzzles/images/<surname>.<source>.json` (`nga`, `met`, `commons`, or `user` for a photograph the user took themselves, square-on and without the frame), giving the page it came from and its licence. A picture with no such record has not been cleared.
+**Record the source.** Every picture has an entry in a file beside the originals, `puzzles/images/<surname>.<source>.json` (`nga`, `met`, `aic` for the Art Institute of Chicago, `cma` for Cleveland, `commons`, or `user` for a photograph the user took themselves, square-on and without the frame), giving the page it came from and its licence. A picture with no such record has not been cleared.
 
 **Italy.** Italian law asks for permission and a fee for commercial reproductions of works in Italian state collections, public domain or not. It has no force in the United States, which is one reason the app is sold there only; the Commons record marks such pictures with `italianHeritageNotice`. Raise it with the user before the app is offered in Italy or the rest of Europe.
 
