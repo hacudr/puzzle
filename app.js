@@ -9,7 +9,6 @@ const KIDS_KEY = 'puzzle.kids';
 const HIDE_KEY = 'puzzle.hide';
 const SPELL_KEY = 'puzzle.spell';
 const THEME_KEY = 'puzzle.theme';
-const VIEW_KEY = 'puzzle.view';
 const FRAME_KEY = 'puzzle.frame';
 // the pictures the splash has shown, and whether it has been shown since the app was opened
 const SPLASH_KEY = 'puzzle.splash';
@@ -44,10 +43,6 @@ let blurbs = {};
 let everyone = [];
 // the artists with something on show
 let artists = [];
-// the same artists in the order of their surnames, for the list
-let byName = [];
-// what the home page shows: 'gallery' for the categories, 'list' for every artist by name
-let view = loadView();
 // the artist whose puzzles are on show
 let artist = null;
 // one entry per collection on the home page: { name, number, usual, everyone,
@@ -123,30 +118,6 @@ function loadSpell() {
   } catch {
     return false;
   }
-}
-
-function loadView() {
-  try {
-    return localStorage.getItem(VIEW_KEY) === 'list' ? 'list' : 'gallery';
-  } catch {
-    return 'gallery';
-  }
-}
-
-function setView(next) {
-  view = next;
-  try {
-    localStorage.setItem(VIEW_KEY, next);
-  } catch {}
-  showView();
-  $('#gallery').scrollTop = 0;
-}
-
-function showView() {
-  document.querySelectorAll('#views [data-view]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.view === view));
-  $('#galleryTitle').textContent = view === 'list' ? 'Choose an artist' : 'Choose a collection';
-  $('#collections').hidden = view === 'list';
-  $('#names').hidden = view !== 'list';
 }
 
 function setLevel(next) {
@@ -242,7 +213,6 @@ function sift() {
     a.cover = usual && !visible(usual) ? a.puzzles[0] && a.puzzles[0].image : a.usual;
   }
   artists = everyone.filter((a) => a.puzzles.length);
-  byName = [...artists].sort((a, b) => a.sort.localeCompare(b.sort));
   // a collection shows the picture it names, or its first artist's where it names
   // none or that one is hidden, and one with no artists left has no card
   for (const c of everyCollection) {
@@ -342,7 +312,6 @@ function labelCards() {
     card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles') + (done ? ` · ${done} solved` : '');
   };
   if (collection) document.querySelectorAll('#shelf .card').forEach(tally(collection.artists));
-  document.querySelectorAll('#names .card').forEach(tally(byName));
   document.querySelectorAll('#collections .card').forEach((card, i) => {
     const count = collections[i].count;
     card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles');
@@ -651,14 +620,12 @@ function markShape(card, face = card.querySelector('img')) {
   if (face.complete) mark();
 }
 
-// The home page: one card per collection, always lit, and behind it the list of
-// every artist by surname, on cards without pictures.
+// The home page: one card per collection, always lit.
 function renderGallery() {
   const grid = $('#collections');
   grid.textContent = '';
   $('#empty').hidden = puzzles.length > 0;
   $('#allHidden').hidden = !puzzles.length || artists.length > 0;
-  $('#surprise').hidden = !artists.length;
   for (const c of collections) {
     // no italic line: its number and name, as large as each other
     const card = makeCard(c.cover, '', c.name);
@@ -667,18 +634,6 @@ function renderGallery() {
     card.addEventListener('click', () => openCollection(c));
     grid.append(card);
   }
-  const list = $('#names');
-  list.textContent = '';
-  for (const a of byName) {
-    const card = document.createElement('button');
-    card.className = 'card';
-    card.innerHTML = '<span class="card-label"><i></i><b></b><small></small></span>';
-    card.querySelector('i').textContent = a.note || '';
-    card.querySelector('b').textContent = a.name;
-    card.addEventListener('click', () => openArtist(a));
-    list.append(card);
-  }
-  showView();
   labelCards();
 }
 
@@ -733,7 +688,7 @@ function openArtist(a) {
     $('#artist').scrollTop = 0;
   }
   // from the list of artists, the way back is to the list
-  $('#artistBackName').textContent = view === 'list' ? 'Artists' : collectionOf(a).name;
+  $('#artistBackName').textContent = collectionOf(a).name;
   labelCards();
   show('artist');
 }
@@ -1308,19 +1263,6 @@ function nextPuzzle(p) {
   return list.find((q) => !solved.has(q.id)) || rest[0];
 }
 
-// Surprise Me: one of the pictures not yet solved, drawn by chance from all the
-// settings leave on show, or any one of them once every picture is solved. It
-// opens on the pieces, so a solved one is dealt afresh.
-function surprise() {
-  // never a picture a chapter still keeps hidden behind the next one
-  const pool = artists.flatMap((a) => a.puzzles).filter((p) => stateOf(p) !== 'locked');
-  const fresh = pool.filter((p) => !(blind() ? mastered(p) : solved.has(p.id)));
-  const from = fresh.length ? fresh : pool;
-  if (!from.length) return;
-  const p = from[Math.floor(Math.random() * from.length)];
-  start(p, finished(p));
-}
-
 /* ---------- Controls ---------- */
 
 $('#pauseBtn').addEventListener('click', () => ($('#pause').hidden = false));
@@ -1361,7 +1303,6 @@ $('#doneSettings').addEventListener('click', () => {
 });
 $('#doneArtist').addEventListener('click', () => openArtist(artistOf(game.p)));
 $('#doneHome').addEventListener('click', openGallery);
-$('#doneSurprise').addEventListener('click', surprise);
 $('#aboutBtn').addEventListener('click', () => showAbout(game.p));
 $('.plate-face').addEventListener('click', () => {
   if (!$('#aboutBtn').hidden) {
@@ -1373,7 +1314,7 @@ $('#aboutClose').addEventListener('click', () => ($('#doneAbout').hidden = true)
 $('#doneAbout').addEventListener('click', (e) => {
   if (e.target === e.currentTarget) e.currentTarget.hidden = true;
 });
-$('#artistBack').addEventListener('click', () => (view === 'list' ? openGallery() : openCollection(collectionOf(artist))));
+$('#artistBack').addEventListener('click', () => openCollection(collectionOf(artist)));
 $('#collectionBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => visit(nextPuzzle(game.p)));
@@ -1409,8 +1350,6 @@ $('#settingsBack').addEventListener('click', async () => {
   if (settingsFrom === 'collection') return collections.includes(collectionBefore) ? openCollection(collectionBefore) : openGallery();
   show(settingsFrom);
 });
-document.querySelectorAll('#views [data-view]').forEach((b) => b.addEventListener('click', () => setView(b.dataset.view)));
-$('#surprise').addEventListener('click', surprise);
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
 document.querySelectorAll('#content [data-content]').forEach((b) =>
   b.addEventListener('click', () => setHidden(b.dataset.content, !hide.has(b.dataset.content)))

@@ -222,9 +222,6 @@ button {
 .gallery-head h1, .settings-body h1 { margin: 4px 0 0; font-weight: 500; font-size: 2.6rem; letter-spacing: .01em; }
 .level-note { margin: 10px 0 0; font-style: italic; color: var(--ink-soft); }
 .gear:active { background: rgba(var(--ink-rgb), .1); }
-/* Categories or Artists, on the home page */
-#views { margin-top: 18px; }
-#views button { font-size: 1.15rem; min-width: 0; }
 
 /* ---------- Settings ---------- */
 
@@ -406,10 +403,6 @@ button {
 /* a collection's card has no italic line; its number stands on a line of its own above the name */
 #collections .card-label i { display: none; }
 #collections .card-label b span { display: block; }
-
-/* the list of artists: the same cards without their pictures */
-#names { grid-template-columns: repeat(auto-fit, minmax(210px, 300px)); gap: 18px 24px; padding-top: 32px; }
-#names .card-label { padding-top: 14px; }
 
 .empty { text-align: center; padding: 40px; color: var(--ink-soft); font-size: 1.1rem; }
 
@@ -806,7 +799,7 @@ button {
 .about-credit { margin: 16px 0 0; font-size: .82rem; font-style: italic; color: #6f6051; }
 .about-credit a { color: inherit; }
 .about .link { margin-top: 20px; font-size: 1.05rem; border-bottom: 1px solid #33291f; }
-.done-links .link, #doneSurprise { font-size: 1.05rem; padding: 10px 4px 2px; border-bottom-width: 1px; }
+.done-links .link { font-size: 1.05rem; padding: 10px 4px 2px; border-bottom-width: 1px; }
 
 @media (max-height: 760px) {
   .done-body { gap: 16px; padding-bottom: 16px; }

@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<!-- Gallery: one card per collection, or every artist by name -->
+<!-- Gallery: one card per collection -->
 <main id="gallery" class="screen">
   <div class="top">
     <button class="icon-btn gear" aria-label="Settings">
@@ -33,14 +33,8 @@
     <p class="eyebrow">The Gallery</p>
     <h1 id="galleryTitle">Choose a collection</h1>
     <p class="level-note"></p>
-    <div id="views" class="levels" role="group" aria-label="View">
-      <button data-view="gallery">Collections</button>
-      <button data-view="list">Artists</button>
-      <button id="surprise">Surprise Me</button>
-    </div>
   </header>
   <div id="collections" class="grid"></div>
-  <div id="names" class="grid" hidden></div>
   <p id="allHidden" class="empty" hidden>Every picture is hidden. Settings can show them again.</p>
   <p id="empty" class="empty" hidden>No puzzles yet. Add images to <code>puzzles/</code> and list them in <code>puzzles/puzzles.json</code>.</p>
 </main>
@@ -217,7 +211,6 @@
         <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
       </button>
     </div>
-    <button id="doneSurprise" class="link">Surprise Me</button>
   </div>
   <div class="done-body">
     <article class="plate">
