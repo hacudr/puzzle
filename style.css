@@ -152,6 +152,12 @@ button {
   transition: opacity .7s ease;
 }
 :root[data-splash] .splash { display: grid; }
+/* the password, over everything */
+.lock { position: fixed; inset: 0; z-index: 60; display: none; place-items: center; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); background: var(--page); }
+:root[data-locked] .lock { display: grid; }
+.lock input { display: block; width: 8em; margin: 24px auto 0; padding: 10px 12px; font: inherit; font-size: 1.6rem; letter-spacing: .3em; text-align: center; color: #33291f; background: #fffaf2; border: 1px solid #8a7044; border-radius: 4px; }
+.lock-wrong { margin: 12px 0 0; color: #8a2f22; }
+.lock .link { margin-top: 18px; }
 .splash.leaving { opacity: 0; pointer-events: none; }
 .splash-img { position: absolute; inset: 0; background: center / cover no-repeat; opacity: 0; transition: opacity 1.2s ease; }
 .splash-img.in { opacity: 1; }

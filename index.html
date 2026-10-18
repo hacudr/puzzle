@@ -16,6 +16,8 @@
 <script>try { document.documentElement.dataset.theme = localStorage.getItem("puzzle.theme") || "lace"; } catch {}</script>
 <!-- the splash covers the gallery from the first, each time the app is opened afresh -->
 <script>try { if (!sessionStorage.getItem("puzzle.welcomed")) document.documentElement.dataset.splash = "on"; } catch {}</script>
+<!-- the password, asked once on each device while the app is hosted in the open -->
+<script>try { if (localStorage.getItem("puzzle.unlocked") !== "on") document.documentElement.dataset.locked = "on"; } catch { document.documentElement.dataset.locked = "on"; }</script>
 <title>Puzzle</title>
 </head>
 <body>
@@ -303,6 +305,34 @@
   </div>
   <p class="splash-caption"><span id="splashCaption"></span><small>Music: Debussy, Clair de lune · played by Laurens Goedhart, CC BY 3.0</small></p>
 </div>
+
+<!-- Password: covers everything, the splash too, until the right one is given -->
+<form id="lock" class="lock" autocomplete="off">
+  <div class="splash-card">
+    <h1>Art History</h1>
+    <p class="eyebrow">Enter the password to begin</p>
+    <input id="lockInput" type="password" inputmode="numeric" aria-label="Password" autocomplete="off">
+    <p id="lockWrong" class="lock-wrong" hidden>That is not the password.</p>
+    <button class="link">Open</button>
+  </div>
+</form>
+<script>
+// only a hash of the password is in the page; a static host can do no better than this
+(() => {
+  const HASH = "b8efa9f64b3e6e239999946db7be898ddf0b428b568eddb804447bfa39dd4568";
+  const lock = document.getElementById("lock"), input = document.getElementById("lockInput"), wrong = document.getElementById("lockWrong");
+  if (document.documentElement.dataset.locked) input.focus();
+  lock.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const bytes = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(input.value.trim()));
+    const hex = [...new Uint8Array(bytes)].map((b) => b.toString(16).padStart(2, "0")).join("");
+    if (hex !== HASH) { wrong.hidden = false; input.value = ""; input.focus(); return; }
+    try { localStorage.setItem("puzzle.unlocked", "on"); } catch {}
+    input.blur();
+    delete document.documentElement.dataset.locked;
+  });
+})();
+</script>
 
 <script src="sound.js"></script>
 <script src="app.js"></script>
