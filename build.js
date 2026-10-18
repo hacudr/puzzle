@@ -15,7 +15,7 @@ for (const dir of ['icons', 'frames']) {
 
 // only the pictures listed in puzzles.json, not the full-size originals
 const list = JSON.parse(fs.readFileSync(path.join(__dirname, 'puzzles', 'puzzles.json'), 'utf8'));
-for (const file of ['puzzles.json', 'artists.json', 'periods.json', 'blurbs.json']) {
+for (const file of ['puzzles.json', 'artists.json', 'periods.json', 'collections.json', 'blurbs.json']) {
   fs.copyFileSync(path.join(__dirname, 'puzzles', file), path.join(dist, 'puzzles', file));
 }
 for (const p of list) {
@@ -26,6 +26,11 @@ for (const p of list) {
   if (fs.existsSync(thumb)) {
     fs.mkdirSync(path.join(dist, 'puzzles', 'thumbs'), { recursive: true });
     fs.copyFileSync(thumb, path.join(dist, 'puzzles', 'thumbs', p.image));
+  }
+  const veil = path.join(__dirname, 'puzzles', 'veils', p.image);
+  if (fs.existsSync(veil)) {
+    fs.mkdirSync(path.join(dist, 'puzzles', 'veils'), { recursive: true });
+    fs.copyFileSync(veil, path.join(dist, 'puzzles', 'veils', p.image));
   }
 }
 console.log(`dist/ is ready with ${list.length} puzzles`);

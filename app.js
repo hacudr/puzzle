@@ -50,30 +50,20 @@ let byName = [];
 let view = loadView();
 // the artist whose puzzles are on show
 let artist = null;
-// one entry per collection on the home page: { name, number, usual, all, everyone,
-// periods, cover, count }; `all` is its categories and `everyone` its artists,
-// `periods` the categories with something on show and `count` their puzzles
+// one entry per collection on the home page: { name, number, usual, everyone,
+// artists, cover, count }; `everyone` is its artists in order, `artists` those
+// with something on show and `count` their puzzles
 let everyCollection = [];
 // the collections with something on show
 let collections = [];
-// the collection whose categories are on show
+// the collection whose artists are on show
 let collection = null;
-// one entry per category in a collection: { name, note, usual, collection, across,
-// all, artists, cover }; `all` is every artist of the category, `artists` those with
-// something on show. A category that cuts across the periods, as Female Artists
-// does, has one entry in each collection, holding that collection's artists
-let everyPeriod = [];
-// the periods with something on show
-let periods = [];
-// the period whose artists are on show
-let period = null;
 // where the settings page goes back to
 let settingsFrom = 'gallery';
 // the difficulty a paused puzzle had when its settings were opened
 let levelBefore = null;
-// the artist's or period's page the settings were opened from
+// the artist's or collection's page the settings were opened from
 let artistBefore = null;
-let periodBefore = null;
 let collectionBefore = null;
 let solved = loadSolved();
 // Kids mode plays on Very Easy and hides every kind of picture that can be
@@ -253,30 +243,20 @@ function sift() {
   }
   artists = everyone.filter((a) => a.puzzles.length);
   byName = [...artists].sort((a, b) => a.sort.localeCompare(b.sort));
-  // a period shows the picture it names, or its first artist's where it names
+  // a collection shows the picture it names, or its first artist's where it names
   // none or that one is hidden, and one with no artists left has no card
-  for (const t of everyPeriod) {
-    t.artists = t.all.filter((a) => a.puzzles.length);
-    const named = t.artists.some((a) => a.puzzles.some((p) => p.image === t.usual));
-    t.cover = named ? t.usual : t.artists[0] && t.artists[0].cover;
-  }
-  periods = everyPeriod.filter((t) => t.artists.length);
-  // a collection does the same, falling back on its first period's picture
   for (const c of everyCollection) {
-    c.periods = c.all.filter((t) => t.artists.length);
-    c.count = c.everyone.reduce((n, a) => n + a.puzzles.length, 0);
-    const named = c.everyone.some((a) => a.puzzles.some((p) => p.image === c.usual));
-    const first = c.periods.find((t) => !t.across) || c.periods[0];
-    c.cover = named ? c.usual : first && first.cover;
+    c.artists = c.everyone.filter((a) => a.puzzles.length);
+    c.count = c.artists.reduce((n, a) => n + a.puzzles.length, 0);
+    const named = c.artists.some((a) => a.puzzles.some((p) => p.image === c.usual));
+    c.cover = named ? c.usual : c.artists[0] && c.artists[0].cover;
   }
-  collections = everyCollection.filter((c) => c.periods.length);
+  collections = everyCollection.filter((c) => c.artists.length);
   // the open pages are drawn again when they are next opened
   artist = null;
-  period = null;
   collection = null;
   $('#grid').textContent = '';
-  $('#artists').textContent = '';
-  $('#periods').textContent = '';
+  $('#shelf').textContent = '';
   renderGallery();
 }
 
@@ -331,24 +311,38 @@ function showSound() {
 function labelCards() {
   document.querySelectorAll('#grid .card').forEach((card, i) => {
     const p = artist.puzzles[i];
+    const state = stateOf(p);
     card.classList.toggle('solved', solved.has(p.id));
-    card.classList.toggle('veiled', blind() && !mastered(p));
-    drawVeil(card);
-    card.querySelector('small').textContent =
-      progressKey(p) in progress ? 'In progress' : mastered(p) ? 'Solved in black and white' : solved.has(p.id) ? 'Solved' : '';
+    card.classList.toggle('veiled', state === 'open' && blind() && !mastered(p));
+    card.classList.toggle('is-next', state === 'next');
+    card.classList.toggle('is-locked', state === 'locked');
+    // a chapter moving on: the next picture comes out of its blur, and the
+    // one after turns round to be ringed, when the page is next shown
+    const was = card.dataset.state;
+    card.dataset.state = state;
+    if (was && was !== state) card.classList.add('from-' + was);
+    if (state === 'open') {
+      fill(card, p.image);
+      card.removeAttribute('aria-label');
+      card.querySelector('i').textContent = p.scientific || '';
+      card.querySelector('b').textContent = titleOf(p);
+      drawVeil(card);
+      card.querySelector('small').textContent =
+        progressKey(p) in progress ? 'In progress' : mastered(p) ? 'Solved in black and white' : solved.has(p.id) ? 'Solved' : '';
+      return;
+    }
+    card.querySelector('i').textContent = yearOf(p);
+    card.querySelector('b').textContent = state === 'next' ? 'Up next' : '?';
+    card.querySelector('small').textContent = state === 'next' ? `No. ${i + 1} · tap to begin` : `Unlocks after No. ${i}`;
+    card.setAttribute('aria-label', state === 'next' ? `Up next, picture ${i + 1}` : `Hidden, picture ${i + 1}, unlocks after picture ${i}`);
   });
   const tally = (list) => (card, i) => {
     const count = list[i].puzzles.length;
     const done = list[i].puzzles.filter((p) => solved.has(p.id)).length;
     card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles') + (done ? ` · ${done} solved` : '');
   };
-  if (period) document.querySelectorAll('#artists .card').forEach(tally(period.artists));
+  if (collection) document.querySelectorAll('#shelf .card').forEach(tally(collection.artists));
   document.querySelectorAll('#names .card').forEach(tally(byName));
-  if (collection)
-    document.querySelectorAll('#periods .card').forEach((card, i) => {
-      const count = collection.periods[i].artists.length;
-      card.querySelector('small').textContent = count + (count === 1 ? ' artist' : ' artists');
-    });
   document.querySelectorAll('#collections .card').forEach((card, i) => {
     const count = collections[i].count;
     card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles');
@@ -584,13 +578,30 @@ $('#splash').addEventListener('click', () => {
 /* ---------- Gallery ---------- */
 
 const artistOf = (p) => everyone.find((a) => a.all.includes(p));
-// the category an artist's page goes back to: the open one if they are in it, or their period
-const periodOf = (a) => (period && period.all.includes(a) ? period : everyPeriod.find((t) => t.name === a.period));
+// the collection an artist's page goes back to: the open one if they are in it, or their own
+const collectionOf = (a) => (collection && collection.artists.includes(a) ? collection : collections.find((c) => c.artists.includes(a)));
 // a title is shown without the word "rape" spelled out, as The R+++ of Proserpine,
 // unless the settings ask for it in full
 const titleOf = (p) => (spelled() ? p.name : p.name.replace(/\b(r)ape\b/gi, '$1+++'));
 
-function makeCard(image, line, name) {
+// Every artist is a chapter, showing their pictures one at a time, in order. The first not yet solved is next,
+// under a blur of its colours alone (puzzles/veils/, made by veil.js), and
+// those after it are blurred too, with a question mark, until it is solved.
+// Neither loads the picture itself. A picture solved or begun
+// is open, whatever its place.
+const veilOf = (p) => p.image.replace('puzzles/', 'puzzles/veils/');
+function stateOf(p) {
+  const a = artistOf(p);
+  if (!a || solved.has(p.id) || progressKey(p) in progress) return 'open';
+  return a.puzzles.find((q) => !solved.has(q.id)) === p ? 'next' : 'locked';
+}
+const unseen = (p) => stateOf(p) !== 'open';
+const thumbOf = (image) => image.replace('puzzles/', 'puzzles/thumbs/');
+// the year in a puzzle's italic line, the one thing a hidden picture's card tells of it
+const yearOf = (p) => ((p.scientific || '').match(/\b1\d{3}\b/) || [''])[0];
+
+// `later` leaves the picture out until fill() puts it in, for a chapter's hidden cards
+function makeCard(image, line, name, later = false) {
   const card = document.createElement('button');
   card.className = 'card';
   card.innerHTML = '<span class="card-img"><img alt="" loading="lazy" decoding="async"></span><span class="card-label"><i></i><b></b><small></small></span>';
@@ -598,19 +609,34 @@ function makeCard(image, line, name) {
   const face = card.querySelector('img');
   face.onerror = () => {
     face.onerror = null;
-    face.src = image;
+    face.src = face.getAttribute('src').replace('puzzles/thumbs/', 'puzzles/');
   };
   face.onload = () => drawVeil(card);
-  face.src = image.replace('puzzles/', 'puzzles/thumbs/');
+  if (!later) fill(card, image);
   card.querySelector('i').textContent = line || '';
   card.querySelector('b').textContent = name;
   return card;
 }
 
+// Puts a picture on a card, or changes it, as a cover does once a chapter moves on.
+function fill(card, image) {
+  const face = card.querySelector('.card-img img');
+  const src = thumbOf(image);
+  if (face.getAttribute('src') !== src && face.getAttribute('src') !== image) face.src = src;
+}
+
+// A chapter's card holds, beside the picture, the blur shown until it is solved.
+function hideCard(card, p) {
+  const box = card.querySelector('.card-img');
+  const hint = Object.assign(document.createElement('img'), { className: 'hint', alt: '', decoding: 'async', src: veilOf(p) });
+  box.append(hint);
+  markShape(card, hint);
+}
+
 // A puzzle's card crops every picture to the same upright shape, so it carries
 // a small outline of the picture's own, tall, wide or square, once it is in.
-function markShape(card) {
-  const face = card.querySelector('img');
+// A chapter's card takes the shape from its blur, which is the picture's own.
+function markShape(card, face = card.querySelector('img')) {
   const mark = () => {
     if (!face.naturalWidth || card.querySelector('.shape')) return;
     const ratio = face.naturalWidth / face.naturalHeight;
@@ -662,47 +688,25 @@ function openGallery() {
   show('gallery');
 }
 
-// One collection's categories, always lit. Coming back to the same collection keeps the page where it was.
+// One collection's artists, always lit. Coming back to the same collection keeps the page where it was.
 function openCollection(c) {
   game = null;
   if (c !== collection) {
     collection = c;
     $('#collectionNote').textContent = c.number;
     $('#collectionName').textContent = c.name;
-    const grid = $('#periods');
+    const grid = $('#shelf');
     grid.textContent = '';
-    for (const t of c.periods) {
-      const card = makeCard(t.cover, t.note, t.name);
+    for (const a of c.artists) {
+      const card = makeCard(a.cover, a.note, a.name);
       card.classList.add('solved');
-      card.addEventListener('click', () => openPeriod(t));
+      card.addEventListener('click', () => openArtist(a));
       grid.append(card);
     }
     $('#collection').scrollTop = 0;
   }
   labelCards();
   show('collection');
-}
-
-// One period's artists, always lit. Coming back to the same period keeps the page where it was.
-function openPeriod(t) {
-  game = null;
-  if (t !== period) {
-    period = t;
-    $('#periodBackName').textContent = t.collection.name;
-    $('#periodNote').textContent = t.note || '';
-    $('#periodName').textContent = t.name;
-    const grid = $('#artists');
-    grid.textContent = '';
-    for (const a of t.artists) {
-      const card = makeCard(a.cover, a.note, a.name);
-      card.classList.add('solved');
-      card.addEventListener('click', () => openArtist(a));
-      grid.append(card);
-    }
-    $('#period').scrollTop = 0;
-  }
-  labelCards();
-  show('period');
 }
 
 // One artist's puzzles. Coming back to the same artist keeps the page where it was.
@@ -715,15 +719,21 @@ function openArtist(a) {
     const grid = $('#grid');
     grid.textContent = '';
     for (const p of a.puzzles) {
-      const card = makeCard(p.image, p.scientific, titleOf(p));
-      markShape(card);
-      card.addEventListener('click', () => visit(p));
+      const card = makeCard(p.image, p.scientific, titleOf(p), true);
+      hideCard(card, p);
+      card.addEventListener('click', () => {
+        if (stateOf(p) !== 'locked') return visit(p);
+        // a hidden one only shrugs
+        card.classList.remove('nudge');
+        void card.offsetWidth;
+        card.classList.add('nudge');
+      });
       grid.append(card);
     }
     $('#artist').scrollTop = 0;
   }
   // from the list of artists, the way back is to the list
-  $('#artistBackName').textContent = view === 'list' ? 'Artists' : periodOf(a).name;
+  $('#artistBackName').textContent = view === 'list' ? 'Artists' : collectionOf(a).name;
   labelCards();
   show('artist');
 }
@@ -1294,14 +1304,16 @@ function nextPuzzle(p) {
   const list = artistOf(p).puzzles;
   const i = list.indexOf(p);
   const rest = [...list.slice(i + 1), ...list.slice(0, i)];
-  return rest.find((q) => !(blind() ? mastered(q) : solved.has(q.id))) || rest[0];
+  // a chapter goes on to its next picture, wherever this one stood
+  return list.find((q) => !solved.has(q.id)) || rest[0];
 }
 
 // Surprise Me: one of the pictures not yet solved, drawn by chance from all the
 // settings leave on show, or any one of them once every picture is solved. It
 // opens on the pieces, so a solved one is dealt afresh.
 function surprise() {
-  const pool = artists.flatMap((a) => a.puzzles);
+  // never a picture a chapter still keeps hidden behind the next one
+  const pool = artists.flatMap((a) => a.puzzles).filter((p) => stateOf(p) !== 'locked');
   const fresh = pool.filter((p) => !(blind() ? mastered(p) : solved.has(p.id)));
   const from = fresh.length ? fresh : pool;
   if (!from.length) return;
@@ -1361,8 +1373,7 @@ $('#aboutClose').addEventListener('click', () => ($('#doneAbout').hidden = true)
 $('#doneAbout').addEventListener('click', (e) => {
   if (e.target === e.currentTarget) e.currentTarget.hidden = true;
 });
-$('#artistBack').addEventListener('click', () => (view === 'list' ? openGallery() : openPeriod(periodOf(artist))));
-$('#periodBack').addEventListener('click', () => openCollection(period.collection));
+$('#artistBack').addEventListener('click', () => (view === 'list' ? openGallery() : openCollection(collectionOf(artist))));
 $('#collectionBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => visit(nextPuzzle(game.p)));
@@ -1371,7 +1382,6 @@ document.querySelectorAll('.gear').forEach((b) =>
   b.addEventListener('click', () => {
     settingsFrom = b.closest('.screen').id;
     artistBefore = artist;
-    periodBefore = period;
     collectionBefore = collection;
     showSound();
     show('settings');
@@ -1394,12 +1404,7 @@ $('#settingsBack').addEventListener('click', async () => {
   if (settingsFrom === 'artist') {
     if (!artists.includes(artistBefore)) return openGallery();
     if (collections.includes(collectionBefore)) openCollection(collectionBefore);
-    if (periods.includes(periodBefore)) openPeriod(periodBefore);
     return openArtist(artistBefore);
-  }
-  if (settingsFrom === 'period') {
-    if (collections.includes(collectionBefore)) openCollection(collectionBefore);
-    return periods.includes(periodBefore) ? openPeriod(periodBefore) : openGallery();
   }
   if (settingsFrom === 'collection') return collections.includes(collectionBefore) ? openCollection(collectionBefore) : openGallery();
   show(settingsFrom);
@@ -1483,10 +1488,10 @@ async function boot() {
   try {
     listed = await (await fetch('puzzles/artists.json', { cache: 'no-cache' })).json();
   } catch {}
-  // periods.json does the same for the categories, naming the collection each
-  // is in; an artist with no period goes under Other artists, and `also` puts
-  // one in further categories, such as Female Artists. collections.json sets the
-  // order of the collections on the home page and what each card says
+  // periods.json names the collection each period is in, and sets the order of
+  // the artists within it; an artist with no period goes under Other pictures.
+  // collections.json sets the order of the collections on the home page and
+  // what each card says
   let eras = [];
   try {
     eras = await (await fetch('puzzles/periods.json', { cache: 'no-cache' })).json();
@@ -1499,34 +1504,25 @@ async function boot() {
     .map((name) => {
       const all = puzzles.filter((p) => p.artist === name);
       const about = listed.find((a) => a.name === name) || {};
-      return { name, note: about.note, sort: about.sort || name.split(' ').pop(), period: about.period || 'Other artists', also: about.also || [], usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, all };
+      return { name, note: about.note, sort: about.sort || name.split(' ').pop(), period: about.period || 'Other artists', usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, all };
     })
     .filter((a) => a.all.length);
   const era = (name) => eras.find((t) => t.name === name) || {};
-  // a category nobody has as their own period, only through `also`, cuts across the collections
-  const across = (name) => !everyone.some((a) => a.period === name);
   const shelf = (name) => era(name).collection || 'Other pictures';
-  const names = [...new Set([...eras.map((t) => t.name), ...everyone.map((a) => a.period)])];
-  everyCollection = [...new Set([...shelves.map((c) => c.name), ...names.filter((n) => !across(n)).map(shelf)])].map((name, i) => {
+  // a collection's artists go in the order of their periods, then of artists.json,
+  // except that the one it names as its `start` comes first
+  const rank = (a) => {
+    const i = eras.findIndex((t) => t.name === a.period);
+    return i < 0 ? eras.length : i;
+  };
+  const names = [...new Set([...shelves.map((c) => c.name), ...everyone.map((a) => shelf(a.period))])];
+  everyCollection = names.map((name, i) => {
     const about = shelves.find((c) => c.name === name) || {};
+    const mine = everyone.filter((a) => shelf(a.period) === name).sort((a, b) => rank(a) - rank(b));
+    const start = mine.find((a) => a.name === about.start);
     // each is numbered in its order, as Collection 1
-    return { name, number: `Collection ${i + 1}`, usual: about.cover && 'puzzles/' + about.cover, all: [], everyone: everyone.filter((a) => shelf(a.period) === name) };
+    return { name, number: `Collection ${i + 1}`, usual: about.cover && 'puzzles/' + about.cover, everyone: start ? [start, ...mine.filter((a) => a !== start)] : mine };
   });
-  everyPeriod = [];
-  for (const c of everyCollection)
-    for (const name of names) {
-      const all = across(name)
-        ? c.everyone.filter((a) => a.also.includes(name))
-        : shelf(name) === c.name
-          ? everyone.filter((a) => a.period === name || a.also.includes(name))
-          : [];
-      if (!all.length) continue;
-      // one that cuts across names its artists in this collection in place of the dates
-      const note = across(name) ? (all.length === 1 ? all[0].name : all.map((a) => a.sort).join(', ')) : era(name).note;
-      const t = { name, note, usual: era(name).cover && 'puzzles/' + era(name).cover, collection: c, across: across(name), all };
-      c.all.push(t);
-      everyPeriod.push(t);
-    }
   // what the About card says of each picture; a picture missing from it has no card.
   // It is large and not wanted until a puzzle is solved, so nothing waits for it.
   fetch('puzzles/blurbs.json', { cache: 'no-cache' })
