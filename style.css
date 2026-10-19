@@ -375,7 +375,9 @@ button {
   text-align: left;
   border-radius: 14px;
   overflow: hidden;
-  background: #111;
+  /* the label's colour, so that wherever Safari leaves the card taller than its
+     contents (a button's do not always stretch to fill it), no other strip shows */
+  background: var(--label);
   color: var(--cream);
   box-shadow: var(--card-shadow);
   transition: transform .18s ease;
