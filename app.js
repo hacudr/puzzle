@@ -14,7 +14,7 @@ const FRAME_KEY = 'puzzle.frame';
 const SPLASH_KEY = 'puzzle.splash';
 const WELCOMED_KEY = 'puzzle.welcomed';
 // the colour of the page in each theme, for the bar round the app
-const THEMES = { blush: '#f3d9d1', lace: '#f1e6d0', celadon: '#c8d9d0', sage: '#b9c5a3', walnut: '#2b1f18', burgundy: '#3b1827' };
+const THEMES = { blush: '#f3d9d1', lace: '#f1e6d0', celadon: '#c8d9d0', sage: '#b9c5a3', walnut: '#2b1f18', burgundy: '#3b1827', crimson: '#4a1218' };
 // how long Off is held to leave Kids mode, in ms
 const KIDS_HOLD = 3000;
 // height of the reference picture, and limits for the reserve strip, in px

@@ -30,6 +30,10 @@
   /* the line round a puzzle piece */
   --seam: #b39270;
   --table: #e6d9c3;
+  /* the label under a card's picture, and its lettering: cream on black in the
+     light themes, black on off-white in the dark ones */
+  --label: #111;
+  --label-rgb: 243, 235, 221;
   /* width of the drawn gilt frame, .frame below */
   --frame: 15px;
   /* width of the black fillet between the frame and the picture */
@@ -77,6 +81,8 @@
   --table: #3a2c22;
   --peek: rgba(43, 31, 24, .93);
   --knob-on: var(--page);
+  --label: var(--offwhite);
+  --label-rgb: 17, 17, 17;
 }
 
 /* Burgundy: a deep wine, between burgundy and plum, with the lettering in off-white */
@@ -93,6 +99,26 @@
   --table: #4b2234;
   --peek: rgba(59, 24, 39, .93);
   --knob-on: var(--page);
+  --label: var(--offwhite);
+  --label-rgb: 17, 17, 17;
+}
+
+/* Crimson: a deep red, redder than the burgundy, with the lettering in off-white */
+:root[data-theme="crimson"] {
+  --page: #4a1218;
+  --page-rgb: 74, 18, 24;
+  --ink: #f2ecdf;
+  --ink-rgb: 242, 236, 223;
+  --ink-soft: #d4aca9;
+  --shadow-rgb: 0, 0, 0;
+  --card-shadow: 0 0 0 1px rgba(242, 236, 223, .09), 0 12px 28px -12px rgba(0, 0, 0, .7);
+  --glow: rgba(196, 82, 76, .3);
+  --shade: rgba(18, 2, 3, .8);
+  --table: #5c1c22;
+  --peek: rgba(74, 18, 24, .93);
+  --knob-on: var(--page);
+  --label: var(--offwhite);
+  --label-rgb: 17, 17, 17;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -258,6 +284,9 @@ button {
   border-bottom: 1px solid rgba(var(--ink-rgb), .14);
 }
 .options button:last-child { border-bottom: 0; }
+/* the Light and Dark headings over the two groups of themes */
+.subhead { max-width: 440px; margin: 18px auto 0; text-align: left; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.subhead + .options { margin-top: 2px; }
 .options small { grid-area: 2 / 1; margin-top: 1px; font-size: .85rem; font-style: italic; font-weight: 400; color: var(--ink-soft); }
 .options .more { grid-area: 2 / 1; margin-top: 3px; font-size: .8rem; font-weight: 400; line-height: 1.35; color: var(--ink-soft); }
 .options .more ~ small { grid-row: 3; margin-top: 5px; }
@@ -384,10 +413,10 @@ button {
 .shape.wide::before { width: 20px; height: 14px; }
 .shape.square::before { width: 17px; height: 17px; }
 
-.card-label { display: block; padding: 12px 16px 16px; }
-.card-label i { display: block; font-size: .95rem; color: rgba(243, 235, 221, .8); }
+.card-label { display: block; padding: 12px 16px 16px; background: var(--label); color: rgb(var(--label-rgb)); }
+.card-label i { display: block; font-size: .95rem; color: rgba(var(--label-rgb), .8); }
 .card-label b { display: block; font-weight: 500; font-size: 1.45rem; line-height: 1.15; }
-.card-label small { display: block; margin-top: 6px; font-size: .8rem; font-style: italic; color: rgba(243, 235, 221, .7); }
+.card-label small { display: block; margin-top: 6px; font-size: .8rem; font-style: italic; color: rgba(var(--label-rgb), .7); }
 
 /* the collections on the home page: wide cards, one under another, the picture
    beside its label; on a phone they stay upright */
