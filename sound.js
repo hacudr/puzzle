@@ -3,8 +3,9 @@
 // other swap repeats the step it has reached.
 const sound = (() => {
   // Settings can turn off the music (the notes, and the recording a puzzle ends
-  // on) and the sound effects (the sword, the hooves and the knock), each on its own.
-  const KEYS = { music: 'puzzle.music', effects: 'puzzle.effects' };
+  // on) and the sound effects (the sword, the hooves and the knock), each on its own,
+  // and can lengthen that recording to thirty seconds (long, off unless chosen).
+  const KEYS = { music: 'puzzle.music', effects: 'puzzle.effects', long: 'puzzle.long' };
   const VOICES = {
     piano: { attack: 0.006, decay: 2.4, partials: [[1, 1], [2, 0.45], [3, 0.2], [4, 0.1], [5, 0.05]] },
     // The lute is worked out string by string. decay = seconds for middle C to
@@ -494,7 +495,8 @@ const sound = (() => {
   // cut from a recording on Wikimedia Commons; music/CREDITS.md has the sources.
   // by = who is playing. A recording with a licence must be credited, which the
   // solved screen does; the others are in the public domain. A tune without a
-  // recording ends on its own notes.
+  // recording ends on its own notes. Each also has thirty seconds from the same
+  // place in music/long/, for the long ending, but for one marked short.
   const CLIPS = {
     moonlight: { by: 'Paul Pitman' },
     clair: { by: 'Laurens Goedhart', licence: 'CC BY 3.0' },
@@ -515,7 +517,7 @@ const sound = (() => {
     mountainking: { by: 'Czech National Symphony Orchestra' },
     baldmountain: { by: 'Musopen' },
     newworld: { by: 'Musopen' },
-    kyrie: { by: 'unnamed performers, from Musopen' },
+    kyrie: { by: 'unnamed performers, from Musopen', short: true },
     avemaria: { by: 'Free Tim' },
   };
   // A sound to go with the ending, for a puzzle whose `effect` names one, or
@@ -546,7 +548,7 @@ const sound = (() => {
   let ran = false;
   let away = false;
   let seen = null;
-  const on = { music: true, effects: true };
+  const on = { music: true, effects: true, long: false };
   // each step: { notes, at } with at = when it sounds, in units from the start
   let steps = [];
   let tune = null;
@@ -580,7 +582,7 @@ const sound = (() => {
   try {
     // the one setting there used to be, which silenced everything
     const silent = localStorage.getItem('puzzle.sound') === 'off';
-    for (const kind in KEYS) on[kind] = (localStorage.getItem(KEYS[kind]) || (silent ? 'off' : 'on')) === 'on';
+    for (const kind in KEYS) on[kind] = (localStorage.getItem(KEYS[kind]) || (silent || kind === 'long' ? 'off' : 'on')) === 'on';
   } catch {}
 
   // The page has been put away: if its audio has run, it may not come back.
@@ -822,10 +824,17 @@ const sound = (() => {
     greeting = null;
   }
 
+  // stops the ending, letting it die away over half a second, since the long
+  // one may still be playing when the next puzzle is opened
   function hush() {
     for (const source of [playing, ...clashing]) {
       try {
-        if (source) source.stop();
+        if (!source) continue;
+        const now = ctx.currentTime;
+        source.level.gain.cancelScheduledValues(now);
+        source.level.gain.setValueAtTime(source.level.gain.value, now);
+        source.level.gain.linearRampToValueAtTime(0, now + 0.5);
+        source.stop(now + 0.5);
       } catch {}
     }
     playing = null;
@@ -857,19 +866,26 @@ const sound = (() => {
       .then((res) => (res.ok ? res.arrayBuffer() : Promise.reject()))
       .then((data) => new Promise((done, fail) => ctx.decodeAudioData(data, done, fail)));
 
+  // the long ending, thirty seconds from the same place, is music/long/<key>.mp3,
+  // where one has been made (CLIPS marks those without one as short); if it
+  // cannot be had, the short one is played instead
+  const clipUrl = (key) => (on.long && !CLIPS[key].short ? `music/long/${key}.mp3` : `music/${key}.mp3`);
   function loadClip(key) {
     clip = null;
     owed = null;
     hush();
     if (!(key in CLIPS) || !unlock()) return;
-    clips[key] = clips[key] || fetched(`music/${key}.mp3`);
-    clips[key].then(
+    const url = clipUrl(key);
+    const short = `music/${key}.mp3`;
+    clips[url] = clips[url] || (url === short ? fetched(url) : fetched(url).catch(() => fetched(short)));
+    clips[url].then(
       (buffer) => {
-        if (TUNES[key] !== tune) return;
+        // not if another puzzle, or the other length, has been asked for since
+        if (TUNES[key] !== tune || url !== clipUrl(key)) return;
         clip = buffer;
         if (CLIPS[key].licence) owed = `${CLIPS[key].by}, ${CLIPS[key].licence}`;
       },
-      () => delete clips[key]
+      () => delete clips[url]
     );
   }
 
@@ -1056,8 +1072,9 @@ const sound = (() => {
     // kind is 'music' or 'effects'
     on: (kind) => on[kind],
 
-    // turns the music or the effects on or off; music coming on plays a short
-    // chord, so that it can be heard to have come on
+    // turns the music, the effects or the long ending on or off; music coming
+    // on plays a short chord, so that it can be heard to have come on, and the
+    // long ending fetches the open puzzle's recording again at its new length
     set(kind, value) {
       if (!(kind in KEYS)) return;
       on[kind] = !!value;
@@ -1066,6 +1083,7 @@ const sound = (() => {
       try {
         localStorage.setItem(KEYS[kind], value ? 'on' : 'off');
       } catch {}
+      if (kind === 'long' && tune) loadClip(tuneKey);
       if (!value || kind !== 'music' || !unlock()) return;
       const playing = tune;
       tune = null;

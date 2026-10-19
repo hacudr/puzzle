@@ -270,11 +270,28 @@ function showFrame() {
   document.querySelectorAll('#frames button').forEach((b) => b.setAttribute('aria-pressed', (b.dataset.frame === 'plain') === plain));
 }
 
+// the music's slider: 0 = off, 1 = a short ending, 2 = a long one
+const musicLevel = () => (!sound.on('music') ? 0 : sound.on('long') ? 2 : 1);
+const MUSIC_NAMES = ['Off', 'On: Short', 'On: Long'];
+
 function showSound() {
-  document.querySelectorAll('#sounds button').forEach((b) => {
+  document.querySelectorAll('#sounds [data-sound]').forEach((b) => {
     b.setAttribute('aria-pressed', sound.on(b.dataset.sound));
     b.querySelector('small').textContent = sound.on(b.dataset.sound) ? 'on' : 'off';
   });
+  const level = musicLevel();
+  $('#music').value = level;
+  $('#music').setAttribute('aria-valuetext', MUSIC_NAMES[level]);
+  $('#music').style.setProperty('--fill', level / 2);
+  document.querySelectorAll('#sounds [data-music]').forEach((b) => b.setAttribute('aria-pressed', +b.dataset.music === level));
+}
+
+// Short and Long differ only in the ending; the music is turned on last, so
+// that its chord is heard only when it comes on from Off
+function setMusic(level) {
+  if (level > 0 && sound.on('long') !== (level === 2)) sound.set('long', level === 2);
+  if ((level > 0) !== sound.on('music')) sound.set('music', level > 0);
+  showSound();
 }
 
 // The line under each card's name; unfinished puzzles are per difficulty.
@@ -1378,12 +1395,14 @@ $('#kids [data-kids="on"]').addEventListener('click', () => kids || setKids(true
   for (const type of ['pointerup', 'pointerleave', 'pointercancel']) off.addEventListener(type, release);
   off.addEventListener('contextmenu', (e) => e.preventDefault());
 }
-document.querySelectorAll('#sounds button').forEach((b) =>
+document.querySelectorAll('#sounds [data-sound]').forEach((b) =>
   b.addEventListener('click', () => {
     sound.set(b.dataset.sound, !sound.on(b.dataset.sound));
     showSound();
   })
 );
+$('#music').addEventListener('input', (e) => setMusic(+e.target.value));
+document.querySelectorAll('#sounds [data-music]').forEach((b) => b.addEventListener('click', () => setMusic(+b.dataset.music)));
 document.querySelectorAll('#themes button').forEach((b) => b.addEventListener('click', () => setTheme(b.dataset.theme)));
 document.querySelectorAll('#frames button').forEach((b) => b.addEventListener('click', () => setFrame(b.dataset.frame)));
 
@@ -1401,7 +1420,7 @@ for (const type of ['pointerdown', 'pointerup', 'touchend', 'click']) document.a
 // plays a chord as it comes on, and Off for Kids mode, which a tap does not work.
 document.addEventListener('click', (e) => {
   const b = e.target.closest('button');
-  if (b && !b.matches('[data-sound="music"], [data-kids="off"]')) sound.tap();
+  if (b && !b.matches('[data-music], [data-kids="off"]')) sound.tap();
 });
 document.addEventListener('gesturestart', (e) => e.preventDefault());
 

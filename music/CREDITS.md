@@ -2,6 +2,8 @@
 
 Each file here is an excerpt of about six seconds (thirty-five for `welcome.mp3`, and under twelve for `avemaria.mp3`), cut from a recording on Wikimedia Commons, or on Musopen where the table says so, with the level raised or lowered and a fade at each end. The music itself is in the public domain in every case.
 
+`long/` holds a thirty-second excerpt for each, for the Long ending setting, cut from the same recording at the same place as the short one, with the level raised or lowered as far as the loudest moment allows and a four-second fade at the end. Each comes under the same licence, and from the same player and source, as the short file of the same name below. The Kyrie has none yet.
+
 ## Used under a licence
 
 These excerpts are shared under the same licence as the recording they were cut from.

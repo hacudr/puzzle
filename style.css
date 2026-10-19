@@ -302,6 +302,44 @@ button {
 .options button[aria-pressed="true"]::after { --knob: var(--knob-on); background-position: right; background-color: var(--ink); }
 .options button:disabled { cursor: default; }
 .options button:disabled:not([aria-pressed="true"]) { opacity: .4; }
+/* A row with a slider in place of a switch, as the music's Off, Short and Long:
+   the track fills with ink as far as the knob (--fill, 0 to 1) */
+.slider { padding: 13px 4px 10px; border-bottom: 1px solid rgba(var(--ink-rgb), .14); }
+.slider label { display: block; font-size: 1.3rem; font-weight: 500; }
+.slider .more { display: block; }
+.slider input {
+  --fill: 0;
+  display: block;
+  width: calc(100% - 66px);
+  height: 30px;
+  margin: 14px 33px 0;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.slider input::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, var(--ink) calc(var(--fill) * 100%), rgba(var(--ink-rgb), .22) 0);
+}
+.slider input::-moz-range-track { height: 6px; border-radius: 3px; background: rgba(var(--ink-rgb), .22); }
+.slider input::-moz-range-progress { height: 6px; border-radius: 3px; background: var(--ink); }
+.slider input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 26px;
+  height: 26px;
+  margin-top: -10px;
+  border-radius: 50%;
+  background: var(--knob-on);
+  box-shadow: 0 0 0 2px var(--ink), 0 2px 5px rgba(var(--shadow-rgb), .3);
+}
+.slider input::-moz-range-thumb { width: 26px; height: 26px; border: 0; border-radius: 50%; background: var(--knob-on); box-shadow: 0 0 0 2px var(--ink), 0 2px 5px rgba(var(--shadow-rgb), .3); }
+/* the names of the stops, under them, each a button of its own */
+.slider .stops { display: flex; justify-content: space-between; margin-top: 4px; }
+.slider .stops button { display: block; width: 92px; padding: 4px 0; border: 0; font-size: .95rem; font-weight: 400; font-style: italic; text-align: center; color: var(--ink-soft); }
+.slider .stops button::after { content: none; }
+.slider .stops button[aria-pressed="true"] { font-style: normal; font-weight: 500; color: var(--ink); }
 
 .settings-body .hint { margin: 14px auto 0; max-width: 30em; font-style: italic; font-size: .95rem; color: var(--ink-soft); }
 

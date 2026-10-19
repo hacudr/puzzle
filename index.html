@@ -119,7 +119,16 @@
     <section>
       <p class="eyebrow">Sound</p>
       <div id="sounds" class="options" role="group" aria-label="Sound">
-        <button data-sound="music">Music<small></small></button>
+        <div class="slider">
+          <label for="music">Music</label>
+          <span class="more">Clair de lune on the welcome page, and a recording to end each solved puzzle: a few seconds of it, or thirty</span>
+          <input id="music" type="range" min="0" max="2" step="1">
+          <div class="stops">
+            <button data-music="0">Off</button>
+            <button data-music="1">On: Short</button>
+            <button data-music="2">On: Long</button>
+          </div>
+        </div>
         <button data-sound="effects">Sound effects<small></small></button>
       </div>
     </section>
