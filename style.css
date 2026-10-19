@@ -413,7 +413,9 @@ button {
 .shape.wide::before { width: 20px; height: 14px; }
 .shape.square::before { width: 17px; height: 17px; }
 
-.card-label { display: block; padding: 12px 16px 16px; background: var(--label); color: rgb(var(--label-rgb)); }
+/* it grows to the foot of the card, so a card stretched to the height of its row
+   shows no strip of the card's black under an off-white label */
+.card-label { display: block; flex-grow: 1; padding: 12px 16px 16px; background: var(--label); color: rgb(var(--label-rgb)); }
 .card-label i { display: block; font-size: .95rem; color: rgba(var(--label-rgb), .8); }
 .card-label b { display: block; font-weight: 500; font-size: 1.45rem; line-height: 1.15; }
 .card-label small { display: block; margin-top: 6px; font-size: .8rem; font-style: italic; color: rgba(var(--label-rgb), .7); }
