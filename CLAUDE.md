@@ -47,7 +47,7 @@ Not yet cleared, to be settled before the app is sold:
 - The solved screen names the player of a licensed recording but not the licence, which CC BY and CC BY-SA ask to be named and linked. The app needs a credits page for that.
 - `fonts/` has no copy of the Open Font Licence that Spectral and Averia Serif come under.
 - The About cards' text from the Art Institute of Chicago (8 of them) comes under CC BY 4.0, as its API says, but also under the terms of artic.edu, which have not been read. The card names the museum and links the licence; confirm the terms allow use in a paid app, or drop those eight back to no card.
-- The source records of the Met puzzles (Ancient Art, Anglo-Saxon and Saxon Art, Japanese Prints) are not in this folder's `puzzles/images/`, only in the `puzzle - monetize` folder beside it, which `describe.js` was pointed at with `--records`. Since `puzzles/images/` is git-ignored, keep a copy of them here, or somewhere backed up.
+- The source records of the Met puzzles (Ancient Art, Anglo-Saxon and Saxon Art) are not in this folder's `puzzles/images/`, only in the `puzzle - monetize` folder beside it, which `describe.js` was pointed at with `--records`. Since `puzzles/images/` is git-ignored, keep a copy of them here, or somewhere backed up.
 - Caravaggio's Saint Francis in Prayer and Saint Francis in Meditation carry each other's names on Wikipedia, which calls the Cremona picture Meditation and the Rome one Prayer. Each About card is matched to its picture by Wikidata, so its text is right, but it opens under the other title. Scholars use both names for both; decide whether to rename the puzzles.
 
 ## When the user adds images
@@ -86,7 +86,7 @@ The Ancient Art category has no artists: its cards are cultures, Ancient Egypt, 
 
 Anglo-Saxon and Saxon Art is made the same way, from the Met's Medieval Art and Cloisters departments: two cards, Anglo-Saxon England (slugs `anglo-saxon-`, the Met's culture "Anglo-Saxon", c. 450–1066) and Saxony (slugs `saxon-`, works the Met places in Saxony or Lower Saxony, or Ottonian, the Saxon emperors' art, to 1270), recorded in `puzzles/images/anglo-saxon.met.json` and `saxon.met.json`. The Met holds few Anglo-Saxon works with pictures, about twenty, so that card has nearly all of them.
 
-Japanese Prints is ukiyo-e from the Met's Asian Art department (CC0): ten artists from Harunobu to Yoshitoshi, five or six woodblock prints each, recorded in `puzzles/images/<surname>.met.json` and slugged by the art name the prints are known by (`hokusai-`, `hiroshige-`), which is also the last word of the `name`. The Met holds many impressions of the same print; take its own photograph of the one with the best colour, and leave out a photograph that shows a colour bar or a ruler, or crop it to the sheet and say so in the record, as was done for Yoshitoshi's Teasing the Cat. Leave out the Met's early 20th-century recuts (marked so in their dates), pillar prints too narrow to make a puzzle, and shunga.
+**Japanese Prints is taken out of the app for now** and may come back. Everything it had is kept in `shelved/japanese-prints/`, which is git-ignored: the puzzle copies, thumbnails and blurs (`puzzles/`, `thumbs/`, `veils/`), copies of the Met records (`records/`), and in `entries.json` its period (which sat in Romantics & Realism, after Victorian Classicism), its ten artists and its 52 puzzle entries, ready to be put back into `periods.json`, `artists.json` and `puzzles.json`. The originals are in the `puzzle - monetize` folder. It was made like this. Japanese Prints is ukiyo-e from the Met's Asian Art department (CC0): ten artists from Harunobu to Yoshitoshi, five or six woodblock prints each, recorded in `puzzles/images/<surname>.met.json` and slugged by the art name the prints are known by (`hokusai-`, `hiroshige-`), which is also the last word of the `name`. The Met holds many impressions of the same print; take its own photograph of the one with the best colour, and leave out a photograph that shows a colour bar or a ruler, or crop it to the sheet and say so in the record, as was done for Yoshitoshi's Teasing the Cat. Leave out the Met's early 20th-century recuts (marked so in their dates), pillar prints too narrow to make a puzzle, and shunga.
 
 ## Pulling pictures from Wikimedia Commons
 
@@ -97,7 +97,7 @@ Then look at every picture before carrying out the four steps: leave out black-a
 ## Publishing
 
 - Push to GitHub only when the user asks. The repo is public, so everything pushed is public. The pages at GitHub are a free preview of what will be sold, so the rights section applies to them in full.
-- `puzzles/images/` (originals), `dist/`, `mockups/` and `.claude/` are git-ignored on purpose.
+- `puzzles/images/` (originals), `dist/`, `mockups/`, `shelved/` (work taken out of the app for now) and `.claude/` are git-ignored on purpose.
 - After a push, GitHub Pages takes a minute or two to update.
 
 ## Running locally
