@@ -883,24 +883,60 @@ button {
 .about {
   box-sizing: border-box;
   width: min(560px, calc(100vw - 32px));
-  max-height: calc(100dvh - 48px);
-  overflow-y: auto;
-  padding: 30px 34px 24px;
+  max-height: min(760px, calc(100dvh - 48px));
+  padding: 30px 0 18px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
   background: var(--cream);
   color: #33291f;
   border-radius: 3px;
   box-shadow: var(--card-shadow);
 }
+.about-head { flex: none; padding: 0 34px 12px; }
 .about h2 { margin: 10px 0 0; font-weight: 500; font-size: 1.35rem; line-height: 1.2; }
 .about .eyebrow { color: #6f6051; }
-.about-text { margin: 18px 0 0; font-family: Spectral, var(--serif); font-size: 1.08rem; line-height: 1.55; text-align: left; hyphens: auto; }
+/* Only the middle scrolls. It glides with the finger, keeps the page behind it
+   still, and fades out at an edge where there is more to read. */
+.about-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: 6px 34px 8px;
+  --fade-top: 0px;
+  --fade-end: 0px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 var(--fade-top), #000 calc(100% - var(--fade-end)), transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 var(--fade-top), #000 calc(100% - var(--fade-end)), transparent 100%);
+}
+.about-scroll.more-above { --fade-top: 28px; }
+.about-scroll.more-below { --fade-end: 44px; }
+.about-body { font-family: Spectral, var(--serif); font-size: 1.08rem; line-height: 1.55; text-align: left; hyphens: auto; }
+.about-body p { margin: 0 0 14px; }
+.about-body h3 { margin: 22px 0 6px; font: 600 .78rem/1.3 var(--sans, system-ui, sans-serif); letter-spacing: .12em; text-transform: uppercase; color: #6f6051; text-align: center; }
+.about-body h3:first-child { margin-top: 4px; }
+.about-quote { margin: 4px 0 18px; padding: 2px 0 2px 16px; border-left: 2px solid #b79c74; font-style: italic; }
+.about-quote .q { margin: 0; white-space: pre-line; }
+.about-quote.verse .q { hyphens: manual; }
+.about-quote cite { display: block; margin-top: 8px; font-size: .86rem; font-style: normal; color: #6f6051; }
 .about-credit { margin: 16px 0 0; font-size: .82rem; font-style: italic; color: #6f6051; }
 .about-credit a { color: inherit; }
-.about .link { margin-top: 20px; font-size: 1.05rem; border-bottom: 1px solid #33291f; }
+.about-foot { flex: none; display: flex; flex-direction: column; align-items: center; padding: 0 34px; }
+/* a soft nudge that there is more below; it goes once the end is in view */
+.about-more {
+  width: 44px; height: 30px; margin: -2px 0 0;
+  display: grid; place-items: center;
+  background: none; border: 0; padding: 0; color: #6f6051;
+  transition: opacity .3s;
+  animation: about-nudge 2.2s ease-in-out infinite;
+}
+.about-more svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.about-more[hidden] { display: grid; opacity: 0; pointer-events: none; animation: none; }
+@keyframes about-nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+@media (prefers-reduced-motion: reduce) { .about-more { animation: none; } .about-scroll { scroll-behavior: auto; } }
+.about .link { margin-top: 6px; font-size: 1.05rem; border-bottom: 1px solid #33291f; }
 .done-links .link { font-size: 1.05rem; padding: 10px 4px 2px; border-bottom-width: 1px; }
 
 @media (max-height: 760px) {

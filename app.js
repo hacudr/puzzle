@@ -37,6 +37,7 @@ const reserveEl = $('#reserve');
 
 let puzzles = [];
 let blurbs = {};
+let stories = {};
 // one entry per artist: { name, note, sort, usual, focus, all, cover, puzzles }; `all` and
 // `usual` are every picture and the listed cover, `puzzles` and `cover` what
 // is left of them once hidden pictures are taken out; `focus` is the part of the
@@ -1268,25 +1269,75 @@ function showPlate(p, played = true) {
   }, 1000);
 }
 
-// What is said about a picture on its card, from puzzles/blurbs.json.
+// What is said about a picture on its card: its story from puzzles/stories.json
+// (the history, scripture, myth or literature behind it, what this picture shows,
+// and passages from the text itself), and otherwise, or where the story has no
+// passage to quote, the description from puzzles/blurbs.json.
 const blurbOf = (p) => blurbs[p.image.replace(/^puzzles\//, '')];
+const storyOf = (p) => stories.puzzles && stories.puzzles[p.image.replace(/^puzzles\//, '')];
 // Kids mode has no descriptions: an article can speak plainly of what the settings hide.
 // With one, the ⓘ beside the title and the painting itself both open the card.
 function showAboutBtn(p) {
-  const on = !kids && !!blurbOf(p);
+  const on = !kids && !!(storyOf(p) || blurbOf(p));
   $('#aboutBtn').hidden = !on;
   $('.plate').classList.toggle('has-about', on);
 }
 
-// The card: the text, then where it came from. Wikipedia's text is CC BY-SA,
+// The middle of the card scrolls; it fades at an edge with more beyond it, and
+// the nudge under it shows until the end is in view.
+function aboutEdges() {
+  const s = $('#aboutScroll');
+  const above = s.scrollTop > 2;
+  const below = s.scrollTop + s.clientHeight < s.scrollHeight - 2;
+  s.classList.toggle('more-above', above);
+  s.classList.toggle('more-below', below);
+  $('#aboutMore').hidden = !below;
+}
+$('#aboutScroll').addEventListener('scroll', aboutEdges, { passive: true });
+$('#aboutMore').addEventListener('click', () => {
+  const s = $('#aboutScroll');
+  s.scrollBy({ top: s.clientHeight * 0.8, behavior: 'smooth' });
+});
+addEventListener('resize', () => !$('#doneAbout').hidden && aboutEdges());
+
+// The card: the story, then where its words came from. Wikipedia's text is CC BY-SA,
 // which asks for the article to be named and linked and the licence named.
 function showAbout(p) {
+  const story = storyOf(p);
   const b = blurbOf(p);
-  if (!b) return;
+  if (!story && !b) return;
   $('#aboutName').textContent = titleOf(p);
   $('#aboutSci').textContent = p.scientific || '';
   $('#aboutArtist').textContent = p.artist || '';
-  $('#aboutText').textContent = b.text;
+  const body = $('#aboutBody');
+  body.replaceChildren();
+  const el = (tag, cls, text) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  };
+  const passages = story ? (story.passages || []).map((id) => stories.passages[id]).filter(Boolean) : [];
+  if (story) {
+    for (const id of [].concat(story.subject)) {
+      const s = stories.subjects[id];
+      if (!s) continue;
+      body.append(el('h3', '', s.title), el('p', '', s.about));
+    }
+    if (story.scene) body.append(el('h3', '', 'This picture'), el('p', '', story.scene));
+    if (passages.length) body.append(el('h3', '', passages.length > 1 ? 'From the texts' : 'From the text'));
+    for (const q of passages) {
+      const quote = el('blockquote', 'about-quote' + (/[^\n]\n[^\n]/.test(q.text) ? ' verse' : ''));
+      quote.append(el('p', 'q', q.text), el('cite', '', q.cite));
+      body.append(quote);
+    }
+  }
+  // no passage to quote: the description stands in its place
+  const useBlurb = b && !passages.length;
+  if (useBlurb) {
+    if (story) body.append(el('h3', '', 'About the painting'));
+    body.append(el('p', '', b.text));
+  }
   const link = (href, text) => {
     if (!href) return text;
     const a = document.createElement('a');
@@ -1298,11 +1349,28 @@ function showAbout(p) {
   };
   const credit = $('#aboutCredit');
   credit.replaceChildren();
-  if (b.source === 'Wikipedia') credit.append('From ', link(b.url, `“${b.article}”`), ' on Wikipedia, excerpted');
-  else credit.append('Description from the ', link(b.url, b.source));
-  // CC0 asks for nothing; a licence that asks for credit is named and linked
-  if (b.licenceUrl) credit.append(', ', link(b.licenceUrl, b.licence));
+  // the passages come from public-domain editions, each named
+  const eds = [...new Set(passages.map((q) => q.source))].map((k) => stories.sources[k]).filter(Boolean);
+  eds.forEach((s, i) => {
+    const by = s.author && s.author !== 'Bible' ? `${s.author}, ` : '';
+    credit.append(i ? '; ' : 'Passages from ', by, link(s.url, s.title), s.translator ? `, tr. ${s.translator}` : '');
+  });
+  if (eds.length) credit.append(', public domain.');
+  if (useBlurb) {
+    if (eds.length) credit.append(' ');
+    if (b.source === 'Wikipedia') credit.append('From ', link(b.url, `“${b.article}”`), ' on Wikipedia, excerpted');
+    else credit.append('Description from the ', link(b.url, b.source));
+    // CC0 asks for nothing; a licence that asks for credit is named and linked
+    if (b.licenceUrl) credit.append(', ', link(b.licenceUrl, b.licence));
+  }
+  credit.hidden = !credit.childNodes.length;
   $('#doneAbout').hidden = false;
+  // each opening starts at the top
+  const s = $('#aboutScroll');
+  s.style.scrollBehavior = 'auto';
+  s.scrollTop = 0;
+  s.style.scrollBehavior = '';
+  aboutEdges();
 }
 
 // The same artist's next unsolved puzzle, or simply their next one if all are solved.
@@ -1520,9 +1588,16 @@ async function boot() {
   });
   // what the About card says of each picture; a picture missing from it has no card.
   // It is large and not wanted until a puzzle is solved, so nothing waits for it.
+  // The stories behind the pictures come the same way; whichever arrives while a
+  // solved picture is showing turns its ⓘ on.
+  const lateAbout = () => game && !$('#done').hidden && showAboutBtn(game.p);
   fetch('puzzles/blurbs.json', { cache: 'no-cache' })
     .then((res) => res.json())
-    .then((all) => (blurbs = all))
+    .then((all) => { blurbs = all; lateAbout(); })
+    .catch(() => {});
+  fetch('puzzles/stories.json', { cache: 'no-cache' })
+    .then((res) => res.json())
+    .then((all) => { stories = all; lateAbout(); })
     .catch(() => {});
   sift();
   showSplash();
