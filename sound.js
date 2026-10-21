@@ -293,6 +293,92 @@ const sound = (() => {
         'G4+F2/2 Ab3+C4+F4/6',
       ].join(' '),
     },
+    // Mendelssohn, Spring Song, Op. 62 No. 6, bars 1-8, taken from an 1873
+    // edition that prints it in A flat and put back up into A, the key it was
+    // written in and the recording's; unit = a semiquaver
+    spring: {
+      composer: 'Felix Mendelssohn',
+      title: 'Spring Song, Op. 62 No. 6',
+      unit: 0.21,
+      bar: 8,
+      steps: [
+        'C#5+A2/4 C#5 D5 D#5 E5',
+        'A5+A2/2 E5/2 D5/2 C#5/2',
+        'B4+A2/6 D5/2',
+        'F#5+A2/6 D5/2',
+        'B4+A2/4 B4 A#4 B4 B#4',
+        'C#5/2 E5/2 D5/2 C#5/2',
+        'B4/2 A4/2 G#4/2 A4/2',
+        'C#5/4 A4/2 B4 E4',
+      ].join(' '),
+    },
+    // Mendelssohn, On Wings of Song, Op. 34 No. 2, the upbeat and bars 1-4 of
+    // the voice, in D, the key the recording plays it in; unit = a quaver
+    wings: {
+      composer: 'Felix Mendelssohn',
+      title: 'On Wings of Song, Op. 34 No. 2',
+      unit: 0.34,
+      bar: 6,
+      lead: 5,
+      steps: [
+        'A3',
+        'F#4+D3/2 F#4 F#4 G4 A4',
+        'A4/3 C#4/2 A3',
+        'E4+A2/2 E4 E4 F#4 G4',
+        'F#4+D3/6',
+      ].join(' '),
+    },
+    // Handel, Serse, "Ombra mai fu", bars 1-9: the voice over the bass, from a
+    // MIDI file on Commons (CC0), a semitone down from the written F major, as
+    // the recording is played at the lower pitch of Handel's day; unit = a semiquaver
+    largo: {
+      composer: 'George Frideric Handel',
+      title: 'Serse, “Ombra mai fu” (Largo)',
+      unit: 0.225,
+      bar: 12,
+      steps: [
+        'E4:16+E2/12',
+        'F#2/4 D#4/4 C#4/3 B3',
+        'B3+G#2/12',
+        'C#4+A2/4 D#4+F#2/4 E4+E2 F#4 G#4/2',
+        'F#4+B2/12',
+        'C#5+A2/12',
+        'B4+G#2/12',
+        'A4+F#2/12',
+        'G#4+E2/12',
+      ].join(' '),
+    },
+    // Handel, Suite No. 5 in E major, HWV 430, the Air ("The Harmonious
+    // Blacksmith"), its first strain twice; unit = a semiquaver
+    blacksmith: {
+      composer: 'George Frideric Handel',
+      title: 'The Harmonious Blacksmith',
+      unit: 0.235,
+      bar: 16,
+      steps: [
+        'E2/4',
+        'E4+B3+E3/2 G#4/2 F#4/2 B4/2 G#4+B3/2 F#4 E4',
+        'F#4+B3/2 B4/2 G#4+E4/2 C#5 E4 D#4/2 B4 D#4 C#4/2 A#4/2',
+        'B4+F#4+D#4+B2/4',
+        'E4+B3+E3/2 G#4/2 F#4/2 B4/2 G#4+B3/2 F#4 E4',
+        'F#4+B3/2 B4/2 G#4+E4/2 C#5 E4 D#4/2 B4 D#4 C#4/2 A#4/2',
+        'B4+F#4+D#4+B2/4',
+      ].join(' '),
+    },
+    // Handel, Water Music, Alla Hornpipe, bars 1-4, in D, its own key, read from
+    // Grainger's setting in F of 1923; unit = a quaver
+    hornpipe: {
+      composer: 'George Frideric Handel',
+      title: 'Water Music, Alla Hornpipe',
+      unit: 0.14,
+      bar: 12,
+      steps: [
+        'F#5+D3/4 E5/2 D5 C#5 D5/2 B4/2',
+        'A4+D3/2 G4 F#4 G4/2 F#4 E4 F#4 G4 A4/2',
+        'B4+G2/4 C#5/2 B4 A4 B4/2 D5/2',
+        'G5+A2/4 F#5/2 E5 D5 E5/2 A4/2',
+      ].join(' '),
+    },
     // Vivaldi, The Four Seasons, "Summer", Presto, bars 1-19 without the silent
     // bar 5; unit = a semiquaver
     summer: {
@@ -483,6 +569,27 @@ const sound = (() => {
         'Bb4:1.5+F1:3+F2:3 Eb4+F4/.5 A4:1.5/.5 F4+A4 G4:1.5+A4+C5 F4+A4/.5 A4:1.5/.5 Eb4+F4',
       ].join(' '),
     },
+    // Fauré, Cantique de Jean Racine, Op. 11, bars 13-19: the first line the
+    // voices sing, and from bar 15 the voice that answers it above, read from
+    // a setting for flutes in D and put back down into D flat, Fauré's key
+    // and the recording's; unit = a semiquaver
+    cantique: {
+      composer: 'Gabriel Fauré',
+      title: 'Cantique de Jean Racine, Op. 11',
+      sacred: true,
+      unit: 0.18,
+      bar: 16,
+      lead: 12,
+      steps: [
+        'F5/3 F5',
+        'Ab5/8 Gb5/6 Gb5/2',
+        'F5/12 Ab5+F5/4',
+        'Db6+F5/4 C6+F5/4 Bb5+Db5/4 Ab5/4',
+        'C6+Ab5/4 Gb5/4 Db6+F5/4 Db6+F5/4',
+        'Db6+Eb5/8 C6+Gb5/8',
+        'Db6+F5/8',
+      ].join(' '),
+    },
   };
   // the tunes that take turns by a puzzle's position: the gentle ones for most
   // pictures, the stormy ones for those of violence and fright, and the sacred
@@ -510,6 +617,11 @@ const sound = (() => {
     gondola3: { by: 'Bernd Krueger', licence: 'CC BY-SA 3.0 DE' },
     gnossienne: { by: 'Hannah Dreher' },
     gnossienne2: { by: 'Hannah Dreher' },
+    spring: { by: 'ROSA Pianist', licence: 'CC BY 3.0' },
+    wings: { by: 'Park Sisters', licence: 'CC BY 4.0' },
+    largo: { by: 'Lea Desandre, Les Arts Florissants', licence: 'CC BY 3.0' },
+    blacksmith: { by: 'Musopen' },
+    hornpipe: { by: 'United States Marine Band' },
     summer: { by: 'Modena Chamber Orchestra' },
     diesirae: { by: 'unnamed performers, from IMSLP', licence: 'CC BY-SA 3.0' },
     strife: { by: 'Skidmore College Orchestra' },
@@ -519,6 +631,7 @@ const sound = (() => {
     newworld: { by: 'Musopen' },
     kyrie: { by: 'unnamed performers, from Musopen', short: true },
     avemaria: { by: 'Free Tim' },
+    cantique: { by: 'Ahots-Argiak choir' },
   };
   // A sound to go with the ending, for a puzzle whose `effect` names one, or
   // lists several, from the files in sound-effects/. lead = the seconds of
