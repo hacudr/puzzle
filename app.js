@@ -37,9 +37,10 @@ const reserveEl = $('#reserve');
 
 let puzzles = [];
 let blurbs = {};
-// one entry per artist: { name, note, sort, usual, all, cover, puzzles }; `all` and
+// one entry per artist: { name, note, sort, usual, focus, all, cover, puzzles }; `all` and
 // `usual` are every picture and the listed cover, `puzzles` and `cover` what
-// is left of them once hidden pictures are taken out
+// is left of them once hidden pictures are taken out; `focus` is the part of the
+// listed cover the card keeps in view when it crops it, so no head is cut off
 let everyone = [];
 // the artists with something on show
 let artists = [];
@@ -671,6 +672,7 @@ function openCollection(c) {
     grid.textContent = '';
     for (const a of c.artists) {
       const card = makeCard(a.cover, a.note, a.name);
+      if (a.focus && a.cover === a.usual) card.querySelector('.card-img img').style.objectPosition = a.focus;
       card.classList.add('solved');
       card.addEventListener('click', () => openArtist(a));
       grid.append(card);
@@ -1462,7 +1464,7 @@ async function boot() {
     .map((name) => {
       const all = puzzles.filter((p) => p.artist === name);
       const about = listed.find((a) => a.name === name) || {};
-      return { name, note: about.note, sort: about.sort || name.split(' ').pop(), period: about.period || 'Other artists', usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, all };
+      return { name, note: about.note, sort: about.sort || name.split(' ').pop(), period: about.period || 'Other artists', usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, focus: about.cover && about.focus, all };
     })
     .filter((a) => a.all.length);
   const era = (name) => eras.find((t) => t.name === name) || {};

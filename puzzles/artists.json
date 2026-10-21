@@ -28,7 +28,8 @@
     "name": "El Greco",
     "note": "Greek, worked in Spain, 1541–1614",
     "period": "Renaissance",
-    "cover": "el-greco-saint-martin-and-the-beggar.webp"
+    "cover": "el-greco-saint-martin-and-the-beggar.webp",
+    "focus": "50% 0%"
   },
   {
     "name": "Vincent van Gogh",
@@ -98,7 +99,8 @@
     "name": "Michelangelo",
     "note": "Italian, 1475–1564",
     "period": "Renaissance",
-    "cover": "michelangelo-the-creation-of-adam.webp"
+    "cover": "michelangelo-the-creation-of-adam.webp",
+    "focus": "75% 50%"
   },
   {
     "name": "Paul Cézanne",
@@ -110,19 +112,22 @@
     "name": "Edgar Degas",
     "note": "French, 1834–1917",
     "period": "Impressionism",
-    "cover": "degas-four-dancers.webp"
+    "cover": "degas-four-dancers.webp",
+    "focus": "0% 50%"
   },
   {
     "name": "Edouard Manet",
     "note": "French, 1832–1883",
     "period": "Impressionism",
-    "cover": "manet-the-railway.webp"
+    "cover": "manet-the-railway.webp",
+    "focus": "40% 50%"
   },
   {
     "name": "Paul Gauguin",
     "note": "French, 1848–1903",
     "period": "Post-Impressionism",
-    "cover": "gauguin-breton-girls-dancing-pont-aven.webp"
+    "cover": "gauguin-breton-girls-dancing-pont-aven.webp",
+    "focus": "35% 50%"
   },
   {
     "name": "Auguste Renoir",
@@ -134,7 +139,8 @@
     "name": "Amedeo Modigliani",
     "note": "Italian, 1884–1920",
     "period": "Modern",
-    "cover": "modigliani-girl-in-a-green-blouse.webp"
+    "cover": "modigliani-girl-in-a-green-blouse.webp",
+    "focus": "50% 0%"
   },
   {
     "name": "Georges Seurat",
@@ -189,7 +195,8 @@
     "name": "James McNeill Whistler",
     "note": "American, 1834–1903",
     "period": "Impressionism",
-    "cover": "whistler-symphony-in-white-no-1-the-white-girl.webp"
+    "cover": "whistler-symphony-in-white-no-1-the-white-girl.webp",
+    "focus": "50% 0%"
   },
   {
     "name": "Joseph DeCamp",
@@ -243,7 +250,8 @@
     "name": "Dante Gabriel Rossetti",
     "note": "British, 1828–1882",
     "period": "Pre-Raphaelites",
-    "cover": "rossetti-the-day-dream.webp"
+    "cover": "rossetti-the-day-dream.webp",
+    "focus": "50% 0%"
   },
   {
     "name": "William Holman Hunt",
@@ -261,13 +269,15 @@
     "name": "Arthur Hughes",
     "note": "British, 1832–1915",
     "period": "Pre-Raphaelites",
-    "cover": "hughes-april-love.webp"
+    "cover": "hughes-april-love.webp",
+    "focus": "50% 0%"
   },
   {
     "name": "Edward Burne-Jones",
     "note": "British, 1833–1898",
     "period": "Pre-Raphaelites",
-    "cover": "burne-jones-the-golden-stairs.webp"
+    "cover": "burne-jones-the-golden-stairs.webp",
+    "focus": "50% 0%"
   },
   {
     "name": "Marie Spartali Stillman",
@@ -286,7 +296,8 @@
     "also": [
       "Female Artists"
     ],
-    "cover": "de-morgan-flora.webp"
+    "cover": "de-morgan-flora.webp",
+    "focus": "50% 0%"
   },
   {
     "name": "John William Waterhouse",
@@ -337,14 +348,16 @@
     "name": "Ancient Egypt",
     "note": "c. 3100 BCE – 300 CE",
     "period": "Ancient Art",
-    "cover": "egypt-nefertari-playing-senet.webp"
+    "cover": "egypt-nefertari-playing-senet.webp",
+    "focus": "20% 50%"
   },
   {
     "name": "Ancient Near East",
     "sort": "Near",
     "note": "Mesopotamia and Iran, 4000 BCE – 700 CE",
     "period": "Ancient Art",
-    "cover": "near-east-panel-with-striding-lion.webp"
+    "cover": "near-east-panel-with-striding-lion.webp",
+    "focus": "15% 50%"
   },
   {
     "name": "Ancient Greece",
