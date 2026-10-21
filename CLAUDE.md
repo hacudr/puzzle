@@ -48,6 +48,7 @@ Not yet cleared, to be settled before the app is sold:
 - `fonts/` has no copy of the Open Font Licence that Spectral and Averia Serif come under.
 - The About cards' text from the Art Institute of Chicago (8 of them) comes under CC BY 4.0, as its API says, but also under the terms of artic.edu, which have not been read. The card names the museum and links the licence; confirm the terms allow use in a paid app, or drop those eight back to no card.
 - The source records of the Met puzzles (Ancient Art, Anglo-Saxon and Saxon Art) are not in this folder's `puzzles/images/`, only in the `puzzle - monetize` folder beside it, which `describe.js` was pointed at with `--records`. Since `puzzles/images/` is git-ignored, keep a copy of them here, or somewhere backed up.
+- Paton's Study from Nature: Inveruglas comes from the Yale Center for British Art's own image server, not Commons, since the Commons copy is only 1920 px. Yale releases images of public-domain works for any use, but its photograph shows the frame and mount; the puzzle is cropped to the painted sheet. Confirm Yale's open-access terms cover it, or fall back to the smaller Commons file (CC0).
 - Caravaggio's Saint Francis in Prayer and Saint Francis in Meditation carry each other's names on Wikipedia, which calls the Cremona picture Meditation and the Rome one Prayer. Each About card is matched to its picture by Wikidata, so its text is right, but it opens under the other title. Scholars use both names for both; decide whether to rename the puzzles.
 
 ## When the user adds images

@@ -6490,5 +6490,331 @@
     "name": "Crucifix",
     "scientific": "Gilded copper alloy, 1125–1150",
     "sacred": true
+  },
+  {
+    "image": "paton-the-quarrel-of-oberon-and-titania.webp",
+    "artist": "Joseph Noel Paton",
+    "name": "The Quarrel of Oberon and Titania",
+    "scientific": "1849",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "paton-puck-and-fairies.webp",
+    "artist": "Joseph Noel Paton",
+    "name": "Puck and Fairies",
+    "scientific": "C. 1850",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "paton-study-from-nature-inveruglas.webp",
+    "artist": "Joseph Noel Paton",
+    "name": "Study from Nature: Inveruglas",
+    "scientific": "1857"
+  },
+  {
+    "image": "paton-christian-at-the-foot-of-the-cross.webp",
+    "artist": "Joseph Noel Paton",
+    "name": "Christian at the Foot of the Cross",
+    "scientific": "1873",
+    "sacred": true
+  },
+  {
+    "image": "sandys-morgan-le-fay.webp",
+    "artist": "Frederick Sandys",
+    "name": "Morgan le Fay",
+    "scientific": "1864"
+  },
+  {
+    "image": "sandys-medea.webp",
+    "artist": "Frederick Sandys",
+    "name": "Medea",
+    "scientific": "1866–1868",
+    "content": [
+      "violence"
+    ]
+  },
+  {
+    "image": "sandys-loves-shadow.webp",
+    "artist": "Frederick Sandys",
+    "name": "Love's Shadow",
+    "scientific": "1867"
+  },
+  {
+    "image": "sandys-vivien.webp",
+    "artist": "Frederick Sandys",
+    "name": "Vivien",
+    "scientific": "1863"
+  },
+  {
+    "image": "sandys-queen-eleanor.webp",
+    "artist": "Frederick Sandys",
+    "name": "Queen Eleanor",
+    "scientific": "1858",
+    "content": [
+      "violence"
+    ]
+  },
+  {
+    "image": "sandys-grace-rose.webp",
+    "artist": "Frederick Sandys",
+    "name": "Grace Rose",
+    "scientific": "1866"
+  },
+  {
+    "image": "sandys-susanna-rose.webp",
+    "artist": "Frederick Sandys",
+    "name": "Susanna Rose",
+    "scientific": "1862"
+  },
+  {
+    "image": "sandys-whitlingham-norfolk.webp",
+    "artist": "Frederick Sandys",
+    "name": "Whitlingham, Norfolk",
+    "scientific": "C. 1860"
+  },
+  {
+    "image": "brett-the-stonebreaker.webp",
+    "artist": "John Brett",
+    "name": "The Stonebreaker",
+    "scientific": "1857–1858"
+  },
+  {
+    "image": "brett-february-in-the-isle-of-wight.webp",
+    "artist": "John Brett",
+    "name": "February in the Isle of Wight",
+    "scientific": "1866"
+  },
+  {
+    "image": "brett-massa-bay-of-naples.webp",
+    "artist": "John Brett",
+    "name": "Massa, Bay of Naples",
+    "scientific": "1864"
+  },
+  {
+    "image": "brett-near-sorrento.webp",
+    "artist": "John Brett",
+    "name": "Near Sorrento",
+    "scientific": "1863"
+  },
+  {
+    "image": "brett-a-north-west-gale-off-the-longships-lighthouse.webp",
+    "artist": "John Brett",
+    "name": "A North-West Gale off the Longships Lighthouse",
+    "scientific": "1873"
+  },
+  {
+    "image": "brett-caernarvon.webp",
+    "artist": "John Brett",
+    "name": "Caernarvon",
+    "scientific": "1875"
+  },
+  {
+    "image": "brett-southern-coast-of-guernsey.webp",
+    "artist": "John Brett",
+    "name": "Southern Coast of Guernsey",
+    "scientific": "1875"
+  },
+  {
+    "image": "brett-pwll-cwn.webp",
+    "artist": "John Brett",
+    "name": "Pwll Cwn",
+    "scientific": "1882"
+  },
+  {
+    "image": "brett-man-of-war-rocks-coast-of-dorset.webp",
+    "artist": "John Brett",
+    "name": "Man of War Rocks, Coast of Dorset",
+    "scientific": "1884"
+  },
+  {
+    "image": "brett-the-shallows-of-hareslade-cove-gower.webp",
+    "artist": "John Brett",
+    "name": "The Shallows of Hareslade Cove, Gower",
+    "scientific": "1887"
+  },
+  {
+    "image": "brett-kynance.webp",
+    "artist": "John Brett",
+    "name": "Kynance",
+    "scientific": "1888"
+  },
+  {
+    "image": "brett-a-view-of-felixstowe.webp",
+    "artist": "John Brett",
+    "name": "A View of Felixstowe",
+    "scientific": "1893"
+  },
+  {
+    "image": "anderson-the-song-of-the-lark.webp",
+    "artist": "Sophie Gengembre Anderson",
+    "name": "The Song of the Lark",
+    "scientific": "Date unknown"
+  },
+  {
+    "image": "anderson-elaine.webp",
+    "artist": "Sophie Gengembre Anderson",
+    "name": "Elaine",
+    "scientific": "1870",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "anderson-scheherazade.webp",
+    "artist": "Sophie Gengembre Anderson",
+    "name": "Scheherazade",
+    "scientific": "C. 1875"
+  },
+  {
+    "image": "anderson-little-helper.webp",
+    "artist": "Sophie Gengembre Anderson",
+    "name": "The Little Helper",
+    "scientific": "1872"
+  },
+  {
+    "image": "anderson-girl-with-lilac.webp",
+    "artist": "Sophie Gengembre Anderson",
+    "name": "Girl with Lilac",
+    "scientific": "Date unknown"
+  },
+  {
+    "image": "anderson-heavenwards.webp",
+    "artist": "Sophie Gengembre Anderson",
+    "name": "Heavenwards",
+    "scientific": "1883"
+  },
+  {
+    "image": "anderson-at-the-well.webp",
+    "artist": "Sophie Gengembre Anderson",
+    "name": "At the Well",
+    "scientific": "Date unknown"
+  },
+  {
+    "image": "anderson-the-flower-girl-capri.webp",
+    "artist": "Sophie Gengembre Anderson",
+    "name": "The Flower Girl, Capri",
+    "scientific": "Before 1894"
+  },
+  {
+    "image": "anderson-simplicity.webp",
+    "artist": "Sophie Gengembre Anderson",
+    "name": "Simplicity",
+    "scientific": "Date unknown"
+  },
+  {
+    "image": "landseer-the-monarch-of-the-glen.webp",
+    "artist": "Edwin Landseer",
+    "name": "The Monarch of the Glen",
+    "scientific": "1851"
+  },
+  {
+    "image": "landseer-lion-a-newfoundland-dog.webp",
+    "artist": "Edwin Landseer",
+    "name": "'Lion', a Newfoundland Dog",
+    "scientific": "1824"
+  },
+  {
+    "image": "landseer-hector-nero-and-dash-with-the-parrot-lory.webp",
+    "artist": "Edwin Landseer",
+    "name": "Hector, Nero and Dash with the Parrot Lory",
+    "scientific": "1838"
+  },
+  {
+    "image": "landseer-scene-from-a-midsummer-nights-dream.webp",
+    "artist": "Edwin Landseer",
+    "name": "Scene from A Midsummer Night's Dream",
+    "scientific": "1848–1851",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "landseer-favourites.webp",
+    "artist": "Edwin Landseer",
+    "name": "Favourites",
+    "scientific": "1834–1835",
+    "effect": "gallop"
+  },
+  {
+    "image": "landseer-the-cats-paw.webp",
+    "artist": "Edwin Landseer",
+    "name": "The Cat's Paw",
+    "scientific": "1824",
+    "content": [
+      "violence"
+    ]
+  },
+  {
+    "image": "landseer-donald-mcintyre.webp",
+    "artist": "Edwin Landseer",
+    "name": "Donald McIntyre",
+    "scientific": "C. 1830"
+  },
+  {
+    "image": "landseer-a-highland-landscape.webp",
+    "artist": "Edwin Landseer",
+    "name": "A Highland Landscape",
+    "scientific": "C. 1830"
+  },
+  {
+    "image": "landseer-hawking-in-the-olden-time.webp",
+    "artist": "Edwin Landseer",
+    "name": "Hawking in the Olden Time",
+    "scientific": "1832",
+    "content": [
+      "violence"
+    ],
+    "effect": "gallop"
+  },
+  {
+    "image": "landseer-deer-and-deer-hounds-in-a-mountain-torrent.webp",
+    "artist": "Edwin Landseer",
+    "name": "Deer and Deer Hounds in a Mountain Torrent",
+    "scientific": "1832",
+    "content": [
+      "violence"
+    ]
+  },
+  {
+    "image": "landseer-lion-defending-its-prey.webp",
+    "artist": "Edwin Landseer",
+    "name": "Lion Defending its Prey",
+    "scientific": "C. 1840",
+    "content": [
+      "violence",
+      "frightening"
+    ]
+  },
+  {
+    "image": "landseer-van-amburgh-and-his-animals.webp",
+    "artist": "Edwin Landseer",
+    "name": "Mr. Van Amburgh with His Animals",
+    "scientific": "1846–1847",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "landseer-members-of-the-sheridan-family.webp",
+    "artist": "Edwin Landseer",
+    "name": "Members of the Sheridan Family",
+    "scientific": "1847"
+  },
+  {
+    "image": "landseer-a-group-of-animals-geneva.webp",
+    "artist": "Edwin Landseer",
+    "name": "A Group of Animals",
+    "scientific": "1851",
+    "effect": "gallop"
+  },
+  {
+    "image": "landseer-rent-day-in-the-wilderness.webp",
+    "artist": "Edwin Landseer",
+    "name": "Rent-Day in the Wilderness",
+    "scientific": "1855–1868"
   }
 ]
