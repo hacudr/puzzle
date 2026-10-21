@@ -691,13 +691,37 @@ function openCollection(c) {
   show('collection');
 }
 
+// The artist's bio spans exactly the columns of cards under it. The columns are
+// centred and their number changes with the width, so it is measured from the grid
+// each time the grid changes size (which includes the page being shown).
+function fitBio() {
+  const grid = $('#grid');
+  const cs = getComputedStyle(grid);
+  const cols = cs.gridTemplateColumns.split(' ').map(parseFloat).filter((n) => n > 0);
+  if (!cols.length) return;
+  const wide = cols.reduce((s, n) => s + n, 0) + parseFloat(cs.columnGap) * (cols.length - 1);
+  $('#artistBio').style.width = `${Math.round(wide)}px`;
+}
+new ResizeObserver(fitBio).observe($('#grid'));
+
 // One artist's puzzles. Coming back to the same artist keeps the page where it was.
 function openArtist(a) {
   game = null;
   if (a !== artist) {
     artist = a;
-    $('#artistNote').textContent = a.note || '';
+    // with a bio, the italic note ("French, 1840–1926") ends it instead of standing over the name
+    $('#artistNote').textContent = a.bio ? '' : a.note || '';
+    $('#artistNote').hidden = !!a.bio;
     $('#artistName').textContent = a.name;
+    const bio = $('#artistBio');
+    bio.textContent = a.bio || '';
+    if (a.bio && a.note) {
+      const note = document.createElement('em');
+      note.className = 'bio-note';
+      note.textContent = a.note;
+      bio.append(' ', note);
+    }
+    bio.hidden = !a.bio;
     const grid = $('#grid');
     grid.textContent = '';
     for (const p of a.puzzles) {
@@ -1473,7 +1497,7 @@ async function boot() {
     .map((name) => {
       const all = puzzles.filter((p) => p.artist === name);
       const about = listed.find((a) => a.name === name) || {};
-      return { name, note: about.note, sort: about.sort || name.split(' ').pop(), period: about.period || 'Other artists', usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, focus: about.cover && about.focus, all };
+      return { name, note: about.note, bio: about.bio, sort: about.sort || name.split(' ').pop(), period: about.period || 'Other artists', usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, focus: about.cover && about.focus, all };
     })
     .filter((a) => a.all.length);
   const era = (name) => eras.find((t) => t.name === name) || {};

@@ -58,8 +58,12 @@ function excerpt(text) {
     if (out && (out + s).split(/\s+/).length > WORDS) break;
     out += s;
   }
-  return out.replace(/\s+/g, ' ').trim();
+  return named(out.replace(/\s+/g, ' ').trim());
 }
+
+// "Van Gogh" is not a surname to stand alone: he is always Vincent van Gogh
+// (his brother Theo van Gogh keeps his own name)
+const named = (text) => text.replace(/(?<!\b(?:Vincent|Theo) )\b[Vv]an Gogh\b/g, 'Vincent van Gogh');
 
 async function main() {
   const wanted = puzzles.map((p) => {

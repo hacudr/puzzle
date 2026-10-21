@@ -265,6 +265,11 @@ button {
 .gallery-head { position: relative; text-align: center; padding: 0 24px 8px; }
 .gallery-head h1, .settings-body h1 { margin: 4px 0 0; font-weight: 500; font-size: 2.6rem; letter-spacing: .01em; }
 .level-note { margin: 10px 0 0; font-style: italic; color: var(--ink-soft); }
+/* a sentence or two on the artist, under their name */
+/* its width is set in app.js (fitBio) to span the cards below */
+.bio-note { white-space: nowrap; }
+/* justified, its last line to the left, with a fine rule under it before the level line */
+.bio { max-width: 100%; margin: 14px auto 0; padding-bottom: 14px; border-bottom: 1px solid rgba(var(--ink-rgb), .14); text-align: justify; hyphens: auto; font-size: 1.05rem; line-height: 1.45; color: var(--ink-soft); text-wrap: pretty; }
 /* the difficulty's name, underlined as a link to it in Settings */
 .level-link {
   font: inherit;

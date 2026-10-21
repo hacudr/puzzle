@@ -2,6 +2,7 @@
   {
     "name": "Claude Monet",
     "note": "French, 1840–1926",
+    "bio": "A founder of Impressionism, whose Impression, Sunrise gave the movement its name, Monet painted outdoors to catch the changing light on water, fields and gardens. In his garden at Giverny he painted his water lilies again and again for the last decades of his life.",
     "period": "Impressionism",
     "cover": "monet-woman-with-a-parasol.webp"
   },
@@ -9,24 +10,28 @@
     "name": "Leonardo da Vinci",
     "sort": "Leonardo",
     "note": "Italian, 1452–1519",
+    "bio": "The great all-round genius of the Italian Renaissance, Leonardo was a painter, inventor, engineer and student of the human body. He finished few paintings, but they include the Mona Lisa and The Last Supper.",
     "period": "Renaissance",
     "cover": "leonardo-da-vinci-mona-lisa.webp"
   },
   {
     "name": "Giovanni Bellini",
     "note": "Italian, c. 1430–1516",
+    "bio": "The leading painter of early Renaissance Venice, Bellini brought warm colour and soft, natural light to his Madonnas and portraits. Titian and Giorgione are said to have trained in his workshop.",
     "period": "Renaissance",
     "cover": "bellini-the-infant-bacchus.webp"
   },
   {
     "name": "Sandro Botticelli",
     "note": "Italian, c. 1446–1510",
+    "bio": "A Florentine painter of the Early Renaissance, Botticelli worked for the Medici family and painted graceful figures with flowing lines. He is best known for The Birth of Venus and Primavera.",
     "period": "Renaissance",
     "cover": "botticelli-giuliano-de-medici.webp"
   },
   {
     "name": "El Greco",
     "note": "Greek, worked in Spain, 1541–1614",
+    "bio": "Born on Crete and trained in Venice, El Greco settled in Toledo, Spain. His long, flickering figures and strange, intense colours belong to the late Renaissance style called Mannerism.",
     "period": "Renaissance",
     "cover": "el-greco-saint-martin-and-the-beggar.webp",
     "focus": "50% 0%"
@@ -34,12 +39,14 @@
   {
     "name": "Vincent van Gogh",
     "note": "Dutch, 1853–1890",
+    "bio": "A Dutch Post-Impressionist, Vincent van Gogh painted for only about ten years, yet his bold colour and thick, swirling brushstrokes changed modern art. He sold almost nothing in his lifetime and is now one of the best-loved painters in the world.",
     "period": "Post-Impressionism",
     "cover": "gogh-self-portrait.webp"
   },
   {
     "name": "Raphael",
     "note": "Italian, 1483–1520",
+    "bio": "With Leonardo and Michelangelo, Raphael was one of the three great masters of the High Renaissance. He was famous for calm, graceful Madonnas and for the frescoes he painted in the Pope’s rooms in the Vatican.",
     "period": "Renaissance",
     "cover": "raphael-the-small-cowper-madonna.webp"
   },
@@ -47,18 +54,21 @@
     "name": "Rembrandt van Rijn",
     "sort": "Rembrandt",
     "note": "Dutch, 1606–1669",
+    "bio": "The greatest painter of the Dutch Golden Age, Rembrandt used deep shadow and warm light to show the inner life of his sitters. He made dozens of self-portraits, from youth to old age.",
     "period": "Baroque",
     "cover": "rembrandt-van-rijn-self-portrait.webp"
   },
   {
     "name": "Peter Paul Rubens",
     "note": "Flemish, 1577–1640",
+    "bio": "The leading painter of the Flemish Baroque, Rubens filled huge canvases with movement, rich colour and energetic figures. He was also a diplomat, sent on missions between the royal courts of Europe.",
     "period": "Baroque",
     "cover": "rubens-daniel-in-the-lions-den.webp"
   },
   {
     "name": "Artemisia Gentileschi",
     "note": "Italian, 1593–after 1654",
+    "bio": "One of the first women to succeed as a painter in the Baroque era, Gentileschi followed Caravaggio’s dramatic light and shadow. She often painted strong heroines from the Bible and history.",
     "period": "Baroque",
     "also": [
       "Female Artists"
@@ -68,6 +78,7 @@
   {
     "name": "Berthe Morisot",
     "note": "French, 1841–1895",
+    "bio": "A founding member of the Impressionist group, Morisot showed in all but one of its eight exhibitions. She painted women and children at home and in gardens with quick, feathery brushstrokes.",
     "period": "Impressionism",
     "also": [
       "Female Artists"
@@ -77,12 +88,14 @@
   {
     "name": "Caravaggio",
     "note": "Italian, 1571–1610",
+    "bio": "Caravaggio thrilled and shocked Rome with true-to-life people lit by a dramatic spotlight against dark backgrounds. His strong contrast of light and shadow shaped Baroque painting across Europe.",
     "period": "Baroque",
     "cover": "caravaggio-boy-with-a-basket-of-fruit.webp"
   },
   {
     "name": "Mary Cassatt",
     "note": "American, 1844–1926",
+    "bio": "An American who spent most of her life in Paris, Cassatt was the only American to exhibit with the Impressionists. She is best known for her tender pictures of mothers and children.",
     "period": "Impressionism",
     "also": [
       "Female Artists"
@@ -92,12 +105,14 @@
   {
     "name": "Titian",
     "note": "Italian, c. 1488–1576",
+    "bio": "The greatest painter of Renaissance Venice, Titian was famous for rich colour and free, loose brushwork. Kings and popes sat for his portraits, and he went on painting for more than sixty years.",
     "period": "Renaissance",
     "cover": "titian-ranuccio-farnese.webp"
   },
   {
     "name": "Michelangelo",
     "note": "Italian, 1475–1564",
+    "bio": "Sculptor, painter and architect of the High Renaissance, Michelangelo carved the marble David and painted the ceiling of the Sistine Chapel. His powerful, muscular figures inspired artists for centuries.",
     "period": "Renaissance",
     "cover": "michelangelo-the-creation-of-adam.webp",
     "focus": "75% 50%"
@@ -105,12 +120,14 @@
   {
     "name": "Paul Cézanne",
     "note": "French, 1839–1906",
+    "bio": "A French Post-Impressionist, Cézanne built his pictures from patches of colour, looking for the solid shapes beneath nature. Picasso and the Cubists saw him as the father of modern art.",
     "period": "Post-Impressionism",
     "cover": "cezanne-boy-in-a-red-waistcoat.webp"
   },
   {
     "name": "Edgar Degas",
     "note": "French, 1834–1917",
+    "bio": "Degas showed with the Impressionists but called himself a realist, preferring the studio to painting outdoors. He is famous for ballet dancers, racehorses and everyday Paris life seen from unusual angles.",
     "period": "Impressionism",
     "cover": "degas-four-dancers.webp",
     "focus": "0% 50%"
@@ -118,6 +135,7 @@
   {
     "name": "Edouard Manet",
     "note": "French, 1832–1883",
+    "bio": "Manet painted modern Paris in bold, flat colour, and his daring pictures shocked the official art world. The young Impressionists looked to him as their leader, though he never showed in their exhibitions.",
     "period": "Impressionism",
     "cover": "manet-the-railway.webp",
     "focus": "40% 50%"
@@ -125,6 +143,7 @@
   {
     "name": "Paul Gauguin",
     "note": "French, 1848–1903",
+    "bio": "A Post-Impressionist who began as a stockbroker, Gauguin painted in flat areas of bold colour, first in Brittany and later in Tahiti. He looked to folk art and faraway places for a simpler way of seeing.",
     "period": "Post-Impressionism",
     "cover": "gauguin-breton-girls-dancing-pont-aven.webp",
     "focus": "35% 50%"
@@ -132,12 +151,14 @@
   {
     "name": "Auguste Renoir",
     "note": "French, 1841–1919",
+    "bio": "A leading Impressionist who began as a painter of porcelain, Renoir loved to paint people enjoying themselves: dances, boating parties, women and children, all in warm, feathery colour.",
     "period": "Impressionism",
     "cover": "renoir-a-girl-with-a-watering-can.webp"
   },
   {
     "name": "Amedeo Modigliani",
     "note": "Italian, 1884–1920",
+    "bio": "An Italian who worked in Paris, Modigliani painted portraits with long necks, oval faces and almond-shaped eyes, inspired partly by African and ancient sculpture. He died poor at 35, just as his fame began to grow.",
     "period": "Modern",
     "cover": "modigliani-girl-in-a-green-blouse.webp",
     "focus": "50% 0%"
@@ -145,30 +166,35 @@
   {
     "name": "Georges Seurat",
     "note": "French, 1859–1891",
+    "bio": "Seurat invented pointillism, building his pictures from tiny dots of pure colour that blend in the eye. He died at only 31, but his careful, scientific method shaped Post-Impressionism.",
     "period": "Post-Impressionism",
     "cover": "seurat-the-lighthouse-at-honfleur.webp"
   },
   {
     "name": "Henri de Toulouse-Lautrec",
     "note": "French, 1864–1901",
+    "bio": "Toulouse-Lautrec painted the nightlife of Montmartre in Paris, its dancers, singers and cafés, with quick, lively lines. His bold posters for the Moulin Rouge helped make the poster an art form.",
     "period": "Post-Impressionism",
     "cover": "toulouse-lautrec-marcelle-lender-dancing-the-bolero-in-chilperic.webp"
   },
   {
     "name": "Auguste Rodin",
     "note": "French, 1840–1917",
+    "bio": "The most famous sculptor of his time, Rodin modelled bodies full of movement and feeling, as in The Thinker and The Kiss. His rough, expressive surfaces opened the way to modern sculpture.",
     "period": "Post-Impressionism",
     "cover": "rodin-the-thinker.webp"
   },
   {
     "name": "J. M. W. Turner",
     "note": "British, 1775–1851",
+    "bio": "The great English painter of Romanticism, Turner turned storms, sunsets and steam into swirls of light and colour. His later, almost abstract pictures pointed the way to Impressionism.",
     "period": "Romanticism and Realism",
     "cover": "turner-keelmen-heaving-in-coals-by-moonlight.webp"
   },
   {
     "name": "Jean-Baptiste-Camille Corot",
     "note": "French, 1796–1875",
+    "bio": "A bridge between Romantic landscape and Impressionism, Corot painted outdoors in France and Italy and is loved for the silvery, misty landscapes of his later years. The young Impressionists looked to him as a master.",
     "period": "Romanticism and Realism",
     "cover": "corot-agostina.webp"
   },
@@ -176,24 +202,28 @@
     "name": "Hudson River School",
     "sort": "Hudson",
     "note": "American, 1825–1880",
+    "bio": "Not one painter but a group of American landscape artists, led by Thomas Cole, who painted the wild valleys and mountains of New York and New England. Their grand, glowing views share the Romantic sense of nature as awe-inspiring and sacred.",
     "period": "Romanticism and Realism",
     "cover": "cole-the-oxbow.webp"
   },
   {
     "name": "Edwin Landseer",
     "note": "British, 1802–1873",
+    "bio": "Victorian Britain's best-loved animal painter and a favourite of Queen Victoria, Landseer gave the Romantic love of the Scottish Highlands its stags and noble dogs. He also modelled the bronze lions in Trafalgar Square.",
     "period": "Romanticism and Realism",
     "cover": "landseer-the-monarch-of-the-glen.webp"
   },
   {
     "name": "Camille Pissarro",
     "note": "French, 1830–1903",
+    "bio": "The oldest of the Impressionists, and the only one to show in all eight of their exhibitions, Pissarro painted farms, villages and later busy city streets. He was a generous teacher to the younger Cézanne and Gauguin.",
     "period": "Impressionism",
     "cover": "pissarro-orchard-in-bloom-louveciennes.webp"
   },
   {
     "name": "James McNeill Whistler",
     "note": "American, 1834–1903",
+    "bio": "An American who lived in London and Paris, Whistler painted misty river scenes and portraits in soft, harmonious tones. He named his pictures like music, as symphonies, nocturnes and arrangements.",
     "period": "Impressionism",
     "cover": "whistler-symphony-in-white-no-1-the-white-girl.webp",
     "focus": "50% 0%"
@@ -201,12 +231,14 @@
   {
     "name": "Joseph DeCamp",
     "note": "American, 1858–1923",
+    "bio": "A Boston painter and a member of the Ten American Painters, a group of American Impressionists, DeCamp painted calm, light-filled rooms with women reading, sewing or playing music.",
     "period": "Impressionism",
     "cover": "decamp-the-seamstress.webp"
   },
   {
     "name": "Michalina Janoszanka",
     "note": "Polish, 1889–1952",
+    "bio": "A Polish painter of the Young Poland era, Janoszanka made dreamy, decorative pictures of birds, butterflies and the seasons, close in spirit to Art Nouveau.",
     "period": "Modern",
     "also": [
       "Female Artists"
@@ -216,6 +248,7 @@
   {
     "name": "Virginia Frances Sterrett",
     "note": "American, 1900–1931",
+    "bio": "A young American illustrator, Sterrett drew fairy tales in fine lines and soft, glowing colour, working on through a long illness. She illustrated three books before her death at 30.",
     "period": "Modern",
     "also": [
       "Female Artists"
@@ -225,30 +258,35 @@
   {
     "name": "Gustav Klimt",
     "note": "Austrian, 1862–1918",
+    "bio": "The leading painter of the Vienna Secession, Klimt combined gold leaf, rich patterns and dreamy figures, as in The Kiss. His portraits of Viennese women are among the great works of Art Nouveau.",
     "period": "Modern",
     "cover": "klimt-mada-primavesi.webp"
   },
   {
     "name": "Joseph Stella",
     "note": "American, 1877–1946",
+    "bio": "An Italian-born American, Stella was one of the first to bring Futurism to the United States, painting Coney Island and the Brooklyn Bridge as bursts of light, colour and movement.",
     "period": "Modern",
     "cover": "stella-brooklyn-bridge.webp"
   },
   {
     "name": "Walter Crane",
     "note": "British, 1845–1915",
+    "bio": "A British illustrator and designer, Crane made some of the most beautiful children’s picture books of the Victorian age. A friend of William Morris, he was a leader of the Arts and Crafts movement.",
     "period": "Post-Impressionism",
     "cover": "crane-valentine-765291.webp"
   },
   {
     "name": "John Everett Millais",
     "note": "British, 1829–1896",
+    "bio": "A child prodigy and a founder of the Pre-Raphaelite Brotherhood, Millais painted early works such as Ophelia in astonishing detail. He went on to become one of the most successful painters in Victorian Britain.",
     "period": "Pre-Raphaelites",
     "cover": "millais-the-blind-girl.webp"
   },
   {
     "name": "Dante Gabriel Rossetti",
     "note": "British, 1828–1882",
+    "bio": "Poet as well as painter, Rossetti was a founder of the Pre-Raphaelite Brotherhood in 1848. His later pictures of dreamy women with flowing hair and rich colour helped shape the Aesthetic Movement.",
     "period": "Pre-Raphaelites",
     "cover": "rossetti-the-day-dream.webp",
     "focus": "50% 0%"
@@ -256,18 +294,21 @@
   {
     "name": "William Holman Hunt",
     "note": "British, 1827–1910",
+    "bio": "A founder of the Pre-Raphaelite Brotherhood in 1848, Hunt kept to its ideals of sharp detail and bright, natural colour all his life. He travelled to the Holy Land to paint Bible scenes where they took place.",
     "period": "Pre-Raphaelites",
     "cover": "hunt-our-english-coasts-1852-strayed-sheep.webp"
   },
   {
     "name": "Ford Madox Brown",
     "note": "British, 1821–1893",
+    "bio": "An older friend of the Pre-Raphaelite Brotherhood rather than a member, Brown shared its bright colour and close detail. He is best known for scenes of modern life, such as emigrants leaving England in The Last of England.",
     "period": "Pre-Raphaelites",
     "cover": "brown-the-last-of-england.webp"
   },
   {
     "name": "Arthur Hughes",
     "note": "British, 1832–1915",
+    "bio": "Drawn to the Pre-Raphaelites as a young man, Hughes painted tender scenes of love and longing, famous for their glowing purples and greens. He also illustrated many books for children.",
     "period": "Pre-Raphaelites",
     "cover": "hughes-april-love.webp",
     "focus": "50% 0%"
@@ -275,6 +316,7 @@
   {
     "name": "Edward Burne-Jones",
     "note": "British, 1833–1898",
+    "bio": "A leader of the second wave of the Pre-Raphaelites, Burne-Jones painted dreamlike scenes from myth and legend in soft, glowing colour. He worked with his friend William Morris on stained glass, tapestries and books.",
     "period": "Pre-Raphaelites",
     "cover": "burne-jones-the-golden-stairs.webp",
     "focus": "50% 0%"
@@ -282,6 +324,7 @@
   {
     "name": "Marie Spartali Stillman",
     "note": "British, 1844–1927",
+    "bio": "One of the few women painters among the Pre-Raphaelites, Stillman studied with Ford Madox Brown and modelled for Rossetti. She painted scenes from Italian poetry and legend in soft watercolour.",
     "period": "Pre-Raphaelites",
     "also": [
       "Female Artists"
@@ -292,6 +335,7 @@
     "name": "Evelyn De Morgan",
     "sort": "De Morgan",
     "note": "British, 1855–1919",
+    "bio": "A later Pre-Raphaelite inspired by Burne-Jones and the Italian Renaissance, De Morgan filled her pictures with allegorical figures in rich, jewel-like colour. She used myth to speak of the spirit, of war and of the rights of women.",
     "period": "Pre-Raphaelites",
     "also": [
       "Female Artists"
@@ -302,24 +346,28 @@
   {
     "name": "John William Waterhouse",
     "note": "British, 1849–1917",
+    "bio": "Working a generation after the Pre-Raphaelite Brotherhood, Waterhouse painted women of myth and legend, like the Lady of Shalott, in a softer, looser style. He is often called the last Pre-Raphaelite.",
     "period": "Pre-Raphaelites",
     "cover": "waterhouse-the-lady-of-shalott.webp"
   },
   {
     "name": "Edward Robert Hughes",
     "note": "British, 1851–1914",
+    "bio": "Nephew of Arthur Hughes and assistant to William Holman Hunt, he carried the Pre-Raphaelite style into the twentieth century. He was a master of watercolour, painting fairies, twilight and magic.",
     "period": "Pre-Raphaelites",
     "cover": "edward-robert-hughes-midsummer-eve.webp"
   },
   {
     "name": "Joseph Noel Paton",
     "note": "Scottish, 1821–1901",
+    "bio": "A Scottish painter close to the Pre-Raphaelites, Paton is best known for his fairy scenes from Shakespeare, crowded with tiny figures. In later life he turned to religious subjects.",
     "period": "Pre-Raphaelites",
     "cover": "paton-the-quarrel-of-oberon-and-titania.webp"
   },
   {
     "name": "Frederick Sandys",
     "note": "British, 1829–1904",
+    "bio": "A painter from Norwich in Rossetti's circle, Sandys was admired for his precise drawing and jewel-bright detail. His sorceresses and legendary queens are among the most striking Pre-Raphaelite portraits.",
     "period": "Pre-Raphaelites",
     "cover": "sandys-morgan-le-fay.webp",
     "focus": "50% 0%"
@@ -327,12 +375,14 @@
   {
     "name": "John Brett",
     "note": "British, 1831–1902",
+    "bio": "Brett began as a Pre-Raphaelite, painting every stone and leaf with near-scientific precision, encouraged by the critic John Ruskin. A keen astronomer too, he later turned to wide, glittering seascapes of the British coast.",
     "period": "Pre-Raphaelites",
     "cover": "brett-the-stonebreaker.webp"
   },
   {
     "name": "Sophie Gengembre Anderson",
     "note": "French-born British, 1823–1903",
+    "bio": "Born in Paris and settled in England, Anderson painted sweet, finely finished pictures of children and young women, close in spirit to the Pre-Raphaelites. She lived for years on the island of Capri, whose light and people fill much of her work.",
     "period": "Pre-Raphaelites",
     "also": [
       "Female Artists"
@@ -342,12 +392,14 @@
   {
     "name": "Frederic Leighton",
     "note": "British, 1830–1896",
+    "bio": "The leading figure of Victorian Classicism, Leighton painted graceful scenes of ancient Greece and Rome in warm, glowing colour. He was the first painter to be made a lord.",
     "period": "Victorian Classicism",
     "cover": "leighton-the-music-lesson.webp"
   },
   {
     "name": "Ancient Egypt",
     "note": "c. 3100 BCE – 300 CE",
+    "bio": "For three thousand years, Egyptian artists followed strict rules, showing the head and legs from the side and the eye and shoulders from the front. Most of what survives was made for tombs and temples, to last forever.",
     "period": "Ancient Art",
     "cover": "egypt-nefertari-playing-senet.webp",
     "focus": "20% 50%"
@@ -356,6 +408,7 @@
     "name": "Ancient Near East",
     "sort": "Near",
     "note": "Mesopotamia and Iran, 4000 BCE – 700 CE",
+    "bio": "The art of Mesopotamia and Iran, the land between the Tigris and Euphrates where writing and the first cities began. Assyrian kings lined their palaces with carved reliefs of lions, gods and royal power.",
     "period": "Ancient Art",
     "cover": "near-east-panel-with-striding-lion.webp",
     "focus": "15% 50%"
@@ -363,12 +416,14 @@
   {
     "name": "Ancient Greece",
     "note": "c. 2800–100 BCE",
+    "bio": "Greek artists moved from patterned pots to lifelike figures, creating the ideal human body that later Western art looked back to. Their painted vases tell stories of gods and heroes in black figures on red clay, or red on black.",
     "period": "Ancient Art",
     "cover": "greece-volute-krater.webp"
   },
   {
     "name": "Ancient Rome",
     "note": "c. 100 BCE – 400 CE",
+    "bio": "The Romans borrowed much from Greek art but added lifelike portraits and grand wall paintings. Villas buried by Vesuvius in 79 CE kept their painted rooms, gardens and landscapes.",
     "period": "Ancient Art",
     "cover": "rome-boscoreale-woman-with-a-kithara.webp"
   },
@@ -376,12 +431,14 @@
     "name": "Anglo-Saxon England",
     "sort": "Anglo-Saxon",
     "note": "c. 450–1066",
+    "bio": "The art of the English from the fifth century to the Norman Conquest of 1066. Its finest pieces are jewellery of gold and red garnet, brooches and pendants worked in swirling patterns.",
     "period": "Anglo-Saxon and Saxon Art",
     "cover": "anglo-saxon-disk-brooch.webp"
   },
   {
     "name": "Saxony",
     "note": "Ottonian and Romanesque, c. 960–1270",
+    "bio": "Saxony was home to the Ottonian emperors, Saxon kings who ruled the Holy Roman Empire around the year 1000. They filled their churches with carved ivory, metalwork and painted books, and the Romanesque art that followed.",
     "period": "Anglo-Saxon and Saxon Art",
     "cover": "saxon-prophet-king.webp"
   }
