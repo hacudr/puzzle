@@ -600,51 +600,6 @@
     "scientific": "fresco, c. 1483–1486"
   },
   {
-    "image": "botticelli-the-story-of-nastagio-degli-onesti-i.webp",
-    "artist": "Sandro Botticelli",
-    "name": "The Story of Nastagio degli Onesti, I",
-    "scientific": "1483",
-    "content": [
-      "nudity",
-      "violence",
-      "frightening"
-    ],
-    "effect": [
-      "sword",
-      "gallop"
-    ]
-  },
-  {
-    "image": "botticelli-the-story-of-nastagio-degli-onesti-ii.webp",
-    "artist": "Sandro Botticelli",
-    "name": "The Story of Nastagio degli Onesti, II",
-    "scientific": "1483",
-    "content": [
-      "nudity",
-      "violence",
-      "frightening"
-    ],
-    "effect": [
-      "sword",
-      "gallop"
-    ]
-  },
-  {
-    "image": "botticelli-the-story-of-nastagio-degli-onesti-iii.webp",
-    "artist": "Sandro Botticelli",
-    "name": "The Story of Nastagio degli Onesti, III",
-    "scientific": "1483",
-    "content": [
-      "nudity",
-      "violence",
-      "frightening"
-    ],
-    "effect": [
-      "sword",
-      "gallop"
-    ]
-  },
-  {
     "image": "botticelli-the-story-of-virginia.webp",
     "artist": "Sandro Botticelli",
     "name": "The Story of Virginia",
