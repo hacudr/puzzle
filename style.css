@@ -472,17 +472,13 @@ button {
   place-items: center;
   width: 34px;
   height: 34px;
-  border-radius: 50%;
-  background: rgba(20, 16, 12, .62);
-  box-shadow: 0 0 0 1px rgba(243, 235, 221, .18);
   pointer-events: none;
 }
 .shape::before {
   content: "";
-  box-sizing: border-box;
-  border: 2px solid var(--cream);
   border-radius: 2px;
-  background: rgba(243, 235, 221, .22);
+  background: #fff;
+  box-shadow: 0 0 0 1px #000;
 }
 .shape.tall::before { width: 14px; height: 20px; }
 .shape.wide::before { width: 20px; height: 14px; }
