@@ -14,7 +14,7 @@ const FRAME_KEY = 'puzzle.frame';
 const SPLASH_KEY = 'puzzle.splash';
 const WELCOMED_KEY = 'puzzle.welcomed';
 // the colour of the page in each theme, for the bar round the app
-const THEMES = { blush: '#f3d9d1', lace: '#f1e6d0', celadon: '#c8d9d0', sage: '#b9c5a3', walnut: '#2b1f18', burgundy: '#3b1827', crimson: '#4a1218' };
+const THEMES = { blush: '#f3d9d1', lace: '#f1e6d0', celadon: '#c8d9d0', sage: '#b9c5a3', walnut: '#2b1f18', burgundy: '#3b1827', crimson: '#4a1218', peacock: '#052e3e' };
 // how long Off is held to leave Kids mode, in ms
 const KIDS_HOLD = 3000;
 // height of the reference picture, and limits for the reserve strip, in px
@@ -137,8 +137,16 @@ function showLevel() {
   });
   // the collection says which difficulty is chosen, as "Easy · about 40 pieces"
   const button = $(`#levels [data-level="${level}"]`);
-  const note = (kids ? 'Kids mode' : button.firstChild.textContent) + ' · ' + button.querySelector('small').textContent;
-  document.querySelectorAll('.level-note').forEach((el) => (el.textContent = note));
+  // the name is a link to the Difficulty choice in Settings
+  const name = kids ? 'Kids mode' : button.firstChild.textContent;
+  const rest = ' · ' + button.querySelector('small').textContent;
+  document.querySelectorAll('.level-note').forEach((el) => {
+    const link = document.createElement('button');
+    link.className = 'level-link';
+    link.textContent = name;
+    link.addEventListener('click', () => openSettings(el.closest('.screen').id, '#levels'));
+    el.replaceChildren(link, rest);
+  });
   labelCards();
 }
 
@@ -1338,15 +1346,16 @@ $('#collectionBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => visit(nextPuzzle(game.p)));
 
-document.querySelectorAll('.gear').forEach((b) =>
-  b.addEventListener('click', () => {
-    settingsFrom = b.closest('.screen').id;
-    artistBefore = artist;
-    collectionBefore = collection;
-    showSound();
-    show('settings');
-  })
-);
+// Settings from a page of the gallery; `at` names a part of Settings to land on
+function openSettings(from, at) {
+  settingsFrom = from;
+  artistBefore = artist;
+  collectionBefore = collection;
+  showSound();
+  show('settings');
+  if (at) $(at).closest('section').scrollIntoView({ block: 'center' });
+}
+document.querySelectorAll('.gear').forEach((b) => b.addEventListener('click', () => openSettings(b.closest('.screen').id)));
 $('#settingsBack').addEventListener('click', async () => {
   // A new difficulty reopens the same picture at it, where that one was left
   // off; the old difficulty keeps its own progress.

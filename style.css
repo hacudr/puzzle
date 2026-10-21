@@ -121,6 +121,24 @@
   --label-rgb: 17, 17, 17;
 }
 
+/* Peacock: a deep blue with green in it, as of a peacock's neck, with the lettering in off-white */
+:root[data-theme="peacock"] {
+  --page: #052e3e;
+  --page-rgb: 5, 46, 62;
+  --ink: #f2ecdf;
+  --ink-rgb: 242, 236, 223;
+  --ink-soft: #a8c4cb;
+  --shadow-rgb: 0, 0, 0;
+  --card-shadow: 0 0 0 1px rgba(242, 236, 223, .09), 0 12px 28px -12px rgba(0, 0, 0, .7);
+  --glow: rgba(30, 140, 165, .32);
+  --shade: rgba(0, 8, 14, .82);
+  --table: #0a3c4f;
+  --peek: rgba(5, 46, 62, .93);
+  --knob-on: var(--page);
+  --label: var(--offwhite);
+  --label-rgb: 17, 17, 17;
+}
+
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 [hidden] { display: none !important; }
 
@@ -247,6 +265,18 @@ button {
 .gallery-head { position: relative; text-align: center; padding: 0 24px 8px; }
 .gallery-head h1, .settings-body h1 { margin: 4px 0 0; font-weight: 500; font-size: 2.6rem; letter-spacing: .01em; }
 .level-note { margin: 10px 0 0; font-style: italic; color: var(--ink-soft); }
+/* the difficulty's name, underlined as a link to it in Settings */
+.level-link {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
 .gear:active { background: rgba(var(--ink-rgb), .1); }
 
 /* ---------- Settings ---------- */
