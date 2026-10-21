@@ -1470,7 +1470,8 @@ async function boot() {
   const era = (name) => eras.find((t) => t.name === name) || {};
   const shelf = (name) => era(name).collection || 'Other pictures';
   // a collection's artists go in the order of their periods, then of artists.json,
-  // except that the one it names as its `start` comes first
+  // or by surname (`sort`) when it says "order": "surname", except that the one it
+  // names as its `start` comes first
   const rank = (a) => {
     const i = eras.findIndex((t) => t.name === a.period);
     return i < 0 ? eras.length : i;
@@ -1478,7 +1479,8 @@ async function boot() {
   const names = [...new Set([...shelves.map((c) => c.name), ...everyone.map((a) => shelf(a.period))])];
   everyCollection = names.map((name, i) => {
     const about = shelves.find((c) => c.name === name) || {};
-    const mine = everyone.filter((a) => shelf(a.period) === name).sort((a, b) => rank(a) - rank(b));
+    const bySurname = (a, b) => a.sort.localeCompare(b.sort) || a.name.localeCompare(b.name);
+    const mine = everyone.filter((a) => shelf(a.period) === name).sort(about.order === 'surname' ? bySurname : (a, b) => rank(a) - rank(b));
     const start = mine.find((a) => a.name === about.start);
     // each is numbered in its order, as Collection 1
     return { name, number: `Collection ${i + 1}`, usual: about.cover && 'puzzles/' + about.cover, everyone: start ? [start, ...mine.filter((a) => a !== start)] : mine };

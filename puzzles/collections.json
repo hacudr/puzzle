@@ -6,7 +6,8 @@
   },
   {
     "name": "Romantics & Realism",
-    "cover": "waterhouse-the-lady-of-shalott.webp"
+    "cover": "waterhouse-the-lady-of-shalott.webp",
+    "order": "surname"
   },
   {
     "name": "Ancient Art & Old Masters",
