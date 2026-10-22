@@ -1093,9 +1093,8 @@ button {
 #payDone h2 { margin-bottom: 4px; }
 
 /* Congratulations: the last picture of an artist or a collection. The screen
-   darkens, the words come up in off-white, and flakes of gold leaf drift down
-   (their fall is set in showCheer, in pixels, so Safari can run it off the
-   main thread and it never stalls). */
+   darkens, the words come up in off-white, and flakes of gold leaf drift down,
+   drawn frame by frame on one canvas by showCheer in app.js. */
 .overlay.cheer { position: fixed; z-index: 30; overflow: hidden; background: rgba(12, 9, 6, .78); -webkit-backdrop-filter: none; backdrop-filter: none; animation: fade .6s ease both; }
 .overlay.cheer.leaving { animation: cheer-out .45s ease both; }
 @keyframes cheer-out { to { opacity: 0; } }
@@ -1104,16 +1103,8 @@ button {
 .cheer-text h2 { margin: 8px 0 28px; font-weight: 500; font-size: 2.6rem; line-height: 1.15; animation: settle 1s .6s cubic-bezier(.22, .8, .25, 1) both; }
 .cheer-text .link { font-size: 1.15rem; color: #f4efe6; border-bottom-color: #f4efe6; animation: fade .8s 1.2s ease both; }
 
-/* gold leaf: small flakes that fall, turning, at their own pace */
-.leaf { position: absolute; inset: 0; pointer-events: none; }
-.leaf i {
-  position: absolute;
-  top: -20px;
-  border-radius: 1px 3px 1px 2px;
-  background: linear-gradient(135deg, #f3d98b, #c79a3c 55%, #e9c873);
-  opacity: 0;
-  will-change: transform, opacity;
-}
+/* gold leaf: one canvas over the whole screen, behind the words */
+.leaf { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) {
   .leaf { display: none; }
   .cheer-text .eyebrow, .cheer-text h2, .cheer-text .link { animation: fade .4s ease both; }

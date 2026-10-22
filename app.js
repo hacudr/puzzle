@@ -1344,35 +1344,60 @@ function showPlate(p, played = true) {
 
 // Congratulations on finishing an artist, or a whole collection (which names
 // the collection, the larger of the two), with gold leaf falling over a dark screen.
-// Each flake's fall is given in plain pixels through the Web Animations API, not
-// CSS variables in keyframes: Safari runs those on the main thread, where the
-// work of the solved screen stalled the flakes halfway down.
+// The leaf is drawn frame by frame on one canvas. As dozens of separately
+// animated flakes, by CSS or the Web Animations API, it froze halfway down on
+// the iPad, which stops updating animated layers when it has too many.
+let leafFrame = 0;
 function showCheer({ artist: a, collection: c }) {
   const el = $('#doneCheer');
   $('#cheerEyebrow').textContent = c ? 'Collection complete' : 'Chapter complete';
   $('#cheerName').textContent = c ? c.name : a.name;
-  const leaf = el.querySelector('.leaf');
-  leaf.textContent = '';
   el.classList.remove('leaving');
   el.hidden = false;
+  cancelAnimationFrame(leafFrame);
+  const canvas = el.querySelector('.leaf');
+  const ctx = canvas.getContext('2d');
+  const W = el.clientWidth, H = el.clientHeight, dpr = Math.min(2, window.devicePixelRatio || 1);
+  canvas.width = Math.round(W * dpr);
+  canvas.height = Math.round(H * dpr);
+  // cleared whole, in its own pixels, so rounding leaves no edge of old leaf
+  const wipe = () => {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  wipe();
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const rand = (lo, hi) => lo + Math.random() * (hi - lo);
-  const fall = window.innerHeight + 40;
-  for (let i = 0, n = c ? 70 : 36; i < n; i++) {
-    const f = document.createElement('i');
-    const w = rand(6, 14);
-    f.style.left = `${rand(-2, 100)}%`;
-    f.style.width = `${w.toFixed(1)}px`;
-    f.style.height = `${(w * 0.7).toFixed(1)}px`;
-    leaf.append(f);
-    const x = rand(-90, 90).toFixed(0), r = rand(-540, 540).toFixed(0);
-    f.animate([
-      { opacity: 0, transform: 'translate3d(0, 0, 0) rotate(0deg) rotateX(0deg)' },
-      { opacity: 0.95, offset: 0.08 },
-      { opacity: 0.9, offset: 0.85 },
-      { opacity: 0, transform: `translate3d(${x}px, ${fall}px, 0) rotate(${r}deg) rotateX(720deg)` },
-    ], { duration: rand(4500, 8000), delay: rand(0, c ? 3500 : 2500), easing: 'linear', fill: 'forwards' });
-  }
+  const shades = ['#9c7326', '#c79a3c', '#d4a94e', '#e9c873', '#f3d98b'];
+  const flakes = Array.from({ length: c ? 70 : 36 }, () => ({
+    x: rand(-0.02, 1) * W, w: rand(6, 14), dx: rand(-90, 90), turn: rand(-3, 3) * Math.PI,
+    t: rand(4500, 8000), d: rand(0, c ? 3500 : 2500),
+  }));
+  const start = performance.now();
+  const draw = (now) => {
+    wipe();
+    let left = 0;
+    for (const f of flakes) {
+      const k = (now - start - f.d) / f.t;
+      if (k >= 1) continue;
+      left++;
+      if (k <= 0) continue;
+      // in over the first 8%, out over the last 15%
+      const alpha = k < 0.08 ? (k / 0.08) * 0.95 : k > 0.85 ? ((1 - k) / 0.15) * 0.9 : 0.9;
+      // the flake tumbles: its height shrinks and grows as it turns over, and it catches the light face on
+      const flip = Math.cos(k * 4 * Math.PI);
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.translate(f.x + f.dx * k, -20 + (H + 40) * k);
+      ctx.rotate(f.turn * k);
+      ctx.fillStyle = shades[Math.round((flip + 1) * 2)];
+      ctx.fillRect(-f.w / 2, (-f.w * 0.35) * Math.abs(flip), f.w, Math.max(0.6, f.w * 0.7 * Math.abs(flip)));
+      ctx.restore();
+    }
+    if (left && !el.hidden) leafFrame = requestAnimationFrame(draw);
+  };
+  leafFrame = requestAnimationFrame(draw);
 }
 function closeCheer() {
   const el = $('#doneCheer');
@@ -1381,7 +1406,7 @@ function closeCheer() {
   setTimeout(() => {
     el.hidden = true;
     el.classList.remove('leaving');
-    el.querySelector('.leaf').textContent = '';
+    cancelAnimationFrame(leafFrame);
   }, 450);
 }
 
