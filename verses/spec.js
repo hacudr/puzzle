@@ -10,8 +10,9 @@
 // opening quotation mark or a word printed in capitals, which the build checks
 // leaves every letter as the edition has it.
 
-// Each edition by its Project Gutenberg number; the card names it, and its
-// translator or editor, and links its page there.
+// Each edition by its Project Gutenberg number, or for one Gutenberg lacks, a
+// key naming its page at Wikisource; the card names it, and its translator or
+// editor, and links its page.
 exports.sources = {
   10: {"title":"The King James Version of the Bible"},
   100: {"title":"The Complete Works of William Shakespeare"},
@@ -61,6 +62,13 @@ exports.sources = {
   56913: {"title":"Maud, and Other Poems"},
   70950: {"title":"In Memoriam"},
   76794: {"title":"Lalla Rookh"},
+  69566: {"title":"The Egyptian Book of the Dead","translator":"P. Le Page Renouf and Édouard Naville"},
+  28282: {"title":"Egyptian Literature","editor":"Epiphanius Wilson"},
+  2131: {"title":"An Account of Egypt","translator":"G. C. Macaulay"},
+  1666: {"title":"The Golden Asse","translator":"William Adlington"},
+  4011: {"title":"Epicoene; or, The Silent Woman"},
+  // not at Gutenberg: the page at Wikisource, from the 1851 New York edition
+  "ws-prometheus": {"title":"Prometheus Bound, and Other Poems","wikisource":"Prometheus Bound, and other poems/Sonnets"},
 };
 
 exports.verses = {
@@ -68,10 +76,10 @@ exports.verses = {
   "butterfly.webp": { source: 8824, from: "Stay near me", to: "Dead times revive in thee", poet: "William Wordsworth", poem: "To a Butterfly" },
   "spring.webp": { source: 16376, from: "The year's at the spring", to: "All's right with the world", poet: "Robert Browning", poem: "Pippa Passes" },
   "winter.webp": { source: 29090, from: "Therefore all seasons shall be sweet to thee", to: "Quietly shining to the quiet Moon", poet: "Samuel Taylor Coleridge", poem: "Frost at Midnight" },
-  "cassatt-francoise-holding-a-little-dog-looking-far-to-the-right.webp": { source: 1365, from: "Standing, with reluctant feet", to: "river’s broad expanse", poet: "Henry Wadsworth Longfellow", poem: "Maidenhood" },
+  "cassatt-francoise-holding-a-little-dog-looking-far-to-the-right.webp": { source: "ws-prometheus", from: "You see this dog", to: "leads to heights of love", poet: "Elizabeth Barrett Browning", poem: "Flush or Faunus" },
   "gogh-the-poets-garden.webp": { source: 19221, from: "Meanwhile the mind", to: "green thought in a green shade", poet: "Andrew Marvell", poem: "The Garden" },
   "renoir-child-with-brown-hair.webp": { source: 25609, from: "The world is so full", to: "happy as kings", poet: "Robert Louis Stevenson", poem: "Happy Thought" },
-  "renoir-child-with-blond-hair.webp": { source: 25609, from: "In winter I get up at night", to: "go to bed by day", poet: "Robert Louis Stevenson", poem: "Bed in Summer" },
+  "renoir-child-with-blond-hair.webp": { source: 791, from: "Sweet and low, sweet and low, Wind of the western sea", to: "my pretty one, sleeps", poet: "Alfred Tennyson", poem: "The Princess" },
   "renoir-woman-arranging-her-hat.webp": { source: 22421, from: "A sweet disorder in the dress", to: "Into a fine distraction", poet: "Robert Herrick", poem: "Delight in Disorder" },
   "renoir-nude-in-a-chair.webp": { source: 24280, from: "A thing of beauty is a joy for ever", to: "quiet breathing", poet: "John Keats", poem: "Endymion" },
   "toulouse-lautrec-a-woman-and-a-man-on-horseback.webp": { source: 4253, from: "I said—Then, dearest", to: "one more last ride with me", poet: "Robert Browning", poem: "The Last Ride Together" },
@@ -118,7 +126,7 @@ exports.verses = {
   "decamp-sally.webp": { source: 19221, from: "Of all the girls that are so smart", to: "lives in our alley", poet: "Henry Carey", poem: "Sally in Our Alley" },
   "decamp-portrait-of-edith-the-artists-wife.webp": { source: 2002, from: "How do I love thee? Let me count the ways", to: "ideal Grace", poet: "Elizabeth Barrett Browning", poem: "Sonnets from the Portuguese, XLIII" },
   "decamp-our-nanny.webp": { source: 25609, from: "For the long nights you lay awake", to: "uneven land", poet: "Robert Louis Stevenson", poem: "To Alison Cunningham, from Her Boy" },
-  "decamp-portrait-of-a-young-lady.webp": { source: 5134, from: "Have you seen but a bright lily grow", to: "so sweet is she", poet: "Ben Jonson", poem: "Her Triumph" },
+  "decamp-portrait-of-a-young-lady.webp": { source: 19221, from: "There is a garden in her face", to: "Till Cherry-Ripe themselves do cry", poet: "Thomas Campion", poem: "There Is a Garden in Her Face" },
   "decamp-gloucester.webp": { source: 1365, from: "I remember the black wharves and the slips", to: "magic of the sea", poet: "Henry Wadsworth Longfellow", poem: "My Lost Youth" },
   "decamp-red-roofs.webp": { source: 22403, from: "Glory be to God for dappled things", to: "fallow, and plough", poet: "Gerard Manley Hopkins", poem: "Pied Beauty", fix: (t) => t.replace('and\nplough;', 'and plough;') },
   "decamp-street-scene-in-venice.webp": { source: 5131, from: "I stood in Venice, on the Bridge of Sighs", to: "prison on each hand", poet: "Lord Byron", poem: "Childe Harold’s Pilgrimage" },
@@ -153,11 +161,11 @@ exports.verses = {
   "leighton-may-sartoris-mrs-henry-evans-gordon.webp": { source: 8774, from: "She was a Phantom of delight", to: "startle, and way-lay", poet: "William Wordsworth", poem: "She Was a Phantom of Delight" },
   "leighton-mrs-james-guthrie.webp": { source: 8824, from: "I wandered lonely as a cloud That floats", to: "in the breeze", poet: "William Wordsworth", poem: "I Wandered Lonely as a Cloud" },
   "leighton-lucia.webp": { source: 19221, from: "She dwelt among the untrodden ways Beside the springs", to: "shining in the sky", poet: "William Wordsworth", poem: "She Dwelt among the Untrodden Ways" },
-  "egypt-mummy-mask-of-a-woman.webp": { source: 100, from: "Age cannot wither her", to: "infinite variety", poet: "William Shakespeare", poem: "Antony and Cleopatra" },
-  "egypt-coffin-of-henettawy.webp": { source: 100, from: "Fear no more the heat o", to: "come to dust", poet: "William Shakespeare", poem: "Cymbeline" },
-  "egypt-funeral-ritual-in-a-garden.webp": { source: 10, from: "The LORD is my shepherd; I shall not want", to: "beside the still waters", poet: "The Bible", poem: "Psalm 23:1–2", prose: true },
-  "egypt-artists-painting-of-a-hippopotamus.webp": { source: 10, from: "Behold now behemoth", to: "grass as an ox", poet: "The Bible", poem: "Job 40:15", prose: true },
-  "egypt-painted-shroud-fragment.webp": { source: 100, from: "Give me my robe, put on my crown", to: "longings in me", poet: "William Shakespeare", poem: "Antony and Cleopatra" },
+  "egypt-mummy-mask-of-a-woman.webp": { source: 69566, from: "Thy right eye is in the Sektit boat", to: "the associates of Sut", poet: "Anonymous", poem: "The Book of the Dead, Chapter 151", prose: true },
+  "egypt-coffin-of-henettawy.webp": { source: 69566, from: "And I too come to thee that I may be with thee", to: "hast destined them for me", poet: "Anonymous", poem: "The Book of the Dead, Chapter 15: Hymn to Ra", prose: true },
+  "egypt-funeral-ritual-in-a-garden.webp": { source: 28282, from: "Make a good day, O holy father! Let odors", to: "land which loveth silence", poet: "Anonymous", poem: "The Song of the Harper, from the tomb of Neferhotep" },
+  "egypt-artists-painting-of-a-hippopotamus.webp": { source: 2131, from: "The river-horse is sacred in the district of Papremis", to: "javelins are made of it", poet: "Herodotus", poem: "The Histories, Book II", prose: true },
+  "egypt-painted-shroud-fragment.webp": { source: 1666, from: "I am she that is the naturall mother of all things", to: "call mee Queene Isis", poet: "Apuleius", poem: "The Golden Ass", prose: true },
   "near-east-jar-with-mountain-goats.webp": { source: 10, from: "The high hills are a refuge for the wild goats", to: "for the conies", poet: "The Bible", poem: "Psalm 104:18", prose: true },
   "greece-grave-stele-of-a-little-girl.webp": { source: 5134, from: "Here lies, to each her parents", to: "cover lightly, gentle earth", poet: "Ben Jonson", poem: "On My First Daughter" },
   "greece-funerary-plaque.webp": { source: 3059, from: "Thus held they funeral for Hector", to: "tamer of horses", poet: "Homer", poem: "The Iliad", prose: true },
@@ -195,7 +203,7 @@ exports.verses = {
   "anderson-heavenwards.webp": { source: 19221, from: "Our birth is but a sleep and a forgetting", to: "us in our infancy", poet: "William Wordsworth", poem: "Ode: Intimations of Immortality" },
   "anderson-at-the-well.webp": { source: 1279, from: "Flow gently, sweet Afton! amang", to: "not her dream", poet: "Robert Burns", poem: "Sweet Afton" },
   "anderson-the-flower-girl-capri.webp": { source: 100, from: "Here’s flowers for you", to: "rises weeping", poet: "William Shakespeare", poem: "The Winter’s Tale" },
-  "anderson-simplicity.webp": { source: 22421, from: "Cherry-ripe, ripe, ripe, I cry", to: "where cherries grow", poet: "Robert Herrick", poem: "Cherry-Ripe" },
+  "anderson-simplicity.webp": { source: 4011, from: "Still to be neat, still to be drest, As you", to: "but not my heart", poet: "Ben Jonson", poem: "Epicœne, or The Silent Woman" },
   "landseer-favourites.webp": { source: 100, from: "Round-hoof", to: "so proud a back", poet: "William Shakespeare", poem: "Venus and Adonis" },
   "landseer-donald-mcintyre.webp": { source: 3011, from: "Come one, come all! this rock shall fly", to: "as soon as I", poet: "Walter Scott", poem: "The Lady of the Lake" },
   "landseer-a-highland-landscape.webp": { source: 1279, from: "My heart’s in the Highlands, my heart is not here", to: "chasing the deer", poet: "Robert Burns", poem: "My Heart’s in the Highlands" },

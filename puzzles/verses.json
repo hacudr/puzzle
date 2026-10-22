@@ -58,6 +58,11 @@
    "title": "The Complete Poetical Works of Henry Wadsworth Longfellow",
    "url": "https://www.gutenberg.org/ebooks/1365"
   },
+  "1666": {
+   "title": "The Golden Asse",
+   "translator": "William Adlington",
+   "url": "https://www.gutenberg.org/ebooks/1666"
+  },
   "1728": {
    "title": "The Odyssey",
    "translator": "S. H. Butcher and Andrew Lang",
@@ -71,6 +76,11 @@
    "title": "Sonnets from the Portuguese",
    "url": "https://www.gutenberg.org/ebooks/2002"
   },
+  "2131": {
+   "title": "An Account of Egypt",
+   "translator": "G. C. Macaulay",
+   "url": "https://www.gutenberg.org/ebooks/2131"
+  },
   "3011": {
    "title": "The Lady of the Lake",
    "url": "https://www.gutenberg.org/ebooks/3011"
@@ -83,6 +93,10 @@
   "3698": {
    "title": "The Task, and Other Poems",
    "url": "https://www.gutenberg.org/ebooks/3698"
+  },
+  "4011": {
+   "title": "Epicoene; or, The Silent Woman",
+   "url": "https://www.gutenberg.org/ebooks/4011"
   },
   "4253": {
    "title": "Dramatic Romances",
@@ -159,6 +173,11 @@
    "title": "A Child’s Garden of Verses",
    "url": "https://www.gutenberg.org/ebooks/25609"
   },
+  "28282": {
+   "title": "Egyptian Literature",
+   "editor": "Epiphanius Wilson",
+   "url": "https://www.gutenberg.org/ebooks/28282"
+  },
   "29090": {
    "title": "The Complete Poetical Works of Samuel Taylor Coleridge",
    "url": "https://www.gutenberg.org/ebooks/29090"
@@ -193,6 +212,11 @@
    "title": "Maud, and Other Poems",
    "url": "https://www.gutenberg.org/ebooks/56913"
   },
+  "69566": {
+   "title": "The Egyptian Book of the Dead",
+   "translator": "P. Le Page Renouf and Édouard Naville",
+   "url": "https://www.gutenberg.org/ebooks/69566"
+  },
   "70950": {
    "title": "In Memoriam",
    "url": "https://www.gutenberg.org/ebooks/70950"
@@ -200,6 +224,10 @@
   "76794": {
    "title": "Lalla Rookh",
    "url": "https://www.gutenberg.org/ebooks/76794"
+  },
+  "ws-prometheus": {
+   "title": "Prometheus Bound, and Other Poems",
+   "url": "https://en.wikisource.org/wiki/Prometheus_Bound,_and_other_poems/Sonnets"
   }
  },
  "puzzles": {
@@ -228,10 +256,10 @@
    "source": "29090"
   },
   "cassatt-francoise-holding-a-little-dog-looking-far-to-the-right.webp": {
-   "text": "Standing, with reluctant feet,\nWhere the brook and river meet,\nWomanhood and childhood fleet!\n\nGazing, with a timid glance,\nOn the brooklet's swift advance,\nOn the river's broad expanse!",
-   "poet": "Henry Wadsworth Longfellow",
-   "poem": "Maidenhood",
-   "source": "1365"
+   "text": "You see this dog. It was but yesterday\nI mused forgetful of his presence here\nTill thought on thought drew downward tear on tear;\nWhen from the pillow, where wet-cheeked I lay,\nA head as hairy as Faunus, thrust its way\nRight sudden against my face,—two golden-clear\nLarge eyes astonished mine,—a drooping ear\nDid flap me on either cheek, to dry the spray!\nI started first, as some Arcadian,\nAmazed by goatly God in twilight grove:\nBut as my bearded vision closelier ran\nMy tears off, I knew Flush, and rose above\nSurprise and sadness; thanking the true Pan,\nWho, by low creatures, leads to heights of love.",
+   "poet": "Elizabeth Barrett Browning",
+   "poem": "Flush or Faunus",
+   "source": "ws-prometheus"
   },
   "gogh-the-poets-garden.webp": {
    "text": "Meanwhile the mind from pleasure less\nWithdraws into its happiness;\nThe mind, that ocean where each kind\nDoes straight its own resemblance find;\nYet it creates, transcending these,\nFar other worlds, and other seas;\nAnnihilating all that's made\nTo a green thought in a green shade.",
@@ -246,10 +274,10 @@
    "source": "25609"
   },
   "renoir-child-with-blond-hair.webp": {
-   "text": "In winter I get up at night\nAnd dress by yellow candle-light.\nIn summer, quite the other way,\nI have to go to bed by day.",
-   "poet": "Robert Louis Stevenson",
-   "poem": "Bed in Summer",
-   "source": "25609"
+   "text": "Sweet and low, sweet and low,\nWind of the western sea,\nLow, low, breathe and blow,\nWind of the western sea!\nOver the rolling waters go,\nCome from the dying moon, and blow,\nBlow him again to me;\nWhile my little one, while my pretty one, sleeps.",
+   "poet": "Alfred Tennyson",
+   "poem": "The Princess",
+   "source": "791"
   },
   "renoir-woman-arranging-her-hat.webp": {
    "text": "A sweet disorder in the dress\nKindles in clothes a wantonness:\nA lawn about the shoulders thrown\nInto a fine distraction:",
@@ -531,10 +559,10 @@
    "source": "25609"
   },
   "decamp-portrait-of-a-young-lady.webp": {
-   "text": "Have you seen but a bright lily grow\nBefore rude hands have touched it?\nHave you marked but the fall o’ the snow\nBefore the soil hath smutched it?\nHave you felt the wool of beaver?\nOr swan’s down ever?\nOr have smelt o’ the bud o’ the brier?\nOr the nard in the fire?\nOr have tasted the bag of the bee?\nO so white! O so soft! O so sweet is she!",
-   "poet": "Ben Jonson",
-   "poem": "Her Triumph",
-   "source": "5134"
+   "text": "There is a garden in her face\nWhere roses and white lilies blow;\nA heavenly paradise is that place,\nWherein all pleasant fruits do grow;\nThere cherries grow that none may buy,\nTill Cherry-Ripe themselves do cry.",
+   "poet": "Thomas Campion",
+   "poem": "There Is a Garden in Her Face",
+   "source": "19221"
   },
   "decamp-gloucester.webp": {
    "text": "I remember the black wharves and the slips,\nAnd the sea-tides tossing free;\nAnd Spanish sailors with bearded lips,\nAnd the beauty and mystery of the ships,\nAnd the magic of the sea.",
@@ -743,36 +771,38 @@
    "source": "19221"
   },
   "egypt-mummy-mask-of-a-woman.webp": {
-   "text": "Age cannot wither her, nor custom stale\nHer infinite variety.",
-   "poet": "William Shakespeare",
-   "poem": "Antony and Cleopatra",
-   "source": "100"
-  },
-  "egypt-coffin-of-henettawy.webp": {
-   "text": "Fear no more the heat o’ th’ sun,\nNor the furious winter’s rages;\nThou thy worldly task hast done,\nHome art gone, and ta’en thy wages.\nGolden lads and girls all must,\nAs chimney-sweepers, come to dust.",
-   "poet": "William Shakespeare",
-   "poem": "Cymbeline",
-   "source": "100"
-  },
-  "egypt-funeral-ritual-in-a-garden.webp": {
-   "text": "The LORD is my shepherd; I shall not want.\nHe maketh me to lie down in green pastures: he leadeth me beside the still waters.",
-   "poet": "The Bible",
-   "poem": "Psalm 23:1–2",
-   "source": "10",
+   "text": "Thy right eye is in the Sektit boat, thy left eye is in the Âtit boat. Thy eyebrows are with Anubis, thy fingers are with Thoth, thy locks are with Ptah Sokaris; they prepare for thee a good way, they smite for thee the associates of Sut.",
+   "poet": "Anonymous",
+   "poem": "The Book of the Dead, Chapter 151",
+   "source": "69566",
    "prose": true
   },
+  "egypt-coffin-of-henettawy.webp": {
+   "text": "And I too come to thee that I may be with thee to see thine Orb each day; let me not be detained, let me not be repulsed.\nLet my limbs be renewed by the contemplation of thy glories, like all thy servants, for I am one of those who honoured thee upon earth.\nLet me reach the Land of Ages, let me gain the Land of Eternity; for thou, my Lord, hast destined them for me.",
+   "poet": "Anonymous",
+   "poem": "The Book of the Dead, Chapter 15: Hymn to Ra",
+   "source": "69566",
+   "prose": true
+  },
+  "egypt-funeral-ritual-in-a-garden.webp": {
+   "text": "Make a good day, O holy father!\nLet odors and oils stand before thy nostril.\nWreaths of lotus are on the arms and the bosom of thy sister,\ndwelling in thy heart, sitting beside thee.\nLet song and music be before thy face,\nand leave behind thee all evil cares!\nMind thee of joy, till cometh the day of pilgrimage,\nwhen we draw near the land which loveth silence.",
+   "poet": "Anonymous",
+   "poem": "The Song of the Harper, from the tomb of Neferhotep",
+   "source": "28282"
+  },
   "egypt-artists-painting-of-a-hippopotamus.webp": {
-   "text": "Behold now behemoth, which I made with thee; he eateth grass as an ox.",
-   "poet": "The Bible",
-   "poem": "Job 40:15",
-   "source": "10",
+   "text": "The river-horse is sacred in the district of Papremis, but for the other Egyptians he is not sacred; and this is the appearance which he presents: he is four-footed, cloven-hoofed like an ox, flat-nosed, with a mane like a horse and showing teeth like tusks, with a tail and voice like a horse and in size as large as the largest ox; and his hide is so exceedingly thick that when it has been dried shafts of javelins are made of it.",
+   "poet": "Herodotus",
+   "poem": "The Histories, Book II",
+   "source": "2131",
    "prose": true
   },
   "egypt-painted-shroud-fragment.webp": {
-   "text": "Give me my robe. Put on my crown. I have\nImmortal longings in me.",
-   "poet": "William Shakespeare",
-   "poem": "Antony and Cleopatra",
-   "source": "100"
+   "text": "I am she that is the naturall mother of all things, mistresse and governesse of all the Elements, the initiall progeny of worlds, chiefe of powers divine, Queene of heaven! the principall of the Gods celestiall, the light of the goddesses: at my will the planets of the ayre, the wholesome winds of the Seas, and the silences of hell be diposed; my name, my divinity is adored throughout all the world in divers manners, in variable customes and in many names, for the Phrygians call me the mother of the Gods: the Athenians, Minerva: the Cyprians, Venus: the Candians, Diana: the Sicilians Proserpina: the Eleusians, Ceres: some Juno, other Bellona, other Hecate: and principally the Aethiopians which dwell in the Orient, and the Aegyptians which are excellent in all kind of ancient doctrine, and by their proper ceremonies accustome to worship mee, doe call mee Queene Isis.",
+   "poet": "Apuleius",
+   "poem": "The Golden Ass",
+   "source": "1666",
+   "prose": true
   },
   "near-east-jar-with-mountain-goats.webp": {
    "text": "The high hills are a refuge for the wild goats; and the rocks for the conies.",
@@ -1001,10 +1031,10 @@
    "source": "100"
   },
   "anderson-simplicity.webp": {
-   "text": "Cherry-ripe, ripe, ripe, I cry,\nFull and fair ones; come and buy.\nIf so be you ask me where\nThey do grow, I answer: There,\nWhere my Julia's lips do smile;\nThere's the land, or cherry-isle,\nWhose plantations fully show\nAll the year where cherries grow.",
-   "poet": "Robert Herrick",
-   "poem": "Cherry-Ripe",
-   "source": "22421"
+   "text": "Still to be neat, still to be drest,\nAs you were going to a feast;\nStill to be powder'd, still perfum'd;\nLady, it is to be presumed,\nThough art's hid causes are not found,\nAll is not sweet, all is not sound.\n\nGive me a look, give me a face,\nThat makes simplicity a grace;\nRobes loosely flowing, hair as free:\nSuch sweet neglect more taketh me,\nThen all the adulteries of art;\nThey strike mine eyes, but not my heart.",
+   "poet": "Ben Jonson",
+   "poem": "Epicœne, or The Silent Woman",
+   "source": "4011"
   },
   "landseer-favourites.webp": {
    "text": "Round-hoof’d, short-jointed, fetlocks shag and long,\nBroad breast, full eye, small head, and nostril wide,\nHigh crest, short ears, straight legs and passing strong,\nThin mane, thick tail, broad buttock, tender hide:\nLook, what a horse should have he did not lack,\nSave a proud rider on so proud a back.",

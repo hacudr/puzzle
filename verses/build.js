@@ -33,7 +33,7 @@ function load(id) {
 // translations', whose half-lines keep a wide space between them).
 function clean(s, prose, id) {
   let lines = s.split('\n').map((l) => l
-    .replace(/\s*\[\d+(?::\d+)?\]/g, '').replace(/\s*\{\w+\}/g, '')
+    .replace(/\s*\[\d+(?::\d+)?\]/g, '').replace(/\s*\{\w+\}/g, '').replace(/\(\d+\.\)/g, '')
     .replace(/\s{2,}\(?_?\d+\)?\s*$/, '')
     .replace(/^\d+\s{2,}/, '      ')
     .replace(/^(\s*)\d+:\d+\s/, '$1')
@@ -54,6 +54,13 @@ function clean(s, prose, id) {
   text = text.replace(/^(['‘“"]?[AI]\s+)([A-Z]{2,})\b/, (all, q, w) => q + w.toLowerCase());
   return text;
 }
+
+// A Wikisource page as plain text, a line of verse to a line.
+const fromHtml = (html) => html
+  .replace(/<style[\s\S]*?<\/style>/g, '')
+  .replace(/<br\s*\/?>\n?/g, '\n').replace(/<\/(p|div|h\d)>/g, '\n')
+  .replace(/<[^>]+>/g, '')
+  .replace(/&#160;|&nbsp;/g, ' ').replace(/&#95;/g, '_').replace(/&#39;/g, '’').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
 
 function cut(image, v) {
   const t = load(v.source);
@@ -94,9 +101,12 @@ async function main() {
     if (!sources[id]) throw new Error(`No edition named for ${id}`);
     const file = path.join(TEXTS, id + '.txt');
     if (fs.existsSync(file)) continue;
-    const res = await fetch(`https://www.gutenberg.org/cache/epub/${id}/pg${id}.txt`, { headers: { 'User-Agent': UA } });
-    if (!res.ok) throw new Error(`Gutenberg ${id}: ${res.status}`);
-    fs.writeFileSync(file, await res.text());
+    const ws = sources[id].wikisource;
+    const res = await fetch(ws
+      ? `https://en.wikisource.org/w/api.php?action=parse&format=json&formatversion=2&prop=text&page=${encodeURIComponent(ws)}`
+      : `https://www.gutenberg.org/cache/epub/${id}/pg${id}.txt`, { headers: { 'User-Agent': UA } });
+    if (!res.ok) throw new Error(`${ws ? 'Wikisource' : 'Gutenberg'} ${id}: ${res.status}`);
+    fs.writeFileSync(file, ws ? fromHtml((await res.json()).parse.text) : await res.text());
     console.log('downloaded', id);
   }
   const puzzles = {};
@@ -105,7 +115,10 @@ async function main() {
     if (v.prose) puzzles[image].prose = true;
   }
   const eds = {};
-  for (const id of used) eds[id] = { ...sources[id], url: `https://www.gutenberg.org/ebooks/${id}` };
+  for (const id of used) {
+    const { wikisource, ...ed } = sources[id];
+    eds[id] = { ...ed, url: wikisource ? `https://en.wikisource.org/wiki/${encodeURI(wikisource.replace(/ /g, '_'))}` : `https://www.gutenberg.org/ebooks/${id}` };
+  }
   fs.writeFileSync(OUT, JSON.stringify({ sources: eds, puzzles }, null, 1) + '\n');
   console.log(`${Object.keys(puzzles).length} passages from ${used.length} editions`);
 }
