@@ -1178,6 +1178,24 @@ const sound = (() => {
       }
     },
 
+    // A puzzle solved before is opened again in its frame: its recording plays,
+    // as soon as it is in, without the effects. still = whether it is still
+    // wanted by then, the puzzle not having been left in the meantime.
+    reprise(still = () => true) {
+      if (!on.music || !unlock() || !tune) return Promise.resolve(false);
+      const mine = tune;
+      const asked = clips[clipUrl(tuneKey)] || Promise.reject();
+      return asked
+        .catch(() => {})
+        .then(() => {
+          if (tune !== mine || !on.music || !clip || !still()) return false;
+          hush();
+          part();
+          playing = sample(clip, 0.6, 0.3);
+          return true;
+        });
+    },
+
     // who wrote the current tune and what it is, and who is playing where the
     // recording asks to be credited; null with the music off
     credit: () => (!on.music || !tune ? null : { composer: tune.composer, title: tune.title, performer: owed }),

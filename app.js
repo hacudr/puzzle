@@ -856,11 +856,31 @@ function scatter(g, count) {
 // takes having solved it in black and white, or the picture would be given away.
 const finished = (p) => (blind() ? mastered(p) : solved.has(p.id)) && !(progressKey(p) in progress);
 
+// The tune a puzzle plays: its own, or the next of the stormy, sacred or piano
+// tunes by its place among them
+function chooseTune(p) {
+  if (stormy(p)) sound.setTune(p.music, puzzles.filter(stormy).indexOf(p), 'stormy');
+  else if (p.sacred) sound.setTune(p.music, puzzles.filter(sacred).indexOf(p), 'sacred');
+  else sound.setTune(p.music, puzzles.indexOf(p));
+}
+
+// names the music on the solved screen, once it is playing
+function nameMusic(played = true) {
+  const credit = played && sound.credit();
+  $('#plateMusic').textContent = credit
+    ? `Music: ${credit.composer}, ${credit.title}` + (credit.performer ? ` · played by ${credit.performer}` : '')
+    : '';
+  $('#plateMusic').hidden = !credit;
+}
+
 // Opens a picture from its card: the finished one if it has been solved, the
 // puzzle if not.
 async function visit(p) {
   if (!playable(p)) return openPaywall(shelfOf(artistOf(p)), p);
   if (!finished(p)) return start(p);
+  // its music is fetched while the picture is, and plays once it hangs
+  chooseTune(p);
+  sound.setEffect(null);
   let img;
   try {
     img = await loadImage(p.image);
@@ -871,6 +891,7 @@ async function visit(p) {
   game = { p, aspect: img.naturalWidth / img.naturalHeight, held: [], done: true };
   $('#doneArtistName').textContent = artistOf(p).name;
   showPlate(p, false);
+  sound.reprise(() => game && game.p === p && !$('#done').hidden).then((played) => played && nameMusic());
 }
 
 // Opens a puzzle where it was left off; `fresh` deals it again from scratch.
@@ -902,9 +923,7 @@ async function start(p, fresh = false) {
     scatter(game, cols * rows);
   }
 
-  if (stormy(p)) sound.setTune(p.music, puzzles.filter(stormy).indexOf(p), 'stormy');
-  else if (p.sacred) sound.setTune(p.music, puzzles.filter(sacred).indexOf(p), 'sacred');
-  else sound.setTune(p.music, puzzles.indexOf(p));
+  chooseTune(p);
   sound.setEffect(p.effect);
   sound.begin();
   piecesEl.textContent = '';
@@ -1304,11 +1323,7 @@ function showPlate(p, played = true) {
   $('#plateSci').textContent = p.scientific || '';
   $('#plateName').textContent = titleOf(p);
   $('#plateArtist').textContent = p.artist || '';
-  const credit = played && sound.credit();
-  $('#plateMusic').textContent = credit
-    ? `Music: ${credit.composer}, ${credit.title}` + (credit.performer ? ` · played by ${credit.performer}` : '')
-    : '';
-  $('#plateMusic').hidden = !credit;
+  nameMusic(played);
   $('#nextBtn').hidden = puzzles.length < 2;
   showAboutBtn(p);
   $('#doneAbout').hidden = true;
