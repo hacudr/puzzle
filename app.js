@@ -445,8 +445,10 @@ function savedProgress(p, cols, rows) {
   return s;
 }
 
+// Every page opens at its top, coming back to it included.
 function show(id) {
   document.querySelectorAll('.screen').forEach((s) => (s.hidden = s.id !== id));
+  $('#' + id).scrollTop = 0;
 }
 
 function loadImage(src) {
@@ -670,7 +672,7 @@ function openGallery() {
   show('gallery');
 }
 
-// One collection's artists, always lit. Coming back to the same collection keeps the page where it was.
+// One collection's artists, always lit.
 function openCollection(c) {
   game = null;
   if (c !== collection) {
@@ -705,7 +707,7 @@ function fitBio() {
 }
 new ResizeObserver(fitBio).observe($('#grid'));
 
-// One artist's puzzles. Coming back to the same artist keeps the page where it was.
+// One artist's puzzles.
 function openArtist(a) {
   game = null;
   if (a !== artist) {
