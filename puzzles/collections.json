@@ -1,16 +1,17 @@
 [
   {
     "name": "Impressionism to Modern",
-    "cover": "monet-the-japanese-footbridge.webp",
+    "cover": "degas-four-dancers.webp",
+    "focus": "50% 25%",
     "start": "Claude Monet"
   },
   {
     "name": "Romantics & Realism",
-    "cover": "waterhouse-the-lady-of-shalott.webp",
+    "cover": "waterhouse-the-soul-of-the-rose.webp",
     "order": "surname"
   },
   {
-    "name": "Ancient Art & Old Masters",
-    "cover": "leonardo-da-vinci-mona-lisa.webp"
+    "name": "Old Masters & Ancient Art",
+    "cover": "caravaggio-the-supper-at-emmaus.webp"
   }
 ]

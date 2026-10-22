@@ -339,10 +339,6 @@ function labelCards() {
     card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles') + (done ? ` · ${done} solved` : '');
   };
   if (collection) document.querySelectorAll('#shelf .card').forEach(tally(collection.artists));
-  document.querySelectorAll('#collections .card').forEach((card, i) => {
-    const count = collections[i].count;
-    card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles');
-  });
 }
 
 // The reference picture in the top bar stays on unless it has been switched
@@ -656,7 +652,10 @@ function renderGallery() {
   for (const c of collections) {
     // no italic line: its number and name, as large as each other
     const card = makeCard(c.cover, '', c.name);
+    if (c.focus && c.cover === c.usual) card.querySelector('.card-img img').style.objectPosition = c.focus;
     card.querySelector('b').prepend(Object.assign(document.createElement('span'), { textContent: c.number + ':' }));
+    // no count of its puzzles either
+    card.querySelector('small').remove();
     card.classList.add('solved');
     card.addEventListener('click', () => openCollection(c));
     grid.append(card);
@@ -1589,7 +1588,7 @@ async function boot() {
     const mine = everyone.filter((a) => shelf(a.period) === name).sort(about.order === 'surname' ? bySurname : (a, b) => rank(a) - rank(b));
     const start = mine.find((a) => a.name === about.start);
     // each is numbered in its order, as Collection 1
-    return { name, number: `Collection ${i + 1}`, usual: about.cover && 'puzzles/' + about.cover, everyone: start ? [start, ...mine.filter((a) => a !== start)] : mine };
+    return { name, number: `Collection ${i + 1}`, usual: about.cover && 'puzzles/' + about.cover, focus: about.cover && about.focus, everyone: start ? [start, ...mine.filter((a) => a !== start)] : mine };
   });
   // what the About card says of each picture; a picture missing from it has no card.
   // It is large and not wanted until a puzzle is solved, so nothing waits for it.

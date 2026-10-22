@@ -5,24 +5,24 @@
     "cover": "morisot-young-girl-with-an-apron.webp"
   },
   {
-    "name": "Ancient Art",
-    "note": "Egypt, the Near East, Greece and Rome",
-    "collection": "Ancient Art & Old Masters"
-  },
-  {
-    "name": "Anglo-Saxon and Saxon Art",
-    "note": "England and Saxony, 450–1270",
-    "collection": "Ancient Art & Old Masters"
+    "name": "Baroque",
+    "note": "17th century",
+    "collection": "Old Masters & Ancient Art"
   },
   {
     "name": "Renaissance",
     "note": "15th and 16th centuries",
-    "collection": "Ancient Art & Old Masters"
+    "collection": "Old Masters & Ancient Art"
   },
   {
-    "name": "Baroque",
-    "note": "17th century",
-    "collection": "Ancient Art & Old Masters"
+    "name": "Anglo-Saxon and Saxon Art",
+    "note": "England and Saxony, 450–1270",
+    "collection": "Old Masters & Ancient Art"
+  },
+  {
+    "name": "Ancient Art",
+    "note": "Egypt, the Near East, Greece and Rome",
+    "collection": "Old Masters & Ancient Art"
   },
   {
     "name": "Romanticism and Realism",

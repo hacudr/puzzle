@@ -7,63 +7,12 @@
     "cover": "monet-woman-with-a-parasol.webp"
   },
   {
-    "name": "Leonardo da Vinci",
-    "sort": "Leonardo",
-    "note": "Italian, 1452–1519",
-    "bio": "The great all-round genius of the Italian Renaissance, Leonardo was a painter, inventor, engineer and student of the human body. He finished few paintings, but they include the Mona Lisa and The Last Supper.",
-    "period": "Renaissance",
-    "cover": "leonardo-da-vinci-mona-lisa.webp"
-  },
-  {
-    "name": "Giovanni Bellini",
-    "note": "Italian, c. 1430–1516",
-    "bio": "The leading painter of early Renaissance Venice, Bellini brought warm colour and soft, natural light to his Madonnas and portraits. Titian and Giorgione are said to have trained in his workshop.",
-    "period": "Renaissance",
-    "cover": "bellini-the-infant-bacchus.webp"
-  },
-  {
-    "name": "Sandro Botticelli",
-    "note": "Italian, c. 1446–1510",
-    "bio": "A Florentine painter of the Early Renaissance, Botticelli worked for the Medici family and painted graceful figures with flowing lines. He is best known for The Birth of Venus and Primavera.",
-    "period": "Renaissance",
-    "cover": "botticelli-giuliano-de-medici.webp"
-  },
-  {
-    "name": "El Greco",
-    "note": "Greek, worked in Spain, 1541–1614",
-    "bio": "Born on Crete and trained in Venice, El Greco settled in Toledo, Spain. His long, flickering figures and strange, intense colours belong to the late Renaissance style called Mannerism.",
-    "period": "Renaissance",
-    "cover": "el-greco-saint-martin-and-the-beggar.webp",
-    "focus": "50% 0%"
-  },
-  {
-    "name": "Vincent van Gogh",
-    "note": "Dutch, 1853–1890",
-    "bio": "A Dutch Post-Impressionist, Vincent van Gogh painted for only about ten years, yet his bold colour and thick, swirling brushstrokes changed modern art. He sold almost nothing in his lifetime and is now one of the best-loved painters in the world.",
-    "period": "Post-Impressionism",
-    "cover": "gogh-self-portrait.webp"
-  },
-  {
-    "name": "Raphael",
-    "note": "Italian, 1483–1520",
-    "bio": "With Leonardo and Michelangelo, Raphael was one of the three great masters of the High Renaissance. He was famous for calm, graceful Madonnas and for the frescoes he painted in the Pope’s rooms in the Vatican.",
-    "period": "Renaissance",
-    "cover": "raphael-the-small-cowper-madonna.webp"
-  },
-  {
     "name": "Rembrandt van Rijn",
     "sort": "Rembrandt",
     "note": "Dutch, 1606–1669",
     "bio": "The greatest painter of the Dutch Golden Age, Rembrandt used deep shadow and warm light to show the inner life of his sitters. He made dozens of self-portraits, from youth to old age.",
     "period": "Baroque",
     "cover": "rembrandt-van-rijn-self-portrait.webp"
-  },
-  {
-    "name": "Peter Paul Rubens",
-    "note": "Flemish, 1577–1640",
-    "bio": "The leading painter of the Flemish Baroque, Rubens filled huge canvases with movement, rich colour and energetic figures. He was also a diplomat, sent on missions between the royal courts of Europe.",
-    "period": "Baroque",
-    "cover": "rubens-daniel-in-the-lions-den.webp"
   },
   {
     "name": "Artemisia Gentileschi",
@@ -76,6 +25,57 @@
     "cover": "gentileschi-self-portrait-as-the-allegory-of-painting.webp"
   },
   {
+    "name": "Peter Paul Rubens",
+    "note": "Flemish, 1577–1640",
+    "bio": "The leading painter of the Flemish Baroque, Rubens filled huge canvases with movement, rich colour and energetic figures. He was also a diplomat, sent on missions between the royal courts of Europe.",
+    "period": "Baroque",
+    "cover": "rubens-daniel-in-the-lions-den.webp"
+  },
+  {
+    "name": "Caravaggio",
+    "note": "Italian, 1571–1610",
+    "bio": "Caravaggio thrilled and shocked Rome with true-to-life people lit by a dramatic spotlight against dark backgrounds. His strong contrast of light and shadow shaped Baroque painting across Europe.",
+    "period": "Baroque",
+    "cover": "caravaggio-boy-with-a-basket-of-fruit.webp"
+  },
+  {
+    "name": "Vincent van Gogh",
+    "note": "Dutch, 1853–1890",
+    "bio": "A Dutch Post-Impressionist, Vincent van Gogh painted for only about ten years, yet his bold colour and thick, swirling brushstrokes changed modern art. He sold almost nothing in his lifetime and is now one of the best-loved painters in the world.",
+    "period": "Post-Impressionism",
+    "cover": "gogh-self-portrait.webp"
+  },
+  {
+    "name": "El Greco",
+    "note": "Greek, worked in Spain, 1541–1614",
+    "bio": "Born on Crete and trained in Venice, El Greco settled in Toledo, Spain. His long, flickering figures and strange, intense colours belong to the late Renaissance style called Mannerism.",
+    "period": "Renaissance",
+    "cover": "el-greco-saint-martin-and-the-beggar.webp",
+    "focus": "50% 0%"
+  },
+  {
+    "name": "Titian",
+    "note": "Italian, c. 1488–1576",
+    "bio": "The greatest painter of Renaissance Venice, Titian was famous for rich colour and free, loose brushwork. Kings and popes sat for his portraits, and he went on painting for more than sixty years.",
+    "period": "Renaissance",
+    "cover": "titian-ranuccio-farnese.webp"
+  },
+  {
+    "name": "Raphael",
+    "note": "Italian, 1483–1520",
+    "bio": "With Leonardo and Michelangelo, Raphael was one of the three great masters of the High Renaissance. He was famous for calm, graceful Madonnas and for the frescoes he painted in the Pope’s rooms in the Vatican.",
+    "period": "Renaissance",
+    "cover": "raphael-the-small-cowper-madonna.webp"
+  },
+  {
+    "name": "Michelangelo",
+    "note": "Italian, 1475–1564",
+    "bio": "Sculptor, painter and architect of the High Renaissance, Michelangelo carved the marble David and painted the ceiling of the Sistine Chapel. His powerful, muscular figures inspired artists for centuries.",
+    "period": "Renaissance",
+    "cover": "michelangelo-the-creation-of-adam.webp",
+    "focus": "75% 50%"
+  },
+  {
     "name": "Berthe Morisot",
     "note": "French, 1841–1895",
     "bio": "A founding member of the Impressionist group, Morisot showed in all but one of its eight exhibitions. She painted women and children at home and in gardens with quick, feathery brushstrokes.",
@@ -86,11 +86,12 @@
     "cover": "morisot-the-artists-sister-at-a-window.webp"
   },
   {
-    "name": "Caravaggio",
-    "note": "Italian, 1571–1610",
-    "bio": "Caravaggio thrilled and shocked Rome with true-to-life people lit by a dramatic spotlight against dark backgrounds. His strong contrast of light and shadow shaped Baroque painting across Europe.",
-    "period": "Baroque",
-    "cover": "caravaggio-boy-with-a-basket-of-fruit.webp"
+    "name": "Leonardo da Vinci",
+    "sort": "Leonardo",
+    "note": "Italian, 1452–1519",
+    "bio": "The great all-round genius of the Italian Renaissance, Leonardo was a painter, inventor, engineer and student of the human body. He finished few paintings, but they include the Mona Lisa and The Last Supper.",
+    "period": "Renaissance",
+    "cover": "leonardo-da-vinci-mona-lisa.webp"
   },
   {
     "name": "Mary Cassatt",
@@ -103,19 +104,18 @@
     "cover": "cassatt-children-playing-on-the-beach.webp"
   },
   {
-    "name": "Titian",
-    "note": "Italian, c. 1488–1576",
-    "bio": "The greatest painter of Renaissance Venice, Titian was famous for rich colour and free, loose brushwork. Kings and popes sat for his portraits, and he went on painting for more than sixty years.",
+    "name": "Sandro Botticelli",
+    "note": "Italian, c. 1446–1510",
+    "bio": "A Florentine painter of the Early Renaissance, Botticelli worked for the Medici family and painted graceful figures with flowing lines. He is best known for The Birth of Venus and Primavera.",
     "period": "Renaissance",
-    "cover": "titian-ranuccio-farnese.webp"
+    "cover": "botticelli-giuliano-de-medici.webp"
   },
   {
-    "name": "Michelangelo",
-    "note": "Italian, 1475–1564",
-    "bio": "Sculptor, painter and architect of the High Renaissance, Michelangelo carved the marble David and painted the ceiling of the Sistine Chapel. His powerful, muscular figures inspired artists for centuries.",
+    "name": "Giovanni Bellini",
+    "note": "Italian, c. 1430–1516",
+    "bio": "The leading painter of early Renaissance Venice, Bellini brought warm colour and soft, natural light to his Madonnas and portraits. Titian and Giorgione are said to have trained in his workshop.",
     "period": "Renaissance",
-    "cover": "michelangelo-the-creation-of-adam.webp",
-    "focus": "75% 50%"
+    "cover": "bellini-the-infant-bacchus.webp"
   },
   {
     "name": "Paul Cézanne",
@@ -397,6 +397,35 @@
     "cover": "leighton-the-music-lesson.webp"
   },
   {
+    "name": "Saxony",
+    "note": "Ottonian and Romanesque, c. 960–1270",
+    "bio": "Saxony was home to the Ottonian emperors, Saxon kings who ruled the Holy Roman Empire around the year 1000. They filled their churches with carved ivory, metalwork and painted books, and the Romanesque art that followed.",
+    "period": "Anglo-Saxon and Saxon Art",
+    "cover": "saxon-prophet-king.webp"
+  },
+  {
+    "name": "Anglo-Saxon England",
+    "sort": "Anglo-Saxon",
+    "note": "c. 450–1066",
+    "bio": "The art of the English from the fifth century to the Norman Conquest of 1066. Its finest pieces are jewellery of gold and red garnet, brooches and pendants worked in swirling patterns.",
+    "period": "Anglo-Saxon and Saxon Art",
+    "cover": "anglo-saxon-disk-brooch.webp"
+  },
+  {
+    "name": "Ancient Rome",
+    "note": "c. 100 BCE – 400 CE",
+    "bio": "The Romans borrowed much from Greek art but added lifelike portraits and grand wall paintings. Villas buried by Vesuvius in 79 CE kept their painted rooms, gardens and landscapes.",
+    "period": "Ancient Art",
+    "cover": "rome-boscoreale-woman-with-a-kithara.webp"
+  },
+  {
+    "name": "Ancient Greece",
+    "note": "c. 2800–100 BCE",
+    "bio": "Greek artists moved from patterned pots to lifelike figures, creating the ideal human body that later Western art looked back to. Their painted vases tell stories of gods and heroes in black figures on red clay, or red on black.",
+    "period": "Ancient Art",
+    "cover": "greece-volute-krater.webp"
+  },
+  {
     "name": "Ancient Egypt",
     "note": "c. 3100 BCE – 300 CE",
     "bio": "For three thousand years, Egyptian artists followed strict rules, showing the head and legs from the side and the eye and shoulders from the front. Most of what survives was made for tombs and temples, to last forever.",
@@ -412,34 +441,5 @@
     "period": "Ancient Art",
     "cover": "near-east-panel-with-striding-lion.webp",
     "focus": "15% 50%"
-  },
-  {
-    "name": "Ancient Greece",
-    "note": "c. 2800–100 BCE",
-    "bio": "Greek artists moved from patterned pots to lifelike figures, creating the ideal human body that later Western art looked back to. Their painted vases tell stories of gods and heroes in black figures on red clay, or red on black.",
-    "period": "Ancient Art",
-    "cover": "greece-volute-krater.webp"
-  },
-  {
-    "name": "Ancient Rome",
-    "note": "c. 100 BCE – 400 CE",
-    "bio": "The Romans borrowed much from Greek art but added lifelike portraits and grand wall paintings. Villas buried by Vesuvius in 79 CE kept their painted rooms, gardens and landscapes.",
-    "period": "Ancient Art",
-    "cover": "rome-boscoreale-woman-with-a-kithara.webp"
-  },
-  {
-    "name": "Anglo-Saxon England",
-    "sort": "Anglo-Saxon",
-    "note": "c. 450–1066",
-    "bio": "The art of the English from the fifth century to the Norman Conquest of 1066. Its finest pieces are jewellery of gold and red garnet, brooches and pendants worked in swirling patterns.",
-    "period": "Anglo-Saxon and Saxon Art",
-    "cover": "anglo-saxon-disk-brooch.webp"
-  },
-  {
-    "name": "Saxony",
-    "note": "Ottonian and Romanesque, c. 960–1270",
-    "bio": "Saxony was home to the Ottonian emperors, Saxon kings who ruled the Holy Roman Empire around the year 1000. They filled their churches with carved ivory, metalwork and painted books, and the Romanesque art that followed.",
-    "period": "Anglo-Saxon and Saxon Art",
-    "cover": "saxon-prophet-king.webp"
   }
 ]
