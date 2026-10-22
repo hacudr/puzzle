@@ -895,7 +895,11 @@ async function start(p, fresh = false) {
 // The reference picture is drawn onto a canvas at the screen's own pixel size,
 // already faded. A scaled, see-through <img> showed white lines on the iPad.
 function drawGuide(img) {
-  const wide = Math.round(Math.min((GUIDE_HEIGHT * img.naturalWidth) / img.naturalHeight, window.innerWidth * 0.45));
+  // never wider than the room between the buttons on either side (two 102px
+  // groups and the bar's 22px edges), or on a phone the bar runs off the screen
+  const bar = guideEl.parentElement.clientWidth || window.innerWidth;
+  const room = bar - 2 * (102 + 22);
+  const wide = Math.round(Math.min((GUIDE_HEIGHT * img.naturalWidth) / img.naturalHeight, window.innerWidth * 0.45, room));
   const high = Math.round((wide * img.naturalHeight) / img.naturalWidth);
   const scale = window.devicePixelRatio || 1;
   guideEl.width = Math.round(wide * scale);
@@ -1395,6 +1399,7 @@ $('#pauseSettings').addEventListener('click', () => {
 $('#resumeBtn').addEventListener('click', () => ($('#pause').hidden = true));
 $('#restartBtn').addEventListener('click', () => start(game.p, true));
 $('#quitBtn').addEventListener('click', () => openArtist(artistOf(game.p)));
+$('#playBack').addEventListener('click', () => openArtist(artistOf(game.p)));
 $('#homeBtn').addEventListener('click', openGallery);
 
 $('#peekBtn').addEventListener('click', () => setGuide(guideEl.classList.contains('off')));
