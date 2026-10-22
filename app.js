@@ -1257,7 +1257,7 @@ function showPlate(p, played = true) {
     ? `Music: ${credit.composer}, ${credit.title}` + (credit.performer ? ` · played by ${credit.performer}` : '')
     : '';
   $('#plateMusic').hidden = !credit;
-  $('#nextBtn').hidden = artistOf(p).puzzles.length < 2;
+  $('#nextBtn').hidden = puzzles.length < 2;
   showAboutBtn(p);
   $('#doneAbout').hidden = true;
   // The solved screen fades in over the puzzle, which is only put away after.
@@ -1376,13 +1376,22 @@ function showAbout(p) {
   aboutEdges();
 }
 
-// The same artist's next unsolved puzzle, or simply their next one if all are solved.
+// The same artist's next unsolved puzzle; once all of theirs are solved, the next
+// artist's, in the order the collections show them (the last artist of a collection
+// leads on to the first of the next, and the very last back to the very first).
 function nextPuzzle(p) {
-  const list = artistOf(p).puzzles;
-  const i = list.indexOf(p);
-  const rest = [...list.slice(i + 1), ...list.slice(0, i)];
+  const a = artistOf(p);
   // a chapter goes on to its next picture, wherever this one stood
-  return list.find((q) => !solved.has(q.id)) || rest[0];
+  const mine = a.puzzles.find((q) => !solved.has(q.id));
+  if (mine) return mine;
+  const order = collections.flatMap((c) => c.artists);
+  const i = order.indexOf(a);
+  for (let k = 1; k < order.length; k++) {
+    const b = order[(i + k) % order.length];
+    if (b.puzzles.length) return b.puzzles.find((q) => !solved.has(q.id)) || b.puzzles[0];
+  }
+  // the only artist there is: round again from their first
+  return a.puzzles[0];
 }
 
 /* ---------- Controls ---------- */
