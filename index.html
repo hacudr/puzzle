@@ -33,6 +33,7 @@
     <p class="eyebrow">The Gallery</p>
     <h1 id="galleryTitle">Choose a collection</h1>
     <p class="level-note"></p>
+    <p id="galleryOffer" class="offer" hidden><span></span><button class="link">Unlock collections</button></p>
   </header>
   <div id="collections" class="grid"></div>
   <p id="allHidden" class="empty" hidden>Every picture is hidden. Settings can show them again.</p>
@@ -54,6 +55,7 @@
     <p id="collectionNote" class="eyebrow"></p>
     <h1 id="collectionName"></h1>
     <p class="level-note"></p>
+    <p id="collectionOffer" class="offer" hidden><span></span><button class="link"></button></p>
   </header>
   <div id="shelf" class="grid"></div>
 </main>
@@ -75,6 +77,7 @@
     <h1 id="artistName"></h1>
     <p id="artistBio" class="bio" hidden></p>
     <p class="level-note"></p>
+    <p id="artistOffer" class="offer" hidden><span></span><button class="link"></button></p>
   </header>
   <div id="grid" class="grid"></div>
 </main>
@@ -159,8 +162,33 @@
         <button data-frame="plain">Minimalist<small>a plain gilt edge</small></button>
       </div>
     </section>
+    <section>
+      <p class="eyebrow">Collections</p>
+      <p class="hint">Each collection is $4.99. Purchases are only simulated for now: no payment is taken.</p>
+      <p class="purchase-links"><button id="settingsUnlock" class="link">Unlock collections</button><button id="resetBought" class="link">Reset purchases</button></p>
+    </section>
   </div>
 </main>
+
+<!-- The pay screen (simulated: no payment is taken) -->
+<div id="paywall" class="overlay paywall" hidden>
+  <div class="pay" role="dialog" aria-labelledby="payTitle">
+    <div id="payForm">
+      <p class="eyebrow">Unlock the collections</p>
+      <h2 id="payTitle">$4.99 each</h2>
+      <p class="pay-lede">Choose one, two or all three. Each brings its artists into colour and opens all their puzzles.</p>
+      <div id="payList" class="pay-list"></div>
+      <button id="payBuy" class="pay-buy"></button>
+      <p class="pay-note">A simulation: no payment is taken.</p>
+      <button id="payClose" class="link">Not now</button>
+    </div>
+    <div id="payDone" hidden>
+      <p class="eyebrow">Thank you</p>
+      <h2 id="payThanks"></h2>
+      <button id="payContinue" class="pay-buy"></button>
+    </div>
+  </div>
+</div>
 
 <!-- Puzzle -->
 <main id="play" class="screen wall" hidden>

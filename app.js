@@ -64,6 +64,10 @@ let levelBefore = null;
 let artistBefore = null;
 let collectionBefore = null;
 let solved = loadSolved();
+// the collections bought, by name (simulated: no payment is taken)
+let bought = loadBought();
+// a puzzle the pay screen was opened for, opened once it is bought
+let pending = null;
 // Kids mode plays on Very Easy and hides every kind of picture that can be
 // hidden, whatever is chosen below; the choices are kept for when it goes off.
 let kids = loadKids();
@@ -314,6 +318,7 @@ function labelCards() {
     card.classList.toggle('veiled', state === 'open' && blind() && !mastered(p));
     card.classList.toggle('is-next', state === 'next');
     card.classList.toggle('is-locked', state === 'locked');
+    card.classList.toggle('sepia', !playable(p));
     // a chapter moving on: the next picture comes out of its blur, and the
     // one after turns round to be ringed, when the page is next shown
     const was = card.dataset.state;
@@ -331,15 +336,18 @@ function labelCards() {
     }
     card.querySelector('i').textContent = yearOf(p);
     card.querySelector('b').textContent = state === 'next' ? 'Up next' : '?';
-    card.querySelector('small').textContent = state === 'next' ? `No. ${i + 1} · tap to begin` : `Unlocks after No. ${i}`;
+    card.querySelector('small').textContent = !playable(p) ? 'Unlock the collection to play' : state === 'next' ? `No. ${i + 1} · tap to begin` : `Unlocks after No. ${i}`;
     card.setAttribute('aria-label', state === 'next' ? `Up next, picture ${i + 1}` : `Hidden, picture ${i + 1}, unlocks after picture ${i}`);
   });
   const tally = (list) => (card, i) => {
     const count = list[i].puzzles.length;
     const done = list[i].puzzles.filter((p) => solved.has(p.id)).length;
     card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles') + (done ? ` · ${done} solved` : '');
+    card.classList.toggle('sepia', !litArtist(list[i]));
   };
   if (collection) document.querySelectorAll('#shelf .card').forEach(tally(collection.artists));
+  document.querySelectorAll('#collections .card').forEach((card, i) => card.classList.toggle('sepia', !lit(collections[i])));
+  showOffers();
 }
 
 // The reference picture in the top bar stays on unless it has been switched
@@ -599,7 +607,7 @@ const yearOf = (p) => ((p.scientific || '').match(/\b1\d{3}\b/) || [''])[0];
 function makeCard(image, line, name, later = false) {
   const card = document.createElement('button');
   card.className = 'card';
-  card.innerHTML = '<span class="card-img"><img alt="" loading="lazy" decoding="async"></span><span class="card-label"><i></i><b></b><small></small></span>';
+  card.innerHTML = '<span class="card-img"><img alt="" loading="lazy" decoding="async"><span class="tone"></span><span class="padlock"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1.6"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg></span></span><span class="card-label"><i></i><b></b><small></small></span>';
   // a small copy keeps the gallery light; fall back to the full picture
   const face = card.querySelector('img');
   face.onerror = () => {
@@ -660,6 +668,7 @@ function renderGallery() {
     // no count of its puzzles either
     card.querySelector('small').remove();
     card.classList.add('solved');
+    // a collection not yet bought can still be opened, to see whose pictures it holds
     card.addEventListener('click', () => openCollection(c));
     grid.append(card);
   }
@@ -685,7 +694,7 @@ function openCollection(c) {
       const card = makeCard(a.cover, a.note, a.name);
       if (a.focus && a.cover === a.usual) card.querySelector('.card-img img').style.objectPosition = a.focus;
       card.classList.add('solved');
-      card.addEventListener('click', () => openArtist(a));
+      card.addEventListener('click', () => (litArtist(a) ? openArtist(a) : openPaywall(shelfOf(a))));
       grid.append(card);
     }
     $('#collection').scrollTop = 0;
@@ -731,6 +740,7 @@ function openArtist(a) {
       const card = makeCard(p.image, p.scientific, titleOf(p), true);
       hideCard(card, p);
       card.addEventListener('click', () => {
+        if (!playable(p)) return openPaywall(shelfOf(a), p);
         if (stateOf(p) !== 'locked') return visit(p);
         // a hidden one only shrugs
         card.classList.remove('nudge');
@@ -824,6 +834,7 @@ const finished = (p) => (blind() ? mastered(p) : solved.has(p.id)) && !(progress
 // Opens a picture from its card: the finished one if it has been solved, the
 // puzzle if not.
 async function visit(p) {
+  if (!playable(p)) return openPaywall(shelfOf(artistOf(p)), p);
   if (!finished(p)) return start(p);
   let img;
   try {
@@ -839,6 +850,7 @@ async function visit(p) {
 
 // Opens a puzzle where it was left off; `fresh` deals it again from scratch.
 async function start(p, fresh = false) {
+  if (!playable(p)) return openPaywall(shelfOf(artistOf(p)), p);
   let img;
   try {
     img = await loadImage(p.image);
@@ -1395,6 +1407,123 @@ function showAbout(p) {
   s.style.scrollBehavior = '';
   aboutEdges();
 }
+
+/* ---------- Purchases (simulated: no payment is taken) ---------- */
+
+// Each collection is bought on its own, at PRICE. Until it is, its card and its
+// artists' are toned sepia. The first collection is the way in: its card and its
+// first artist's are in colour, and that artist's first FREE pictures can be played.
+const PRICE = 4.99;
+const FREE = 10;
+function loadBought() {
+  try {
+    return new Set(JSON.parse(localStorage.getItem('puzzle.bought') || '[]'));
+  } catch {
+    return new Set();
+  }
+}
+function saveBought() {
+  try {
+    localStorage.setItem('puzzle.bought', JSON.stringify([...bought]));
+  } catch {}
+}
+const money = (n) => '$' + (n * PRICE).toFixed(2);
+const shelfOf = (a) => everyCollection.find((c) => c.everyone.includes(a));
+const owns = (c) => !!c && bought.has(c.name);
+const freeArtist = () => everyCollection[0] && everyCollection[0].everyone[0];
+const lit = (c) => owns(c) || c === everyCollection[0];
+const litArtist = (a) => owns(shelfOf(a)) || a === freeArtist();
+function playable(p) {
+  const a = artistOf(p);
+  if (owns(shelfOf(a))) return true;
+  const i = a === freeArtist() ? a.puzzles.indexOf(p) : -1;
+  return i >= 0 && i < FREE;
+}
+
+// The lines under the headings that offer what is not yet bought
+function showOffers() {
+  $('#galleryOffer').hidden = everyCollection.every(owns);
+  const offer = (el, c, a) => {
+    el.hidden = !c || owns(c);
+    if (el.hidden) return;
+    const first = freeArtist();
+    el.querySelector('span').textContent = c === everyCollection[0] && (!a || a === first) ? `The first ${FREE} ${first.name} puzzles are free.` : '';
+    el.querySelector('button').textContent = `Unlock the collection · ${money(1)}`;
+  };
+  offer($('#collectionOffer'), collection);
+  offer($('#artistOffer'), artist && shelfOf(artist), artist);
+}
+
+// The pay screen: each collection is chosen on its own, and the total follows.
+// `c` is the one it was opened for, chosen already; with none, all not yet bought are.
+function openPaywall(c, p = null) {
+  pending = p;
+  const list = $('#payList');
+  list.textContent = '';
+  for (const k of collections) {
+    const item = document.createElement('button');
+    item.className = 'pay-item' + (owns(k) ? ' owned' : '');
+    item.disabled = owns(k);
+    item.setAttribute('aria-pressed', String(!owns(k) && (k === c || !c)));
+    item.dataset.name = k.name;
+    item.innerHTML = '<span class="pay-pic"><img alt=""><span class="tone"></span></span><span class="pay-text"><i></i><b></b><small></small></span><span class="pay-price"></span>';
+    const img = item.querySelector('img');
+    img.src = thumbOf(k.cover);
+    if (k.focus && k.cover === k.usual) img.style.objectPosition = k.focus;
+    item.querySelector('i').textContent = k.number;
+    item.querySelector('b').textContent = k.name;
+    item.querySelector('small').textContent = `${k.artists.length} artists · ${k.count} puzzles`;
+    item.querySelector('.pay-price').textContent = owns(k) ? 'Owned' : money(1);
+    item.addEventListener('click', () => {
+      item.setAttribute('aria-pressed', String(item.getAttribute('aria-pressed') !== 'true'));
+      showTotal();
+    });
+    list.append(item);
+  }
+  showTotal();
+  $('#payDone').hidden = true;
+  $('#payForm').hidden = false;
+  $('#paywall').hidden = false;
+}
+const chosenToBuy = () => [...document.querySelectorAll('#payList .pay-item[aria-pressed="true"]')].map((b) => b.dataset.name);
+function showTotal() {
+  const n = chosenToBuy().length;
+  const buy = $('#payBuy');
+  buy.disabled = !n;
+  buy.textContent = !n ? 'Choose a collection' : n === 3 ? `Unlock all three · ${money(n)}` : `Unlock ${n === 1 ? 'one collection' : 'two collections'} · ${money(n)}`;
+}
+function closePaywall() {
+  $('#paywall').hidden = true;
+  pending = null;
+}
+$('#payBuy').addEventListener('click', () => {
+  const names = chosenToBuy();
+  if (!names.length) return;
+  names.forEach((n) => bought.add(n));
+  saveBought();
+  // the colour comes back into the cards behind
+  labelCards();
+  $('#payForm').hidden = true;
+  $('#payDone').hidden = false;
+  $('#payThanks').textContent = names.length === 1 ? `${names[0]} is unlocked.` : `${names.length === 3 ? 'All three' : 'Two'} collections are unlocked.`;
+  $('#payContinue').textContent = pending && playable(pending) ? 'Play it now' : 'Back to the gallery';
+});
+$('#payClose').addEventListener('click', closePaywall);
+$('#payContinue').addEventListener('click', () => {
+  const p = pending;
+  closePaywall();
+  if (p && playable(p)) visit(p);
+});
+$('#paywall').addEventListener('click', (e) => e.target === e.currentTarget && closePaywall());
+$('#galleryOffer button').addEventListener('click', () => openPaywall(null));
+$('#collectionOffer button').addEventListener('click', () => openPaywall(collection));
+$('#artistOffer button').addEventListener('click', () => openPaywall(shelfOf(artist)));
+$('#settingsUnlock').addEventListener('click', () => openPaywall(null));
+$('#resetBought').addEventListener('click', () => {
+  bought.clear();
+  saveBought();
+  labelCards();
+});
 
 // The same artist's next unsolved puzzle; once all of theirs are solved, the next
 // artist's, in the order the collections show them (the last artist of a collection
