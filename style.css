@@ -878,6 +878,54 @@ button {
 .info:active { opacity: .55; }
 .info svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; pointer-events: none; }
 .plate.has-about .plate-face { cursor: pointer; }
+/* two fingers on the painting open it close up, so the page must not take them */
+.plate-face { touch-action: none; }
+
+/* Looking closer: the painting alone, filling the screen on a dark ground. The
+   picture is moved and scaled by transform only; .glide eases it into place. */
+#zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  overflow: hidden;
+  background: #14110d;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  animation: fade .35s ease both;
+  cursor: grab;
+}
+#zoom:active { cursor: grabbing; }
+#zoom img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: none;
+  transform-origin: 0 0;
+  will-change: transform;
+  pointer-events: none;
+}
+#zoom img.glide { transition: transform .3s cubic-bezier(.22, .8, .25, 1); }
+.zoom-close {
+  position: absolute;
+  top: max(18px, env(safe-area-inset-top));
+  right: max(18px, env(safe-area-inset-right));
+  color: #f2ecdf;
+  background: rgba(20, 17, 13, .55);
+}
+.zoom-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+  color: rgba(242, 236, 223, .8);
+  pointer-events: none;
+  transition: opacity .8s ease;
+}
+.zoom-hint.gone { opacity: 0; }
 
 /* About the painting: a museum's wall card, paper on the wall */
 .about {
@@ -1043,3 +1091,60 @@ button {
 .pay-note { margin: 10px 0 16px; font-size: .85rem; font-style: italic; color: var(--ink-soft); }
 .pay .link { font-size: 1.15rem; }
 #payDone h2 { margin-bottom: 4px; }
+
+/* Congratulations: the last picture of an artist or a collection. A cream wall
+   card rises over the finished picture, its gilt laurel draws itself leaf by
+   leaf, and flakes of gold leaf drift down behind it. */
+.overlay.cheer { z-index: 30; overflow: hidden; background: rgba(var(--page-rgb), .5); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); animation: fade .6s ease both; }
+.overlay.cheer.leaving { animation: cheer-out .45s ease both; }
+@keyframes cheer-out { to { opacity: 0; } }
+.cheer-card {
+  position: relative;
+  box-sizing: border-box;
+  width: min(440px, calc(100vw - 32px));
+  padding: 26px 34px 24px;
+  text-align: center;
+  background: var(--cream);
+  color: #33291f;
+  border-radius: 3px;
+  box-shadow: var(--card-shadow), inset 0 0 0 1px rgba(199, 154, 60, .45), inset 0 0 0 6px var(--cream), inset 0 0 0 7px rgba(199, 154, 60, .3);
+  animation: settle 1s .15s cubic-bezier(.22, .8, .25, 1) both;
+}
+.cheer-card .eyebrow { margin-top: 6px; color: #6f6051; letter-spacing: .02em; }
+.cheer-card h2 { margin: 6px 0 0; font-weight: 500; font-size: 2rem; line-height: 1.15; animation: settle .9s .7s cubic-bezier(.22, .8, .25, 1) both; }
+.cheer-line { margin: 10px auto 20px; max-width: 22em; font-family: Spectral, var(--serif); font-style: italic; font-size: 1.05rem; line-height: 1.45; color: #6f6051; animation: fade .9s 1s ease both; }
+.cheer-card .link { font-size: 1.15rem; border-bottom-color: #33291f; animation: fade .8s 1.3s ease both; }
+
+.laurel { display: block; width: 190px; height: 101px; margin: -4px auto 0; overflow: visible; }
+.laurel .stem { fill: none; stroke: url(#gilt); stroke-width: 1.8; stroke-linecap: round; stroke-dasharray: 60; stroke-dashoffset: 60; animation: draw .9s .35s ease-out forwards; }
+.laurel .lf { fill: url(#gilt); stroke: #9c7326; stroke-width: .4; opacity: 0; transform-box: fill-box; transform-origin: 100% 100%; animation: leaf-in .5s calc(.55s + var(--i) * .13s) cubic-bezier(.3, 1.4, .5, 1) forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes leaf-in { from { opacity: 0; transform: scale(.2) rotate(-25deg); } to { opacity: 1; transform: none; } }
+/* a glint passes across the laurel once it is whole */
+.laurel .branch { animation: glint 1.6s 1.6s ease-in-out both; }
+@keyframes glint { 50% { filter: brightness(1.35); } }
+
+/* gold leaf: small flakes that fall, turning, at their own pace */
+.leaf { position: absolute; inset: 0; pointer-events: none; }
+.leaf i {
+  position: absolute;
+  top: -20px;
+  width: var(--w);
+  height: calc(var(--w) * .7);
+  border-radius: 1px 3px 1px 2px;
+  background: linear-gradient(135deg, #f3d98b, #c79a3c 55%, #e9c873);
+  opacity: 0;
+  animation: flake var(--t) var(--d) linear forwards;
+}
+@keyframes flake {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0) rotateX(0); }
+  8% { opacity: .95; }
+  85% { opacity: .9; }
+  100% { opacity: 0; transform: translate(var(--x), 105dvh) rotate(var(--r)) rotateX(720deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .leaf { display: none; }
+  .cheer-card, .cheer-card h2, .cheer-line, .cheer-card .link, .laurel .branch { animation: fade .4s ease both; }
+  .laurel .stem { animation: none; stroke-dashoffset: 0; }
+  .laurel .lf { animation: none; opacity: 1; }
+}

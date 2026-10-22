@@ -1234,7 +1234,16 @@ reserveEl.addEventListener('pointercancel', endHold);
 function win() {
   game.done = true;
   const p = game.p;
+  // whether this picture is the last of its artist, or of its whole collection
+  const a = artistOf(p);
+  const c = a && collectionOf(a);
+  const whole = (list) => list.length > 0 && list.every((q) => solved.has(q.id));
+  const before = { artist: a && whole(a.puzzles), collection: c && whole(c.artists.flatMap((b) => b.puzzles)) };
   solved.add(p.id);
+  const cheer = {
+    artist: a && !before.artist && whole(a.puzzles) ? a : null,
+    collection: c && !before.collection && whole(c.artists.flatMap((b) => b.puzzles)) ? c : null,
+  };
   // the colour comes back over the finished picture
   if (game.blind) {
     solved.add(p.id + '|expert');
@@ -1250,8 +1259,11 @@ function win() {
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   // never held up for long by a picture that is slow to decode
   Promise.all([Promise.race([ready, wait(3000)]), wait(1800)]).then(() => {
-    if (game && game.p === p) showPlate(p);
-    else $('#play').classList.remove('won');
+    if (game && game.p === p) {
+      showPlate(p);
+      // once the picture has settled in its frame
+      if (cheer.artist || cheer.collection) setTimeout(() => game && game.p === p && !$('#done').hidden && showCheer(cheer), 2400);
+    } else $('#play').classList.remove('won');
   });
 }
 
@@ -1275,6 +1287,8 @@ function showPlate(p, played = true) {
   $('#nextBtn').hidden = puzzles.length < 2;
   showAboutBtn(p);
   $('#doneAbout').hidden = true;
+  $('#doneCheer').hidden = true;
+  closeZoom();
   // The solved screen fades in over the puzzle, which is only put away after.
   const done = $('#done');
   $('#donePause').hidden = true;
@@ -1285,6 +1299,48 @@ function showPlate(p, played = true) {
     $('#play').classList.remove('won');
     if (!done.hidden) show('done');
   }, 1000);
+}
+
+// Congratulations on finishing an artist, or a whole collection (which names
+// the collection, the larger of the two). Flakes of gold leaf fall behind the card.
+function showCheer({ artist: a, collection: c }) {
+  const el = $('#doneCheer');
+  if (c) {
+    const count = c.artists.reduce((n, b) => n + b.puzzles.length, 0);
+    $('#cheerEyebrow').textContent = 'Collection complete';
+    $('#cheerName').textContent = c.name;
+    $('#cheerLine').textContent = `Every one of its ${count} pictures, by ${c.artists.length} hands, is solved. A gallery of your own.`;
+  } else {
+    const count = a.puzzles.length;
+    $('#cheerEyebrow').textContent = 'Chapter complete';
+    $('#cheerName').textContent = a.name;
+    $('#cheerLine').textContent = count === 1 ? 'Their picture is solved.' : `All ${count} pictures in this chapter are solved.`;
+  }
+  const leaf = el.querySelector('.leaf');
+  leaf.textContent = '';
+  const rand = (lo, hi) => lo + Math.random() * (hi - lo);
+  for (let i = 0, n = c ? 70 : 36; i < n; i++) {
+    const f = document.createElement('i');
+    f.style.left = `${rand(-2, 100)}%`;
+    f.style.setProperty('--w', `${rand(6, 14).toFixed(1)}px`);
+    f.style.setProperty('--x', `${rand(-90, 90).toFixed(0)}px`);
+    f.style.setProperty('--r', `${rand(-540, 540).toFixed(0)}deg`);
+    f.style.setProperty('--t', `${rand(4.5, 8).toFixed(2)}s`);
+    f.style.setProperty('--d', `${rand(0, c ? 3.5 : 2.5).toFixed(2)}s`);
+    leaf.append(f);
+  }
+  el.classList.remove('leaving');
+  el.hidden = false;
+}
+function closeCheer() {
+  const el = $('#doneCheer');
+  if (el.hidden || el.classList.contains('leaving')) return;
+  el.classList.add('leaving');
+  setTimeout(() => {
+    el.hidden = true;
+    el.classList.remove('leaving');
+    el.querySelector('.leaf').textContent = '';
+  }, 450);
 }
 
 // What is said about a picture on its card: its story from puzzles/stories.json
@@ -1587,10 +1643,16 @@ $('#doneBack').addEventListener('click', () => openArtist(artistOf(game.p)));
 $('#doneHome').addEventListener('click', openGallery);
 $('#aboutBtn').addEventListener('click', () => showAbout(game.p));
 $('.plate-face').addEventListener('click', () => {
-  if (!$('#aboutBtn').hidden) {
+  if (!$('#aboutBtn').hidden && Date.now() - facePinched > 800) {
     sound.tap();
     showAbout(game.p);
   }
+});
+$('#zoomBtn').addEventListener('click', () => openZoom());
+$('#zoomClose').addEventListener('click', closeZoom);
+$('#cheerClose').addEventListener('click', closeCheer);
+$('#doneCheer').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget || e.target.classList.contains('leaf')) closeCheer();
 });
 $('#aboutClose').addEventListener('click', () => ($('#doneAbout').hidden = true));
 $('#doneAbout').addEventListener('click', (e) => {
@@ -1689,6 +1751,178 @@ document.addEventListener('click', (e) => {
   if (b && !b.matches('[data-music], [data-kids="off"]')) sound.tap();
 });
 document.addEventListener('gesturestart', (e) => e.preventDefault());
+
+/* ---------- Looking closer ---------- */
+
+// A finished painting can be looked at closely: the magnifier after its title, or
+// two fingers spread on the framed picture, open it alone on a dark ground. There it
+// is pinched or double-tapped larger (or wheeled, with a mouse) and dragged about;
+// pinched back well below the size that fits, it closes, as the × does.
+// s is the scale, x and y where the picture's top left corner lies on the screen.
+const zoom = { el: $('#zoom'), img: $('#zoomImg'), s: 1, x: 0, y: 0, fit: 1, ready: false, pts: new Map(), pinch: null, tap: null, lastTap: 0 };
+const zoomMax = () => zoom.fit * 6;
+
+function openZoom(fingers) {
+  const { el, img } = zoom;
+  zoom.ready = false;
+  zoom.pts.clear();
+  zoom.pinch = null;
+  zoom.pinched = false;
+  img.classList.remove('glide');
+  img.style.transform = 'translate(-9999px, 0)';
+  el.hidden = false;
+  const hint = $('#zoomHint');
+  hint.classList.remove('gone');
+  setTimeout(() => hint.classList.add('gone'), 2500);
+  const begin = () => {
+    zoomFit();
+    zoom.ready = true;
+    // opened by two fingers on the painting: they go straight on pinching
+    if (fingers) {
+      fingers.forEach((pt, id) => zoom.pts.set(id, pt));
+      if (zoom.pts.size === 2) startPinch();
+    }
+  };
+  if (img.getAttribute('src') !== game.p.image) img.src = game.p.image;
+  if (img.complete && img.naturalWidth) begin();
+  else img.onload = begin;
+}
+
+function closeZoom() {
+  zoom.el.hidden = true;
+  zoom.pts.clear();
+  zoom.pinch = null;
+  zoom.pinched = false;
+}
+
+// the whole picture, as large as fits the screen, in the middle
+function zoomFit(glide) {
+  const w = zoom.el.clientWidth, h = zoom.el.clientHeight;
+  const nw = zoom.img.naturalWidth, nh = zoom.img.naturalHeight;
+  zoom.img.style.width = nw + 'px';
+  zoom.img.style.height = nh + 'px';
+  zoom.fit = Math.min(w / nw, h / nh);
+  zoom.s = zoom.fit;
+  zoomClamp();
+  zoomDraw(glide);
+}
+
+// A picture smaller than the screen stays in its middle; a larger one may not be
+// dragged so far that bare ground shows beside it.
+function zoomClamp() {
+  const w = zoom.el.clientWidth, h = zoom.el.clientHeight;
+  const pw = zoom.img.naturalWidth * zoom.s, ph = zoom.img.naturalHeight * zoom.s;
+  zoom.x = pw <= w ? (w - pw) / 2 : Math.min(0, Math.max(w - pw, zoom.x));
+  zoom.y = ph <= h ? (h - ph) / 2 : Math.min(0, Math.max(h - ph, zoom.y));
+}
+
+function zoomDraw(glide) {
+  zoom.img.classList.toggle('glide', !!glide);
+  zoom.img.style.transform = `translate(${zoom.x}px, ${zoom.y}px) scale(${zoom.s})`;
+}
+
+// to scale s, keeping the point of the screen at cx, cy over the same part of the picture
+function zoomTo(s, cx, cy, glide) {
+  s = Math.min(zoomMax(), Math.max(zoom.fit, s));
+  zoom.x = cx - ((cx - zoom.x) * s) / zoom.s;
+  zoom.y = cy - ((cy - zoom.y) * s) / zoom.s;
+  zoom.s = s;
+  zoomClamp();
+  zoomDraw(glide);
+}
+
+function startPinch() {
+  const [a, b] = [...zoom.pts.values()];
+  zoom.pinch = { d: Math.hypot(a.x - b.x, a.y - b.y) || 1, mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2, s: zoom.s, x: zoom.x, y: zoom.y };
+  zoom.tap = null;
+}
+
+// Two fingers on the framed painting open it close up; a pinch also keeps the
+// tap from opening the About card.
+const faceFingers = new Map();
+let facePinched = 0;
+$('.plate-face').addEventListener('pointerdown', (e) => {
+  if (e.pointerType !== 'touch') return;
+  faceFingers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  if (faceFingers.size === 2 && zoom.el.hidden) {
+    facePinched = Date.now();
+    openZoom(new Map(faceFingers));
+  }
+});
+['pointerup', 'pointercancel'].forEach((t) =>
+  document.addEventListener(t, (e) => faceFingers.delete(e.pointerId))
+);
+
+zoom.el.addEventListener('pointerdown', (e) => {
+  if (e.target.closest('button') || !zoom.ready) return;
+  zoom.pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  if (zoom.pts.size === 2) startPinch();
+  else if (zoom.pts.size === 1) zoom.tap = { x: e.clientX, y: e.clientY, t: Date.now() };
+});
+
+// Moves are followed on the whole page, since fingers that opened the view on the
+// painting still belong to it.
+document.addEventListener('pointermove', (e) => {
+  const prev = zoom.pts.get(e.pointerId);
+  if (!prev || zoom.el.hidden) return;
+  const pt = { x: e.clientX, y: e.clientY };
+  zoom.pts.set(e.pointerId, pt);
+  if (zoom.tap && Math.hypot(pt.x - zoom.tap.x, pt.y - zoom.tap.y) > 10) zoom.tap = null;
+  if (zoom.pinch && zoom.pts.size >= 2) {
+    const [a, b] = [...zoom.pts.values()];
+    const p = zoom.pinch;
+    // a little below the fitting size, to show it will close if let go there
+    const s = Math.min(zoomMax(), Math.max(zoom.fit * 0.5, (p.s * Math.hypot(a.x - b.x, a.y - b.y)) / p.d));
+    const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+    zoom.x = mx - ((p.mx - p.x) * s) / p.s;
+    zoom.y = my - ((p.my - p.y) * s) / p.s;
+    zoom.s = s;
+    if (s >= zoom.fit) zoomClamp();
+    zoomDraw();
+  } else if (zoom.pts.size === 1) {
+    zoom.x += pt.x - prev.x;
+    zoom.y += pt.y - prev.y;
+    zoomClamp();
+    zoomDraw();
+  }
+});
+
+function zoomLift(e) {
+  if (!zoom.pts.delete(e.pointerId) || zoom.el.hidden) return;
+  // the fingers of a pinch seldom lift together: it settles when the last one does
+  if (zoom.pinch) zoom.pinched = true;
+  zoom.pinch = null;
+  if (zoom.pts.size) return;
+  if (zoom.pinched) {
+    zoom.pinched = false;
+    if (zoom.s < zoom.fit * 0.8) return closeZoom();
+    zoomTo(zoom.s, 0, 0, true);
+    return;
+  }
+  // a double tap goes in close at that point, or back out to the whole picture
+  if (zoom.tap && e.type === 'pointerup') {
+    const now = Date.now();
+    if (now - zoom.lastTap < 320) {
+      zoom.lastTap = 0;
+      if (zoom.s > zoom.fit * 1.05) zoomFit(true);
+      else zoomTo(zoom.fit * 3, e.clientX, e.clientY, true);
+    } else zoom.lastTap = now;
+  }
+  zoom.tap = null;
+}
+document.addEventListener('pointerup', zoomLift);
+document.addEventListener('pointercancel', zoomLift);
+
+zoom.el.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  if (zoom.ready) zoomTo(zoom.s * Math.exp(-e.deltaY * 0.0025), e.clientX, e.clientY);
+}, { passive: false });
+window.addEventListener('resize', () => {
+  if (!zoom.el.hidden && zoom.ready) zoomFit();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !zoom.el.hidden) closeZoom();
+});
 
 /* ---------- Boot ---------- */
 
