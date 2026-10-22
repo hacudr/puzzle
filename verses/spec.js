@@ -203,7 +203,7 @@ exports.verses = {
   "anderson-heavenwards.webp": { source: 19221, from: "Our birth is but a sleep and a forgetting", to: "us in our infancy", poet: "William Wordsworth", poem: "Ode: Intimations of Immortality" },
   "anderson-at-the-well.webp": { source: 1279, from: "Flow gently, sweet Afton! amang", to: "not her dream", poet: "Robert Burns", poem: "Sweet Afton" },
   "anderson-the-flower-girl-capri.webp": { source: 100, from: "Here’s flowers for you", to: "rises weeping", poet: "William Shakespeare", poem: "The Winter’s Tale" },
-  "anderson-simplicity.webp": { source: 4011, from: "Still to be neat, still to be drest, As you", to: "but not my heart", poet: "Ben Jonson", poem: "Epicœne, or The Silent Woman" },
+  "anderson-simplicity.webp": { source: 442, from: "I have remembered beauty in the night", to: "think of you, I am at rest", poet: "Sara Teasdale", poem: "To E." },
   "landseer-favourites.webp": { source: 100, from: "Round-hoof", to: "so proud a back", poet: "William Shakespeare", poem: "Venus and Adonis" },
   "landseer-donald-mcintyre.webp": { source: 3011, from: "Come one, come all! this rock shall fly", to: "as soon as I", poet: "Walter Scott", poem: "The Lady of the Lake" },
   "landseer-a-highland-landscape.webp": { source: 1279, from: "My heart’s in the Highlands, my heart is not here", to: "chasing the deer", poet: "Robert Burns", poem: "My Heart’s in the Highlands" },
