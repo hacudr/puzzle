@@ -1452,6 +1452,7 @@ $('#doneSettings').addEventListener('click', () => {
   show('settings');
 });
 $('#doneArtist').addEventListener('click', () => openArtist(artistOf(game.p)));
+$('#doneBack').addEventListener('click', () => openArtist(artistOf(game.p)));
 $('#doneHome').addEventListener('click', openGallery);
 $('#aboutBtn').addEventListener('click', () => showAbout(game.p));
 $('.plate-face').addEventListener('click', () => {
