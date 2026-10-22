@@ -15,7 +15,7 @@ for (const dir of ['icons', 'frames']) {
 
 // only the pictures listed in puzzles.json, not the full-size originals
 const list = JSON.parse(fs.readFileSync(path.join(__dirname, 'puzzles', 'puzzles.json'), 'utf8'));
-for (const file of ['puzzles.json', 'artists.json', 'periods.json', 'collections.json', 'blurbs.json', 'stories.json', 'verses.json']) {
+for (const file of ['puzzles.json', 'artists.json', 'periods.json', 'collections.json', 'blurbs.json', 'stories.json', 'verses.json', 'notes.json']) {
   fs.copyFileSync(path.join(__dirname, 'puzzles', file), path.join(dist, 'puzzles', file));
 }
 for (const p of list) {

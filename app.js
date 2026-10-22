@@ -39,6 +39,7 @@ let puzzles = [];
 let blurbs = {};
 let stories = {};
 let verses = {};
+let notes = {};
 // one entry per artist: { name, note, sort, usual, focus, all, cover, puzzles }; `all` and
 // `usual` are every picture and the listed cover, `puzzles` and `cover` what
 // is left of them once hidden pictures are taken out; `focus` is the part of the
@@ -1388,7 +1389,10 @@ function closeCheer() {
 // (the history, scripture, myth or literature behind it, what this picture shows,
 // and passages from the text itself), and otherwise, or where the story has no
 // passage to quote, the description from puzzles/blurbs.json. A picture with
-// neither has lines of verse, or a passage of prose, from puzzles/verses.json.
+// neither has lines of verse, or a passage of prose, from puzzles/verses.json,
+// after a few sentences on the artwork itself from puzzles/notes.json, written
+// for the app (as the artists' bios are), so they need no credit.
+const noteOf = (p) => notes[p.image.replace(/^puzzles\//, '')];
 const blurbOf = (p) => blurbs[p.image.replace(/^puzzles\//, '')];
 const storyOf = (p) => stories.puzzles && stories.puzzles[p.image.replace(/^puzzles\//, '')];
 const verseOf = (p) => verses.puzzles && verses.puzzles[p.image.replace(/^puzzles\//, '')];
@@ -1453,6 +1457,8 @@ function showAbout(p) {
   // the lines, named by their poet and poem (Scripture and the Old English
   // poems by the poem alone)
   if (verse) {
+    const note = noteOf(p);
+    if (note) body.append(el('p', '', note));
     const quote = el('blockquote', 'about-quote' + (verse.prose ? '' : ' verse'));
     const by = /^(The Bible|Anonymous)$/.test(verse.poet) ? '' : `${verse.poet}, `;
     quote.append(el('p', 'q', verse.text), el('cite', '', by + verse.poem));
@@ -2040,6 +2046,10 @@ async function boot() {
   fetch('puzzles/verses.json', { cache: 'no-cache' })
     .then((res) => res.json())
     .then((all) => { verses = all; lateAbout(); })
+    .catch(() => {});
+  fetch('puzzles/notes.json', { cache: 'no-cache' })
+    .then((res) => res.json())
+    .then((all) => { notes = all; })
     .catch(() => {});
   sift();
   showSplash();
