@@ -1001,6 +1001,11 @@
    "kind": "literature",
    "about": "In Shakespeare's As You Like It, Orlando, wronged by his elder brother, flees to the Forest of Arden, where he hangs verses to Rosalind on the trees and carves her name in their bark. Rosalind, banished too and disguised as a youth called Ganymede, finds them, and teaches him how to woo her without revealing who she is."
   },
+  "midsummer": {
+   "title": "A Midsummer Night's Dream",
+   "kind": "literature",
+   "about": "In Shakespeare's comedy (about 1595), Oberon and Titania, the king and queen of the fairies, have quarrelled over a little Indian boy, the son of one of Titania's votaresses who died in giving birth to him. Oberon wants the child for his page, and Titania will not give him up; their quarrel has thrown the seasons into disorder. To punish her, Oberon squeezes the juice of a magic flower onto her eyes as she sleeps, so that she will dote on the first creature she sees on waking. That is Nick Bottom, a weaver rehearsing a play in the wood with his fellow tradesmen, on whom the mischievous Puck has put the head of an ass. Titania lavishes her love and her fairies on him, until Oberon, having got the boy, releases her from the spell."
+  },
   "mariana": {
    "title": "Mariana",
    "kind": "literature",
@@ -2039,6 +2044,26 @@
   "ayl-trees": {
    "text": "Hang there, my verse, in witness of my love.\nAnd thou, thrice-crowned queen of night, survey\nWith thy chaste eye, from thy pale sphere above,\nThy huntress’ name that my full life doth sway.\nO Rosalind, these trees shall be my books,\nAnd in their barks my thoughts I’ll character,\nThat every eye which in this forest looks\nShall see thy virtue witnessed everywhere.\nRun, run, Orlando, carve on every tree\nThe fair, the chaste, and unexpressive she.",
    "cite": "Shakespeare, As You Like It, Act 3, Scene 2",
+   "source": "shakespeare"
+  },
+  "mnd-ill-met": {
+   "text": "Oberon.\nIll met by moonlight, proud Titania.\n\nTitania.\nWhat, jealous Oberon! Fairies, skip hence;\nI have forsworn his bed and company.\n\nOberon.\nTarry, rash wanton; am not I thy lord?",
+   "cite": "Shakespeare, A Midsummer Night's Dream, Act 2, Scene 1",
+   "source": "shakespeare"
+  },
+  "mnd-changeling": {
+   "text": "Oberon.\nDo you amend it, then. It lies in you.\nWhy should Titania cross her Oberon?\nI do but beg a little changeling boy\nTo be my henchman.\n\nTitania.\nSet your heart at rest;\nThe fairyland buys not the child of me.\nHis mother was a vot’ress of my order,\nAnd in the spicèd Indian air, by night,\nFull often hath she gossip’d by my side;\nAnd sat with me on Neptune’s yellow sands,\nMarking th’ embarkèd traders on the flood,\nWhen we have laugh’d to see the sails conceive,\nAnd grow big-bellied with the wanton wind;\nWhich she, with pretty and with swimming gait\nFollowing (her womb then rich with my young squire),\nWould imitate, and sail upon the land,\nTo fetch me trifles, and return again,\nAs from a voyage, rich with merchandise.\nBut she, being mortal, of that boy did die;\nAnd for her sake do I rear up her boy,\nAnd for her sake I will not part with him.\n\nOberon.\nHow long within this wood intend you stay?\n\nTitania.\nPerchance till after Theseus’ wedding-day.\nIf you will patiently dance in our round,\nAnd see our moonlight revels, go with us;\nIf not, shun me, and I will spare your haunts.\n\nOberon.\nGive me that boy and I will go with thee.\n\nTitania.\nNot for thy fairy kingdom. Fairies, away.\nWe shall chide downright if I longer stay.",
+   "cite": "Shakespeare, A Midsummer Night's Dream, Act 2, Scene 1",
+   "source": "shakespeare"
+  },
+  "mnd-flowery-bed": {
+   "text": "Come, sit thee down upon this flowery bed,\nWhile I thy amiable cheeks do coy,\nAnd stick musk-roses in thy sleek smooth head,\nAnd kiss thy fair large ears, my gentle joy.",
+   "cite": "Shakespeare, A Midsummer Night's Dream, Act 4, Scene 1 (Titania to Bottom)",
+   "source": "shakespeare"
+  },
+  "mnd-dote": {
+   "text": "Sleep thou, and I will wind thee in my arms.\nFairies, be gone, and be all ways away.\nSo doth the woodbine the sweet honeysuckle\nGently entwist, the female ivy so\nEnrings the barky fingers of the elm.\nO, how I love thee! How I dote on thee!",
+   "cite": "Shakespeare, A Midsummer Night's Dream, Act 4, Scene 1 (Titania)",
    "source": "shakespeare"
   },
   "mariana-moated": {
@@ -4102,6 +4127,22 @@
     "ayl-trees"
    ],
    "uncertain": "The title Orlando suggests As You Like It, but the figure may be Rosalind disguised as the youth Ganymede, or Orlando himself; no catalogue entry was found to settle it."
+  },
+  "paton-the-quarrel-of-oberon-and-titania.webp": {
+   "subject": "midsummer",
+   "scene": "Oberon, in a red cloak with a spear, reaches toward Titania, who stands in a glow of light and will not yield; the little Indian boy they are quarrelling over leans against her side. All around them the wood swarms with fairies, and a carved satyr watches from a tree on the right.",
+   "passages": [
+    "mnd-ill-met",
+    "mnd-changeling"
+   ]
+  },
+  "landseer-scene-from-a-midsummer-nights-dream.webp": {
+   "subject": "midsummer",
+   "scene": "Titania, under the spell, nestles against Bottom with a musk rose in her hand; she has crowned his ass's head with roses. Her fairies attend them, one riding a white rabbit. Landseer painted it for the engineer Isambard Kingdom Brunel, who was filling a dining room with scenes from Shakespeare.",
+   "passages": [
+    "mnd-flowery-bed",
+    "mnd-dote"
+   ]
   },
   "millais-mariana.webp": {
    "subject": "mariana",
