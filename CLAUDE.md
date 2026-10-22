@@ -104,6 +104,7 @@ Then look at every picture before carrying out the four steps: leave out black-a
 - Push to GitHub only when the user asks. The repo is public, so everything pushed is public. The pages at GitHub are a free preview of what will be sold, so the rights section applies to them in full.
 - `puzzles/images/` (originals), `dist/`, `mockups/`, `shelved/` (work taken out of the app for now) and `.claude/` are git-ignored on purpose.
 - After a push, GitHub Pages takes a minute or two to update.
+- A home-screen app on the iPad is only paused when put away, and comes back running the copy it had. So each time it comes back it asks whether `index.html` has a new ETag (every publish stamps every file anew), and if so reloads, but only from the gallery's pages, landing on the home page (`checkFresh`, `reloadIfStale` in `app.js`). The local server sends no ETag, so it never reloads there. A device still on a copy from before this check needs the app closed and opened again once.
 
 ## Running locally
 

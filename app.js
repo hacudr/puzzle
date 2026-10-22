@@ -457,7 +457,32 @@ function savedProgress(p, cols, rows) {
 function show(id) {
   document.querySelectorAll('.screen').forEach((s) => (s.hidden = s.id !== id));
   $('#' + id).scrollTop = 0;
+  reloadIfStale();
 }
+
+// Keeping up to date. A home-screen app on the iPad is seldom started afresh: put
+// away, it is only paused, and comes back running the copy it had, so what has been
+// published since never shows. Each time it comes back it asks the host whether
+// anything is newer (every publish at GitHub Pages stamps every file anew), and if
+// so it starts again on the new copy, but only from the gallery's pages, never in
+// a puzzle, on its solved screen or in Settings: that waits until one is left.
+const stampOf = () =>
+  fetch('index.html', { method: 'HEAD', cache: 'no-store' })
+    .then((r) => (r.ok && (r.headers.get('etag') || r.headers.get('last-modified'))) || '')
+    .catch(() => '');
+const firstStamp = stampOf();
+let stale = false;
+async function checkFresh() {
+  const was = await firstStamp;
+  const now = was && (await stampOf());
+  if (now && now !== was) stale = true;
+  reloadIfStale();
+}
+function reloadIfStale() {
+  const at = document.querySelector('.screen:not([hidden])');
+  if (stale && at && ['gallery', 'collection', 'artist'].includes(at.id) && $('#paywall').hidden) location.reload();
+}
+document.addEventListener('visibilitychange', () => document.hidden || checkFresh());
 
 function loadImage(src) {
   return new Promise((resolve, reject) => {
