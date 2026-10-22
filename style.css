@@ -1092,64 +1092,29 @@ button {
 .pay .link { font-size: 1.15rem; }
 #payDone h2 { margin-bottom: 4px; }
 
-/* Congratulations: the last picture of an artist or a collection. A cream wall
-   card rises over the finished picture, its gilt amphora draws itself, and
-   flakes of gold leaf drift down behind it. */
-.overlay.cheer { z-index: 30; overflow: hidden; background: rgba(var(--page-rgb), .5); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); animation: fade .6s ease both; }
+/* Congratulations: the last picture of an artist or a collection. The screen
+   darkens, the words come up in off-white, and flakes of gold leaf drift down
+   (their fall is set in showCheer, in pixels, so Safari can run it off the
+   main thread and it never stalls). */
+.overlay.cheer { position: fixed; z-index: 30; overflow: hidden; background: rgba(12, 9, 6, .78); -webkit-backdrop-filter: none; backdrop-filter: none; animation: fade .6s ease both; }
 .overlay.cheer.leaving { animation: cheer-out .45s ease both; }
 @keyframes cheer-out { to { opacity: 0; } }
-.cheer-card {
-  position: relative;
-  box-sizing: border-box;
-  width: min(440px, calc(100vw - 32px));
-  padding: 26px 34px 24px;
-  text-align: center;
-  background: var(--cream);
-  color: #33291f;
-  border-radius: 3px;
-  box-shadow: var(--card-shadow), inset 0 0 0 1px rgba(199, 154, 60, .45), inset 0 0 0 6px var(--cream), inset 0 0 0 7px rgba(199, 154, 60, .3);
-  animation: settle 1s .15s cubic-bezier(.22, .8, .25, 1) both;
-}
-.cheer-card .eyebrow { margin-top: 6px; color: #6f6051; letter-spacing: .02em; }
-.cheer-card h2 { margin: 6px 0 0; font-weight: 500; font-size: 2rem; line-height: 1.15; animation: settle .9s .7s cubic-bezier(.22, .8, .25, 1) both; }
-.cheer-line { margin: 10px auto 20px; max-width: 22em; font-family: Spectral, var(--serif); font-style: italic; font-size: 1.05rem; line-height: 1.45; color: #6f6051; animation: fade .9s 1s ease both; }
-.cheer-card .link { font-size: 1.15rem; border-bottom-color: #33291f; animation: fade .8s 1.3s ease both; }
-
-/* The amphora: its outline draws itself, its gilt body fills in, the handles
-   follow, then the dark bands, the wave and the rays at its foot. Lengths are
-   given in units of the drawing, not pathLength, which older Safari ignores. */
-.amphora { display: block; width: 84px; height: 105px; margin: -2px auto 0; overflow: visible; }
-.amphora .edge { fill: none; stroke: #7f5c1c; stroke-width: .9; stroke-linejoin: round; stroke-dasharray: 300; stroke-dashoffset: 300; animation: draw 1.1s .35s ease-out forwards; }
-.amphora .body { fill: url(#giltBody); animation: fade .8s 1s ease both; }
-.amphora .handle { fill: none; stroke: url(#gilt); stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: 40; stroke-dashoffset: 40; animation: draw .6s .9s ease-out forwards; }
-.amphora .band { fill: none; stroke: #6e4f17; stroke-width: 1.1; stroke-linecap: round; stroke-dasharray: 80; stroke-dashoffset: 80; animation: draw .6s calc(1.4s + var(--i) * .14s) ease-out forwards; }
-.amphora .wave { stroke-width: 1; }
-@keyframes draw { to { stroke-dashoffset: 0; } }
-/* a glint passes across the amphora once it is whole */
-.amphora .vessel { animation: glint 1.6s 2.3s ease-in-out both; }
-@keyframes glint { 50% { filter: brightness(1.35); } }
+.cheer-text { position: relative; padding: 0 16px; text-align: center; color: #f4efe6; }
+.cheer-text .eyebrow { margin: 0; color: rgba(244, 239, 230, .75); letter-spacing: .02em; animation: fade .9s .3s ease both; }
+.cheer-text h2 { margin: 8px 0 28px; font-weight: 500; font-size: 2.6rem; line-height: 1.15; animation: settle 1s .6s cubic-bezier(.22, .8, .25, 1) both; }
+.cheer-text .link { font-size: 1.15rem; color: #f4efe6; border-bottom-color: #f4efe6; animation: fade .8s 1.2s ease both; }
 
 /* gold leaf: small flakes that fall, turning, at their own pace */
 .leaf { position: absolute; inset: 0; pointer-events: none; }
 .leaf i {
   position: absolute;
   top: -20px;
-  width: var(--w);
-  height: calc(var(--w) * .7);
   border-radius: 1px 3px 1px 2px;
   background: linear-gradient(135deg, #f3d98b, #c79a3c 55%, #e9c873);
   opacity: 0;
-  animation: flake var(--t) var(--d) linear forwards;
-}
-@keyframes flake {
-  0% { opacity: 0; transform: translate(0, 0) rotate(0) rotateX(0); }
-  8% { opacity: .95; }
-  85% { opacity: .9; }
-  100% { opacity: 0; transform: translate(var(--x), 105dvh) rotate(var(--r)) rotateX(720deg); }
+  will-change: transform, opacity;
 }
 @media (prefers-reduced-motion: reduce) {
   .leaf { display: none; }
-  .cheer-card, .cheer-card h2, .cheer-line, .cheer-card .link, .amphora .vessel { animation: fade .4s ease both; }
-  .amphora .edge, .amphora .handle, .amphora .band { animation: none; stroke-dashoffset: 0; }
-  .amphora .body { animation: none; }
+  .cheer-text .eyebrow, .cheer-text h2, .cheer-text .link { animation: fade .4s ease both; }
 }

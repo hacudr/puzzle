@@ -1327,35 +1327,36 @@ function showPlate(p, played = true) {
 }
 
 // Congratulations on finishing an artist, or a whole collection (which names
-// the collection, the larger of the two). Flakes of gold leaf fall behind the card.
+// the collection, the larger of the two), with gold leaf falling over a dark screen.
+// Each flake's fall is given in plain pixels through the Web Animations API, not
+// CSS variables in keyframes: Safari runs those on the main thread, where the
+// work of the solved screen stalled the flakes halfway down.
 function showCheer({ artist: a, collection: c }) {
   const el = $('#doneCheer');
-  if (c) {
-    const count = c.artists.reduce((n, b) => n + b.puzzles.length, 0);
-    $('#cheerEyebrow').textContent = 'Collection complete';
-    $('#cheerName').textContent = c.name;
-    $('#cheerLine').textContent = `Every one of its ${count} pictures, by ${c.artists.length} hands, is solved. A gallery of your own.`;
-  } else {
-    const count = a.puzzles.length;
-    $('#cheerEyebrow').textContent = 'Chapter complete';
-    $('#cheerName').textContent = a.name;
-    $('#cheerLine').textContent = count === 1 ? 'Their picture is solved.' : `All ${count} pictures in this chapter are solved.`;
-  }
+  $('#cheerEyebrow').textContent = c ? 'Collection complete' : 'Chapter complete';
+  $('#cheerName').textContent = c ? c.name : a.name;
   const leaf = el.querySelector('.leaf');
   leaf.textContent = '';
-  const rand = (lo, hi) => lo + Math.random() * (hi - lo);
-  for (let i = 0, n = c ? 70 : 36; i < n; i++) {
-    const f = document.createElement('i');
-    f.style.left = `${rand(-2, 100)}%`;
-    f.style.setProperty('--w', `${rand(6, 14).toFixed(1)}px`);
-    f.style.setProperty('--x', `${rand(-90, 90).toFixed(0)}px`);
-    f.style.setProperty('--r', `${rand(-540, 540).toFixed(0)}deg`);
-    f.style.setProperty('--t', `${rand(4.5, 8).toFixed(2)}s`);
-    f.style.setProperty('--d', `${rand(0, c ? 3.5 : 2.5).toFixed(2)}s`);
-    leaf.append(f);
-  }
   el.classList.remove('leaving');
   el.hidden = false;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const rand = (lo, hi) => lo + Math.random() * (hi - lo);
+  const fall = window.innerHeight + 40;
+  for (let i = 0, n = c ? 70 : 36; i < n; i++) {
+    const f = document.createElement('i');
+    const w = rand(6, 14);
+    f.style.left = `${rand(-2, 100)}%`;
+    f.style.width = `${w.toFixed(1)}px`;
+    f.style.height = `${(w * 0.7).toFixed(1)}px`;
+    leaf.append(f);
+    const x = rand(-90, 90).toFixed(0), r = rand(-540, 540).toFixed(0);
+    f.animate([
+      { opacity: 0, transform: 'translate3d(0, 0, 0) rotate(0deg) rotateX(0deg)' },
+      { opacity: 0.95, offset: 0.08 },
+      { opacity: 0.9, offset: 0.85 },
+      { opacity: 0, transform: `translate3d(${x}px, ${fall}px, 0) rotate(${r}deg) rotateX(720deg)` },
+    ], { duration: rand(4500, 8000), delay: rand(0, c ? 3500 : 2500), easing: 'linear', fill: 'forwards' });
+  }
 }
 function closeCheer() {
   const el = $('#doneCheer');

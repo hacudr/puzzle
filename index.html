@@ -308,42 +308,15 @@
     </div>
   </div>
 
-  <!-- Congratulations on the last picture of an artist, or of a collection: a wall
-       card under a gilt amphora that draws itself, with gold leaf drifting down -->
+  <!-- Congratulations on the last picture of an artist, or of a collection: the
+       screen darkens, the words come up in off-white, and gold leaf drifts down -->
   <div id="doneCheer" class="overlay cheer" hidden>
     <div class="leaf" aria-hidden="true"></div>
-    <article class="cheer-card" role="dialog" aria-labelledby="cheerName">
-      <svg class="amphora" viewBox="0 0 80 100" aria-hidden="true">
-        <defs>
-          <linearGradient id="gilt" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#f3d98b"/><stop offset=".45" stop-color="#c79a3c"/><stop offset=".7" stop-color="#e9c873"/><stop offset="1" stop-color="#9c7326"/>
-          </linearGradient>
-          <!-- across the body, so it reads as round: dark at the edges, a highlight left of the middle -->
-          <linearGradient id="giltBody" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#8a6420"/><stop offset=".32" stop-color="#f3d98b"/><stop offset=".58" stop-color="#d4a94e"/><stop offset="1" stop-color="#7f5c1c"/>
-          </linearGradient>
-          <clipPath id="amphoraClip"><path d="M31 6H49L48 10H46C45.5 16 45.5 22 46 26C58 30 64 40 63 50C62 64 52 76 45 84V87C48 88 51 90 52 93H28C29 90 32 88 35 87V84C28 76 18 64 17 50C16 40 22 30 34 26C34.5 22 34.5 16 34 10H32Z"/></clipPath>
-        </defs>
-        <g class="vessel">
-          <path class="handle" d="M34 14C24 12 17 16 20 24C21.5 28 23 30 25.5 32"/>
-          <path class="handle" d="M46 14C56 12 63 16 60 24C58.5 28 57 30 54.5 32"/>
-          <path class="body" d="M31 6H49L48 10H46C45.5 16 45.5 22 46 26C58 30 64 40 63 50C62 64 52 76 45 84V87C48 88 51 90 52 93H28C29 90 32 88 35 87V84C28 76 18 64 17 50C16 40 22 30 34 26C34.5 22 34.5 16 34 10H32Z"/>
-          <g clip-path="url(#amphoraClip)">
-            <path class="band" style="--i:0" d="M30 12.5H50"/>
-            <path class="band" style="--i:1" d="M14 37H66"/>
-            <path class="band wave" style="--i:2" d="M14 42q2.5-3 5 0t5 0t5 0t5 0t5 0t5 0t5 0t5 0t5 0t5 0t5 0"/>
-            <path class="band" style="--i:3" d="M14 47H66"/>
-            <path class="band" style="--i:4" d="M14 66H66"/>
-            <path class="band" style="--i:5" d="M34 71V80M38 72V81M42 72V81M46 71V80"/>
-          </g>
-          <path class="edge" d="M31 6H49L48 10H46C45.5 16 45.5 22 46 26C58 30 64 40 63 50C62 64 52 76 45 84V87C48 88 51 90 52 93H28C29 90 32 88 35 87V84C28 76 18 64 17 50C16 40 22 30 34 26C34.5 22 34.5 16 34 10H32Z"/>
-        </g>
-      </svg>
+    <div class="cheer-text" role="dialog" aria-labelledby="cheerName">
       <p id="cheerEyebrow" class="eyebrow"></p>
       <h2 id="cheerName"></h2>
-      <p id="cheerLine" class="cheer-line"></p>
       <button id="cheerClose" class="link">Continue</button>
-    </article>
+    </div>
   </div>
 
   <!-- About the painting: a wall card over the finished picture, put away with a tap outside it -->
