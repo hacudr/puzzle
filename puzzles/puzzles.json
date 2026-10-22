@@ -579,7 +579,8 @@
     "image": "botticelli-portrait-of-michele-marullo-tarcaniota.webp",
     "artist": "Sandro Botticelli",
     "name": "Portrait of Michele Marullo Tarcaniota",
-    "scientific": "c. 1497"
+    "scientific": "c. 1497",
+    "article": "Michael Tarchaniota Marullus"
   },
   {
     "image": "botticelli-portrait-of-dante.webp",
@@ -2502,7 +2503,8 @@
     "image": "toulouse-lautrec-preliminary-design-for-the-playbill-to-le-chariot-de-terre-cuite.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Design for the Playbill to “Le Chariot de terre cuite”",
-    "scientific": "1894"
+    "scientific": "1894",
+    "article": "Mrichchhakatika"
   },
   {
     "image": "toulouse-lautrec-the-sofa.webp",
@@ -2517,7 +2519,8 @@
     "image": "toulouse-lautrec-madame-thadee-natanson-at-the-theater.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Madame Thadée Natanson at the Theater",
-    "scientific": "Misia Godebska, 1895"
+    "scientific": "Misia Godebska, 1895",
+    "article": "Misia Sert"
   },
   {
     "image": "toulouse-lautrec-woman-before-a-mirror.webp",
@@ -2958,7 +2961,8 @@
     "artist": "Artemisia Gentileschi",
     "name": "Self-Portrait as a Female Martyr",
     "scientific": "c. 1615",
-    "sacred": true
+    "sacred": true,
+    "article": "Self-Portrait as a Female Martyr"
   },
   {
     "image": "gentileschi-susanna-and-the-elders.webp",
@@ -3012,25 +3016,29 @@
     "image": "gentileschi-self-portrait-as-the-allegory-of-painting.webp",
     "artist": "Artemisia Gentileschi",
     "name": "Self-Portrait as the Allegory of Painting",
-    "scientific": "1638–1639"
+    "scientific": "1638–1639",
+    "article": "Self-Portrait as the Allegory of Painting"
   },
   {
     "image": "cole-the-titans-goblet.webp",
     "artist": "Hudson River School",
     "name": "The Titan's Goblet",
-    "scientific": "Thomas Cole, 1833"
+    "scientific": "Thomas Cole, 1833",
+    "article": "The Titan's Goblet"
   },
   {
     "image": "cole-the-oxbow.webp",
     "artist": "Hudson River School",
     "name": "The Oxbow",
-    "scientific": "Thomas Cole, 1836"
+    "scientific": "Thomas Cole, 1836",
+    "article": "The Oxbow"
   },
   {
     "image": "durand-the-beeches.webp",
     "artist": "Hudson River School",
     "name": "The Beeches",
-    "scientific": "Asher Brown Durand, 1845"
+    "scientific": "Asher Brown Durand, 1845",
+    "article": "The Beeches (painting)"
   },
   {
     "image": "durand-in-the-woods.webp",
@@ -3042,25 +3050,29 @@
     "image": "church-heart-of-the-andes.webp",
     "artist": "Hudson River School",
     "name": "Heart of the Andes",
-    "scientific": "Frederic Edwin Church, 1859"
+    "scientific": "Frederic Edwin Church, 1859",
+    "article": "The Heart of the Andes"
   },
   {
     "image": "heade-approaching-thunder-storm.webp",
     "artist": "Hudson River School",
     "name": "Approaching Thunder Storm",
-    "scientific": "Martin Johnson Heade, 1859"
+    "scientific": "Martin Johnson Heade, 1859",
+    "article": "Approaching Thunder Storm"
   },
   {
     "image": "gifford-a-gorge-in-the-mountains.webp",
     "artist": "Hudson River School",
     "name": "A Gorge in the Mountains (Kauterskill Clove)",
-    "scientific": "Sanford Robinson Gifford, 1862"
+    "scientific": "Sanford Robinson Gifford, 1862",
+    "article": "Kaaterskill Clove"
   },
   {
     "image": "lane-stage-fort-across-gloucester-harbor.webp",
     "artist": "Hudson River School",
     "name": "Stage Fort across Gloucester Harbor",
-    "scientific": "Fitz Henry Lane, 1862"
+    "scientific": "Fitz Henry Lane, 1862",
+    "article": "Stage Fort across Gloucester Harbor"
   },
   {
     "image": "bierstadt-the-rocky-mountains-landers-peak.webp",
@@ -3070,25 +3082,29 @@
     "content": [
       "violence"
     ],
-    "effect": "gallop"
+    "effect": "gallop",
+    "article": "The Rocky Mountains, Lander's Peak"
   },
   {
     "image": "cropsey-the-valley-of-wyoming.webp",
     "artist": "Hudson River School",
     "name": "The Valley of Wyoming",
-    "scientific": "Jasper Francis Cropsey, 1865"
+    "scientific": "Jasper Francis Cropsey, 1865",
+    "article": "The Valley of Wyoming"
   },
   {
     "image": "kensett-lake-george.webp",
     "artist": "Hudson River School",
     "name": "Lake George",
-    "scientific": "John Frederick Kensett, 1869"
+    "scientific": "John Frederick Kensett, 1869",
+    "article": "Lake George (John Frederick Kensett)"
   },
   {
     "image": "whittredge-the-trout-pool.webp",
     "artist": "Hudson River School",
     "name": "The Trout Pool",
-    "scientific": "Worthington Whittredge, 1870"
+    "scientific": "Worthington Whittredge, 1870",
+    "article": "The Trout Pool (Worthington Whittredge)"
   },
   {
     "image": "kensett-eatons-neck-long-island.webp",
@@ -3309,7 +3325,8 @@
     "image": "klimt-serena-pulitzer-lederer.webp",
     "artist": "Gustav Klimt",
     "name": "Serena Pulitzer Lederer",
-    "scientific": "1899"
+    "scientific": "1899",
+    "article": "Serena Lederer"
   },
   {
     "image": "klimt-mada-primavesi.webp",
@@ -3495,7 +3512,8 @@
     "image": "caravaggio-the-lute-player.webp",
     "artist": "Caravaggio",
     "name": "The Lute Player",
-    "scientific": "c. 1596"
+    "scientific": "c. 1596",
+    "article": "The Lute Player (Caravaggio)"
   },
   {
     "image": "caravaggio-bacchus.webp",
@@ -4072,7 +4090,8 @@
     "image": "leonardo-da-vinci-ginevra-de-benci.webp",
     "artist": "Leonardo da Vinci",
     "name": "Ginevra de' Benci",
-    "scientific": "c. 1474/1478"
+    "scientific": "c. 1474/1478",
+    "article": "Ginevra de' Benci"
   },
   {
     "image": "leonardo-da-vinci-annunciation.webp",
@@ -4473,7 +4492,8 @@
     "image": "stella-battle-of-lights-coney-island-mardi-gras.webp",
     "artist": "Joseph Stella",
     "name": "Battle of Lights, Coney Island, Mardi Gras",
-    "scientific": "oil on canvas, 1913–14"
+    "scientific": "oil on canvas, 1913–14",
+    "article": "Coney Island"
   },
   {
     "image": "stella-coney-island.webp",
@@ -4485,13 +4505,15 @@
     "image": "stella-luna-park.webp",
     "artist": "Joseph Stella",
     "name": "Luna Park",
-    "scientific": "c. 1913"
+    "scientific": "c. 1913",
+    "article": "Luna Park (Coney Island, 1903)"
   },
   {
     "image": "stella-der-rosenkavalier.webp",
     "artist": "Joseph Stella",
     "name": "Der Rosenkavalier",
-    "scientific": "1913–14"
+    "scientific": "1913–14",
+    "article": "Der Rosenkavalier"
   },
   {
     "image": "stella-dog-in-motion.webp",
@@ -4503,13 +4525,15 @@
     "image": "stella-brooklyn-bridge.webp",
     "artist": "Joseph Stella",
     "name": "Brooklyn Bridge",
-    "scientific": "oil on canvas, 1919–20"
+    "scientific": "oil on canvas, 1919–20",
+    "article": "Brooklyn Bridge"
   },
   {
     "image": "stella-study-for-brooklyn-bridge.webp",
     "artist": "Joseph Stella",
     "name": "Study for Brooklyn Bridge",
-    "scientific": "watercolour, 1922"
+    "scientific": "watercolour, 1922",
+    "article": "Brooklyn Bridge"
   },
   {
     "image": "stella-skyscrapers.webp",
@@ -4574,7 +4598,8 @@
     "image": "decamp-the-kreutzer-sonata.webp",
     "artist": "Joseph DeCamp",
     "name": "The Kreutzer Sonata (The Violinist II)",
-    "scientific": "1912"
+    "scientific": "1912",
+    "article": "Violin Sonata No. 9 (Beethoven)"
   },
   {
     "image": "decamp-the-listener.webp",
@@ -4640,13 +4665,15 @@
     "image": "decamp-sir-general-arthur-william-currie.webp",
     "artist": "Joseph DeCamp",
     "name": "Sir General Arthur William Currie",
-    "scientific": "1920"
+    "scientific": "1920",
+    "article": "Arthur Currie"
   },
   {
     "image": "decamp-sir-robert-laird-borden.webp",
     "artist": "Joseph DeCamp",
     "name": "Sir Robert Laird Borden",
-    "scientific": "1920"
+    "scientific": "1920",
+    "article": "Robert Borden"
   },
   {
     "image": "millais-ophelia.webp",
@@ -4961,7 +4988,8 @@
     "image": "hunt-dante-gabriel-rossetti-at-22.webp",
     "artist": "William Holman Hunt",
     "name": "Dante Gabriel Rossetti at 22",
-    "scientific": "1882–1883"
+    "scientific": "1882–1883",
+    "article": "Dante Gabriel Rossetti"
   },
   {
     "image": "brown-the-last-of-england.webp",
@@ -5296,7 +5324,8 @@
     "image": "stillman-the-lake-of-nemi.webp",
     "artist": "Marie Spartali Stillman",
     "name": "The Lake of Nemi",
-    "scientific": "c. 1890s"
+    "scientific": "c. 1890s",
+    "article": "Lake Nemi"
   },
   {
     "image": "stillman-a-lady-with-peacocks-in-a-garden.webp",
@@ -5345,7 +5374,8 @@
     "image": "stillman-a-lady-in-the-garden-at-kelmscott-manor.webp",
     "artist": "Marie Spartali Stillman",
     "name": "A Lady in the Garden at Kelmscott Manor",
-    "scientific": "c. 1905"
+    "scientific": "c. 1905",
+    "article": "Kelmscott Manor"
   },
   {
     "image": "de-morgan-the-love-potion.webp",
@@ -5609,7 +5639,8 @@
     "image": "edward-robert-hughes-midsummer-eve.webp",
     "artist": "Edward Robert Hughes",
     "name": "Midsummer Eve",
-    "scientific": "c. 1908"
+    "scientific": "c. 1908",
+    "article": "Midsummer Eve (painting)"
   },
   {
     "image": "edward-robert-hughes-twilight-fantasies.webp",
@@ -5773,7 +5804,8 @@
     "image": "leighton-lieder-ohne-worte.webp",
     "artist": "Frederic Leighton",
     "name": "Lieder ohne Worte",
-    "scientific": "c. 1861"
+    "scientific": "c. 1861",
+    "article": "Songs Without Words"
   },
   {
     "image": "leighton-light-of-the-harem.webp",
@@ -5813,7 +5845,8 @@
     "image": "leighton-a-condottiere.webp",
     "artist": "Frederic Leighton",
     "name": "A Condottiere",
-    "scientific": "1871–1872"
+    "scientific": "1871–1872",
+    "article": "Condottiere"
   },
   {
     "image": "leighton-and-the-sea-gave-up-the-dead-which-were-in-it.webp",
@@ -5887,7 +5920,8 @@
     "image": "leighton-lindos-rhodes.webp",
     "artist": "Frederic Leighton",
     "name": "Lindos, Rhodes",
-    "scientific": "1867"
+    "scientific": "1867",
+    "article": "Lindos"
   },
   {
     "image": "leighton-the-return-of-persephone.webp",
@@ -5899,7 +5933,8 @@
     "image": "egypt-ceiling-painting-from-the-palace-of-amenhotep-iii.webp",
     "artist": "Ancient Egypt",
     "name": "Ceiling Painting from the Palace of Amenhotep III",
-    "scientific": "Malqata, c. 1386–1347 BCE"
+    "scientific": "Malqata, c. 1386–1347 BCE",
+    "article": "Malkata"
   },
   {
     "image": "egypt-portrait-of-the-boy-eutyches.webp",
@@ -5911,13 +5946,15 @@
     "image": "egypt-portrait-of-a-young-woman-in-red.webp",
     "artist": "Ancient Egypt",
     "name": "Portrait of a Young Woman in Red",
-    "scientific": "Mummy portrait, 90–120 CE"
+    "scientific": "Mummy portrait, 90–120 CE",
+    "article": "Fayum mummy portraits"
   },
   {
     "image": "egypt-portrait-of-a-young-woman-with-a-gilded-wreath.webp",
     "artist": "Ancient Egypt",
     "name": "Portrait of a Young Woman with a Gilded Wreath",
-    "scientific": "Mummy portrait, 120–140 CE"
+    "scientific": "Mummy portrait, 120–140 CE",
+    "article": "Fayum mummy portraits"
   },
   {
     "image": "egypt-mummy-mask-of-a-woman.webp",
@@ -5941,25 +5978,29 @@
     "image": "egypt-stela-of-mentuwoser.webp",
     "artist": "Ancient Egypt",
     "name": "Stela of the Steward Mentuwoser",
-    "scientific": "c. 1944 BCE"
+    "scientific": "c. 1944 BCE",
+    "article": "Stele"
   },
   {
     "image": "egypt-mentuhotep-ii-and-hathor.webp",
     "artist": "Ancient Egypt",
     "name": "Mentuhotep II and the Goddess Hathor",
-    "scientific": "c. 2010–2000 BCE"
+    "scientific": "c. 2010–2000 BCE",
+    "article": "Mentuhotep II"
   },
   {
     "image": "egypt-temple-of-dendur.webp",
     "artist": "Ancient Egypt",
     "name": "The Temple of Dendur",
-    "scientific": "Completed by 10 CE"
+    "scientific": "Completed by 10 CE",
+    "article": "Temple of Dendur"
   },
   {
     "image": "egypt-nefertari-playing-senet.webp",
     "artist": "Ancient Egypt",
     "name": "Queen Nefertari Playing Senet",
-    "scientific": "Copy of a painting in her tomb, c. 1290–1224 BCE"
+    "scientific": "Copy of a painting in her tomb, c. 1290–1224 BCE",
+    "article": "QV66"
   },
   {
     "image": "egypt-nefertari-led-by-isis.webp",
@@ -5971,7 +6012,8 @@
     "image": "egypt-nefertari-kneeling-in-adoration.webp",
     "artist": "Ancient Egypt",
     "name": "Queen Nefertari Kneeling in Adoration",
-    "scientific": "Copy of a painting in her tomb, c. 1290–1224 BCE"
+    "scientific": "Copy of a painting in her tomb, c. 1290–1224 BCE",
+    "article": "QV66"
   },
   {
     "image": "egypt-cat-killing-a-serpent.webp",
@@ -5980,13 +6022,15 @@
     "scientific": "Copy of a tomb painting, c. 1300–1224 BCE",
     "content": [
       "violence"
-    ]
+    ],
+    "article": "Apep"
   },
   {
     "image": "egypt-carpenter-making-a-chair.webp",
     "artist": "Ancient Egypt",
     "name": "Carpenter Making a Chair",
-    "scientific": "Copy of a painting in the Tomb of Rekhmire, c. 1479–1425 BCE"
+    "scientific": "Copy of a painting in the Tomb of Rekhmire, c. 1479–1425 BCE",
+    "article": "TT100"
   },
   {
     "image": "egypt-funeral-ritual-in-a-garden.webp",
@@ -6002,7 +6046,8 @@
     "content": [
       "nudity",
       "violence"
-    ]
+    ],
+    "article": "TT52"
   },
   {
     "image": "egypt-book-of-the-dead-of-nauny.webp",
@@ -6020,7 +6065,8 @@
     "image": "egypt-wall-painting-from-the-tomb-of-sebekhotep.webp",
     "artist": "Ancient Egypt",
     "name": "Wall Painting from the Tomb of Sebekhotep",
-    "scientific": "c. 1396–1386 BCE"
+    "scientific": "c. 1396–1386 BCE",
+    "article": "TT63"
   },
   {
     "image": "egypt-painted-shroud-fragment.webp",
@@ -6032,25 +6078,29 @@
     "image": "egypt-cat.webp",
     "artist": "Ancient Egypt",
     "name": "Cat",
-    "scientific": "Bronze, 664–30 BCE"
+    "scientific": "Bronze, 664–30 BCE",
+    "article": "Cats in ancient Egypt"
   },
   {
     "image": "egypt-model-sailing-boat.webp",
     "artist": "Ancient Egypt",
     "name": "Model Sailing Boat",
-    "scientific": "c. 1981–1802 BCE"
+    "scientific": "c. 1981–1802 BCE",
+    "article": "Wooden tomb model"
   },
   {
     "image": "egypt-travelling-boat-being-rowed.webp",
     "artist": "Ancient Egypt",
     "name": "Travelling Boat Being Rowed",
-    "scientific": "Model from the Tomb of Meketre, c. 1981–1975 BCE"
+    "scientific": "Model from the Tomb of Meketre, c. 1981–1975 BCE",
+    "article": "Meketre"
   },
   {
     "image": "egypt-estate-figure.webp",
     "artist": "Ancient Egypt",
     "name": "Offering Bearer",
-    "scientific": "Model from the Tomb of Meketre, c. 1981–1975 BCE"
+    "scientific": "Model from the Tomb of Meketre, c. 1981–1975 BCE",
+    "article": "Wooden tomb model"
   },
   {
     "image": "near-east-panel-with-striding-lion.webp",
@@ -6062,13 +6112,15 @@
     "image": "near-east-lamassu.webp",
     "artist": "Ancient Near East",
     "name": "Human-Headed Winged Lion (Lamassu)",
-    "scientific": "Assyrian, c. 883–859 BCE"
+    "scientific": "Assyrian, c. 883–859 BCE",
+    "article": "Lamassu"
   },
   {
     "image": "near-east-ashurnasirpal-relief.webp",
     "artist": "Ancient Near East",
     "name": "Ashurnasirpal II with an Attendant",
-    "scientific": "Assyrian relief, c. 883–859 BCE"
+    "scientific": "Assyrian relief, c. 883–859 BCE",
+    "article": "Ashurnasirpal II"
   },
   {
     "image": "near-east-bahram-gur-and-azadeh.webp",
@@ -6089,13 +6141,15 @@
     "image": "near-east-textile-with-a-walking-ram.webp",
     "artist": "Ancient Near East",
     "name": "Textile with a Walking Ram",
-    "scientific": "Sasanian, 7th century CE"
+    "scientific": "Sasanian, 7th century CE",
+    "article": "Sasanian art"
   },
   {
     "image": "near-east-man-with-an-oryx.webp",
     "artist": "Ancient Near East",
     "name": "Man with an Oryx, a Monkey and a Leopard Skin",
-    "scientific": "Assyrian ivory, 8th century BCE"
+    "scientific": "Assyrian ivory, 8th century BCE",
+    "article": "Nimrud ivories"
   },
   {
     "image": "near-east-gold-lion-rhyton.webp",
@@ -6110,7 +6164,8 @@
     "scientific": "Athens, c. 530 BCE",
     "content": [
       "nudity"
-    ]
+    ],
+    "article": "Panathenaic prize amphora by the Euphiletos Painter"
   },
   {
     "image": "greece-geometric-krater.webp",
@@ -6120,13 +6175,15 @@
     "effect": "gallop",
     "content": [
       "frightening"
-    ]
+    ],
+    "article": "Geometric art"
   },
   {
     "image": "greece-stirrup-jar-with-octopus.webp",
     "artist": "Ancient Greece",
     "name": "Stirrup Jar with Octopus",
-    "scientific": "Mycenaean, c. 1200–1100 BCE"
+    "scientific": "Mycenaean, c. 1200–1100 BCE",
+    "article": "Mycenaean pottery"
   },
   {
     "image": "greece-seated-harp-player.webp",
@@ -6135,7 +6192,8 @@
     "scientific": "Cycladic, 2800–2700 BCE",
     "content": [
       "nudity"
-    ]
+    ],
+    "article": "Cycladic art"
   },
   {
     "image": "greece-grave-stele-of-a-little-girl.webp",
@@ -6171,7 +6229,8 @@
     "scientific": "Lucania, c. 400–390 BCE",
     "content": [
       "nudity"
-    ]
+    ],
+    "article": "Lucanian vase painting"
   },
   {
     "image": "greece-kouros.webp",
@@ -6192,13 +6251,15 @@
     "image": "rome-boscoreale-woman-with-a-kithara.webp",
     "artist": "Ancient Rome",
     "name": "Woman Playing a Kithara",
-    "scientific": "Boscoreale, c. 50–40 BCE"
+    "scientific": "Boscoreale, c. 50–40 BCE",
+    "article": "Villa Boscoreale"
   },
   {
     "image": "rome-boscoreale-garland-wall.webp",
     "artist": "Ancient Rome",
     "name": "Garland Wall",
-    "scientific": "Boscoreale, c. 50–40 BCE"
+    "scientific": "Boscoreale, c. 50–40 BCE",
+    "article": "Villa Boscoreale"
   },
   {
     "image": "rome-perseus-and-andromeda.webp",
@@ -6232,19 +6293,22 @@
     "image": "rome-caracalla.webp",
     "artist": "Ancient Rome",
     "name": "The Emperor Caracalla",
-    "scientific": "212–217 CE"
+    "scientific": "212–217 CE",
+    "article": "Caracalla"
   },
   {
     "image": "rome-glass-amphoriskos.webp",
     "artist": "Ancient Rome",
     "name": "Glass Amphoriskos",
-    "scientific": "1st century CE"
+    "scientific": "1st century CE",
+    "article": "Roman glass"
   },
   {
     "image": "anglo-saxon-disk-brooch.webp",
     "artist": "Anglo-Saxon England",
     "name": "Disk Brooch from Faversham",
-    "scientific": "Gold, garnets and glass, early 600s"
+    "scientific": "Gold, garnets and glass, early 600s",
+    "article": "Anglo-Saxon brooches"
   },
   {
     "image": "anglo-saxon-pendant-with-a-cross.webp",
@@ -6268,7 +6332,8 @@
     "image": "anglo-saxon-square-headed-bow-brooch.webp",
     "artist": "Anglo-Saxon England",
     "name": "Square-Headed Bow Brooch",
-    "scientific": "Gilded copper alloy, 500–600"
+    "scientific": "Gilded copper alloy, 500–600",
+    "article": "Anglo-Saxon brooches"
   },
   {
     "image": "anglo-saxon-pectoral-with-christ-and-the-lamb.webp",
@@ -6281,7 +6346,8 @@
     "image": "anglo-saxon-glass-beaker.webp",
     "artist": "Anglo-Saxon England",
     "name": "Globular Beaker with Trails",
-    "scientific": "Glass, 5th–7th century"
+    "scientific": "Glass, 5th–7th century",
+    "article": "Anglo-Saxon glass"
   },
   {
     "image": "anglo-saxon-sword-pommel.webp",
@@ -6323,13 +6389,15 @@
     "image": "anglo-saxon-sceat.webp",
     "artist": "Anglo-Saxon England",
     "name": "Silver Sceat",
-    "scientific": "Coin, 7th–8th century"
+    "scientific": "Coin, 7th–8th century",
+    "article": "Sceat"
   },
   {
     "image": "anglo-saxon-wessex-penny.webp",
     "artist": "Anglo-Saxon England",
     "name": "Penny of Wessex",
-    "scientific": "Silver, 861–866"
+    "scientific": "Silver, 861–866",
+    "article": "Æthelberht, King of Wessex"
   },
   {
     "image": "saxon-otto-i-presents-magdeburg-cathedral.webp",
@@ -6354,7 +6422,8 @@
     "content": [
       "violence",
       "frightening"
-    ]
+    ],
+    "article": "Aquamanile"
   },
   {
     "image": "saxon-massacre-of-the-innocents.webp",
@@ -6388,7 +6457,8 @@
     "artist": "Saxony",
     "name": "Knight on Horseback",
     "scientific": "Aquamanile, Hildesheim (?), c. 1250",
-    "effect": "gallop"
+    "effect": "gallop",
+    "article": "Aquamanile"
   },
   {
     "image": "saxon-monk-scribe-on-a-wyvern.webp",
@@ -6565,7 +6635,8 @@
     "image": "brett-caernarvon.webp",
     "artist": "John Brett",
     "name": "Caernarvon",
-    "scientific": "1875"
+    "scientific": "1875",
+    "article": "Caernarfon Castle"
   },
   {
     "image": "brett-southern-coast-of-guernsey.webp",
@@ -6595,7 +6666,8 @@
     "image": "brett-kynance.webp",
     "artist": "John Brett",
     "name": "Kynance",
-    "scientific": "1888"
+    "scientific": "1888",
+    "article": "Kynance Cove"
   },
   {
     "image": "brett-a-view-of-felixstowe.webp",
@@ -6616,13 +6688,15 @@
     "scientific": "1870",
     "content": [
       "frightening"
-    ]
+    ],
+    "article": "Elaine of Astolat"
   },
   {
     "image": "anderson-scheherazade.webp",
     "artist": "Sophie Gengembre Anderson",
     "name": "Scheherazade",
-    "scientific": "C. 1875"
+    "scientific": "C. 1875",
+    "article": "Scheherazade"
   },
   {
     "image": "anderson-little-helper.webp",
@@ -6676,7 +6750,8 @@
     "image": "landseer-hector-nero-and-dash-with-the-parrot-lory.webp",
     "artist": "Edwin Landseer",
     "name": "Hector, Nero and Dash with the Parrot Lory",
-    "scientific": "1838"
+    "scientific": "1838",
+    "article": "Dash (spaniel)"
   },
   {
     "image": "landseer-scene-from-a-midsummer-nights-dream.webp",
@@ -6701,7 +6776,8 @@
     "scientific": "1824",
     "content": [
       "violence"
-    ]
+    ],
+    "article": "The Monkey and the Cat"
   },
   {
     "image": "landseer-donald-mcintyre.webp",
@@ -6723,7 +6799,8 @@
     "content": [
       "violence"
     ],
-    "effect": "gallop"
+    "effect": "gallop",
+    "article": "Hawking in the Olden Time"
   },
   {
     "image": "landseer-deer-and-deer-hounds-in-a-mountain-torrent.webp",
@@ -6751,7 +6828,8 @@
     "scientific": "1846–1847",
     "content": [
       "frightening"
-    ]
+    ],
+    "article": "Isaac A. Van Amburgh"
   },
   {
     "image": "landseer-members-of-the-sheridan-family.webp",
@@ -6770,6 +6848,7 @@
     "image": "landseer-rent-day-in-the-wilderness.webp",
     "artist": "Edwin Landseer",
     "name": "Rent-Day in the Wilderness",
-    "scientific": "1855–1868"
+    "scientific": "1855–1868",
+    "article": "Donald Murchison"
   }
 ]

@@ -38,6 +38,7 @@ const reserveEl = $('#reserve');
 let puzzles = [];
 let blurbs = {};
 let stories = {};
+let verses = {};
 // one entry per artist: { name, note, sort, usual, focus, all, cover, puzzles }; `all` and
 // `usual` are every picture and the listed cover, `puzzles` and `cover` what
 // is left of them once hidden pictures are taken out; `focus` is the part of the
@@ -1275,13 +1276,15 @@ function showPlate(p, played = true) {
 // What is said about a picture on its card: its story from puzzles/stories.json
 // (the history, scripture, myth or literature behind it, what this picture shows,
 // and passages from the text itself), and otherwise, or where the story has no
-// passage to quote, the description from puzzles/blurbs.json.
+// passage to quote, the description from puzzles/blurbs.json. A picture with
+// neither has lines of verse, or a passage of prose, from puzzles/verses.json.
 const blurbOf = (p) => blurbs[p.image.replace(/^puzzles\//, '')];
 const storyOf = (p) => stories.puzzles && stories.puzzles[p.image.replace(/^puzzles\//, '')];
+const verseOf = (p) => verses.puzzles && verses.puzzles[p.image.replace(/^puzzles\//, '')];
 // Kids mode has no descriptions: an article can speak plainly of what the settings hide.
 // With one, the ⓘ beside the title and the painting itself both open the card.
 function showAboutBtn(p) {
-  const on = !kids && !!(storyOf(p) || blurbOf(p));
+  const on = !kids && !!(storyOf(p) || blurbOf(p) || verseOf(p));
   $('#aboutBtn').hidden = !on;
   $('.plate').classList.toggle('has-about', on);
 }
@@ -1308,7 +1311,8 @@ addEventListener('resize', () => !$('#doneAbout').hidden && aboutEdges());
 function showAbout(p) {
   const story = storyOf(p);
   const b = blurbOf(p);
-  if (!story && !b) return;
+  const verse = !story && !b && verseOf(p);
+  if (!story && !b && !verse) return;
   $('#aboutName').textContent = titleOf(p);
   $('#aboutSci').textContent = p.scientific || '';
   $('#aboutArtist').textContent = p.artist || '';
@@ -1335,6 +1339,14 @@ function showAbout(p) {
       body.append(quote);
     }
   }
+  // the lines, named by their poet and poem (Scripture and the Old English
+  // poems by the poem alone)
+  if (verse) {
+    const quote = el('blockquote', 'about-quote' + (verse.prose ? '' : ' verse'));
+    const by = /^(The Bible|Anonymous)$/.test(verse.poet) ? '' : `${verse.poet}, `;
+    quote.append(el('p', 'q', verse.text), el('cite', '', by + verse.poem));
+    body.append(quote);
+  }
   // no passage to quote: the description stands in its place
   const useBlurb = b && !passages.length;
   if (useBlurb) {
@@ -1359,6 +1371,12 @@ function showAbout(p) {
     credit.append(i ? '; ' : 'Passages from ', by, link(s.url, s.title), s.translator ? `, tr. ${s.translator}` : '');
   });
   if (eds.length) credit.append(', public domain.');
+  // the edition the lines come from, at Project Gutenberg
+  const ed = verse && verses.sources[verse.source];
+  if (ed) {
+    const by = ed.translator ? `, tr. ${ed.translator}` : ed.editor ? `, ed. ${ed.editor}` : '';
+    credit.append('From ', link(ed.url, ed.title), by, ', public domain.');
+  }
   if (useBlurb) {
     if (eds.length) credit.append(' ');
     if (b.source === 'Wikipedia') credit.append('From ', link(b.url, `“${b.article}”`), ' on Wikipedia, excerpted');
@@ -1611,6 +1629,10 @@ async function boot() {
   fetch('puzzles/stories.json', { cache: 'no-cache' })
     .then((res) => res.json())
     .then((all) => { stories = all; lateAbout(); })
+    .catch(() => {});
+  fetch('puzzles/verses.json', { cache: 'no-cache' })
+    .then((res) => res.json())
+    .then((all) => { verses = all; lateAbout(); })
     .catch(() => {});
   sift();
   showSplash();

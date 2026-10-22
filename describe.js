@@ -3,6 +3,9 @@
 // where it has one (CC BY-SA 4.0, credited on the card), and otherwise the
 // museum's own description: Cleveland's (CC0), the Art Institute of Chicago's
 // (CC BY 4.0, credited) or the National Gallery of Art's (CC0).
+// A puzzle may name an `article` of its own: the painting's article where its
+// record does not lead to one, or else one on its sitter, place or kind of object.
+// The painting's own article, found through Wikidata, comes first.
 // node describe.js Impressionism
 // node describe.js all
 // Records kept in another folder are read too with --records <folder>.
@@ -52,13 +55,30 @@ const plain = (html) => html.replace(/<\/p>/g, '\n').replace(/<[^>]+>/g, '').rep
 
 // Whole sentences, up to about WORDS words, and always at least the first.
 function excerpt(text) {
-  const sentences = text.replace(/\s+/g, ' ').match(/[^.!?]+(?:[.!?]+["”’)]*|$)\s*/g) || [text];
+  text = tidy(text.replace(/\s+/g, ' '));
+  const sentences = text.match(/[^.!?]+(?:[.!?]+["”’)]*|$)\s*/g) || [text];
   let out = '';
   for (const s of sentences) {
     if (out && (out + s).split(/\s+/).length > WORDS) break;
     out += s;
   }
   return named(out.replace(/\s+/g, ' ').trim());
+}
+
+// An article's opening brackets of pronunciation and other scripts are no use
+// on the card: "Lamassu (Cuneiform: 𒀭𒆗, an.kal; …) is" reads "Lamassu is".
+// A bracket left empty or begun with a semicolon, where Wikipedia's audio link
+// was, goes too. Inner brackets go first, so "(plural: condottieri (Italian:
+// [kondotˈtjɛːri]))" keeps "(plural: condottieri)". A plain original title,
+// "(French: La Prune)", stays.
+const SCRIPT = /[^\u0000-\u024F\u1E00-\u1EFF\u2000-\u206F\u20A0-\u20CF\u2190-\u22FF]/u;
+function tidy(text) {
+  for (let last; last !== text; ) {
+    last = text;
+    text = text.replace(/\s*\(([^()]*)\)/g, (all, inner) =>
+      !inner.trim() || /^[\s;,]/.test(inner) || /\[|romanized|pronunciation/i.test(inner) || SCRIPT.test(inner) ? '' : all);
+  }
+  return text;
 }
 
 // "Van Gogh" is not a surname to stand alone: he is always Vincent van Gogh
@@ -94,7 +114,7 @@ async function main() {
   }
 
   // The opening of each article, as plain text.
-  const titles = [...new Set(Object.values(article))];
+  const titles = [...new Set([...Object.values(article), ...wanted.map((w) => w.p.article).filter(Boolean)])];
   const intro = {};
   for (let i = 0; i < titles.length; i += 20) {
     const q = encodeURIComponent(titles.slice(i, i + 20).join('|'));
@@ -109,7 +129,7 @@ async function main() {
   const none = [];
   for (const w of wanted) {
     let b;
-    const wiki = intro[article[w.wikidata]];
+    const wiki = intro[article[w.wikidata]] || intro[w.p.article];
     if (wiki) {
       b = { text: excerpt(wiki.text), source: 'Wikipedia', article: wiki.title, url: wiki.url, licence: 'CC BY-SA 4.0', licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0/' };
     } else if (w.cma) {

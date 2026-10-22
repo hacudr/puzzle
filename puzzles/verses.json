@@ -1,0 +1,1052 @@
+{
+ "sources": {
+  "10": {
+   "title": "The King James Version of the Bible",
+   "url": "https://www.gutenberg.org/ebooks/10"
+  },
+  "100": {
+   "title": "The Complete Works of William Shakespeare",
+   "url": "https://www.gutenberg.org/ebooks/100"
+  },
+  "131": {
+   "title": "The Pilgrim’s Progress",
+   "url": "https://www.gutenberg.org/ebooks/131"
+  },
+  "246": {
+   "title": "The Rubáiyát of Omar Khayyám",
+   "translator": "Edward FitzGerald",
+   "url": "https://www.gutenberg.org/ebooks/246"
+  },
+  "263": {
+   "title": "Trees, and Other Poems",
+   "url": "https://www.gutenberg.org/ebooks/263"
+  },
+  "438": {
+   "title": "Underwoods",
+   "url": "https://www.gutenberg.org/ebooks/438"
+  },
+  "442": {
+   "title": "Love Songs",
+   "url": "https://www.gutenberg.org/ebooks/442"
+  },
+  "579": {
+   "title": "The Poems of Sidney Lanier",
+   "url": "https://www.gutenberg.org/ebooks/579"
+  },
+  "610": {
+   "title": "Idylls of the King",
+   "url": "https://www.gutenberg.org/ebooks/610"
+  },
+  "791": {
+   "title": "The Princess",
+   "url": "https://www.gutenberg.org/ebooks/791"
+  },
+  "981": {
+   "title": "Beowulf",
+   "translator": "Francis Barton Gummere",
+   "url": "https://www.gutenberg.org/ebooks/981"
+  },
+  "1279": {
+   "title": "Poems and Songs of Robert Burns",
+   "url": "https://www.gutenberg.org/ebooks/1279"
+  },
+  "1322": {
+   "title": "Leaves of Grass",
+   "url": "https://www.gutenberg.org/ebooks/1322"
+  },
+  "1365": {
+   "title": "The Complete Poetical Works of Henry Wadsworth Longfellow",
+   "url": "https://www.gutenberg.org/ebooks/1365"
+  },
+  "1728": {
+   "title": "The Odyssey",
+   "translator": "S. H. Butcher and Andrew Lang",
+   "url": "https://www.gutenberg.org/ebooks/1728"
+  },
+  "1934": {
+   "title": "Songs of Innocence and of Experience",
+   "url": "https://www.gutenberg.org/ebooks/1934"
+  },
+  "2002": {
+   "title": "Sonnets from the Portuguese",
+   "url": "https://www.gutenberg.org/ebooks/2002"
+  },
+  "3011": {
+   "title": "The Lady of the Lake",
+   "url": "https://www.gutenberg.org/ebooks/3011"
+  },
+  "3059": {
+   "title": "The Iliad",
+   "translator": "Andrew Lang, Walter Leaf and Ernest Myers",
+   "url": "https://www.gutenberg.org/ebooks/3059"
+  },
+  "3698": {
+   "title": "The Task, and Other Poems",
+   "url": "https://www.gutenberg.org/ebooks/3698"
+  },
+  "4253": {
+   "title": "Dramatic Romances",
+   "url": "https://www.gutenberg.org/ebooks/4253"
+  },
+  "4800": {
+   "title": "The Complete Poetical Works of Percy Bysshe Shelley",
+   "url": "https://www.gutenberg.org/ebooks/4800"
+  },
+  "5131": {
+   "title": "Childe Harold’s Pilgrimage",
+   "url": "https://www.gutenberg.org/ebooks/5131"
+  },
+  "5134": {
+   "title": "Discoveries Made upon Men and Matter, and Some Poems",
+   "url": "https://www.gutenberg.org/ebooks/5134"
+  },
+  "8601": {
+   "title": "The Early Poems of Alfred Lord Tennyson",
+   "url": "https://www.gutenberg.org/ebooks/8601"
+  },
+  "8774": {
+   "title": "Poems in Two Volumes, Volume 1",
+   "url": "https://www.gutenberg.org/ebooks/8774"
+  },
+  "8824": {
+   "title": "Poems in Two Volumes, Volume 2",
+   "url": "https://www.gutenberg.org/ebooks/8824"
+  },
+  "16341": {
+   "title": "Poems by William Cullen Bryant",
+   "url": "https://www.gutenberg.org/ebooks/16341"
+  },
+  "16376": {
+   "title": "Browning’s Shorter Poems",
+   "url": "https://www.gutenberg.org/ebooks/16376"
+  },
+  "16950": {
+   "title": "Goblin Market, The Prince’s Progress, and Other Poems",
+   "url": "https://www.gutenberg.org/ebooks/16950"
+  },
+  "19221": {
+   "title": "The Golden Treasury",
+   "editor": "Francis Turner Palgrave",
+   "url": "https://www.gutenberg.org/ebooks/19221"
+  },
+  "21811": {
+   "title": "The Works of Lord Byron, Volume 3",
+   "url": "https://www.gutenberg.org/ebooks/21811"
+  },
+  "22120": {
+   "title": "The Canterbury Tales",
+   "editor": "Walter W. Skeat",
+   "url": "https://www.gutenberg.org/ebooks/22120"
+  },
+  "22403": {
+   "title": "Poems of Gerard Manley Hopkins",
+   "editor": "Robert Bridges",
+   "url": "https://www.gutenberg.org/ebooks/22403"
+  },
+  "22421": {
+   "title": "The Hesperides & Noble Numbers",
+   "url": "https://www.gutenberg.org/ebooks/22421"
+  },
+  "23684": {
+   "title": "Poems Published in 1820",
+   "url": "https://www.gutenberg.org/ebooks/23684"
+  },
+  "24280": {
+   "title": "Endymion",
+   "url": "https://www.gutenberg.org/ebooks/24280"
+  },
+  "25609": {
+   "title": "A Child’s Garden of Verses",
+   "url": "https://www.gutenberg.org/ebooks/25609"
+  },
+  "29090": {
+   "title": "The Complete Poetical Works of Samuel Taylor Coleridge",
+   "url": "https://www.gutenberg.org/ebooks/29090"
+  },
+  "31172": {
+   "title": "Old English Poems",
+   "translator": "Cosette Faust and Stith Thompson",
+   "url": "https://www.gutenberg.org/ebooks/31172"
+  },
+  "31706": {
+   "title": "Minor Poems",
+   "url": "https://www.gutenberg.org/ebooks/31706"
+  },
+  "38326": {
+   "title": "The Ecclesiastical History of the English Nation",
+   "translator": "A. M. Sellar",
+   "url": "https://www.gutenberg.org/ebooks/38326"
+  },
+  "38877": {
+   "title": "Poems",
+   "url": "https://www.gutenberg.org/ebooks/38877"
+  },
+  "52761": {
+   "title": "Salt-Water Ballads",
+   "url": "https://www.gutenberg.org/ebooks/52761"
+  },
+  "54985": {
+   "title": "Poems",
+   "url": "https://www.gutenberg.org/ebooks/54985"
+  },
+  "56913": {
+   "title": "Maud, and Other Poems",
+   "url": "https://www.gutenberg.org/ebooks/56913"
+  },
+  "70950": {
+   "title": "In Memoriam",
+   "url": "https://www.gutenberg.org/ebooks/70950"
+  },
+  "76794": {
+   "title": "Lalla Rookh",
+   "url": "https://www.gutenberg.org/ebooks/76794"
+  }
+ },
+ "puzzles": {
+  "bird-of-paradise.webp": {
+   "text": "My heart is like a singing bird\nWhose nest is in a watered shoot;\nMy heart is like an apple-tree\nWhose boughs are bent with thickset fruit;\nMy heart is like a rainbow shell\nThat paddles in a halcyon sea;\nMy heart is gladder than all these\nBecause my love is come to me.",
+   "poet": "Christina Rossetti",
+   "poem": "A Birthday",
+   "source": "16950"
+  },
+  "butterfly.webp": {
+   "text": "Stay near me—do not take thy flight!\nA little longer stay in sight!\nMuch converse do I find in Thee,\nHistorian of my Infancy!\nFloat near me; do not yet depart!\nDead times revive in thee:",
+   "poet": "William Wordsworth",
+   "poem": "To a Butterfly",
+   "source": "8824"
+  },
+  "spring.webp": {
+   "text": "The year's at the spring\nAnd day's at the morn:\nMorning's at seven;\nThe hillside's dew-pearled;\nThe lark's on the wing;\nThe snail's on the thorn:\nGod's in His heaven—\nAll's right with the world!",
+   "poet": "Robert Browning",
+   "poem": "Pippa Passes",
+   "source": "16376"
+  },
+  "winter.webp": {
+   "text": "Therefore all seasons shall be sweet to thee,\nWhether the summer clothe the general earth\nWith greenness, or the redbreast sit and sing\nBetwixt the tufts of snow on the bare branch\nOf mossy apple-tree, while the nigh thatch\nSmokes in the sun-thaw; whether the eave-drops fall\nHeard only in the trances of the blast,\nOr if the secret ministry of frost\nShall hang them up in silent icicles,\nQuietly shining to the quiet Moon.",
+   "poet": "Samuel Taylor Coleridge",
+   "poem": "Frost at Midnight",
+   "source": "29090"
+  },
+  "cassatt-francoise-holding-a-little-dog-looking-far-to-the-right.webp": {
+   "text": "Standing, with reluctant feet,\nWhere the brook and river meet,\nWomanhood and childhood fleet!\n\nGazing, with a timid glance,\nOn the brooklet's swift advance,\nOn the river's broad expanse!",
+   "poet": "Henry Wadsworth Longfellow",
+   "poem": "Maidenhood",
+   "source": "1365"
+  },
+  "gogh-the-poets-garden.webp": {
+   "text": "Meanwhile the mind from pleasure less\nWithdraws into its happiness;\nThe mind, that ocean where each kind\nDoes straight its own resemblance find;\nYet it creates, transcending these,\nFar other worlds, and other seas;\nAnnihilating all that's made\nTo a green thought in a green shade.",
+   "poet": "Andrew Marvell",
+   "poem": "The Garden",
+   "source": "19221"
+  },
+  "renoir-child-with-brown-hair.webp": {
+   "text": "The world is so full of a number of things,\nI'm sure we should all be as happy as kings.",
+   "poet": "Robert Louis Stevenson",
+   "poem": "Happy Thought",
+   "source": "25609"
+  },
+  "renoir-child-with-blond-hair.webp": {
+   "text": "In winter I get up at night\nAnd dress by yellow candle-light.\nIn summer, quite the other way,\nI have to go to bed by day.",
+   "poet": "Robert Louis Stevenson",
+   "poem": "Bed in Summer",
+   "source": "25609"
+  },
+  "renoir-woman-arranging-her-hat.webp": {
+   "text": "A sweet disorder in the dress\nKindles in clothes a wantonness:\nA lawn about the shoulders thrown\nInto a fine distraction:",
+   "poet": "Robert Herrick",
+   "poem": "Delight in Disorder",
+   "source": "22421"
+  },
+  "renoir-nude-in-a-chair.webp": {
+   "text": "A thing of beauty is a joy for ever:\nIts loveliness increases; it will never\nPass into nothingness; but still will keep\nA bower quiet for us, and a sleep\nFull of sweet dreams, and health, and quiet breathing.",
+   "poet": "John Keats",
+   "poem": "Endymion",
+   "source": "24280"
+  },
+  "toulouse-lautrec-a-woman-and-a-man-on-horseback.webp": {
+   "text": "I said—Then, dearest, since 'tis so,\nSince now at length my fate I know,\nSince nothing all my love avails,\nSince all, my life seemed meant for, fails,\nSince this was written and needs must be—\nMy whole heart rises up to bless\nYour name in pride and thankfulness!\nTake back the hope you gave—I claim\nOnly a memory of the same,\n—And this beside, if you will not blame,\nYour leave for one more last ride with me.",
+   "poet": "Robert Browning",
+   "poem": "The Last Ride Together",
+   "source": "4253"
+  },
+  "toulouse-lautrec-the-clown-m-joret.webp": {
+   "text": "A fool, a fool! I met a fool i’ th’ forest,\nA motley fool.",
+   "poet": "William Shakespeare",
+   "poem": "As You Like It",
+   "source": "100"
+  },
+  "toulouse-lautrec-albert-grenier.webp": {
+   "text": "Then can I grieve at grievances foregone,\nAnd heavily from woe to woe tell o’er\nThe sad account of fore-bemoaned moan,\nWhich I new pay as if not paid before.\nBut if the while I think on thee (dear friend)\nAll losses are restored, and sorrows end.",
+   "poet": "William Shakespeare",
+   "poem": "Sonnet 30",
+   "source": "100"
+  },
+  "toulouse-lautrec-woman-in-the-garden-of-monsieur-forest.webp": {
+   "text": "Come into the garden, Maud,\nFor the black bat, night, has flown,\nCome into the garden, Maud,\nI am here at the gate alone;",
+   "poet": "Alfred Tennyson",
+   "poem": "Maud",
+   "source": "56913"
+  },
+  "toulouse-lautrec-the-streetwalker.webp": {
+   "text": "I wander through each chartered street,\nNear where the chartered Thames does flow,\nA mark in every face I meet,\nMarks of weakness, marks of woe.",
+   "poet": "William Blake",
+   "poem": "London",
+   "source": "1934"
+  },
+  "toulouse-lautrec-the-sofa.webp": {
+   "text": "I sing the Sofa. I, who lately sang\nTruth, Hope, and Charity, and touched with awe\nThe solemn chords, and with a trembling hand,\nEscaped with pain from that advent'rous flight,\nNow seek repose upon a humbler theme:",
+   "poet": "William Cowper",
+   "poem": "The Task",
+   "source": "3698"
+  },
+  "toulouse-lautrec-woman-before-a-mirror.webp": {
+   "text": "Thy glass will show thee how thy beauties wear,\nThy dial how thy precious minutes waste,\nThese vacant leaves thy mind’s imprint will bear,\nAnd of this book, this learning mayst thou taste.",
+   "poet": "William Shakespeare",
+   "poem": "Sonnet 77",
+   "source": "100"
+  },
+  "toulouse-lautrec-emilie.webp": {
+   "text": "Life has loveliness to sell,\nAll beautiful and splendid things,\nBlue waves whitened on a cliff,\nSoaring fire that sways and sings,\nAnd children's faces looking up\nHolding wonder like a cup.",
+   "poet": "Sara Teasdale",
+   "poem": "Barter",
+   "source": "442"
+  },
+  "toulouse-lautrec-mademoiselle-nys.webp": {
+   "text": "Shall I compare thee to a summer’s day?\nThou art more lovely and more temperate:\nRough winds do shake the darling buds of May,\nAnd summer’s lease hath all too short a date:",
+   "poet": "William Shakespeare",
+   "poem": "Sonnet 18",
+   "source": "100"
+  },
+  "toulouse-lautrec-at-the-circus-the-spanish-walk.webp": {
+   "text": "When I bestride him, I soar, I am a hawk. He trots the air; the earth sings when he touches it; the basest horn of his hoof is more musical than the pipe of Hermes.",
+   "poet": "William Shakespeare",
+   "poem": "Henry V",
+   "source": "100",
+   "prose": true
+  },
+  "toulouse-lautrec-two-dogs.webp": {
+   "text": "’Twas in that place o’ Scotland’s isle,\nThat bears the name o’ auld King Coil,\nUpon a bonie day in June,\nWhen wearin’ thro’ the afternoon,\nTwa dogs, that were na thrang at hame,\nForgather’d ance upon a time.",
+   "poet": "Robert Burns",
+   "poem": "The Twa Dogs",
+   "source": "1279"
+  },
+  "corot-landscape.webp": {
+   "text": "I heard a thousand blended notes\nWhile in a grove I sat reclined,\nIn that sweet mood when pleasant thoughts\nBring sad thoughts to the mind.",
+   "poet": "William Wordsworth",
+   "poem": "Lines Written in Early Spring",
+   "source": "19221"
+  },
+  "durand-in-the-woods.webp": {
+   "text": "The groves were God's first temples. Ere man learned\nTo hew the shaft, and lay the architrave,\nAnd spread the roof above them,—ere he framed\nThe lofty vault, to gather and roll back\nThe sound of anthems; in the darkling wood,\nAmidst the cool and silence, he knelt down,\nAnd offered to the Mightiest solemn thanks\nAnd supplication.",
+   "poet": "William Cullen Bryant",
+   "poem": "A Forest Hymn",
+   "source": "16341"
+  },
+  "kensett-eatons-neck-long-island.webp": {
+   "text": "As I ebb’d with the ocean of life,\nAs I wended the shores I know,\nAs I walk’d where the ripples continually wash you Paumanok,\nWhere they rustle up hoarse and sibilant,\nWhere the fierce old mother endlessly cries for her castaways,",
+   "poet": "Walt Whitman",
+   "poem": "As I Ebb’d with the Ocean of Life",
+   "source": "1322"
+  },
+  "heade-newburyport-meadows.webp": {
+   "text": "Oh, what is abroad in the marsh and the terminal sea?\nSomehow my soul seems suddenly free\nFrom the weighing of fate and the sad discussion of sin,\nBy the length and the breadth and the sweep of the marshes of Glynn.",
+   "poet": "Sidney Lanier",
+   "poem": "The Marshes of Glynn",
+   "source": "579"
+  },
+  "klimt-mada-primavesi.webp": {
+   "text": "My heart leaps up when I behold\nA Rainbow in the sky:\nSo was it when my life began;\nSo is it now I am a Man;\nSo be it when I shall grow old,\nOr let me die!\nThe Child is Father of the Man;\nAnd I could wish my days to be\nBound each to each by natural piety.",
+   "poet": "William Wordsworth",
+   "poem": "My Heart Leaps Up",
+   "source": "8824"
+  },
+  "klimt-standing-nude.webp": {
+   "text": "When old age shall this generation waste,\nThou shalt remain, in midst of other woe\nThan ours, a friend to man, to whom thou say'st,\n\"Beauty is truth, truth beauty,\"—that is all\nYe know on earth, and all ye need to know.",
+   "poet": "John Keats",
+   "poem": "Ode on a Grecian Urn",
+   "source": "23684"
+  },
+  "klimt-reclining-nude.webp": {
+   "text": "There is sweet music here that softer falls\nThan petals from blown roses on the grass,\nOr night-dews on still waters between walls\nOf shadowy granite, in a gleaming pass;\nMusic that gentlier on the spirit lies,\nThan tir’d eyelids upon tir’d eyes;",
+   "poet": "Alfred Tennyson",
+   "poem": "The Lotos-Eaters",
+   "source": "8601"
+  },
+  "klimt-reclining-nude-with-drapery.webp": {
+   "text": "Weary with toil, I haste me to my bed,\nThe dear respose for limbs with travel tired,\nBut then begins a journey in my head\nTo work my mind, when body’s work’s expired.",
+   "poet": "William Shakespeare",
+   "poem": "Sonnet 27",
+   "source": "100"
+  },
+  "klimt-two-studies-for-a-crouching-woman.webp": {
+   "text": "Sleep that knits up the ravell’d sleave of care,\nThe death of each day’s life, sore labour’s bath,\nBalm of hurt minds, great nature’s second course,\nChief nourisher in life’s feast.",
+   "poet": "William Shakespeare",
+   "poem": "Macbeth",
+   "source": "100"
+  },
+  "klimt-reclining-nude-with-drapery-back-view.webp": {
+   "text": "Swiftly walk o’er the western wave,\nSpirit of Night!\nOut of the misty eastern cave,\nWhere, all the long and lone daylight,\nThou wovest dreams of joy and fear,\nWhich make thee terrible and dear,—\nSwift be thy flight!",
+   "poet": "Percy Bysshe Shelley",
+   "poem": "To Night",
+   "source": "4800"
+  },
+  "klimt-half-figure-of-a-young-woman.webp": {
+   "text": "Come to me in the silence of the night;\nCome in the speaking silence of a dream;\nCome with soft rounded cheeks and eyes as bright\nAs sunlight on a stream;\nCome back in tears,\nO memory, hope, love of finished years.",
+   "poet": "Christina Rossetti",
+   "poem": "Echo",
+   "source": "16950"
+  },
+  "crane-woman-seated-on-a-sofa.webp": {
+   "text": "Much have I travell'd in the realms of gold\nAnd many goodly states and kingdoms seen;\nRound many western islands have I been\nWhich bards in fealty to Apollo hold.\n\nOft of one wide expanse had I been told\nThat deep-brow'd Homer ruled as his demesne:\nYet did I never breathe its pure serene\nTill I heard Chapman speak out loud and bold:\n\n—Then felt I like some watcher of the skies\nWhen a new planet swims into his ken;\nOr like stout Cortez, when with eagle eyes\n\nHe stared at the Pacific—and all his men\nLook'd at each other with a wild surmise—\nSilent, upon a peak in Darien.",
+   "poet": "John Keats",
+   "poem": "On First Looking into Chapman’s Homer",
+   "source": "19221"
+  },
+  "crane-italian-farmhouse.webp": {
+   "text": "Open my heart and you will see\nGraved inside of it, \"Italy.\"\nSuch lovers old are I and she:\nSo it always was, so shall ever be!",
+   "poet": "Robert Browning",
+   "poem": "De Gustibus",
+   "source": "16376"
+  },
+  "crane-valentine.webp": {
+   "text": "O my Luve's like a red, red rose\nThat's newly sprung in June:\nO my Luve's like the melodie\nThat's sweetly play'd in tune.",
+   "poet": "Robert Burns",
+   "poem": "A Red, Red Rose",
+   "source": "19221"
+  },
+  "crane-valentine-765291.webp": {
+   "text": "Gather ye rosebuds while ye may,\nOld time is still a-flying:\nAnd this same flower that smiles to-day\nTo-morrow will be dying.",
+   "poet": "Robert Herrick",
+   "poem": "To the Virgins, to Make Much of Time",
+   "source": "22421"
+  },
+  "crane-valentine-767102.webp": {
+   "text": "Come live with me and be my Love,\nAnd we will all the pleasures prove\nThat hills and valleys, dale and field,\nAnd all the craggy mountains yield.",
+   "poet": "Christopher Marlowe",
+   "poem": "The Passionate Shepherd to His Love",
+   "source": "19221"
+  },
+  "crane-design-for-trade-card.webp": {
+   "text": "Full many a glorious morning have I seen,\nFlatter the mountain tops with sovereign eye,\nKissing with golden face the meadows green;\nGilding pale streams with heavenly alchemy:",
+   "poet": "William Shakespeare",
+   "poem": "Sonnet 33",
+   "source": "100"
+  },
+  "crane-dancing-nymph.webp": {
+   "text": "Haste thee, Nymph, and bring with thee\nJest, and youthful Jollity,\nQuips and Cranks and wanton Wiles,\nNods and Becks and wreathed Smiles,\nSuch as hang on Hebe's cheek,\nAnd love to live in dimple sleek;\nSport that wrinkled Care derides,\nAnd Laughter holding both his sides.\nCome, and trip it, as you go,\nOn the light fantastic toe;",
+   "poet": "John Milton",
+   "poem": "L’Allegro",
+   "source": "31706"
+  },
+  "leonardo-da-vinci-head-of-a-man-in-profile.webp": {
+   "text": "That time of year thou mayst in me behold,\nWhen yellow leaves, or none, or few do hang\nUpon those boughs which shake against the cold,\nBare ruined choirs, where late the sweet birds sang.",
+   "poet": "William Shakespeare",
+   "poem": "Sonnet 73",
+   "source": "100"
+  },
+  "michelangelo-two-nudes-fighting.webp": {
+   "text": "And the twain being girt went into the midst of the ring, and clasped each the other in his arms with stalwart hands, like gable rafters of a lofty house which some famed craftsman joineth, that he may baffle the wind’s force.",
+   "poet": "Homer",
+   "poem": "The Iliad",
+   "source": "3059",
+   "prose": true
+  },
+  "stella-coney-island.webp": {
+   "text": "Our revels now are ended. These our actors,\nAs I foretold you, were all spirits and\nAre melted into air, into thin air:\nAnd, like the baseless fabric of this vision,\nThe cloud-capp’d towers, the gorgeous palaces,\nThe solemn temples, the great globe itself,\nYea, all which it inherit, shall dissolve,\nAnd, like this insubstantial pageant faded,\nLeave not a rack behind. We are such stuff\nAs dreams are made on, and our little life\nIs rounded with a sleep.",
+   "poet": "William Shakespeare",
+   "poem": "The Tempest",
+   "source": "100"
+  },
+  "stella-dog-in-motion.webp": {
+   "text": "My hounds are bred out of the Spartan kind,\nSo flew’d, so sanded; and their heads are hung\nWith ears that sweep away the morning dew;",
+   "poet": "William Shakespeare",
+   "poem": "A Midsummer Night’s Dream",
+   "source": "100"
+  },
+  "stella-skyscrapers.webp": {
+   "text": "Numberless crowded streets, high growths of iron, slender, strong, light, splendidly uprising toward clear skies,",
+   "poet": "Walt Whitman",
+   "poem": "Mannahatta",
+   "source": "1322"
+  },
+  "stella-tree-of-my-life.webp": {
+   "text": "I think that I shall never see\nA poem lovely as a tree.\n\nA tree whose hungry mouth is prest\nAgainst the earth's sweet flowing breast;\n\nA tree that looks at God all day,\nAnd lifts her leafy arms to pray;\n\nA tree that may in Summer wear\nA nest of robins in her hair;\n\nUpon whose bosom snow has lain;\nWho intimately lives with rain.\n\nPoems are made by fools like me,\nBut only God can make a tree.",
+   "poet": "Joyce Kilmer",
+   "poem": "Trees",
+   "source": "263"
+  },
+  "stella-tropical-sonata.webp": {
+   "text": "And there were gardens bright with sinuous rills,\nWhere blossomed many an incense-bearing tree;\nAnd here were forests ancient as the hills,\nEnfolding sunny spots of greenery.",
+   "poet": "Samuel Taylor Coleridge",
+   "poem": "Kubla Khan",
+   "source": "29090"
+  },
+  "stella-sirens.webp": {
+   "text": "Hither, come hither, renowned Odysseus, great glory of the Achaeans, here stay thy barque, that thou mayest listen to the voice of us twain. For none hath ever driven by this way in his black ship, till he hath heard from our lips the voice sweet as the honeycomb, and hath had joy thereof and gone on his way the wiser. For lo, we know all things, all the travail that in wide Troy-land the Argives and Trojans bare by the gods’ designs, yea, and we know all that shall hereafter be upon the fruitful earth.",
+   "poet": "Homer",
+   "poem": "The Odyssey",
+   "source": "1728",
+   "prose": true
+  },
+  "stella-self-portrait.webp": {
+   "text": "I celebrate myself, and sing myself,\nAnd what I assume you shall assume,\nFor every atom belonging to me as good belongs to you.",
+   "poet": "Walt Whitman",
+   "poem": "Song of Myself",
+   "source": "1322"
+  },
+  "decamp-the-blue-mandarin-coat.webp": {
+   "text": "Whenas in silks my Julia goes,\nThen, then, methinks, how sweetly flows\nThe liquefaction of her clothes.\n\nNext, when I cast mine eyes and see\nThat brave vibration each way free;\nO how that glittering taketh me!",
+   "poet": "Robert Herrick",
+   "poem": "Upon Julia’s Clothes",
+   "source": "22421"
+  },
+  "decamp-the-listener.webp": {
+   "text": "Music to hear, why hear’st thou music sadly?\nSweets with sweets war not, joy delights in joy:\nWhy lov’st thou that which thou receiv’st not gladly,\nOr else receiv’st with pleasure thine annoy?",
+   "poet": "William Shakespeare",
+   "poem": "Sonnet 8",
+   "source": "100"
+  },
+  "decamp-carnation-and-black.webp": {
+   "text": "She walks in Beauty, like the night\nOf cloudless climes and starry skies;\nAnd all that's best of dark and bright\nMeet in her aspect and her eyes:",
+   "poet": "Lord Byron",
+   "poem": "She Walks in Beauty",
+   "source": "21811"
+  },
+  "decamp-sally.webp": {
+   "text": "Of all the girls that are so smart\nThere's none like pretty Sally;\nShe is the darling of my heart,\nAnd she lives in our alley.",
+   "poet": "Henry Carey",
+   "poem": "Sally in Our Alley",
+   "source": "19221"
+  },
+  "decamp-portrait-of-edith-the-artists-wife.webp": {
+   "text": "How do I love thee? Let me count the ways.\nI love thee to the depth and breadth and height\nMy soul can reach, when feeling out of sight\nFor the ends of Being and ideal Grace.",
+   "poet": "Elizabeth Barrett Browning",
+   "poem": "Sonnets from the Portuguese, XLIII",
+   "source": "2002"
+  },
+  "decamp-our-nanny.webp": {
+   "text": "For the long nights you lay awake\nAnd watched for my unworthy sake:\nFor your most comfortable hand\nThat led me through the uneven land:",
+   "poet": "Robert Louis Stevenson",
+   "poem": "To Alison Cunningham, from Her Boy",
+   "source": "25609"
+  },
+  "decamp-portrait-of-a-young-lady.webp": {
+   "text": "Have you seen but a bright lily grow\nBefore rude hands have touched it?\nHave you marked but the fall o’ the snow\nBefore the soil hath smutched it?\nHave you felt the wool of beaver?\nOr swan’s down ever?\nOr have smelt o’ the bud o’ the brier?\nOr the nard in the fire?\nOr have tasted the bag of the bee?\nO so white! O so soft! O so sweet is she!",
+   "poet": "Ben Jonson",
+   "poem": "Her Triumph",
+   "source": "5134"
+  },
+  "decamp-gloucester.webp": {
+   "text": "I remember the black wharves and the slips,\nAnd the sea-tides tossing free;\nAnd Spanish sailors with bearded lips,\nAnd the beauty and mystery of the ships,\nAnd the magic of the sea.",
+   "poet": "Henry Wadsworth Longfellow",
+   "poem": "My Lost Youth",
+   "source": "1365"
+  },
+  "decamp-red-roofs.webp": {
+   "text": "Glory be to God for dappled things—\nFor skies of couple-colour as a brinded cow;\nFor rose-moles all in stipple upon trout that swim:\nFresh-firecoal chestnut-falls; finches' wings;\nLandscape plotted and pieced—fold, fallow, and plough;",
+   "poet": "Gerard Manley Hopkins",
+   "poem": "Pied Beauty",
+   "source": "22403"
+  },
+  "decamp-street-scene-in-venice.webp": {
+   "text": "I stood in Venice, on the Bridge of Sighs;\nA palace and a prison on each hand:",
+   "poet": "Lord Byron",
+   "poem": "Childe Harold’s Pilgrimage",
+   "source": "5131"
+  },
+  "rossetti-the-loving-cup.webp": {
+   "text": "Drink to me only with thine eyes,\nAnd I will pledge with mine;\nOr leave a kiss but in the cup,\nAnd I’ll not look for wine.",
+   "poet": "Ben Jonson",
+   "poem": "To Celia",
+   "source": "5134"
+  },
+  "hunt-the-lantern-makers-courtship.webp": {
+   "text": "Behold, thou art fair, my love; behold, thou art fair; thou hast doves’ eyes within thy locks:",
+   "poet": "The Bible",
+   "poem": "Song of Solomon 4:1",
+   "source": "10",
+   "prose": true
+  },
+  "brown-the-irish-girl.webp": {
+   "text": "Down by the salley gardens my love and I did meet;\nShe passed the salley gardens with little snow-white feet.\nShe bid me take love easy, as the leaves grow on the tree;\nBut I, being young and foolish, with her would not agree.",
+   "poet": "W. B. Yeats",
+   "poem": "Down by the Salley Gardens",
+   "source": "38877"
+  },
+  "brown-carrying-corn.webp": {
+   "text": "Who hath not seen thee oft amid thy store?\nSometimes whoever seeks abroad may find\nThee sitting careless on a granary floor,\nThy hair soft-lifted by the winnowing wind;",
+   "poet": "John Keats",
+   "poem": "To Autumn",
+   "source": "23684"
+  },
+  "hughes-self-portrait.webp": {
+   "text": "When I have fears that I may cease to be\nBefore my pen has glean'd my teeming brain,\nBefore high-piléd books, in charact'ry,\nHold like rich garners the full-ripen'd grain;\n\nWhen I behold, upon the night's starr'd face,\nHuge cloudy symbols of a high romance,\nAnd think that I may never live to trace\nTheir shadows, with the magic hand of chance;\n\nAnd when I feel, fair Creature of an hour!\nThat I shall never look upon thee more,\nNever have relish in the fairy power\nOf unreflecting love—then on the shore\n\nOf the wide world I stand alone, and think,\nTill Love and Fame to nothingness do sink.",
+   "poet": "John Keats",
+   "poem": "When I Have Fears",
+   "source": "19221"
+  },
+  "hughes-a-christmas-carol-at-bracken-dene.webp": {
+   "text": "The time draws near the birth of Christ:\nThe moon is hid; the night is still;\nThe Christmas bells from hill to hill\nAnswer each other in the mist.",
+   "poet": "Alfred Tennyson",
+   "poem": "In Memoriam A. H. H.",
+   "source": "70950"
+  },
+  "hughes-home-from-sea.webp": {
+   "text": "Under the wide and starry sky,\nDig the grave and let me lie.\nGlad did I live and gladly die,\nAnd I laid me down with a will.\n\nThis be the verse you grave for me:\nHere he lies where he longed to be;\nHome is the sailor, home from sea,\nAnd the hunter home from the hill.",
+   "poet": "Robert Louis Stevenson",
+   "poem": "Requiem",
+   "source": "438"
+  },
+  "hughes-mrs-leathart-and-her-three-children.webp": {
+   "text": "Between the dark and the daylight,\nWhen the night is beginning to lower,\nComes a pause in the day's occupations,\nThat is known as the Children's Hour.",
+   "poet": "Henry Wadsworth Longfellow",
+   "poem": "The Children’s Hour",
+   "source": "1365"
+  },
+  "hughes-the-potters-courtship.webp": {
+   "text": "For I remember stopping by the way\nTo watch a Potter thumping his wet Clay:\nAnd with its all-obliterated Tongue\nIt murmur'd—\"Gently, Brother, gently, pray!\"",
+   "poet": "Edward FitzGerald",
+   "poem": "The Rubáiyát of Omar Khayyám",
+   "source": "246"
+  },
+  "hughes-uncertainty.webp": {
+   "text": "She only said, “My life is dreary,\nHe cometh not,” she said;\nShe said, “I am aweary, aweary,\nI would that I were dead!”",
+   "poet": "Alfred Tennyson",
+   "poem": "Mariana",
+   "source": "8601"
+  },
+  "hughes-silver-and-gold.webp": {
+   "text": "Crabbed age and youth cannot live together:\nYouth is full of pleasance, age is full of care;",
+   "poet": "William Shakespeare",
+   "poem": "The Passionate Pilgrim",
+   "source": "100"
+  },
+  "hughes-the-landslip.webp": {
+   "text": "The sea is calm to-night.\nThe tide is full, the moon lies fair\nUpon the straits; on the French coast, the light\nGleams and is gone; the cliffs of England stand,\nGlimmering and vast, out in the tranquil bay.",
+   "poet": "Matthew Arnold",
+   "poem": "Dover Beach",
+   "source": "54985"
+  },
+  "burne-jones-the-wizard.webp": {
+   "text": "And moving thro’ a mirror clear\nThat hangs before her all the year,\nShadows of the world appear.",
+   "poet": "Alfred Tennyson",
+   "poem": "The Lady of Shalott",
+   "source": "8601"
+  },
+  "stillman-a-lady-with-peacocks-in-a-garden.webp": {
+   "text": "Now sleeps the crimson petal, now the white;\nNor waves the cypress in the palace walk;\nNor winks the gold fin in the porphyry font:\nThe fire-fly wakens: wake thou with me.\n\nNow droops the milkwhite peacock like a ghost,\nAnd like a ghost she glimmers on to me.",
+   "poet": "Alfred Tennyson",
+   "poem": "The Princess",
+   "source": "791"
+  },
+  "stillman-afternoon-in-the-colonna-garden.webp": {
+   "text": "O Rome! my country! city of the soul!\nThe orphans of the heart must turn to thee,\nLone mother of dead empires!",
+   "poet": "Lord Byron",
+   "poem": "Childe Harold’s Pilgrimage",
+   "source": "5131"
+  },
+  "de-morgan-the-angel-of-death.webp": {
+   "text": "Remember me when I am gone away,\nGone far away into the silent land;\nWhen you can no more hold me by the hand,\nNor I half turn to go yet turning stay.",
+   "poet": "Christina Rossetti",
+   "poem": "Remember",
+   "source": "16950"
+  },
+  "de-morgan-earthbound.webp": {
+   "text": "The world is too much with us; late and soon,\nGetting and spending, we lay waste our powers:\nLittle we see in nature that is ours;\nWe have given our hearts away, a sordid boon!",
+   "poet": "William Wordsworth",
+   "poem": "The World Is Too Much with Us",
+   "source": "8774"
+  },
+  "de-morgan-moonbeams-dipping-into-the-sea.webp": {
+   "text": "Art thou pale for weariness\nOf climbing heaven and gazing on the earth,\nWandering companionless\nAmong the stars that have a different birth,—\nAnd ever changing, like a joyless eye\nThat finds no object worth its constancy?",
+   "poet": "Percy Bysshe Shelley",
+   "poem": "To the Moon",
+   "source": "4800"
+  },
+  "de-morgan-the-sea-maidens.webp": {
+   "text": "Slow sail’d the weary mariners and saw,\nBetwixt the green brink and the running foam,\nSweet faces, rounded arms, and bosoms prest\nTo little harps of gold; and while they mused,\nWhispering to each other half in fear,\nShrill music reach’d them on the middle sea.",
+   "poet": "Alfred Tennyson",
+   "poem": "The Sea-Fairies",
+   "source": "8601"
+  },
+  "waterhouse-destiny.webp": {
+   "text": "There is a tide in the affairs of men,\nWhich, taken at the flood, leads on to fortune;",
+   "poet": "William Shakespeare",
+   "poem": "Julius Caesar",
+   "source": "100"
+  },
+  "edward-robert-hughes-twilight-fantasies.webp": {
+   "text": "Be not afeard. The isle is full of noises,\nSounds, and sweet airs, that give delight, and hurt not.",
+   "poet": "William Shakespeare",
+   "poem": "The Tempest",
+   "source": "100"
+  },
+  "edward-robert-hughes-a-rainy-sunday.webp": {
+   "text": "The day is cold, and dark, and dreary\nIt rains, and the wind is never weary;\nThe vine still clings to the mouldering wall,\nBut at every gust the dead leaves fall,\nAnd the day is dark and dreary.",
+   "poet": "Henry Wadsworth Longfellow",
+   "poem": "The Rainy Day",
+   "source": "1365"
+  },
+  "edward-robert-hughes-the-princess-out-of-school.webp": {
+   "text": "I love to rise in a summer morn,\nWhen the birds sing on every tree;\nThe distant huntsman winds his horn,\nAnd the skylark sings with me:\nO what sweet company!",
+   "poet": "William Blake",
+   "poem": "The School Boy",
+   "source": "1934"
+  },
+  "edward-robert-hughes-bell-and-dorothy-freeman.webp": {
+   "text": "So we grew together,\nLike to a double cherry, seeming parted,\nBut yet a union in partition,\nTwo lovely berries moulded on one stem;",
+   "poet": "William Shakespeare",
+   "poem": "A Midsummer Night’s Dream",
+   "source": "100"
+  },
+  "leighton-greek-girls-playing-at-ball.webp": {
+   "text": "Anon, when they were satisfied with food, the maidens and the princess, they fell to playing at ball, casting away their tires, and among them Nausicaa of the white arms began the song. And even as Artemis, the archer, moveth down the mountain, either along the ridges of lofty Taygetus or Erymanthus, taking her pastime in the chase of boars and swift deer, and with her the wild wood-nymphs disport them, the daughters of Zeus, lord of the aegis, and Leto is glad at heart, while high over all she rears her head and brows, and easily may she be known,—but all are fair; even so the girl unwed outshone her maiden company.",
+   "poet": "Homer",
+   "poem": "The Odyssey",
+   "source": "1728",
+   "prose": true
+  },
+  "leighton-wedded.webp": {
+   "text": "Let me not to the marriage of true minds\nAdmit impediments, love is not love\nWhich alters when it alteration finds,\nOr bends with the remover to remove.",
+   "poet": "William Shakespeare",
+   "poem": "Sonnet 116",
+   "source": "100"
+  },
+  "leighton-light-of-the-harem.webp": {
+   "text": "Who has not heard of the vale of Cashmere,\nWith its roses the brightest that earth ever gave,\nIts temples, and grottos, and fountains as clear\nAs the love-lighted eyes that hang over their wave?",
+   "poet": "Thomas Moore",
+   "poem": "Lalla Rookh",
+   "source": "76794"
+  },
+  "leighton-portrait-of-may-sartoris.webp": {
+   "text": "She shall be sportive as the fawn\nThat wild with glee across the lawn\nOr up the mountain springs;",
+   "poet": "William Wordsworth",
+   "poem": "Three Years She Grew",
+   "source": "19221"
+  },
+  "leighton-may-sartoris-mrs-henry-evans-gordon.webp": {
+   "text": "She was a Phantom of delight\nWhen first she gleam'd upon my sight;\nA lovely Apparition, sent\nTo be a moment's ornament;\nHer eyes as stars of Twilight fair;\nLike Twilight's, too, her dusky hair;\nBut all things else about her drawn\nFrom May-time and the chearful Dawn;\nA dancing Shape, an Image gay,\nTo haunt, to startle, and way-lay.",
+   "poet": "William Wordsworth",
+   "poem": "She Was a Phantom of Delight",
+   "source": "8774"
+  },
+  "leighton-mrs-james-guthrie.webp": {
+   "text": "I wandered lonely as a Cloud\nThat floats on high o'er Vales and Hills,\nWhen all at once I saw a crowd\nA host of dancing Daffodills;\nAlong the Lake, beneath the trees,\nTen thousand dancing in the breeze.",
+   "poet": "William Wordsworth",
+   "poem": "I Wandered Lonely as a Cloud",
+   "source": "8824"
+  },
+  "leighton-lucia.webp": {
+   "text": "She dwelt among the untrodden ways\nBeside the springs of Dove;\nA maid whom there were none to praise,\nAnd very few to love.\n\nA violet by a mossy stone\nHalf hidden from the eye!\n—Fair as a star, when only one\nIs shining in the sky.",
+   "poet": "William Wordsworth",
+   "poem": "She Dwelt among the Untrodden Ways",
+   "source": "19221"
+  },
+  "egypt-mummy-mask-of-a-woman.webp": {
+   "text": "Age cannot wither her, nor custom stale\nHer infinite variety.",
+   "poet": "William Shakespeare",
+   "poem": "Antony and Cleopatra",
+   "source": "100"
+  },
+  "egypt-coffin-of-henettawy.webp": {
+   "text": "Fear no more the heat o’ th’ sun,\nNor the furious winter’s rages;\nThou thy worldly task hast done,\nHome art gone, and ta’en thy wages.\nGolden lads and girls all must,\nAs chimney-sweepers, come to dust.",
+   "poet": "William Shakespeare",
+   "poem": "Cymbeline",
+   "source": "100"
+  },
+  "egypt-funeral-ritual-in-a-garden.webp": {
+   "text": "The LORD is my shepherd; I shall not want.\nHe maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+   "poet": "The Bible",
+   "poem": "Psalm 23:1–2",
+   "source": "10",
+   "prose": true
+  },
+  "egypt-artists-painting-of-a-hippopotamus.webp": {
+   "text": "Behold now behemoth, which I made with thee; he eateth grass as an ox.",
+   "poet": "The Bible",
+   "poem": "Job 40:15",
+   "source": "10",
+   "prose": true
+  },
+  "egypt-painted-shroud-fragment.webp": {
+   "text": "Give me my robe. Put on my crown. I have\nImmortal longings in me.",
+   "poet": "William Shakespeare",
+   "poem": "Antony and Cleopatra",
+   "source": "100"
+  },
+  "near-east-jar-with-mountain-goats.webp": {
+   "text": "The high hills are a refuge for the wild goats; and the rocks for the conies.",
+   "poet": "The Bible",
+   "poem": "Psalm 104:18",
+   "source": "10",
+   "prose": true
+  },
+  "greece-grave-stele-of-a-little-girl.webp": {
+   "text": "Here lies, to each her parents’ ruth,\nMary, the daughter of their youth;\nYet, all heaven’s gifts, being heaven’s due,\nIt makes the father less to rue.\nAt six months’ end, she parted hence,\nWith safety of her innocence;\nWhose soul heaven’s queen, whose name she bears,\nIn comfort of her mother’s tears,\nHath placed amongst her virgin-train;\nWhere, while that severed doth remain,\nThis grave partakes the fleshly birth;\nWhich cover lightly, gentle earth!",
+   "poet": "Ben Jonson",
+   "poem": "On My First Daughter",
+   "source": "5134"
+  },
+  "greece-funerary-plaque.webp": {
+   "text": "Thus held they funeral for Hector tamer of horses.",
+   "poet": "Homer",
+   "poem": "The Iliad",
+   "source": "3059",
+   "prose": true
+  },
+  "anglo-saxon-pendant-with-a-cross.webp": {
+   "text": "I seemed to see the sacred tree\nLifted on high in a halo of light,\nThe brightest of beams; that beacon was wholly\nGorgeous with gold; glorious gems stood\nFair at the foot; and five were assembled,\nAt the crossing of the arms.",
+   "poet": "Anonymous",
+   "poem": "The Dream of the Rood",
+   "source": "31172"
+  },
+  "anglo-saxon-pendant-with-a-garnet.webp": {
+   "text": "A cup she gave him, with kindly greeting\nand winsome words. Of wounden gold,\nshe offered, to honor him, arm-jewels twain,\ncorselet and rings, and of collars the noblest\nthat ever I knew the earth around.",
+   "poet": "Anonymous",
+   "poem": "Beowulf",
+   "source": "981"
+  },
+  "anglo-saxon-bird-brooch.webp": {
+   "text": "There I heard naught but the howl of the sea,\nThe ice-cold surge with a swan-song at times;\nThe note of the gannet for gayety served me,\nThe sea-bird's song for sayings of people,\nFor the mead-drink of men the mew's sad note.\nStorms beat on the cliffs, 'mid the cry of gulls,\nIcy of feather; and the eagle screamed,\nThe dewy-winged bird.",
+   "poet": "Anonymous",
+   "poem": "The Seafarer",
+   "source": "31172"
+  },
+  "anglo-saxon-sword-pommel.webp": {
+   "text": "'Mid the battle-gear saw he a blade triumphant,\nold-sword of Eotens, with edge of proof,\nwarriors' heirloom, weapon unmatched,\n— save only 'twas more than other men\nto bandy-of-battle could bear at all —\nas the giants had wrought it, ready and keen.",
+   "poet": "Anonymous",
+   "poem": "Beowulf",
+   "source": "981"
+  },
+  "anglo-saxon-bird-brooch-with-garnets.webp": {
+   "text": "“The present life of man upon earth, O king, seems to me, in comparison with that time which is unknown to us, like to the swift flight of a sparrow through the house wherein you sit at supper in winter, with your ealdormen and thegns, while the fire blazes in the midst, and the hall is warmed, but the wintry storms of rain or snow are raging abroad. The sparrow, flying in at one door and immediately out at another, whilst he is within, is safe from the wintry tempest; but after a short space of fair weather, he immediately vanishes out of your sight, passing from winter into winter again. So this life of man appears for a little while, but of what is to follow or what went before we know nothing at all.",
+   "poet": "Bede",
+   "poem": "The Ecclesiastical History of the English People",
+   "source": "38326",
+   "prose": true
+  },
+  "anglo-saxon-disk-brooch-with-glass.webp": {
+   "text": "Glad-hearted and gold-bedecked, in gorgeous array,\nWanton with wine-drink in war-trappings shone:\nThey took joy in jewels and gems of great price,\nIn treasure untold and in topaz-stones,\nIn the firm-built fortress of a far-stretching realm.",
+   "poet": "Anonymous",
+   "poem": "The Ruin",
+   "source": "31172"
+  },
+  "anglo-saxon-square-headed-brooch.webp": {
+   "text": "Here treasure is fleeting; here true friends are fleeting;\nHere comrades are fleeting; here kinsmen are fleeting.\nAll idle and empty the earth has become.",
+   "poet": "Anonymous",
+   "poem": "The Wanderer",
+   "source": "31172"
+  },
+  "anglo-saxon-miniature-brooch-with-a-garnet.webp": {
+   "text": "No ship have I known so nobly dight\nwith weapons of war and weeds of battle,\nwith breastplate and blade: on his bosom lay\na heaped hoard that hence should go\nfar o'er the flood with him floating away.",
+   "poet": "Anonymous",
+   "poem": "Beowulf",
+   "source": "981"
+  },
+  "anglo-saxon-miniature-square-headed-brooch.webp": {
+   "text": "there laid they down their darling lord\non the breast of the boat, the breaker-of-rings,\nby the mast the mighty one. Many a treasure\nfetched from far was freighted with him.",
+   "poet": "Anonymous",
+   "poem": "Beowulf",
+   "source": "981"
+  },
+  "saxon-monk-scribe-on-a-wyvern.webp": {
+   "text": "For him was lever have at his beddes heed\nTwenty bokes, clad in blak or reed,\nOf Aristotle and his philosophye,\nThan robes riche, or fithele, or gay sautrye.",
+   "poet": "Geoffrey Chaucer",
+   "poem": "The Canterbury Tales",
+   "source": "22120"
+  },
+  "saxon-falconer-aquamanile.webp": {
+   "text": "I caught this morning morning's minion, king-\ndom of daylight's dauphin, dapple-dawn-drawn Falcon, in his riding\nOf the rolling level underneath him steady air, and striding\nHigh there, how he rung upon the rein of a wimpling wing\nIn his ecstacy!",
+   "poet": "Gerard Manley Hopkins",
+   "poem": "The Windhover",
+   "source": "22403"
+  },
+  "saxon-rooster-aquamanile.webp": {
+   "text": "His vois was merier than the mery orgon\nOn messe-dayes that in the chirche gon;\nWel sikerer was his crowing in his logge,\nThan is a clokke, or an abbey orlogge.",
+   "poet": "Geoffrey Chaucer",
+   "poem": "The Nun’s Priest’s Tale",
+   "source": "22120"
+  },
+  "saxon-pricket-candlestick.webp": {
+   "text": "How far that little candle throws his beams!\nSo shines a good deed in a naughty world.",
+   "poet": "William Shakespeare",
+   "poem": "The Merchant of Venice",
+   "source": "100"
+  },
+  "paton-puck-and-fairies.webp": {
+   "text": "I am that merry wanderer of the night.\nI jest to Oberon, and make him smile,\nWhen I a fat and bean-fed horse beguile,\nNeighing in likeness of a filly foal;\nAnd sometime lurk I in a gossip’s bowl\nIn very likeness of a roasted crab,",
+   "poet": "William Shakespeare",
+   "poem": "A Midsummer Night’s Dream",
+   "source": "100"
+  },
+  "paton-study-from-nature-inveruglas.webp": {
+   "text": "What would the world be, once bereft\nOf wet and of wildness? Let them be left,\nO let them be left, wildness and wet;\nLong live the weeds and the wilderness yet.",
+   "poet": "Gerard Manley Hopkins",
+   "poem": "Inversnaid",
+   "source": "22403"
+  },
+  "paton-christian-at-the-foot-of-the-cross.webp": {
+   "text": "So I saw in my dream, that just as Christian came up with the cross, his burden loosed from off his shoulders, and fell from off his back, and began to tumble, and so continued to do, till it came to the mouth of the sepulchre, where it fell in, and I saw it no more.",
+   "poet": "John Bunyan",
+   "poem": "The Pilgrim’s Progress",
+   "source": "131",
+   "prose": true
+  },
+  "sandys-vivien.webp": {
+   "text": "A storm was coming, but the winds were still,\nAnd in the wild woods of Broceliande,\nBefore an oak, so hollow, huge and old\nIt looked a tower of ivied masonwork,\nAt Merlin’s feet the wily Vivien lay.",
+   "poet": "Alfred Tennyson",
+   "poem": "Merlin and Vivien",
+   "source": "610"
+  },
+  "sandys-grace-rose.webp": {
+   "text": "Go, lovely Rose!\nTell her, that wastes her time and me,\nThat now she knows,\nWhen I resemble her to thee,\nHow sweet and fair she seems to be.",
+   "poet": "Edmund Waller",
+   "poem": "Go, Lovely Rose",
+   "source": "19221"
+  },
+  "sandys-susanna-rose.webp": {
+   "text": "When you are old and gray and full of sleep,\nAnd nodding by the fire, take down this book,\nAnd slowly read, and dream of the soft look\nYour eyes had once, and of their shadows deep;",
+   "poet": "W. B. Yeats",
+   "poem": "When You Are Old",
+   "source": "38877"
+  },
+  "sandys-whitlingham-norfolk.webp": {
+   "text": "The curfew tolls the knell of parting day,\nThe lowing herd wind slowly o'er the lea,\nThe ploughman homeward plods his weary way,\nAnd leaves the world to darkness and to me.",
+   "poet": "Thomas Gray",
+   "poem": "Elegy Written in a Country Churchyard",
+   "source": "19221"
+  },
+  "brett-the-stonebreaker.webp": {
+   "text": "Toiling,—rejoicing,—sorrowing,\nOnward through life he goes;\nEach morning sees some task begin,\nEach evening sees it close\nSomething attempted, something done,\nHas earned a night's repose.",
+   "poet": "Henry Wadsworth Longfellow",
+   "poem": "The Village Blacksmith",
+   "source": "1365"
+  },
+  "brett-february-in-the-isle-of-wight.webp": {
+   "text": "Where, far from noise and smoke of town,\nI watch the twilight falling brown\nAll round a careless-order'd garden\nClose to the ridge of a noble down.",
+   "poet": "Alfred Tennyson",
+   "poem": "To the Rev. F. D. Maurice",
+   "source": "56913"
+  },
+  "brett-near-sorrento.webp": {
+   "text": "The sun is warm, the sky is clear,\nThe waves are dancing fast and bright,\nBlue isles and snowy mountains wear\nThe purple noon’s transparent might,",
+   "poet": "Percy Bysshe Shelley",
+   "poem": "Stanzas Written in Dejection, near Naples",
+   "source": "4800"
+  },
+  "brett-southern-coast-of-guernsey.webp": {
+   "text": "Roll on, thou deep and dark blue Ocean—roll!\nTen thousand fleets sweep over thee in vain;\nMan marks the earth with ruin—his control\nStops with the shore;—upon the watery plain\nThe wrecks are all thy deed, nor doth remain\nA shadow of man's ravage, save his own,\nWhen for a moment, like a drop of rain,\nHe sinks into thy depths with bubbling groan,\nWithout a grave, unknelled, uncoffined, and unknown.",
+   "poet": "Lord Byron",
+   "poem": "Childe Harold’s Pilgrimage",
+   "source": "5131"
+  },
+  "brett-pwll-cwn.webp": {
+   "text": "Break, break, break,\nOn thy cold gray stones, O Sea!\nAnd I would that my tongue could utter\nThe thoughts that arise in me.",
+   "poet": "Alfred Tennyson",
+   "poem": "Break, Break, Break",
+   "source": "8601"
+  },
+  "brett-man-of-war-rocks-coast-of-dorset.webp": {
+   "text": "I must down to the seas again, to the lonely sea and the sky,\nAnd all I ask is a tall ship and a star to steer her by,\nAnd the wheel’s kick and the wind’s song and the white sail’s shaking,\nAnd a grey mist on the sea’s face and a grey dawn breaking.",
+   "poet": "John Masefield",
+   "poem": "Sea-Fever",
+   "source": "52761"
+  },
+  "brett-the-shallows-of-hareslade-cove-gower.webp": {
+   "text": "It is a beauteous Evening, calm and free;\nThe holy time is quiet as a Nun\nBreathless with adoration; the broad sun\nIs sinking down in its tranquillity;",
+   "poet": "William Wordsworth",
+   "poem": "It Is a Beauteous Evening",
+   "source": "8774"
+  },
+  "brett-a-view-of-felixstowe.webp": {
+   "text": "The tide rises, the tide falls,\nThe twilight darkens, the curlew calls;\nAlong the sea-sands damp and brown\nThe traveller hastens toward the town,\nAnd the tide rises, the tide falls.",
+   "poet": "Henry Wadsworth Longfellow",
+   "poem": "The Tide Rises, the Tide Falls",
+   "source": "1365"
+  },
+  "anderson-the-song-of-the-lark.webp": {
+   "text": "Hail to thee, blithe Spirit!\nBird thou never wert,\nThat from Heaven, or near it,\nPourest thy full heart\nIn profuse strains of unpremeditated art.",
+   "poet": "Percy Bysshe Shelley",
+   "poem": "To a Skylark",
+   "source": "4800"
+  },
+  "anderson-little-helper.webp": {
+   "text": "A child should always say what's true\nAnd speak when he is spoken to,\nAnd behave mannerly at table;\nAt least as far as he is able.",
+   "poet": "Robert Louis Stevenson",
+   "poem": "Whole Duty of Children",
+   "source": "25609"
+  },
+  "anderson-girl-with-lilac.webp": {
+   "text": "In the dooryard fronting an old farm-house near the white-wash’d palings,\nStands the lilac-bush tall-growing with heart-shaped leaves of rich green,\nWith many a pointed blossom rising delicate, with the perfume strong I love,",
+   "poet": "Walt Whitman",
+   "poem": "When Lilacs Last in the Dooryard Bloom’d",
+   "source": "1322"
+  },
+  "anderson-heavenwards.webp": {
+   "text": "Our birth is but a sleep and a forgetting;\nThe Soul that rises with us, our life's Star,\nHath had elsewhere its setting\nAnd cometh from afar;\nNot in entire forgetfulness\nAnd not in utter nakedness\nBut trailing clouds of glory do we come\nFrom God, who is our home:\nHeaven lies about us in our infancy!",
+   "poet": "William Wordsworth",
+   "poem": "Ode: Intimations of Immortality",
+   "source": "19221"
+  },
+  "anderson-at-the-well.webp": {
+   "text": "Flow gently, sweet Afton, amang thy green braes,\nFlow gently, sweet river, the theme of my lays;\nMy Mary’s asleep by thy murmuring stream,\nFlow gently, sweet Afton, disturb not her dream.",
+   "poet": "Robert Burns",
+   "poem": "Sweet Afton",
+   "source": "1279"
+  },
+  "anderson-the-flower-girl-capri.webp": {
+   "text": "Here’s flowers for you:\nHot lavender, mints, savory, marjoram,\nThe marigold, that goes to bed with th’ sun\nAnd with him rises weeping.",
+   "poet": "William Shakespeare",
+   "poem": "The Winter’s Tale",
+   "source": "100"
+  },
+  "anderson-simplicity.webp": {
+   "text": "Cherry-ripe, ripe, ripe, I cry,\nFull and fair ones; come and buy.\nIf so be you ask me where\nThey do grow, I answer: There,\nWhere my Julia's lips do smile;\nThere's the land, or cherry-isle,\nWhose plantations fully show\nAll the year where cherries grow.",
+   "poet": "Robert Herrick",
+   "poem": "Cherry-Ripe",
+   "source": "22421"
+  },
+  "landseer-favourites.webp": {
+   "text": "Round-hoof’d, short-jointed, fetlocks shag and long,\nBroad breast, full eye, small head, and nostril wide,\nHigh crest, short ears, straight legs and passing strong,\nThin mane, thick tail, broad buttock, tender hide:\nLook, what a horse should have he did not lack,\nSave a proud rider on so proud a back.",
+   "poet": "William Shakespeare",
+   "poem": "Venus and Adonis",
+   "source": "100"
+  },
+  "landseer-donald-mcintyre.webp": {
+   "text": "'Come one, come all! this rock shall fly\nFrom its firm base as soon as I.'",
+   "poet": "Walter Scott",
+   "poem": "The Lady of the Lake",
+   "source": "3011"
+  },
+  "landseer-a-highland-landscape.webp": {
+   "text": "My heart’s in the Highlands, my heart is not here,\nMy heart’s in the Highlands, a-chasing the deer;",
+   "poet": "Robert Burns",
+   "poem": "My Heart’s in the Highlands",
+   "source": "1279"
+  },
+  "landseer-deer-and-deer-hounds-in-a-mountain-torrent.webp": {
+   "text": "The stag at eve had drunk his fill,\nWhere danced the moon on Monan's rill,\nAnd deep his midnight lair had made\nIn lone Glenartney's hazel shade;\nBut when the sun his beacon red\nHad kindled on Benvoirlich's head,\nThe deep-mouthed bloodhound's heavy bay\nResounded up the rocky way,\nAnd faint, from farther distance borne,\nWere heard the clanging hoof and horn.",
+   "poet": "Walter Scott",
+   "poem": "The Lady of the Lake",
+   "source": "3011"
+  },
+  "landseer-lion-defending-its-prey.webp": {
+   "text": "Who trusted God was love indeed\nAnd love Creation’s final law—\nTho’ Nature, red in tooth and claw\nWith ravine, shriek’d against his creed—",
+   "poet": "Alfred Tennyson",
+   "poem": "In Memoriam A. H. H.",
+   "source": "70950"
+  },
+  "landseer-members-of-the-sheridan-family.webp": {
+   "text": "Oft, in the stilly night,\nEre slumber's chain has bound me,\nFond Memory brings the light\nOf other days around me:\nThe smiles, the tears\nOf boyhood's years,\nThe words of love then spoken;\nThe eyes that shone,\nNow dimm'd and gone,\nThe cheerful hearts now broken!\nThus in the stilly night,\nEre slumber's chain has bound me,\nSad Memory brings the light\nOf other days around me.",
+   "poet": "Thomas Moore",
+   "poem": "Oft, in the Stilly Night",
+   "source": "19221"
+  },
+  "landseer-a-group-of-animals-geneva.webp": {
+   "text": "Poor little Foal of an oppresséd race!\nI love the languid patience of thy face:\nAnd oft with gentle hand I give thee bread,\nAnd clap thy ragged coat, and pat thy head.",
+   "poet": "Samuel Taylor Coleridge",
+   "poem": "To a Young Ass",
+   "source": "29090"
+  }
+ }
+}
