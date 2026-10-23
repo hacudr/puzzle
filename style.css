@@ -578,11 +578,29 @@ button {
 /* Expert has no reference picture, nor the button that shows and hides it */
 #play.blind .guide, #play.blind #peekBtn { visibility: hidden; pointer-events: none; }
 /* room for the reference picture, and a slimmer bar without it */
-#play .bar { height: 110px; }
+#play .bar { height: 132px; }
 #play.no-guide .bar, #play.blind .bar { height: 60px; }
 /* as wide on both sides, so the reference picture stays in the middle */
 .tools { display: flex; gap: 6px; width: 102px; }
 .tools:last-child { justify-content: flex-end; }
+/* On a puzzle and its finished picture, the way back names the artist, as the
+   gallery's pages name where they go back to. In the middle stand the difficulty,
+   a link to Settings, and under it the reference picture. Both sides share what
+   the middle leaves, so it stays in the middle; a long name is cut short. */
+.bar > .tools { flex: 1 1 0; width: auto; min-width: 0; }
+.bar > .tools:last-child { flex: 1 0 0; }
+.crumbs { align-items: center; margin-left: -8px; }
+.crumbs .back { max-width: 100%; padding: 6px 8px; color: var(--ink-soft); }
+.crumbs .back svg { flex: none; }
+.crumbs .back span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mid { position: relative; flex: none; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.mid .level-note { margin: 0; font-size: .95rem; white-space: nowrap; }
+/* with the reference picture off, or on Expert, it is still drawn as nothing, but
+   out of the way, so the difficulty stands alone in the middle of the bar */
+#play.no-guide .mid .guide, #play.blind .mid .guide { position: absolute; top: 100%; }
+.crumbs .back:active { opacity: .6; }
+/* the finished picture is swiped from side to side; the browser is not to take the swipe */
+.done-body { touch-action: none; }
 .icon-btn:active { background: rgba(var(--ink-rgb), .1); }
 
 .stage {

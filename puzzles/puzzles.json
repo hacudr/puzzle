@@ -82,12 +82,6 @@
     "scientific": "1865"
   },
   {
-    "image": "monet-the-luncheon-on-the-grass.webp",
-    "artist": "Claude Monet",
-    "name": "The Luncheon on the Grass",
-    "scientific": "c. 1865, black chalk"
-  },
-  {
     "image": "monet-the-cradle.webp",
     "artist": "Claude Monet",
     "name": "The Cradle",
@@ -206,12 +200,6 @@
     "artist": "Claude Monet",
     "name": "The Japanese Footbridge",
     "scientific": "1899"
-  },
-  {
-    "image": "monet-waterloo-bridge.webp",
-    "artist": "Claude Monet",
-    "name": "Waterloo Bridge",
-    "scientific": "1901, pastel"
   },
   {
     "image": "monet-the-houses-of-parliament-sunset.webp",
@@ -2463,19 +2451,6 @@
     "scientific": "1896"
   },
   {
-    "image": "toulouse-lautrec-a-woman-and-a-man-on-horseback.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "A Woman and a Man on Horseback",
-    "scientific": "1879–81",
-    "effect": "gallop"
-  },
-  {
-    "image": "toulouse-lautrec-the-clown-m-joret.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "The Clown",
-    "scientific": "M. Joret, 1885"
-  },
-  {
     "image": "toulouse-lautrec-albert-grenier.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Albert Grenier",
@@ -2498,13 +2473,6 @@
     "artist": "Henri de Toulouse-Lautrec",
     "name": "The Englishman at the Moulin Rouge",
     "scientific": "William Tom Warrener, 1892"
-  },
-  {
-    "image": "toulouse-lautrec-preliminary-design-for-the-playbill-to-le-chariot-de-terre-cuite.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "Design for the Playbill to “Le Chariot de terre cuite”",
-    "scientific": "1894",
-    "article": "Mrichchhakatika"
   },
   {
     "image": "toulouse-lautrec-the-sofa.webp",
@@ -2543,19 +2511,6 @@
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Mademoiselle Nys",
     "scientific": "1899"
-  },
-  {
-    "image": "toulouse-lautrec-at-the-circus-the-spanish-walk.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "At the Circus: The Spanish Walk",
-    "scientific": "Au Cirque: Le Pas espagnol, 1899",
-    "effect": "gallop"
-  },
-  {
-    "image": "toulouse-lautrec-two-dogs.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "Two Dogs",
-    "scientific": "undated"
   },
   {
     "image": "turner-boats-carrying-out-anchors-to-the-dutch-men-of-war.webp",
@@ -3322,70 +3277,6 @@
     "scientific": "1913–1914"
   },
   {
-    "image": "klimt-serena-pulitzer-lederer.webp",
-    "artist": "Gustav Klimt",
-    "name": "Serena Pulitzer Lederer",
-    "scientific": "1899",
-    "article": "Serena Lederer"
-  },
-  {
-    "image": "klimt-mada-primavesi.webp",
-    "artist": "Gustav Klimt",
-    "name": "Mäda Primavesi",
-    "scientific": "1912–13"
-  },
-  {
-    "image": "klimt-standing-nude.webp",
-    "artist": "Gustav Klimt",
-    "name": "Standing Nude",
-    "scientific": "1906–07",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "klimt-reclining-nude.webp",
-    "artist": "Gustav Klimt",
-    "name": "Reclining Nude",
-    "scientific": "c. 1912–13",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "klimt-reclining-nude-with-drapery.webp",
-    "artist": "Gustav Klimt",
-    "name": "Reclining Nude with Drapery",
-    "scientific": "c. 1912–13",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "klimt-two-studies-for-a-crouching-woman.webp",
-    "artist": "Gustav Klimt",
-    "name": "Two Studies for a Crouching Woman",
-    "scientific": "1914–15",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "klimt-reclining-nude-with-drapery-back-view.webp",
-    "artist": "Gustav Klimt",
-    "name": "Reclining Nude with Drapery, Back View",
-    "scientific": "1917–1918",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "klimt-half-figure-of-a-young-woman.webp",
-    "artist": "Gustav Klimt",
-    "name": "Half-figure of a Young Woman",
-    "scientific": "1918"
-  },
-  {
     "image": "crane-woman-seated-on-a-sofa.webp",
     "artist": "Walter Crane",
     "name": "Woman Seated on a Sofa",
@@ -3420,19 +3311,6 @@
     "artist": "Walter Crane",
     "name": "Valentine",
     "scientific": "To My Love, 1876"
-  },
-  {
-    "image": "crane-design-for-trade-card.webp",
-    "artist": "Walter Crane",
-    "name": "Design for a Trade Card",
-    "scientific": "The Sun Life Assurance Society, 1880–89",
-    "content": [
-      "violence"
-    ],
-    "effect": [
-      "sword",
-      "gallop"
-    ]
   },
   {
     "image": "crane-the-mirror-of-venus.webp",
@@ -4231,19 +4109,6 @@
     "scientific": "c. 1483"
   },
   {
-    "image": "leonardo-da-vinci-the-head-of-the-virgin.webp",
-    "artist": "Leonardo da Vinci",
-    "name": "The Head of the Virgin",
-    "scientific": "1510–13",
-    "sacred": true
-  },
-  {
-    "image": "leonardo-da-vinci-head-of-a-man-in-profile.webp",
-    "artist": "Leonardo da Vinci",
-    "name": "Head of a Man in Profile",
-    "scientific": "1490–94"
-  },
-  {
     "image": "michelangelo-the-creation-of-adam.webp",
     "artist": "Michelangelo",
     "name": "The Creation of Adam",
@@ -4459,34 +4324,6 @@
     ],
     "effect": "gallop",
     "sacred": true
-  },
-  {
-    "image": "michelangelo-studies-for-the-libyan-sibyl.webp",
-    "artist": "Michelangelo",
-    "name": "Studies for the Libyan Sibyl",
-    "scientific": "red chalk, c. 1510–11",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "michelangelo-study-for-the-nude-youth-over-the-prophet-daniel.webp",
-    "artist": "Michelangelo",
-    "name": "Study for the Nude Youth over the Prophet Daniel",
-    "scientific": "red chalk, 1510–11",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "michelangelo-two-nudes-fighting.webp",
-    "artist": "Michelangelo",
-    "name": "Two Nudes Fighting",
-    "scientific": "c. 1505",
-    "content": [
-      "nudity",
-      "violence"
-    ]
   },
   {
     "image": "stella-battle-of-lights-coney-island-mardi-gras.webp",

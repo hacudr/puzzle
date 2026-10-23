@@ -890,7 +890,7 @@ async function visit(p) {
     return;
   }
   game = { p, aspect: img.naturalWidth / img.naturalHeight, held: [], done: true };
-  $('#doneArtistName').textContent = artistOf(p).name;
+  $('#doneBackName').textContent = artistOf(p).name;
   showPlate(p, false);
   sound.reprise(() => game && game.p === p && !$('#done').hidden).then((played) => played && nameMusic());
 }
@@ -906,7 +906,7 @@ async function start(p, fresh = false) {
     return;
   }
   $('#pause').hidden = true;
-  $('#quitName').textContent = $('#doneArtistName').textContent = artistOf(p).name;
+  $('#playBackName').textContent = $('#doneBackName').textContent = artistOf(p).name;
   show('play');
 
   const aspect = img.naturalWidth / img.naturalHeight;
@@ -954,10 +954,11 @@ async function start(p, fresh = false) {
 // The reference picture is drawn onto a canvas at the screen's own pixel size,
 // already faded. A scaled, see-through <img> showed white lines on the iPad.
 function drawGuide(img) {
-  // never wider than the room between the buttons on either side (two 102px
-  // groups and the bar's 22px edges), or on a phone the bar runs off the screen
-  const bar = guideEl.parentElement.clientWidth || window.innerWidth;
-  const room = bar - 2 * (102 + 22);
+  // never wider than leaves room for the three buttons on the right (156px) and
+  // as much again on the left, inside the bar's 22px edges, or on a phone the bar
+  // runs off the screen
+  const bar = guideEl.closest('.bar').clientWidth || window.innerWidth;
+  const room = Math.max(40, bar - 2 * (156 + 22));
   const wide = Math.round(Math.min((GUIDE_HEIGHT * img.naturalWidth) / img.naturalHeight, window.innerWidth * 0.45, room));
   const high = Math.round((wide * img.naturalHeight) / img.naturalWidth);
   const scale = window.devicePixelRatio || 1;
@@ -1312,6 +1313,84 @@ function win() {
   });
 }
 
+/* ---------- Swiping through the finished pictures ---------- */
+
+// A finished picture leads, by a swipe to the left, to the next one solved, and by
+// a swipe to the right, to the one before, in the order the collections show them.
+// The picture follows the finger a little, and slides out and the next one in.
+let swiped = 0;
+let slideIn = 0;
+let slideOut = null;
+const swipe = { x: 0, y: 0, id: null, moved: false };
+
+function finishedNear(p, step) {
+  const order = collections.flatMap((c) => c.artists.flatMap((a) => a.puzzles));
+  for (let i = order.indexOf(p) + step; i >= 0 && i < order.length; i += step) {
+    if (playable(order[i]) && finished(order[i])) return order[i];
+  }
+  return null;
+}
+
+// Nothing over the picture, and it is not being pinched.
+const swipeable = () =>
+  game && game.done && !$('#done').hidden && $('#done').classList.contains('arriving') === false &&
+  $('#donePause').hidden && $('#doneAbout').hidden && $('#doneCheer').hidden && zoom.el.hidden && faceFingers.size < 2;
+
+function goFinished(step) {
+  const plate = $('.plate');
+  const q = step && swipeable() && finishedNear(game.p, step);
+  if (!q) {
+    // at either end, the picture only springs back
+    plate.animate([{ transform: plate.style.transform || 'none' }, { transform: 'none' }], { duration: 260, easing: 'ease-out' });
+    plate.style.transform = '';
+    return;
+  }
+  const from = plate.style.transform || 'none';
+  plate.style.transform = '';
+  slideOut = plate.animate([{ transform: from, opacity: 1 }, { transform: `translateX(${-step * 90}px)`, opacity: 0 }], { duration: 200, easing: 'ease-in', fill: 'forwards' });
+  slideIn = step;
+  visit(q).finally(() => {
+    // a picture that could not be shown leaves this one where it was
+    if (slideOut) slideOut.cancel();
+    slideOut = null;
+    slideIn = 0;
+  });
+}
+
+const doneBody = $('.done-body');
+doneBody.addEventListener('pointerdown', (e) => {
+  if (swipe.id !== null || !e.isPrimary || e.target.closest('button') || !swipeable()) return;
+  Object.assign(swipe, { x: e.clientX, y: e.clientY, id: e.pointerId, moved: false });
+});
+// followed on the whole page, so a finger that strays off the picture's area still ends the swipe
+document.addEventListener('pointermove', (e) => {
+  if (e.pointerId !== swipe.id) return;
+  // a second finger is a pinch, not a swipe
+  if (faceFingers.size > 1) {
+    swipe.id = null;
+    $('.plate').style.transform = '';
+    return;
+  }
+  const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y;
+  if (!swipe.moved && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) swipe.moved = true;
+  if (swipe.moved) $('.plate').style.transform = `translateX(${dx * 0.35}px)`;
+});
+const endSwipe = (e) => {
+  if (e.pointerId !== swipe.id) return;
+  swipe.id = null;
+  if (!swipe.moved) return;
+  swiped = Date.now();
+  const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y;
+  if (e.type === 'pointerup' && Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) goFinished(dx < 0 ? 1 : -1);
+  else goFinished(0);
+};
+document.addEventListener('pointerup', endSwipe);
+document.addEventListener('pointercancel', endSwipe);
+// the arrow keys do the same, with a keyboard
+document.addEventListener('keydown', (e) => {
+  if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && swipeable()) goFinished(e.key === 'ArrowRight' ? 1 : -1);
+});
+
 // played = the puzzle has just been solved, and its music is to be named
 function showPlate(p, played = true) {
   const plate = $('.plate');
@@ -1330,9 +1409,17 @@ function showPlate(p, played = true) {
   $('#doneAbout').hidden = true;
   $('#doneCheer').hidden = true;
   closeZoom();
-  // The solved screen fades in over the puzzle, which is only put away after.
   const done = $('#done');
   $('#donePause').hidden = true;
+  // swiped to: it slides in from the side it was swiped from, over the one before
+  if (slideIn && !done.hidden) {
+    if (slideOut) slideOut.cancel();
+    slideOut = null;
+    plate.animate([{ transform: `translateX(${slideIn * 90}px)`, opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 320, easing: 'cubic-bezier(.22, .8, .25, 1)' });
+    slideIn = 0;
+    return;
+  }
+  // The solved screen fades in over the puzzle, which is only put away after.
   done.classList.add('arriving');
   done.hidden = false;
   setTimeout(() => {
@@ -1447,7 +1534,7 @@ $('#aboutMore').addEventListener('click', () => {
 addEventListener('resize', () => !$('#doneAbout').hidden && aboutEdges());
 
 // The card: the story, then where its words came from. Wikipedia's text is CC BY-SA,
-// which asks for the article to be named and linked and the licence named.
+// which asks for the article and the licence to be named.
 function showAbout(p) {
   const story = storyOf(p);
   const b = blurbOf(p);
@@ -1495,36 +1582,28 @@ function showAbout(p) {
     if (story) body.append(el('h3', '', 'About the painting'));
     body.append(el('p', '', b.text));
   }
-  const link = (href, text) => {
-    if (!href) return text;
-    const a = document.createElement('a');
-    a.href = href;
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.textContent = text;
-    return a;
-  };
+  // the sources are named in plain text, with no links out of the app
   const credit = $('#aboutCredit');
   credit.replaceChildren();
   // the passages come from public-domain editions, each named
   const eds = [...new Set(passages.map((q) => q.source))].map((k) => stories.sources[k]).filter(Boolean);
   eds.forEach((s, i) => {
     const by = s.author && s.author !== 'Bible' ? `${s.author}, ` : '';
-    credit.append(i ? '; ' : 'Passages from ', by, link(s.url, s.title), s.translator ? `, tr. ${s.translator}` : '');
+    credit.append(i ? '; ' : 'Passages from ', by, s.title, s.translator ? `, tr. ${s.translator}` : '');
   });
   if (eds.length) credit.append(', public domain.');
   // the edition the lines come from, at Project Gutenberg
   const ed = verse && verses.sources[verse.source];
   if (ed) {
     const by = ed.translator ? `, tr. ${ed.translator}` : ed.editor ? `, ed. ${ed.editor}` : '';
-    credit.append('From ', link(ed.url, ed.title), by, ', public domain.');
+    credit.append('From ', ed.title, by, ', public domain.');
   }
   if (useBlurb) {
     if (eds.length) credit.append(' ');
-    if (b.source === 'Wikipedia') credit.append('From ', link(b.url, `“${b.article}”`), ' on Wikipedia, excerpted');
-    else credit.append('Description from the ', link(b.url, b.source));
-    // CC0 asks for nothing; a licence that asks for credit is named and linked
-    if (b.licenceUrl) credit.append(', ', link(b.licenceUrl, b.licence));
+    if (b.source === 'Wikipedia') credit.append('From ', `“${b.article}”`, ' on Wikipedia, excerpted');
+    else credit.append('Description from the ', b.source);
+    // CC0 asks for nothing; a licence that asks for credit is named
+    if (b.licence && b.licenceUrl) credit.append(', ', b.licence);
   }
   credit.hidden = !credit.childNodes.length;
   $('#doneAbout').hidden = false;
@@ -1675,17 +1754,10 @@ function nextPuzzle(p) {
 
 $('#pauseBtn').addEventListener('click', () => ($('#pause').hidden = false));
 // Settings from a paused puzzle: the puzzle waits behind them, still paused.
-$('#pauseSettings').addEventListener('click', () => {
-  settingsFrom = 'play';
-  levelBefore = level;
-  showSound();
-  show('settings');
-});
+$('#pauseSettings').addEventListener('click', () => openSettings('play'));
 $('#resumeBtn').addEventListener('click', () => ($('#pause').hidden = true));
 $('#restartBtn').addEventListener('click', () => start(game.p, true));
-$('#quitBtn').addEventListener('click', () => openArtist(artistOf(game.p)));
 $('#playBack').addEventListener('click', () => openArtist(artistOf(game.p)));
-$('#homeBtn').addEventListener('click', openGallery);
 
 $('#peekBtn').addEventListener('click', () => setGuide(guideEl.classList.contains('off')));
 // a tray with pieces in it stays, and shows why
@@ -1700,27 +1772,20 @@ guideEl.addEventListener('click', () => {
   if (peekEl.classList.toggle('show')) peekTimer = setTimeout(() => peekEl.classList.remove('show'), 1800);
 });
 
-// the solved screen's menu: the ways back to the artist and the gallery
+// the solved screen's menu
 $('#donePauseBtn').addEventListener('click', () => ($('#donePause').hidden = false));
 $('#doneResume').addEventListener('click', () => ($('#donePause').hidden = true));
 $('#doneRestart').addEventListener('click', () => start(game.p, true));
 // Settings from the solved screen: the finished picture waits behind them
-$('#doneSettings').addEventListener('click', () => {
-  settingsFrom = 'done';
-  showSound();
-  show('settings');
-});
-$('#doneArtist').addEventListener('click', () => openArtist(artistOf(game.p)));
+$('#doneSettings').addEventListener('click', () => openSettings('done'));
 $('#doneBack').addEventListener('click', () => openArtist(artistOf(game.p)));
-$('#doneHome').addEventListener('click', openGallery);
 $('#aboutBtn').addEventListener('click', () => showAbout(game.p));
 $('.plate-face').addEventListener('click', () => {
-  if (!$('#aboutBtn').hidden && Date.now() - facePinched > 800) {
+  if (!$('#aboutBtn').hidden && Date.now() - facePinched > 800 && Date.now() - swiped > 500) {
     sound.tap();
     showAbout(game.p);
   }
 });
-$('#zoomBtn').addEventListener('click', () => openZoom());
 $('#zoomClose').addEventListener('click', closeZoom);
 $('#cheerClose').addEventListener('click', closeCheer);
 $('#doneCheer').addEventListener('click', (e) => {
@@ -1735,9 +1800,11 @@ $('#collectionBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => visit(nextPuzzle(game.p)));
 
-// Settings from a page of the gallery; `at` names a part of Settings to land on
+// Settings from a page of the gallery or a puzzle; `at` names a part of Settings
+// to land on. A puzzle waits behind them, and is dealt again at a new difficulty.
 function openSettings(from, at) {
   settingsFrom = from;
+  levelBefore = level;
   artistBefore = artist;
   collectionBefore = collection;
   showSound();
@@ -1826,8 +1893,8 @@ document.addEventListener('gesturestart', (e) => e.preventDefault());
 
 /* ---------- Looking closer ---------- */
 
-// A finished painting can be looked at closely: the magnifier after its title, or
-// two fingers spread on the framed picture, open it alone on a dark ground. There it
+// A finished painting can be looked at closely: two fingers spread on the framed
+// picture open it alone on a dark ground. There it
 // is pinched or double-tapped larger (or wheeled, with a mouse) and dragged about;
 // pinched back well below the size that fits, it closes, as the × does.
 // s is the scale, x and y where the picture's top left corner lies on the screen.

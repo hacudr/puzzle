@@ -640,7 +640,7 @@ const sound = (() => {
   // the seconds it takes to die away at its end, for one that would stop short.
   const EFFECTS = {
     sword: { file: 'Sword.m4a', lead: 0.8, level: 0.8 },
-    gallop: { file: 'Gallop.m4a', lead: 0.45, level: 0.35, fade: 1.5 },
+    gallop: { file: 'Gallop.m4a', lead: 0.45, level: 0.175, fade: 1.5 },
     knock: { file: 'Door knock.m4a', lead: 0.28, level: 0.3 },
   };
 

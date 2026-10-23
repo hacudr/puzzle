@@ -287,18 +287,6 @@
    "poem": "Endymion",
    "source": "24280"
   },
-  "toulouse-lautrec-a-woman-and-a-man-on-horseback.webp": {
-   "text": "I said—Then, dearest, since 'tis so,\nSince now at length my fate I know,\nSince nothing all my love avails,\nSince all, my life seemed meant for, fails,\nSince this was written and needs must be—\nMy whole heart rises up to bless\nYour name in pride and thankfulness!\nTake back the hope you gave—I claim\nOnly a memory of the same,\n—And this beside, if you will not blame,\nYour leave for one more last ride with me.",
-   "poet": "Robert Browning",
-   "poem": "The Last Ride Together",
-   "source": "4253"
-  },
-  "toulouse-lautrec-the-clown-m-joret.webp": {
-   "text": "A fool, a fool! I met a fool i’ th’ forest,\nA motley fool.",
-   "poet": "William Shakespeare",
-   "poem": "As You Like It",
-   "source": "100"
-  },
   "toulouse-lautrec-albert-grenier.webp": {
    "text": "Then can I grieve at grievances foregone,\nAnd heavily from woe to woe tell o’er\nThe sad account of fore-bemoaned moan,\nWhich I new pay as if not paid before.\nBut if the while I think on thee (dear friend)\nAll losses are restored, and sorrows end.",
    "poet": "William Shakespeare",
@@ -341,19 +329,6 @@
    "poem": "Sonnet 18",
    "source": "100"
   },
-  "toulouse-lautrec-at-the-circus-the-spanish-walk.webp": {
-   "text": "When I bestride him, I soar, I am a hawk. He trots the air; the earth sings when he touches it; the basest horn of his hoof is more musical than the pipe of Hermes.",
-   "poet": "William Shakespeare",
-   "poem": "Henry V",
-   "source": "100",
-   "prose": true
-  },
-  "toulouse-lautrec-two-dogs.webp": {
-   "text": "’Twas in that place o’ Scotland’s isle,\nThat bears the name o’ auld King Coil,\nUpon a bonie day in June,\nWhen wearin’ thro’ the afternoon,\nTwa dogs, that were na thrang at hame,\nForgather’d ance upon a time.",
-   "poet": "Robert Burns",
-   "poem": "The Twa Dogs",
-   "source": "1279"
-  },
   "corot-landscape.webp": {
    "text": "I heard a thousand blended notes\nWhile in a grove I sat reclined,\nIn that sweet mood when pleasant thoughts\nBring sad thoughts to the mind.",
    "poet": "William Wordsworth",
@@ -377,48 +352,6 @@
    "poet": "Sidney Lanier",
    "poem": "The Marshes of Glynn",
    "source": "579"
-  },
-  "klimt-mada-primavesi.webp": {
-   "text": "My heart leaps up when I behold\nA Rainbow in the sky:\nSo was it when my life began;\nSo is it now I am a Man;\nSo be it when I shall grow old,\nOr let me die!\nThe Child is Father of the Man;\nAnd I could wish my days to be\nBound each to each by natural piety.",
-   "poet": "William Wordsworth",
-   "poem": "My Heart Leaps Up",
-   "source": "8824"
-  },
-  "klimt-standing-nude.webp": {
-   "text": "When old age shall this generation waste,\nThou shalt remain, in midst of other woe\nThan ours, a friend to man, to whom thou say'st,\n\"Beauty is truth, truth beauty,\"—that is all\nYe know on earth, and all ye need to know.",
-   "poet": "John Keats",
-   "poem": "Ode on a Grecian Urn",
-   "source": "23684"
-  },
-  "klimt-reclining-nude.webp": {
-   "text": "There is sweet music here that softer falls\nThan petals from blown roses on the grass,\nOr night-dews on still waters between walls\nOf shadowy granite, in a gleaming pass;\nMusic that gentlier on the spirit lies,\nThan tir’d eyelids upon tir’d eyes;",
-   "poet": "Alfred Tennyson",
-   "poem": "The Lotos-Eaters",
-   "source": "8601"
-  },
-  "klimt-reclining-nude-with-drapery.webp": {
-   "text": "Weary with toil, I haste me to my bed,\nThe dear respose for limbs with travel tired,\nBut then begins a journey in my head\nTo work my mind, when body’s work’s expired.",
-   "poet": "William Shakespeare",
-   "poem": "Sonnet 27",
-   "source": "100"
-  },
-  "klimt-two-studies-for-a-crouching-woman.webp": {
-   "text": "Sleep that knits up the ravell’d sleave of care,\nThe death of each day’s life, sore labour’s bath,\nBalm of hurt minds, great nature’s second course,\nChief nourisher in life’s feast.",
-   "poet": "William Shakespeare",
-   "poem": "Macbeth",
-   "source": "100"
-  },
-  "klimt-reclining-nude-with-drapery-back-view.webp": {
-   "text": "Swiftly walk o’er the western wave,\nSpirit of Night!\nOut of the misty eastern cave,\nWhere, all the long and lone daylight,\nThou wovest dreams of joy and fear,\nWhich make thee terrible and dear,—\nSwift be thy flight!",
-   "poet": "Percy Bysshe Shelley",
-   "poem": "To Night",
-   "source": "4800"
-  },
-  "klimt-half-figure-of-a-young-woman.webp": {
-   "text": "Come to me in the silence of the night;\nCome in the speaking silence of a dream;\nCome with soft rounded cheeks and eyes as bright\nAs sunlight on a stream;\nCome back in tears,\nO memory, hope, love of finished years.",
-   "poet": "Christina Rossetti",
-   "poem": "Echo",
-   "source": "16950"
   },
   "crane-woman-seated-on-a-sofa.webp": {
    "text": "Much have I travell'd in the realms of gold\nAnd many goodly states and kingdoms seen;\nRound many western islands have I been\nWhich bards in fealty to Apollo hold.\n\nOft of one wide expanse had I been told\nThat deep-brow'd Homer ruled as his demesne:\nYet did I never breathe its pure serene\nTill I heard Chapman speak out loud and bold:\n\n—Then felt I like some watcher of the skies\nWhen a new planet swims into his ken;\nOr like stout Cortez, when with eagle eyes\n\nHe stared at the Pacific—and all his men\nLook'd at each other with a wild surmise—\nSilent, upon a peak in Darien.",
@@ -450,30 +383,11 @@
    "poem": "The Passionate Shepherd to His Love",
    "source": "19221"
   },
-  "crane-design-for-trade-card.webp": {
-   "text": "Full many a glorious morning have I seen,\nFlatter the mountain tops with sovereign eye,\nKissing with golden face the meadows green;\nGilding pale streams with heavenly alchemy:",
-   "poet": "William Shakespeare",
-   "poem": "Sonnet 33",
-   "source": "100"
-  },
   "crane-dancing-nymph.webp": {
    "text": "Haste thee, Nymph, and bring with thee\nJest, and youthful Jollity,\nQuips and Cranks and wanton Wiles,\nNods and Becks and wreathed Smiles,\nSuch as hang on Hebe's cheek,\nAnd love to live in dimple sleek;\nSport that wrinkled Care derides,\nAnd Laughter holding both his sides.\nCome, and trip it, as you go,\nOn the light fantastic toe;",
    "poet": "John Milton",
    "poem": "L’Allegro",
    "source": "31706"
-  },
-  "leonardo-da-vinci-head-of-a-man-in-profile.webp": {
-   "text": "That time of year thou mayst in me behold,\nWhen yellow leaves, or none, or few do hang\nUpon those boughs which shake against the cold,\nBare ruined choirs, where late the sweet birds sang.",
-   "poet": "William Shakespeare",
-   "poem": "Sonnet 73",
-   "source": "100"
-  },
-  "michelangelo-two-nudes-fighting.webp": {
-   "text": "And the twain being girt went into the midst of the ring, and clasped each the other in his arms with stalwart hands, like gable rafters of a lofty house which some famed craftsman joineth, that he may baffle the wind’s force.",
-   "poet": "Homer",
-   "poem": "The Iliad",
-   "source": "3059",
-   "prose": true
   },
   "stella-coney-island.webp": {
    "text": "Our revels now are ended. These our actors,\nAs I foretold you, were all spirits and\nAre melted into air, into thin air:\nAnd, like the baseless fabric of this vision,\nThe cloud-capp’d towers, the gorgeous palaces,\nThe solemn temples, the great globe itself,\nYea, all which it inherit, shall dissolve,\nAnd, like this insubstantial pageant faded,\nLeave not a rack behind. We are such stuff\nAs dreams are made on, and our little life\nIs rounded with a sleep.",

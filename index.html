@@ -193,21 +193,27 @@
 <!-- Puzzle -->
 <main id="play" class="screen wall" hidden>
   <div class="bar">
-    <div class="tools">
-      <button id="pauseBtn" class="icon-btn" aria-label="Pause">
-        <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-      </button>
-      <button id="playBack" class="icon-btn" aria-label="Back to the artist">
-        <svg viewBox="0 0 24 24" width="26" height="26"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <!-- the way back, as on the gallery's pages -->
+    <div class="tools crumbs">
+      <button id="playBack" class="back">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="playBackName"></span>
       </button>
     </div>
-    <canvas id="guide" class="guide" aria-label="The finished picture"></canvas>
+    <!-- the difficulty, a link to it in Settings, with the reference picture under it -->
+    <div class="mid">
+      <p class="level-note"></p>
+      <canvas id="guide" class="guide" aria-label="The finished picture"></canvas>
+    </div>
     <div class="tools">
       <button id="trayBtn" class="icon-btn" aria-label="Show or hide the tray for pieces set aside">
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 5h13l2.5 8v6H3v-6z"/><path d="M3 13h5.5l1.2 2.6h4.6l1.2-2.6H21"/></svg>
       </button>
       <button id="peekBtn" class="icon-btn" aria-label="Show or hide the reference picture">
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+      <button id="pauseBtn" class="icon-btn" aria-label="Pause">
+        <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
       </button>
     </div>
   </div>
@@ -233,16 +239,6 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.4-5.5"/><path d="M4.5 4v5h5"/></svg>
         <span>Start Over</span>
       </button>
-      <button id="quitBtn" class="link">
-        <!-- an oval portrait -->
-        <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="8" ry="9.5"/><circle cx="12" cy="9.6" r="2.7"/><path d="M6.9 19.3c.7-3.4 2.6-5 5.1-5s4.4 1.6 5.1 5"/></svg>
-        <span id="quitName"></span>
-      </button>
-      <button id="homeBtn" class="link">
-        <!-- a framed landscape -->
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="1"/><rect x="6" y="8" width="12" height="8"/><path d="M6 15l3.2-3.2 2.4 2.4 1.9-1.9L18 16"/></svg>
-        <span>Gallery</span>
-      </button>
       <button id="pauseSettings" class="link">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
         <span>Settings</span>
@@ -254,12 +250,18 @@
 <!-- Solved -->
 <main id="done" class="screen wall" hidden>
   <div class="bar">
+    <div class="tools crumbs">
+      <button id="doneBack" class="back">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="doneBackName"></span>
+      </button>
+    </div>
+    <div class="mid">
+      <p class="level-note"></p>
+    </div>
     <div class="tools">
       <button id="donePauseBtn" class="icon-btn" aria-label="Menu">
         <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-      </button>
-      <button id="doneBack" class="icon-btn" aria-label="Back to the artist">
-        <svg viewBox="0 0 24 24" width="26" height="26"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
   </div>
@@ -269,7 +271,7 @@
         <div id="plateImg" class="plate-img"></div>
       </div>
       <div class="plate-label">
-        <h2><span id="plateName"></span><span id="plateSci" class="sci"></span><button id="aboutBtn" class="info" aria-label="About the painting" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg></button><button id="zoomBtn" class="info" aria-label="Look closer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3l5 5M10.5 7.8v5.4M7.8 10.5h5.4"/></svg></button></h2>
+        <h2><span id="plateName"></span><span id="plateSci" class="sci"></span><button id="aboutBtn" class="info" aria-label="About the painting" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg></button></h2>
         <p id="plateArtist" class="by"></p>
       </div>
       <p id="plateMusic" class="music"></p>
@@ -290,16 +292,6 @@
       <button id="doneRestart" class="link">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.4-5.5"/><path d="M4.5 4v5h5"/></svg>
         <span>Start Over</span>
-      </button>
-      <button id="doneArtist" class="link">
-        <!-- an oval portrait -->
-        <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="8" ry="9.5"/><circle cx="12" cy="9.6" r="2.7"/><path d="M6.9 19.3c.7-3.4 2.6-5 5.1-5s4.4 1.6 5.1 5"/></svg>
-        <span id="doneArtistName"></span>
-      </button>
-      <button id="doneHome" class="link">
-        <!-- a framed landscape -->
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="1"/><rect x="6" y="8" width="12" height="8"/><path d="M6 15l3.2-3.2 2.4 2.4 1.9-1.9L18 16"/></svg>
-        <span>Gallery</span>
       </button>
       <button id="doneSettings" class="link">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
