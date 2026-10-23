@@ -553,6 +553,7 @@ function drawVeil(card) {
   if (!card.classList.contains('veiled') || card.querySelector('.veil') || !face.naturalWidth) return;
   const veil = blurred(face, 7, 240);
   veil.className = 'veil';
+  veil.style.objectPosition = face.style.objectPosition;
   face.after(veil);
 }
 
@@ -764,6 +765,8 @@ function openArtist(a) {
     grid.textContent = '';
     for (const p of a.puzzles) {
       const card = makeCard(p.image, p.scientific, titleOf(p), true);
+      // the part of the picture its card keeps in view, so no head is cut off
+      if (p.focus) card.querySelector('.card-img img').style.objectPosition = p.focus;
       hideCard(card, p);
       card.addEventListener('click', () => {
         if (!playable(p)) return openPaywall(shelfOf(a), p);

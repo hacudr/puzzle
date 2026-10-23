@@ -316,7 +316,8 @@
     "image": "morisot-the-sisters.webp",
     "artist": "Berthe Morisot",
     "name": "The Sisters",
-    "scientific": "1869"
+    "scientific": "1869",
+    "focus": "40% 50%"
   },
   {
     "image": "morisot-the-mother-and-sister-of-the-artist.webp",
@@ -334,7 +335,8 @@
     "image": "morisot-the-harbor-at-lorient.webp",
     "artist": "Berthe Morisot",
     "name": "The Harbor at Lorient",
-    "scientific": "1869"
+    "scientific": "1869",
+    "focus": "75% 50%"
   },
   {
     "image": "morisot-peonies.webp",
@@ -462,7 +464,8 @@
       "nudity"
     ],
     "effect": "gallop",
-    "sacred": true
+    "sacred": true,
+    "focus": "35% 50%"
   },
   {
     "image": "botticelli-giuliano-de-medici.webp",
@@ -493,7 +496,8 @@
     "scientific": "c. 1484–1486",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "75% 50%"
   },
   {
     "image": "botticelli-primavera.webp",
@@ -503,7 +507,8 @@
     "content": [
       "nudity",
       "violence"
-    ]
+    ],
+    "focus": "40% 50%"
   },
   {
     "image": "botticelli-pallas-and-the-centaur.webp",
@@ -521,7 +526,8 @@
     "scientific": "c. 1485",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "70% 50%"
   },
   {
     "image": "botticelli-the-calumny-of-apelles.webp",
@@ -531,13 +537,15 @@
     "content": [
       "nudity",
       "violence"
-    ]
+    ],
+    "focus": "20% 50%"
   },
   {
     "image": "botticelli-fortitude.webp",
     "artist": "Sandro Botticelli",
     "name": "Fortitude",
-    "scientific": "1470"
+    "scientific": "1470",
+    "focus": "50% 30%"
   },
   {
     "image": "botticelli-idealized-portrait-of-a-lady.webp",
@@ -580,7 +588,8 @@
     "image": "botticelli-venus-and-the-three-graces-presenting-gifts-to-a-young-woman.webp",
     "artist": "Sandro Botticelli",
     "name": "Venus and the Three Graces Presenting Gifts to a Young Woman",
-    "scientific": "fresco, c. 1483–1486"
+    "scientific": "fresco, c. 1483–1486",
+    "focus": "35% 50%"
   },
   {
     "image": "botticelli-a-young-man-being-introduced-to-the-seven-liberal-arts.webp",
@@ -648,7 +657,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "30% 50%"
   },
   {
     "image": "botticelli-madonna-and-child-with-singing-angels.webp",
@@ -658,7 +668,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "40% 50%"
   },
   {
     "image": "botticelli-virgin-and-child-with-an-angel.webp",
@@ -796,7 +807,8 @@
       "frightening"
     ],
     "effect": "sword",
-    "sacred": true
+    "sacred": true,
+    "focus": "50% 20%"
   },
   {
     "image": "botticelli-saint-sebastian.webp",
@@ -807,7 +819,8 @@
       "nudity",
       "violence"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "50% 10%"
   },
   {
     "image": "botticelli-saint-augustine-in-his-study.webp",
@@ -832,7 +845,8 @@
       "violence"
     ],
     "effect": "sword",
-    "sacred": true
+    "sacred": true,
+    "focus": "20% 50%"
   },
   {
     "image": "botticelli-the-temptations-of-christ.webp",
@@ -863,7 +877,8 @@
       "nudity",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "80% 50%"
   },
   {
     "image": "botticelli-the-last-communion-of-saint-jerome.webp",
@@ -908,7 +923,8 @@
     "content": [
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "15% 50%"
   },
   {
     "image": "botticelli-three-miracles-of-saint-zenobius.webp",
@@ -961,7 +977,8 @@
       "nudity"
     ],
     "effect": "gallop",
-    "sacred": true
+    "sacred": true,
+    "focus": "50% 15%"
   },
   {
     "image": "el-greco-madonna-and-child-with-saint-martina-and-saint-agnes.webp",
@@ -971,7 +988,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "50% 20%"
   },
   {
     "image": "el-greco-saint-ildefonso.webp",
@@ -1401,7 +1419,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "25% 50%"
   },
   {
     "image": "titian-woman-holding-an-apple.webp",
@@ -1504,7 +1523,8 @@
     "image": "cezanne-harlequin.webp",
     "artist": "Paul Cézanne",
     "name": "Harlequin",
-    "scientific": "1888-1890"
+    "scientific": "1888-1890",
+    "focus": "50% 35%"
   },
   {
     "image": "cezanne-boy-in-a-red-waistcoat.webp",
@@ -1686,13 +1706,15 @@
     "artist": "Edgar Degas",
     "name": "The Riders",
     "scientific": "c. 1885",
-    "effect": "gallop"
+    "effect": "gallop",
+    "focus": "45% 50%"
   },
   {
     "image": "degas-before-the-ballet.webp",
     "artist": "Edgar Degas",
     "name": "Before the Ballet",
-    "scientific": "1890/1892"
+    "scientific": "1890/1892",
+    "focus": "60% 50%"
   },
   {
     "image": "degas-four-dancers.webp",
@@ -1710,7 +1732,8 @@
     "image": "manet-the-old-musician.webp",
     "artist": "Edouard Manet",
     "name": "The Old Musician",
-    "scientific": "1862"
+    "scientific": "1862",
+    "focus": "70% 50%"
   },
   {
     "image": "manet-the-dead-toreador.webp",
@@ -1720,13 +1743,15 @@
     "content": [
       "violence",
       "frightening"
-    ]
+    ],
+    "focus": "75% 50%"
   },
   {
     "image": "manet-the-tragic-actor.webp",
     "artist": "Edouard Manet",
     "name": "The Tragic Actor",
-    "scientific": "1866"
+    "scientific": "1866",
+    "focus": "50% 40%"
   },
   {
     "image": "manet-still-life-with-melon-and-peaches.webp",
@@ -1750,7 +1775,8 @@
     "image": "manet-masked-ball-at-the-opera.webp",
     "artist": "Edouard Manet",
     "name": "Masked Ball at the Opera",
-    "scientific": "1873"
+    "scientific": "1873",
+    "focus": "90% 50%"
   },
   {
     "image": "manet-at-the-races.webp",
@@ -1829,7 +1855,8 @@
     "image": "gauguin-breton-girls-dancing-pont-aven.webp",
     "artist": "Paul Gauguin",
     "name": "Breton Girls Dancing, Pont-Aven",
-    "scientific": "1888"
+    "scientific": "1888",
+    "focus": "35% 50%"
   },
   {
     "image": "gauguin-self-portrait-dedicated-to-carriere.webp",
@@ -1899,7 +1926,8 @@
     "scientific": "1903",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "55% 50%"
   },
   {
     "image": "renoir-mademoiselle-sicot.webp",
@@ -1917,13 +1945,15 @@
     "image": "renoir-woman-standing-by-a-tree.webp",
     "artist": "Auguste Renoir",
     "name": "Woman Standing by a Tree",
-    "scientific": "1866"
+    "scientific": "1866",
+    "focus": "50% 40%"
   },
   {
     "image": "renoir-woman-in-a-park.webp",
     "artist": "Auguste Renoir",
     "name": "Woman in a Park",
-    "scientific": "1866"
+    "scientific": "1866",
+    "focus": "50% 45%"
   },
   {
     "image": "renoir-flowers-in-a-vase.webp",
@@ -1948,7 +1978,8 @@
     "scientific": "1870",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "70% 50%"
   },
   {
     "image": "renoir-head-of-a-dog.webp",
@@ -1973,7 +2004,8 @@
     "image": "renoir-the-dancer.webp",
     "artist": "Auguste Renoir",
     "name": "The Dancer",
-    "scientific": "1874"
+    "scientific": "1874",
+    "focus": "50% 35%"
   },
   {
     "image": "renoir-regatta-at-argenteuil.webp",
@@ -2045,7 +2077,8 @@
     "image": "renoir-oarsmen-at-chatou.webp",
     "artist": "Auguste Renoir",
     "name": "Oarsmen at Chatou",
-    "scientific": "1879"
+    "scientific": "1879",
+    "focus": "15% 50%"
   },
   {
     "image": "renoir-the-mussel-harvest.webp",
@@ -2057,7 +2090,8 @@
     "image": "renoir-the-young-soldier.webp",
     "artist": "Auguste Renoir",
     "name": "The Young Soldier",
-    "scientific": "c. 1880"
+    "scientific": "c. 1880",
+    "focus": "50% 25%"
   },
   {
     "image": "renoir-small-study-for-a-nude.webp",
@@ -2093,7 +2127,8 @@
     "image": "renoir-girl-with-a-hoop.webp",
     "artist": "Auguste Renoir",
     "name": "Girl with a Hoop",
-    "scientific": "1885"
+    "scientific": "1885",
+    "focus": "50% 45%"
   },
   {
     "image": "renoir-suzanne-valadon.webp",
@@ -2117,13 +2152,15 @@
     "image": "renoir-girl-with-a-basket-of-fish.webp",
     "artist": "Auguste Renoir",
     "name": "Girl with a Basket of Fish",
-    "scientific": "c. 1889"
+    "scientific": "c. 1889",
+    "focus": "50% 30%"
   },
   {
     "image": "renoir-girl-with-a-basket-of-oranges.webp",
     "artist": "Auguste Renoir",
     "name": "Girl with a Basket of Oranges",
-    "scientific": "c. 1889"
+    "scientific": "c. 1889",
+    "focus": "50% 30%"
   },
   {
     "image": "renoir-head-of-a-young-girl.webp",
@@ -2270,19 +2307,22 @@
     "scientific": "1918",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "5% 50%"
   },
   {
     "image": "modigliani-madame-amedee.webp",
     "artist": "Amedeo Modigliani",
     "name": "Madame Amédée",
-    "scientific": "1918"
+    "scientific": "1918",
+    "focus": "50% 35%"
   },
   {
     "image": "modigliani-roma-woman-with-baby.webp",
     "artist": "Amedeo Modigliani",
     "name": "Roma Woman with Baby",
-    "scientific": "1919"
+    "scientific": "1919",
+    "focus": "50% 40%"
   },
   {
     "image": "seurat-haymakers-at-montfermeil.webp",
@@ -2337,7 +2377,8 @@
     "artist": "Georges Seurat",
     "name": "Bathers",
     "scientific": "1883/1884",
-    "effect": "gallop"
+    "effect": "gallop",
+    "focus": "25% 50%"
   },
   {
     "image": "seurat-horse-and-boats.webp",
@@ -2350,7 +2391,8 @@
     "image": "seurat-the-seine-with-clothing-on-the-bank.webp",
     "artist": "Georges Seurat",
     "name": "The Seine with Clothing on the Bank",
-    "scientific": "1883/1884"
+    "scientific": "1883/1884",
+    "focus": "15% 50%"
   },
   {
     "image": "seurat-study-for-la-grande-jatte.webp",
@@ -2639,7 +2681,8 @@
     "scientific": "1860, reworked c. 1865/1870",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "35% 50%"
   },
   {
     "image": "corot-the-moored-boatman-souvenir-of-an-italian-lake.webp",
@@ -2853,13 +2896,15 @@
     "image": "whistler-wapping.webp",
     "artist": "James McNeill Whistler",
     "name": "Wapping",
-    "scientific": "1860-1864"
+    "scientific": "1860-1864",
+    "focus": "100% 50%"
   },
   {
     "image": "whistler-symphony-in-white-no-1-the-white-girl.webp",
     "artist": "James McNeill Whistler",
     "name": "Symphony in White, No. 1: The White Girl",
-    "scientific": "1861-1863, 1872"
+    "scientific": "1861-1863, 1872",
+    "focus": "50% 15%"
   },
   {
     "image": "whistler-grey-and-silver-chelsea-wharf.webp",
@@ -2871,7 +2916,8 @@
     "image": "whistler-mother-of-pearl-and-silver-the-andalusian.webp",
     "artist": "James McNeill Whistler",
     "name": "Mother of Pearl and Silver: The Andalusian",
-    "scientific": "1888(?)-1900"
+    "scientific": "1888(?)-1900",
+    "focus": "50% 10%"
   },
   {
     "image": "whistler-alice-butt.webp",
@@ -2883,7 +2929,8 @@
     "image": "whistler-alexander-arnold-hannay.webp",
     "artist": "James McNeill Whistler",
     "name": "Alexander Arnold Hannay",
-    "scientific": "c. 1896"
+    "scientific": "c. 1896",
+    "focus": "50% 20%"
   },
   {
     "image": "whistler-gold-and-brown-self-portrait.webp",
@@ -2895,14 +2942,16 @@
     "image": "whistler-george-w-vanderbilt.webp",
     "artist": "James McNeill Whistler",
     "name": "George W. Vanderbilt",
-    "scientific": "1897/1903"
+    "scientific": "1897/1903",
+    "focus": "50% 10%"
   },
   {
     "image": "gentileschi-esther-before-ahasuerus.webp",
     "artist": "Artemisia Gentileschi",
     "name": "Esther before Ahasuerus",
     "scientific": "1620s",
-    "sacred": true
+    "sacred": true,
+    "focus": "25% 50%"
   },
   {
     "image": "gentileschi-mary-magdalene-in-ecstasy.webp",
@@ -3352,7 +3401,8 @@
     "image": "caravaggio-the-cardsharps.webp",
     "artist": "Caravaggio",
     "name": "The Cardsharps",
-    "scientific": "c. 1595"
+    "scientific": "c. 1595",
+    "focus": "30% 50%"
   },
   {
     "image": "caravaggio-boy-bitten-by-a-lizard.webp",
@@ -3459,7 +3509,8 @@
       "frightening"
     ],
     "effect": "sword",
-    "sacred": true
+    "sacred": true,
+    "focus": "80% 50%"
   },
   {
     "image": "caravaggio-basket-of-fruit.webp",
@@ -3535,7 +3586,8 @@
     "artist": "Caravaggio",
     "name": "The Supper at Emmaus",
     "scientific": "London, 1601",
-    "sacred": true
+    "sacred": true,
+    "focus": "55% 50%"
   },
   {
     "image": "caravaggio-amor-vincit-omnia.webp",
@@ -3575,7 +3627,8 @@
     "content": [
       "violence"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "30% 50%"
   },
   {
     "image": "caravaggio-the-inspiration-of-saint-matthew.webp",
@@ -3605,7 +3658,8 @@
       "violence",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "25% 50%"
   },
   {
     "image": "caravaggio-the-entombment-of-christ.webp",
@@ -3770,7 +3824,8 @@
       "frightening"
     ],
     "effect": "sword",
-    "sacred": true
+    "sacred": true,
+    "focus": "70% 50%"
   },
   {
     "image": "caravaggio-the-flagellation-of-christ.webp",
@@ -3792,7 +3847,8 @@
       "nudity",
       "violence"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "10% 50%"
   },
   {
     "image": "caravaggio-portrait-of-alof-de-wignacourt-and-his-page.webp",
@@ -3837,7 +3893,8 @@
     "scientific": "1608",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "75% 50%"
   },
   {
     "image": "caravaggio-the-burial-of-saint-lucy.webp",
@@ -3976,7 +4033,8 @@
     "artist": "Leonardo da Vinci",
     "name": "Annunciation",
     "scientific": "c. 1472–1476",
-    "sacred": true
+    "sacred": true,
+    "focus": "65% 50%"
   },
   {
     "image": "leonardo-da-vinci-the-baptism-of-christ.webp",
@@ -4116,7 +4174,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "10% 50%"
   },
   {
     "image": "michelangelo-the-separation-of-light-from-darkness.webp",
@@ -4158,7 +4217,8 @@
       "violence"
     ],
     "effect": "sword",
-    "sacred": true
+    "sacred": true,
+    "focus": "65% 50%"
   },
   {
     "image": "michelangelo-the-sacrifice-of-noah.webp",
@@ -4519,7 +4579,8 @@
     "scientific": "1851–1852",
     "content": [
       "frightening"
-    ]
+    ],
+    "focus": "10% 50%"
   },
   {
     "image": "millais-the-blind-girl.webp",
@@ -4541,7 +4602,8 @@
     "image": "millais-isabella.webp",
     "artist": "John Everett Millais",
     "name": "Isabella",
-    "scientific": "1848–1849"
+    "scientific": "1848–1849",
+    "focus": "30% 50%"
   },
   {
     "image": "millais-mariana.webp",
@@ -4566,7 +4628,8 @@
     "artist": "John Everett Millais",
     "name": "The Return of the Dove to the Ark",
     "scientific": "1851",
-    "sacred": true
+    "sacred": true,
+    "focus": "50% 35%"
   },
   {
     "image": "millais-the-rescue.webp",
@@ -4614,13 +4677,15 @@
     "image": "millais-the-vale-of-rest.webp",
     "artist": "John Everett Millais",
     "name": "The Vale of Rest",
-    "scientific": "1858–1859"
+    "scientific": "1858–1859",
+    "focus": "55% 50%"
   },
   {
     "image": "rossetti-proserpine.webp",
     "artist": "Dante Gabriel Rossetti",
     "name": "Proserpine",
-    "scientific": "1874"
+    "scientific": "1874",
+    "focus": "50% 30%"
   },
   {
     "image": "rossetti-beata-beatrix.webp",
@@ -4639,13 +4704,15 @@
     "artist": "Dante Gabriel Rossetti",
     "name": "Ecce Ancilla Domini",
     "scientific": "1849–1850",
-    "sacred": true
+    "sacred": true,
+    "focus": "50% 20%"
   },
   {
     "image": "rossetti-the-day-dream.webp",
     "artist": "Dante Gabriel Rossetti",
     "name": "The Day Dream",
-    "scientific": "1880"
+    "scientific": "1880",
+    "focus": "50% 30%"
   },
   {
     "image": "rossetti-a-vision-of-fiammetta.webp",
@@ -4681,7 +4748,8 @@
     "image": "rossetti-la-ghirlandata.webp",
     "artist": "Dante Gabriel Rossetti",
     "name": "La Ghirlandata",
-    "scientific": "1873"
+    "scientific": "1873",
+    "focus": "50% 0%"
   },
   {
     "image": "rossetti-joan-of-arc.webp",
@@ -4706,7 +4774,8 @@
     "image": "rossetti-the-salutation-of-beatrice.webp",
     "artist": "Dante Gabriel Rossetti",
     "name": "The Salutation of Beatrice",
-    "scientific": "1880–1882"
+    "scientific": "1880–1882",
+    "focus": "50% 35%"
   },
   {
     "image": "rossetti-lady-lilith.webp",
@@ -4754,7 +4823,8 @@
     "name": "The Finding of the Saviour in the Temple",
     "scientific": "1854–1860",
     "sacred": true,
-    "effect": "knock"
+    "effect": "knock",
+    "focus": "80% 50%"
   },
   {
     "image": "hunt-a-converted-british-family-sheltering-a-christian-missionary.webp",
@@ -4765,13 +4835,15 @@
       "nudity",
       "violence"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "45% 50%"
   },
   {
     "image": "hunt-claudio-and-isabella.webp",
     "artist": "William Holman Hunt",
     "name": "Claudio and Isabella",
-    "scientific": "1850"
+    "scientific": "1850",
+    "focus": "50% 40%"
   },
   {
     "image": "hunt-the-lady-of-shalott.webp",
@@ -4783,7 +4855,8 @@
     "image": "hunt-the-miracle-of-the-holy-fire.webp",
     "artist": "William Holman Hunt",
     "name": "The Miracle of the Holy Fire",
-    "scientific": "1892–1899"
+    "scientific": "1892–1899",
+    "focus": "5% 50%"
   },
   {
     "image": "hunt-the-triumph-of-the-innocents.webp",
@@ -4793,7 +4866,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "focus": "0% 50%"
   },
   {
     "image": "hunt-the-light-of-the-world.webp",
@@ -4801,7 +4875,8 @@
     "name": "The Light of the World",
     "scientific": "1851–1853",
     "sacred": true,
-    "effect": "knock"
+    "effect": "knock",
+    "focus": "50% 45%"
   },
   {
     "image": "hunt-london-bridge-on-the-night-of-the-marriage-of-the-prince-and.webp",
@@ -4813,7 +4888,8 @@
     "image": "hunt-may-morning-on-magdalen-tower.webp",
     "artist": "William Holman Hunt",
     "name": "May Morning on Magdalen Tower",
-    "scientific": "1888–1891"
+    "scientific": "1888–1891",
+    "focus": "10% 50%"
   },
   {
     "image": "hunt-the-lantern-makers-courtship.webp",
@@ -4839,7 +4915,8 @@
     "artist": "Ford Madox Brown",
     "name": "Work",
     "scientific": "1852–1865",
-    "effect": "gallop"
+    "effect": "gallop",
+    "focus": "25% 50%"
   },
   {
     "image": "brown-take-your-son-sir.webp",
@@ -4848,7 +4925,8 @@
     "scientific": "1851–1857, unfinished",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "50% 20%"
   },
   {
     "image": "brown-the-pretty-baa-lambs.webp",
@@ -4897,13 +4975,15 @@
     "artist": "Ford Madox Brown",
     "name": "The Coat of Many Colours",
     "scientific": "1864–1866",
-    "sacred": true
+    "sacred": true,
+    "focus": "75% 50%"
   },
   {
     "image": "brown-cordelia-parting-from-her-sisters.webp",
     "artist": "Ford Madox Brown",
     "name": "Cordelia Parting from Her Sisters",
-    "scientific": "1854"
+    "scientific": "1854",
+    "focus": "55% 50%"
   },
   {
     "image": "brown-elijah-and-the-widows-son.webp",
@@ -4919,7 +4999,8 @@
     "scientific": "1869–1870",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "40% 50%"
   },
   {
     "image": "brown-the-death-of-sir-tristram.webp",
@@ -4934,13 +5015,15 @@
     "image": "hughes-april-love.webp",
     "artist": "Arthur Hughes",
     "name": "April Love",
-    "scientific": "1855–1856"
+    "scientific": "1855–1856",
+    "focus": "50% 30%"
   },
   {
     "image": "hughes-the-long-engagement.webp",
     "artist": "Arthur Hughes",
     "name": "The Long Engagement",
-    "scientific": "1859"
+    "scientific": "1859",
+    "focus": "50% 30%"
   },
   {
     "image": "hughes-la-belle-dame-sans-merci.webp",
@@ -4965,14 +5048,16 @@
     "image": "hughes-a-christmas-carol-at-bracken-dene.webp",
     "artist": "Arthur Hughes",
     "name": "A Christmas Carol at Bracken Dene",
-    "scientific": "1878–1879"
+    "scientific": "1878–1879",
+    "focus": "75% 50%"
   },
   {
     "image": "hughes-the-nativity.webp",
     "artist": "Arthur Hughes",
     "name": "The Nativity",
     "scientific": "1857–1858",
-    "sacred": true
+    "sacred": true,
+    "focus": "50% 20%"
   },
   {
     "image": "hughes-home-from-sea.webp",
@@ -5020,13 +5105,15 @@
     "image": "burne-jones-king-cophetua-and-the-beggar-maid.webp",
     "artist": "Edward Burne-Jones",
     "name": "King Cophetua and the Beggar Maid",
-    "scientific": "1884"
+    "scientific": "1884",
+    "focus": "50% 15%"
   },
   {
     "image": "burne-jones-the-golden-stairs.webp",
     "artist": "Edward Burne-Jones",
     "name": "The Golden Stairs",
-    "scientific": "1880"
+    "scientific": "1880",
+    "focus": "50% 20%"
   },
   {
     "image": "burne-jones-the-merciful-knight.webp",
@@ -5052,7 +5139,8 @@
     "scientific": "1875–1883",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "50% 20%"
   },
   {
     "image": "burne-jones-hope.webp",
@@ -5073,7 +5161,8 @@
     "scientific": "1886–1887",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "60% 50%"
   },
   {
     "image": "burne-jones-love-among-the-ruins.webp",
@@ -5088,7 +5177,8 @@
     "scientific": "1881–1882",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "50% 35%"
   },
   {
     "image": "burne-jones-the-mirror-of-venus.webp",
@@ -5109,19 +5199,22 @@
     "scientific": "1872–1881",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "15% 50%"
   },
   {
     "image": "burne-jones-sidonia-von-bork.webp",
     "artist": "Edward Burne-Jones",
     "name": "Sidonia von Bork",
-    "scientific": "1860"
+    "scientific": "1860",
+    "focus": "50% 30%"
   },
   {
     "image": "burne-jones-vespertina-quies.webp",
     "artist": "Edward Burne-Jones",
     "name": "Vespertina Quies",
-    "scientific": "1893"
+    "scientific": "1893",
+    "focus": "50% 35%"
   },
   {
     "image": "stillman-loves-messenger.webp",
@@ -5139,7 +5232,8 @@
     "image": "stillman-fiammetta-singing.webp",
     "artist": "Marie Spartali Stillman",
     "name": "Fiammetta Singing",
-    "scientific": "1879"
+    "scientific": "1879",
+    "focus": "85% 50%"
   },
   {
     "image": "stillman-how-the-virgin-mary-came-to-brother-conrad-of-offida-and.webp",
@@ -5174,7 +5268,8 @@
     "image": "stillman-the-enchanted-garden-of-messer-ansaldo.webp",
     "artist": "Marie Spartali Stillman",
     "name": "The Enchanted Garden of Messer Ansaldo",
-    "scientific": "1889"
+    "scientific": "1889",
+    "focus": "85% 50%"
   },
   {
     "image": "stillman-saint-barbara.webp",
@@ -5224,19 +5319,22 @@
     "image": "de-morgan-flora.webp",
     "artist": "Evelyn De Morgan",
     "name": "Flora",
-    "scientific": "1894"
+    "scientific": "1894",
+    "focus": "50% 30%"
   },
   {
     "image": "de-morgan-helen-of-troy.webp",
     "artist": "Evelyn De Morgan",
     "name": "Helen of Troy",
-    "scientific": "1898"
+    "scientific": "1898",
+    "focus": "50% 35%"
   },
   {
     "image": "de-morgan-night-and-sleep.webp",
     "artist": "Evelyn De Morgan",
     "name": "Night and Sleep",
-    "scientific": "1878"
+    "scientific": "1878",
+    "focus": "10% 50%"
   },
   {
     "image": "de-morgan-the-gilded-cage.webp",
@@ -5251,7 +5349,8 @@
     "scientific": "1877",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "50% 20%"
   },
   {
     "image": "de-morgan-the-angel-of-death.webp",
@@ -5284,13 +5383,15 @@
     "scientific": "1885–1886",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "55% 50%"
   },
   {
     "image": "de-morgan-cassandra.webp",
     "artist": "Evelyn De Morgan",
     "name": "Cassandra",
-    "scientific": "1898"
+    "scientific": "1898",
+    "focus": "50% 35%"
   },
   {
     "image": "de-morgan-the-dryad.webp",
@@ -5299,7 +5400,8 @@
     "scientific": "1884–1885",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "50% 45%"
   },
   {
     "image": "waterhouse-the-lady-of-shalott.webp",
@@ -5323,7 +5425,8 @@
     "scientific": "1903",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "40% 50%"
   },
   {
     "image": "waterhouse-circe-offering-the-cup-to-ulysses.webp",
@@ -5338,7 +5441,8 @@
     "image": "waterhouse-circe-invidiosa.webp",
     "artist": "John William Waterhouse",
     "name": "Circe Invidiosa",
-    "scientific": "1892"
+    "scientific": "1892",
+    "focus": "50% 40%"
   },
   {
     "image": "waterhouse-saint-eulalia.webp",
@@ -5356,7 +5460,8 @@
     "image": "waterhouse-the-favourites-of-the-emperor-honorius.webp",
     "artist": "John William Waterhouse",
     "name": "The Favourites of the Emperor Honorius",
-    "scientific": "1883"
+    "scientific": "1883",
+    "focus": "55% 50%"
   },
   {
     "image": "waterhouse-ulysses-and-the-sirens.webp",
@@ -5404,7 +5509,8 @@
     "image": "waterhouse-a-tale-from-the-decameron.webp",
     "artist": "John William Waterhouse",
     "name": "A Tale from the Decameron",
-    "scientific": "1916"
+    "scientific": "1916",
+    "focus": "10% 50%"
   },
   {
     "image": "waterhouse-mariana-in-the-south.webp",
@@ -5461,7 +5567,8 @@
     "scientific": "1884",
     "content": [
       "frightening"
-    ]
+    ],
+    "focus": "60% 50%"
   },
   {
     "image": "edward-robert-hughes-night-with-her-train-of-stars.webp",
@@ -5519,7 +5626,8 @@
     "image": "edward-robert-hughes-the-princess-out-of-school.webp",
     "artist": "Edward Robert Hughes",
     "name": "The Princess Out of School",
-    "scientific": "1901"
+    "scientific": "1901",
+    "focus": "75% 50%"
   },
   {
     "image": "edward-robert-hughes-bell-and-dorothy-freeman.webp",
@@ -5547,7 +5655,8 @@
     "artist": "Frederic Leighton",
     "name": "Cimabue's Celebrated Madonna",
     "scientific": "1853–1855",
-    "effect": "gallop"
+    "effect": "gallop",
+    "focus": "5% 50%"
   },
   {
     "image": "leighton-the-bath-of-psyche.webp",
@@ -5590,7 +5699,8 @@
     "scientific": "c. 1888",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "25% 50%"
   },
   {
     "image": "leighton-daphnephoria.webp",
@@ -5599,7 +5709,8 @@
     "scientific": "1874–1876",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "95% 50%"
   },
   {
     "image": "leighton-greek-girls-playing-at-ball.webp",
@@ -5648,7 +5759,8 @@
     "image": "leighton-light-of-the-harem.webp",
     "artist": "Frederic Leighton",
     "name": "Light of the Harem",
-    "scientific": "c. 1880"
+    "scientific": "c. 1880",
+    "focus": "50% 35%"
   },
   {
     "image": "leighton-crenaia-the-nymph-of-the-dargle.webp",
@@ -5657,7 +5769,8 @@
     "scientific": "1880",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "50% 15%"
   },
   {
     "image": "leighton-the-fisherman-and-the-syren.webp",
@@ -5676,7 +5789,8 @@
     "scientific": "1856–1858",
     "content": [
       "frightening"
-    ]
+    ],
+    "focus": "10% 50%"
   },
   {
     "image": "leighton-a-condottiere.webp",
@@ -5727,7 +5841,8 @@
     "image": "leighton-portrait-of-may-sartoris.webp",
     "artist": "Frederic Leighton",
     "name": "May Sartoris",
-    "scientific": "c. 1860"
+    "scientific": "c. 1860",
+    "focus": "50% 40%"
   },
   {
     "image": "leighton-may-sartoris-mrs-henry-evans-gordon.webp",
@@ -5943,7 +6058,8 @@
     "image": "near-east-panel-with-striding-lion.webp",
     "artist": "Ancient Near East",
     "name": "Panel with Striding Lion",
-    "scientific": "Babylon, c. 604–562 BCE"
+    "scientific": "Babylon, c. 604–562 BCE",
+    "focus": "15% 50%"
   },
   {
     "image": "near-east-lamassu.webp",
@@ -6076,7 +6192,8 @@
     "scientific": "Athens, c. 590–580 BCE",
     "content": [
       "nudity"
-    ]
+    ],
+    "focus": "50% 40%"
   },
   {
     "image": "rome-boscoreale-bedroom.webp",
@@ -6672,7 +6789,8 @@
     "image": "landseer-members-of-the-sheridan-family.webp",
     "artist": "Edwin Landseer",
     "name": "Members of the Sheridan Family",
-    "scientific": "1847"
+    "scientific": "1847",
+    "focus": "60% 50%"
   },
   {
     "image": "landseer-a-group-of-animals-geneva.webp",
@@ -6686,6 +6804,7 @@
     "artist": "Edwin Landseer",
     "name": "Rent-Day in the Wilderness",
     "scientific": "1855–1868",
-    "article": "Donald Murchison"
+    "article": "Donald Murchison",
+    "focus": "55% 50%"
   }
 ]
