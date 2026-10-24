@@ -715,10 +715,9 @@ function renderGallery() {
   $('#empty').hidden = puzzles.length > 0;
   $('#allHidden').hidden = !puzzles.length || artists.length > 0;
   for (const c of collections) {
-    // no italic line: its number and name, as large as each other
-    const card = makeCard(c.cover, '', c.name);
+    // no italic line: its number alone stands for its name, as Collection 1
+    const card = makeCard(c.cover, '', c.number);
     if (c.focus && c.cover === c.usual) card.querySelector('.card-img img').style.objectPosition = c.focus;
-    card.querySelector('b').prepend(Object.assign(document.createElement('span'), { textContent: c.number + ':' }));
     // no count of its puzzles either
     card.querySelector('small').remove();
     card.classList.add('solved');
@@ -740,8 +739,7 @@ function openCollection(c) {
   game = null;
   if (c !== collection) {
     collection = c;
-    $('#collectionNote').textContent = c.number;
-    $('#collectionName').textContent = c.name;
+    $('#collectionName').textContent = c.number;
     const grid = $('#shelf');
     grid.textContent = '';
     for (const a of c.artists) {
@@ -808,7 +806,7 @@ function openArtist(a) {
     $('#artist').scrollTop = 0;
   }
   // from the list of artists, the way back is to the list
-  $('#artistBackName').textContent = collectionOf(a).name;
+  $('#artistBackName').textContent = collectionOf(a).number;
   labelCards();
   show('artist');
 }
@@ -1468,7 +1466,7 @@ let leafFrame = 0;
 function showCheer({ artist: a, collection: c }) {
   const el = $('#doneCheer');
   $('#cheerEyebrow').textContent = c ? 'Collection complete' : 'Chapter complete';
-  $('#cheerName').textContent = c ? c.name : a.name;
+  $('#cheerName').textContent = c ? c.number : a.name;
   el.classList.remove('leaving');
   el.hidden = false;
   cancelAnimationFrame(leafFrame);
@@ -1707,8 +1705,8 @@ function openPaywall(c, p = null) {
     const img = item.querySelector('img');
     img.src = thumbOf(k.cover);
     if (k.focus && k.cover === k.usual) img.style.objectPosition = k.focus;
-    item.querySelector('i').textContent = k.number;
-    item.querySelector('b').textContent = k.name;
+    item.querySelector('i').remove();
+    item.querySelector('b').textContent = k.number;
     item.querySelector('small').textContent = `${k.artists.length} artists · ${k.count} puzzles`;
     item.querySelector('.pay-price').textContent = owns(k) ? 'Owned' : money(1);
     item.addEventListener('click', () => {
@@ -1742,7 +1740,7 @@ $('#payBuy').addEventListener('click', () => {
   labelCards();
   $('#payForm').hidden = true;
   $('#payDone').hidden = false;
-  $('#payThanks').textContent = names.length === 1 ? `${names[0]} is unlocked.` : `${names.length === 3 ? 'All three' : 'Two'} collections are unlocked.`;
+  $('#payThanks').textContent = names.length === 1 ? `${collections.find((k) => k.name === names[0]).number} is unlocked.` : `${names.length === 3 ? 'All three' : 'Two'} collections are unlocked.`;
   $('#payContinue').textContent = pending && playable(pending) ? 'Play it now' : 'Back to the gallery';
 });
 $('#payClose').addEventListener('click', closePaywall);
