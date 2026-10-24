@@ -588,9 +588,14 @@ button {
 }
 /* Expert has no reference picture, nor the button that shows and hides it */
 #play.blind .guide, #play.blind #peekBtn { visibility: hidden; pointer-events: none; }
-/* room for the reference picture, and a slimmer bar without it */
-#play .bar { height: 132px; }
+/* room for the reference picture, and a slimmer bar without it. The way back, the
+   difficulty and the buttons keep to one row at the top, 60px high, whether the
+   picture is shown or not, and the picture hangs under the difficulty. */
+#play .bar { height: 146px; align-items: flex-start; }
 #play.no-guide .bar, #play.blind .bar { height: 60px; }
+#play .bar > .tools { height: 60px; align-items: center; }
+#play .mid { gap: 5px; padding-top: 19px; }
+#play .mid .level-note { height: 22px; line-height: 22px; }
 /* as wide on both sides, so the reference picture stays in the middle */
 .tools { display: flex; gap: 6px; width: 102px; }
 .tools:last-child { justify-content: flex-end; }
