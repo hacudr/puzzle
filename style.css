@@ -606,6 +606,8 @@ button {
 .crumbs .back span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .mid { position: relative; flex: none; display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .mid .level-note { margin: 0; font-size: .95rem; white-space: nowrap; }
+/* on a phone the puzzle's bar names only the difficulty, "Easy", without the count of pieces */
+@media (max-width: 600px) { .mid .level-rest { display: none; } }
 /* with the reference picture off, or on Expert, it is still drawn as nothing, but
    out of the way, so the difficulty stands alone in the middle of the bar */
 #play.no-guide .mid .guide, #play.blind .mid .guide { position: absolute; top: 100%; }

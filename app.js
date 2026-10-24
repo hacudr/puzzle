@@ -150,12 +150,15 @@ function showLevel() {
   const button = $(`#levels [data-level="${level}"]`);
   // the name is a link to the Difficulty choice in Settings
   const name = kids ? 'Kids mode' : button.firstChild.textContent;
-  const rest = ' · ' + button.querySelector('small').textContent;
   document.querySelectorAll('.level-note').forEach((el) => {
     const link = document.createElement('button');
     link.className = 'level-link';
     link.textContent = name;
     link.addEventListener('click', () => openSettings(el.closest('.screen').id, '#levels'));
+    // the count of pieces, which a puzzle's bar leaves off on a phone (.level-rest)
+    const rest = document.createElement('span');
+    rest.className = 'level-rest';
+    rest.textContent = ' · ' + button.querySelector('small').textContent;
     el.replaceChildren(link, rest);
   });
   labelCards();
