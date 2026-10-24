@@ -27,6 +27,22 @@
 <!-- Gallery: one card per collection -->
 <main id="gallery" class="screen">
   <div class="top">
+    <!-- A personal note from the app creator, in the top-left corner: a scroll tied with a
+         sealed ribbon, which wiggles until it has been opened -->
+    <button id="noteBtn" class="note-btn" aria-label="A personal note from the app creator">
+      <svg class="scroll-icon" viewBox="0 0 48 36" aria-hidden="true">
+        <g class="scr-paper"><rect x="10" y="7" width="28" height="22" rx="1"/><path d="M14 12.5h20M14 16.5h20M14 20.5h20M14 24.5h13"/></g>
+        <g class="scr-roller scr-top"><circle cx="5.6" cy="15" r="2.4"/><circle cx="42.4" cy="15" r="2.4"/><rect x="7" y="12" width="34" height="6" rx="3"/><path class="scr-shine" d="M10 13.7h28"/></g>
+        <g class="scr-roller scr-bot"><circle cx="5.6" cy="21" r="2.4"/><circle cx="42.4" cy="21" r="2.4"/><rect x="7" y="18" width="34" height="6" rx="3"/><path class="scr-shine" d="M10 19.7h28"/></g>
+        <g class="scr-tie">
+          <rect class="scr-ribbon" x="21.7" y="10.2" width="4.6" height="15.6"/>
+          <circle class="scr-seal" cx="24" cy="18" r="3.8"/>
+          <circle class="scr-seal-ring" cx="24" cy="18" r="2.1"/>
+          <ellipse class="scr-glint" cx="22.7" cy="16.7" rx="1.2" ry=".7"/>
+        </g>
+      </svg>
+      <span>A personal note</span>
+    </button>
     <button class="icon-btn gear" aria-label="Settings">
       <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
     </button>
@@ -185,6 +201,45 @@
     </section>
   </div>
 </main>
+
+<!-- The app creator's letter, a scroll that unrolls, opened from the little scroll in the home page's top-left corner -->
+<div id="note" class="overlay note" hidden>
+  <div class="scroll-sheet">
+  <span class="roller" aria-hidden="true"></span>
+  <article class="about letter" role="dialog" aria-labelledby="noteTitle">
+    <header class="about-head">
+      <h2 id="noteTitle">A personal note from the app creator</h2>
+    </header>
+    <div id="noteScroll" class="about-scroll">
+      <div class="about-body letter-body">
+        <p>Thank you for selecting this app. There are so many puzzle apps you could have picked, but you picked mine. Thank you!</p>
+        <p>I was a fine arts major who ended up with a career in tech. My love of art has never gone away, though...it’s just been a little dormant for a while. This year seemed like a really good time to bring it back to the surface.</p>
+        <p>I created this app as a labor of love. I wanted a cozy puzzle app that anyone could enjoy, regardless of age or knowledge of art history. It’s the app I always wished existed, but didn’t...so I made it myself. Every time I sat down to work on it I thought about you, the user. A fellow human. I want you to experience moments of beauty, wonder, tranquility, awe, and drama as you encounter art. Speaking of DRAMA...just wait until you get to Gentileschi! My favorite puzzle is in that artist set, and I spent a lot of time perfecting it.</p>
+        <p>Art helps us to see our shared history and humanity, the way we process the world and what we bring to it over generations, centuries, and millennia. It reminds us that we’re still here, that we’re still capable, even in this age of polarization and uncertainty, of creating beautiful things and bringing them into the world. If you have leisure to spare, I encourage you to really zoom in and get to know the brushstrokes. If you’re playing this app in the bathroom on a five minute break, that’s totally fine too. All are welcome here.</p>
+        <p>Some art is controversial. Other works may feel empowering to some, and disturbing to others. That’s why you can set your own preferences for the types of artwork you see in the app on the settings page.</p>
+        <p>Kids deserve to puzzle with the rest of us, so there’s also a setting just for them to make sure they have a G-rated experience.</p>
+        <p>If you want to learn more about a work of art, tap on a finished puzzle to learn more about it.</p>
+        <p>I want this app to really feel like it’s yours. Set your preferences for music, sound effects, font size and color themes from the settings page. I want this to be a cozy, inviting space you can return to whenever you need a minute.</p>
+        <p>You won’t find any dark patterns or psychological manipulation here. I’d really appreciate it if you buy at least one collection (preferably all three!), but my goal is to create an experience that you want to pay for because you actually enjoy it.</p>
+        <p class="letter-break">A final word...</p>
+        <figure class="dedication">
+          <figcaption>
+            <span class="ded-line">This app is dedicated to my art history professor,</span>
+            <span class="ded-name">Dr. Anne Proctor Chapin</span>
+            <span class="ded-dates">May 10, 1961 — Jan 26, 2024</span>
+          </figcaption>
+        </figure>
+        <p class="ded-last">I wish you could have seen it, Dr. Chapin. I hope I made you proud.</p>
+      </div>
+    </div>
+    <footer class="about-foot">
+      <button id="noteMore" class="about-more" aria-label="Read on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <button id="noteClose" class="link">Close</button>
+    </footer>
+  </article>
+  <span class="roller" aria-hidden="true"></span>
+  </div>
+</div>
 
 <!-- The pay screen (simulated: no payment is taken) -->
 <div id="paywall" class="overlay paywall" hidden>

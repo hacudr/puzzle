@@ -13,6 +13,10 @@ const FRAME_KEY = 'puzzle.frame';
 // the pictures the splash has shown, and whether it has been shown since the app was opened
 const SPLASH_KEY = 'puzzle.splash';
 const WELCOMED_KEY = 'puzzle.welcomed';
+// the developer's letter: which one has been opened. Raise NOTE when the letter
+// is rewritten, and the little scroll wiggles again until the new one is read.
+const NOTE_KEY = 'puzzle.note';
+const NOTE = 1;
 // the colour of the page in each theme, for the bar round the app
 const THEMES = { blush: '#f3d9d1', lace: '#f1e6d0', celadon: '#c8d9d0', sage: '#b9c5a3', walnut: '#2b1f18', burgundy: '#3b1827', crimson: '#4a1218', peacock: '#052e3e' };
 // how long Off is held to leave Kids mode, in ms
@@ -1546,14 +1550,14 @@ function showAboutBtn(p) {
 
 // The middle of the card scrolls; it fades at an edge with more beyond it, and
 // the nudge under it shows until the end is in view.
-function aboutEdges() {
-  const s = $('#aboutScroll');
+function scrollEdges(s, more) {
   const above = s.scrollTop > 2;
   const below = s.scrollTop + s.clientHeight < s.scrollHeight - 2;
   s.classList.toggle('more-above', above);
   s.classList.toggle('more-below', below);
-  $('#aboutMore').hidden = !below;
+  more.hidden = !below;
 }
+function aboutEdges() { scrollEdges($('#aboutScroll'), $('#aboutMore')); }
 $('#aboutScroll').addEventListener('scroll', aboutEdges, { passive: true });
 $('#aboutMore').addEventListener('click', () => {
   const s = $('#aboutScroll');
@@ -1642,6 +1646,50 @@ function showAbout(p) {
   s.style.scrollBehavior = '';
   aboutEdges();
 }
+
+/* ---------- A personal note from the app creator ---------- */
+
+// The little scroll in the top-left corner of the home page wiggles until its letter has been opened.
+// Tapping it slips the ribbon off and unrolls it, and the letter unrolls between its rollers.
+let noteSeen = false;
+function noteRead() {
+  try { return noteSeen || +localStorage.getItem(NOTE_KEY) >= NOTE; } catch { return noteSeen; }
+}
+function markNote() { $('#noteBtn').classList.toggle('unread', !noteRead()); }
+function noteEdges() { scrollEdges($('#noteScroll'), $('#noteMore')); }
+function openNote() {
+  $('#note').hidden = false;
+  const s = $('#noteScroll');
+  s.style.scrollBehavior = 'auto';
+  s.scrollTop = 0;
+  s.style.scrollBehavior = '';
+  noteEdges();
+}
+function closeNote() {
+  $('#note').hidden = true;
+  $('#noteBtn').classList.remove('open');
+}
+$('#noteBtn').addEventListener('click', () => {
+  const b = $('#noteBtn');
+  noteSeen = true;
+  try { localStorage.setItem(NOTE_KEY, String(NOTE)); } catch {}
+  b.classList.remove('unread');
+  b.classList.add('open');
+  // the ribbon slips off and the little scroll unrolls before the letter does
+  setTimeout(openNote, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 620);
+});
+$('#noteScroll').addEventListener('scroll', noteEdges, { passive: true });
+// the fades are measured again once the letter has finished unrolling
+$('#note .letter').addEventListener('animationend', noteEdges);
+$('#noteMore').addEventListener('click', () => {
+  const s = $('#noteScroll');
+  s.scrollBy({ top: s.clientHeight * 0.8, behavior: 'smooth' });
+});
+$('#noteClose').addEventListener('click', closeNote);
+$('#note').addEventListener('click', (e) => e.target === e.currentTarget && closeNote());
+document.addEventListener('keydown', (e) => e.key === 'Escape' && !$('#note').hidden && closeNote());
+addEventListener('resize', () => !$('#note').hidden && noteEdges());
+markNote();
 
 /* ---------- Purchases (simulated: no payment is taken) ---------- */
 
@@ -1758,6 +1806,10 @@ $('#resetBought').addEventListener('click', () => {
   bought.clear();
   saveBought();
   labelCards();
+  // the letter comes back unread too, for trying it all again
+  noteSeen = false;
+  try { localStorage.removeItem(NOTE_KEY); } catch {}
+  markNote();
 });
 
 // The same artist's next unsolved puzzle; once all of theirs are solved, the next
@@ -1861,6 +1913,7 @@ $('#settingsBack').addEventListener('click', async () => {
   }
   if (settingsFrom === 'collection') return collections.includes(collectionBefore) ? openCollection(collectionBefore) : openGallery();
   show(settingsFrom);
+});
 });
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
 document.querySelectorAll('#content [data-content]').forEach((b) =>
