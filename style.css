@@ -490,6 +490,8 @@ button {
 .card-label i { display: block; font-size: .95rem; color: rgba(var(--label-rgb), .8); }
 .card-label b { display: block; font-weight: 500; font-size: 1.45rem; line-height: 1.15; }
 .card-label small { display: block; margin-top: 6px; font-size: .8rem; font-style: italic; color: rgba(var(--label-rgb), .7); }
+/* an artist whose every picture is solved */
+.card-label small .complete { font-style: normal; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-size: .72rem; color: #a8822e; }
 
 /* the collections on the home page: wide cards, one under another, the picture
    beside its label; on a phone they stay upright */

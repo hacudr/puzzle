@@ -343,7 +343,10 @@ function labelCards() {
   const tally = (list) => (card, i) => {
     const count = list[i].puzzles.length;
     const done = list[i].puzzles.filter((p) => solved.has(p.id)).length;
-    card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles') + (done ? ` · ${done} solved` : '');
+    const small = card.querySelector('small');
+    small.textContent = count + (count === 1 ? ' puzzle' : ' puzzles') + (done && done < count ? ` · ${done} solved` : '');
+    // a finished chapter says so
+    if (count && done === count) small.append(' · ', Object.assign(document.createElement('em'), { className: 'complete', textContent: 'Complete' }));
     card.classList.toggle('sepia', !litArtist(list[i]));
   };
   if (collection) document.querySelectorAll('#shelf .card').forEach(tally(collection.artists));
