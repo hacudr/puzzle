@@ -252,8 +252,8 @@ button {
 /* The way back and the settings stay at the top while the page scrolls under
    them. The bar takes the room the screen would leave for a notch, so that
    nothing shows above it. */
-#gallery, #collection, #artist, #settings { padding-top: 0; }
-.top, #settings .bar {
+#gallery, #collection, #artist, #settings, #credits { padding-top: 0; }
+.top, #settings .bar, #credits .bar {
   position: sticky;
   top: 0;
   z-index: 5;
@@ -1139,6 +1139,29 @@ button {
   .leaf { display: none; }
   .cheer-text .eyebrow, .cheer-text h2, .cheer-text .link { animation: fade .4s ease both; }
 }
+
+/* ---------- Sources & Credits, an appendix to Settings ---------- */
+
+.settings-body .appendix { margin-top: 64px; }
+.appendix .link { font-size: .8rem; border-bottom-width: 1px; }
+#credits { overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--page); }
+#credits .bar .back { color: var(--ink-soft); }
+.credits-body { max-width: 40em; margin: 0 auto; padding: 0 24px calc(72px + env(safe-area-inset-bottom)); line-height: 1.5; }
+.credits-body > .eyebrow, .credits-body h1 { text-align: center; }
+.credits-body > .eyebrow { font-size: 1.5rem; }
+.credits-body h1 { margin: 4px 0 0; font-weight: 500; font-size: calc(2.6rem / var(--ts)); letter-spacing: .01em; }
+.credits-body section { margin-top: 44px; padding-top: 28px; border-top: 1px solid rgba(var(--ink-rgb), .2); }
+.credits-body h2 { margin: 0 0 10px; font-weight: 500; font-size: 1.6rem; text-align: center; }
+.credits-body h3 { margin: 26px 0 6px; font-weight: 500; font-size: 1.2rem; }
+.credits-body p { margin: 8px 0; }
+.credits-body ul { margin: 8px 0; padding-left: 1.2em; }
+.credits-body li { margin: 3px 0; }
+.credits-body ul.columns { columns: 2 16em; column-gap: 2.5em; font-size: .95rem; }
+.credits-body ul.columns li { break-inside: avoid; }
+.credits-body ul.recordings { list-style: none; padding-left: 0; }
+.credits-body ul.recordings li { margin: 7px 0; }
+.credits-body b { font-weight: 500; }
+.credits-body a { color: inherit; text-decoration: underline; text-decoration-color: rgba(var(--ink-rgb), .4); text-underline-offset: 2px; }
 
 /* ---------- A personal note from the app creator ---------- */
 

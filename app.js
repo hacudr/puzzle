@@ -1914,6 +1914,45 @@ $('#settingsBack').addEventListener('click', async () => {
   if (settingsFrom === 'collection') return collections.includes(collectionBefore) ? openCollection(collectionBefore) : openGallery();
   show(settingsFrom);
 });
+// Sources & Credits, at the foot of Settings: only what a licence asks to be
+// credited. The recordings and fonts are written in index.html; the Wikipedia
+// articles and the Art Institute's descriptions (puzzles/blurbs.json) are filled
+// here each time it is opened, for the pictures in the app, with the word the
+// titles mask masked here too. Public-domain and CC0 sources are not listed.
+function fillCredits() {
+  const mask = (s) => (spelled() ? s : s.replace(/\b(r)ape\b/gi, '$1+++'));
+  const link = (text, url) => {
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = text;
+    return a;
+  };
+  const item = (...parts) => {
+    const li = document.createElement('li');
+    li.append(...parts);
+    return li;
+  };
+  const used = puzzles.map(blurbOf).filter(Boolean);
+  const from = (source) => used.filter((b) => b.source === source);
+  const byUrl = (list) => [...new Map(list.map((b) => [b.url, b])).values()];
+
+  const wiki = byUrl(from('Wikipedia')).sort((a, b) => a.article.localeCompare(b.article));
+  $('#creditsWiki').replaceChildren(...wiki.map((b) => item(link(mask(b.article), b.url))));
+
+  // the Art Institute names the work, not an article, so each is named by its picture
+  const aic = puzzles.filter((p) => (blurbOf(p) || {}).source === 'Art Institute of Chicago');
+  $('#creditsAic').replaceChildren(...aic.map((p) => item(link(`${p.artist}, ${titleOf(p)}`, blurbOf(p).url))));
+}
+$('#openCredits').addEventListener('click', () => {
+  fillCredits();
+  show('credits');
+});
+// back to the foot of Settings, where the link was
+$('#creditsBack').addEventListener('click', () => {
+  show('settings');
+  $('#openCredits').scrollIntoView({ block: 'center' });
 });
 document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => setLevel(b.dataset.level)));
 document.querySelectorAll('#content [data-content]').forEach((b) =>

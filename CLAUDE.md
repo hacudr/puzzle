@@ -49,16 +49,15 @@ Never take a file under a licence with NC or ND in it. Do not take CC BY or CC B
 
 **Music and sounds.** The composition must be in the public domain, and the recording public domain, CC0, CC BY or CC BY-SA, never NC or ND. Each recording is listed in `music/CREDITS.md` with its player, licence and source, and one under CC BY or CC BY-SA carries its `licence` in `CLIPS` in `sound.js`, so that the solved screen names who is playing. A sound effect needs the same record of where it came from, kept in `sound-effects/CREDITS.md`; the three there now are the user's own recordings.
 
-**Fonts** must allow being bundled in a paid app (the SIL Open Font Licence does), with the licence text kept beside them.
+**Fonts** must allow being bundled in a paid app (the SIL Open Font Licence does), with the licence text kept beside them (`fonts/OFL.txt`).
+
+**Sources & Credits.** A page at the foot of Settings (`#credits` in `index.html`, `fillCredits` in `app.js`) credits only what a licence asks to be credited, with links to the source and the licence: the recordings under CC BY or CC BY-SA, the Wikipedia articles (CC BY-SA), the Art Institute of Chicago's descriptions (CC BY) and the fonts (OFL). Public-domain and CC0 works are left off at the user's wish. The recordings and fonts are written into `index.html`, so a new licensed recording or font is added there by hand; the Wikipedia and Art Institute lists are filled from `blurbs.json` each time it opens.
 
 Not yet cleared, to be settled before the app is sold:
 
 - The pictures by Michalina Janoszanka (died 1952, so the 95-year test matters), Virginia Frances Sterrett, the Hudson River School and all but one by Artemisia Gentileschi have no record of where their files came from.
 - Joseph Stella died in 1946, so the 95-year test matters. That each picture was published before 1931 rests on its Commons tag alone, and the Met, Chicago and Cleveland mark their own Stellas as not in the public domain. Two are weaker still: Purissima, which Commons tags as unpublished, and Coney Island, which the Met gave to Commons as CC0 but no longer lists as open access.
 - `music/avemaria.mp3` is marked Public Domain at the Free Music Archive and CC0 at Commons, but the file there carries an older tag reading CC BY-NC-SA 3.0, and Commons has not reviewed the licence. The page's word is the later one; it wants confirming.
-- The solved screen names the player of a licensed recording but not the licence, which CC BY and CC BY-SA ask to be named and linked. The app needs a credits page for that.
-- The About card's credits were made plain text at the user's wish. CC BY-SA (Wikipedia) and CC BY (the Art Institute of Chicago) ask for a link to the source and the licence where that can reasonably be given; the credits page above could carry those links.
-- `fonts/` has no copy of the Open Font Licence that Spectral and Averia Serif come under.
 - The About cards' text from the Art Institute of Chicago (8 of them) comes under CC BY 4.0, as its API says, but also under the terms of artic.edu, which have not been read. The card names the museum and links the licence; confirm the terms allow use in a paid app, or drop those eight back to no card.
 - The source records of the Met puzzles (Ancient Art, Anglo-Saxon and Saxon Art) are not in this folder's `puzzles/images/`, only in the `puzzle - monetize` folder beside it, which `describe.js` was pointed at with `--records`. Since `puzzles/images/` is git-ignored, keep a copy of them here, or somewhere backed up.
 - Paton's Study from Nature: Inveruglas comes from the Yale Center for British Art's own image server, not Commons, since the Commons copy is only 1920 px. Yale releases images of public-domain works for any use, but its photograph shows the frame and mount; the puzzle is cropped to the painted sheet. Confirm Yale's open-access terms cover it, or fall back to the smaller Commons file (CC0).
