@@ -1025,15 +1025,16 @@ button {
 
 /* ---------- Collections not yet bought (simulated purchases) ---------- */
 
-/* A card not yet bought is toned sepia: a warm brown laid over the picture in the
-   "color" blend, which keeps the picture's light and dark and takes the brown's
-   hue. No CSS filter, which Safari can fail to paint on these cards. Buying
-   lifts it off slowly, so the colour comes back into the card. */
+/* A card not yet bought is toned grey: a neutral grey laid over the picture in the
+   "color" blend, which keeps the picture's light and dark and takes the grey's
+   lack of colour. (A warm brown, #a5784a, toned it sepia instead.) No CSS
+   filter, which Safari can fail to paint on these cards. Buying lifts it off
+   slowly, so the colour comes back into the card. */
 .card-img .tone, .pay-pic .tone {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: #a5784a;
+  background: #808080;
   mix-blend-mode: color;
   opacity: 0;
   pointer-events: none;
