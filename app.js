@@ -302,6 +302,30 @@ function showSound() {
   document.querySelectorAll('#sounds [data-music]').forEach((b) => b.setAttribute('aria-pressed', +b.dataset.music === level));
 }
 
+// The text size: every word is sized from the root, so one value on <html>
+// enlarges them all (style.css keeps the big titles as they are).
+const TEXT_KEY = 'puzzle.textSize';
+const TEXT_SIZES = ['standard', 'larger', 'largest'];
+const TEXT_NAMES = ['Standard', 'Larger', 'Largest'];
+function textLevel() {
+  return Math.max(0, TEXT_SIZES.indexOf(document.documentElement.dataset.text || 'standard'));
+}
+function showTextSize() {
+  const level = textLevel();
+  $('#textSize').value = level;
+  $('#textSize').setAttribute('aria-valuetext', TEXT_NAMES[level]);
+  $('#textSize').style.setProperty('--fill', level / 2);
+  document.querySelectorAll('#textSizes [data-text]').forEach((b) => b.setAttribute('aria-pressed', +b.dataset.text === level));
+}
+function setTextSize(level) {
+  if (level) document.documentElement.dataset.text = TEXT_SIZES[level];
+  else delete document.documentElement.dataset.text;
+  try {
+    localStorage.setItem(TEXT_KEY, TEXT_SIZES[level]);
+  } catch {}
+  showTextSize();
+}
+
 // Short and Long differ only in the ending; the music is turned on last, so
 // that its chord is heard only when it comes on from Off
 function setMusic(level) {
@@ -1876,6 +1900,9 @@ document.querySelectorAll('#sounds [data-sound]').forEach((b) =>
 );
 $('#music').addEventListener('input', (e) => setMusic(+e.target.value));
 document.querySelectorAll('#sounds [data-music]').forEach((b) => b.addEventListener('click', () => setMusic(+b.dataset.music)));
+$('#textSize').addEventListener('input', (e) => setTextSize(+e.target.value));
+document.querySelectorAll('#textSizes [data-text]').forEach((b) => b.addEventListener('click', () => setTextSize(+b.dataset.text)));
+showTextSize();
 document.querySelectorAll('#themes button').forEach((b) => b.addEventListener('click', () => setTheme(b.dataset.theme)));
 document.querySelectorAll('#frames button').forEach((b) => b.addEventListener('click', () => setFrame(b.dataset.frame)));
 

@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="style.css">
 <!-- the chosen theme, set before anything is drawn -->
 <script>try { document.documentElement.dataset.theme = localStorage.getItem("puzzle.theme") || "lace"; } catch {}</script>
+<!-- the chosen text size, likewise -->
+<script>try { const t = localStorage.getItem("puzzle.textSize"); if (t === "larger" || t === "largest") document.documentElement.dataset.text = t; } catch {}</script>
 <!-- the splash covers the gallery from the first, each time the app is opened afresh -->
 <script>try { if (!sessionStorage.getItem("puzzle.welcomed")) document.documentElement.dataset.splash = "on"; } catch {}</script>
 <!-- the password, asked once on each device while the app is hosted in the open -->
@@ -134,6 +136,21 @@
           </div>
         </div>
         <button data-sound="effects">Sound effects<small></small></button>
+      </div>
+    </section>
+    <section>
+      <p class="eyebrow">Text size</p>
+      <div id="textSizes" class="options" role="group" aria-label="Text size">
+        <div class="slider">
+          <label for="textSize">Text</label>
+          <span class="more">The words on the cards, the bios and the notes on each painting</span>
+          <input id="textSize" type="range" min="0" max="2" step="1">
+          <div class="stops">
+            <button data-text="0">Standard</button>
+            <button data-text="1">Larger</button>
+            <button data-text="2">Largest</button>
+          </div>
+        </div>
       </div>
     </section>
     <section>
