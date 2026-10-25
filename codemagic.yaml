@@ -1,0 +1,49 @@
+# Builds the iOS app in the cloud on Codemagic (codemagic.io) and uploads it to
+# TestFlight, so no Mac is needed. Start a build from the Codemagic dashboard.
+#
+# Before the first build, in Codemagic:
+#  1. Add this GitHub repository as an app.
+#  2. Team settings > Integrations > Developer Portal: add an App Store Connect
+#     API key (made in App Store Connect > Users and Access > Integrations, with
+#     the App Manager role), and name it exactly as `app_store_connect` says below.
+#  3. Set APP_STORE_APPLE_ID below to the app's Apple ID: the number shown in
+#     App Store Connect under the app's App Information.
+# Codemagic then makes the signing certificate and profile itself (ios_signing).
+workflows:
+  ios-testflight:
+    name: iOS to TestFlight
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    integrations:
+      app_store_connect: Art History App Store Connect
+    environment:
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.hacudr.arthistory
+      vars:
+        APP_STORE_APPLE_ID: 0000000000
+        XCODE_PROJECT: ios/App/App.xcodeproj
+        XCODE_SCHEME: App
+      node: 22
+      xcode: latest
+    scripts:
+      - name: Install npm packages
+        script: npm ci
+      - name: Build the app's files and copy them into the Xcode project
+        script: npm run ios
+      - name: Use the signing profiles
+        script: xcode-project use-profiles
+      - name: Number the build one above the last on TestFlight
+        script: |
+          LATEST=$(app-store-connect get-latest-testflight-build-number "$APP_STORE_APPLE_ID" 2>/dev/null || true)
+          BUILD=$(( ${LATEST:-0} + 1 ))
+          echo "Build number $BUILD"
+          sed -i '' -E "s/CURRENT_PROJECT_VERSION = [0-9]+;/CURRENT_PROJECT_VERSION = $BUILD;/g" "$XCODE_PROJECT/project.pbxproj"
+      - name: Build the .ipa
+        script: xcode-project build-ipa --project "$XCODE_PROJECT" --scheme "$XCODE_SCHEME"
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true

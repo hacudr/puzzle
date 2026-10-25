@@ -1,0 +1,72 @@
+{
+  "identifier" : "4A7D2C1E",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "6740000001",
+      "localizations" : [
+        {
+          "description" : "Unlocks every puzzle in Collection 1",
+          "displayName" : "Collection 1",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.hacudr.arthistory.collection1",
+      "referenceName" : "Collection 1",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "6740000002",
+      "localizations" : [
+        {
+          "description" : "Unlocks every puzzle in Collection 2",
+          "displayName" : "Collection 2",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.hacudr.arthistory.collection2",
+      "referenceName" : "Collection 2",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "6740000003",
+      "localizations" : [
+        {
+          "description" : "Unlocks every puzzle in Collection 3",
+          "displayName" : "Collection 3",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.hacudr.arthistory.collection3",
+      "referenceName" : "Collection 3",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "12.99",
+      "familyShareable" : false,
+      "internalID" : "6740000004",
+      "localizations" : [
+        {
+          "description" : "Unlocks all three collections",
+          "displayName" : "All Collections",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.hacudr.arthistory.all",
+      "referenceName" : "All Collections",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {},
+  "subscriptionGroups" : [],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
