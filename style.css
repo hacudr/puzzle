@@ -1127,6 +1127,9 @@ button {
 .pay-buy:not(:disabled):active { transform: scale(.98); }
 .pay-note { margin: 10px 0 16px; font-size: .85rem; font-style: italic; color: var(--ink-soft); }
 .pay .link { font-size: 1.15rem; }
+.pay-save { margin: 16px 0 -8px; font-size: .95rem; font-style: italic; color: var(--ink); }
+.pay-links { display: flex; justify-content: center; gap: 32px; margin: 0; }
+.pay-buy.busy { opacity: .6; cursor: progress; }
 #payDone h2 { margin-bottom: 4px; }
 
 /* Congratulations: the last picture of an artist or a collection. The screen

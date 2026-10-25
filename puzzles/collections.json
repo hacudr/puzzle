@@ -3,15 +3,18 @@
     "name": "Impressionism to Modern",
     "cover": "degas-four-dancers.webp",
     "focus": "50% 25%",
-    "start": "Claude Monet"
+    "start": "Claude Monet",
+    "product": "com.hacudr.arthistory.collection1"
   },
   {
     "name": "Romantics & Realism",
     "cover": "waterhouse-the-soul-of-the-rose.webp",
-    "order": "surname"
+    "order": "surname",
+    "product": "com.hacudr.arthistory.collection2"
   },
   {
     "name": "Old Masters & Ancient Art",
-    "cover": "caravaggio-the-supper-at-emmaus.webp"
+    "cover": "caravaggio-the-supper-at-emmaus.webp",
+    "product": "com.hacudr.arthistory.collection3"
   }
 ]

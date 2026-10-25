@@ -1,0 +1,11 @@
+{
+  "appId": "com.hacudr.arthistory",
+  "appName": "Art History",
+  "webDir": "dist",
+  "backgroundColor": "#f1e6d0",
+  "ios": {
+    "contentInset": "never",
+    "scrollEnabled": true,
+    "limitsNavigationsToAppBoundDomains": false
+  }
+}

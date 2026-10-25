@@ -1,0 +1,18 @@
+{
+  "name": "art-history-puzzles",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Art History picture puzzles for iPad",
+  "scripts": {
+    "build": "node build.js",
+    "ios": "node build.js && npx cap sync ios"
+  },
+  "dependencies": {
+    "@capacitor/core": "8.5.3",
+    "@capacitor/ios": "8.5.3",
+    "@capgo/native-purchases": "8.9.6"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.3"
+  }
+}

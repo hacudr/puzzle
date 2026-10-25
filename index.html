@@ -8,9 +8,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Puzzle">
 <meta name="theme-color" content="#f1e6d0">
+<!-- build.js leaves each web-only block out of the iOS app -->
+<!-- web-only -->
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <link rel="icon" href="icons/icon-180.png">
+<!-- /web-only -->
 <link rel="stylesheet" href="style.css">
 <!-- the chosen theme, set before anything is drawn -->
 <script>try { document.documentElement.dataset.theme = localStorage.getItem("puzzle.theme") || "lace"; } catch {}</script>
@@ -18,8 +21,10 @@
 <script>try { const t = localStorage.getItem("puzzle.textSize"); if (t === "larger" || t === "largest") document.documentElement.dataset.text = t; } catch {}</script>
 <!-- the splash covers the gallery from the first, each time the app is opened afresh -->
 <script>try { if (!sessionStorage.getItem("puzzle.welcomed")) document.documentElement.dataset.splash = "on"; } catch {}</script>
+<!-- web-only -->
 <!-- the password, asked once on each device while the app is hosted in the open -->
 <script>try { if (localStorage.getItem("puzzle.unlocked") !== "on") document.documentElement.dataset.locked = "on"; } catch { document.documentElement.dataset.locked = "on"; }</script>
+<!-- /web-only -->
 <title>Puzzle</title>
 </head>
 <body>
@@ -196,8 +201,8 @@
     </section>
     <section>
       <p class="eyebrow">Collections</p>
-      <p class="hint">Each collection is $4.99. Purchases are only simulated for now: no payment is taken.</p>
-      <p class="purchase-links"><button id="settingsUnlock" class="link">Unlock collections</button><button id="resetBought" class="link">Reset purchases</button></p>
+      <p id="buyHint" class="hint">Each collection is $4.99. Purchases are only simulated for now: no payment is taken.</p>
+      <p class="purchase-links"><button id="settingsUnlock" class="link">Unlock collections</button><button id="restoreBought" class="link" hidden>Restore purchases</button><button id="resetBought" class="link">Reset purchases</button></p>
     </section>
     <section class="appendix">
       <button id="openCredits" class="link">Sources &amp; Credits</button>
@@ -295,7 +300,7 @@
   </div>
 </div>
 
-<!-- The pay screen (simulated: no payment is taken) -->
+<!-- The pay screen: through the App Store in the iOS app, simulated on the web (store.js) -->
 <div id="paywall" class="overlay paywall" hidden>
   <div class="pay" role="dialog" aria-labelledby="payTitle">
     <div id="payForm">
@@ -303,9 +308,10 @@
       <h2 id="payTitle">$4.99 each</h2>
       <p class="pay-lede">Choose one, two or all three. Each brings its artists into colour and opens all their puzzles.</p>
       <div id="payList" class="pay-list"></div>
+      <p id="paySave" class="pay-save" hidden></p>
       <button id="payBuy" class="pay-buy"></button>
-      <p class="pay-note">A simulation: no payment is taken.</p>
-      <button id="payClose" class="link">Not now</button>
+      <p id="payNote" class="pay-note">A simulation: no payment is taken.</p>
+      <p class="pay-links"><button id="payClose" class="link">Not now</button><button id="payRestore" class="link" hidden>Restore purchases</button></p>
     </div>
     <div id="payDone" hidden>
       <p class="eyebrow">Thank you</p>
@@ -477,6 +483,7 @@
   <p class="splash-caption"><span id="splashCaption"></span><small>Music: Debussy, Clair de lune · played by Laurens Goedhart, CC BY 3.0</small></p>
 </div>
 
+<!-- web-only -->
 <!-- Password: covers everything, the splash too, until the right one is given -->
 <form id="lock" class="lock" autocomplete="off">
   <div class="splash-card">
@@ -504,7 +511,9 @@
   });
 })();
 </script>
+<!-- /web-only -->
 
+<script src="store.js"></script>
 <script src="sound.js"></script>
 <script src="app.js"></script>
 </body>

@@ -13,6 +13,8 @@ const FRAME_KEY = 'puzzle.frame';
 // the pictures the splash has shown, and whether it has been shown since the app was opened
 const SPLASH_KEY = 'puzzle.splash';
 const WELCOMED_KEY = 'puzzle.welcomed';
+// the puzzle last played, which the app goes back to when it is next opened
+const LAST_KEY = 'puzzle.last';
 // the developer's letter: which one has been opened. Raise NOTE when the letter
 // is rewritten, and the little scroll wiggles again until the new one is read.
 const NOTE_KEY = 'puzzle.note';
@@ -501,8 +503,10 @@ function show(id) {
 // anything is newer (every publish at GitHub Pages stamps every file anew), and if
 // so it starts again on the new copy, but only from the gallery's pages, never in
 // a puzzle, on its solved screen or in Settings: that waits until one is left.
+// The iOS app carries its own files and is updated through the App Store, so
+// it never asks.
 const stampOf = () =>
-  fetch('index.html', { method: 'HEAD', cache: 'no-store' })
+  store.native ? Promise.resolve('') : fetch('index.html', { method: 'HEAD', cache: 'no-store' })
     .then((r) => (r.ok && (r.headers.get('etag') || r.headers.get('last-modified'))) || '')
     .catch(() => '');
 const firstStamp = stampOf();
@@ -626,14 +630,38 @@ async function showSplash() {
   $('#splashImg').classList.add('in');
 }
 
+// Where the app opens, once someone has played: the puzzle they last played if
+// it is still unfinished, or else the next one to start, as Next Puzzle would
+// lead on from it. Someone who has played but has no puzzle on record (from
+// before this was kept) goes to the first puzzle begun, or the first not solved,
+// in the order the collections show them. Null, for the home page, the first
+// time, or when that puzzle is hidden by the settings, finished, or not bought.
+function landing() {
+  let last = null;
+  try {
+    const id = localStorage.getItem(LAST_KEY);
+    last = puzzles.find((p) => p.id === id) || null;
+  } catch {}
+  const shownNow = (p) => !!p && !!artistOf(p) && artistOf(p).puzzles.includes(p);
+  const begun = (p) => progressKey(p) in progress;
+  const order = collections.flatMap((c) => c.artists).flatMap((a) => a.puzzles);
+  let p = null;
+  if (shownNow(last)) p = begun(last) || !finished(last) ? last : nextPuzzle(last);
+  else if (last || solved.size || Object.keys(progress).length) p = order.find(begun) || order.find((q) => !solved.has(q.id));
+  return p && shownNow(p) && !finished(p) && playable(p) ? p : null;
+}
+
 // A tap anywhere sets its music going and puts it away until the app is next
-// opened.
+// opened, going on into the puzzle that waits (`landing`), where the splash's
+// music dies away as it does whenever a puzzle is opened.
 $('#splash').addEventListener('click', () => {
   const el = $('#splash');
   try {
     sessionStorage.setItem(WELCOMED_KEY, 'on');
   } catch {}
   sound.welcome(true);
+  const p = landing();
+  if (p) start(p);
   el.classList.add('leaving');
   // gone once it has faded
   setTimeout(() => delete document.documentElement.dataset.splash, 700);
@@ -933,6 +961,9 @@ async function visit(p) {
 // Opens a puzzle where it was left off; `fresh` deals it again from scratch.
 async function start(p, fresh = false) {
   if (!playable(p)) return openPaywall(shelfOf(artistOf(p)), p);
+  try {
+    localStorage.setItem(LAST_KEY, p.id);
+  } catch {}
   let img;
   try {
     img = await loadImage(p.image);
@@ -1694,11 +1725,14 @@ document.addEventListener('keydown', (e) => e.key === 'Escape' && !$('#note').hi
 addEventListener('resize', () => !$('#note').hidden && noteEdges());
 markNote();
 
-/* ---------- Purchases (simulated: no payment is taken) ---------- */
+/* ---------- Purchases (the App Store in the iOS app, simulated on the web: store.js) ---------- */
 
 // Each collection is bought on its own, at PRICE. Until it is, its card and its
-// artists' are toned sepia. The first collection is the way in: its card and its
+// artists' are toned grey. The first collection is the way in: its card and its
 // first artist's are in colour, and that artist's first FREE pictures can be played.
+// In the iOS app each collection is the App Store product its `product` in
+// collections.json names, and the App Store's own price, in the buyer's currency,
+// is shown in place of PRICE.
 const PRICE = 4.99;
 const FREE = 10;
 function loadBought() {
@@ -1713,7 +1747,51 @@ function saveBought() {
     localStorage.setItem('puzzle.bought', JSON.stringify([...bought]));
   } catch {}
 }
-const money = (n) => '$' + (n * PRICE).toFixed(2);
+// All the collections together are one more product, ALL, at a lower price
+// than the three bought one by one: ALL_PRICE on the web, the App Store's own in
+// the app. Owning it owns every collection.
+const ALL = 'com.hacudr.arthistory.all';
+const ALL_PRICE = 12.99;
+const dollars = (n) => '$' + n.toFixed(2);
+const money = (n) => dollars(n * PRICE);
+const collectionNamed = (name) => everyCollection.find((k) => k.name === name);
+// one collection's price, and the price of several, from the App Store where it has said
+const priceOf = (c) => (c && c.product && store.price(c.product)) || money(1);
+const amountOf = (names) => (store.native ? store.amount(names.map((n) => (collectionNamed(n) || {}).product)) : names.length * PRICE);
+const shown = (n) => (n == null ? null : store.native ? store.format(n) : dollars(n));
+const totalOf = (names) => shown(amountOf(names)) || money(names.length);
+const bundleAmount = () => (store.native ? store.amount([ALL]) : ALL_PRICE);
+// The bundle is bought in place of the chosen collections when they are every
+// one not yet owned, more than one, and it costs less than they do together;
+// so it is not offered to someone who already owns a collection, unless its
+// price is set low enough for that still to be a saving.
+function bundleFits(names) {
+  const rest = collections.filter((k) => !owns(k));
+  if (rest.length < 2 || names.length !== rest.length) return false;
+  const all = bundleAmount(), apart = amountOf(names);
+  return all != null && apart != null && all < apart;
+}
+
+// What the App Store says is owned replaces what was kept, so a purchase made on
+// another device, or approved later by a parent, shows here, and a refunded one goes.
+function startStore() {
+  if (!store.native) return;
+  $('#payRestore').hidden = false;
+  $('#restoreBought').hidden = false;
+  // only the App Store can take a purchase back
+  $('#resetBought').hidden = true;
+  $('#buyHint').textContent = 'Each collection is a one-time purchase. Bought one before, or on another iPad or iPhone? Restore purchases brings it back.';
+  const ids = [...everyCollection.map((c) => c.product).filter(Boolean), ALL];
+  store.start(ids, (owned) => {
+    bought = new Set(everyCollection.filter((c) => owned.has(ALL) || (c.product && owned.has(c.product))).map((c) => c.name));
+    saveBought();
+    labelCards();
+  });
+}
+const payNote = (text) => {
+  $('#payNote').textContent = text;
+  $('#payNote').hidden = !text;
+};
 const shelfOf = (a) => everyCollection.find((c) => c.everyone.includes(a));
 const owns = (c) => !!c && bought.has(c.name);
 const freeArtist = () => everyCollection[0] && everyCollection[0].everyone[0];
@@ -1734,7 +1812,7 @@ function showOffers() {
     if (el.hidden) return;
     const first = freeArtist();
     el.querySelector('span').textContent = c === everyCollection[0] && (!a || a === first) ? `The first ${FREE} ${first.name} puzzles are free.` : '';
-    el.querySelector('button').textContent = `Unlock the collection · ${money(1)}`;
+    el.querySelector('button').textContent = `Unlock the collection · ${priceOf(c)}`;
   };
   offer($('#collectionOffer'), collection);
   offer($('#artistOffer'), artist && shelfOf(artist), artist);
@@ -1759,42 +1837,120 @@ function openPaywall(c, p = null) {
     item.querySelector('i').remove();
     item.querySelector('b').textContent = k.number;
     item.querySelector('small').textContent = `${k.artists.length} artists · ${k.count} puzzles`;
-    item.querySelector('.pay-price').textContent = owns(k) ? 'Owned' : money(1);
+    item.querySelector('.pay-price').textContent = owns(k) ? 'Owned' : priceOf(k);
     item.addEventListener('click', () => {
       item.setAttribute('aria-pressed', String(item.getAttribute('aria-pressed') !== 'true'));
       showTotal();
     });
     list.append(item);
   }
+  $('#payTitle').textContent = `${priceOf(collections[0])} each`;
+  if (store.native) payNote('');
   showTotal();
   $('#payDone').hidden = true;
   $('#payForm').hidden = false;
   $('#paywall').hidden = false;
 }
 const chosenToBuy = () => [...document.querySelectorAll('#payList .pay-item[aria-pressed="true"]')].map((b) => b.dataset.name);
+// while the App Store's sheets are up, the pay screen waits for them
+let buying = false;
 function showTotal() {
-  const n = chosenToBuy().length;
+  const names = chosenToBuy();
+  const n = names.length;
   const buy = $('#payBuy');
+  const bundle = bundleFits(names);
+  const total = bundle ? shown(bundleAmount()) : totalOf(names);
   buy.disabled = !n;
-  buy.textContent = !n ? 'Choose a collection' : n === 3 ? `Unlock all three · ${money(n)}` : `Unlock ${n === 1 ? 'one collection' : 'two collections'} · ${money(n)}`;
+  buy.textContent = !n ? 'Choose a collection' : n === 3 ? `Unlock all three · ${total}` : `Unlock ${n === 1 ? 'one collection' : 'two collections'} · ${total}`;
+  // the saving the bundle brings, or how to have it
+  const rest = collections.filter((k) => !owns(k)).map((k) => k.name);
+  const all = bundleAmount(), apart = amountOf(rest);
+  const deal = rest.length >= 2 && all != null && apart != null && all < apart;
+  const them = rest.length === 3 ? 'all three' : rest.length === 2 ? 'both' : `all ${rest.length}`;
+  $('#paySave').hidden = !deal;
+  if (deal) $('#paySave').textContent = bundle ? `Together for ${shown(all)}, saving ${shown(apart - all)}.` : `Choose ${them} to have them for ${shown(all)} in place of ${shown(apart)}.`;
 }
 function closePaywall() {
+  if (buying) return;
   $('#paywall').hidden = true;
   pending = null;
 }
-$('#payBuy').addEventListener('click', () => {
+function thank(names) {
+  $('#payForm').hidden = true;
+  $('#payDone').hidden = false;
+  $('#payThanks').textContent = names.length === 1 ? `${collectionNamed(names[0]).number} is unlocked.` : `${names.length === 3 ? 'All three' : 'Two'} collections are unlocked.`;
+  $('#payContinue').textContent = pending && playable(pending) ? 'Play it now' : 'Back to the gallery';
+}
+// In the iOS app each chosen collection is its own purchase, so the App Store's
+// sheet comes up once for each, in turn; saying no to one stops there. When the
+// bundle fits, it is the one purchase made in their place.
+async function buyChosen(names) {
+  if (!store.native) return names;
+  const buys = bundleFits(names)
+    ? [{ id: ALL, names }]
+    : names.map((name) => ({ id: (collectionNamed(name) || {}).product, names: [name] })).filter((b) => b.id);
+  const done = [];
+  const buy = $('#payBuy');
+  buying = true;
+  buy.classList.add('busy');
+  buy.textContent = 'Opening the App Store…';
+  payNote('');
+  try {
+    for (const b of buys) {
+      const result = await store.buy(b.id);
+      if (result === 'bought') done.push(...b.names);
+      else {
+        if (result === 'pending') payNote('Waiting for approval. The collection unlocks as soon as it is approved.');
+        break;
+      }
+    }
+  } catch (e) {
+    console.warn('store: purchase failed', e);
+    payNote('The App Store could not be reached. Please try again.');
+  } finally {
+    buying = false;
+    buy.classList.remove('busy');
+  }
+  return done;
+}
+$('#payBuy').addEventListener('click', async () => {
   const names = chosenToBuy();
-  if (!names.length) return;
-  names.forEach((n) => bought.add(n));
+  if (!names.length || buying) return;
+  const done = await buyChosen(names);
+  if (!done.length) return showTotal();
+  done.forEach((n) => bought.add(n));
   saveBought();
   // the colour comes back into the cards behind
   labelCards();
-  $('#payForm').hidden = true;
-  $('#payDone').hidden = false;
-  $('#payThanks').textContent = names.length === 1 ? `${collections.find((k) => k.name === names[0]).number} is unlocked.` : `${names.length === 3 ? 'All three' : 'Two'} collections are unlocked.`;
-  $('#payContinue').textContent = pending && playable(pending) ? 'Play it now' : 'Back to the gallery';
+  thank(done);
 });
 $('#payClose').addEventListener('click', closePaywall);
+// Restore Purchases, which Apple asks for: it says what it found on the button
+// itself, then the button goes back to its name.
+async function restoreBought(button) {
+  if (buying || button.disabled) return;
+  const name = button.textContent;
+  const had = new Set(bought);
+  button.disabled = true;
+  button.textContent = 'Restoring…';
+  let said;
+  try {
+    await store.restore();
+    const found = [...bought].filter((n) => !had.has(n));
+    said = found.length ? 'Restored' : bought.size ? 'Already restored' : 'Nothing to restore';
+    if (found.length && !$('#paywall').hidden) thank(found);
+  } catch (e) {
+    console.warn('store: restore failed', e);
+    said = 'Could not reach the App Store';
+  }
+  button.textContent = said;
+  setTimeout(() => {
+    button.textContent = name;
+    button.disabled = false;
+  }, 2500);
+}
+$('#payRestore').addEventListener('click', (e) => restoreBought(e.currentTarget));
+$('#restoreBought').addEventListener('click', (e) => restoreBought(e.currentTarget));
 $('#payContinue').addEventListener('click', () => {
   const p = pending;
   closePaywall();
@@ -2246,7 +2402,7 @@ async function boot() {
     const mine = everyone.filter((a) => shelf(a.period) === name).sort(about.order === 'surname' ? bySurname : (a, b) => rank(a) - rank(b));
     const start = mine.find((a) => a.name === about.start);
     // each is numbered in its order, as Collection 1
-    return { name, number: `Collection ${i + 1}`, usual: about.cover && 'puzzles/' + about.cover, focus: about.cover && about.focus, everyone: start ? [start, ...mine.filter((a) => a !== start)] : mine };
+    return { name, number: `Collection ${i + 1}`, product: about.product, usual: about.cover && 'puzzles/' + about.cover, focus: about.cover && about.focus, everyone: start ? [start, ...mine.filter((a) => a !== start)] : mine };
   });
   // what the About card says of each picture; a picture missing from it has no card.
   // It is large and not wanted until a puzzle is solved, so nothing waits for it.
@@ -2271,7 +2427,9 @@ async function boot() {
     .catch(() => {});
   sift();
   showSplash();
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+  startStore();
+  // the iOS app carries its files with it and is updated through the App Store
+  if (!store.native && 'serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 }
 
 boot();
