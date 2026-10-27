@@ -1820,8 +1820,13 @@ function showOffers() {
 
 // The pay screen: each collection is chosen on its own, and the total follows.
 // `c` is the one it was opened for, chosen already; with none, all not yet bought are.
-function openPaywall(c, p = null) {
+// `done`, the collection just finished, when Next Puzzle led here from its last picture.
+function openPaywall(c, p = null, done = null) {
   pending = p;
+  $('#payEyebrow').textContent = done ? `${done.number} complete` : 'Unlock the collections';
+  $('#payLede').textContent = done && c
+    ? 'Purchase another collection, or unlock all collections, to continue puzzling.'
+    : 'Choose one, two or all three. Each brings its artists into colour and opens all their puzzles.';
   const list = $('#payList');
   list.textContent = '';
   for (const k of collections) {
@@ -1971,21 +1976,39 @@ $('#resetBought').addEventListener('click', () => {
   markNote();
 });
 
-// The same artist's next unsolved puzzle; once all of theirs are solved, the next
-// artist's, in the order the collections show them (the last artist of a collection
-// leads on to the first of the next, and the very last back to the very first).
+// The same artist's next unsolved puzzle; once all of theirs are solved, the first
+// unsolved one of the artists after them in the same collection, passing over any
+// artist already finished (round to the collection's first artist if need be). Only
+// once the whole collection is solved does it lead on to the next collection with a
+// picture left to solve, in the order the collections show them, the very last back
+// to the very first. Once every picture is solved, simply the next picture in order.
 function nextPuzzle(p) {
   const a = artistOf(p);
   // a chapter goes on to its next picture, wherever this one stood
   const mine = a.puzzles.find((q) => !solved.has(q.id));
   if (mine) return mine;
+  const unsolved = (b) => b.puzzles.find((q) => !solved.has(q.id));
+  const home = collections.find((c) => c.artists.includes(a));
+  if (home) {
+    const j = home.artists.indexOf(a);
+    for (let k = 1; k < home.artists.length; k++) {
+      const q = unsolved(home.artists[(j + k) % home.artists.length]);
+      if (q) return q;
+    }
+  }
   const order = collections.flatMap((c) => c.artists);
   const i = order.indexOf(a);
   for (let k = 1; k < order.length; k++) {
-    const b = order[(i + k) % order.length];
-    if (b.puzzles.length) return b.puzzles.find((q) => !solved.has(q.id)) || b.puzzles[0];
+    const q = unsolved(order[(i + k) % order.length]);
+    if (q) return q;
   }
-  // the only artist there is: round again from their first
+  // all solved: the picture after this one, or the next artist's first
+  const after = a.puzzles[a.puzzles.indexOf(p) + 1];
+  if (after) return after;
+  for (let k = 1; k < order.length; k++) {
+    const b = order[(i + k) % order.length];
+    if (b.puzzles.length) return b.puzzles[0];
+  }
   return a.puzzles[0];
 }
 
@@ -2037,7 +2060,35 @@ $('#doneAbout').addEventListener('click', (e) => {
 $('#artistBack').addEventListener('click', () => openCollection(collectionOf(artist)));
 $('#collectionBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
-$('#nextBtn').addEventListener('click', () => visit(nextPuzzle(game.p)));
+// Next Puzzle; when it crosses into another collection, it says so first: a card
+// naming the collection begun, or, for one not yet bought, the pay screen for it.
+$('#nextBtn').addEventListener('click', () => {
+  const q = nextPuzzle(game.p);
+  const from = shelfOf(artistOf(game.p)), to = shelfOf(artistOf(q));
+  if (!from || !to || from === to) return visit(q);
+  if (!playable(q)) return openPaywall(to, q, from);
+  openOnward(from, to, q);
+});
+function openOnward(from, to, q) {
+  pending = q;
+  $('#onwardEyebrow').textContent = `${from.number} complete`;
+  $('#onwardTitle').textContent = `On to ${to.number}`;
+  const img = $('#onwardPic');
+  img.src = thumbOf(to.cover);
+  img.style.objectPosition = to.focus && to.cover === to.usual ? to.focus : '';
+  $('#onward').hidden = false;
+}
+function closeOnward() {
+  $('#onward').hidden = true;
+  pending = null;
+}
+$('#onwardGo').addEventListener('click', () => {
+  const q = pending;
+  closeOnward();
+  if (q) visit(q);
+});
+$('#onwardClose').addEventListener('click', closeOnward);
+$('#onward').addEventListener('click', (e) => e.target === e.currentTarget && closeOnward());
 
 // Settings from a page of the gallery or a puzzle; `at` names a part of Settings
 // to land on. A puzzle waits behind them, and is dealt again at a new difficulty.

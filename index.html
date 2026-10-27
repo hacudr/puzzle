@@ -304,9 +304,9 @@
 <div id="paywall" class="overlay paywall" hidden>
   <div class="pay" role="dialog" aria-labelledby="payTitle">
     <div id="payForm">
-      <p class="eyebrow">Unlock the collections</p>
+      <p id="payEyebrow" class="eyebrow">Unlock the collections</p>
       <h2 id="payTitle">$4.99 each</h2>
-      <p class="pay-lede">Choose one, two or all three. Each brings its artists into colour and opens all their puzzles.</p>
+      <p id="payLede" class="pay-lede">Choose one, two or all three. Each brings its artists into colour and opens all their puzzles.</p>
       <div id="payList" class="pay-list"></div>
       <p id="paySave" class="pay-save" hidden></p>
       <button id="payBuy" class="pay-buy"></button>
@@ -318,6 +318,17 @@
       <h2 id="payThanks"></h2>
       <button id="payContinue" class="pay-buy"></button>
     </div>
+  </div>
+</div>
+
+<!-- Next Puzzle from the last picture of a collection into the next one, already bought -->
+<div id="onward" class="overlay paywall" hidden>
+  <div class="pay" role="dialog" aria-labelledby="onwardTitle">
+    <p id="onwardEyebrow" class="eyebrow"></p>
+    <h2 id="onwardTitle"></h2>
+    <img id="onwardPic" class="onward-pic" alt="">
+    <button id="onwardGo" class="pay-buy">Begin</button>
+    <p class="pay-links"><button id="onwardClose" class="link">Not now</button></p>
   </div>
 </div>
 
