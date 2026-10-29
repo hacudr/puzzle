@@ -26,6 +26,7 @@ const sound = (() => {
   // length (F3:12 is twelve units long while the steps above it move on), and a
   // step ending in ~ is a tremolo: one note, plucked again every unit.
   const octaveUp = (steps) => steps.replace(/[A-G][#b]?\d/g, (name) => name.slice(0, -1) + (+name.slice(-1) + 1));
+  const octaveDown = (steps) => steps.replace(/[A-G][#b]?\d/g, (name) => name.slice(0, -1) + (name.slice(-1) - 1));
   const octaves = (steps) => steps.replace(/[A-G][#b]?\d/g, (name) => name + '+' + name.slice(0, -1) + (name.slice(-1) - 1));
   const PATHETIQUE = [
     'C4/4 Bb3/4',
@@ -148,19 +149,20 @@ const sound = (() => {
         'Gb4+Bb3+Gb3+Db3+Gb2/2 F4 Eb4 Db4/20',
       ].join(' '),
     },
-    // Debussy, Reflets dans l'eau, bars 1-4; unit = a semiquaver. The three
-    // notes under the chords (Ab, F, Eb) are the tune.
+    // Debussy, Reflets dans l'eau, bars 1-4, an octave below where it is
+    // written; unit = a semiquaver. The three notes under the chords (Ab, F,
+    // Eb) are the tune.
     reflets: {
       composer: 'Claude Debussy',
       title: 'Reflets dans l’eau',
       unit: 0.38,
       bar: 8,
-      steps: [
+      steps: octaveDown([
         'Db2+Ab2 Db4+Bb3+Gb3 Ab4+F4+C4 Eb4+Db4+Bb3 Ab4 Db5+Bb4+Gb4 Ab5+F5+C5 Eb5+Db5+Bb4',
         'F4+Db6+Bb5+Gb5 Ab6+F6+C6 Eb6+Db6+Bb5 Ab5+F5+C5 Eb4+Eb5+Db5+Bb4 Ab4+F4+C4 Eb4+Db4+Bb3 Gb3+Ab2',
         'Db2 Eb4+Ab3+F3 Bb4+F4+Db4 F4+Eb4+C4 F4+Db4+Bb3 Eb5+Ab4+F4 Bb5+F5+Db5 Eb5+Db5+Bb4',
         'F5+Db5+Bb4 Eb6+Ab5+F5 Bb6+F6+Db6 F6+Eb6+C6 F6+Db6+Bb5 Db6+Bb5+F5 Bb5+F5+Db5 F5+Db5+Bb4',
-      ].join(' '),
+      ].join(' ')),
     },
     // Debussy, La plus que lente, upbeat and bars 1-7; unit = a quaver. The
     // A3 in the chords is written B double flat.

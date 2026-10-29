@@ -63,6 +63,10 @@ Not yet cleared, to be settled before the app is sold:
 - Paton's Study from Nature: Inveruglas comes from the Yale Center for British Art's own image server, not Commons, since the Commons copy is only 1920 px. Yale releases images of public-domain works for any use, but its photograph shows the frame and mount; the puzzle is cropped to the painted sheet. Confirm Yale's open-access terms cover it, or fall back to the smaller Commons file (CC0).
 - Caravaggio's Saint Francis in Prayer and Saint Francis in Meditation carry each other's names on Wikipedia, which calls the Cremona picture Meditation and the Rome one Prayer. Each About card is matched to its picture by Wikidata, so its text is right, but it opens under the other title. Scholars use both names for both; decide whether to rename the puzzles.
 
+## Adding a tune
+
+The notes a puzzle plays as its pieces fall into place (`steps` in `TUNES` in `sound.js`) are heard again and again while someone works, so they must sit in a comfortable, low-to-middle range. When a new tune is written high, its melody mostly above about C5, transpose its notes down an octave (or two), as Clair de lune and Reflets dans l'eau are (`octaveDown` in `sound.js`), and say so in the comment above it. This applies only to the puzzle's notes, never to the recording in `music/` that ends the puzzle, which is left at its own pitch.
+
 ## When the user adds images
 
 The user drops original pictures into `puzzles/images/` and says little more than "I added some images". Whenever there are pictures in `puzzles/images/` that are not yet in `puzzles/puzzles.json`, do all of the following for each one without being asked and without asking first:
