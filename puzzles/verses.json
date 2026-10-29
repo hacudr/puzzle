@@ -94,10 +94,6 @@
    "title": "The Task, and Other Poems",
    "url": "https://www.gutenberg.org/ebooks/3698"
   },
-  "4253": {
-   "title": "Dramatic Romances",
-   "url": "https://www.gutenberg.org/ebooks/4253"
-  },
   "4800": {
    "title": "The Complete Poetical Works of Percy Bysshe Shelley",
    "url": "https://www.gutenberg.org/ebooks/4800"
@@ -987,6 +983,25 @@
    "poet": "Samuel Taylor Coleridge",
    "poem": "To a Young Ass",
    "source": "29090"
+  },
+  "monet-morning-on-the-seine.webp": {
+   "text": "Willows whiten, aspens quiver,\nLittle breezes dusk and shiver\nThro’ the wave that runs for ever\nBy the island in the river\nFlowing down to Camelot.",
+   "poet": "Alfred Tennyson",
+   "poem": "The Lady of Shalott",
+   "source": "8601"
+  },
+  "manet-at-the-cafe.webp": {
+   "text": "Souls of Poets dead and gone,\nWhat Elysium have ye known,\nHappy field or mossy cavern,\nChoicer than the Mermaid Tavern?",
+   "poet": "John Keats",
+   "poem": "Lines on the Mermaid Tavern",
+   "source": "23684"
+  },
+  "gogh-cypresses-with-two-figures.webp": {
+   "text": "The flowers appear on the earth; the time of the singing of birds is come, and the voice of the turtle is heard in our land.",
+   "poet": "The Bible",
+   "poem": "Song of Solomon 2:12",
+   "source": "10",
+   "prose": true
   }
  }
 }

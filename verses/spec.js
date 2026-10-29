@@ -197,4 +197,7 @@ exports.verses = {
   "landseer-lion-defending-its-prey.webp": { source: 70950, from: "Who trusted God was love indeed", to: "against his creed", poet: "Alfred Tennyson", poem: "In Memoriam A. H. H." },
   "landseer-members-of-the-sheridan-family.webp": { source: 19221, from: "Oft, in the stilly night", to: "Sad Memory brings the light Of other days around me", poet: "Thomas Moore", poem: "Oft, in the Stilly Night" },
   "landseer-a-group-of-animals-geneva.webp": { source: 29090, from: "Poor little Foal of an oppressed race", to: "pat thy head", poet: "Samuel Taylor Coleridge", poem: "To a Young Ass" },
+  "monet-morning-on-the-seine.webp": { source: 8601, from: "Willows whiten, aspens quiver", to: "Flowing down to Camelot", poet: "Alfred Tennyson", poem: "The Lady of Shalott" },
+  "manet-at-the-cafe.webp": { source: 23684, from: "Souls of poets dead and gone", to: "Choicer than the Mermaid Tavern", poet: "John Keats", poem: "Lines on the Mermaid Tavern" },
+  "gogh-cypresses-with-two-figures.webp": { source: 10, from: "The flowers appear on the earth", to: "is heard in our land", poet: "The Bible", poem: "Song of Solomon 2:12", prose: true, fix: (t) => t.replace(/;$/, ".") },
 };

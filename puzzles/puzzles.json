@@ -112,6 +112,12 @@
     "scientific": "1872/1873"
   },
   {
+    "image": "monet-springtime.webp",
+    "artist": "Claude Monet",
+    "name": "Springtime",
+    "scientific": "1872"
+  },
+  {
     "image": "monet-the-artists-garden-in-argenteuil.webp",
     "artist": "Claude Monet",
     "name": "The Artist’s Garden in Argenteuil",
@@ -134,6 +140,19 @@
     "artist": "Claude Monet",
     "name": "Bridge at Argenteuil on a Gray Day",
     "scientific": "c. 1876"
+  },
+  {
+    "image": "monet-la-gare-saint-lazare.webp",
+    "artist": "Claude Monet",
+    "name": "La Gare Saint-Lazare",
+    "scientific": "1877",
+    "article": "Gare Saint-Lazare (Monet series)"
+  },
+  {
+    "image": "monet-arrival-of-the-normandy-train.webp",
+    "artist": "Claude Monet",
+    "name": "Arrival of the Normandy Train, Gare Saint-Lazare",
+    "scientific": "1877"
   },
   {
     "image": "monet-banks-of-the-seine-vetheuil.webp",
@@ -172,6 +191,13 @@
     "scientific": "1882"
   },
   {
+    "image": "monet-the-pyramids-at-port-coton.webp",
+    "artist": "Claude Monet",
+    "name": "The Pyramids at Port-Coton",
+    "scientific": "1886",
+    "article": "Belle Île"
+  },
+  {
     "image": "monet-morning-haze.webp",
     "artist": "Claude Monet",
     "name": "Morning Haze",
@@ -196,10 +222,23 @@
     "scientific": "1897"
   },
   {
+    "image": "monet-morning-on-the-seine.webp",
+    "artist": "Claude Monet",
+    "name": "Morning on the Seine",
+    "scientific": "1898"
+  },
+  {
     "image": "monet-the-japanese-footbridge.webp",
     "artist": "Claude Monet",
     "name": "The Japanese Footbridge",
     "scientific": "1899"
+  },
+  {
+    "image": "monet-houses-of-parliament-london.webp",
+    "artist": "Claude Monet",
+    "name": "Houses of Parliament, London",
+    "scientific": "1900–1903",
+    "article": "Houses of Parliament (Monet series)"
   },
   {
     "image": "monet-the-houses-of-parliament-sunset.webp",
@@ -230,6 +269,39 @@
     "artist": "Claude Monet",
     "name": "Palazzo da Mula, Venice",
     "scientific": "1908"
+  },
+  {
+    "image": "monet-san-giorgio-maggiore-at-dusk.webp",
+    "artist": "Claude Monet",
+    "name": "San Giorgio Maggiore at Dusk",
+    "scientific": "1908"
+  },
+  {
+    "image": "monet-water-lilies-met.webp",
+    "artist": "Claude Monet",
+    "name": "Water Lilies",
+    "scientific": "New York, 1916–1919"
+  },
+  {
+    "image": "monet-water-lilies-honolulu.webp",
+    "artist": "Claude Monet",
+    "name": "Water Lilies",
+    "scientific": "Honolulu, 1917–1919",
+    "article": "Water Lilies (Monet series)"
+  },
+  {
+    "image": "monet-the-water-lily-pond.webp",
+    "artist": "Claude Monet",
+    "name": "The Water Lily Pond",
+    "scientific": "1919",
+    "article": "Le Bassin aux Nymphéas"
+  },
+  {
+    "image": "monet-reflections-of-clouds-on-the-water-lily-pond.webp",
+    "artist": "Claude Monet",
+    "name": "Reflections of Clouds on the Water-Lily Pond",
+    "scientific": "c. 1920",
+    "article": "Water Lilies (Monet series)"
   },
   {
     "image": "cassatt-eddy-cassatt.webp",
@@ -1056,6 +1128,20 @@
     "scientific": "1887"
   },
   {
+    "image": "gogh-self-portrait-with-grey-felt-hat.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Self-Portrait with Grey Felt Hat",
+    "scientific": "1887",
+    "article": "Portraits of Vincent van Gogh"
+  },
+  {
+    "image": "gogh-self-portrait-with-a-straw-hat.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Self-Portrait with a Straw Hat",
+    "scientific": "1887",
+    "article": "Portraits of Vincent van Gogh"
+  },
+  {
     "image": "gogh-roulins-baby.webp",
     "artist": "Vincent van Gogh",
     "name": "Roulin's Baby",
@@ -1078,6 +1164,80 @@
     "artist": "Vincent van Gogh",
     "name": "The Poet's Garden",
     "scientific": "1888"
+  },
+  {
+    "image": "gogh-pink-peach-tree-souvenir-de-mauve.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Pink Peach Tree in Blossom (Souvenir de Mauve)",
+    "scientific": "1888",
+    "article": "Flowering Orchards"
+  },
+  {
+    "image": "gogh-the-pink-orchard.webp",
+    "artist": "Vincent van Gogh",
+    "name": "The Pink Orchard",
+    "scientific": "1888",
+    "article": "Flowering Orchards"
+  },
+  {
+    "image": "gogh-the-painter-on-the-road-to-tarascon.webp",
+    "artist": "Vincent van Gogh",
+    "name": "The Painter on the Road to Tarascon",
+    "scientific": "1888, destroyed in 1945"
+  },
+  {
+    "image": "gogh-sunflowers.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Sunflowers",
+    "scientific": "1888",
+    "article": "Sunflowers (Van Gogh series)"
+  },
+  {
+    "image": "gogh-twelve-sunflowers.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Twelve Sunflowers in a Vase",
+    "scientific": "1888",
+    "article": "Sunflowers (Van Gogh series)"
+  },
+  {
+    "image": "gogh-starry-night-over-the-rhone.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Starry Night over the Rhône",
+    "scientific": "1888"
+  },
+  {
+    "image": "gogh-eugene-boch.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Eugène Boch (The Poet)",
+    "scientific": "1888",
+    "article": "Eugène Boch"
+  },
+  {
+    "image": "gogh-portrait-of-the-artists-mother.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Portrait of the Artist's Mother",
+    "scientific": "1888"
+  },
+  {
+    "image": "gogh-postman-joseph-roulin.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Postman Joseph Roulin",
+    "scientific": "1888",
+    "article": "The Roulin Family"
+  },
+  {
+    "image": "gogh-memory-of-the-garden-at-etten.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Memory of the Garden at Etten (Ladies of Arles)",
+    "scientific": "1888",
+    "focus": "10% 50%"
+  },
+  {
+    "image": "gogh-larlesienne-madame-ginoux.webp",
+    "artist": "Vincent van Gogh",
+    "name": "L'Arlésienne: Madame Ginoux",
+    "scientific": "1888–1889",
+    "article": "L'Arlésienne (painting)"
   },
   {
     "image": "gogh-the-olive-orchard.webp",
@@ -1122,6 +1282,77 @@
     "scientific": "1889"
   },
   {
+    "image": "gogh-lullaby-la-berceuse.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Lullaby (La Berceuse)",
+    "scientific": "1889",
+    "article": "The Roulin Family"
+  },
+  {
+    "image": "gogh-view-of-arles-flowering-orchards.webp",
+    "artist": "Vincent van Gogh",
+    "name": "View of Arles, Flowering Orchards",
+    "scientific": "1889"
+  },
+  {
+    "image": "gogh-enclosed-wheat-field-with-rising-sun.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Enclosed Wheat Field with Rising Sun",
+    "scientific": "1889",
+    "article": "Wheat Fields"
+  },
+  {
+    "image": "gogh-irises.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Irises",
+    "scientific": "1889"
+  },
+  {
+    "image": "gogh-cypresses-with-two-figures.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Cypresses with Two Figures",
+    "scientific": "1889"
+  },
+  {
+    "image": "gogh-olive-trees-with-the-alpilles.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Olive Trees with the Alpilles in the Background",
+    "scientific": "1889",
+    "article": "Olive Trees (Van Gogh series)"
+  },
+  {
+    "image": "gogh-the-starry-night.webp",
+    "artist": "Vincent van Gogh",
+    "name": "The Starry Night",
+    "scientific": "1889"
+  },
+  {
+    "image": "gogh-cypresses.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Cypresses",
+    "scientific": "1889"
+  },
+  {
+    "image": "gogh-wheat-field-with-cypresses.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Wheat Field with Cypresses",
+    "scientific": "1889",
+    "article": "Wheat Field with Cypresses"
+  },
+  {
+    "image": "gogh-self-portrait-orsay.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Self-Portrait",
+    "scientific": "Paris, 1889"
+  },
+  {
+    "image": "gogh-evening-landscape-at-moonrise.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Evening Landscape at Moonrise",
+    "scientific": "1889",
+    "article": "Wheat Fields"
+  },
+  {
     "image": "gogh-girl-in-white.webp",
     "artist": "Vincent van Gogh",
     "name": "Girl in White",
@@ -1150,6 +1381,38 @@
     "artist": "Vincent van Gogh",
     "name": "Adeline Ravoux",
     "scientific": "1890"
+  },
+  {
+    "image": "gogh-almond-blossom.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Almond Blossom",
+    "scientific": "1890"
+  },
+  {
+    "image": "gogh-vase-with-irises.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Vase with Irises",
+    "scientific": "1890"
+  },
+  {
+    "image": "gogh-road-with-cypress-and-star.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Road with Cypress and Star",
+    "scientific": "1890",
+    "effect": "gallop"
+  },
+  {
+    "image": "gogh-wheatfield-under-thunderclouds.webp",
+    "artist": "Vincent van Gogh",
+    "name": "Wheatfield under Thunderclouds",
+    "scientific": "1890"
+  },
+  {
+    "image": "gogh-house-at-auvers.webp",
+    "artist": "Vincent van Gogh",
+    "name": "House at Auvers",
+    "scientific": "1890",
+    "article": "Auvers-sur-Oise"
   },
   {
     "image": "raphael-the-small-cowper-madonna.webp",
@@ -1736,6 +1999,25 @@
     "focus": "70% 50%"
   },
   {
+    "image": "manet-luncheon-on-the-grass.webp",
+    "artist": "Edouard Manet",
+    "name": "Luncheon on the Grass",
+    "scientific": "1863",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "manet-olympia.webp",
+    "artist": "Edouard Manet",
+    "name": "Olympia",
+    "scientific": "1863",
+    "content": [
+      "nudity"
+    ],
+    "focus": "20% 50%"
+  },
+  {
     "image": "manet-the-dead-toreador.webp",
     "artist": "Edouard Manet",
     "name": "The Dead Toreador",
@@ -1745,6 +2027,27 @@
       "frightening"
     ],
     "focus": "75% 50%"
+  },
+  {
+    "image": "manet-the-dead-christ-with-angels.webp",
+    "artist": "Edouard Manet",
+    "name": "The Dead Christ with Angels",
+    "scientific": "1864",
+    "content": [
+      "nudity",
+      "frightening"
+    ],
+    "sacred": true
+  },
+  {
+    "image": "manet-the-battle-of-the-kearsarge-and-the-alabama.webp",
+    "artist": "Edouard Manet",
+    "name": "The Battle of the Kearsarge and the Alabama",
+    "scientific": "1864",
+    "content": [
+      "violence",
+      "frightening"
+    ]
   },
   {
     "image": "manet-the-tragic-actor.webp",
@@ -1766,6 +2069,41 @@
     "scientific": "c. 1866"
   },
   {
+    "image": "manet-young-lady-in-1866.webp",
+    "artist": "Edouard Manet",
+    "name": "Young Lady in 1866",
+    "scientific": "1866"
+  },
+  {
+    "image": "manet-emile-zola.webp",
+    "artist": "Edouard Manet",
+    "name": "Émile Zola",
+    "scientific": "1868",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "manet-luncheon-in-the-studio.webp",
+    "artist": "Edouard Manet",
+    "name": "Luncheon in the Studio",
+    "scientific": "1868"
+  },
+  {
+    "image": "manet-the-balcony.webp",
+    "artist": "Edouard Manet",
+    "name": "The Balcony",
+    "scientific": "1868–1869"
+  },
+  {
+    "image": "manet-interior-at-arcachon.webp",
+    "artist": "Edouard Manet",
+    "name": "Interior at Arcachon",
+    "scientific": "1871",
+    "article": "Arcachon",
+    "focus": "75% 50%"
+  },
+  {
     "image": "manet-the-railway.webp",
     "artist": "Edouard Manet",
     "name": "The Railway",
@@ -1777,6 +2115,26 @@
     "name": "Masked Ball at the Opera",
     "scientific": "1873",
     "focus": "90% 50%"
+  },
+  {
+    "image": "manet-boating.webp",
+    "artist": "Edouard Manet",
+    "name": "Boating",
+    "scientific": "1874",
+    "focus": "25% 50%"
+  },
+  {
+    "image": "manet-claude-monet-painting-in-his-studio-boat.webp",
+    "artist": "Edouard Manet",
+    "name": "Claude Monet Painting in His Studio Boat",
+    "scientific": "1874"
+  },
+  {
+    "image": "manet-portrait-of-madame-manet.webp",
+    "artist": "Edouard Manet",
+    "name": "Madame Manet",
+    "scientific": "c. 1874–1876",
+    "article": "Suzanne Manet"
   },
   {
     "image": "manet-at-the-races.webp",
@@ -1792,10 +2150,42 @@
     "scientific": "c. 1875"
   },
   {
+    "image": "manet-the-grand-canal-venice.webp",
+    "artist": "Edouard Manet",
+    "name": "The Grand Canal, Venice (Blue Venice)",
+    "scientific": "1875",
+    "article": "Grand Canal (Venice)"
+  },
+  {
+    "image": "manet-stephane-mallarme.webp",
+    "artist": "Edouard Manet",
+    "name": "Stéphane Mallarmé",
+    "scientific": "1876",
+    "focus": "35% 50%"
+  },
+  {
     "image": "manet-plum-brandy.webp",
     "artist": "Edouard Manet",
     "name": "Plum Brandy",
     "scientific": "c. 1877"
+  },
+  {
+    "image": "manet-nana.webp",
+    "artist": "Edouard Manet",
+    "name": "Nana",
+    "scientific": "1877"
+  },
+  {
+    "image": "manet-at-the-cafe.webp",
+    "artist": "Edouard Manet",
+    "name": "At the Café",
+    "scientific": "1878"
+  },
+  {
+    "image": "manet-in-the-conservatory.webp",
+    "artist": "Edouard Manet",
+    "name": "In the Conservatory",
+    "scientific": "1878–1879"
   },
   {
     "image": "manet-portrait-of-a-lady.webp",
@@ -1822,6 +2212,15 @@
     "scientific": "c. 1880"
   },
   {
+    "image": "manet-pertuiset-the-lion-hunter.webp",
+    "artist": "Edouard Manet",
+    "name": "Pertuiset, the Lion Hunter",
+    "scientific": "1881",
+    "content": [
+      "violence"
+    ]
+  },
+  {
     "image": "manet-madame-michel-levy.webp",
     "artist": "Edouard Manet",
     "name": "Madame Michel-Lévy",
@@ -1831,6 +2230,19 @@
     "image": "manet-flowers-in-a-crystal-vase.webp",
     "artist": "Edouard Manet",
     "name": "Flowers in a Crystal Vase",
+    "scientific": "c. 1882"
+  },
+  {
+    "image": "manet-house-at-rueil.webp",
+    "artist": "Edouard Manet",
+    "name": "House at Rueil",
+    "scientific": "1882",
+    "article": "Rueil-Malmaison"
+  },
+  {
+    "image": "manet-white-lilacs-in-a-glass-vase.webp",
+    "artist": "Edouard Manet",
+    "name": "White Lilacs in a Glass Vase",
     "scientific": "c. 1882"
   },
   {
