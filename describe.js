@@ -9,6 +9,12 @@
 // node describe.js Impressionism
 // node describe.js all
 // Records kept in another folder are read too with --records <folder>.
+// Where blurbs/picks.json chooses sentences for a picture, the card has those
+// instead of the article's opening: whole sentences copied word for word from
+// the article (or articles) named, each run of them a paragraph of its own.
+// Each run is checked against the article as it now stands; one that no longer
+// matches is reported, and the picture falls back to the opening.
+// node describe.js picks   rebuilds only the pictures with chosen sentences.
 const fs = require('fs');
 const path = require('path');
 
@@ -24,10 +30,11 @@ const folders = [path.join(dir, 'images')];
 for (let i = args.indexOf('--records'); i >= 0; i = args.indexOf('--records')) folders.push(...args.splice(i, 2).slice(1));
 const category = args[0];
 if (!category) throw new Error('Name a category, or all: node describe.js Impressionism');
+const picks = read(path.join(__dirname, 'blurbs', 'picks.json'));
 const artists = read(path.join(dir, 'artists.json'))
-  .filter((a) => category === 'all' || a.period === category || (a.also || []).includes(category))
+  .filter((a) => category === 'all' || category === 'picks'|| a.period === category || (a.also || []).includes(category))
   .map((a) => a.name);
-const puzzles = read(path.join(dir, 'puzzles.json')).filter((p) => category === 'all' || artists.includes(p.artist));
+const puzzles = read(path.join(dir, 'puzzles.json')).filter((p) => (category === 'picks' ? picks[p.image] : category === 'all' || artists.includes(p.artist)));
 if (!puzzles.length) throw new Error(`No puzzles under ${category}`);
 
 // Every record beside the originals, by the slug of each picture in it.
@@ -82,8 +89,39 @@ function tidy(text) {
 }
 
 // "Van Gogh" is not a surname to stand alone: he is always Vincent van Gogh
-// (his brother Theo van Gogh keeps his own name)
-const named = (text) => text.replace(/(?<!\b(?:Vincent|Theo) )\b[Vv]an Gogh\b/g, 'Vincent van Gogh');
+// (his brother Theo van Gogh keeps his own name, as does Theo's wife Johanna)
+const named = (text) => text.replace(/(?<!\b\p{Lu}\p{Ll}+ )\b[Vv]an Gogh\b/gu, 'Vincent van Gogh');
+
+// The whole text of each article, a paragraph to a line, for the chosen sentences.
+const ws = (text) => text.replace(/\s+/g, ' ').trim();
+async function fullText(titles) {
+  const out = {};
+  for (const title of titles) {
+    const data = await get(`https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=extracts|info&explaintext=1&inprop=url&redirects=1&titles=${encodeURIComponent(title)}`);
+    const page = data.query.pages[0];
+    if (page.extract) out[title] = { title: page.title, url: page.fullurl, paras: page.extract.split(/\n+/).map(ws) };
+    await wait(200);
+  }
+  return out;
+}
+
+// A picture's chosen sentences, if each run of them still stands in its article.
+function picked(image, full) {
+  const runs = picks[image].parts.map(([title, sentences]) => ({ title, text: ws(sentences.join(' ')) }));
+  const gone = runs.filter((r) => !(full[r.title] && full[r.title].paras.some((p) => p.includes(r.text))));
+  for (const r of gone) console.warn(`  ${image}: no longer in "${r.title}": ${r.text.slice(0, 80)}…`);
+  if (gone.length) return null;
+  const used = [...new Set(runs.map((r) => r.title))].map((t) => ({ article: full[t].title, url: full[t].url }));
+  return {
+    text: named(runs.map((r) => r.text).join('\n\n')),
+    source: 'Wikipedia',
+    article: used[0].article,
+    url: used[0].url,
+    ...(used.length > 1 ? { articles: used } : {}),
+    licence: 'CC BY-SA 4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+  };
+}
 
 async function main() {
   const wanted = puzzles.map((p) => {
@@ -127,10 +165,13 @@ async function main() {
   const blurbs = fs.existsSync(file) ? read(file) : {};
   const tally = {};
   const none = [];
+  const full = await fullText([...new Set(wanted.flatMap((w) => (picks[w.p.image] ? picks[w.p.image].parts.map((part) => part[0]) : [])))]);
   for (const w of wanted) {
-    let b;
+    let b = picks[w.p.image] ? picked(w.p.image, full) : null;
     const wiki = intro[article[w.wikidata]] || intro[w.p.article];
-    if (wiki) {
+    if (b) {
+      // the chosen sentences stand
+    } else if (wiki) {
       b = { text: excerpt(wiki.text), source: 'Wikipedia', article: wiki.title, url: wiki.url, licence: 'CC BY-SA 4.0', licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0/' };
     } else if (w.cma) {
       const d = (await get(`https://openaccess-api.clevelandart.org/api/artworks/${w.cma.id}`)).data;

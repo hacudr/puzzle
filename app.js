@@ -1563,15 +1563,17 @@ function closeCheer() {
   }, 450);
 }
 
-// What is said about a picture on its card: its story from puzzles/stories.json
-// (the history, scripture, myth or literature behind it, what this picture shows,
-// and passages from the text itself), and otherwise, or where the story has no
-// passage to quote, the description from puzzles/blurbs.json. A picture with
+// What is said about a picture on its card: the description from puzzles/blurbs.json
+// first, then its story from puzzles/stories.json (the history, scripture, myth or
+// literature behind it, what this picture shows, and passages from the text
+// itself). A picture with
 // neither has lines of verse, or a passage of prose, from puzzles/verses.json,
 // after a few sentences on the artwork itself from puzzles/notes.json, written
 // for the app (as the artists' bios are), so they need no credit.
 const noteOf = (p) => notes[p.image.replace(/^puzzles\//, '')];
 const blurbOf = (p) => blurbs[p.image.replace(/^puzzles\//, '')];
+// an excerpt may be cut from more than one article, each credited
+const articlesOf = (b) => b.articles || [{ article: b.article, url: b.url }];
 const storyOf = (p) => stories.puzzles && stories.puzzles[p.image.replace(/^puzzles\//, '')];
 const verseOf = (p) => verses.puzzles && verses.puzzles[p.image.replace(/^puzzles\//, '')];
 // Kids mode has no descriptions: an article can speak plainly of what the settings hide.
@@ -1618,6 +1620,9 @@ function showAbout(p) {
     return e;
   };
   const passages = story ? (story.passages || []).map((id) => stories.passages[id]).filter(Boolean) : [];
+  // the painting comes first, under the card's own "About the painting", then
+  // the story behind it; an excerpt keeps the breaks between the passages it was cut from
+  if (b) for (const para of b.text.split(/\n\n+/)) body.append(el('p', '', para));
   if (story) {
     for (const id of [].concat(story.subject)) {
       const s = stories.subjects[id];
@@ -1642,12 +1647,6 @@ function showAbout(p) {
     quote.append(el('p', 'q', verse.text), el('cite', '', by + verse.poem));
     body.append(quote);
   }
-  // no passage to quote: the description stands in its place
-  const useBlurb = b && !passages.length;
-  if (useBlurb) {
-    if (story) body.append(el('h3', '', 'About the painting'));
-    body.append(el('p', '', b.text));
-  }
   // the sources are named in plain text, with no links out of the app
   const credit = $('#aboutCredit');
   credit.replaceChildren();
@@ -1664,9 +1663,9 @@ function showAbout(p) {
     const by = ed.translator ? `, tr. ${ed.translator}` : ed.editor ? `, ed. ${ed.editor}` : '';
     credit.append('From ', ed.title, by, ', public domain.');
   }
-  if (useBlurb) {
+  if (b) {
     if (eds.length) credit.append(' ');
-    if (b.source === 'Wikipedia') credit.append('From ', `“${b.article}”`, ' on Wikipedia, excerpted');
+    if (b.source === 'Wikipedia') credit.append('From ', articlesOf(b).map((a) => `“${a.article}”`).join(' and '), ' on Wikipedia, excerpted');
     else credit.append('Description from the ', b.source);
     // CC0 asks for nothing; a licence that asks for credit is named
     if (b.licence && b.licenceUrl) credit.append(', ', b.licence);
@@ -2148,7 +2147,7 @@ function fillCredits() {
   const from = (source) => used.filter((b) => b.source === source);
   const byUrl = (list) => [...new Map(list.map((b) => [b.url, b])).values()];
 
-  const wiki = byUrl(from('Wikipedia')).sort((a, b) => a.article.localeCompare(b.article));
+  const wiki = byUrl(from('Wikipedia').flatMap(articlesOf)).sort((a, b) => a.article.localeCompare(b.article));
   $('#creditsWiki').replaceChildren(...wiki.map((b) => item(link(mask(b.article), b.url))));
 
   // the Art Institute names the work, not an article, so each is named by its picture
