@@ -472,14 +472,15 @@ const sound = (() => {
       steps: MOUNTAIN_KING + ' ' + octaveUp(MOUNTAIN_KING),
     },
     // Mussorgsky, Night on Bald Mountain, from the piano arrangement by Chernov:
-    // the opening whirl and the first theme in the bass; unit = a triplet quaver
+    // the opening whirl and the first theme in the bass, an octave below where
+    // it is written; unit = a triplet quaver
     baldmountain: {
       composer: 'Modest Mussorgsky',
       title: 'Night on Bald Mountain',
       voice: 'lute',
       unit: 0.115,
       bar: 12,
-      steps: [
+      steps: octaveDown([
         WHIRL,
         WHIRL,
         WHIRL_TREAD,
@@ -511,7 +512,7 @@ const sound = (() => {
         chatter('A5+E5', 'G#5+E5'),
         chatter('A5+E5', 'G#5+E5'),
         'C3:2+A5+E5/1.5 G#5+E5/.5 C3:2/1 G#5+E5/1 C3:2/.5 A5+E5/1.5',
-      ].join(' '),
+      ].join(' ')),
     },
     // Dvořák, Symphony No. 9, finale: two bars of the strings' opening, then the
     // horns' and trumpets' theme, bars 10-17; unit = a quaver

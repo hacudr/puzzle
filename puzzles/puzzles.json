@@ -928,7 +928,8 @@
     "content": [
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "botticelli-the-punishment-of-korah.webp",
@@ -950,6 +951,7 @@
       "frightening"
     ],
     "sacred": true,
+    "christ": true,
     "focus": "80% 50%"
   },
   {
@@ -968,7 +970,8 @@
       "violence",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "botticelli-the-mystical-nativity.webp",
@@ -1028,7 +1031,8 @@
       "nudity",
       "violence"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "el-greco-the-holy-family-with-saint-anne-and-the-infant-john-the-baptist.webp",
@@ -2037,7 +2041,8 @@
       "nudity",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "manet-the-battle-of-the-kearsarge-and-the-alabama.webp",
@@ -4019,7 +4024,8 @@
       "nudity",
       "violence"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "caravaggio-saint-john-the-baptist-youth-with-a-ram.webp",
@@ -4040,6 +4046,7 @@
       "violence"
     ],
     "sacred": true,
+    "christ": true,
     "focus": "30% 50%"
   },
   {
@@ -4058,7 +4065,8 @@
       "nudity",
       "violence"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "caravaggio-the-sacrifice-of-isaac.webp",
@@ -4083,7 +4091,8 @@
       "violence",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "caravaggio-the-calling-of-saints-peter-and-andrew.webp",
@@ -4141,7 +4150,8 @@
       "nudity",
       "violence"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "caravaggio-madonna-and-child-with-saint-anne.webp",
@@ -4152,7 +4162,8 @@
       "nudity",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "caravaggio-saint-jerome-writing.webp",
@@ -4248,7 +4259,8 @@
       "nudity",
       "violence"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "caravaggio-christ-at-the-column.webp",
@@ -4260,6 +4272,7 @@
       "violence"
     ],
     "sacred": true,
+    "christ": true,
     "focus": "10% 50%"
   },
   {
@@ -4329,7 +4342,8 @@
       "nudity",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "caravaggio-adoration-of-the-shepherds.webp",
@@ -4784,7 +4798,8 @@
       "nudity",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "michelangelo-the-conversion-of-saul.webp",
@@ -5008,7 +5023,8 @@
     "content": [
       "violence"
     ],
-    "sacred": true
+    "sacred": true,
+    "christ": true
   },
   {
     "image": "millais-isabella.webp",
