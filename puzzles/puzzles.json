@@ -3716,7 +3716,8 @@
     "image": "rodin-memorial-relief.webp",
     "artist": "Auguste Rodin",
     "name": "Memorial Relief",
-    "scientific": "Hand of a Child, 1908"
+    "scientific": "Hand of a Child, 1908",
+    "music": "moonlight"
   },
   {
     "image": "rodin-head-of-hanako.webp",
@@ -6168,7 +6169,8 @@
     "image": "leighton-electra-at-the-tomb-of-agamemnon.webp",
     "artist": "Frederic Leighton",
     "name": "Electra at the Tomb of Agamemnon",
-    "scientific": "1868–1869"
+    "scientific": "1868–1869",
+    "music": "gnossienne"
   },
   {
     "image": "leighton-orpheus-and-eurydice.webp",
@@ -6416,7 +6418,8 @@
     "image": "egypt-funeral-ritual-in-a-garden.webp",
     "artist": "Ancient Egypt",
     "name": "Funeral Ritual in a Garden",
-    "scientific": "Copy of a painting in the Tomb of Nakhtmin, c. 1479–1425 BCE"
+    "scientific": "Copy of a painting in the Tomb of Nakhtmin, c. 1479–1425 BCE",
+    "music": "gnossienne"
   },
   {
     "image": "egypt-nakhts-offering-chapel.webp",
@@ -6580,7 +6583,8 @@
     "image": "greece-grave-stele-of-a-little-girl.webp",
     "artist": "Ancient Greece",
     "name": "Grave Stele of a Little Girl",
-    "scientific": "c. 450–440 BCE"
+    "scientific": "c. 450–440 BCE",
+    "music": "moonlight"
   },
   {
     "image": "greece-funerary-plaque.webp",
