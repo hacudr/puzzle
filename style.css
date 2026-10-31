@@ -1156,6 +1156,9 @@ button {
 
 .settings-body .appendix { margin-top: 64px; }
 .appendix .link { font-size: .8rem; border-bottom-width: 1px; }
+/* the app's own copyright, in fine print at the foot of Settings and of Sources & Credits */
+.copyright { margin: 14px 0 0; font-size: .68rem; letter-spacing: .02em; color: var(--ink-soft); opacity: .8; text-align: center; }
+.credits-body > .copyright { margin-top: 48px; }
 #credits { overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--page); }
 #credits .bar .back { color: var(--ink-soft); }
 .credits-body { max-width: 40em; margin: 0 auto; padding: 0 24px calc(72px + env(safe-area-inset-bottom)); line-height: 1.5; }

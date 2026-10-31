@@ -93,4 +93,4 @@ No sign-in is needed. The first collection's card and Claude Monet's first 10 pu
 
 ## Copyright line
 
-© 2026 (your name or company). The paintings are in the public domain.
+© 2026 H.C. Dreher
