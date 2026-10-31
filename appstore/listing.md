@@ -47,7 +47,7 @@ PLAY YOUR WAY
 • Plays offline, with no ads, no account and no tracking
 
 THREE COLLECTIONS
-The paintings come in three collections, Collection 1, Collection 2 and Collection 3. The first 10 Monet puzzles are free. Unlock each collection with a one-time purchase, or all three together for less. Purchases are restored on your other devices with Restore purchases.
+The paintings come in three collections, Collection 1, Collection 2 and Collection 3. The first 10 Monet puzzles are free. Unlock each collection with a one-time purchase, or all three at once. Purchases are restored on your other devices with Restore purchases.
 
 ## Category
 
@@ -67,7 +67,7 @@ All four are Non-Consumable. Display name [30] and description [45] as in `ios/A
 | com.hacudr.arthistory.collection1 | Collection 1 | Unlocks every puzzle in Collection 1 | $4.99 |
 | com.hacudr.arthistory.collection2 | Collection 2 | Unlocks every puzzle in Collection 2 | $4.99 |
 | com.hacudr.arthistory.collection3 | Collection 3 | Unlocks every puzzle in Collection 3 | $4.99 |
-| com.hacudr.arthistory.all | All Collections | Unlocks all three collections | $12.99 |
+| com.hacudr.arthistory.all | All Collections | Unlocks all three collections | $14.97 |
 
 Each needs a screenshot of the pay screen for Apple's review.
 

@@ -1747,11 +1747,13 @@ function saveBought() {
     localStorage.setItem('puzzle.bought', JSON.stringify([...bought]));
   } catch {}
 }
-// All the collections together are one more product, ALL, at a lower price
-// than the three bought one by one: ALL_PRICE on the web, the App Store's own in
-// the app. Owning it owns every collection.
+// All the collections together are one more product, ALL, at the price of the
+// three bought one by one: ALL_PRICE on the web, the App Store's own in the app.
+// Owning it owns every collection, and it is one purchase in place of three.
 const ALL = 'com.hacudr.arthistory.all';
-const ALL_PRICE = 12.99;
+const ALL_PRICE = 14.97;
+// prices compared in whole cents, since 3 × 4.99 is not exactly 14.97 in floating point
+const cents = (n) => Math.round(n * 100);
 const dollars = (n) => '$' + n.toFixed(2);
 const money = (n) => dollars(n * PRICE);
 const collectionNamed = (name) => everyCollection.find((k) => k.name === name);
@@ -1762,14 +1764,14 @@ const shown = (n) => (n == null ? null : store.native ? store.format(n) : dollar
 const totalOf = (names) => shown(amountOf(names)) || money(names.length);
 const bundleAmount = () => (store.native ? store.amount([ALL]) : ALL_PRICE);
 // The bundle is bought in place of the chosen collections when they are every
-// one not yet owned, more than one, and it costs less than they do together;
+// one not yet owned, more than one, and it costs no more than they do together;
 // so it is not offered to someone who already owns a collection, unless its
-// price is set low enough for that still to be a saving.
+// price is set low enough for that still to be no dearer.
 function bundleFits(names) {
   const rest = collections.filter((k) => !owns(k));
   if (rest.length < 2 || names.length !== rest.length) return false;
   const all = bundleAmount(), apart = amountOf(names);
-  return all != null && apart != null && all < apart;
+  return all != null && apart != null && cents(all) <= cents(apart);
 }
 
 // What the App Store says is owned replaces what was kept, so a purchase made on
@@ -1867,10 +1869,10 @@ function showTotal() {
   const total = bundle ? shown(bundleAmount()) : totalOf(names);
   buy.disabled = !n;
   buy.textContent = !n ? 'Choose a collection' : n === 3 ? `Unlock all three · ${total}` : `Unlock ${n === 1 ? 'one collection' : 'two collections'} · ${total}`;
-  // the saving the bundle brings, or how to have it
+  // the saving the bundle brings, or how to have it; at the same price there is none to name
   const rest = collections.filter((k) => !owns(k)).map((k) => k.name);
   const all = bundleAmount(), apart = amountOf(rest);
-  const deal = rest.length >= 2 && all != null && apart != null && all < apart;
+  const deal = rest.length >= 2 && all != null && apart != null && cents(all) < cents(apart);
   const them = rest.length === 3 ? 'all three' : rest.length === 2 ? 'both' : `all ${rest.length}`;
   $('#paySave').hidden = !deal;
   if (deal) $('#paySave').textContent = bundle ? `Together for ${shown(all)}, saving ${shown(apart - all)}.` : `Choose ${them} to have them for ${shown(all)} in place of ${shown(apart)}.`;
