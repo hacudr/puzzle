@@ -63,7 +63,19 @@ const plain = (html) => html.replace(/<\/p>/g, '\n').replace(/<[^>]+>/g, '').rep
 // Whole sentences, up to about WORDS words, and always at least the first.
 function excerpt(text) {
   text = tidy(text.replace(/\s+/g, ' '));
-  const sentences = text.match(/[^.!?]+(?:[.!?]+["”’)]*|$)\s*/g) || [text];
+  const pieces = text.match(/[^.!?]+(?:[.!?]+["”’)]*|$)\s*/g) || [text];
+  // A full stop after a title or an initial ("M. and Mme. Ginoux", "J. M. W.
+  // Turner") does not end the sentence, so the piece joins the one after it.
+  const sentences = [];
+  let held = '';
+  for (const p of pieces) {
+    held += p;
+    if (!/(?:^|[\s(])(?:[A-Z]|Mme|Mlle|Mmes|Mr|Mrs|Ms|Dr|St|Ste|Mt|Jr|Sr|Fr|Rev|Gen|Col|Capt|Lt|Sgt|Prof|Hon|Bros|Co|vol|no|pp|c|ca|cf|vs|viz)\.\s*$/.test(held)) {
+      sentences.push(held);
+      held = '';
+    }
+  }
+  if (held) sentences.push(held);
   let out = '';
   for (const s of sentences) {
     if (out && (out + s).split(/\s+/).length > WORDS) break;
