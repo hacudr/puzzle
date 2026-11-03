@@ -4,9 +4,9 @@ Text to paste into App Store Connect. The limits Apple sets are in brackets; `no
 
 ## App name [30]
 
-Art History: Painting Puzzles
+Art History Puzzles
 
-The name must be unique on the App Store, and plain "Art History" is likely taken. The name under the icon on the iPad stays "Art History" (`appName` in `capacitor.config.json`).
+This is the name registered in App Store Connect, since plain "Art History" was taken. The name under the icon on the iPad stays "Art History" (`appName` in `capacitor.config.json`).
 
 ## Subtitle [30]
 
@@ -24,7 +24,7 @@ jigsaw,puzzle,painting,museum,masterpiece,monet,impressionism,renaissance,classi
 
 Piece together the great paintings of the world, one artist at a time.
 
-Art History turns 921 paintings and treasures into jigsaw puzzles, from Monet's gardens and Degas's dancers to the Pre-Raphaelites, the Old Masters, and the art of ancient Egypt, Greece and Rome. Every picture is a public-domain work from museums such as the National Gallery of Art, the Metropolitan Museum of Art and the Art Institute of Chicago.
+Art History Puzzles turns 921 paintings and treasures into jigsaw puzzles, from Monet's gardens and Degas's dancers to the Pre-Raphaelites, the Old Masters, and the art of ancient Egypt, Greece and Rome. Every picture is a public-domain work from museums such as the National Gallery of Art, the Metropolitan Museum of Art and the Art Institute of Chicago.
 
 ONE ARTIST AT A TIME
 Each artist is a chapter. Their pictures are revealed one by one, the next shown only as a blur of its colours until you get there. Finish an artist's chapter and the gold leaf falls.

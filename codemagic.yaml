@@ -21,7 +21,7 @@ workflows:
         distribution_type: app_store
         bundle_identifier: com.hacudr.arthistory
       vars:
-        APP_STORE_APPLE_ID: 0000000000
+        APP_STORE_APPLE_ID: 6829999138
         XCODE_PROJECT: ios/App/App.xcodeproj
         XCODE_SCHEME: App
       node: 22
