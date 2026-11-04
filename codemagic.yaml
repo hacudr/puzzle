@@ -8,14 +8,18 @@
 #     the App Manager role), and name it exactly as `app_store_connect` says below.
 #  3. Set APP_STORE_APPLE_ID below to the app's Apple ID: the number shown in
 #     App Store Connect under the app's App Information.
-# Codemagic then makes the signing certificate and profile itself (ios_signing).
+#  4. Code signing identities (Personal Account > Settings > codemagic.yaml
+#     settings): generate an Apple Distribution certificate with the API key;
+#     make an App Store provisioning profile for com.hacudr.arthistory with that
+#     certificate at developer.apple.com; then fetch the profile into Codemagic.
+#     ios_signing below finds both by the bundle id; Codemagic does not make them.
 workflows:
   ios-testflight:
     name: iOS to TestFlight
     instance_type: mac_mini_m2
     max_build_duration: 60
     integrations:
-      app_store_connect: Art History App Store Connect
+      app_store_connect: Codemagic
     environment:
       ios_signing:
         distribution_type: app_store
