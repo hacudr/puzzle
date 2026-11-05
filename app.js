@@ -479,8 +479,11 @@ function savedProgress(p, cols, rows) {
   return s;
 }
 
-// Every page opens at its top, coming back to it included.
+// Every page opens at its top, coming back to it included. Leaving the puzzle or
+// its finished picture for any page but Settings and its credits, its ending
+// music dies away.
 function show(id) {
+  if (!['play', 'done', 'settings', 'credits'].includes(id)) sound.leave();
   document.querySelectorAll('.screen').forEach((s) => (s.hidden = s.id !== id));
   $('#' + id).scrollTop = 0;
   reloadIfStale();
@@ -1420,8 +1423,12 @@ const swipeable = () =>
   game && game.done && !$('#done').hidden && $('#done').classList.contains('arriving') === false &&
   $('#donePause').hidden && $('#doneAbout').hidden && $('#doneCheer').hidden && zoom.el.hidden && faceFingers.size < 2;
 
+// what a swipe moves: the framed picture with its label, or on a phone held
+// sideways, where the label stands apart in the column, the framed picture alone
+const slider = () => (SIDEWAYS.matches ? $('.plate-face') : $('.plate'));
+
 function goFinished(step) {
-  const plate = $('.plate');
+  const plate = slider();
   const q = step && swipeable() && finishedNear(game.p, step);
   if (!q) {
     // at either end, the picture only springs back
@@ -1452,12 +1459,12 @@ document.addEventListener('pointermove', (e) => {
   // a second finger is a pinch, not a swipe
   if (faceFingers.size > 1) {
     swipe.id = null;
-    $('.plate').style.transform = '';
+    slider().style.transform = '';
     return;
   }
   const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y;
   if (!swipe.moved && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) swipe.moved = true;
-  if (swipe.moved) $('.plate').style.transform = `translateX(${dx * 0.35}px)`;
+  if (swipe.moved) slider().style.transform = `translateX(${dx * 0.35}px)`;
 });
 const endSwipe = (e) => {
   if (e.pointerId !== swipe.id) return;
@@ -1499,7 +1506,7 @@ function showPlate(p, played = true) {
   if (slideIn && !done.hidden) {
     if (slideOut) slideOut.cancel();
     slideOut = null;
-    plate.animate([{ transform: `translateX(${slideIn * 90}px)`, opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 320, easing: 'cubic-bezier(.22, .8, .25, 1)' });
+    slider().animate([{ transform: `translateX(${slideIn * 90}px)`, opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 320, easing: 'cubic-bezier(.22, .8, .25, 1)' });
     slideIn = 0;
     return;
   }

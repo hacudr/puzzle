@@ -1075,6 +1075,48 @@ button {
   .stage { margin-bottom: 48px; }
 }
 
+/* A phone held sideways, as for the puzzle: the way back, the menu, the label,
+   what was played and the links stand in a column on the left, and the framed
+   picture fills the rest. The swipe moves the framed picture alone (app.js). */
+@media (orientation: landscape) and (max-height: 500px) {
+  #done {
+    display: grid;
+    grid-template-columns: 92px 124px minmax(0, 1fr);
+    grid-template-rows: 36px 42px minmax(0, 1fr) auto auto auto minmax(0, 1fr);
+    grid-template-areas:
+      "back  back  face"
+      "note  tools face"
+      ".     .     face"
+      "label label face"
+      "music music face"
+      "links links face"
+      ".     .     face";
+  }
+  #done .bar, #done .mid, #done .done-body, #done .plate { display: contents; }
+  #done .bar > .crumbs { grid-area: back; height: 36px; margin-left: 4px; }
+  #done .bar > .tools:last-child { grid-area: tools; height: 42px; padding-right: 4px; }
+  #done .mid .level-note { grid-area: note; align-self: center; justify-self: start; margin: 0 0 0 14px; }
+  #done .mid .level-rest { display: none; }
+  /* the whole picture shows, frame and all, in what the column leaves */
+  #done .plate {
+    --pic: min(calc((100vw - env(safe-area-inset-left) - env(safe-area-inset-right) - 256px) / var(--fw)),
+               calc((100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 20px) / var(--fh)));
+  }
+  #done .plate-face { grid-area: face; place-self: center; width: calc(var(--pic) * var(--fw)); }
+  #done .plate.plain .plate-face {
+    width: min(calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right) - 256px - 2 * var(--frame) - 2 * var(--fillet)),
+               calc((100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 20px - 2 * var(--frame) - 2 * var(--fillet)) * var(--aspect, .8)));
+    height: auto;
+  }
+  #done .plate-label { grid-area: label; padding: 0 10px 0 14px; touch-action: none; }
+  #done .plate-label h2 { font-size: 1.15rem; }
+  #done .sci { font-size: .9rem; }
+  #done .by { font-size: .95rem; }
+  #done .music { grid-area: music; margin: 8px 10px 0 14px; font-size: .78rem; touch-action: none; }
+  #done .done-links { grid-area: links; justify-content: center; gap: 18px; margin: 14px 0 0 4px; touch-action: none; }
+  #done .done-links .link { font-size: .98rem; }
+}
+
 /* ---------- Collections not yet bought (simulated purchases) ---------- */
 
 /* A card not yet bought is toned grey: a neutral grey laid over the picture in the

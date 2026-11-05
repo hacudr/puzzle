@@ -942,7 +942,7 @@ const sound = (() => {
   }
 
   // stops the ending, letting it die away over half a second, since the long
-  // one may still be playing when the next puzzle is opened
+  // one may still be playing when the next puzzle is opened or the painting left
   function hush() {
     for (const source of [playing, ...clashing]) {
       try {
@@ -1209,6 +1209,11 @@ const sound = (() => {
     // who wrote the current tune and what it is, and who is playing where the
     // recording asks to be credited; null with the music off
     credit: () => (!on.music || !tune ? null : { composer: tune.composer, title: tune.title, performer: owed }),
+
+    // the painting has been left: its ending, and any effects, die away quickly
+    leave() {
+      if (ctx) hush();
+    },
 
     // kind is 'music' or 'effects'
     on: (kind) => on[kind],
