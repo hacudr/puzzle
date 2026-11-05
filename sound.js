@@ -3,9 +3,10 @@
 // other swap repeats the step it has reached.
 const sound = (() => {
   // Settings can turn off the music (the notes, and the recording a puzzle ends
-  // on) and the sound effects (the sword, the hooves and the knock), each on its own,
-  // and can lengthen that recording to thirty seconds (long, off unless chosen).
-  const KEYS = { music: 'puzzle.music', effects: 'puzzle.effects', long: 'puzzle.long' };
+  // on) and the sound effects (the sword, the hooves and the knock), each on its own.
+  // The recording is always the long one, thirty seconds; the choice of a short
+  // one was taken out at the user's wish.
+  const KEYS = { music: 'puzzle.music', effects: 'puzzle.effects' };
   const VOICES = {
     piano: { attack: 0.006, decay: 2.4, partials: [[1, 1], [2, 0.45], [3, 0.2], [4, 0.1], [5, 0.05]] },
     // The lute is worked out string by string. decay = seconds for middle C to
@@ -664,7 +665,7 @@ const sound = (() => {
   let ran = false;
   let away = false;
   let seen = null;
-  const on = { music: true, effects: true, long: false };
+  const on = { music: true, effects: true, long: true };
   // each step: { notes, at } with at = when it sounds, in units from the start
   let steps = [];
   let tune = null;
@@ -698,7 +699,7 @@ const sound = (() => {
   try {
     // the one setting there used to be, which silenced everything
     const silent = localStorage.getItem('puzzle.sound') === 'off';
-    for (const kind in KEYS) on[kind] = (localStorage.getItem(KEYS[kind]) || (silent || kind === 'long' ? 'off' : 'on')) === 'on';
+    for (const kind in KEYS) on[kind] = (localStorage.getItem(KEYS[kind]) || (silent ? 'off' : 'on')) === 'on';
   } catch {}
 
   // The page has been put away: if its audio has run, it may not come back.
@@ -1212,9 +1213,8 @@ const sound = (() => {
     // kind is 'music' or 'effects'
     on: (kind) => on[kind],
 
-    // turns the music, the effects or the long ending on or off; music coming
-    // on plays a short chord, so that it can be heard to have come on, and the
-    // long ending fetches the open puzzle's recording again at its new length
+    // turns the music or the effects on or off; music coming on plays a short
+    // chord, so that it can be heard to have come on
     set(kind, value) {
       if (!(kind in KEYS)) return;
       on[kind] = !!value;
@@ -1223,7 +1223,6 @@ const sound = (() => {
       try {
         localStorage.setItem(KEYS[kind], value ? 'on' : 'off');
       } catch {}
-      if (kind === 'long' && tune) loadClip(tuneKey);
       if (!value || kind !== 'music' || !unlock()) return;
       const playing = tune;
       tune = null;

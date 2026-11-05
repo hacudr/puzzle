@@ -1304,6 +1304,9 @@ button {
   to { max-height: var(--sheet-max); }
 }
 .letter h2 { margin-top: 0; font-style: italic; font-size: 1.55rem; }
+/* the letter's text is centred, its title too, and no word is broken across lines */
+.letter h2, .letter-body { text-align: center; }
+.letter-body { -webkit-hyphens: manual; hyphens: manual; }
 .letter-body p { text-wrap: pretty; }
 .letter-break { margin: 30px 0 18px !important; text-align: center; font-style: italic; color: #6f6051; }
 .letter-break::after { content: ""; display: block; width: 64px; margin: 14px auto 0; border-top: 1px solid #b79c74; }
