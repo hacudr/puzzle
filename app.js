@@ -174,6 +174,7 @@ function setKids(on) {
   showKids();
   sift();
   showLevel();
+  showOffers();
   // turned on from Settings over a solved picture, which then loses its About card
   if (game) showAboutBtn(game.p);
 }
@@ -1808,9 +1809,11 @@ function playable(p) {
 
 // The lines under the headings that offer what is not yet bought
 function showOffers() {
-  $('#galleryOffer').hidden = everyCollection.every(owns);
+  // Kids mode offers nothing for sale
+  $('#galleryOffer').hidden = kids || everyCollection.every(owns);
+  $('#settingsUnlock').hidden = kids;
   const offer = (el, c, a) => {
-    el.hidden = !c || owns(c);
+    el.hidden = kids || !c || owns(c);
     if (el.hidden) return;
     const first = freeArtist();
     el.querySelector('span').textContent = c === everyCollection[0] && (!a || a === first) ? `The first ${FREE} ${first.name} puzzles are free.` : '';
@@ -1824,6 +1827,15 @@ function showOffers() {
 // `c` is the one it was opened for, chosen already; with none, all not yet bought are.
 // `done`, the collection just finished, when Next Puzzle led here from its last picture.
 function openPaywall(c, p = null, done = null) {
+  // Kids mode never reaches a purchase: it asks for a grown-up instead
+  $('#payKids').hidden = !kids;
+  if (kids) {
+    pending = null;
+    $('#payForm').hidden = true;
+    $('#payDone').hidden = true;
+    $('#paywall').hidden = false;
+    return;
+  }
   pending = p;
   $('#payEyebrow').textContent = done ? `${done.number} complete` : 'Unlock the collections';
   $('#payLede').textContent = done && c
@@ -1913,7 +1925,10 @@ async function buyChosen(names) {
     }
   } catch (e) {
     console.warn('store: purchase failed', e);
-    payNote('The App Store could not be reached. Please try again.');
+    // a product the App Store does not know (not yet made, or not yet ready, in
+    // App Store Connect) says so, rather than blaming the connection
+    const why = String((e && e.message) || e || '');
+    payNote(/cannot find product|product not found/i.test(why) ? 'This purchase is not available from the App Store yet. Please try again later.' : 'The App Store could not be reached. Please try again.');
   } finally {
     buying = false;
     buy.classList.remove('busy');
@@ -1932,6 +1947,7 @@ $('#payBuy').addEventListener('click', async () => {
   thank(done);
 });
 $('#payClose').addEventListener('click', closePaywall);
+$('#payKidsOk').addEventListener('click', closePaywall);
 // Restore Purchases, which Apple asks for: it says what it found on the button
 // itself, then the button goes back to its name.
 async function restoreBought(button) {

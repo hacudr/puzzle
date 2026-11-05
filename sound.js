@@ -977,9 +977,15 @@ const sound = (() => {
     return source;
   }
 
+  // In the iOS app, Capacitor serves an audio file asked for without a range
+  // as a bare response with no status, which fetch reports as status 0, not ok;
+  // asked for as the range from its first byte on, the whole file comes back as
+  // a proper 206. Status 0 is let through as well, in case. The web copy asks
+  // plainly, so that its service worker can keep a whole 200 for offline.
+  const native = () => !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
   const fetched = (url) =>
-    fetch(url)
-      .then((res) => (res.ok ? res.arrayBuffer() : Promise.reject()))
+    fetch(url, native() ? { headers: { Range: 'bytes=0-' } } : undefined)
+      .then((res) => (res.ok || res.status === 0 ? res.arrayBuffer() : Promise.reject()))
       .then((data) => new Promise((done, fail) => ctx.decodeAudioData(data, done, fail)));
 
   // the long ending, thirty seconds from the same place, is music/long/<key>.mp3,
