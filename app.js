@@ -27,6 +27,9 @@ const KIDS_HOLD = 3000;
 const GUIDE_HEIGHT = 94;
 const STRIP_MIN = 64;
 const STRIP_MAX = 96;
+// a phone held sideways: the reference picture and the tray stand left of the
+// puzzle, and the tray scrolls up and down (the same query is in style.css)
+const SIDEWAYS = matchMedia('(orientation: landscape) and (max-height: 500px)');
 // approximate number of pieces at each difficulty
 const LEVELS = { veryeasy: 10, easy: 40, medium: 100, hard: 200, expert: 200 };
 // levels that must never go over their number
@@ -1022,12 +1025,22 @@ async function start(p, fresh = false) {
 // The reference picture is drawn onto a canvas at the screen's own pixel size,
 // already faded. A scaled, see-through <img> showed white lines on the iPad.
 function drawGuide(img) {
-  // never wider than leaves room for the three buttons on the right (156px) and
-  // as much again on the left, inside the bar's 22px edges, or on a phone the bar
-  // runs off the screen
-  const bar = guideEl.closest('.bar').clientWidth || window.innerWidth;
-  const room = Math.max(40, bar - 2 * (156 + 22));
-  const wide = Math.round(Math.min((GUIDE_HEIGHT * img.naturalWidth) / img.naturalHeight, window.innerWidth * 0.45, room));
+  if (!img || !img.naturalWidth) return;
+  if (game) game.guideImg = img;
+  let wide;
+  if (SIDEWAYS.matches) {
+    // in the column left of the puzzle, under the way back and the buttons (96px
+    // with the margins): a third of what is left, the tray the other two thirds
+    const high = Math.min(110, (window.innerHeight - 96) * 0.3);
+    wide = Math.round(Math.min(160, (high * img.naturalWidth) / img.naturalHeight));
+  } else {
+    // never wider than leaves room for the three buttons on the right (156px) and
+    // as much again on the left, inside the bar's 22px edges, or on a phone the bar
+    // runs off the screen
+    const bar = guideEl.closest('.bar').clientWidth || window.innerWidth;
+    const room = Math.max(40, bar - 2 * (156 + 22));
+    wide = Math.round(Math.min((GUIDE_HEIGHT * img.naturalWidth) / img.naturalHeight, window.innerWidth * 0.45, room));
+  }
   const high = Math.round((wide * img.naturalHeight) / img.naturalWidth);
   const scale = window.devicePixelRatio || 1;
   guideEl.width = Math.round(wide * scale);
@@ -1065,11 +1078,16 @@ function refresh() {
 // the strip; a single piece stays full size.
 function drawReserve() {
   const scroll = reserveEl.scrollLeft;
+  const scrollDown = reserveEl.scrollTop;
   reserveEl.querySelectorAll('.held').forEach((item) => item.remove());
   const { cols } = game;
+  // sideways the tray is a column: a block may be as wide as it, and as tall
+  const room = SIDEWAYS.matches ? reserveEl.clientWidth - 28 : 0;
   game.held.forEach((pieces, index) => {
     const box = boxOf(pieces);
-    const scale = Math.min(1, game.strip / (box.h * game.ch), (game.strip * 3) / (box.w * game.cw));
+    const scale = room > 0
+      ? Math.min(1, room / (box.w * game.cw), room / (box.h * game.ch))
+      : Math.min(1, game.strip / (box.h * game.ch), (game.strip * 3) / (box.w * game.cw));
     const cw = Math.max(2, Math.floor(game.cw * scale));
     const ch = Math.max(1, Math.floor(game.ch * scale));
     const item = document.createElement('div');
@@ -1094,6 +1112,7 @@ function drawReserve() {
   });
   reserveEl.classList.toggle('empty', !game.held.length);
   reserveEl.scrollLeft = scroll;
+  reserveEl.scrollTop = scrollDown;
 }
 
 // Whole-pixel cells keep fused pieces seamless. The reserve strip is as tall
@@ -1119,6 +1138,8 @@ function layout() {
   board.style.width = game.cw * game.cols + 'px';
   board.style.height = game.ch * game.rows + 'px';
   if (game.group) drawReserve();
+  // turning the phone moves the reference picture between the bar and the column
+  if (game.guideImg) drawGuide(game.guideImg);
 }
 
 /* ---------- Moving pieces ---------- */
@@ -1224,7 +1245,13 @@ function settle(blocksBefore, id) {
 }
 
 const trayHidden = () => $('#play').classList.contains('no-tray');
-const overReserve = (e) => !trayHidden() && e.clientY >= reserveEl.getBoundingClientRect().top;
+// under the puzzle, anywhere below the tray's top; sideways, anywhere left of its
+// right edge and below its top
+const overReserve = (e) => {
+  if (trayHidden()) return false;
+  const r = reserveEl.getBoundingClientRect();
+  return e.clientY >= r.top && (!SIDEWAYS.matches || e.clientX <= r.right);
+};
 
 board.addEventListener('pointerdown', (e) => {
   const el = e.target.closest('.piece');
@@ -1287,7 +1314,7 @@ reserveEl.addEventListener('pointerdown', (e) => {
   reserveEl.setPointerCapture(e.pointerId);
   hold = {
     item, pieces: game.held[+item.dataset.index], x: e.clientX, y: e.clientY, pointer: e.pointerId,
-    out: false, scroll: reserveEl.scrollLeft, scrolling: false,
+    out: false, scroll: SIDEWAYS.matches ? reserveEl.scrollTop : reserveEl.scrollLeft, scrolling: false,
   };
 });
 
@@ -1297,10 +1324,15 @@ reserveEl.addEventListener('pointermove', (e) => {
     const dx = e.clientX - hold.x;
     const dy = e.clientY - hold.y;
     if (!hold.scrolling && Math.hypot(dx, dy) < 8) return;
-    const full = reserveEl.scrollWidth > reserveEl.clientWidth;
-    if (overReserve(e) && (hold.scrolling || (full && Math.abs(dx) > Math.abs(dy)))) {
+    // the tray scrolls along its length: sideways under the puzzle, up and down beside it
+    const side = SIDEWAYS.matches;
+    const along = side ? dy : dx;
+    const across = side ? dx : dy;
+    const full = side ? reserveEl.scrollHeight > reserveEl.clientHeight : reserveEl.scrollWidth > reserveEl.clientWidth;
+    if (overReserve(e) && (hold.scrolling || (full && Math.abs(along) > Math.abs(across)))) {
       hold.scrolling = true;
-      reserveEl.scrollLeft = hold.scroll - dx;
+      if (side) reserveEl.scrollTop = hold.scroll - dy;
+      else reserveEl.scrollLeft = hold.scroll - dx;
       return;
     }
     hold.out = true;
