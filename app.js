@@ -792,8 +792,39 @@ function fitBio() {
   if (!cols.length) return;
   const wide = cols.reduce((s, n) => s + n, 0) + parseFloat(cs.columnGap) * (cols.length - 1);
   $('#artistBio').style.width = `${Math.round(wide)}px`;
+  foldBio();
 }
 new ResizeObserver(fitBio).observe($('#grid'));
+
+// A bio that fits on one line has nothing to fold away.
+function foldBio() {
+  const bio = $('#artistBio');
+  const text = bio.querySelector('.bio-text');
+  // not yet on show, it has no height to measure
+  if (!bio.classList.contains('folded') || bio.hidden || !text.scrollHeight) return;
+  if (text.scrollHeight <= parseFloat(getComputedStyle(text).lineHeight) * 1.5) bio.classList.remove('foldable', 'folded');
+}
+
+// Show more slides the rest of the bio open; Show less folds it back to its first line
+$('#artistBio .bio-more').addEventListener('click', (e) => {
+  const bio = $('#artistBio');
+  const text = bio.querySelector('.bio-text');
+  const opening = bio.classList.contains('folded');
+  text.style.maxHeight = text.clientHeight + 'px';
+  text.offsetHeight; // the height to slide from takes hold before the one to slide to
+  if (opening) {
+    bio.classList.remove('folded');
+    text.style.maxHeight = text.scrollHeight + 'px';
+  } else {
+    bio.classList.add('folded');
+    text.style.maxHeight = '';
+  }
+  e.currentTarget.textContent = opening ? 'Show less' : 'Show more';
+  // open, it is let grow with the page; folded, the class holds its height
+  text.addEventListener('transitionend', () => {
+    if (!bio.classList.contains('folded')) text.style.maxHeight = 'none';
+  }, { once: true });
+});
 
 // One artist's puzzles.
 function openArtist(a) {
@@ -805,14 +836,20 @@ function openArtist(a) {
     $('#artistNote').hidden = !!a.bio;
     $('#artistName').textContent = a.name;
     const bio = $('#artistBio');
-    bio.textContent = a.bio || '';
+    const text = bio.querySelector('.bio-text');
+    text.textContent = a.bio || '';
     if (a.bio && a.note) {
       const note = document.createElement('em');
       note.className = 'bio-note';
       note.textContent = a.note;
-      bio.append(' ', note);
+      text.append(' ', note);
     }
     bio.hidden = !a.bio;
+    // it opens folded to its first line, unless that is all there is
+    text.style.maxHeight = '';
+    bio.classList.add('foldable', 'folded');
+    bio.querySelector('.bio-more').textContent = 'Show more';
+    requestAnimationFrame(foldBio);
     const grid = $('#grid');
     grid.textContent = '';
     for (const p of a.puzzles) {
