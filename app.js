@@ -1909,13 +1909,11 @@ function openPaywall(c, p = null, done = null) {
     item.disabled = owns(k);
     item.setAttribute('aria-pressed', String(!owns(k) && (k === c || !c)));
     item.dataset.name = k.name;
-    item.innerHTML = '<span class="pay-pic"><img alt=""><span class="tone"></span></span><span class="pay-text"><i></i><b></b><small></small></span><span class="pay-price"></span>';
+    item.innerHTML = '<span class="pay-pic"><img alt=""><span class="tone"></span></span><span class="pay-text"><b></b></span><span class="pay-price"></span>';
     const img = item.querySelector('img');
     img.src = thumbOf(k.cover);
     if (k.focus && k.cover === k.usual) img.style.objectPosition = k.focus;
-    item.querySelector('i').remove();
     item.querySelector('b').textContent = k.number;
-    item.querySelector('small').textContent = `${k.artists.length} artists · ${k.count} puzzles`;
     item.querySelector('.pay-price').textContent = owns(k) ? 'Owned' : priceOf(k);
     item.addEventListener('click', () => {
       item.setAttribute('aria-pressed', String(item.getAttribute('aria-pressed') !== 'true'));
