@@ -41,12 +41,16 @@ const CUTS = {
   // from the first half, recorded standing in one place in the market
   market: { id: 371222, from: 621, length: 30 },
   street: { id: 423119, from: 0, length: 29 },
-  bells: { id: 178648, from: 11, length: 30 },
+  // a full peal, Christmas morning in Hamburg
+  bells: { id: 212037, from: 236, length: 30 },
   // drawing near, the whistle as it passes, and slowing to a stop
   train: { id: 119125, from: 18, length: 30 },
   fire: { id: 382616, from: 39, length: 30 },
   wings: { id: 670509, from: 3, length: 11, brief: true },
   flight: { id: 753219, from: 20, length: 17, brief: true },
+  // two people walking on gravel, coming in slowly and going off slowly, as
+  // if passing along a garden path; heard now and then under the birds
+  footsteps: { id: 553136, from: 10, length: 9, fadeIn: 2.5, fadeOut: 3.5 },
 };
 
 function loudness(file, args = []) {
@@ -66,8 +70,8 @@ for (const [name, cut] of Object.entries(CUTS)) {
   const window = ['-ss', String(cut.from), '-t', String(cut.length)];
   const level = loudness(source, window);
   const gain = TARGET - level;
-  const fadeIn = cut.brief ? 0.3 : 1.5;
-  const fadeOut = cut.brief ? 1.5 : 4;
+  const fadeIn = cut.fadeIn || (cut.brief ? 0.3 : 1.5);
+  const fadeOut = cut.fadeOut || (cut.brief ? 1.5 : 4);
   const out = path.join(here, `${name}.mp3`);
   const filter = [
     `volume=${gain.toFixed(2)}dB`,

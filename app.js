@@ -987,6 +987,20 @@ async function visit(p) {
   sound.reprise(() => game && game.p === p && !$('#done').hidden).then((played) => played && nameMusic());
 }
 
+// The puzzles whose ambient sound loops softly while they are put together
+// and carries on under the ending music, a few to try before all take it up;
+// any other plays its ambient sound once at the end (`once` in sound.js).
+const LOOP = new Set(
+  [
+    'monet-bazille-and-camille', // birds
+    'monet-argenteuil', // river
+    'monet-ships-riding-on-the-seine-at-rouen', // harbour
+    'monet-the-artists-garden-in-argenteuil', // bees
+    'monet-woman-with-a-parasol', // wind
+    'monet-la-gare-saint-lazare', // train, a one-time sound: not looped
+  ].map((slug) => `puzzles/${slug}.webp`)
+);
+
 // Opens a puzzle where it was left off; `fresh` deals it again from scratch.
 async function start(p, fresh = false) {
   if (!playable(p)) return openPaywall(shelfOf(artistOf(p)), p);
@@ -1020,7 +1034,7 @@ async function start(p, fresh = false) {
   }
 
   chooseTune(p);
-  sound.setEffect([].concat(p.effect || [], p.ambience || []));
+  sound.setEffect([].concat(p.effect || [], p.ambience || []), LOOP.has(p.image));
   sound.begin();
   piecesEl.textContent = '';
   peekEl.classList.remove('show', 'reveal');

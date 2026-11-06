@@ -136,7 +136,7 @@
     "artist": "Claude Monet",
     "name": "The Artist’s Garden in Argenteuil",
     "scientific": "1873",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "monet-the-bridge-at-argenteuil.webp",
@@ -206,7 +206,7 @@
     "artist": "Claude Monet",
     "name": "The Artist’s Garden at Vétheuil",
     "scientific": "1881",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "monet-cliffs-at-pourville.webp",
@@ -1170,7 +1170,7 @@
     "artist": "Vincent van Gogh",
     "name": "Flower Beds in Holland",
     "scientific": "c. 1883",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "gogh-peasant-woman-digging.webp",
@@ -1251,7 +1251,7 @@
     "name": "Pink Peach Tree in Blossom (Souvenir de Mauve)",
     "scientific": "1888",
     "article": "Flowering Orchards",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "gogh-the-pink-orchard.webp",
@@ -1259,7 +1259,7 @@
     "name": "The Pink Orchard",
     "scientific": "1888",
     "article": "Flowering Orchards",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "gogh-the-painter-on-the-road-to-tarascon.webp",
@@ -1315,7 +1315,7 @@
     "name": "Memory of the Garden at Etten (Ladies of Arles)",
     "scientific": "1888",
     "focus": "10% 50%",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "gogh-larlesienne-madame-ginoux.webp",
@@ -1381,7 +1381,7 @@
     "artist": "Vincent van Gogh",
     "name": "View of Arles, Flowering Orchards",
     "scientific": "1889",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "gogh-enclosed-wheat-field-with-rising-sun.webp",
@@ -1396,7 +1396,7 @@
     "artist": "Vincent van Gogh",
     "name": "Irises",
     "scientific": "1889",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "gogh-cypresses-with-two-figures.webp",
@@ -1486,7 +1486,7 @@
     "artist": "Vincent van Gogh",
     "name": "Almond Blossom",
     "scientific": "1890",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "gogh-vase-with-irises.webp",
@@ -2589,7 +2589,7 @@
     "artist": "Auguste Renoir",
     "name": "Picking Flowers",
     "scientific": "1875",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "renoir-madame-henriot.webp",
@@ -2602,7 +2602,7 @@
     "artist": "Auguste Renoir",
     "name": "A Girl with a Watering Can",
     "scientific": "1876",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "renoir-young-woman-braiding-her-hair.webp",
@@ -2928,7 +2928,7 @@
     "artist": "Georges Seurat",
     "name": "The Watering Can - Garden at Le Raincy",
     "scientific": "c. 1883",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "seurat-a-summer-landscape.webp",
@@ -3408,7 +3408,7 @@
     "artist": "Camille Pissarro",
     "name": "Orchard in Bloom, Louveciennes",
     "scientific": "1872",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "pissarro-the-fence.webp",
@@ -3489,7 +3489,7 @@
     "artist": "Camille Pissarro",
     "name": "The Artist's Garden at Eragny",
     "scientific": "1898",
-    "ambience": "bees"
+    "ambience": "garden"
   },
   {
     "image": "pissarro-place-du-carrousel-paris.webp",

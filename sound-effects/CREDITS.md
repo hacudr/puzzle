@@ -9,7 +9,7 @@
 
 ## Ambient sounds
 
-Heard faintly under a puzzle's ending music, chosen by its `ambience` in `puzzles.json`. Each is a cut of up to thirty seconds from a Freesound recording: the high-quality preview (128 kbps MP3), which carries the same licence as the original. `ambience/cut.js` makes them from the recordings kept in `sources/ambience/` (kept out of git), and says where each cut starts. The six under CC BY are credited in the app's Sources & Credits. Licences were read from each sound's own page on 6 November 2026.
+Heard faintly under a puzzle's ending music, chosen by its `ambience` in `puzzles.json`. Each is a cut of up to thirty seconds from a Freesound recording: the high-quality preview (128 kbps MP3), which carries the same licence as the original. `ambience/cut.js` makes them from the recordings kept in `sources/ambience/` (kept out of git), and says where each cut starts. The seven under CC BY are credited in the app's Sources & Credits. Licences were read from each sound's own page on 6 November 2026.
 
 | File | What it is | Recording | Licence |
 |---|---|---|---|
@@ -24,13 +24,14 @@ Heard faintly under a puzzle's ending music, chosen by its `ambience` in `puzzle
 | `ambience/birds.mp3` | Morning birdsong | [Tuscan Birdsong](https://freesound.org/s/156002/), gazsound | CC0 |
 | `ambience/wind.mp3` | Wind in the trees | [Forest, close up of trees rustling in the wind](https://freesound.org/s/523389/), Anya_Media | CC0 |
 | `ambience/leaves.mp3` | Dry leaves in the wind | [Tree Rustle 3](https://freesound.org/s/129427/), le_abbaye_Noirlac | CC BY 3.0 |
-| `ambience/bees.mp3` | Bees in a blossoming tree | [Bees buzzing around tree](https://freesound.org/s/566112/), Cinetony | CC0 |
+| `ambience/bees.mp3` | Bees in a blossoming tree (no longer used: the gardens took `garden` in its place) | [Bees buzzing around tree](https://freesound.org/s/566112/), Cinetony | CC0 |
+| `ambience/footsteps.mp3` | Two people walking by on gravel, heard now and then under the birds in a garden (`garden`) | [Footsteps of 2 persons on gravel path](https://freesound.org/s/553136/), nickcase | CC0 (read 6 November 2026) |
 | `ambience/crickets.mp3` | Crickets at night | [Crickets At Night – Raw sound](https://freesound.org/s/522299/), Defelozedd94 | CC0 |
 | `ambience/sheep.mp3` | A flock with bells | [Sheep flow, mountain bells, Pyrenees](https://freesound.org/s/430590/), PLukx | CC0 |
 | `ambience/cart.mp3` | A horse and cart | [horse with old cart](https://freesound.org/s/538438/), bruno.auzet | CC0 |
 | `ambience/market.mp3` | Crowd at a medieval market | [Medieval market](https://freesound.org/s/371222/), Metzik | CC BY 4.0 |
 | `ambience/street.mp3` | A medieval street, made up from many sounds | [Medieval City – SAMPLE](https://freesound.org/s/423119/), OGsoundFX | CC BY 4.0 |
-| `ambience/bells.mp3` | Church bells | [ChurchBells](https://freesound.org/s/178648/), Zabuhailo | CC0 |
+| `ambience/bells.mp3` | Church bells, a full peal | [Church Bells, Borgweg, Hamburg, Germany 25th December Christmas](https://freesound.org/s/212037/), vonfleisch | CC BY 3.0 |
 | `ambience/train.mp3` | A steam train and its whistle | [Steam Train L To R](https://freesound.org/s/119125/), Benboncan | CC BY 4.0 |
 | `ambience/fire.mp3` | A crackling fire | [Fire crackling in fireplace](https://freesound.org/s/382616/), Davor | CC0 |
 | `ambience/wings.mp3` | Great wings beating, for angels | [Huge wing flaps for bird, dragon, dinosaur](https://freesound.org/s/670509/), 2create | CC0 |

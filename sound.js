@@ -649,13 +649,23 @@ const sound = (() => {
   // recordings and fading in and out, so that AMBIENT, a share of the music's
   // own level, sets how loud they all are. Their sources and licences are in
   // sound-effects/CREDITS.md; those under CC BY are credited in Sources & Credits.
-  const AMBIENT = 1 / 3;
+  //
+  // The sounds are of two kinds. once = a single event, played once as the
+  // puzzle ends: the sword, hooves and knock, the wings, birds taking flight,
+  // and the train and cart, each drawing near and going by. The rest are
+  // ambient, a sound of the place that goes on: for a puzzle that loops them
+  // (LOOP in app.js, for now a few to try), one loops without a seam, at
+  // UNDER of its level, while the puzzle is put together, rises to its full
+  // level as it is finished and dies away with the ending music. For any other
+  // puzzle it plays once at the end, as the one-time sounds do.
+  const AMBIENT = 1 / 4;
+  const UNDER = 0.5;
   const MUSIC_LEVEL = 0.6;
-  const quiet = (file) => ({ file: `ambience/${file}`, lead: 0, level: MUSIC_LEVEL * AMBIENT });
+  const quiet = (file, once = false) => ({ file: `ambience/${file}`, lead: 0, level: MUSIC_LEVEL * AMBIENT, once });
   const EFFECTS = {
-    sword: { file: 'Sword.m4a', lead: 0.8, level: 0.8 },
-    gallop: { file: 'Gallop.m4a', lead: 0.45, level: 0.175, fade: 1.5 },
-    knock: { file: 'Door knock.m4a', lead: 0.28, level: 0.3 },
+    sword: { file: 'Sword.m4a', lead: 0.8, level: 0.8, once: true },
+    gallop: { file: 'Gallop.m4a', lead: 0.45, level: 0.175, fade: 1.5, once: true },
+    knock: { file: 'Door knock.m4a', lead: 0.28, level: 0.3, once: true },
     river: quiet('river.mp3'),
     brook: quiet('brook.mp3'),
     rain: quiet('rain.mp3'),
@@ -668,16 +678,20 @@ const sound = (() => {
     wind: quiet('wind.mp3'),
     leaves: quiet('leaves.mp3'),
     bees: quiet('bees.mp3'),
+    // a garden: the birdsong, with now and then someone walking by on the
+    // gravel path (passers, played every so often while the birds loop)
+    garden: { ...quiet('birds.mp3'), passers: 'footsteps' },
+    footsteps: { file: 'ambience/footsteps.mp3', lead: 0, level: MUSIC_LEVEL * AMBIENT * 0.8, once: true },
     crickets: quiet('crickets.mp3'),
     sheep: quiet('sheep.mp3'),
-    cart: quiet('cart.mp3'),
+    cart: quiet('cart.mp3', true),
     market: quiet('market.mp3'),
     street: quiet('street.mp3'),
     bells: quiet('bells.mp3'),
-    train: quiet('train.mp3'),
+    train: quiet('train.mp3', true),
     fire: quiet('fire.mp3'),
-    wings: quiet('wings.mp3'),
-    flight: quiet('flight.mp3'),
+    wings: quiet('wings.mp3', true),
+    flight: quiet('flight.mp3', true),
   };
 
   // The piano is the user's own, every key from C3 to C6 recorded one at a time,
@@ -739,6 +753,13 @@ const sound = (() => {
   let wanted = [];
   let effect = {};
   let clashing = [];
+  // the ambient sound looping under the puzzle: { name, source, gain, ending },
+  // whether the current puzzle loops its ambience, whether it is still being
+  // put together, and the seamless loops made so far, by name
+  let bed = null;
+  let looping = false;
+  let assembling = false;
+  const loops = {};
   // the credit the current tune's recording must carry, if any
   let owed = null;
   // the lute's notes worked out so far, by pitch
@@ -786,10 +807,11 @@ const sound = (() => {
     effect = {};
     playing = null;
     clashing = [];
+    bed = null;
     greeting = null;
     intro = null;
     hiss = null;
-    for (const group of [plucks, clips, effects, keys]) for (const id in group) delete group[id];
+    for (const group of [plucks, clips, effects, keys, loops]) for (const id in group) delete group[id];
     keysAsked = false;
     try {
       old.close().catch(() => {});
@@ -1095,16 +1117,117 @@ const sound = (() => {
     );
   }
 
-  // fetches the effects a puzzle ends on, to be ready by the time it does
-  function askEffects(names) {
+  // the ambient sounds of the current puzzle that loop under it
+  const ambient = () => (looping ? wanted.filter((name) => !EFFECTS[name].once) : []);
+
+  // Makes a recording loop without a seam. The cut fades in over its first
+  // second and a half and out over its last four, so only the steady stretch
+  // between is used, and its last two seconds are laid over its first two,
+  // the one dying away as the other comes in, at an even loudness (the two
+  // being unalike noise, their levels follow a quarter turn of sine and cosine).
+  function seamless(name, buffer) {
+    if (loops[name]) return loops[name];
+    const rate = buffer.sampleRate;
+    const from = Math.floor(rate * 1.5);
+    const n = buffer.length - Math.floor(rate * 4) - from;
+    const x = Math.min(Math.floor(rate * 2), Math.floor(n / 3));
+    const out = ctx.createBuffer(buffer.numberOfChannels, n - x, rate);
+    for (let ch = 0; ch < buffer.numberOfChannels; ch++) {
+      const src = buffer.getChannelData(ch).subarray(from, from + n);
+      const dst = out.getChannelData(ch);
+      dst.set(src.subarray(0, n - x));
+      for (let i = 0; i < x; i++) {
+        const t = ((i + 0.5) / x) * (Math.PI / 2);
+        dst[i] = src[i] * Math.sin(t) + src[n - x + i] * Math.cos(t);
+      }
+    }
+    return (loops[name] = out);
+  }
+
+  // lets the looping sound die away over fade seconds
+  function stopBed(fade = 0.5) {
+    if (!bed) return;
+    clearTimeout(bed.timer);
+    try {
+      const now = ctx.currentTime;
+      const gain = bed.gain.gain;
+      gain.cancelScheduledValues(now);
+      gain.setValueAtTime(gain.value, now);
+      gain.linearRampToValueAtTime(0, now + fade);
+      bed.source.stop(now + fade);
+    } catch {}
+    bed = null;
+  }
+
+  // starts the ambient sound looping softly under the puzzle, coming in over
+  // two seconds; the same sound already looping, and not yet dying away, is
+  // kept going, so that it carries on without a break into the next puzzle
+  function startBed(name) {
+    if (!on.effects || !ctx || !effect[name]) return;
+    const level = EFFECTS[name].level * UNDER;
+    const now = ctx.currentTime;
+    if (bed && bed.name === name && !bed.ending) {
+      bed.gain.gain.cancelScheduledValues(now);
+      bed.gain.gain.setValueAtTime(bed.gain.gain.value, now);
+      bed.gain.gain.linearRampToValueAtTime(level, now + 2);
+      return;
+    }
+    stopBed();
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(level, now + 2);
+    const source = ctx.createBufferSource();
+    source.buffer = seamless(name, effect[name]);
+    source.loop = true;
+    source.connect(gain).connect(ctx.destination);
+    source.start(now);
+    bed = { name, source, gain, ending: false, timer: null };
+    if (EFFECTS[name].passers) passBy(bed, EFFECTS[name].passers, 8 + Math.random() * 10);
+  }
+
+  // Someone walks by now and then while the puzzle is put together: the first
+  // after `wait` seconds, the next every 25 to 50, each a little to the left
+  // or right and a touch faster or slower, so that no two sound the same.
+  function passBy(mine, name, wait) {
+    effects[name] = effects[name] || fetched(`sound-effects/${EFFECTS[name].file}`);
+    mine.timer = setTimeout(() => {
+      if (bed !== mine || mine.ending || !on.effects) return;
+      effects[name].then(
+        (buffer) => {
+          if (bed !== mine || mine.ending || !ctx) return;
+          const gain = ctx.createGain();
+          gain.gain.value = EFFECTS[name].level * UNDER * 2;
+          const pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
+          if (pan) pan.pan.value = (Math.random() * 2 - 1) * 0.6;
+          const source = ctx.createBufferSource();
+          source.buffer = buffer;
+          source.playbackRate.value = 0.94 + Math.random() * 0.12;
+          (pan ? source.connect(pan).connect(gain) : source.connect(gain)).connect(ctx.destination);
+          source.start();
+        },
+        () => delete effects[name]
+      );
+      passBy(mine, name, 25 + Math.random() * 25);
+    }, wait * 1000);
+  }
+
+  // fetches the effects a puzzle ends on, to be ready by the time it does;
+  // loop = its ambient sounds loop under it while it is put together
+  function askEffects(names, loop = looping) {
     const asked = (wanted = [].concat(names || []).filter((name) => name in EFFECTS));
+    looping = !!loop;
+    assembling = asked.length > 0;
     effect = {};
+    const under = ambient();
+    if (!bed || bed.ending || !under.includes(bed.name)) stopBed();
     if (!asked.length || !unlock()) return;
     for (const name of asked) {
       effects[name] = effects[name] || fetched(`sound-effects/${EFFECTS[name].file}`);
       effects[name].then(
         (buffer) => {
-          if (wanted === asked) effect[name] = buffer;
+          if (wanted !== asked) return;
+          effect[name] = buffer;
+          if (assembling && under.includes(name)) startBed(name);
         },
         () => delete effects[name]
       );
@@ -1217,7 +1340,7 @@ const sound = (() => {
 
     // names is a key of EFFECTS or a list of them, or nothing for a puzzle that
     // ends on its music alone
-    setEffect: (names) => askEffects(names),
+    setEffect: (names, loop = false) => askEffects(names, loop),
 
     // count = how many pieces just landed where they belong; the notes the
     // pieces play go with the effects, not the music
@@ -1246,7 +1369,32 @@ const sound = (() => {
     finish() {
       if (!unlock() || !steps.length) return;
       hush();
-      if (on.effects) clashing = Object.keys(effect).map((name) => sample(effect[name], EFFECTS[name].level, 0.7, EFFECTS[name].lead, EFFECTS[name].fade));
+      assembling = false;
+      const under = ambient();
+      if (on.effects)
+        clashing = Object.keys(effect)
+          .filter((name) => !under.includes(name))
+          .map((name) => sample(effect[name], EFFECTS[name].level, 0.7, EFFECTS[name].lead, EFFECTS[name].fade));
+      // the looping sound rises to its full level as the music comes in and
+      // dies away with it, over its last four seconds; with no recording to
+      // end on it lasts as long as one would, and with the music off it dies
+      // away at once, over three
+      if (bed) {
+        const now = ctx.currentTime;
+        const gain = bed.gain.gain;
+        const full = EFFECTS[bed.name].level;
+        const fade = on.music ? 4 : 3;
+        const until = on.music ? 0.7 + (clip ? clip.duration : 30) - fade : 0;
+        gain.cancelScheduledValues(now);
+        gain.setValueAtTime(gain.value, now);
+        if (on.music) {
+          gain.linearRampToValueAtTime(full, now + 2.7);
+          gain.setValueAtTime(full, now + until);
+        }
+        gain.linearRampToValueAtTime(0, now + until + fade);
+        bed.source.stop(now + until + fade);
+        bed.ending = true;
+      }
       if (!on.music) return;
       part();
       if (clip) {
@@ -1296,6 +1444,7 @@ const sound = (() => {
     // the painting has been left: its ending, and any effects, die away quickly
     leave() {
       if (ctx) hush();
+      if (ctx) stopBed();
     },
 
     // kind is 'music' or 'effects'
@@ -1307,6 +1456,8 @@ const sound = (() => {
       if (!(kind in KEYS)) return;
       on[kind] = !!value;
       if (!value) hush();
+      if (!value && kind === 'effects') stopBed();
+      if (value && kind === 'effects' && assembling && unlock()) ambient().forEach(startBed);
       if (!value && kind === 'music') part();
       try {
         localStorage.setItem(KEYS[kind], value ? 'on' : 'off');
