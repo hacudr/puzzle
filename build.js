@@ -45,6 +45,8 @@ copyDir('fonts', (n) => /\.(woff2?|txt)$/.test(n));
 copyDir('music', (n) => n.endsWith('.mp3'));
 copyDir('music/long', (n) => n.endsWith('.mp3'));
 copyDir('sound-effects', (n) => /\.(m4a|mp3)$/.test(n));
+// the piano's notes, one recorded key each (the full recording in sound-effects/sources stays behind)
+copyDir('sound-effects/piano', (n) => n.endsWith('.mp3'));
 
 // only the pictures listed in puzzles.json, not the full-size originals
 const list = JSON.parse(fs.readFileSync(path.join(root, 'puzzles', 'puzzles.json'), 'utf8'));

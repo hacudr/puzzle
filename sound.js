@@ -1,4 +1,4 @@
-// Synthesised piano and lute notes. Each correctly placed piece plays the next
+// Recorded piano and synthesised lute notes. Each correctly placed piece plays the next
 // step of the puzzle's tune, so solving the puzzle slowly plays the music; any
 // other swap repeats the step it has reached.
 const sound = (() => {
@@ -648,6 +648,22 @@ const sound = (() => {
     knock: { file: 'Door knock.m4a', lead: 0.28, level: 0.3 },
   };
 
+  // The piano is the user's own, every key from C3 to C6 recorded one at a time,
+  // in sound-effects/piano/<note>.mp3 (Cs3 for C#3), each evened out in loudness.
+  // cents = how far each key was from true, low to high, which is put right as
+  // it plays. A note outside the range is the key an octave or two nearer,
+  // played slower or faster. Until a key is fetched, the synthesised note sounds.
+  const KEYS_FROM = 48;
+  const KEYS_TO = 84;
+  const KEY_CENTS = [
+    -12, -9, -14, -9, -3, -3, -1, -9, -13, -11, -10, 11, 0, -5, -4, 1, -3, 4, 1,
+    -3, -7, -5, 0, -7, -12, -5, -3, -5, 2, 1, 2, -5, -2, 0, 2, -4, -2,
+  ];
+  // how loud a recorded key is played, against the synthesised note's level
+  const KEY_LEVEL = 4.7;
+  const keys = {};
+  let keysAsked = false;
+
   const SEMITONES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
   function midi(name) {
     const [, letter, accidental, octave] = name.match(/^([A-G])([#b]?)(\d)$/);
@@ -741,7 +757,8 @@ const sound = (() => {
     greeting = null;
     intro = null;
     hiss = null;
-    for (const group of [plucks, clips, effects]) for (const id in group) delete group[id];
+    for (const group of [plucks, clips, effects, keys]) for (const id in group) delete group[id];
+    keysAsked = false;
     try {
       old.close().catch(() => {});
     } catch {}
@@ -888,7 +905,8 @@ const sound = (() => {
   function ready() {
     const mine = tune;
     const v = VOICES[tune.voice || 'piano'];
-    if (!ctx || !v.plucked) return;
+    if (!ctx) return;
+    if (!v.plucked) return askKeys();
     const pitches = [...new Set(steps.flatMap((step) => step.notes.map((n) => midi(n.name))))];
     const next = () => {
       if (tune !== mine || !pitches.length) return;
@@ -896,6 +914,37 @@ const sound = (() => {
       setTimeout(next, 30);
     };
     setTimeout(next, 300);
+  }
+
+  // fetches the recorded piano's keys, once for each audio context
+  function askKeys() {
+    if (keysAsked) return;
+    keysAsked = true;
+    const NAMES = ['C', 'Cs', 'D', 'Ds', 'E', 'F', 'Fs', 'G', 'Gs', 'A', 'As', 'B'];
+    for (let pitch = KEYS_FROM; pitch <= KEYS_TO; pitch++) {
+      const file = NAMES[pitch % 12] + (Math.floor(pitch / 12) - 1);
+      const mine = ctx;
+      fetched(`sound-effects/piano/${file}.mp3`).then(
+        (buffer) => mine === ctx && (keys[pitch] = buffer),
+        () => {}
+      );
+    }
+  }
+
+  // a recorded key, moved by octaves into the range there is; false if it is not here yet
+  function key(pitch, when, level) {
+    let near = pitch;
+    while (near < KEYS_FROM) near += 12;
+    while (near > KEYS_TO) near -= 12;
+    if (!keys[near]) return false;
+    const source = ctx.createBufferSource();
+    source.buffer = keys[near];
+    source.playbackRate.value = Math.pow(2, (100 * (pitch - near) - KEY_CENTS[near - KEYS_FROM]) / 1200);
+    const gain = ctx.createGain();
+    gain.gain.value = level * KEY_LEVEL;
+    source.connect(gain).connect(master);
+    source.start(when);
+    return true;
   }
 
   // hold = seconds the note is written to last
@@ -908,6 +957,8 @@ const sound = (() => {
     // low notes ring longer than high ones; bass notes sit behind the tune
     const decay = v.decay * Math.min(1.6, Math.max(0.5, Math.pow(262 / freq, 0.35)));
     const level = 0.3 * volume * (pitch < 48 ? 0.5 : 1);
+    askKeys();
+    if (key(pitch, when, level)) return;
     const env = ctx.createGain();
     env.gain.setValueAtTime(0.0001, when);
     env.gain.exponentialRampToValueAtTime(level, when + v.attack);
