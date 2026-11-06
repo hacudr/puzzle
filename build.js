@@ -47,6 +47,8 @@ copyDir('music/long', (n) => n.endsWith('.mp3'));
 copyDir('sound-effects', (n) => /\.(m4a|mp3)$/.test(n));
 // the piano's notes, one recorded key each (the full recording in sound-effects/sources stays behind)
 copyDir('sound-effects/piano', (n) => n.endsWith('.mp3'));
+// the sounds of the places the pictures show, heard under the ending music
+copyDir('sound-effects/ambience', (n) => n.endsWith('.mp3'));
 
 // only the pictures listed in puzzles.json, not the full-size originals
 const list = JSON.parse(fs.readFileSync(path.join(root, 'puzzles', 'puzzles.json'), 'utf8'));
@@ -67,6 +69,9 @@ for (const p of list) {
 const sound = fs.readFileSync(path.join(root, 'sound.js'), 'utf8');
 for (const [, file] of sound.matchAll(/file: '([^']+)'/g)) {
   if (!fs.existsSync(path.join(dist, 'sound-effects', file))) throw new Error(`sound-effects/${file} is missing`);
+}
+for (const [, file] of sound.matchAll(/quiet\('([^']+)'\)/g)) {
+  if (!fs.existsSync(path.join(dist, 'sound-effects', 'ambience', file))) throw new Error(`sound-effects/ambience/${file} is missing`);
 }
 
 let bytes = 0;

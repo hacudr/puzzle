@@ -642,10 +642,42 @@ const sound = (() => {
   // silence the file opens on, which are skipped so that the sound comes in
   // with the music; level = how loud it is played, fade =
   // the seconds it takes to die away at its end, for one that would stop short.
+  // A puzzle's `ambience` names one more, a sound of the place the picture
+  // shows (a river, rain, birdsong), heard faintly under the music as it ends.
+  // Each is up to thirty seconds of a Freesound recording, cut by
+  // sound-effects/ambience/cut.js, evened out to the loudness of the music's
+  // recordings and fading in and out, so that AMBIENT, a share of the music's
+  // own level, sets how loud they all are. Their sources and licences are in
+  // sound-effects/CREDITS.md; those under CC BY are credited in Sources & Credits.
+  const AMBIENT = 1 / 3;
+  const MUSIC_LEVEL = 0.6;
+  const quiet = (file) => ({ file: `ambience/${file}`, lead: 0, level: MUSIC_LEVEL * AMBIENT });
   const EFFECTS = {
     sword: { file: 'Sword.m4a', lead: 0.8, level: 0.8 },
     gallop: { file: 'Gallop.m4a', lead: 0.45, level: 0.175, fade: 1.5 },
     knock: { file: 'Door knock.m4a', lead: 0.28, level: 0.3 },
+    river: quiet('river.mp3'),
+    brook: quiet('brook.mp3'),
+    rain: quiet('rain.mp3'),
+    storm: quiet('storm.mp3'),
+    sea: quiet('sea.mp3'),
+    shore: quiet('shore.mp3'),
+    harbour: quiet('harbour.mp3'),
+    rowing: quiet('rowing.mp3'),
+    birds: quiet('birds.mp3'),
+    wind: quiet('wind.mp3'),
+    leaves: quiet('leaves.mp3'),
+    bees: quiet('bees.mp3'),
+    crickets: quiet('crickets.mp3'),
+    sheep: quiet('sheep.mp3'),
+    cart: quiet('cart.mp3'),
+    market: quiet('market.mp3'),
+    street: quiet('street.mp3'),
+    bells: quiet('bells.mp3'),
+    train: quiet('train.mp3'),
+    fire: quiet('fire.mp3'),
+    wings: quiet('wings.mp3'),
+    flight: quiet('flight.mp3'),
   };
 
   // The piano is the user's own, every key from C3 to C6 recorded one at a time,
@@ -1218,7 +1250,7 @@ const sound = (() => {
       if (!on.music) return;
       part();
       if (clip) {
-        playing = sample(clip, 0.6, 0.7);
+        playing = sample(clip, MUSIC_LEVEL, 0.7);
         return;
       }
       let i = (heard + 1) % steps.length;
@@ -1252,7 +1284,7 @@ const sound = (() => {
           if (tune !== mine || !on.music || !clip || !still()) return false;
           hush();
           part();
-          playing = sample(clip, 0.6, 0.3);
+          playing = sample(clip, MUSIC_LEVEL, 0.3);
           return true;
         });
     },

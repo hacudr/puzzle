@@ -4,28 +4,32 @@
     "artist": "Michalina Janoszanka",
     "name": "Bird of Paradise",
     "scientific": "Rajski ptak",
-    "music": "pathetique"
+    "music": "pathetique",
+    "ambience": "birds"
   },
   {
     "image": "butterfly.webp",
     "artist": "Michalina Janoszanka",
     "name": "Butterfly",
     "scientific": "Motyl",
-    "music": "clair"
+    "music": "clair",
+    "ambience": "brook"
   },
   {
     "image": "spring.webp",
     "artist": "Michalina Janoszanka",
     "name": "Spring",
     "scientific": "Wiosna",
-    "music": "pathetique"
+    "music": "pathetique",
+    "ambience": "brook"
   },
   {
     "image": "winter.webp",
     "artist": "Michalina Janoszanka",
     "name": "Winter",
     "scientific": "Zima",
-    "music": "moonlight"
+    "music": "moonlight",
+    "ambience": "wind"
   },
   {
     "image": "marvellous-tree.webp",
@@ -43,7 +47,8 @@
     "image": "tortoise.webp",
     "artist": "Virginia Frances Sterrett",
     "name": "The Tortoise",
-    "scientific": "Blondine, Bonne-Biche and Beau-Minon"
+    "scientific": "Blondine, Bonne-Biche and Beau-Minon",
+    "ambience": "wind"
   },
   {
     "image": "giant.webp",
@@ -55,19 +60,22 @@
     "image": "plant-of-life.webp",
     "artist": "Virginia Frances Sterrett",
     "name": "The Plant of Life",
-    "scientific": "Good Little Henry"
+    "scientific": "Good Little Henry",
+    "ambience": "birds"
   },
   {
     "image": "rosette.webp",
     "artist": "Virginia Frances Sterrett",
     "name": "The Evening Walk",
-    "scientific": "Princess Rosette"
+    "scientific": "Princess Rosette",
+    "ambience": "crickets"
   },
   {
     "image": "night-in-the-forest.webp",
     "artist": "Virginia Frances Sterrett",
     "name": "Night in the Forest",
-    "scientific": "Ourson"
+    "scientific": "Ourson",
+    "ambience": "crickets"
   },
   {
     "image": "monet-still-life-with-bottle-carafe-bread-and-wine.webp",
@@ -79,7 +87,8 @@
     "image": "monet-bazille-and-camille.webp",
     "artist": "Claude Monet",
     "name": "Bazille and Camille",
-    "scientific": "1865"
+    "scientific": "1865",
+    "ambience": "birds"
   },
   {
     "image": "monet-the-cradle.webp",
@@ -91,80 +100,93 @@
     "image": "monet-sainte-adresse.webp",
     "artist": "Claude Monet",
     "name": "Sainte-Adresse",
-    "scientific": "1867"
+    "scientific": "1867",
+    "ambience": "shore"
   },
   {
     "image": "monet-interior-after-dinner.webp",
     "artist": "Claude Monet",
     "name": "Interior, after Dinner",
-    "scientific": "1868/1869"
+    "scientific": "1868/1869",
+    "ambience": "fire"
   },
   {
     "image": "monet-argenteuil.webp",
     "artist": "Claude Monet",
     "name": "Argenteuil",
-    "scientific": "c. 1872"
+    "scientific": "c. 1872",
+    "ambience": "river"
   },
   {
     "image": "monet-ships-riding-on-the-seine-at-rouen.webp",
     "artist": "Claude Monet",
     "name": "Ships Riding on the Seine at Rouen",
-    "scientific": "1872/1873"
+    "scientific": "1872/1873",
+    "ambience": "harbour"
   },
   {
     "image": "monet-springtime.webp",
     "artist": "Claude Monet",
     "name": "Springtime",
-    "scientific": "1872"
+    "scientific": "1872",
+    "ambience": "birds"
   },
   {
     "image": "monet-the-artists-garden-in-argenteuil.webp",
     "artist": "Claude Monet",
     "name": "The Artist’s Garden in Argenteuil",
-    "scientific": "1873"
+    "scientific": "1873",
+    "ambience": "bees"
   },
   {
     "image": "monet-the-bridge-at-argenteuil.webp",
     "artist": "Claude Monet",
     "name": "The Bridge at Argenteuil",
-    "scientific": "1874"
+    "scientific": "1874",
+    "ambience": "river"
   },
   {
     "image": "monet-woman-with-a-parasol.webp",
     "artist": "Claude Monet",
     "name": "Woman with a Parasol",
-    "scientific": "1875"
+    "scientific": "1875",
+    "ambience": "wind"
   },
   {
     "image": "monet-bridge-at-argenteuil-on-a-gray-day.webp",
     "artist": "Claude Monet",
     "name": "Bridge at Argenteuil on a Gray Day",
-    "scientific": "c. 1876"
+    "scientific": "c. 1876",
+    "ambience": "river"
   },
   {
     "image": "monet-la-gare-saint-lazare.webp",
     "artist": "Claude Monet",
     "name": "La Gare Saint-Lazare",
     "scientific": "1877",
-    "article": "Gare Saint-Lazare (Monet series)"
+    "article": "Gare Saint-Lazare (Monet series)",
+    "ambience": "train"
   },
   {
     "image": "monet-arrival-of-the-normandy-train.webp",
     "artist": "Claude Monet",
     "name": "Arrival of the Normandy Train, Gare Saint-Lazare",
-    "scientific": "1877"
+    "scientific": "1877",
+    "ambience": "train"
   },
   {
     "image": "monet-banks-of-the-seine-vetheuil.webp",
     "artist": "Claude Monet",
     "name": "Banks of the Seine, Vétheuil",
-    "scientific": "1880"
+    "scientific": "1880",
+    "ambience": "river"
   },
   {
     "image": "monet-woman-seated-under-the-willows.webp",
     "artist": "Claude Monet",
     "name": "Woman Seated under the Willows",
-    "scientific": "1880"
+    "scientific": "1880",
+    "ambience": "birds"
   },
   {
     "image": "monet-jerusalem-artichoke-flowers.webp",
@@ -176,132 +198,153 @@
     "image": "monet-the-willows.webp",
     "artist": "Claude Monet",
     "name": "The Willows",
-    "scientific": "1880"
+    "scientific": "1880",
+    "ambience": "wind"
   },
   {
     "image": "monet-the-artists-garden-at-vetheuil.webp",
     "artist": "Claude Monet",
     "name": "The Artist’s Garden at Vétheuil",
-    "scientific": "1881"
+    "scientific": "1881",
+    "ambience": "bees"
   },
   {
     "image": "monet-cliffs-at-pourville.webp",
     "artist": "Claude Monet",
     "name": "Cliffs at Pourville",
-    "scientific": "1882"
+    "scientific": "1882",
+    "ambience": "sea"
   },
   {
     "image": "monet-the-pyramids-at-port-coton.webp",
     "artist": "Claude Monet",
     "name": "The Pyramids at Port-Coton",
     "scientific": "1886",
-    "article": "Belle Île"
+    "article": "Belle Île",
+    "ambience": "sea"
   },
   {
     "image": "monet-morning-haze.webp",
     "artist": "Claude Monet",
     "name": "Morning Haze",
-    "scientific": "1888"
+    "scientific": "1888",
+    "ambience": "birds"
   },
   {
     "image": "monet-rouen-cathedral-west-facade.webp",
     "artist": "Claude Monet",
     "name": "Rouen Cathedral, West Façade",
-    "scientific": "1894"
+    "scientific": "1894",
+    "ambience": "bells"
   },
   {
     "image": "monet-rouen-cathedral-west-facade-sunlight.webp",
     "artist": "Claude Monet",
     "name": "Rouen Cathedral, West Façade, Sunlight",
-    "scientific": "1894"
+    "scientific": "1894",
+    "ambience": "bells"
   },
   {
     "image": "monet-the-seine-at-giverny.webp",
     "artist": "Claude Monet",
     "name": "The Seine at Giverny",
-    "scientific": "1897"
+    "scientific": "1897",
+    "ambience": "river"
   },
   {
     "image": "monet-morning-on-the-seine.webp",
     "artist": "Claude Monet",
     "name": "Morning on the Seine",
-    "scientific": "1898"
+    "scientific": "1898",
+    "ambience": "river"
   },
   {
     "image": "monet-the-japanese-footbridge.webp",
     "artist": "Claude Monet",
     "name": "The Japanese Footbridge",
-    "scientific": "1899"
+    "scientific": "1899",
+    "ambience": "birds"
   },
   {
     "image": "monet-houses-of-parliament-london.webp",
     "artist": "Claude Monet",
     "name": "Houses of Parliament, London",
     "scientific": "1900–1903",
-    "article": "Houses of Parliament (Monet series)"
+    "article": "Houses of Parliament (Monet series)",
+    "ambience": "river"
   },
   {
     "image": "monet-the-houses-of-parliament-sunset.webp",
     "artist": "Claude Monet",
     "name": "The Houses of Parliament, Sunset",
-    "scientific": "1903"
+    "scientific": "1903",
+    "ambience": "river"
   },
   {
     "image": "monet-waterloo-bridge-gray-day.webp",
     "artist": "Claude Monet",
     "name": "Waterloo Bridge, Gray Day",
-    "scientific": "1903"
+    "scientific": "1903",
+    "ambience": "river"
   },
   {
     "image": "monet-waterloo-bridge-london-at-dusk.webp",
     "artist": "Claude Monet",
     "name": "Waterloo Bridge, London, at Dusk",
-    "scientific": "1904"
+    "scientific": "1904",
+    "ambience": "river"
   },
   {
     "image": "monet-waterloo-bridge-london-at-sunset.webp",
     "artist": "Claude Monet",
     "name": "Waterloo Bridge, London, at Sunset",
-    "scientific": "1904"
+    "scientific": "1904",
+    "ambience": "river"
   },
   {
     "image": "monet-palazzo-da-mula-venice.webp",
     "artist": "Claude Monet",
     "name": "Palazzo da Mula, Venice",
-    "scientific": "1908"
+    "scientific": "1908",
+    "ambience": "harbour"
   },
   {
     "image": "monet-san-giorgio-maggiore-at-dusk.webp",
     "artist": "Claude Monet",
     "name": "San Giorgio Maggiore at Dusk",
-    "scientific": "1908"
+    "scientific": "1908",
+    "ambience": "harbour"
   },
   {
     "image": "monet-water-lilies-met.webp",
     "artist": "Claude Monet",
     "name": "Water Lilies",
-    "scientific": "New York, 1916–1919"
+    "scientific": "New York, 1916–1919",
+    "ambience": "birds"
   },
   {
     "image": "monet-water-lilies-honolulu.webp",
     "artist": "Claude Monet",
     "name": "Water Lilies",
     "scientific": "Honolulu, 1917–1919",
-    "article": "Water Lilies (Monet series)"
+    "article": "Water Lilies (Monet series)",
+    "ambience": "birds"
   },
   {
     "image": "monet-the-water-lily-pond.webp",
     "artist": "Claude Monet",
     "name": "The Water Lily Pond",
     "scientific": "1919",
-    "article": "Le Bassin aux Nymphéas"
+    "article": "Le Bassin aux Nymphéas",
+    "ambience": "birds"
   },
   {
     "image": "monet-reflections-of-clouds-on-the-water-lily-pond.webp",
     "artist": "Claude Monet",
     "name": "Reflections of Clouds on the Water-Lily Pond",
     "scientific": "c. 1920",
-    "article": "Water Lilies (Monet series)"
+    "article": "Water Lilies (Monet series)",
+    "ambience": "birds"
   },
   {
     "image": "cassatt-eddy-cassatt.webp",
@@ -337,7 +380,8 @@
     "image": "cassatt-children-playing-on-the-beach.webp",
     "artist": "Mary Cassatt",
     "name": "Children Playing on the Beach",
-    "scientific": "1884"
+    "scientific": "1884",
+    "ambience": "shore"
   },
   {
     "image": "cassatt-girl-arranging-her-hair.webp",
@@ -361,13 +405,15 @@
     "image": "cassatt-woman-with-a-red-zinnia.webp",
     "artist": "Mary Cassatt",
     "name": "Woman with a Red Zinnia",
-    "scientific": "1891-1892"
+    "scientific": "1891-1892",
+    "ambience": "birds"
   },
   {
     "image": "cassatt-the-boating-party.webp",
     "artist": "Mary Cassatt",
     "name": "The Boating Party",
-    "scientific": "1893/1894"
+    "scientific": "1893/1894",
+    "ambience": "rowing"
   },
   {
     "image": "cassatt-woman-with-a-sunflower.webp",
@@ -408,7 +454,8 @@
     "artist": "Berthe Morisot",
     "name": "The Harbor at Lorient",
     "scientific": "1869",
-    "focus": "75% 50%"
+    "focus": "75% 50%",
+    "ambience": "harbour"
   },
   {
     "image": "morisot-peonies.webp",
@@ -420,7 +467,8 @@
     "image": "morisot-hanging-the-laundry-out-to-dry.webp",
     "artist": "Berthe Morisot",
     "name": "Hanging the Laundry out to Dry",
-    "scientific": "1875"
+    "scientific": "1875",
+    "ambience": "wind"
   },
   {
     "image": "morisot-young-woman-with-a-straw-hat.webp",
@@ -438,7 +486,8 @@
     "image": "morisot-girl-in-a-boat-with-geese.webp",
     "artist": "Berthe Morisot",
     "name": "Girl in a Boat with Geese",
-    "scientific": "c. 1889"
+    "scientific": "c. 1889",
+    "ambience": "river"
   },
   {
     "image": "morisot-the-artists-daughter-with-a-parakeet.webp",
@@ -473,7 +522,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "birds"
   },
   {
     "image": "bellini-portrait-of-a-young-man.webp",
@@ -492,7 +542,8 @@
     "artist": "Giovanni Bellini",
     "name": "Saint Jerome Reading",
     "scientific": "1505",
-    "sacred": true
+    "sacred": true,
+    "ambience": "birds"
   },
   {
     "image": "bellini-the-infant-bacchus.webp",
@@ -515,7 +566,8 @@
     "content": [
       "nudity",
       "violence"
-    ]
+    ],
+    "ambience": "birds"
   },
   {
     "image": "botticelli-madonna-and-child.webp",
@@ -569,7 +621,8 @@
     "content": [
       "nudity"
     ],
-    "focus": "75% 50%"
+    "focus": "75% 50%",
+    "ambience": "shore"
   },
   {
     "image": "botticelli-primavera.webp",
@@ -580,7 +633,8 @@
       "nudity",
       "violence"
     ],
-    "focus": "40% 50%"
+    "focus": "40% 50%",
+    "ambience": "birds"
   },
   {
     "image": "botticelli-pallas-and-the-centaur.webp",
@@ -719,7 +773,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "botticelli-the-sant-ambrogio-altarpiece.webp",
@@ -730,7 +785,8 @@
       "nudity"
     ],
     "sacred": true,
-    "focus": "30% 50%"
+    "focus": "30% 50%",
+    "ambience": "wings"
   },
   {
     "image": "botticelli-madonna-and-child-with-singing-angels.webp",
@@ -741,14 +797,16 @@
       "nudity"
     ],
     "sacred": true,
-    "focus": "40% 50%"
+    "focus": "40% 50%",
+    "ambience": "wings"
   },
   {
     "image": "botticelli-virgin-and-child-with-an-angel.webp",
     "artist": "Sandro Botticelli",
     "name": "Virgin and Child with an Angel",
     "scientific": "c. 1475–1485",
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "botticelli-madonna-of-the-book.webp",
@@ -768,7 +826,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "botticelli-the-bardi-madonna.webp",
@@ -788,7 +847,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "birds"
   },
   {
     "image": "botticelli-madonna-of-the-pomegranate.webp",
@@ -798,7 +858,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "botticelli-virgin-and-child-with-the-young-saint-john-the-baptist.webp",
@@ -818,28 +879,32 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "botticelli-the-cestello-annunciation.webp",
     "artist": "Sandro Botticelli",
     "name": "The Cestello Annunciation",
     "scientific": "c. 1489–1490",
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "botticelli-the-annunciation-glasgow.webp",
     "artist": "Sandro Botticelli",
     "name": "The Annunciation",
     "scientific": "Glasgow, c. 1490–1495",
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "botticelli-the-annunciation.webp",
     "artist": "Sandro Botticelli",
     "name": "The Annunciation",
     "scientific": "New York, c. 1490",
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "botticelli-the-return-of-judith-to-bethulia.webp",
@@ -918,7 +983,8 @@
     ],
     "effect": "sword",
     "sacred": true,
-    "focus": "20% 50%"
+    "focus": "20% 50%",
+    "ambience": "sheep"
   },
   {
     "image": "botticelli-the-temptations-of-christ.webp",
@@ -971,7 +1037,8 @@
       "frightening"
     ],
     "sacred": true,
-    "christ": true
+    "christ": true,
+    "ambience": "wings"
   },
   {
     "image": "botticelli-the-mystical-nativity.webp",
@@ -981,7 +1048,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "botticelli-four-scenes-from-the-early-life-of-saint-zenobius.webp",
@@ -1032,7 +1100,8 @@
       "violence"
     ],
     "sacred": true,
-    "christ": true
+    "christ": true,
+    "ambience": "market"
   },
   {
     "image": "el-greco-the-holy-family-with-saint-anne-and-the-infant-john-the-baptist.webp",
@@ -1065,7 +1134,8 @@
       "nudity"
     ],
     "sacred": true,
-    "focus": "50% 20%"
+    "focus": "50% 20%",
+    "ambience": "wings"
   },
   {
     "image": "el-greco-saint-ildefonso.webp",
@@ -1099,25 +1169,29 @@
     "image": "gogh-flower-beds-in-holland.webp",
     "artist": "Vincent van Gogh",
     "name": "Flower Beds in Holland",
-    "scientific": "c. 1883"
+    "scientific": "c. 1883",
+    "ambience": "bees"
   },
   {
     "image": "gogh-peasant-woman-digging.webp",
     "artist": "Vincent van Gogh",
     "name": "A Peasant Woman Digging in Front of Her Cottage",
-    "scientific": "c. 1885"
+    "scientific": "c. 1885",
+    "ambience": "wind"
   },
   {
     "image": "gogh-moulin-de-blute-fin.webp",
     "artist": "Vincent van Gogh",
     "name": "Terrace and Observation Deck at the Moulin de Blute-Fin, Montmartre",
-    "scientific": "Early 1887"
+    "scientific": "Early 1887",
+    "ambience": "wind"
   },
   {
     "image": "gogh-fishing-in-spring.webp",
     "artist": "Vincent van Gogh",
     "name": "Fishing in Spring, the Pont de Clichy",
-    "scientific": "Asnières, 1887"
+    "scientific": "Asnières, 1887",
+    "ambience": "river"
   },
   {
     "image": "gogh-self-portrait-1887.webp",
@@ -1161,33 +1235,38 @@
     "image": "gogh-farmhouse-in-provence.webp",
     "artist": "Vincent van Gogh",
     "name": "Farmhouse in Provence",
-    "scientific": "1888"
+    "scientific": "1888",
+    "ambience": "birds"
   },
   {
     "image": "gogh-the-poets-garden.webp",
     "artist": "Vincent van Gogh",
     "name": "The Poet's Garden",
-    "scientific": "1888"
+    "scientific": "1888",
+    "ambience": "birds"
   },
   {
     "image": "gogh-pink-peach-tree-souvenir-de-mauve.webp",
     "artist": "Vincent van Gogh",
     "name": "Pink Peach Tree in Blossom (Souvenir de Mauve)",
     "scientific": "1888",
-    "article": "Flowering Orchards"
+    "article": "Flowering Orchards",
+    "ambience": "bees"
   },
   {
     "image": "gogh-the-pink-orchard.webp",
     "artist": "Vincent van Gogh",
     "name": "The Pink Orchard",
     "scientific": "1888",
-    "article": "Flowering Orchards"
+    "article": "Flowering Orchards",
+    "ambience": "bees"
   },
   {
     "image": "gogh-the-painter-on-the-road-to-tarascon.webp",
     "artist": "Vincent van Gogh",
     "name": "The Painter on the Road to Tarascon",
-    "scientific": "1888, destroyed in 1945"
+    "scientific": "1888, destroyed in 1945",
+    "ambience": "birds"
   },
   {
     "image": "gogh-sunflowers.webp",
@@ -1207,7 +1286,8 @@
     "image": "gogh-starry-night-over-the-rhone.webp",
     "artist": "Vincent van Gogh",
     "name": "Starry Night over the Rhône",
-    "scientific": "1888"
+    "scientific": "1888",
+    "ambience": "crickets"
   },
   {
     "image": "gogh-eugene-boch.webp",
@@ -1234,7 +1314,8 @@
     "artist": "Vincent van Gogh",
     "name": "Memory of the Garden at Etten (Ladies of Arles)",
     "scientific": "1888",
-    "focus": "10% 50%"
+    "focus": "10% 50%",
+    "ambience": "bees"
   },
   {
     "image": "gogh-larlesienne-madame-ginoux.webp",
@@ -1247,7 +1328,8 @@
     "image": "gogh-the-olive-orchard.webp",
     "artist": "Vincent van Gogh",
     "name": "The Olive Orchard",
-    "scientific": "1889"
+    "scientific": "1889",
+    "ambience": "wind"
   },
   {
     "image": "gogh-self-portrait.webp",
@@ -1277,13 +1359,15 @@
     "image": "gogh-the-large-plane-trees.webp",
     "artist": "Vincent van Gogh",
     "name": "The Large Plane Trees (Road Menders at Saint-Rémy)",
-    "scientific": "1889"
+    "scientific": "1889",
+    "ambience": "wind"
   },
   {
     "image": "gogh-two-poplars.webp",
     "artist": "Vincent van Gogh",
     "name": "Two Poplars in the Alpilles near Saint-Rémy",
-    "scientific": "1889"
+    "scientific": "1889",
+    "ambience": "wind"
   },
   {
     "image": "gogh-lullaby-la-berceuse.webp",
@@ -1296,52 +1380,60 @@
     "image": "gogh-view-of-arles-flowering-orchards.webp",
     "artist": "Vincent van Gogh",
     "name": "View of Arles, Flowering Orchards",
-    "scientific": "1889"
+    "scientific": "1889",
+    "ambience": "bees"
   },
   {
     "image": "gogh-enclosed-wheat-field-with-rising-sun.webp",
     "artist": "Vincent van Gogh",
     "name": "Enclosed Wheat Field with Rising Sun",
     "scientific": "1889",
-    "article": "Wheat Fields"
+    "article": "Wheat Fields",
+    "ambience": "birds"
   },
   {
     "image": "gogh-irises.webp",
     "artist": "Vincent van Gogh",
     "name": "Irises",
-    "scientific": "1889"
+    "scientific": "1889",
+    "ambience": "bees"
   },
   {
     "image": "gogh-cypresses-with-two-figures.webp",
     "artist": "Vincent van Gogh",
     "name": "Cypresses with Two Figures",
-    "scientific": "1889"
+    "scientific": "1889",
+    "ambience": "wind"
   },
   {
     "image": "gogh-olive-trees-with-the-alpilles.webp",
     "artist": "Vincent van Gogh",
     "name": "Olive Trees with the Alpilles in the Background",
     "scientific": "1889",
-    "article": "Olive Trees (Van Gogh series)"
+    "article": "Olive Trees (Van Gogh series)",
+    "ambience": "wind"
   },
   {
     "image": "gogh-the-starry-night.webp",
     "artist": "Vincent van Gogh",
     "name": "The Starry Night",
-    "scientific": "1889"
+    "scientific": "1889",
+    "ambience": "crickets"
   },
   {
     "image": "gogh-cypresses.webp",
     "artist": "Vincent van Gogh",
     "name": "Cypresses",
-    "scientific": "1889"
+    "scientific": "1889",
+    "ambience": "wind"
   },
   {
     "image": "gogh-wheat-field-with-cypresses.webp",
     "artist": "Vincent van Gogh",
     "name": "Wheat Field with Cypresses",
     "scientific": "1889",
-    "article": "Wheat Field with Cypresses"
+    "article": "Wheat Field with Cypresses",
+    "ambience": "wind"
   },
   {
     "image": "gogh-self-portrait-orsay.webp",
@@ -1354,13 +1446,15 @@
     "artist": "Vincent van Gogh",
     "name": "Evening Landscape at Moonrise",
     "scientific": "1889",
-    "article": "Wheat Fields"
+    "article": "Wheat Fields",
+    "ambience": "crickets"
   },
   {
     "image": "gogh-girl-in-white.webp",
     "artist": "Vincent van Gogh",
     "name": "Girl in White",
-    "scientific": "1890"
+    "scientific": "1890",
+    "ambience": "birds"
   },
   {
     "image": "gogh-roses.webp",
@@ -1372,7 +1466,8 @@
     "image": "gogh-green-wheat-fields-auvers.webp",
     "artist": "Vincent van Gogh",
     "name": "Green Wheat Fields, Auvers",
-    "scientific": "1890"
+    "scientific": "1890",
+    "ambience": "birds"
   },
   {
     "image": "gogh-the-drinkers.webp",
@@ -1390,7 +1485,8 @@
     "image": "gogh-almond-blossom.webp",
     "artist": "Vincent van Gogh",
     "name": "Almond Blossom",
-    "scientific": "1890"
+    "scientific": "1890",
+    "ambience": "bees"
   },
   {
     "image": "gogh-vase-with-irises.webp",
@@ -1403,20 +1499,23 @@
     "artist": "Vincent van Gogh",
     "name": "Road with Cypress and Star",
     "scientific": "1890",
-    "effect": "gallop"
+    "effect": "gallop",
+    "ambience": "crickets"
   },
   {
     "image": "gogh-wheatfield-under-thunderclouds.webp",
     "artist": "Vincent van Gogh",
     "name": "Wheatfield under Thunderclouds",
-    "scientific": "1890"
+    "scientific": "1890",
+    "ambience": "storm"
   },
   {
     "image": "gogh-house-at-auvers.webp",
     "artist": "Vincent van Gogh",
     "name": "House at Auvers",
     "scientific": "1890",
-    "article": "Auvers-sur-Oise"
+    "article": "Auvers-sur-Oise",
+    "ambience": "wind"
   },
   {
     "image": "raphael-the-small-cowper-madonna.webp",
@@ -1426,7 +1525,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "birds"
   },
   {
     "image": "raphael-saint-george-and-the-dragon.webp",
@@ -1461,7 +1561,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "birds"
   },
   {
     "image": "raphael-bindo-altoviti.webp",
@@ -1503,7 +1604,8 @@
     "image": "rembrandt-van-rijn-the-mill.webp",
     "artist": "Rembrandt van Rijn",
     "name": "The Mill",
-    "scientific": "1645/1648"
+    "scientific": "1645/1648",
+    "ambience": "wind"
   },
   {
     "image": "rembrandt-van-rijn-a-woman-holding-a-pink.webp",
@@ -1687,7 +1789,8 @@
       "nudity"
     ],
     "sacred": true,
-    "focus": "25% 50%"
+    "focus": "25% 50%",
+    "ambience": "wings"
   },
   {
     "image": "titian-woman-holding-an-apple.webp",
@@ -1726,13 +1829,15 @@
     "image": "cezanne-house-of-pere-lacroix.webp",
     "artist": "Paul Cézanne",
     "name": "House of Père Lacroix",
-    "scientific": "1873"
+    "scientific": "1873",
+    "ambience": "birds"
   },
   {
     "image": "cezanne-landscape-near-paris.webp",
     "artist": "Paul Cézanne",
     "name": "Landscape near Paris",
-    "scientific": "c. 1876"
+    "scientific": "c. 1876",
+    "ambience": "birds"
   },
   {
     "image": "cezanne-flowers-in-a-rococo-vase.webp",
@@ -1766,13 +1871,15 @@
     "image": "cezanne-houses-in-provence-the-riaux-valley-near-lestaque.webp",
     "artist": "Paul Cézanne",
     "name": "Houses in Provence: The Riaux Valley near L'Estaque",
-    "scientific": "c. 1883"
+    "scientific": "c. 1883",
+    "ambience": "birds"
   },
   {
     "image": "cezanne-banks-of-the-seine-at-medan.webp",
     "artist": "Paul Cézanne",
     "name": "Banks of the Seine at Médan",
-    "scientific": "c. 1885/1890"
+    "scientific": "c. 1885/1890",
+    "ambience": "river"
   },
   {
     "image": "cezanne-the-artists-son-paul.webp",
@@ -1784,7 +1891,8 @@
     "image": "cezanne-montagne-sainte-victoire-from-near-gardanne.webp",
     "artist": "Paul Cézanne",
     "name": "Montagne Sainte-Victoire, from near Gardanne",
-    "scientific": "c. 1887"
+    "scientific": "c. 1887",
+    "ambience": "wind"
   },
   {
     "image": "cezanne-harlequin.webp",
@@ -1803,7 +1911,8 @@
     "image": "cezanne-at-the-waters-edge.webp",
     "artist": "Paul Cézanne",
     "name": "At the Water's Edge",
-    "scientific": "c. 1890"
+    "scientific": "c. 1890",
+    "ambience": "river"
   },
   {
     "image": "cezanne-man-with-pipe.webp",
@@ -1821,7 +1930,8 @@
     "image": "cezanne-chateau-noir.webp",
     "artist": "Paul Cézanne",
     "name": "Château Noir",
-    "scientific": "1900/1904"
+    "scientific": "1900/1904",
+    "ambience": "wind"
   },
   {
     "image": "cezanne-vase-of-flowers.webp",
@@ -1839,7 +1949,8 @@
     "image": "cezanne-the-bend-in-the-road.webp",
     "artist": "Paul Cézanne",
     "name": "The Bend in the Road",
-    "scientific": "1900/1906"
+    "scientific": "1900/1906",
+    "ambience": "birds"
   },
   {
     "image": "cezanne-still-life-with-apples-and-peaches.webp",
@@ -1924,7 +2035,8 @@
     "artist": "Edgar Degas",
     "name": "Horses in a Meadow",
     "scientific": "1871",
-    "effect": "gallop"
+    "effect": "gallop",
+    "ambience": "birds"
   },
   {
     "image": "degas-madame-rene-de-gas.webp",
@@ -2009,7 +2121,8 @@
     "scientific": "1863",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "birds"
   },
   {
     "image": "manet-olympia.webp",
@@ -2042,7 +2155,8 @@
       "frightening"
     ],
     "sacred": true,
-    "christ": true
+    "christ": true,
+    "ambience": "wings"
   },
   {
     "image": "manet-the-battle-of-the-kearsarge-and-the-alabama.webp",
@@ -2052,7 +2166,8 @@
     "content": [
       "violence",
       "frightening"
-    ]
+    ],
+    "ambience": "sea"
   },
   {
     "image": "manet-the-tragic-actor.webp",
@@ -2112,7 +2227,8 @@
     "image": "manet-the-railway.webp",
     "artist": "Edouard Manet",
     "name": "The Railway",
-    "scientific": "1873"
+    "scientific": "1873",
+    "ambience": "train"
   },
   {
     "image": "manet-masked-ball-at-the-opera.webp",
@@ -2126,13 +2242,15 @@
     "artist": "Edouard Manet",
     "name": "Boating",
     "scientific": "1874",
-    "focus": "25% 50%"
+    "focus": "25% 50%",
+    "ambience": "rowing"
   },
   {
     "image": "manet-claude-monet-painting-in-his-studio-boat.webp",
     "artist": "Edouard Manet",
     "name": "Claude Monet Painting in His Studio Boat",
-    "scientific": "1874"
+    "scientific": "1874",
+    "ambience": "river"
   },
   {
     "image": "manet-portrait-of-madame-manet.webp",
@@ -2159,7 +2277,8 @@
     "artist": "Edouard Manet",
     "name": "The Grand Canal, Venice (Blue Venice)",
     "scientific": "1875",
-    "article": "Grand Canal (Venice)"
+    "article": "Grand Canal (Venice)",
+    "ambience": "harbour"
   },
   {
     "image": "manet-stephane-mallarme.webp",
@@ -2202,7 +2321,8 @@
     "image": "manet-george-moore-in-the-artists-garden.webp",
     "artist": "Edouard Manet",
     "name": "George Moore in the Artist's Garden",
-    "scientific": "c. 1879"
+    "scientific": "c. 1879",
+    "ambience": "birds"
   },
   {
     "image": "manet-pears.webp",
@@ -2242,7 +2362,8 @@
     "artist": "Edouard Manet",
     "name": "House at Rueil",
     "scientific": "1882",
-    "article": "Rueil-Malmaison"
+    "article": "Rueil-Malmaison",
+    "ambience": "birds"
   },
   {
     "image": "manet-white-lilacs-in-a-glass-vase.webp",
@@ -2266,14 +2387,16 @@
     "image": "gauguin-brittany-landscape.webp",
     "artist": "Paul Gauguin",
     "name": "Brittany Landscape",
-    "scientific": "1888"
+    "scientific": "1888",
+    "ambience": "brook"
   },
   {
     "image": "gauguin-breton-girls-dancing-pont-aven.webp",
     "artist": "Paul Gauguin",
     "name": "Breton Girls Dancing, Pont-Aven",
     "scientific": "1888",
-    "focus": "35% 50%"
+    "focus": "35% 50%",
+    "ambience": "birds"
   },
   {
     "image": "gauguin-self-portrait-dedicated-to-carriere.webp",
@@ -2291,13 +2414,15 @@
     "image": "gauguin-haystacks-in-brittany.webp",
     "artist": "Paul Gauguin",
     "name": "Haystacks in Brittany",
-    "scientific": "1890"
+    "scientific": "1890",
+    "ambience": "birds"
   },
   {
     "image": "gauguin-landscape-at-le-pouldu.webp",
     "artist": "Paul Gauguin",
     "name": "Landscape at Le Pouldu",
-    "scientific": "1890"
+    "scientific": "1890",
+    "ambience": "wind"
   },
   {
     "image": "gauguin-fatata-te-miti.webp",
@@ -2306,7 +2431,8 @@
     "scientific": "1892",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "shore"
   },
   {
     "image": "gauguin-parau-na-te-varua-ino.webp",
@@ -2325,7 +2451,8 @@
     "scientific": "1897",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "brook"
   },
   {
     "image": "gauguin-te-pape-nave-nave.webp",
@@ -2334,7 +2461,8 @@
     "scientific": "1898",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "brook"
   },
   {
     "image": "gauguin-the-invocation.webp",
@@ -2344,7 +2472,8 @@
     "content": [
       "nudity"
     ],
-    "focus": "55% 50%"
+    "focus": "55% 50%",
+    "ambience": "birds"
   },
   {
     "image": "renoir-mademoiselle-sicot.webp",
@@ -2356,21 +2485,24 @@
     "image": "renoir-woman-by-a-fence.webp",
     "artist": "Auguste Renoir",
     "name": "Woman by a Fence",
-    "scientific": "1866"
+    "scientific": "1866",
+    "ambience": "birds"
   },
   {
     "image": "renoir-woman-standing-by-a-tree.webp",
     "artist": "Auguste Renoir",
     "name": "Woman Standing by a Tree",
     "scientific": "1866",
-    "focus": "50% 40%"
+    "focus": "50% 40%",
+    "ambience": "birds"
   },
   {
     "image": "renoir-woman-in-a-park.webp",
     "artist": "Auguste Renoir",
     "name": "Woman in a Park",
     "scientific": "1866",
-    "focus": "50% 45%"
+    "focus": "50% 45%",
+    "ambience": "birds"
   },
   {
     "image": "renoir-flowers-in-a-vase.webp",
@@ -2409,7 +2541,8 @@
     "artist": "Auguste Renoir",
     "name": "Pont Neuf, Paris",
     "scientific": "1872",
-    "effect": "gallop"
+    "effect": "gallop",
+    "ambience": "cart"
   },
   {
     "image": "renoir-claude-monet.webp",
@@ -2428,19 +2561,22 @@
     "image": "renoir-regatta-at-argenteuil.webp",
     "artist": "Auguste Renoir",
     "name": "Regatta at Argenteuil",
-    "scientific": "1874"
+    "scientific": "1874",
+    "ambience": "river"
   },
   {
     "image": "renoir-madame-monet-and-her-son.webp",
     "artist": "Auguste Renoir",
     "name": "Madame Monet and Her Son",
-    "scientific": "1874"
+    "scientific": "1874",
+    "ambience": "birds"
   },
   {
     "image": "renoir-landscape-between-storms.webp",
     "artist": "Auguste Renoir",
     "name": "Landscape between Storms",
-    "scientific": "1874/1875"
+    "scientific": "1874/1875",
+    "ambience": "wind"
   },
   {
     "image": "renoir-woman-with-a-cat.webp",
@@ -2452,7 +2588,8 @@
     "image": "renoir-picking-flowers.webp",
     "artist": "Auguste Renoir",
     "name": "Picking Flowers",
-    "scientific": "1875"
+    "scientific": "1875",
+    "ambience": "bees"
   },
   {
     "image": "renoir-madame-henriot.webp",
@@ -2464,7 +2601,8 @@
     "image": "renoir-a-girl-with-a-watering-can.webp",
     "artist": "Auguste Renoir",
     "name": "A Girl with a Watering Can",
-    "scientific": "1876"
+    "scientific": "1876",
+    "ambience": "bees"
   },
   {
     "image": "renoir-young-woman-braiding-her-hair.webp",
@@ -2495,13 +2633,15 @@
     "artist": "Auguste Renoir",
     "name": "Oarsmen at Chatou",
     "scientific": "1879",
-    "focus": "15% 50%"
+    "focus": "15% 50%",
+    "ambience": "rowing"
   },
   {
     "image": "renoir-the-mussel-harvest.webp",
     "artist": "Auguste Renoir",
     "name": "The Mussel Harvest",
-    "scientific": "1879"
+    "scientific": "1879",
+    "ambience": "birds"
   },
   {
     "image": "renoir-the-young-soldier.webp",
@@ -2538,14 +2678,16 @@
     "image": "renoir-view-of-monte-carlo-from-cap-martin.webp",
     "artist": "Auguste Renoir",
     "name": "View of Monte Carlo from Cap Martin",
-    "scientific": "c. 1884"
+    "scientific": "c. 1884",
+    "ambience": "birds"
   },
   {
     "image": "renoir-girl-with-a-hoop.webp",
     "artist": "Auguste Renoir",
     "name": "Girl with a Hoop",
     "scientific": "1885",
-    "focus": "50% 45%"
+    "focus": "50% 45%",
+    "ambience": "birds"
   },
   {
     "image": "renoir-suzanne-valadon.webp",
@@ -2570,14 +2712,16 @@
     "artist": "Auguste Renoir",
     "name": "Girl with a Basket of Fish",
     "scientific": "c. 1889",
-    "focus": "50% 30%"
+    "focus": "50% 30%",
+    "ambience": "shore"
   },
   {
     "image": "renoir-girl-with-a-basket-of-oranges.webp",
     "artist": "Auguste Renoir",
     "name": "Girl with a Basket of Oranges",
     "scientific": "c. 1889",
-    "focus": "50% 30%"
+    "focus": "50% 30%",
+    "ambience": "shore"
   },
   {
     "image": "renoir-head-of-a-young-girl.webp",
@@ -2589,13 +2733,15 @@
     "image": "renoir-landscape-at-vetheuil.webp",
     "artist": "Auguste Renoir",
     "name": "Landscape at Vétheuil",
-    "scientific": "c. 1890"
+    "scientific": "c. 1890",
+    "ambience": "river"
   },
   {
     "image": "renoir-the-blue-river.webp",
     "artist": "Auguste Renoir",
     "name": "The Blue River",
-    "scientific": "c. 1890/1900"
+    "scientific": "c. 1890/1900",
+    "ambience": "river"
   },
   {
     "image": "renoir-bather-arranging-her-hair.webp",
@@ -2643,13 +2789,15 @@
     "image": "renoir-maison-de-la-poste-cagnes.webp",
     "artist": "Auguste Renoir",
     "name": "Maison de la Poste, Cagnes",
-    "scientific": "1906/1907"
+    "scientific": "1906/1907",
+    "ambience": "birds"
   },
   {
     "image": "renoir-woman-arranging-her-hat.webp",
     "artist": "Auguste Renoir",
     "name": "Woman Arranging Her Hat",
-    "scientific": "oil on canvas, c. 1890"
+    "scientific": "oil on canvas, c. 1890",
+    "ambience": "birds"
   },
   {
     "image": "renoir-nude-in-a-chair.webp",
@@ -2745,13 +2893,15 @@
     "image": "seurat-haymakers-at-montfermeil.webp",
     "artist": "Georges Seurat",
     "name": "Haymakers at Montfermeil",
-    "scientific": "c. 1882"
+    "scientific": "c. 1882",
+    "ambience": "birds"
   },
   {
     "image": "seurat-peasant-with-a-hoe.webp",
     "artist": "Georges Seurat",
     "name": "Peasant with a Hoe",
-    "scientific": "c. 1882"
+    "scientific": "c. 1882",
+    "ambience": "birds"
   },
   {
     "image": "seurat-the-stone-breaker.webp",
@@ -2763,31 +2913,36 @@
     "image": "seurat-haystacks.webp",
     "artist": "Georges Seurat",
     "name": "Haystacks",
-    "scientific": "c. 1882"
+    "scientific": "c. 1882",
+    "ambience": "birds"
   },
   {
     "image": "seurat-man-with-a-hoe.webp",
     "artist": "Georges Seurat",
     "name": "Man with a Hoe",
-    "scientific": "c. 1882"
+    "scientific": "c. 1882",
+    "ambience": "birds"
   },
   {
     "image": "seurat-the-watering-can.webp",
     "artist": "Georges Seurat",
     "name": "The Watering Can - Garden at Le Raincy",
-    "scientific": "c. 1883"
+    "scientific": "c. 1883",
+    "ambience": "bees"
   },
   {
     "image": "seurat-a-summer-landscape.webp",
     "artist": "Georges Seurat",
     "name": "A Summer Landscape",
-    "scientific": "1883"
+    "scientific": "1883",
+    "ambience": "birds"
   },
   {
     "image": "seurat-figures-in-a-landscape.webp",
     "artist": "Georges Seurat",
     "name": "Figures in a Landscape",
-    "scientific": "c. 1883"
+    "scientific": "c. 1883",
+    "ambience": "birds"
   },
   {
     "image": "seurat-bathers.webp",
@@ -2795,51 +2950,59 @@
     "name": "Bathers",
     "scientific": "1883/1884",
     "effect": "gallop",
-    "focus": "25% 50%"
+    "focus": "25% 50%",
+    "ambience": "river"
   },
   {
     "image": "seurat-horse-and-boats.webp",
     "artist": "Georges Seurat",
     "name": "Horse and Boats",
     "scientific": "1883/1884",
-    "effect": "gallop"
+    "effect": "gallop",
+    "ambience": "river"
   },
   {
     "image": "seurat-the-seine-with-clothing-on-the-bank.webp",
     "artist": "Georges Seurat",
     "name": "The Seine with Clothing on the Bank",
     "scientific": "1883/1884",
-    "focus": "15% 50%"
+    "focus": "15% 50%",
+    "ambience": "river"
   },
   {
     "image": "seurat-study-for-la-grande-jatte.webp",
     "artist": "Georges Seurat",
     "name": "Study for \"La Grande Jatte\"",
-    "scientific": "1884/1885"
+    "scientific": "1884/1885",
+    "ambience": "river"
   },
   {
     "image": "seurat-study-of-figures-for-la-grande-jatte.webp",
     "artist": "Georges Seurat",
     "name": "Study of Figures for \"La Grande Jatte\"",
-    "scientific": "1884/1885"
+    "scientific": "1884/1885",
+    "ambience": "birds"
   },
   {
     "image": "seurat-the-lighthouse-at-honfleur.webp",
     "artist": "Georges Seurat",
     "name": "The Lighthouse at Honfleur",
-    "scientific": "1886"
+    "scientific": "1886",
+    "ambience": "shore"
   },
   {
     "image": "seurat-seascape-at-port-en-bessin-normandy.webp",
     "artist": "Georges Seurat",
     "name": "Seascape at Port-en-Bessin, Normandy",
-    "scientific": "1888"
+    "scientific": "1888",
+    "ambience": "sea"
   },
   {
     "image": "seurat-seascape.webp",
     "artist": "Georges Seurat",
     "name": "Seascape",
-    "scientific": "1890"
+    "scientific": "1890",
+    "ambience": "shore"
   },
   {
     "image": "toulouse-lautrec-hussars.webp",
@@ -2853,13 +3016,15 @@
     "artist": "Henri de Toulouse-Lautrec",
     "name": "The Trap",
     "scientific": "1880",
-    "effect": "gallop"
+    "effect": "gallop",
+    "ambience": "cart"
   },
   {
     "image": "toulouse-lautrec-the-artists-dog-fleche.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "The Artist's Dog Flèche",
-    "scientific": "c. 1881"
+    "scientific": "c. 1881",
+    "ambience": "birds"
   },
   {
     "image": "toulouse-lautrec-carmen-gaudin.webp",
@@ -2877,7 +3042,8 @@
     "image": "toulouse-lautrec-lady-with-a-dog.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Lady with a Dog",
-    "scientific": "1891"
+    "scientific": "1891",
+    "ambience": "birds"
   },
   {
     "image": "toulouse-lautrec-a-corner-of-the-moulin-de-la-galette.webp",
@@ -2919,7 +3085,8 @@
     "image": "toulouse-lautrec-woman-in-the-garden-of-monsieur-forest.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Woman in the Garden of Monsieur Forest",
-    "scientific": "1889–91"
+    "scientific": "1889–91",
+    "ambience": "birds"
   },
   {
     "image": "toulouse-lautrec-the-streetwalker.webp",
@@ -2968,37 +3135,43 @@
     "image": "turner-boats-carrying-out-anchors-to-the-dutch-men-of-war.webp",
     "artist": "J. M. W. Turner",
     "name": "Boats Carrying Out Anchors to the Dutch Men of War",
-    "scientific": "c. 1804"
+    "scientific": "c. 1804",
+    "ambience": "sea"
   },
   {
     "image": "turner-the-junction-of-the-thames-and-the-medway.webp",
     "artist": "J. M. W. Turner",
     "name": "The Junction of the Thames and the Medway",
-    "scientific": "1807"
+    "scientific": "1807",
+    "ambience": "sea"
   },
   {
     "image": "turner-mortlake-terrace.webp",
     "artist": "J. M. W. Turner",
     "name": "Mortlake Terrace",
-    "scientific": "1827"
+    "scientific": "1827",
+    "ambience": "river"
   },
   {
     "image": "turner-rotterdam-ferry-boat.webp",
     "artist": "J. M. W. Turner",
     "name": "Rotterdam Ferry-Boat",
-    "scientific": "1833"
+    "scientific": "1833",
+    "ambience": "harbour"
   },
   {
     "image": "turner-venice-the-dogana-and-san-giorgio-maggiore.webp",
     "artist": "J. M. W. Turner",
     "name": "Venice: The Dogana and San Giorgio Maggiore",
-    "scientific": "1834"
+    "scientific": "1834",
+    "ambience": "harbour"
   },
   {
     "image": "turner-keelmen-heaving-in-coals-by-moonlight.webp",
     "artist": "J. M. W. Turner",
     "name": "Keelmen Heaving in Coals by Moonlight",
-    "scientific": "1835"
+    "scientific": "1835",
+    "ambience": "harbour"
   },
   {
     "image": "turner-the-rape-of-proserpine.webp",
@@ -3014,19 +3187,22 @@
     "artist": "J. M. W. Turner",
     "name": "The Evening of the Deluge",
     "scientific": "c. 1843",
-    "sacred": true
+    "sacred": true,
+    "ambience": "storm"
   },
   {
     "image": "turner-the-dogana-and-santa-maria-della-salute-venice.webp",
     "artist": "J. M. W. Turner",
     "name": "The Dogana and Santa Maria della Salute, Venice",
-    "scientific": "1843"
+    "scientific": "1843",
+    "ambience": "harbour"
   },
   {
     "image": "turner-approach-to-venice.webp",
     "artist": "J. M. W. Turner",
     "name": "Approach to Venice",
-    "scientific": "1844"
+    "scientific": "1844",
+    "ambience": "harbour"
   },
   {
     "image": "corot-italian-peasant-boy.webp",
@@ -3038,33 +3214,38 @@
     "image": "corot-the-island-and-bridge-of-san-bartolomeo-rome.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Island and Bridge of San Bartolomeo, Rome",
-    "scientific": "1825/1828"
+    "scientific": "1825/1828",
+    "ambience": "river"
   },
   {
     "image": "corot-forest-of-fontainebleau.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Forest of Fontainebleau",
-    "scientific": "1834"
+    "scientific": "1834",
+    "ambience": "wind"
   },
   {
     "image": "corot-bridge-on-the-saone-river-at-macon.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Bridge on the Saône River at Mâcon",
-    "scientific": "1834"
+    "scientific": "1834",
+    "ambience": "river"
   },
   {
     "image": "corot-a-view-near-volterra.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "A View near Volterra",
     "scientific": "1838",
-    "effect": "gallop"
+    "effect": "gallop",
+    "ambience": "birds"
   },
   {
     "image": "corot-view-near-epernon.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "View near Epernon",
     "scientific": "1850/1860",
-    "effect": "gallop"
+    "effect": "gallop",
+    "ambience": "birds"
   },
   {
     "image": "corot-portrait-of-a-young-girl.webp",
@@ -3076,13 +3257,15 @@
     "image": "corot-the-eel-gatherers.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Eel Gatherers",
-    "scientific": "1860/1865"
+    "scientific": "1860/1865",
+    "ambience": "wind"
   },
   {
     "image": "corot-rocks-in-the-forest-of-fontainebleau.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Rocks in the Forest of Fontainebleau",
-    "scientific": "1860/1865"
+    "scientific": "1860/1865",
+    "ambience": "wind"
   },
   {
     "image": "corot-the-repose.webp",
@@ -3098,25 +3281,29 @@
     "image": "corot-the-moored-boatman-souvenir-of-an-italian-lake.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Moored Boatman: Souvenir of an Italian Lake",
-    "scientific": "1861"
+    "scientific": "1861",
+    "ambience": "river"
   },
   {
     "image": "corot-souvenir-of-terracina.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Souvenir of Terracina",
-    "scientific": "1864, reworked slightly later"
+    "scientific": "1864, reworked slightly later",
+    "ambience": "birds"
   },
   {
     "image": "corot-ville-davray.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Ville-d'Avray",
-    "scientific": "c. 1865"
+    "scientific": "c. 1865",
+    "ambience": "river"
   },
   {
     "image": "corot-dance-under-the-trees-at-the-edge-of-the-lake.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Dance under the Trees at the Edge of the Lake",
-    "scientific": "1865/1870"
+    "scientific": "1865/1870",
+    "ambience": "birds"
   },
   {
     "image": "corot-agostina.webp",
@@ -3134,7 +3321,8 @@
     "image": "corot-river-view.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "River View",
-    "scientific": "1868/1872"
+    "scientific": "1868/1872",
+    "ambience": "river"
   },
   {
     "image": "corot-woman-reading-in-the-studio.webp",
@@ -3152,14 +3340,16 @@
     "image": "corot-landscape.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Landscape",
-    "scientific": "c. 1870/1875"
+    "scientific": "c. 1870/1875",
+    "ambience": "river"
   },
   {
     "image": "corot-the-forest-of-coubron.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Forest of Coubron",
     "scientific": "1872",
-    "effect": "gallop"
+    "effect": "gallop",
+    "ambience": "wind"
   },
   {
     "image": "corot-italian-woman.webp",
@@ -3171,13 +3361,15 @@
     "image": "corot-madame-stumpf-and-her-daughter.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Madame Stumpf and Her Daughter",
-    "scientific": "1872"
+    "scientific": "1872",
+    "ambience": "birds"
   },
   {
     "image": "corot-beach-near-etretat.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Beach near Etretat",
-    "scientific": "c. 1872"
+    "scientific": "c. 1872",
+    "ambience": "shore"
   },
   {
     "image": "corot-saint-sebastian-succored-by-the-holy-women.webp",
@@ -3194,73 +3386,85 @@
     "image": "pissarro-a-creek-in-st-thomas.webp",
     "artist": "Camille Pissarro",
     "name": "A Creek in St. Thomas",
-    "scientific": "1856"
+    "scientific": "1856",
+    "ambience": "brook"
   },
   {
     "image": "pissarro-two-women-chatting-by-the-sea-st-thomas.webp",
     "artist": "Camille Pissarro",
     "name": "Two Women Chatting by the Sea, St. Thomas",
-    "scientific": "1856"
+    "scientific": "1856",
+    "ambience": "shore"
   },
   {
     "image": "pissarro-landscape-at-les-patis-pontoise.webp",
     "artist": "Camille Pissarro",
     "name": "Landscape at Les Pâtis, Pontoise",
-    "scientific": "1868"
+    "scientific": "1868",
+    "ambience": "birds"
   },
   {
     "image": "pissarro-orchard-in-bloom-louveciennes.webp",
     "artist": "Camille Pissarro",
     "name": "Orchard in Bloom, Louveciennes",
-    "scientific": "1872"
+    "scientific": "1872",
+    "ambience": "bees"
   },
   {
     "image": "pissarro-the-fence.webp",
     "artist": "Camille Pissarro",
     "name": "The Fence",
-    "scientific": "1872"
+    "scientific": "1872",
+    "ambience": "wind"
   },
   {
     "image": "pissarro-landscape-ile-de-france.webp",
     "artist": "Camille Pissarro",
     "name": "Landscape, Ile-de-France",
-    "scientific": "1873"
+    "scientific": "1873",
+    "ambience": "birds"
   },
   {
     "image": "pissarro-peasant-woman.webp",
     "artist": "Camille Pissarro",
     "name": "Peasant Woman",
-    "scientific": "1880"
+    "scientific": "1880",
+    "ambience": "birds"
   },
   {
     "image": "pissarro-peasant-girl-with-a-straw-hat.webp",
     "artist": "Camille Pissarro",
     "name": "Peasant Girl with a Straw Hat",
-    "scientific": "1881"
+    "scientific": "1881",
+    "ambience": "birds"
   },
   {
     "image": "pissarro-young-peasant-girls-resting-in-the-fields-near-pontoise.webp",
     "artist": "Camille Pissarro",
     "name": "Young Peasant Girls Resting in the Fields near Pontoise",
-    "scientific": "1882"
+    "scientific": "1882",
+    "ambience": "birds"
   },
   {
     "image": "pissarro-the-gardener.webp",
     "artist": "Camille Pissarro",
     "name": "The Gardener - Old Peasant with Cabbage",
-    "scientific": "1883-1895"
+    "scientific": "1883-1895",
+    "ambience": "birds"
   },
   {
     "image": "pissarro-charing-cross-bridge-london.webp",
     "artist": "Camille Pissarro",
     "name": "Charing Cross Bridge, London",
-    "scientific": "1890"
+    "scientific": "1890",
+    "ambience": "river"
   },
   {
     "image": "pissarro-hampton-court-green.webp",
     "artist": "Camille Pissarro",
     "name": "Hampton Court Green",
-    "scientific": "1891"
+    "scientific": "1891",
+    "ambience": "birds"
   },
   {
     "image": "pissarro-the-bather.webp",
@@ -3269,45 +3473,52 @@
     "scientific": "1895",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "river"
   },
   {
     "image": "pissarro-boulevard-des-italiens-morning-sunlight.webp",
     "artist": "Camille Pissarro",
     "name": "Boulevard des Italiens, Morning, Sunlight",
     "scientific": "1897",
-    "effect": "gallop"
+    "effect": "gallop",
+    "ambience": "cart"
   },
   {
     "image": "pissarro-the-artists-garden-at-eragny.webp",
     "artist": "Camille Pissarro",
     "name": "The Artist's Garden at Eragny",
-    "scientific": "1898"
+    "scientific": "1898",
+    "ambience": "bees"
   },
   {
     "image": "pissarro-place-du-carrousel-paris.webp",
     "artist": "Camille Pissarro",
     "name": "Place du Carrousel, Paris",
-    "scientific": "1900"
+    "scientific": "1900",
+    "ambience": "cart"
   },
   {
     "image": "pissarro-the-louvre-afternoon-rainy-weather.webp",
     "artist": "Camille Pissarro",
     "name": "The Louvre, Afternoon, Rainy Weather",
-    "scientific": "1900"
+    "scientific": "1900",
+    "ambience": "rain"
   },
   {
     "image": "whistler-battersea-reach.webp",
     "artist": "James McNeill Whistler",
     "name": "Battersea Reach",
-    "scientific": "c. 1863"
+    "scientific": "c. 1863",
+    "ambience": "harbour"
   },
   {
     "image": "whistler-wapping.webp",
     "artist": "James McNeill Whistler",
     "name": "Wapping",
     "scientific": "1860-1864",
-    "focus": "100% 50%"
+    "focus": "100% 50%",
+    "ambience": "harbour"
   },
   {
     "image": "whistler-symphony-in-white-no-1-the-white-girl.webp",
@@ -3320,7 +3531,8 @@
     "image": "whistler-grey-and-silver-chelsea-wharf.webp",
     "artist": "James McNeill Whistler",
     "name": "Grey and Silver: Chelsea Wharf",
-    "scientific": "c. 1864/1868"
+    "scientific": "c. 1864/1868",
+    "ambience": "river"
   },
   {
     "image": "whistler-mother-of-pearl-and-silver-the-andalusian.webp",
@@ -3445,48 +3657,55 @@
     "artist": "Hudson River School",
     "name": "The Oxbow",
     "scientific": "Thomas Cole, 1836",
-    "article": "The Oxbow"
+    "article": "The Oxbow",
+    "ambience": "storm"
   },
   {
     "image": "durand-the-beeches.webp",
     "artist": "Hudson River School",
     "name": "The Beeches",
     "scientific": "Asher Brown Durand, 1845",
-    "article": "The Beeches (painting)"
+    "article": "The Beeches (painting)",
+    "ambience": "wind"
   },
   {
     "image": "durand-in-the-woods.webp",
     "artist": "Hudson River School",
     "name": "In the Woods",
-    "scientific": "Asher Brown Durand, 1855"
+    "scientific": "Asher Brown Durand, 1855",
+    "ambience": "wind"
   },
   {
     "image": "church-heart-of-the-andes.webp",
     "artist": "Hudson River School",
     "name": "Heart of the Andes",
     "scientific": "Frederic Edwin Church, 1859",
-    "article": "The Heart of the Andes"
+    "article": "The Heart of the Andes",
+    "ambience": "brook"
   },
   {
     "image": "heade-approaching-thunder-storm.webp",
     "artist": "Hudson River School",
     "name": "Approaching Thunder Storm",
     "scientific": "Martin Johnson Heade, 1859",
-    "article": "Approaching Thunder Storm"
+    "article": "Approaching Thunder Storm",
+    "ambience": "storm"
   },
   {
     "image": "gifford-a-gorge-in-the-mountains.webp",
     "artist": "Hudson River School",
     "name": "A Gorge in the Mountains (Kauterskill Clove)",
     "scientific": "Sanford Robinson Gifford, 1862",
-    "article": "Kaaterskill Clove"
+    "article": "Kaaterskill Clove",
+    "ambience": "birds"
   },
   {
     "image": "lane-stage-fort-across-gloucester-harbor.webp",
     "artist": "Hudson River School",
     "name": "Stage Fort across Gloucester Harbor",
     "scientific": "Fitz Henry Lane, 1862",
-    "article": "Stage Fort across Gloucester Harbor"
+    "article": "Stage Fort across Gloucester Harbor",
+    "ambience": "harbour"
   },
   {
     "image": "bierstadt-the-rocky-mountains-landers-peak.webp",
@@ -3497,40 +3716,46 @@
       "violence"
     ],
     "effect": "gallop",
-    "article": "The Rocky Mountains, Lander's Peak"
+    "article": "The Rocky Mountains, Lander's Peak",
+    "ambience": "brook"
   },
   {
     "image": "cropsey-the-valley-of-wyoming.webp",
     "artist": "Hudson River School",
     "name": "The Valley of Wyoming",
     "scientific": "Jasper Francis Cropsey, 1865",
-    "article": "The Valley of Wyoming"
+    "article": "The Valley of Wyoming",
+    "ambience": "birds"
   },
   {
     "image": "kensett-lake-george.webp",
     "artist": "Hudson River School",
     "name": "Lake George",
     "scientific": "John Frederick Kensett, 1869",
-    "article": "Lake George (John Frederick Kensett)"
+    "article": "Lake George (John Frederick Kensett)",
+    "ambience": "birds"
   },
   {
     "image": "whittredge-the-trout-pool.webp",
     "artist": "Hudson River School",
     "name": "The Trout Pool",
     "scientific": "Worthington Whittredge, 1870",
-    "article": "The Trout Pool (Worthington Whittredge)"
+    "article": "The Trout Pool (Worthington Whittredge)",
+    "ambience": "brook"
   },
   {
     "image": "kensett-eatons-neck-long-island.webp",
     "artist": "Hudson River School",
     "name": "Eaton's Neck, Long Island",
-    "scientific": "John Frederick Kensett, 1872"
+    "scientific": "John Frederick Kensett, 1872",
+    "ambience": "shore"
   },
   {
     "image": "heade-newburyport-meadows.webp",
     "artist": "Hudson River School",
     "name": "Newburyport Meadows",
-    "scientific": "Martin Johnson Heade, c. 1876–1881"
+    "scientific": "Martin Johnson Heade, c. 1876–1881",
+    "ambience": "wind"
   },
   {
     "image": "rodin-bust-of-a-young-girl.webp",
@@ -3746,7 +3971,8 @@
     "image": "crane-italian-farmhouse.webp",
     "artist": "Walter Crane",
     "name": "Italian Farmhouse",
-    "scientific": "1871–73"
+    "scientific": "1871–73",
+    "ambience": "birds"
   },
   {
     "image": "crane-goody-two-shoes-picture-book.webp",
@@ -3758,19 +3984,22 @@
     "image": "crane-valentine.webp",
     "artist": "Walter Crane",
     "name": "Valentine",
-    "scientific": "a couple at a stile, 1876"
+    "scientific": "a couple at a stile, 1876",
+    "ambience": "birds"
   },
   {
     "image": "crane-valentine-765291.webp",
     "artist": "Walter Crane",
     "name": "Valentine",
-    "scientific": "a woman picking blossom, 1876"
+    "scientific": "a woman picking blossom, 1876",
+    "ambience": "birds"
   },
   {
     "image": "crane-valentine-767102.webp",
     "artist": "Walter Crane",
     "name": "Valentine",
-    "scientific": "To My Love, 1876"
+    "scientific": "To My Love, 1876",
+    "ambience": "birds"
   },
   {
     "image": "crane-the-mirror-of-venus.webp",
@@ -3836,7 +4065,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "caravaggio-the-musicians.webp",
@@ -3871,7 +4101,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "caravaggio-medusa.webp",
@@ -4007,7 +4238,8 @@
     "scientific": "1601–1602",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "wings"
   },
   {
     "image": "caravaggio-the-incredulity-of-saint-thomas.webp",
@@ -4048,7 +4280,8 @@
     "artist": "Caravaggio",
     "name": "The Inspiration of Saint Matthew",
     "scientific": "1602",
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "caravaggio-the-crowning-with-thorns.webp",
@@ -4206,7 +4439,8 @@
       "nudity",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "caravaggio-madonna-of-the-rosary.webp",
@@ -4354,7 +4588,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "caravaggio-salome-with-the-head-of-john-the-baptist-madrid.webp",
@@ -4454,7 +4689,8 @@
     "name": "Annunciation",
     "scientific": "c. 1472–1476",
     "sacred": true,
-    "focus": "65% 50%"
+    "focus": "65% 50%",
+    "ambience": "wings"
   },
   {
     "image": "leonardo-da-vinci-the-baptism-of-christ.webp",
@@ -4464,7 +4700,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "leonardo-da-vinci-madonna-of-the-carnation.webp",
@@ -4515,7 +4752,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "leonardo-da-vinci-portrait-of-a-musician.webp",
@@ -4660,7 +4898,8 @@
       "nudity",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "storm"
   },
   {
     "image": "michelangelo-the-drunkenness-of-noah.webp",
@@ -4781,7 +5020,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "michelangelo-the-entombment.webp",
@@ -4863,7 +5103,8 @@
     "image": "stella-tree-of-my-life.webp",
     "artist": "Joseph Stella",
     "name": "Tree of My Life",
-    "scientific": "oil on canvas, 1919"
+    "scientific": "oil on canvas, 1919",
+    "ambience": "birds"
   },
   {
     "image": "stella-tropical-sonata.webp",
@@ -4959,19 +5200,22 @@
     "image": "decamp-gloucester.webp",
     "artist": "Joseph DeCamp",
     "name": "Gloucester",
-    "scientific": "1900"
+    "scientific": "1900",
+    "ambience": "harbour"
   },
   {
     "image": "decamp-red-roofs.webp",
     "artist": "Joseph DeCamp",
     "name": "Red Roofs",
-    "scientific": "undated"
+    "scientific": "undated",
+    "ambience": "birds"
   },
   {
     "image": "decamp-street-scene-in-venice.webp",
     "artist": "Joseph DeCamp",
     "name": "Street Scene in Venice",
-    "scientific": "oil on canvas, 1881"
+    "scientific": "oil on canvas, 1881",
+    "ambience": "street"
   },
   {
     "image": "decamp-sir-general-arthur-william-currie.webp",
@@ -4995,13 +5239,15 @@
     "content": [
       "frightening"
     ],
-    "focus": "10% 50%"
+    "focus": "10% 50%",
+    "ambience": "brook"
   },
   {
     "image": "millais-the-blind-girl.webp",
     "artist": "John Everett Millais",
     "name": "The Blind Girl",
-    "scientific": "1854–1856"
+    "scientific": "1854–1856",
+    "ambience": "birds"
   },
   {
     "image": "millais-christ-in-the-house-of-his-parents.webp",
@@ -5045,7 +5291,8 @@
     "name": "The Return of the Dove to the Ark",
     "scientific": "1851",
     "sacred": true,
-    "focus": "50% 35%"
+    "focus": "50% 35%",
+    "ambience": "flight"
   },
   {
     "image": "millais-the-rescue.webp",
@@ -5087,14 +5334,16 @@
     "image": "millais-autumn-leaves.webp",
     "artist": "John Everett Millais",
     "name": "Autumn Leaves",
-    "scientific": "1855–1856"
+    "scientific": "1855–1856",
+    "ambience": "leaves"
   },
   {
     "image": "millais-the-vale-of-rest.webp",
     "artist": "John Everett Millais",
     "name": "The Vale of Rest",
     "scientific": "1858–1859",
-    "focus": "55% 50%"
+    "focus": "55% 50%",
+    "ambience": "crickets"
   },
   {
     "image": "rossetti-proserpine.webp",
@@ -5121,26 +5370,30 @@
     "name": "Ecce Ancilla Domini",
     "scientific": "1849–1850",
     "sacred": true,
-    "focus": "50% 20%"
+    "focus": "50% 20%",
+    "ambience": "wings"
   },
   {
     "image": "rossetti-the-day-dream.webp",
     "artist": "Dante Gabriel Rossetti",
     "name": "The Day Dream",
     "scientific": "1880",
-    "focus": "50% 30%"
+    "focus": "50% 30%",
+    "ambience": "birds"
   },
   {
     "image": "rossetti-a-vision-of-fiammetta.webp",
     "artist": "Dante Gabriel Rossetti",
     "name": "A Vision of Fiammetta",
-    "scientific": "1878"
+    "scientific": "1878",
+    "ambience": "birds"
   },
   {
     "image": "rossetti-found.webp",
     "artist": "Dante Gabriel Rossetti",
     "name": "Found",
-    "scientific": "begun 1854, unfinished"
+    "scientific": "begun 1854, unfinished",
+    "ambience": "cart"
   },
   {
     "image": "rossetti-la-pia-de-tolomei.webp",
@@ -5216,13 +5469,15 @@
     "artist": "William Holman Hunt",
     "name": "The Scapegoat",
     "scientific": "1854–1856",
-    "sacred": true
+    "sacred": true,
+    "ambience": "wind"
   },
   {
     "image": "hunt-our-english-coasts-1852-strayed-sheep.webp",
     "artist": "William Holman Hunt",
     "name": "Our English Coasts, 1852 (Strayed Sheep)",
-    "scientific": "1852"
+    "scientific": "1852",
+    "ambience": "sheep"
   },
   {
     "image": "hunt-isabella-and-the-pot-of-basil.webp",
@@ -5305,13 +5560,15 @@
     "artist": "William Holman Hunt",
     "name": "May Morning on Magdalen Tower",
     "scientific": "1888–1891",
-    "focus": "10% 50%"
+    "focus": "10% 50%",
+    "ambience": "bells"
   },
   {
     "image": "hunt-the-lantern-makers-courtship.webp",
     "artist": "William Holman Hunt",
     "name": "The Lantern Maker's Courtship",
-    "scientific": "1854–1861"
+    "scientific": "1854–1861",
+    "ambience": "street"
   },
   {
     "image": "hunt-dante-gabriel-rossetti-at-22.webp",
@@ -5324,7 +5581,8 @@
     "image": "brown-the-last-of-england.webp",
     "artist": "Ford Madox Brown",
     "name": "The Last of England",
-    "scientific": "1852–1855"
+    "scientific": "1852–1855",
+    "ambience": "sea"
   },
   {
     "image": "brown-work.webp",
@@ -5332,7 +5590,8 @@
     "name": "Work",
     "scientific": "1852–1865",
     "effect": "gallop",
-    "focus": "25% 50%"
+    "focus": "25% 50%",
+    "ambience": "market"
   },
   {
     "image": "brown-take-your-son-sir.webp",
@@ -5348,7 +5607,8 @@
     "image": "brown-the-pretty-baa-lambs.webp",
     "artist": "Ford Madox Brown",
     "name": "The Pretty Baa-Lambs",
-    "scientific": "1851–1859"
+    "scientific": "1851–1859",
+    "ambience": "sheep"
   },
   {
     "image": "brown-manfred-on-the-jungfrau.webp",
@@ -5357,7 +5617,8 @@
     "scientific": "1840–1861",
     "content": [
       "frightening"
-    ]
+    ],
+    "ambience": "wind"
   },
   {
     "image": "brown-stages-of-cruelty.webp",
@@ -5378,13 +5639,15 @@
     "image": "brown-an-english-autumn-afternoon.webp",
     "artist": "Ford Madox Brown",
     "name": "An English Autumn Afternoon",
-    "scientific": "1852–1855"
+    "scientific": "1852–1855",
+    "ambience": "leaves"
   },
   {
     "image": "brown-carrying-corn.webp",
     "artist": "Ford Madox Brown",
     "name": "Carrying Corn",
-    "scientific": "1854–1855"
+    "scientific": "1854–1855",
+    "ambience": "birds"
   },
   {
     "image": "brown-the-coat-of-many-colours.webp",
@@ -5416,7 +5679,8 @@
     "content": [
       "nudity"
     ],
-    "focus": "40% 50%"
+    "focus": "40% 50%",
+    "ambience": "shore"
   },
   {
     "image": "brown-the-death-of-sir-tristram.webp",
@@ -5439,7 +5703,8 @@
     "artist": "Arthur Hughes",
     "name": "The Long Engagement",
     "scientific": "1859",
-    "focus": "50% 30%"
+    "focus": "50% 30%",
+    "ambience": "birds"
   },
   {
     "image": "hughes-la-belle-dame-sans-merci.webp",
@@ -5452,7 +5717,8 @@
     "image": "hughes-fair-rosamund.webp",
     "artist": "Arthur Hughes",
     "name": "Fair Rosamund",
-    "scientific": "1854"
+    "scientific": "1854",
+    "ambience": "birds"
   },
   {
     "image": "hughes-self-portrait.webp",
@@ -5479,7 +5745,8 @@
     "image": "hughes-home-from-sea.webp",
     "artist": "Arthur Hughes",
     "name": "Home from Sea",
-    "scientific": "1856–1862"
+    "scientific": "1856–1862",
+    "ambience": "birds"
   },
   {
     "image": "hughes-mrs-leathart-and-her-three-children.webp",
@@ -5491,7 +5758,8 @@
     "image": "hughes-the-potters-courtship.webp",
     "artist": "Arthur Hughes",
     "name": "The Potter's Courtship",
-    "scientific": "1886"
+    "scientific": "1886",
+    "ambience": "shore"
   },
   {
     "image": "hughes-uncertainty.webp",
@@ -5509,13 +5777,15 @@
     "image": "hughes-the-landslip.webp",
     "artist": "Arthur Hughes",
     "name": "The Landslip",
-    "scientific": "c. 1916"
+    "scientific": "c. 1916",
+    "ambience": "sea"
   },
   {
     "image": "burne-jones-the-beguiling-of-merlin.webp",
     "artist": "Edward Burne-Jones",
     "name": "The Beguiling of Merlin",
-    "scientific": "1872–1877"
+    "scientific": "1872–1877",
+    "ambience": "birds"
   },
   {
     "image": "burne-jones-king-cophetua-and-the-beggar-maid.webp",
@@ -5546,7 +5816,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "burne-jones-the-wheel-of-fortune.webp",
@@ -5578,13 +5849,15 @@
     "content": [
       "nudity"
     ],
-    "focus": "60% 50%"
+    "focus": "60% 50%",
+    "ambience": "birds"
   },
   {
     "image": "burne-jones-love-among-the-ruins.webp",
     "artist": "Edward Burne-Jones",
     "name": "Love Among the Ruins",
-    "scientific": "1894"
+    "scientific": "1894",
+    "ambience": "wind"
   },
   {
     "image": "burne-jones-the-tree-of-forgiveness.webp",
@@ -5600,7 +5873,8 @@
     "image": "burne-jones-the-mirror-of-venus.webp",
     "artist": "Edward Burne-Jones",
     "name": "The Mirror of Venus",
-    "scientific": "1877"
+    "scientific": "1877",
+    "ambience": "birds"
   },
   {
     "image": "burne-jones-the-wizard.webp",
@@ -5636,7 +5910,8 @@
     "image": "stillman-loves-messenger.webp",
     "artist": "Marie Spartali Stillman",
     "name": "Love's Messenger",
-    "scientific": "1885"
+    "scientific": "1885",
+    "ambience": "flight"
   },
   {
     "image": "stillman-beatrice.webp",
@@ -5649,7 +5924,8 @@
     "artist": "Marie Spartali Stillman",
     "name": "Fiammetta Singing",
     "scientific": "1879",
-    "focus": "85% 50%"
+    "focus": "85% 50%",
+    "ambience": "birds"
   },
   {
     "image": "stillman-how-the-virgin-mary-came-to-brother-conrad-of-offida-and.webp",
@@ -5659,7 +5935,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "birds"
   },
   {
     "image": "stillman-mariana.webp",
@@ -5672,20 +5949,23 @@
     "artist": "Marie Spartali Stillman",
     "name": "The Lake of Nemi",
     "scientific": "c. 1890s",
-    "article": "Lake Nemi"
+    "article": "Lake Nemi",
+    "ambience": "birds"
   },
   {
     "image": "stillman-a-lady-with-peacocks-in-a-garden.webp",
     "artist": "Marie Spartali Stillman",
     "name": "A Lady with Peacocks in a Garden",
-    "scientific": "c. 1896"
+    "scientific": "c. 1896",
+    "ambience": "birds"
   },
   {
     "image": "stillman-the-enchanted-garden-of-messer-ansaldo.webp",
     "artist": "Marie Spartali Stillman",
     "name": "The Enchanted Garden of Messer Ansaldo",
     "scientific": "1889",
-    "focus": "85% 50%"
+    "focus": "85% 50%",
+    "ambience": "birds"
   },
   {
     "image": "stillman-saint-barbara.webp",
@@ -5710,7 +5990,8 @@
     "image": "stillman-afternoon-in-the-colonna-garden.webp",
     "artist": "Marie Spartali Stillman",
     "name": "Afternoon in the Colonna Garden",
-    "scientific": "c. 1890s"
+    "scientific": "c. 1890s",
+    "ambience": "birds"
   },
   {
     "image": "stillman-the-first-meeting-of-petrarch-and-laura.webp",
@@ -5723,7 +6004,8 @@
     "artist": "Marie Spartali Stillman",
     "name": "A Lady in the Garden at Kelmscott Manor",
     "scientific": "c. 1905",
-    "article": "Kelmscott Manor"
+    "article": "Kelmscott Manor",
+    "ambience": "birds"
   },
   {
     "image": "de-morgan-the-love-potion.webp",
@@ -5736,7 +6018,8 @@
     "artist": "Evelyn De Morgan",
     "name": "Flora",
     "scientific": "1894",
-    "focus": "50% 30%"
+    "focus": "50% 30%",
+    "ambience": "birds"
   },
   {
     "image": "de-morgan-helen-of-troy.webp",
@@ -5750,7 +6033,8 @@
     "artist": "Evelyn De Morgan",
     "name": "Night and Sleep",
     "scientific": "1878",
-    "focus": "10% 50%"
+    "focus": "10% 50%",
+    "ambience": "crickets"
   },
   {
     "image": "de-morgan-the-gilded-cage.webp",
@@ -5775,7 +6059,8 @@
     "scientific": "1880",
     "content": [
       "frightening"
-    ]
+    ],
+    "ambience": "wings"
   },
   {
     "image": "de-morgan-earthbound.webp",
@@ -5790,7 +6075,8 @@
     "scientific": "c. 1900",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "shore"
   },
   {
     "image": "de-morgan-the-sea-maidens.webp",
@@ -5800,7 +6086,8 @@
     "content": [
       "nudity"
     ],
-    "focus": "55% 50%"
+    "focus": "55% 50%",
+    "ambience": "sea"
   },
   {
     "image": "de-morgan-cassandra.webp",
@@ -5817,13 +6104,15 @@
     "content": [
       "nudity"
     ],
-    "focus": "50% 45%"
+    "focus": "50% 45%",
+    "ambience": "wind"
   },
   {
     "image": "waterhouse-the-lady-of-shalott.webp",
     "artist": "John William Waterhouse",
     "name": "The Lady of Shalott",
-    "scientific": "1888"
+    "scientific": "1888",
+    "ambience": "river"
   },
   {
     "image": "waterhouse-hylas-and-the-nymphs.webp",
@@ -5832,7 +6121,8 @@
     "scientific": "1896",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "brook"
   },
   {
     "image": "waterhouse-echo-and-narcissus.webp",
@@ -5842,7 +6132,8 @@
     "content": [
       "nudity"
     ],
-    "focus": "40% 50%"
+    "focus": "40% 50%",
+    "ambience": "brook"
   },
   {
     "image": "waterhouse-circe-offering-the-cup-to-ulysses.webp",
@@ -5886,7 +6177,8 @@
     "scientific": "1891",
     "content": [
       "frightening"
-    ]
+    ],
+    "ambience": "sea"
   },
   {
     "image": "waterhouse-jason-and-medea.webp",
@@ -5898,7 +6190,8 @@
     "image": "waterhouse-ophelia.webp",
     "artist": "John William Waterhouse",
     "name": "Ophelia",
-    "scientific": "1894"
+    "scientific": "1894",
+    "ambience": "birds"
   },
   {
     "image": "waterhouse-a-mermaid.webp",
@@ -5907,7 +6200,8 @@
     "scientific": "1900",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "sea"
   },
   {
     "image": "waterhouse-gather-ye-rosebuds-while-ye-may.webp",
@@ -5926,7 +6220,8 @@
     "artist": "John William Waterhouse",
     "name": "A Tale from the Decameron",
     "scientific": "1916",
-    "focus": "10% 50%"
+    "focus": "10% 50%",
+    "ambience": "birds"
   },
   {
     "image": "waterhouse-mariana-in-the-south.webp",
@@ -5944,13 +6239,15 @@
     "image": "waterhouse-the-soul-of-the-rose.webp",
     "artist": "John William Waterhouse",
     "name": "The Soul of the Rose",
-    "scientific": "1908"
+    "scientific": "1908",
+    "ambience": "birds"
   },
   {
     "image": "waterhouse-la-belle-dame-sans-merci.webp",
     "artist": "John William Waterhouse",
     "name": "La Belle Dame sans Merci",
-    "scientific": "1893"
+    "scientific": "1893",
+    "ambience": "wind"
   },
   {
     "image": "waterhouse-psyche-opening-the-golden-box.webp",
@@ -5959,7 +6256,8 @@
     "scientific": "1903",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "birds"
   },
   {
     "image": "waterhouse-lamia.webp",
@@ -5974,7 +6272,8 @@
     "scientific": "1886",
     "content": [
       "frightening"
-    ]
+    ],
+    "ambience": "fire"
   },
   {
     "image": "waterhouse-consulting-the-oracle.webp",
@@ -5993,20 +6292,23 @@
     "scientific": "1912",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "crickets"
   },
   {
     "image": "edward-robert-hughes-midsummer-eve.webp",
     "artist": "Edward Robert Hughes",
     "name": "Midsummer Eve",
     "scientific": "c. 1908",
-    "article": "Midsummer Eve (painting)"
+    "article": "Midsummer Eve (painting)",
+    "ambience": "crickets"
   },
   {
     "image": "edward-robert-hughes-twilight-fantasies.webp",
     "artist": "Edward Robert Hughes",
     "name": "Twilight Fantasies",
-    "scientific": "1911"
+    "scientific": "1911",
+    "ambience": "crickets"
   },
   {
     "image": "edward-robert-hughes-wings-of-the-morning.webp",
@@ -6015,7 +6317,8 @@
     "scientific": "1905",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "wings"
   },
   {
     "image": "edward-robert-hughes-dianas-maidens.webp",
@@ -6024,13 +6327,15 @@
     "scientific": "1898",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "birds"
   },
   {
     "image": "edward-robert-hughes-a-rainy-sunday.webp",
     "artist": "Edward Robert Hughes",
     "name": "A Rainy Sunday",
-    "scientific": "c. 1872"
+    "scientific": "c. 1872",
+    "ambience": "rain"
   },
   {
     "image": "edward-robert-hughes-orlando.webp",
@@ -6043,7 +6348,8 @@
     "artist": "Edward Robert Hughes",
     "name": "The Princess Out of School",
     "scientific": "1901",
-    "focus": "75% 50%"
+    "focus": "75% 50%",
+    "ambience": "birds"
   },
   {
     "image": "edward-robert-hughes-bell-and-dorothy-freeman.webp",
@@ -6072,7 +6378,8 @@
     "name": "Cimabue's Celebrated Madonna",
     "scientific": "1853–1855",
     "effect": "gallop",
-    "focus": "5% 50%"
+    "focus": "5% 50%",
+    "ambience": "market"
   },
   {
     "image": "leighton-the-bath-of-psyche.webp",
@@ -6091,7 +6398,8 @@
     "content": [
       "nudity",
       "frightening"
-    ]
+    ],
+    "ambience": "sea"
   },
   {
     "image": "leighton-the-garden-of-the-hesperides.webp",
@@ -6100,13 +6408,15 @@
     "scientific": "c. 1892",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "birds"
   },
   {
     "image": "leighton-cymon-and-iphigenia.webp",
     "artist": "Frederic Leighton",
     "name": "Cymon and Iphigenia",
-    "scientific": "1884"
+    "scientific": "1884",
+    "ambience": "shore"
   },
   {
     "image": "leighton-captive-andromache.webp",
@@ -6132,13 +6442,15 @@
     "image": "leighton-greek-girls-playing-at-ball.webp",
     "artist": "Frederic Leighton",
     "name": "Greek Girls Playing at Ball",
-    "scientific": "1889"
+    "scientific": "1889",
+    "ambience": "wind"
   },
   {
     "image": "leighton-winding-the-skein.webp",
     "artist": "Frederic Leighton",
     "name": "Winding the Skein",
-    "scientific": "c. 1878"
+    "scientific": "c. 1878",
+    "ambience": "birds"
   },
   {
     "image": "leighton-wedded.webp",
@@ -6197,7 +6509,8 @@
     "content": [
       "nudity",
       "frightening"
-    ]
+    ],
+    "ambience": "sea"
   },
   {
     "image": "leighton-the-feigned-death-of-juliet.webp",
@@ -6235,7 +6548,8 @@
     "content": [
       "nudity"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "leighton-jonathans-token-to-david.webp",
@@ -6259,7 +6573,8 @@
     "artist": "Frederic Leighton",
     "name": "May Sartoris",
     "scientific": "c. 1860",
-    "focus": "50% 40%"
+    "focus": "50% 40%",
+    "ambience": "wind"
   },
   {
     "image": "leighton-may-sartoris-mrs-henry-evans-gordon.webp",
@@ -6283,14 +6598,16 @@
     "image": "leighton-garden-of-an-inn-capri.webp",
     "artist": "Frederic Leighton",
     "name": "Garden of an Inn, Capri",
-    "scientific": "1859"
+    "scientific": "1859",
+    "ambience": "birds"
   },
   {
     "image": "leighton-lindos-rhodes.webp",
     "artist": "Frederic Leighton",
     "name": "Lindos, Rhodes",
     "scientific": "1867",
-    "article": "Lindos"
+    "article": "Lindos",
+    "ambience": "shore"
   },
   {
     "image": "leighton-the-return-of-persephone.webp",
@@ -6463,7 +6780,8 @@
     "artist": "Ancient Egypt",
     "name": "Travelling Boat Being Rowed",
     "scientific": "Model from the Tomb of Meketre, c. 1981–1975 BCE",
-    "article": "Meketre"
+    "article": "Meketre",
+    "ambience": "rowing"
   },
   {
     "image": "egypt-estate-figure.webp",
@@ -6896,7 +7214,8 @@
     "scientific": "1849",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "crickets"
   },
   {
     "image": "paton-puck-and-fairies.webp",
@@ -6905,20 +7224,23 @@
     "scientific": "C. 1850",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "crickets"
   },
   {
     "image": "paton-study-from-nature-inveruglas.webp",
     "artist": "Joseph Noel Paton",
     "name": "Study from Nature: Inveruglas",
-    "scientific": "1857"
+    "scientific": "1857",
+    "ambience": "brook"
   },
   {
     "image": "paton-christian-at-the-foot-of-the-cross.webp",
     "artist": "Joseph Noel Paton",
     "name": "Christian at the Foot of the Cross",
     "scientific": "1873",
-    "sacred": true
+    "sacred": true,
+    "ambience": "wings"
   },
   {
     "image": "sandys-morgan-le-fay.webp",
@@ -6972,87 +7294,101 @@
     "image": "sandys-whitlingham-norfolk.webp",
     "artist": "Frederick Sandys",
     "name": "Whitlingham, Norfolk",
-    "scientific": "C. 1860"
+    "scientific": "C. 1860",
+    "ambience": "river"
   },
   {
     "image": "brett-the-stonebreaker.webp",
     "artist": "John Brett",
     "name": "The Stonebreaker",
-    "scientific": "1857–1858"
+    "scientific": "1857–1858",
+    "ambience": "birds"
   },
   {
     "image": "brett-february-in-the-isle-of-wight.webp",
     "artist": "John Brett",
     "name": "February in the Isle of Wight",
-    "scientific": "1866"
+    "scientific": "1866",
+    "ambience": "birds"
   },
   {
     "image": "brett-massa-bay-of-naples.webp",
     "artist": "John Brett",
     "name": "Massa, Bay of Naples",
-    "scientific": "1864"
+    "scientific": "1864",
+    "ambience": "shore"
   },
   {
     "image": "brett-near-sorrento.webp",
     "artist": "John Brett",
     "name": "Near Sorrento",
-    "scientific": "1863"
+    "scientific": "1863",
+    "ambience": "shore"
   },
   {
     "image": "brett-a-north-west-gale-off-the-longships-lighthouse.webp",
     "artist": "John Brett",
     "name": "A North-West Gale off the Longships Lighthouse",
-    "scientific": "1873"
+    "scientific": "1873",
+    "ambience": "sea"
   },
   {
     "image": "brett-caernarvon.webp",
     "artist": "John Brett",
     "name": "Caernarvon",
     "scientific": "1875",
-    "article": "Caernarfon Castle"
+    "article": "Caernarfon Castle",
+    "ambience": "shore"
   },
   {
     "image": "brett-southern-coast-of-guernsey.webp",
     "artist": "John Brett",
     "name": "Southern Coast of Guernsey",
-    "scientific": "1875"
+    "scientific": "1875",
+    "ambience": "sea"
   },
   {
     "image": "brett-pwll-cwn.webp",
     "artist": "John Brett",
     "name": "Pwll Cwn",
-    "scientific": "1882"
+    "scientific": "1882",
+    "ambience": "sea"
   },
   {
     "image": "brett-man-of-war-rocks-coast-of-dorset.webp",
     "artist": "John Brett",
     "name": "Man of War Rocks, Coast of Dorset",
-    "scientific": "1884"
+    "scientific": "1884",
+    "ambience": "shore"
   },
   {
     "image": "brett-the-shallows-of-hareslade-cove-gower.webp",
     "artist": "John Brett",
     "name": "The Shallows of Hareslade Cove, Gower",
-    "scientific": "1887"
+    "scientific": "1887",
+    "ambience": "sea"
   },
   {
     "image": "brett-kynance.webp",
     "artist": "John Brett",
     "name": "Kynance",
     "scientific": "1888",
-    "article": "Kynance Cove"
+    "article": "Kynance Cove",
+    "ambience": "sea"
   },
   {
     "image": "brett-a-view-of-felixstowe.webp",
     "artist": "John Brett",
     "name": "A View of Felixstowe",
-    "scientific": "1893"
+    "scientific": "1893",
+    "ambience": "shore"
   },
   {
     "image": "anderson-the-song-of-the-lark.webp",
     "artist": "Sophie Gengembre Anderson",
     "name": "The Song of the Lark",
-    "scientific": "Date unknown"
+    "scientific": "Date unknown",
+    "ambience": "birds"
   },
   {
     "image": "anderson-elaine.webp",
@@ -7062,7 +7398,8 @@
     "content": [
       "frightening"
     ],
-    "article": "Elaine of Astolat"
+    "article": "Elaine of Astolat",
+    "ambience": "river"
   },
   {
     "image": "anderson-scheherazade.webp",
@@ -7081,13 +7418,15 @@
     "image": "anderson-girl-with-lilac.webp",
     "artist": "Sophie Gengembre Anderson",
     "name": "Girl with Lilac",
-    "scientific": "Date unknown"
+    "scientific": "Date unknown",
+    "ambience": "birds"
   },
   {
     "image": "anderson-heavenwards.webp",
     "artist": "Sophie Gengembre Anderson",
     "name": "Heavenwards",
-    "scientific": "1883"
+    "scientific": "1883",
+    "ambience": "birds"
   },
   {
     "image": "anderson-at-the-well.webp",
@@ -7099,7 +7438,8 @@
     "image": "anderson-the-flower-girl-capri.webp",
     "artist": "Sophie Gengembre Anderson",
     "name": "The Flower Girl, Capri",
-    "scientific": "Before 1894"
+    "scientific": "Before 1894",
+    "ambience": "shore"
   },
   {
     "image": "anderson-simplicity.webp",
@@ -7111,13 +7451,15 @@
     "image": "landseer-the-monarch-of-the-glen.webp",
     "artist": "Edwin Landseer",
     "name": "The Monarch of the Glen",
-    "scientific": "1851"
+    "scientific": "1851",
+    "ambience": "wind"
   },
   {
     "image": "landseer-lion-a-newfoundland-dog.webp",
     "artist": "Edwin Landseer",
     "name": "'Lion', a Newfoundland Dog",
-    "scientific": "1824"
+    "scientific": "1824",
+    "ambience": "wind"
   },
   {
     "image": "landseer-hector-nero-and-dash-with-the-parrot-lory.webp",
@@ -7133,7 +7475,8 @@
     "scientific": "1848–1851",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "crickets"
   },
   {
     "image": "landseer-favourites.webp",
@@ -7162,7 +7505,8 @@
     "image": "landseer-a-highland-landscape.webp",
     "artist": "Edwin Landseer",
     "name": "A Highland Landscape",
-    "scientific": "C. 1830"
+    "scientific": "C. 1830",
+    "ambience": "wind"
   },
   {
     "image": "landseer-hawking-in-the-olden-time.webp",
@@ -7173,7 +7517,8 @@
       "violence"
     ],
     "effect": "gallop",
-    "article": "Hawking in the Olden Time"
+    "article": "Hawking in the Olden Time",
+    "ambience": "wind"
   },
   {
     "image": "landseer-deer-and-deer-hounds-in-a-mountain-torrent.webp",
@@ -7182,7 +7527,8 @@
     "scientific": "1832",
     "content": [
       "violence"
-    ]
+    ],
+    "ambience": "brook"
   },
   {
     "image": "landseer-lion-defending-its-prey.webp",
@@ -7224,6 +7570,7 @@
     "name": "Rent-Day in the Wilderness",
     "scientific": "1855–1868",
     "article": "Donald Murchison",
-    "focus": "55% 50%"
+    "focus": "55% 50%",
+    "ambience": "wind"
   }
 ]

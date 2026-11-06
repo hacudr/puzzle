@@ -1020,7 +1020,7 @@ async function start(p, fresh = false) {
   }
 
   chooseTune(p);
-  sound.setEffect(p.effect);
+  sound.setEffect([].concat(p.effect || [], p.ambience || []));
   sound.begin();
   piecesEl.textContent = '';
   peekEl.classList.remove('show', 'reveal');
