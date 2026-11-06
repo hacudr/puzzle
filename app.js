@@ -1808,11 +1808,11 @@ function saveBought() {
     localStorage.setItem('puzzle.bought', JSON.stringify([...bought]));
   } catch {}
 }
-// All the collections together are one more product, ALL, at the price of the
+// All the collections together are one more product, ALL, for less than the
 // three bought one by one: ALL_PRICE on the web, the App Store's own in the app.
 // Owning it owns every collection, and it is one purchase in place of three.
 const ALL = 'com.hacudr.arthistory.all';
-const ALL_PRICE = 14.97;
+const ALL_PRICE = 12.99;
 // prices compared in whole cents, since 3 × 4.99 is not exactly 14.97 in floating point
 const cents = (n) => Math.round(n * 100);
 const dollars = (n) => '$' + n.toFixed(2);
