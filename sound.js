@@ -653,11 +653,11 @@ const sound = (() => {
   // The sounds are of two kinds. once = a single event, played once as the
   // puzzle ends: the sword, hooves and knock, the wings, birds taking flight,
   // and the train and cart, each drawing near and going by. The rest are
-  // ambient, a sound of the place that goes on: for a puzzle that loops them
-  // (LOOP in app.js, for now a few to try), one loops without a seam, at
+  // ambient, a sound of the place that goes on: it loops without a seam, at
   // UNDER of its level, while the puzzle is put together, rises to its full
-  // level as it is finished and dies away with the ending music. For any other
-  // puzzle it plays once at the end, as the one-time sounds do.
+  // level as it is finished and dies away with the ending music. (A puzzle
+  // opened without loop, which none is now, plays it once at the end, as the
+  // one-time sounds do.)
   const AMBIENT = 1 / 4;
   const UNDER = 0.5;
   const MUSIC_LEVEL = 0.6;
