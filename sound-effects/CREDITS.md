@@ -36,3 +36,19 @@ Heard faintly under a puzzle's ending music, chosen by its `ambience` in `puzzle
 | `ambience/fire.mp3` | A crackling fire | [Fire crackling in fireplace](https://freesound.org/s/382616/), Davor | CC0 |
 | `ambience/wings.mp3` | Great wings beating, for angels | [Huge wing flaps for bird, dragon, dinosaur](https://freesound.org/s/670509/), 2create | CC0 |
 | `ambience/flight.mp3` | A large bird flapping | [1. Wings Flapping](https://freesound.org/s/753219/), Lsoundaccount | CC0 |
+| `ambience/dinner.mp3` | A dinner party: voices, a knife and fork, four glasses touched together, mixed by `cut.js` from three recordings | [Dinner Party or Restaurant](https://freesound.org/s/480724/), craigsmith; [cutlery](https://freesound.org/s/466329/), justiningo; [Glass Clink Pack](https://freesound.org/s/565725/), ralph.whitehead | CC0, all three |
+| `ambience/pages.mp3` | Four pages of a book turned | [turning pages in book](https://freesound.org/s/465260/), P_Chester | CC0 |
+| `ambience/oars.mp3` | Oars and rowlocks, from inside a rowing boat | [rowing boat from inside](https://freesound.org/s/588307/), Fenodyrie | CC0 |
+| `ambience/whisper.mp3` | A hushed crowd | [crowd light whisper murmur hush, museum](https://freesound.org/s/452955/), kyles | CC0 |
+| `ambience/murmur.mp3` | The hum of a crowd's voices | [Hum of voices in a church before a concert](https://freesound.org/s/143225/), felix.blume | CC0 |
+| `ambience/window.mp3` | A courtyard, pigeons and the city beyond, for open windows and balconies | [Courtyard ambience with pigeons and city sounds](https://freesound.org/s/851386/), Garuda1982 | CC0 |
+| `ambience/rocking.mp3` | A rocking chair, four rocks | [rocking chair grand final](https://freesound.org/s/110856/), gauthier.grandgirard | CC0 |
+| `ambience/pour.mp3` | Wine poured into a glass | [wine pouring](https://freesound.org/s/574563/), TRP | CC0 |
+| `ambience/owl.mp3` | A tawny owl | [Tawny owl hooting](https://freesound.org/s/745208/), Patrick_Corra | CC0 |
+| `ambience/dove.mp3` | A dove cooing | [mourning dove](https://freesound.org/s/456930/), nathankwright | CC0 |
+| `ambience/geese.mp3` | Geese honking | [Canada Geese Honks](https://freesound.org/s/423346/), Kinoton | CC0 |
+| `ambience/dog.mp3` | A big dog barking some way off | [Angry big dog barking – Far](https://freesound.org/s/440865/), v23 | CC0 |
+| `ambience/meow.mp3` | A cat's meow | [cat meow short](https://freesound.org/s/412017/), skymary | CC0 |
+| `ambience/neigh.mp3` | A horse's whinny | [horse's whinny](https://freesound.org/s/347036/), Kubuzz | CC0 |
+| `ambience/lion.mp3` | A lion growling | [Lion](https://freesound.org/s/488348/), GJ55GB | CC0 |
+| `ambience/cheer.mp3` | A small crowd cheering | [small crowd cheering](https://freesound.org/s/264377/), HowardV | CC0 |

@@ -662,6 +662,8 @@ const sound = (() => {
   const UNDER = 0.5;
   const MUSIC_LEVEL = 0.6;
   const quiet = (file, once = false) => ({ file: `ambience/${file}`, lead: 0, level: MUSIC_LEVEL * AMBIENT, once });
+  // a sound heard once, wait seconds after the music has come in
+  const later = (file, wait = 3) => ({ ...quiet(file, true), wait });
   const EFFECTS = {
     sword: { file: 'Sword.m4a', lead: 0.8, level: 0.8, once: true },
     gallop: { file: 'Gallop.m4a', lead: 0.45, level: 0.175, fade: 1.5, once: true },
@@ -692,6 +694,24 @@ const sound = (() => {
     fire: quiet('fire.mp3'),
     wings: quiet('wings.mp3', true),
     flight: quiet('flight.mp3', true),
+    // indoors and among people
+    dinner: quiet('dinner.mp3'),
+    pages: quiet('pages.mp3'),
+    whisper: quiet('whisper.mp3'),
+    murmur: quiet('murmur.mp3'),
+    window: quiet('window.mp3'),
+    oars: quiet('oars.mp3'),
+    // the creatures and things heard once, a few seconds into the music
+    rocking: later('rocking.mp3'),
+    pour: later('pour.mp3'),
+    owl: later('owl.mp3'),
+    dove: later('dove.mp3'),
+    geese: later('geese.mp3'),
+    dog: later('dog.mp3'),
+    meow: later('meow.mp3'),
+    neigh: later('neigh.mp3'),
+    lion: later('lion.mp3'),
+    cheer: later('cheer.mp3'),
   };
 
   // The piano is the user's own, every key from C3 to C6 recorded one at a time,
@@ -1374,7 +1394,7 @@ const sound = (() => {
       if (on.effects)
         clashing = Object.keys(effect)
           .filter((name) => !under.includes(name))
-          .map((name) => sample(effect[name], EFFECTS[name].level, 0.7, EFFECTS[name].lead, EFFECTS[name].fade));
+          .map((name) => sample(effect[name], EFFECTS[name].level, 0.7 + (EFFECTS[name].wait || 0), EFFECTS[name].lead, EFFECTS[name].fade));
       // the looping sound rises to its full level as the music comes in and
       // dies away with it, over its last four seconds; with no recording to
       // end on it lasts as long as one would, and with the music off it dies

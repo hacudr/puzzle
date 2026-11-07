@@ -70,7 +70,7 @@ const sound = fs.readFileSync(path.join(root, 'sound.js'), 'utf8');
 for (const [, file] of sound.matchAll(/file: '([^']+)'/g)) {
   if (!fs.existsSync(path.join(dist, 'sound-effects', file))) throw new Error(`sound-effects/${file} is missing`);
 }
-for (const [, file] of sound.matchAll(/quiet\('([^']+)'\)/g)) {
+for (const [, file] of sound.matchAll(/(?:quiet|later)\('([^']+)'\)/g)) {
   if (!fs.existsSync(path.join(dist, 'sound-effects', 'ambience', file))) throw new Error(`sound-effects/ambience/${file} is missing`);
 }
 

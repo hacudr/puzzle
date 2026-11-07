@@ -93,8 +93,125 @@ From the titles: about 16 seas and harbours, 27 rivers and bridges, Rouen Cathed
 | Gardens, orchards in blossom | [Bees buzzing around tree](https://freesound.org/s/566112/), Cinetony | CC0 | 0:54 | ★4.8 |
 | Rowing boats | [A wooden rowing boat on a calm lake](https://freesound.org/s/253162/), YleArkisto | CC BY 4.0 | 2:57 | ★4.8. Finnish Broadcasting Company archive, analogue tape |
 
+# Second round
+
+Found 6 November 2026, as before: each pick's licence read from its own page, nothing downloaded or listened to yet. ✔ marks the one I would try first.
+
+## Rocking chair
+
+| Pick | Sound | Licence | Length | Notes |
+|---|---|---|---|---|
+| ✔ | [rocking chair grand final](https://freesound.org/s/110856/), gauthier.grandgirard | CC0 | 0:54 | ★4.8. A slow rock, stereo |
+| | [rocking chair final mono](https://freesound.org/s/110855/), gauthier.grandgirard | CC0 | 0:54 | ★4.6. The same chair; the recordist calls it "frightening" |
+| | [RockingChair4](https://freesound.org/s/80476/), stevelalonde | CC BY 4.0 | 0:30 | ★4.6, 7,500 downloads. An old chair on a wooden floor in Montreal |
+
+## Oars and water lapping on a boat
+
+The rowing boat already in the app (YleArkisto) is a good match too.
+
+| Pick | Sound | Licence | Length | Notes |
+|---|---|---|---|---|
+| ✔ | [rowing boat from inside](https://freesound.org/s/588307/), Fenodyrie | CC0 | 0:56 | ★4.6, 2,900 downloads. Lazy rowing: creaking rowlocks, the oar dipping in |
+| | [Paddles rowing on a calm water stream](https://freesound.org/s/249707/), brunoboselli | CC0 | 0:39 | ★4.7, 3,700 downloads. From inside the boat, Uruguay |
+| | [Splashing Water by Oars](https://freesound.org/s/338345/), Lubini | CC BY 4.0 | 0:38 | ★4.8 |
+| | [rowing boat rear wave](https://freesound.org/s/588308/), Fenodyrie | CC0 | 0:34 | ★4.6. The wake lapping behind; licence not opened on its page |
+
+## Pages of a book turning
+
+| Pick | Sound | Licence | Length | Notes |
+|---|---|---|---|---|
+| ✔ | [turning pages in book](https://freesound.org/s/465260/), P_Chester | CC0 | 1:41 | ★4.7. Slow page turns, so it can be cut with pauses between |
+| | [turning book pages](https://freesound.org/s/513779/), lartti | CC0 | 0:23 | ★4.8 |
+
+## Dinner party: glasses, silverware, murmur
+
+None of these is a full dinner party with no modern noise, so this is best made from two layers: a soft murmur with clinks, plus close clinks of glass and silver.
+
+| Pick | Sound | Licence | Length | Notes |
+|---|---|---|---|---|
+| ✔ | [Dinner Party or Restaurant](https://freesound.org/s/480724/), craigsmith | CC0 | 0:56 | ★4.6. Men and women laughing and murmuring, some clanking |
+| | [Posh dinner party](https://freesound.org/s/72848/), 7by7 | CC0 | 0:40 | ★4.6, 15,000 downloads. Stage actors improvising one; words may be heard |
+| | [Crowd at a Banquet](https://freesound.org/s/209313/), unfa | CC0 | 5:35 | ★4.4 |
+| | [People Having Dinner v2](https://freesound.org/s/634953/), JiggleSticks | CC BY 4.0 | 1:02 | ★4.8 |
+| ✔ | [Glass Clink Pack](https://freesound.org/s/565725/), ralph.whitehead | CC0 | 0:42 | ★4.9. Glasses touched together, recorded close |
+| | [cutlery](https://freesound.org/s/466329/), justiningo | CC0 | 0:20 | ★4.9. Knife and fork eating from a plate |
+| | [silverware](https://freesound.org/s/337232/), Anthousai | CC0 | 0:40 | ★4.9. Silverware being put away |
+| | [Glass Knock Ding Cutlery Fork Dinner Pack](https://freesound.org/s/565723/), ralph.whitehead | CC0 | 0:30 | ★5.0. Licence not opened on its page |
+
+## Pouring into a glass
+
+| Pick | Sound | Licence | Length | Notes |
+|---|---|---|---|---|
+| ✔ | [wine pouring](https://freesound.org/s/574563/), TRP | CC0 | 1:12 | ★4.9. Wine from the bottle into a glass, several pours |
+| | [Bottle pouring wine](https://freesound.org/s/841165/), HarmonicMess | CC0 | 0:16 | ★5.0. Close up |
+| | [Pouring water into a glass](https://freesound.org/s/710550/), ahamirikia | CC0 | 0:07 | ★4.9 |
+
+## Dusk: owl or dove
+
+| Pick | Sound | Licence | Length | Notes |
+|---|---|---|---|---|
+| ✔ | [Tawny owl hooting](https://freesound.org/s/745208/), Patrick_Corra | CC0 | 0:38 | ★4.8. At night by the castle of Marostica, Italy; recorded on a phone |
+| | [A Parliament Of Tawny Owls](https://freesound.org/s/116663/), Benboncan | CC BY 4.0 | 3:04 | ★4.8. Males and females hooting and screeching |
+| ✔ | [mourning dove](https://freesound.org/s/456930/), nathankwright | CC0 | 1:14 | ★4.7, 2,200 downloads. Gentle cooing. An American bird |
+| | [Common Wood-Pigeon](https://freesound.org/s/613924/), klankbeeld | CC BY 4.0 | 0:14 | ★4.7. The European dove's call, in a city park |
+
+## A cheer for completing an artist
+
+For Chapter complete. Most cheering is recorded at concerts or games; these are the least modern-sounding.
+
+| Pick | Sound | Licence | Length | Notes |
+|---|---|---|---|---|
+| ✔ | [small crowd cheering](https://freesound.org/s/264377/), HowardV | CC0 | 0:25 | ★4.4, 5,500 downloads. About twenty people in a small hall |
+| | [Ovation](https://freesound.org/s/504647/), tosha73 | CC0 | 1:20 | ★4.6. Applause at a concert, warmer than a cheer |
+| | [Small Club crowd cheers for encore](https://freesound.org/s/574850/), TRP | CC0 | 1:16 | ★5.0. May include calls for "one more" |
+
+## Geese and ducks
+
+| Pick | Sound | Licence | Length | Notes |
+|---|---|---|---|---|
+| ✔ | [Canada Geese Honks](https://freesound.org/s/423346/), Kinoton | CC0 | 0:41 | ★4.9. Two geese at a lakeside, close |
+| | [geese fly by](https://freesound.org/s/223892/), secretmojo | CC0 | 0:24 | ★4.8. Overhead, honking; a train horn far off at the end |
+| ✔ | [Ducks and Geese at the Lake](https://freesound.org/s/416038/), Kinoton | CC0 | 2:04 | ★4.8. Ducks and coots quacking, geese in the distance; one clip could serve both |
+| | [Duck quack 1, Sweden](https://freesound.org/s/188376/), calodas | CC0 | 0:37 | ★5.0. A duck by the sea |
+
+## Whispering and soft murmuring crowd
+
+| Pick | Sound | Licence | Length | Notes |
+|---|---|---|---|---|
+| ✔ | [crowd light whisper murmur hush, museum](https://freesound.org/s/452955/), kyles | CC0 | 2:44 | ★4.9. Hushed, with footsteps |
+| | [crowd show walla murmur active whispers](https://freesound.org/s/637466/), kyles | CC0 | 0:59 | ★4.9. An audience before a show, no steps |
+| ✔ | [Hum of voices in a church before a concert](https://freesound.org/s/143225/), felix.blume | CC0 | 3:01 | ★4.5, 2,000 downloads. About 200 people talking, whispering, coughing, in a Swiss village church |
+| | [crowd in church](https://freesound.org/s/40626/), jaava73 | CC0 | 5:05 | ★4.2, 3,200 downloads. Murmur, no words that can be made out (Finnish) |
+
+## Dog, cat, horse, lion
+
+| Pick | Sound | Licence | Length | Notes |
+|---|---|---|---|---|
+| ✔ dog | [Angry big dog barking – Far](https://freesound.org/s/440865/), v23 | CC0 | 0:20 | ★4.8. 30–40 m away, outdoors; distance keeps it soft |
+| | [Single Dog Bark](https://freesound.org/s/277058/), kwahmah_02 | CC0 | 0:01 | ★4.5. Clean, one bark |
+| | [Dog Bark Staffordshire Bullterrier](https://freesound.org/s/157322/), Anton | CC BY 4.0 | 0:20 | ★4.5, 17,000 downloads |
+| ✔ cat | [Cat Meow and Purr](https://freesound.org/s/234333/), mcroce | CC0 | 0:32 | ★4.5 |
+| | [cat meow short](https://freesound.org/s/412017/), skymary | CC0 | 0:02 | ★4.8, 17,000 downloads |
+| ✔ horse | [horse's whinny](https://freesound.org/s/347036/), Kubuzz | CC0 | 0:11 | ★4.7, 12,800 downloads |
+| | [Whinnying horse – far away](https://freesound.org/s/636554/), L.Finck | CC0 | 0:12 | ★4.8 |
+| | [Stable Noises – Birds and Horses Neighing](https://freesound.org/s/322443/), GoodListener | CC BY 4.0 | 0:46 | ★4.9. Several horses in a barn |
+| ✔ lion | [Lion](https://freesound.org/s/488348/), GJ55GB | CC0 | 1:17 | ★4.5, 4,100 downloads. Growling, roaring and breathing |
+| | [Lion roaring and snorting at a zoo](https://freesound.org/s/344820/), YleArkisto | CC BY 4.0 | 1:54 | ★4.4. Helsinki zoo, 1995 |
+| | [Lions screaming during the night](https://freesound.org/s/405211/), felix.blume | CC0 | 0:36 | ★4.4. Two lions calling, dogs and crickets behind |
+
+## Street noise through an open window or balcony
+
+The hard one: every street recording has cars. These are the quietest; each must be listened to for engines. The Medieval City clip already in the app (`street`) is free of them and may serve better for most pictures.
+
+| Pick | Sound | Licence | Length | Notes |
+|---|---|---|---|---|
+| ✔ | [Courtyard ambience with pigeons and city sounds](https://freesound.org/s/851386/), Garuda1982 | CC0 | 4:06 | ★4.9. Leipzig in spring; distant city behind the pigeons |
+| | [berlin backyard ambience](https://freesound.org/s/684548/), twentysevensouls | CC0 | 1:16 | ★5.0. A Berlin neighbourhood on a normal day |
+| | [Open window, room, city noise](https://freesound.org/s/686846/), pblzr | CC0 | 11:21 | ★5.0. At night, from inside a room |
+
 ## Left out
 
 - [Train Passing By 104 with Steam Whistle](https://freesound.org/s/593047/), FunWithSound: marked CC0, but the uploader says it was taken from a YouTube video. The CC0 is not theirs to give.
+- [50 People Cheering and Applauding](https://freesound.org/s/845594/), 3to1video: CC0, but a voice over a PA system can be heard.
 - BBC Sound Effects: personal and educational use only (RemArc licence).
 - Pixabay and Sonniss GDC bundles allow commercial use, but under their own licences, not CC0 or CC BY. They fall outside the house rule unless the user widens it.

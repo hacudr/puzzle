@@ -10,7 +10,8 @@
     "image": "monet-the-cradle.webp",
     "artist": "Claude Monet",
     "name": "The Cradle",
-    "scientific": "1867"
+    "scientific": "1867",
+    "ambience": "rocking"
   },
   {
     "image": "monet-argenteuil.webp",
@@ -130,7 +131,7 @@
     "artist": "Claude Monet",
     "name": "San Giorgio Maggiore at Dusk",
     "scientific": "1908",
-    "ambience": "harbour"
+    "ambience": "bells"
   },
   {
     "image": "monet-water-lilies-met.webp",
@@ -157,13 +158,15 @@
     "image": "cassatt-woman-with-a-fan.webp",
     "artist": "Mary Cassatt",
     "name": "Woman with a Fan",
-    "scientific": "c. 1878/1879"
+    "scientific": "c. 1878/1879",
+    "ambience": "whisper"
   },
   {
     "image": "cassatt-the-loge.webp",
     "artist": "Mary Cassatt",
     "name": "The Loge",
-    "scientific": "c. 1878-1880"
+    "scientific": "c. 1878-1880",
+    "ambience": "whisper"
   },
   {
     "image": "cassatt-little-girl-in-a-blue-armchair.webp",
@@ -175,7 +178,8 @@
     "image": "cassatt-young-girl-at-a-window.webp",
     "artist": "Mary Cassatt",
     "name": "Young Girl at a Window",
-    "scientific": "c. 1883-1884"
+    "scientific": "c. 1883-1884",
+    "ambience": "window"
   },
   {
     "image": "cassatt-children-playing-on-the-beach.webp",
@@ -214,7 +218,7 @@
     "artist": "Mary Cassatt",
     "name": "The Boating Party",
     "scientific": "1893/1894",
-    "ambience": "rowing"
+    "ambience": "oars"
   },
   {
     "image": "cassatt-woman-with-a-sunflower.webp",
@@ -229,7 +233,8 @@
     "image": "cassatt-francoise-holding-a-little-dog-looking-far-to-the-right.webp",
     "artist": "Mary Cassatt",
     "name": "Françoise, Holding a Little Dog, Looking Far to the Right",
-    "scientific": "pastel, 1909"
+    "scientific": "pastel, 1909",
+    "ambience": "dog"
   },
   {
     "image": "morisot-the-sisters.webp",
@@ -248,7 +253,8 @@
     "image": "morisot-the-artists-sister-at-a-window.webp",
     "artist": "Berthe Morisot",
     "name": "The Artist's Sister at a Window",
-    "scientific": "1869"
+    "scientific": "1869",
+    "ambience": "window"
   },
   {
     "image": "morisot-young-woman-with-a-straw-hat.webp",
@@ -260,14 +266,18 @@
     "image": "morisot-in-the-dining-room.webp",
     "artist": "Berthe Morisot",
     "name": "In the Dining Room",
-    "scientific": "1886"
+    "scientific": "1886",
+    "ambience": "dinner"
   },
   {
     "image": "morisot-girl-in-a-boat-with-geese.webp",
     "artist": "Berthe Morisot",
     "name": "Girl in a Boat with Geese",
     "scientific": "c. 1889",
-    "ambience": "river"
+    "ambience": [
+      "oars",
+      "geese"
+    ]
   },
   {
     "image": "morisot-the-artists-daughter-with-a-parakeet.webp",
@@ -299,9 +309,9 @@
     "content": [
       "nudity"
     ],
-    "effect": "gallop",
     "sacred": true,
-    "focus": "35% 50%"
+    "focus": "35% 50%",
+    "ambience": "neigh"
   },
   {
     "image": "botticelli-giuliano-de-medici.webp",
@@ -488,11 +498,9 @@
       "violence",
       "frightening"
     ],
-    "effect": [
-      "sword",
-      "gallop"
-    ],
-    "sacred": true
+    "effect": "sword",
+    "sacred": true,
+    "ambience": "neigh"
   },
   {
     "image": "botticelli-judith-with-the-head-of-holofernes.webp",
@@ -524,7 +532,8 @@
     "artist": "Sandro Botticelli",
     "name": "Saint Augustine in His Cell",
     "scientific": "c. 1490–1494",
-    "sacred": true
+    "sacred": true,
+    "ambience": "pages"
   },
   {
     "image": "botticelli-the-trials-of-moses.webp",
@@ -630,9 +639,9 @@
     "content": [
       "nudity"
     ],
-    "effect": "gallop",
     "sacred": true,
-    "focus": "50% 15%"
+    "focus": "50% 15%",
+    "ambience": "neigh"
   },
   {
     "image": "el-greco-madonna-and-child-with-saint-martina-and-saint-agnes.webp",
@@ -740,7 +749,10 @@
     "artist": "Vincent van Gogh",
     "name": "Starry Night over the Rhône",
     "scientific": "1888",
-    "ambience": "crickets"
+    "ambience": [
+      "crickets",
+      "owl"
+    ]
   },
   {
     "image": "gogh-eugene-boch.webp",
@@ -775,7 +787,8 @@
     "artist": "Vincent van Gogh",
     "name": "L'Arlésienne: Madame Ginoux",
     "scientific": "1888–1889",
-    "article": "L'Arlésienne (painting)"
+    "article": "L'Arlésienne (painting)",
+    "ambience": "pages"
   },
   {
     "image": "gogh-the-olive-orchard.webp",
@@ -821,7 +834,8 @@
     "artist": "Vincent van Gogh",
     "name": "Lullaby (La Berceuse)",
     "scientific": "1889",
-    "article": "The Roulin Family"
+    "article": "The Roulin Family",
+    "ambience": "rocking"
   },
   {
     "image": "gogh-irises.webp",
@@ -843,7 +857,10 @@
     "artist": "Vincent van Gogh",
     "name": "The Starry Night",
     "scientific": "1889",
-    "ambience": "crickets"
+    "ambience": [
+      "crickets",
+      "owl"
+    ]
   },
   {
     "image": "gogh-wheat-field-with-cypresses.webp",
@@ -891,7 +908,8 @@
     "image": "gogh-the-drinkers.webp",
     "artist": "Vincent van Gogh",
     "name": "The Drinkers (after Daumier)",
-    "scientific": "1890"
+    "scientific": "1890",
+    "ambience": "pour"
   },
   {
     "image": "gogh-almond-blossom.webp",
@@ -911,8 +929,10 @@
     "artist": "Vincent van Gogh",
     "name": "Road with Cypress and Star",
     "scientific": "1890",
-    "effect": "gallop",
-    "ambience": "crickets"
+    "ambience": [
+      "crickets",
+      "cart"
+    ]
   },
   {
     "image": "raphael-the-small-cowper-madonna.webp",
@@ -971,7 +991,8 @@
     "image": "rembrandt-van-rijn-an-old-lady-with-a-book.webp",
     "artist": "Rembrandt van Rijn",
     "name": "An Old Lady with a Book",
-    "scientific": "1637"
+    "scientific": "1637",
+    "ambience": "pages"
   },
   {
     "image": "rembrandt-van-rijn-a-polish-nobleman.webp",
@@ -1070,7 +1091,8 @@
       "nudity",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "lion"
   },
   {
     "image": "rubens-decius-mus-addressing-the-legions.webp",
@@ -1090,8 +1112,8 @@
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of Abraham and Melchizedek",
     "scientific": "c. 1626",
-    "effect": "gallop",
-    "sacred": true
+    "sacred": true,
+    "ambience": "neigh"
   },
   {
     "image": "rubens-deborah-kip-wife-of-sir-balthasar-gerbier-and-her-children.webp",
@@ -1107,8 +1129,8 @@
     "artist": "Peter Paul Rubens",
     "name": "The Meeting of David and Abigail",
     "scientific": "c. 1630",
-    "effect": "gallop",
-    "sacred": true
+    "sacred": true,
+    "ambience": "neigh"
   },
   {
     "image": "titian-cardinal-pietro-bembo.webp",
@@ -1123,7 +1145,8 @@
     "scientific": "c. 1540s/c. 1560-1565",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "dog"
   },
   {
     "image": "titian-ranuccio-farnese.webp",
@@ -1174,7 +1197,8 @@
     "image": "cezanne-the-artists-father-reading-levenement.webp",
     "artist": "Paul Cézanne",
     "name": "The Artist's Father, Reading \"L'Événement\"",
-    "scientific": "1866"
+    "scientific": "1866",
+    "ambience": "pages"
   },
   {
     "image": "cezanne-house-of-pere-lacroix.webp",
@@ -1293,7 +1317,7 @@
     "artist": "Edgar Degas",
     "name": "Alexander and Bucephalus",
     "scientific": "1861/1862",
-    "effect": "gallop"
+    "ambience": "neigh"
   },
   {
     "image": "degas-edmondo-and-therese-morbilli.webp",
@@ -1322,8 +1346,10 @@
     "artist": "Edgar Degas",
     "name": "Horses in a Meadow",
     "scientific": "1871",
-    "effect": "gallop",
-    "ambience": "birds"
+    "ambience": [
+      "birds",
+      "neigh"
+    ]
   },
   {
     "image": "degas-madame-rene-de-gas.webp",
@@ -1407,7 +1433,8 @@
     "content": [
       "nudity"
     ],
-    "focus": "20% 50%"
+    "focus": "20% 50%",
+    "ambience": "meow"
   },
   {
     "image": "manet-the-dead-toreador.webp",
@@ -1461,7 +1488,8 @@
     "image": "manet-a-king-charles-spaniel.webp",
     "artist": "Edouard Manet",
     "name": "A King Charles Spaniel",
-    "scientific": "c. 1866"
+    "scientific": "c. 1866",
+    "ambience": "dog"
   },
   {
     "image": "manet-young-lady-in-1866.webp",
@@ -1476,19 +1504,25 @@
     "scientific": "1868",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "pages"
   },
   {
     "image": "manet-luncheon-in-the-studio.webp",
     "artist": "Edouard Manet",
     "name": "Luncheon in the Studio",
-    "scientific": "1868"
+    "scientific": "1868",
+    "ambience": [
+      "dinner",
+      "meow"
+    ]
   },
   {
     "image": "manet-the-balcony.webp",
     "artist": "Edouard Manet",
     "name": "The Balcony",
-    "scientific": "1868–1869"
+    "scientific": "1868–1869",
+    "ambience": "window"
   },
   {
     "image": "manet-interior-at-arcachon.webp",
@@ -1503,14 +1537,18 @@
     "artist": "Edouard Manet",
     "name": "The Railway",
     "scientific": "1873",
-    "ambience": "train"
+    "ambience": [
+      "train",
+      "pages"
+    ]
   },
   {
     "image": "manet-masked-ball-at-the-opera.webp",
     "artist": "Edouard Manet",
     "name": "Masked Ball at the Opera",
     "scientific": "1873",
-    "focus": "90% 50%"
+    "focus": "90% 50%",
+    "ambience": "murmur"
   },
   {
     "image": "manet-boating.webp",
@@ -1518,7 +1556,7 @@
     "name": "Boating",
     "scientific": "1874",
     "focus": "25% 50%",
-    "ambience": "rowing"
+    "ambience": "oars"
   },
   {
     "image": "manet-claude-monet-painting-in-his-studio-boat.webp",
@@ -1557,7 +1595,8 @@
     "image": "manet-at-the-cafe.webp",
     "artist": "Edouard Manet",
     "name": "At the Café",
-    "scientific": "1878"
+    "scientific": "1878",
+    "ambience": "dinner"
   },
   {
     "image": "manet-in-the-conservatory.webp",
@@ -1741,21 +1780,22 @@
     "image": "renoir-head-of-a-dog.webp",
     "artist": "Auguste Renoir",
     "name": "Head of a Dog",
-    "scientific": "1870"
+    "scientific": "1870",
+    "ambience": "dog"
   },
   {
     "image": "renoir-pont-neuf-paris.webp",
     "artist": "Auguste Renoir",
     "name": "Pont Neuf, Paris",
     "scientific": "1872",
-    "effect": "gallop",
     "ambience": "cart"
   },
   {
     "image": "renoir-claude-monet.webp",
     "artist": "Auguste Renoir",
     "name": "Claude Monet",
-    "scientific": "1872"
+    "scientific": "1872",
+    "ambience": "pages"
   },
   {
     "image": "renoir-the-dancer.webp",
@@ -1782,7 +1822,8 @@
     "image": "renoir-woman-with-a-cat.webp",
     "artist": "Auguste Renoir",
     "name": "Woman with a Cat",
-    "scientific": "c. 1875"
+    "scientific": "c. 1875",
+    "ambience": "meow"
   },
   {
     "image": "renoir-picking-flowers.webp",
@@ -1822,7 +1863,7 @@
     "name": "Oarsmen at Chatou",
     "scientific": "1879",
     "focus": "15% 50%",
-    "ambience": "rowing"
+    "ambience": "oars"
   },
   {
     "image": "renoir-the-mussel-harvest.webp",
@@ -1935,19 +1976,24 @@
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Lady with a Dog",
     "scientific": "1891",
-    "ambience": "birds"
+    "ambience": [
+      "birds",
+      "dog"
+    ]
   },
   {
     "image": "toulouse-lautrec-a-corner-of-the-moulin-de-la-galette.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "A Corner of the Moulin de la Galette",
-    "scientific": "1892"
+    "scientific": "1892",
+    "ambience": "dinner"
   },
   {
     "image": "toulouse-lautrec-quadrille-at-the-moulin-rouge.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Quadrille at the Moulin Rouge",
-    "scientific": "1892"
+    "scientific": "1892",
+    "ambience": "cheer"
   },
   {
     "image": "toulouse-lautrec-alfred-la-guigne.webp",
@@ -1959,7 +2005,8 @@
     "image": "toulouse-lautrec-marcelle-lender-dancing-the-bolero-in-chilperic.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Marcelle Lender Dancing the Bolero in \"Chilpéric\"",
-    "scientific": "1895-1896"
+    "scientific": "1895-1896",
+    "ambience": "cheer"
   },
   {
     "image": "toulouse-lautrec-maxime-dethomas.webp",
@@ -1977,7 +2024,8 @@
     "image": "toulouse-lautrec-the-englishman-at-the-moulin-rouge.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "The Englishman at the Moulin Rouge",
-    "scientific": "William Tom Warrener, 1892"
+    "scientific": "William Tom Warrener, 1892",
+    "ambience": "cheer"
   },
   {
     "image": "toulouse-lautrec-the-sofa.webp",
@@ -2016,7 +2064,10 @@
     "artist": "J. M. W. Turner",
     "name": "Mortlake Terrace",
     "scientific": "1827",
-    "ambience": "river"
+    "ambience": [
+      "river",
+      "dog"
+    ]
   },
   {
     "image": "turner-rotterdam-ferry-boat.webp",
@@ -2081,7 +2132,6 @@
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "A View near Volterra",
     "scientific": "1838",
-    "effect": "gallop",
     "ambience": "birds"
   },
   {
@@ -2089,7 +2139,6 @@
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "View near Epernon",
     "scientific": "1850/1860",
-    "effect": "gallop",
     "ambience": "birds"
   },
   {
@@ -2120,7 +2169,7 @@
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Moored Boatman: Souvenir of an Italian Lake",
     "scientific": "1861",
-    "ambience": "river"
+    "ambience": "oars"
   },
   {
     "image": "corot-dance-under-the-trees-at-the-edge-of-the-lake.webp",
@@ -2145,14 +2194,14 @@
     "image": "corot-woman-reading-in-the-studio.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Woman Reading in the Studio",
-    "scientific": "c. 1868"
+    "scientific": "c. 1868",
+    "ambience": "pages"
   },
   {
     "image": "corot-the-forest-of-coubron.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Forest of Coubron",
     "scientific": "1872",
-    "effect": "gallop",
     "ambience": "wind"
   },
   {
@@ -2272,8 +2321,10 @@
     "artist": "Camille Pissarro",
     "name": "Boulevard des Italiens, Morning, Sunlight",
     "scientific": "1897",
-    "effect": "gallop",
-    "ambience": "cart"
+    "ambience": [
+      "cart",
+      "window"
+    ]
   },
   {
     "image": "pissarro-the-artists-garden-at-eragny.webp",
@@ -2287,7 +2338,10 @@
     "artist": "Camille Pissarro",
     "name": "Place du Carrousel, Paris",
     "scientific": "1900",
-    "ambience": "cart"
+    "ambience": [
+      "cart",
+      "window"
+    ]
   },
   {
     "image": "pissarro-the-louvre-afternoon-rainy-weather.webp",
@@ -2444,7 +2498,6 @@
     "content": [
       "violence"
     ],
-    "effect": "gallop",
     "article": "The Rocky Mountains, Lander's Peak",
     "ambience": "brook"
   },
@@ -2749,7 +2802,8 @@
     "scientific": "c. 1596–1597",
     "content": [
       "nudity"
-    ]
+    ],
+    "ambience": "pour"
   },
   {
     "image": "caravaggio-narcissus.webp",
@@ -2801,7 +2855,8 @@
     "artist": "Caravaggio",
     "name": "The Calling of Saint Matthew",
     "scientific": "1599–1600",
-    "sacred": true
+    "sacred": true,
+    "ambience": "whisper"
   },
   {
     "image": "caravaggio-the-martyrdom-of-saint-matthew.webp",
@@ -2821,8 +2876,8 @@
     "artist": "Caravaggio",
     "name": "Conversion on the Way to Damascus",
     "scientific": "1601",
-    "effect": "gallop",
-    "sacred": true
+    "sacred": true,
+    "ambience": "neigh"
   },
   {
     "image": "caravaggio-crucifixion-of-saint-peter.webp",
@@ -2970,7 +3025,8 @@
       "nudity",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "pages"
   },
   {
     "image": "caravaggio-the-beheading-of-saint-john-the-baptist.webp",
@@ -3023,7 +3079,8 @@
     "artist": "Caravaggio",
     "name": "The Denial of Saint Peter",
     "scientific": "1610",
-    "sacred": true
+    "sacred": true,
+    "ambience": "fire"
   },
   {
     "image": "leonardo-da-vinci-mona-lisa.webp",
@@ -3069,7 +3126,10 @@
       "nudity"
     ],
     "sacred": true,
-    "ambience": "wings"
+    "ambience": [
+      "wings",
+      "dove"
+    ]
   },
   {
     "image": "leonardo-da-vinci-madonna-of-the-carnation.webp",
@@ -3118,7 +3178,8 @@
     "image": "decamp-the-seamstress.webp",
     "artist": "Joseph DeCamp",
     "name": "The Seamstress",
-    "scientific": "oil on canvas, 1916"
+    "scientific": "oil on canvas, 1916",
+    "ambience": "window"
   },
   {
     "image": "decamp-the-blue-mandarin-coat.webp",
@@ -3203,7 +3264,8 @@
     "artist": "John Everett Millais",
     "name": "Isabella",
     "scientific": "1848–1849",
-    "focus": "30% 50%"
+    "focus": "30% 50%",
+    "ambience": "dinner"
   },
   {
     "image": "millais-mariana.webp",
@@ -3215,7 +3277,8 @@
     "image": "millais-the-black-brunswicker.webp",
     "artist": "John Everett Millais",
     "name": "The Black Brunswicker",
-    "scientific": "1860"
+    "scientific": "1860",
+    "ambience": "dog"
   },
   {
     "image": "millais-the-order-of-release-1746.webp",
@@ -3230,7 +3293,10 @@
     "scientific": "1851",
     "sacred": true,
     "focus": "50% 35%",
-    "ambience": "flight"
+    "ambience": [
+      "flight",
+      "dove"
+    ]
   },
   {
     "image": "millais-the-rescue.webp",
@@ -3281,7 +3347,10 @@
     "name": "The Vale of Rest",
     "scientific": "1858–1859",
     "focus": "55% 50%",
-    "ambience": "crickets"
+    "ambience": [
+      "crickets",
+      "owl"
+    ]
   },
   {
     "image": "rossetti-proserpine.webp",
@@ -3455,7 +3524,8 @@
     "scientific": "1851–1853",
     "sacred": true,
     "effect": "knock",
-    "focus": "50% 45%"
+    "focus": "50% 45%",
+    "ambience": "owl"
   },
   {
     "image": "hunt-may-morning-on-magdalen-tower.webp",
@@ -3477,9 +3547,12 @@
     "artist": "Ford Madox Brown",
     "name": "Work",
     "scientific": "1852–1865",
-    "effect": "gallop",
     "focus": "25% 50%",
-    "ambience": "market"
+    "ambience": [
+      "market",
+      "dog",
+      "cart"
+    ]
   },
   {
     "image": "brown-take-your-son-sir.webp",
@@ -3543,7 +3616,8 @@
     "name": "The Coat of Many Colours",
     "scientific": "1864–1866",
     "sacred": true,
-    "focus": "75% 50%"
+    "focus": "75% 50%",
+    "ambience": "dog"
   },
   {
     "image": "brown-cordelia-parting-from-her-sisters.webp",
@@ -3599,7 +3673,7 @@
     "artist": "Arthur Hughes",
     "name": "La Belle Dame sans Merci",
     "scientific": "1863",
-    "effect": "gallop"
+    "ambience": "neigh"
   },
   {
     "image": "hughes-fair-rosamund.webp",
@@ -3765,7 +3839,8 @@
     "content": [
       "nudity"
     ],
-    "focus": "15% 50%"
+    "focus": "15% 50%",
+    "ambience": "dinner"
   },
   {
     "image": "burne-jones-sidonia-von-bork.webp",
@@ -3839,7 +3914,8 @@
     "artist": "Marie Spartali Stillman",
     "name": "Saint Barbara",
     "scientific": "c. 1870",
-    "sacred": true
+    "sacred": true,
+    "ambience": "pages"
   },
   {
     "image": "stillman-mia-suora-rachel.webp",
@@ -3979,7 +4055,7 @@
     "artist": "John William Waterhouse",
     "name": "The Lady of Shalott",
     "scientific": "1888",
-    "ambience": "river"
+    "ambience": "oars"
   },
   {
     "image": "waterhouse-hylas-and-the-nymphs.webp",
@@ -4028,7 +4104,8 @@
       "violence",
       "frightening"
     ],
-    "sacred": true
+    "sacred": true,
+    "ambience": "dove"
   },
   {
     "image": "waterhouse-the-favourites-of-the-emperor-honorius.webp",
@@ -4045,7 +4122,7 @@
     "content": [
       "frightening"
     ],
-    "ambience": "sea"
+    "ambience": "oars"
   },
   {
     "image": "waterhouse-jason-and-medea.webp",
@@ -4244,7 +4321,6 @@
     "artist": "Frederic Leighton",
     "name": "Cimabue's Celebrated Madonna",
     "scientific": "1853–1855",
-    "effect": "gallop",
     "focus": "5% 50%",
     "ambience": "market"
   },
@@ -4644,14 +4720,18 @@
     "artist": "Edwin Landseer",
     "name": "'Lion', a Newfoundland Dog",
     "scientific": "1824",
-    "ambience": "wind"
+    "ambience": [
+      "wind",
+      "dog"
+    ]
   },
   {
     "image": "landseer-hector-nero-and-dash-with-the-parrot-lory.webp",
     "artist": "Edwin Landseer",
     "name": "Hector, Nero and Dash with the Parrot Lory",
     "scientific": "1838",
-    "article": "Dash (spaniel)"
+    "article": "Dash (spaniel)",
+    "ambience": "dog"
   },
   {
     "image": "landseer-scene-from-a-midsummer-nights-dream.webp",
@@ -4668,7 +4748,10 @@
     "artist": "Edwin Landseer",
     "name": "Favourites",
     "scientific": "1834–1835",
-    "effect": "gallop"
+    "ambience": [
+      "dog",
+      "neigh"
+    ]
   },
   {
     "image": "landseer-a-highland-landscape.webp",
@@ -4685,7 +4768,6 @@
     "content": [
       "violence"
     ],
-    "effect": "gallop",
     "article": "Hawking in the Olden Time",
     "ambience": "wind"
   },
@@ -4704,6 +4786,6 @@
     "artist": "Edwin Landseer",
     "name": "A Group of Animals",
     "scientific": "1851",
-    "effect": "gallop"
+    "ambience": "neigh"
   }
 ]
