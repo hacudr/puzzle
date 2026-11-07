@@ -782,16 +782,19 @@ function openCollection(c) {
   show('collection');
 }
 
-// The artist's bio spans exactly the columns of cards under it. The columns are
-// centred and their number changes with the width, so it is measured from the grid
-// each time the grid changes size (which includes the page being shown).
+// The artist's card, with their name and bio, spans at least the columns of cards under it,
+// and where they are few and narrow reaches wider, up to 760px or the page's
+// width less a margin. The columns are centred and their number changes with the
+// width, so it is measured from the grid each time the grid changes size (which
+// includes the page being shown).
 function fitBio() {
   const grid = $('#grid');
   const cs = getComputedStyle(grid);
   const cols = cs.gridTemplateColumns.split(' ').map(parseFloat).filter((n) => n > 0);
   if (!cols.length) return;
-  const wide = cols.reduce((s, n) => s + n, 0) + parseFloat(cs.columnGap) * (cols.length - 1);
-  $('#artistBio').style.width = `${Math.round(wide)}px`;
+  const span = cols.reduce((s, n) => s + n, 0) + parseFloat(cs.columnGap) * (cols.length - 1);
+  const room = Math.min(760, grid.clientWidth - 32);
+  $('#artistCard').style.width = `${Math.round(Math.max(span, room))}px`;
   foldBio();
 }
 new ResizeObserver(fitBio).observe($('#grid'));

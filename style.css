@@ -278,11 +278,43 @@ button {
 .gallery-head { position: relative; text-align: center; padding: 0 24px 8px; }
 .gallery-head h1, .settings-body h1 { margin: 4px 0 0; font-weight: 500; font-size: calc(2.6rem / var(--ts)); letter-spacing: .01em; }
 .level-note { margin: 10px 0 0; font-style: italic; color: var(--ink-soft); }
+/* The artist's name and bio stand on a card like the splash's title card:
+   off-white, with a thick rule and a thin one inside its edge, and dark
+   lettering whatever the theme. Its width is set in app.js (fitBio). */
+.artist-card {
+  --ink: #33291f;
+  --ink-rgb: 51, 41, 31;
+  --ink-soft: #6f6051;
+  position: relative;
+  max-width: 100%;
+  margin: 6px auto 4px;
+  padding: 34px 44px 28px;
+  background: var(--offwhite);
+  color: var(--ink);
+  box-shadow: 0 0 0 1px #8a7044, 0 14px 34px -16px rgba(0, 0, 0, .55);
+}
+.artist-card::before,
+.artist-card::after { content: ""; position: absolute; pointer-events: none; }
+.artist-card::before { inset: 10px; border: 3px solid #33291f; }
+.artist-card::after { inset: 17px; border: 1px solid #33291f; }
+.artist-card .eyebrow { margin: 0 0 2px; }
+.gallery-head .artist-card h1 { margin: 0; line-height: 1.15; }
+@media (max-width: 500px) {
+  .artist-card { padding: 28px 28px 22px; }
+  .artist-card::before { inset: 8px; }
+  .artist-card::after { inset: 14px; }
+}
 /* a sentence or two on the artist, under their name */
-/* its width is set in app.js (fitBio) to span the cards below */
 .bio-note { white-space: nowrap; }
-/* centred, with a fine rule under it before the level line */
-.bio { max-width: 100%; margin: 14px auto 0; padding-bottom: 14px; border-bottom: 1px solid rgba(var(--ink-rgb), .14); text-align: center; font-size: 1.05rem; line-height: 1.45; color: var(--ink-soft); text-wrap: pretty; }
+.bio {
+  position: relative;
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
 /* Folded, it shows its first line, the second fading away under it; Show more
    opens the rest and Show less folds it again (openArtist in app.js). A bio
    short enough to need neither is not .foldable. */
