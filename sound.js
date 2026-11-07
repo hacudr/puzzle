@@ -708,7 +708,6 @@ const sound = (() => {
     dove: later('dove.mp3'),
     geese: later('geese.mp3'),
     dog: later('dog.mp3'),
-    meow: later('meow.mp3'),
     neigh: later('neigh.mp3'),
     lion: later('lion.mp3'),
     cheer: later('cheer.mp3'),

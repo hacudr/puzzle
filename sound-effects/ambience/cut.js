@@ -99,7 +99,6 @@ const CUTS = {
   geese: { id: 423346, from: 0.3, length: 11.5, brief: true },
   // a big dog some way off
   dog: { id: 440865, from: 0.6, length: 9.6, brief: true },
-  meow: { id: 412017, from: 0, length: 1.75, brief: true, fadeIn: 0.05, fadeOut: 0.4 },
   neigh: { id: 347036, from: 0, length: 10.5, brief: true },
   lion: { id: 488348, from: 0, length: 16.5, brief: true },
   // a small crowd cheering, for a dance or a show

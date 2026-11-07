@@ -1433,8 +1433,7 @@
     "content": [
       "nudity"
     ],
-    "focus": "20% 50%",
-    "ambience": "meow"
+    "focus": "20% 50%"
   },
   {
     "image": "manet-the-dead-toreador.webp",
@@ -1512,10 +1511,7 @@
     "artist": "Edouard Manet",
     "name": "Luncheon in the Studio",
     "scientific": "1868",
-    "ambience": [
-      "dinner",
-      "meow"
-    ]
+    "ambience": "dinner"
   },
   {
     "image": "manet-the-balcony.webp",
@@ -1822,8 +1818,7 @@
     "image": "renoir-woman-with-a-cat.webp",
     "artist": "Auguste Renoir",
     "name": "Woman with a Cat",
-    "scientific": "c. 1875",
-    "ambience": "meow"
+    "scientific": "c. 1875"
   },
   {
     "image": "renoir-picking-flowers.webp",

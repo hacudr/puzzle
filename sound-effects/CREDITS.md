@@ -48,7 +48,6 @@ Heard faintly under a puzzle's ending music, chosen by its `ambience` in `puzzle
 | `ambience/dove.mp3` | A dove cooing | [mourning dove](https://freesound.org/s/456930/), nathankwright | CC0 |
 | `ambience/geese.mp3` | Geese honking | [Canada Geese Honks](https://freesound.org/s/423346/), Kinoton | CC0 |
 | `ambience/dog.mp3` | A big dog barking some way off | [Angry big dog barking – Far](https://freesound.org/s/440865/), v23 | CC0 |
-| `ambience/meow.mp3` | A cat's meow | [cat meow short](https://freesound.org/s/412017/), skymary | CC0 |
 | `ambience/neigh.mp3` | A horse's whinny | [horse's whinny](https://freesound.org/s/347036/), Kubuzz | CC0 |
 | `ambience/lion.mp3` | A lion growling | [Lion](https://freesound.org/s/488348/), GJ55GB | CC0 |
 | `ambience/cheer.mp3` | A small crowd cheering | [small crowd cheering](https://freesound.org/s/264377/), HowardV | CC0 |
