@@ -5,6 +5,16 @@
     "cover": "morisot-young-girl-with-an-apron.webp"
   },
   {
+    "name": "Victorian Classicism",
+    "note": "1850s–1890s",
+    "collection": "Old Masters & Ancient Art"
+  },
+  {
+    "name": "Romanticism and Realism",
+    "note": "Early 19th century",
+    "collection": "Old Masters & Ancient Art"
+  },
+  {
     "name": "Baroque",
     "note": "17th century",
     "collection": "Old Masters & Ancient Art"
@@ -15,28 +25,13 @@
     "collection": "Old Masters & Ancient Art"
   },
   {
-    "name": "Anglo-Saxon and Saxon Art",
-    "note": "England and Saxony, 450–1270",
-    "collection": "Old Masters & Ancient Art"
-  },
-  {
-    "name": "Ancient Art",
-    "note": "Egypt, the Near East, Greece and Rome",
-    "collection": "Old Masters & Ancient Art"
-  },
-  {
-    "name": "Romanticism and Realism",
-    "note": "Early 19th century",
+    "name": "Realism",
+    "note": "19th century",
     "collection": "Romantics & Realism"
   },
   {
     "name": "Pre-Raphaelites",
     "note": "1848–1910s",
-    "collection": "Romantics & Realism"
-  },
-  {
-    "name": "Victorian Classicism",
-    "note": "1850s–1890s",
     "collection": "Romantics & Realism"
   },
   {
@@ -47,11 +42,6 @@
   {
     "name": "Post-Impressionism",
     "note": "1880s–1900s",
-    "collection": "Impressionism to Modern"
-  },
-  {
-    "name": "Modern",
-    "note": "Early 20th century",
     "collection": "Impressionism to Modern"
   }
 ]

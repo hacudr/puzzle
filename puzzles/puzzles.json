@@ -1,89 +1,5 @@
 [
   {
-    "image": "bird-of-paradise.webp",
-    "artist": "Michalina Janoszanka",
-    "name": "Bird of Paradise",
-    "scientific": "Rajski ptak",
-    "music": "pathetique",
-    "ambience": "birds"
-  },
-  {
-    "image": "butterfly.webp",
-    "artist": "Michalina Janoszanka",
-    "name": "Butterfly",
-    "scientific": "Motyl",
-    "music": "clair",
-    "ambience": "brook"
-  },
-  {
-    "image": "spring.webp",
-    "artist": "Michalina Janoszanka",
-    "name": "Spring",
-    "scientific": "Wiosna",
-    "music": "pathetique",
-    "ambience": "brook"
-  },
-  {
-    "image": "winter.webp",
-    "artist": "Michalina Janoszanka",
-    "name": "Winter",
-    "scientific": "Zima",
-    "music": "moonlight",
-    "ambience": "wind"
-  },
-  {
-    "image": "marvellous-tree.webp",
-    "artist": "Virginia Frances Sterrett",
-    "name": "The Marvellous Tree",
-    "scientific": "The Little Grey Mouse"
-  },
-  {
-    "image": "bonne-biche.webp",
-    "artist": "Virginia Frances Sterrett",
-    "name": "Bonne-Biche",
-    "scientific": "Blondine, Bonne-Biche and Beau-Minon"
-  },
-  {
-    "image": "tortoise.webp",
-    "artist": "Virginia Frances Sterrett",
-    "name": "The Tortoise",
-    "scientific": "Blondine, Bonne-Biche and Beau-Minon",
-    "ambience": "wind"
-  },
-  {
-    "image": "giant.webp",
-    "artist": "Virginia Frances Sterrett",
-    "name": "The Giant",
-    "scientific": "Good Little Henry"
-  },
-  {
-    "image": "plant-of-life.webp",
-    "artist": "Virginia Frances Sterrett",
-    "name": "The Plant of Life",
-    "scientific": "Good Little Henry",
-    "ambience": "birds"
-  },
-  {
-    "image": "rosette.webp",
-    "artist": "Virginia Frances Sterrett",
-    "name": "The Evening Walk",
-    "scientific": "Princess Rosette",
-    "ambience": "crickets"
-  },
-  {
-    "image": "night-in-the-forest.webp",
-    "artist": "Virginia Frances Sterrett",
-    "name": "Night in the Forest",
-    "scientific": "Ourson",
-    "ambience": "crickets"
-  },
-  {
-    "image": "monet-still-life-with-bottle-carafe-bread-and-wine.webp",
-    "artist": "Claude Monet",
-    "name": "Still Life with Bottle, Carafe, Bread, and Wine",
-    "scientific": "c. 1862/1863"
-  },
-  {
     "image": "monet-bazille-and-camille.webp",
     "artist": "Claude Monet",
     "name": "Bazille and Camille",
@@ -95,20 +11,6 @@
     "artist": "Claude Monet",
     "name": "The Cradle",
     "scientific": "1867"
-  },
-  {
-    "image": "monet-sainte-adresse.webp",
-    "artist": "Claude Monet",
-    "name": "Sainte-Adresse",
-    "scientific": "1867",
-    "ambience": "shore"
-  },
-  {
-    "image": "monet-interior-after-dinner.webp",
-    "artist": "Claude Monet",
-    "name": "Interior, after Dinner",
-    "scientific": "1868/1869",
-    "ambience": "fire"
   },
   {
     "image": "monet-argenteuil.webp",
@@ -153,25 +55,11 @@
     "ambience": "wind"
   },
   {
-    "image": "monet-bridge-at-argenteuil-on-a-gray-day.webp",
-    "artist": "Claude Monet",
-    "name": "Bridge at Argenteuil on a Gray Day",
-    "scientific": "c. 1876",
-    "ambience": "river"
-  },
-  {
     "image": "monet-la-gare-saint-lazare.webp",
     "artist": "Claude Monet",
     "name": "La Gare Saint-Lazare",
     "scientific": "1877",
     "article": "Gare Saint-Lazare (Monet series)",
-    "ambience": "train"
-  },
-  {
-    "image": "monet-arrival-of-the-normandy-train.webp",
-    "artist": "Claude Monet",
-    "name": "Arrival of the Normandy Train, Gare Saint-Lazare",
-    "scientific": "1877",
     "ambience": "train"
   },
   {
@@ -195,25 +83,11 @@
     "scientific": "1880"
   },
   {
-    "image": "monet-the-willows.webp",
-    "artist": "Claude Monet",
-    "name": "The Willows",
-    "scientific": "1880",
-    "ambience": "wind"
-  },
-  {
     "image": "monet-the-artists-garden-at-vetheuil.webp",
     "artist": "Claude Monet",
     "name": "The Artist’s Garden at Vétheuil",
     "scientific": "1881",
     "ambience": "garden"
-  },
-  {
-    "image": "monet-cliffs-at-pourville.webp",
-    "artist": "Claude Monet",
-    "name": "Cliffs at Pourville",
-    "scientific": "1882",
-    "ambience": "sea"
   },
   {
     "image": "monet-the-pyramids-at-port-coton.webp",
@@ -224,23 +98,9 @@
     "ambience": "sea"
   },
   {
-    "image": "monet-morning-haze.webp",
-    "artist": "Claude Monet",
-    "name": "Morning Haze",
-    "scientific": "1888",
-    "ambience": "birds"
-  },
-  {
     "image": "monet-rouen-cathedral-west-facade.webp",
     "artist": "Claude Monet",
     "name": "Rouen Cathedral, West Façade",
-    "scientific": "1894",
-    "ambience": "bells"
-  },
-  {
-    "image": "monet-rouen-cathedral-west-facade-sunlight.webp",
-    "artist": "Claude Monet",
-    "name": "Rouen Cathedral, West Façade, Sunlight",
     "scientific": "1894",
     "ambience": "bells"
   },
@@ -252,13 +112,6 @@
     "ambience": "river"
   },
   {
-    "image": "monet-morning-on-the-seine.webp",
-    "artist": "Claude Monet",
-    "name": "Morning on the Seine",
-    "scientific": "1898",
-    "ambience": "river"
-  },
-  {
     "image": "monet-the-japanese-footbridge.webp",
     "artist": "Claude Monet",
     "name": "The Japanese Footbridge",
@@ -266,47 +119,11 @@
     "ambience": "birds"
   },
   {
-    "image": "monet-houses-of-parliament-london.webp",
-    "artist": "Claude Monet",
-    "name": "Houses of Parliament, London",
-    "scientific": "1900–1903",
-    "article": "Houses of Parliament (Monet series)",
-    "ambience": "river"
-  },
-  {
     "image": "monet-the-houses-of-parliament-sunset.webp",
     "artist": "Claude Monet",
     "name": "The Houses of Parliament, Sunset",
     "scientific": "1903",
     "ambience": "river"
-  },
-  {
-    "image": "monet-waterloo-bridge-gray-day.webp",
-    "artist": "Claude Monet",
-    "name": "Waterloo Bridge, Gray Day",
-    "scientific": "1903",
-    "ambience": "river"
-  },
-  {
-    "image": "monet-waterloo-bridge-london-at-dusk.webp",
-    "artist": "Claude Monet",
-    "name": "Waterloo Bridge, London, at Dusk",
-    "scientific": "1904",
-    "ambience": "river"
-  },
-  {
-    "image": "monet-waterloo-bridge-london-at-sunset.webp",
-    "artist": "Claude Monet",
-    "name": "Waterloo Bridge, London, at Sunset",
-    "scientific": "1904",
-    "ambience": "river"
-  },
-  {
-    "image": "monet-palazzo-da-mula-venice.webp",
-    "artist": "Claude Monet",
-    "name": "Palazzo da Mula, Venice",
-    "scientific": "1908",
-    "ambience": "harbour"
   },
   {
     "image": "monet-san-giorgio-maggiore-at-dusk.webp",
@@ -320,22 +137,6 @@
     "artist": "Claude Monet",
     "name": "Water Lilies",
     "scientific": "New York, 1916–1919",
-    "ambience": "birds"
-  },
-  {
-    "image": "monet-water-lilies-honolulu.webp",
-    "artist": "Claude Monet",
-    "name": "Water Lilies",
-    "scientific": "Honolulu, 1917–1919",
-    "article": "Water Lilies (Monet series)",
-    "ambience": "birds"
-  },
-  {
-    "image": "monet-the-water-lily-pond.webp",
-    "artist": "Claude Monet",
-    "name": "The Water Lily Pond",
-    "scientific": "1919",
-    "article": "Le Bassin aux Nymphéas",
     "ambience": "birds"
   },
   {
@@ -450,27 +251,6 @@
     "scientific": "1869"
   },
   {
-    "image": "morisot-the-harbor-at-lorient.webp",
-    "artist": "Berthe Morisot",
-    "name": "The Harbor at Lorient",
-    "scientific": "1869",
-    "focus": "75% 50%",
-    "ambience": "harbour"
-  },
-  {
-    "image": "morisot-peonies.webp",
-    "artist": "Berthe Morisot",
-    "name": "Peonies",
-    "scientific": "c. 1869"
-  },
-  {
-    "image": "morisot-hanging-the-laundry-out-to-dry.webp",
-    "artist": "Berthe Morisot",
-    "name": "Hanging the Laundry out to Dry",
-    "scientific": "1875",
-    "ambience": "wind"
-  },
-  {
     "image": "morisot-young-woman-with-a-straw-hat.webp",
     "artist": "Berthe Morisot",
     "name": "Young Woman with a Straw Hat",
@@ -502,74 +282,6 @@
     "scientific": "1891"
   },
   {
-    "image": "bellini-portrait-of-a-young-man-in-red.webp",
-    "artist": "Giovanni Bellini",
-    "name": "Portrait of a Young Man in Red",
-    "scientific": "c. 1480"
-  },
-  {
-    "image": "bellini-madonna-and-child.webp",
-    "artist": "Giovanni Bellini",
-    "name": "Madonna and Child",
-    "scientific": "c. 1480/1485",
-    "sacred": true
-  },
-  {
-    "image": "bellini-madonna-and-child-in-a-landscape.webp",
-    "artist": "Giovanni Bellini",
-    "name": "Madonna and Child in a Landscape",
-    "scientific": "c. 1480/1485",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true,
-    "ambience": "birds"
-  },
-  {
-    "image": "bellini-portrait-of-a-young-man.webp",
-    "artist": "Giovanni Bellini",
-    "name": "Portrait of a Young Man",
-    "scientific": "c. 1490"
-  },
-  {
-    "image": "bellini-portrait-of-a-venetian-gentleman.webp",
-    "artist": "Giovanni Bellini",
-    "name": "Portrait of a Venetian Gentleman",
-    "scientific": "c. 1500"
-  },
-  {
-    "image": "bellini-saint-jerome-reading.webp",
-    "artist": "Giovanni Bellini",
-    "name": "Saint Jerome Reading",
-    "scientific": "1505",
-    "sacred": true,
-    "ambience": "birds"
-  },
-  {
-    "image": "bellini-the-infant-bacchus.webp",
-    "artist": "Giovanni Bellini",
-    "name": "The Infant Bacchus",
-    "scientific": "probably 1505/1510"
-  },
-  {
-    "image": "bellini-an-episode-from-the-life-of-publius-cornelius-scipio.webp",
-    "artist": "Giovanni Bellini",
-    "name": "An Episode from the Life of Publius Cornelius Scipio",
-    "scientific": "after 1506",
-    "effect": "gallop"
-  },
-  {
-    "image": "bellini-the-feast-of-the-gods.webp",
-    "artist": "Giovanni Bellini",
-    "name": "The Feast of the Gods",
-    "scientific": "1514/1529",
-    "content": [
-      "nudity",
-      "violence"
-    ],
-    "ambience": "birds"
-  },
-  {
     "image": "botticelli-madonna-and-child.webp",
     "artist": "Sandro Botticelli",
     "name": "Madonna and Child",
@@ -596,16 +308,6 @@
     "artist": "Sandro Botticelli",
     "name": "Giuliano de' Medici",
     "scientific": "c. 1478/1480"
-  },
-  {
-    "image": "botticelli-the-virgin-adoring-the-child.webp",
-    "artist": "Sandro Botticelli",
-    "name": "The Virgin Adoring the Child",
-    "scientific": "1480/1490",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
   },
   {
     "image": "botticelli-portrait-of-a-youth.webp",
@@ -680,48 +382,16 @@
     "scientific": "c. 1480–1485"
   },
   {
-    "image": "botticelli-portrait-of-a-lady-known-as-smeralda-bandinelli.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Portrait of a Lady Known as Smeralda Bandinelli",
-    "scientific": "c. 1470–1475"
-  },
-  {
-    "image": "botticelli-portrait-of-a-young-man.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Portrait of a Young Man",
-    "scientific": "c. 1480–1485"
-  },
-  {
     "image": "botticelli-portrait-of-a-young-man-holding-a-roundel.webp",
     "artist": "Sandro Botticelli",
     "name": "Portrait of a Young Man Holding a Roundel",
     "scientific": "c. 1480"
   },
   {
-    "image": "botticelli-portrait-of-michele-marullo-tarcaniota.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Portrait of Michele Marullo Tarcaniota",
-    "scientific": "c. 1497",
-    "article": "Michael Tarchaniota Marullus"
-  },
-  {
     "image": "botticelli-portrait-of-dante.webp",
     "artist": "Sandro Botticelli",
     "name": "Portrait of Dante",
     "scientific": "c. 1495"
-  },
-  {
-    "image": "botticelli-venus-and-the-three-graces-presenting-gifts-to-a-young-woman.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Venus and the Three Graces Presenting Gifts to a Young Woman",
-    "scientific": "fresco, c. 1483–1486",
-    "focus": "35% 50%"
-  },
-  {
-    "image": "botticelli-a-young-man-being-introduced-to-the-seven-liberal-arts.webp",
-    "artist": "Sandro Botticelli",
-    "name": "A Young Man Being Introduced to the Seven Liberal Arts",
-    "scientific": "fresco, c. 1483–1486"
   },
   {
     "image": "botticelli-the-story-of-virginia.webp",
@@ -755,17 +425,6 @@
     "sacred": true
   },
   {
-    "image": "botticelli-the-adoration-of-the-magi-london.webp",
-    "artist": "Sandro Botticelli",
-    "name": "The Adoration of the Magi",
-    "scientific": "London, c. 1470–1475",
-    "content": [
-      "nudity"
-    ],
-    "effect": "gallop",
-    "sacred": true
-  },
-  {
     "image": "botticelli-madonna-and-child-with-two-angels.webp",
     "artist": "Sandro Botticelli",
     "name": "Madonna and Child with Two Angels",
@@ -789,57 +448,6 @@
     "ambience": "wings"
   },
   {
-    "image": "botticelli-madonna-and-child-with-singing-angels.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Madonna and Child with Singing Angels",
-    "scientific": "c. 1477",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true,
-    "focus": "40% 50%",
-    "ambience": "wings"
-  },
-  {
-    "image": "botticelli-virgin-and-child-with-an-angel.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Virgin and Child with an Angel",
-    "scientific": "c. 1475–1485",
-    "sacred": true,
-    "ambience": "wings"
-  },
-  {
-    "image": "botticelli-madonna-of-the-book.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Madonna of the Book",
-    "scientific": "c. 1480–1481",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "botticelli-madonna-of-the-magnificat.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Madonna of the Magnificat",
-    "scientific": "c. 1483",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true,
-    "ambience": "wings"
-  },
-  {
-    "image": "botticelli-the-bardi-madonna.webp",
-    "artist": "Sandro Botticelli",
-    "name": "The Bardi Madonna",
-    "scientific": "1484–1485",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
     "image": "botticelli-the-virgin-adoring-the-sleeping-christ-child.webp",
     "artist": "Sandro Botticelli",
     "name": "The Virgin Adoring the Sleeping Christ Child",
@@ -851,58 +459,10 @@
     "ambience": "birds"
   },
   {
-    "image": "botticelli-madonna-of-the-pomegranate.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Madonna of the Pomegranate",
-    "scientific": "c. 1487",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true,
-    "ambience": "wings"
-  },
-  {
-    "image": "botticelli-virgin-and-child-with-the-young-saint-john-the-baptist.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Virgin and Child with the Young Saint John the Baptist",
-    "scientific": "c. 1490",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "botticelli-madonna-del-padiglione.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Madonna del Padiglione",
-    "scientific": "c. 1493",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true,
-    "ambience": "wings"
-  },
-  {
-    "image": "botticelli-the-cestello-annunciation.webp",
-    "artist": "Sandro Botticelli",
-    "name": "The Cestello Annunciation",
-    "scientific": "c. 1489–1490",
-    "sacred": true,
-    "ambience": "wings"
-  },
-  {
     "image": "botticelli-the-annunciation-glasgow.webp",
     "artist": "Sandro Botticelli",
     "name": "The Annunciation",
     "scientific": "Glasgow, c. 1490–1495",
-    "sacred": true,
-    "ambience": "wings"
-  },
-  {
-    "image": "botticelli-the-annunciation.webp",
-    "artist": "Sandro Botticelli",
-    "name": "The Annunciation",
-    "scientific": "New York, c. 1490",
     "sacred": true,
     "ambience": "wings"
   },
@@ -960,13 +520,6 @@
     "focus": "50% 10%"
   },
   {
-    "image": "botticelli-saint-augustine-in-his-study.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Saint Augustine in His Study",
-    "scientific": "fresco, 1480",
-    "sacred": true
-  },
-  {
     "image": "botticelli-saint-augustine-in-his-cell.webp",
     "artist": "Sandro Botticelli",
     "name": "Saint Augustine in His Cell",
@@ -998,16 +551,6 @@
     "christ": true
   },
   {
-    "image": "botticelli-the-punishment-of-korah.webp",
-    "artist": "Sandro Botticelli",
-    "name": "The Punishment of Korah",
-    "scientific": "Sistine Chapel, 1481–1482",
-    "content": [
-      "violence"
-    ],
-    "sacred": true
-  },
-  {
     "image": "botticelli-lamentation-over-the-dead-christ.webp",
     "artist": "Sandro Botticelli",
     "name": "Lamentation over the Dead Christ",
@@ -1028,30 +571,6 @@
     "sacred": true
   },
   {
-    "image": "botticelli-mystic-crucifixion.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Mystic Crucifixion",
-    "scientific": "c. 1500",
-    "content": [
-      "violence",
-      "frightening"
-    ],
-    "sacred": true,
-    "christ": true,
-    "ambience": "wings"
-  },
-  {
-    "image": "botticelli-the-mystical-nativity.webp",
-    "artist": "Sandro Botticelli",
-    "name": "The Mystical Nativity",
-    "scientific": "1500–1501",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true,
-    "ambience": "wings"
-  },
-  {
     "image": "botticelli-four-scenes-from-the-early-life-of-saint-zenobius.webp",
     "artist": "Sandro Botticelli",
     "name": "Four Scenes from the Early Life of Saint Zenobius",
@@ -1068,16 +587,6 @@
     ],
     "sacred": true,
     "focus": "15% 50%"
-  },
-  {
-    "image": "botticelli-three-miracles-of-saint-zenobius.webp",
-    "artist": "Sandro Botticelli",
-    "name": "Three Miracles of Saint Zenobius",
-    "scientific": "New York, c. 1500",
-    "content": [
-      "frightening"
-    ],
-    "sacred": true
   },
   {
     "image": "botticelli-the-last-miracle-and-the-death-of-saint-zenobius.webp",
@@ -1166,27 +675,6 @@
     ]
   },
   {
-    "image": "gogh-flower-beds-in-holland.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Flower Beds in Holland",
-    "scientific": "c. 1883",
-    "ambience": "garden"
-  },
-  {
-    "image": "gogh-peasant-woman-digging.webp",
-    "artist": "Vincent van Gogh",
-    "name": "A Peasant Woman Digging in Front of Her Cottage",
-    "scientific": "c. 1885",
-    "ambience": "wind"
-  },
-  {
-    "image": "gogh-moulin-de-blute-fin.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Terrace and Observation Deck at the Moulin de Blute-Fin, Montmartre",
-    "scientific": "Early 1887",
-    "ambience": "wind"
-  },
-  {
     "image": "gogh-fishing-in-spring.webp",
     "artist": "Vincent van Gogh",
     "name": "Fishing in Spring, the Pont de Clichy",
@@ -1213,19 +701,6 @@
     "article": "Portraits of Vincent van Gogh"
   },
   {
-    "image": "gogh-self-portrait-with-a-straw-hat.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Self-Portrait with a Straw Hat",
-    "scientific": "1887",
-    "article": "Portraits of Vincent van Gogh"
-  },
-  {
-    "image": "gogh-roulins-baby.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Roulin's Baby",
-    "scientific": "1888"
-  },
-  {
     "image": "gogh-la-mousme.webp",
     "artist": "Vincent van Gogh",
     "name": "La Mousmé",
@@ -1246,34 +721,12 @@
     "ambience": "birds"
   },
   {
-    "image": "gogh-pink-peach-tree-souvenir-de-mauve.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Pink Peach Tree in Blossom (Souvenir de Mauve)",
-    "scientific": "1888",
-    "article": "Flowering Orchards",
-    "ambience": "garden"
-  },
-  {
     "image": "gogh-the-pink-orchard.webp",
     "artist": "Vincent van Gogh",
     "name": "The Pink Orchard",
     "scientific": "1888",
     "article": "Flowering Orchards",
     "ambience": "garden"
-  },
-  {
-    "image": "gogh-the-painter-on-the-road-to-tarascon.webp",
-    "artist": "Vincent van Gogh",
-    "name": "The Painter on the Road to Tarascon",
-    "scientific": "1888, destroyed in 1945",
-    "ambience": "birds"
-  },
-  {
-    "image": "gogh-sunflowers.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Sunflowers",
-    "scientific": "1888",
-    "article": "Sunflowers (Van Gogh series)"
   },
   {
     "image": "gogh-twelve-sunflowers.webp",
@@ -1350,12 +803,6 @@
     "scientific": "1889"
   },
   {
-    "image": "gogh-la-berceuse.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Madame Roulin Rocking the Cradle (La Berceuse)",
-    "scientific": "1889"
-  },
-  {
     "image": "gogh-the-large-plane-trees.webp",
     "artist": "Vincent van Gogh",
     "name": "The Large Plane Trees (Road Menders at Saint-Rémy)",
@@ -1377,33 +824,11 @@
     "article": "The Roulin Family"
   },
   {
-    "image": "gogh-view-of-arles-flowering-orchards.webp",
-    "artist": "Vincent van Gogh",
-    "name": "View of Arles, Flowering Orchards",
-    "scientific": "1889",
-    "ambience": "garden"
-  },
-  {
-    "image": "gogh-enclosed-wheat-field-with-rising-sun.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Enclosed Wheat Field with Rising Sun",
-    "scientific": "1889",
-    "article": "Wheat Fields",
-    "ambience": "birds"
-  },
-  {
     "image": "gogh-irises.webp",
     "artist": "Vincent van Gogh",
     "name": "Irises",
     "scientific": "1889",
     "ambience": "garden"
-  },
-  {
-    "image": "gogh-cypresses-with-two-figures.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Cypresses with Two Figures",
-    "scientific": "1889",
-    "ambience": "wind"
   },
   {
     "image": "gogh-olive-trees-with-the-alpilles.webp",
@@ -1419,13 +844,6 @@
     "name": "The Starry Night",
     "scientific": "1889",
     "ambience": "crickets"
-  },
-  {
-    "image": "gogh-cypresses.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Cypresses",
-    "scientific": "1889",
-    "ambience": "wind"
   },
   {
     "image": "gogh-wheat-field-with-cypresses.webp",
@@ -1476,12 +894,6 @@
     "scientific": "1890"
   },
   {
-    "image": "gogh-adeline-ravoux.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Adeline Ravoux",
-    "scientific": "1890"
-  },
-  {
     "image": "gogh-almond-blossom.webp",
     "artist": "Vincent van Gogh",
     "name": "Almond Blossom",
@@ -1501,21 +913,6 @@
     "scientific": "1890",
     "effect": "gallop",
     "ambience": "crickets"
-  },
-  {
-    "image": "gogh-wheatfield-under-thunderclouds.webp",
-    "artist": "Vincent van Gogh",
-    "name": "Wheatfield under Thunderclouds",
-    "scientific": "1890",
-    "ambience": "storm"
-  },
-  {
-    "image": "gogh-house-at-auvers.webp",
-    "artist": "Vincent van Gogh",
-    "name": "House at Auvers",
-    "scientific": "1890",
-    "article": "Auvers-sur-Oise",
-    "ambience": "wind"
   },
   {
     "image": "raphael-the-small-cowper-madonna.webp",
@@ -1571,24 +968,6 @@
     "scientific": "c. 1515"
   },
   {
-    "image": "rembrandt-van-rijn-man-with-a-sheet-of-music.webp",
-    "artist": "Rembrandt van Rijn",
-    "name": "Man with a Sheet of Music",
-    "scientific": "1633"
-  },
-  {
-    "image": "rembrandt-van-rijn-saskia-van-uylenburgh-the-wife-of-the-artist.webp",
-    "artist": "Rembrandt van Rijn",
-    "name": "Saskia van Uylenburgh, the Wife of the Artist",
-    "scientific": "probably begun 1634/1635 and completed 1638/1640"
-  },
-  {
-    "image": "rembrandt-van-rijn-man-in-oriental-costume.webp",
-    "artist": "Rembrandt van Rijn",
-    "name": "Man in Oriental Costume",
-    "scientific": "c. 1635"
-  },
-  {
     "image": "rembrandt-van-rijn-an-old-lady-with-a-book.webp",
     "artist": "Rembrandt van Rijn",
     "name": "An Old Lady with a Book",
@@ -1599,13 +978,6 @@
     "artist": "Rembrandt van Rijn",
     "name": "A Polish Nobleman",
     "scientific": "1637"
-  },
-  {
-    "image": "rembrandt-van-rijn-the-mill.webp",
-    "artist": "Rembrandt van Rijn",
-    "name": "The Mill",
-    "scientific": "1645/1648",
-    "ambience": "wind"
   },
   {
     "image": "rembrandt-van-rijn-a-woman-holding-a-pink.webp",
@@ -1656,12 +1028,6 @@
     "name": "The Circumcision",
     "scientific": "1661",
     "sacred": true
-  },
-  {
-    "image": "rembrandt-van-rijn-portrait-of-a-man-in-a-tall-hat.webp",
-    "artist": "Rembrandt van Rijn",
-    "name": "Portrait of a Man in a Tall Hat",
-    "scientific": "c. 1663"
   },
   {
     "image": "rembrandt-van-rijn-lucretia.webp",
@@ -1745,15 +1111,6 @@
     "sacred": true
   },
   {
-    "image": "titian-cupid-with-the-wheel-of-time.webp",
-    "artist": "Titian",
-    "name": "Cupid with the Wheel of Time",
-    "scientific": "c. 1515/1520",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
     "image": "titian-cardinal-pietro-bembo.webp",
     "artist": "Titian",
     "name": "Cardinal Pietro Bembo",
@@ -1820,12 +1177,6 @@
     "scientific": "1866"
   },
   {
-    "image": "cezanne-antony-valabregue.webp",
-    "artist": "Paul Cézanne",
-    "name": "Antony Valabrègue",
-    "scientific": "1866"
-  },
-  {
     "image": "cezanne-house-of-pere-lacroix.webp",
     "artist": "Paul Cézanne",
     "name": "House of Père Lacroix",
@@ -1844,12 +1195,6 @@
     "artist": "Paul Cézanne",
     "name": "Flowers in a Rococo Vase",
     "scientific": "c. 1876"
-  },
-  {
-    "image": "cezanne-three-pears.webp",
-    "artist": "Paul Cézanne",
-    "name": "Three Pears",
-    "scientific": "1878/1879"
   },
   {
     "image": "cezanne-louis-guillaume.webp",
@@ -1888,13 +1233,6 @@
     "scientific": "1886-1887"
   },
   {
-    "image": "cezanne-montagne-sainte-victoire-from-near-gardanne.webp",
-    "artist": "Paul Cézanne",
-    "name": "Montagne Sainte-Victoire, from near Gardanne",
-    "scientific": "c. 1887",
-    "ambience": "wind"
-  },
-  {
     "image": "cezanne-harlequin.webp",
     "artist": "Paul Cézanne",
     "name": "Harlequin",
@@ -1906,13 +1244,6 @@
     "artist": "Paul Cézanne",
     "name": "Boy in a Red Waistcoat",
     "scientific": "1888-1890"
-  },
-  {
-    "image": "cezanne-at-the-waters-edge.webp",
-    "artist": "Paul Cézanne",
-    "name": "At the Water's Edge",
-    "scientific": "c. 1890",
-    "ambience": "river"
   },
   {
     "image": "cezanne-man-with-pipe.webp",
@@ -1946,13 +1277,6 @@
     "scientific": "c. 1900"
   },
   {
-    "image": "cezanne-the-bend-in-the-road.webp",
-    "artist": "Paul Cézanne",
-    "name": "The Bend in the Road",
-    "scientific": "1900/1906",
-    "ambience": "birds"
-  },
-  {
     "image": "cezanne-still-life-with-apples-and-peaches.webp",
     "artist": "Paul Cézanne",
     "name": "Still Life with Apples and Peaches",
@@ -1963,24 +1287,6 @@
     "artist": "Paul Cézanne",
     "name": "The Gardener Vallier",
     "scientific": "1906"
-  },
-  {
-    "image": "degas-rene-de-gas.webp",
-    "artist": "Edgar Degas",
-    "name": "René de Gas",
-    "scientific": "1855"
-  },
-  {
-    "image": "degas-achille-de-gas-in-the-uniform-of-a-cadet.webp",
-    "artist": "Edgar Degas",
-    "name": "Achille De Gas in the Uniform of a Cadet",
-    "scientific": "1856/1857"
-  },
-  {
-    "image": "degas-self-portrait-with-white-collar.webp",
-    "artist": "Edgar Degas",
-    "name": "Self-Portrait with White Collar",
-    "scientific": "c. 1857"
   },
   {
     "image": "degas-alexander-and-bucephalus.webp",
@@ -1994,12 +1300,6 @@
     "artist": "Edgar Degas",
     "name": "Edmondo and Thérèse Morbilli",
     "scientific": "c. 1865"
-  },
-  {
-    "image": "degas-girl-in-red.webp",
-    "artist": "Edgar Degas",
-    "name": "Girl in Red",
-    "scientific": "c. 1866"
   },
   {
     "image": "degas-scene-from-the-steeplechase-the-fallen-jockey.webp",
@@ -2016,19 +1316,6 @@
     "artist": "Edgar Degas",
     "name": "The Dance Class",
     "scientific": "c. 1873"
-  },
-  {
-    "image": "degas-madame-camus.webp",
-    "artist": "Edgar Degas",
-    "name": "Madame Camus",
-    "scientific": "1869/1870"
-  },
-  {
-    "image": "degas-the-races.webp",
-    "artist": "Edgar Degas",
-    "name": "The Races",
-    "scientific": "1871-1872",
-    "effect": "gallop"
   },
   {
     "image": "degas-horses-in-a-meadow.webp",
@@ -2075,12 +1362,6 @@
     "scientific": "c. 1879"
   },
   {
-    "image": "degas-the-loge.webp",
-    "artist": "Edgar Degas",
-    "name": "The Loge",
-    "scientific": "c. 1883"
-  },
-  {
     "image": "degas-the-riders.webp",
     "artist": "Edgar Degas",
     "name": "The Riders",
@@ -2100,12 +1381,6 @@
     "artist": "Edgar Degas",
     "name": "Four Dancers",
     "scientific": "c. 1899"
-  },
-  {
-    "image": "manet-oysters.webp",
-    "artist": "Edouard Manet",
-    "name": "Oysters",
-    "scientific": "1862"
   },
   {
     "image": "manet-the-old-musician.webp",
@@ -2267,27 +1542,6 @@
     "effect": "gallop"
   },
   {
-    "image": "manet-tama-the-japanese-dog.webp",
-    "artist": "Edouard Manet",
-    "name": "Tama, the Japanese Dog",
-    "scientific": "c. 1875"
-  },
-  {
-    "image": "manet-the-grand-canal-venice.webp",
-    "artist": "Edouard Manet",
-    "name": "The Grand Canal, Venice (Blue Venice)",
-    "scientific": "1875",
-    "article": "Grand Canal (Venice)",
-    "ambience": "harbour"
-  },
-  {
-    "image": "manet-stephane-mallarme.webp",
-    "artist": "Edouard Manet",
-    "name": "Stéphane Mallarmé",
-    "scientific": "1876",
-    "focus": "35% 50%"
-  },
-  {
     "image": "manet-plum-brandy.webp",
     "artist": "Edouard Manet",
     "name": "Plum Brandy",
@@ -2310,31 +1564,6 @@
     "artist": "Edouard Manet",
     "name": "In the Conservatory",
     "scientific": "1878–1879"
-  },
-  {
-    "image": "manet-portrait-of-a-lady.webp",
-    "artist": "Edouard Manet",
-    "name": "Portrait of a Lady",
-    "scientific": "c. 1879"
-  },
-  {
-    "image": "manet-george-moore-in-the-artists-garden.webp",
-    "artist": "Edouard Manet",
-    "name": "George Moore in the Artist's Garden",
-    "scientific": "c. 1879",
-    "ambience": "birds"
-  },
-  {
-    "image": "manet-pears.webp",
-    "artist": "Edouard Manet",
-    "name": "Pears",
-    "scientific": "1880"
-  },
-  {
-    "image": "manet-the-melon.webp",
-    "artist": "Edouard Manet",
-    "name": "The Melon",
-    "scientific": "c. 1880"
   },
   {
     "image": "manet-pertuiset-the-lion-hunter.webp",
@@ -2382,13 +1611,6 @@
     "artist": "Paul Gauguin",
     "name": "Madame Alexandre Kohler",
     "scientific": "1887/1888"
-  },
-  {
-    "image": "gauguin-brittany-landscape.webp",
-    "artist": "Paul Gauguin",
-    "name": "Brittany Landscape",
-    "scientific": "1888",
-    "ambience": "brook"
   },
   {
     "image": "gauguin-breton-girls-dancing-pont-aven.webp",
@@ -2482,21 +1704,6 @@
     "scientific": "1865"
   },
   {
-    "image": "renoir-woman-by-a-fence.webp",
-    "artist": "Auguste Renoir",
-    "name": "Woman by a Fence",
-    "scientific": "1866",
-    "ambience": "birds"
-  },
-  {
-    "image": "renoir-woman-standing-by-a-tree.webp",
-    "artist": "Auguste Renoir",
-    "name": "Woman Standing by a Tree",
-    "scientific": "1866",
-    "focus": "50% 40%",
-    "ambience": "birds"
-  },
-  {
     "image": "renoir-woman-in-a-park.webp",
     "artist": "Auguste Renoir",
     "name": "Woman in a Park",
@@ -2558,13 +1765,6 @@
     "focus": "50% 35%"
   },
   {
-    "image": "renoir-regatta-at-argenteuil.webp",
-    "artist": "Auguste Renoir",
-    "name": "Regatta at Argenteuil",
-    "scientific": "1874",
-    "ambience": "river"
-  },
-  {
     "image": "renoir-madame-monet-and-her-son.webp",
     "artist": "Auguste Renoir",
     "name": "Madame Monet and Her Son",
@@ -2617,18 +1817,6 @@
     "scientific": "1877"
   },
   {
-    "image": "renoir-georges-riviere.webp",
-    "artist": "Auguste Renoir",
-    "name": "Georges Rivière",
-    "scientific": "1877"
-  },
-  {
-    "image": "renoir-jeanne-samary.webp",
-    "artist": "Auguste Renoir",
-    "name": "Jeanne Samary",
-    "scientific": "1878"
-  },
-  {
     "image": "renoir-oarsmen-at-chatou.webp",
     "artist": "Auguste Renoir",
     "name": "Oarsmen at Chatou",
@@ -2649,24 +1837,6 @@
     "name": "The Young Soldier",
     "scientific": "c. 1880",
     "focus": "50% 25%"
-  },
-  {
-    "image": "renoir-small-study-for-a-nude.webp",
-    "artist": "Auguste Renoir",
-    "name": "Small Study for a Nude",
-    "scientific": "1882",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "renoir-nude-with-figure-in-background.webp",
-    "artist": "Auguste Renoir",
-    "name": "Nude with Figure in Background",
-    "scientific": "c. 1882",
-    "content": [
-      "nudity"
-    ]
   },
   {
     "image": "renoir-mlle-charlotte-berthier.webp",
@@ -2696,34 +1866,6 @@
     "scientific": "c. 1885"
   },
   {
-    "image": "renoir-child-with-brown-hair.webp",
-    "artist": "Auguste Renoir",
-    "name": "Child with Brown Hair",
-    "scientific": "1887/1888"
-  },
-  {
-    "image": "renoir-young-girl-reading.webp",
-    "artist": "Auguste Renoir",
-    "name": "Young Girl Reading",
-    "scientific": "c. 1888"
-  },
-  {
-    "image": "renoir-girl-with-a-basket-of-fish.webp",
-    "artist": "Auguste Renoir",
-    "name": "Girl with a Basket of Fish",
-    "scientific": "c. 1889",
-    "focus": "50% 30%",
-    "ambience": "shore"
-  },
-  {
-    "image": "renoir-girl-with-a-basket-of-oranges.webp",
-    "artist": "Auguste Renoir",
-    "name": "Girl with a Basket of Oranges",
-    "scientific": "c. 1889",
-    "focus": "50% 30%",
-    "ambience": "shore"
-  },
-  {
     "image": "renoir-head-of-a-young-girl.webp",
     "artist": "Auguste Renoir",
     "name": "Head of a Young Girl",
@@ -2734,13 +1876,6 @@
     "artist": "Auguste Renoir",
     "name": "Landscape at Vétheuil",
     "scientific": "c. 1890",
-    "ambience": "river"
-  },
-  {
-    "image": "renoir-the-blue-river.webp",
-    "artist": "Auguste Renoir",
-    "name": "The Blue River",
-    "scientific": "c. 1890/1900",
     "ambience": "river"
   },
   {
@@ -2762,12 +1897,6 @@
     ]
   },
   {
-    "image": "renoir-child-with-blond-hair.webp",
-    "artist": "Auguste Renoir",
-    "name": "Child with Blond Hair",
-    "scientific": "1895/1900"
-  },
-  {
     "image": "renoir-child-with-toys.webp",
     "artist": "Auguste Renoir",
     "name": "Child with Toys - Gabrielle and the Artist's Son, Jean",
@@ -2786,13 +1915,6 @@
     "scientific": "1902/1905"
   },
   {
-    "image": "renoir-maison-de-la-poste-cagnes.webp",
-    "artist": "Auguste Renoir",
-    "name": "Maison de la Poste, Cagnes",
-    "scientific": "1906/1907",
-    "ambience": "birds"
-  },
-  {
     "image": "renoir-woman-arranging-her-hat.webp",
     "artist": "Auguste Renoir",
     "name": "Woman Arranging Her Hat",
@@ -2807,236 +1929,6 @@
     "content": [
       "nudity"
     ]
-  },
-  {
-    "image": "modigliani-monsieur-deleu.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Monsieur Deleu",
-    "scientific": "1916"
-  },
-  {
-    "image": "modigliani-cafe-singer.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Café Singer",
-    "scientific": "1917"
-  },
-  {
-    "image": "modigliani-girl-in-a-green-blouse.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Girl in a Green Blouse",
-    "scientific": "1917"
-  },
-  {
-    "image": "modigliani-nude-on-a-blue-cushion.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Nude on a Blue Cushion",
-    "scientific": "1917",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "modigliani-adrienne.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Adrienne",
-    "scientific": "1917"
-  },
-  {
-    "image": "modigliani-leon-bakst.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Léon Bakst",
-    "scientific": "1917"
-  },
-  {
-    "image": "modigliani-madame-kisling.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Madame Kisling",
-    "scientific": "c. 1917"
-  },
-  {
-    "image": "modigliani-woman-with-red-hair.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Woman with Red Hair",
-    "scientific": "1917"
-  },
-  {
-    "image": "modigliani-chaim-soutine.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Chaim Soutine",
-    "scientific": "1918"
-  },
-  {
-    "image": "modigliani-nude-on-a-divan.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Nude on a Divan",
-    "scientific": "1918",
-    "content": [
-      "nudity"
-    ],
-    "focus": "5% 50%"
-  },
-  {
-    "image": "modigliani-madame-amedee.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Madame Amédée",
-    "scientific": "1918",
-    "focus": "50% 35%"
-  },
-  {
-    "image": "modigliani-roma-woman-with-baby.webp",
-    "artist": "Amedeo Modigliani",
-    "name": "Roma Woman with Baby",
-    "scientific": "1919",
-    "focus": "50% 40%"
-  },
-  {
-    "image": "seurat-haymakers-at-montfermeil.webp",
-    "artist": "Georges Seurat",
-    "name": "Haymakers at Montfermeil",
-    "scientific": "c. 1882",
-    "ambience": "birds"
-  },
-  {
-    "image": "seurat-peasant-with-a-hoe.webp",
-    "artist": "Georges Seurat",
-    "name": "Peasant with a Hoe",
-    "scientific": "c. 1882",
-    "ambience": "birds"
-  },
-  {
-    "image": "seurat-the-stone-breaker.webp",
-    "artist": "Georges Seurat",
-    "name": "The Stone Breaker",
-    "scientific": "c. 1882"
-  },
-  {
-    "image": "seurat-haystacks.webp",
-    "artist": "Georges Seurat",
-    "name": "Haystacks",
-    "scientific": "c. 1882",
-    "ambience": "birds"
-  },
-  {
-    "image": "seurat-man-with-a-hoe.webp",
-    "artist": "Georges Seurat",
-    "name": "Man with a Hoe",
-    "scientific": "c. 1882",
-    "ambience": "birds"
-  },
-  {
-    "image": "seurat-the-watering-can.webp",
-    "artist": "Georges Seurat",
-    "name": "The Watering Can - Garden at Le Raincy",
-    "scientific": "c. 1883",
-    "ambience": "garden"
-  },
-  {
-    "image": "seurat-a-summer-landscape.webp",
-    "artist": "Georges Seurat",
-    "name": "A Summer Landscape",
-    "scientific": "1883",
-    "ambience": "birds"
-  },
-  {
-    "image": "seurat-figures-in-a-landscape.webp",
-    "artist": "Georges Seurat",
-    "name": "Figures in a Landscape",
-    "scientific": "c. 1883",
-    "ambience": "birds"
-  },
-  {
-    "image": "seurat-bathers.webp",
-    "artist": "Georges Seurat",
-    "name": "Bathers",
-    "scientific": "1883/1884",
-    "effect": "gallop",
-    "focus": "25% 50%",
-    "ambience": "river"
-  },
-  {
-    "image": "seurat-horse-and-boats.webp",
-    "artist": "Georges Seurat",
-    "name": "Horse and Boats",
-    "scientific": "1883/1884",
-    "effect": "gallop",
-    "ambience": "river"
-  },
-  {
-    "image": "seurat-the-seine-with-clothing-on-the-bank.webp",
-    "artist": "Georges Seurat",
-    "name": "The Seine with Clothing on the Bank",
-    "scientific": "1883/1884",
-    "focus": "15% 50%",
-    "ambience": "river"
-  },
-  {
-    "image": "seurat-study-for-la-grande-jatte.webp",
-    "artist": "Georges Seurat",
-    "name": "Study for \"La Grande Jatte\"",
-    "scientific": "1884/1885",
-    "ambience": "river"
-  },
-  {
-    "image": "seurat-study-of-figures-for-la-grande-jatte.webp",
-    "artist": "Georges Seurat",
-    "name": "Study of Figures for \"La Grande Jatte\"",
-    "scientific": "1884/1885",
-    "ambience": "birds"
-  },
-  {
-    "image": "seurat-the-lighthouse-at-honfleur.webp",
-    "artist": "Georges Seurat",
-    "name": "The Lighthouse at Honfleur",
-    "scientific": "1886",
-    "ambience": "shore"
-  },
-  {
-    "image": "seurat-seascape-at-port-en-bessin-normandy.webp",
-    "artist": "Georges Seurat",
-    "name": "Seascape at Port-en-Bessin, Normandy",
-    "scientific": "1888",
-    "ambience": "sea"
-  },
-  {
-    "image": "seurat-seascape.webp",
-    "artist": "Georges Seurat",
-    "name": "Seascape",
-    "scientific": "1890",
-    "ambience": "shore"
-  },
-  {
-    "image": "toulouse-lautrec-hussars.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "Hussars",
-    "scientific": "1878",
-    "effect": "gallop"
-  },
-  {
-    "image": "toulouse-lautrec-the-trap.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "The Trap",
-    "scientific": "1880",
-    "effect": "gallop",
-    "ambience": "cart"
-  },
-  {
-    "image": "toulouse-lautrec-the-artists-dog-fleche.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "The Artist's Dog Flèche",
-    "scientific": "c. 1881",
-    "ambience": "birds"
-  },
-  {
-    "image": "toulouse-lautrec-carmen-gaudin.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "Carmen Gaudin",
-    "scientific": "1885"
-  },
-  {
-    "image": "toulouse-lautrec-a-la-bastille.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "A la Bastille",
-    "scientific": "1888"
   },
   {
     "image": "toulouse-lautrec-lady-with-a-dog.webp",
@@ -3076,19 +1968,6 @@
     "scientific": "1896"
   },
   {
-    "image": "toulouse-lautrec-albert-grenier.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "Albert Grenier",
-    "scientific": "1887"
-  },
-  {
-    "image": "toulouse-lautrec-woman-in-the-garden-of-monsieur-forest.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "Woman in the Garden of Monsieur Forest",
-    "scientific": "1889–91",
-    "ambience": "birds"
-  },
-  {
     "image": "toulouse-lautrec-the-streetwalker.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "The Streetwalker",
@@ -3117,19 +1996,6 @@
     "content": [
       "nudity"
     ]
-  },
-  {
-    "image": "toulouse-lautrec-emilie.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "Émilie",
-    "scientific": "late 1890s",
-    "effect": "gallop"
-  },
-  {
-    "image": "toulouse-lautrec-mademoiselle-nys.webp",
-    "artist": "Henri de Toulouse-Lautrec",
-    "name": "Mademoiselle Nys",
-    "scientific": "1899"
   },
   {
     "image": "turner-boats-carrying-out-anchors-to-the-dutch-men-of-war.webp",
@@ -3167,13 +2033,6 @@
     "ambience": "harbour"
   },
   {
-    "image": "turner-keelmen-heaving-in-coals-by-moonlight.webp",
-    "artist": "J. M. W. Turner",
-    "name": "Keelmen Heaving in Coals by Moonlight",
-    "scientific": "1835",
-    "ambience": "harbour"
-  },
-  {
     "image": "turner-the-rape-of-proserpine.webp",
     "artist": "J. M. W. Turner",
     "name": "The Rape of Proserpine",
@@ -3189,20 +2048,6 @@
     "scientific": "c. 1843",
     "sacred": true,
     "ambience": "storm"
-  },
-  {
-    "image": "turner-the-dogana-and-santa-maria-della-salute-venice.webp",
-    "artist": "J. M. W. Turner",
-    "name": "The Dogana and Santa Maria della Salute, Venice",
-    "scientific": "1843",
-    "ambience": "harbour"
-  },
-  {
-    "image": "turner-approach-to-venice.webp",
-    "artist": "J. M. W. Turner",
-    "name": "Approach to Venice",
-    "scientific": "1844",
-    "ambience": "harbour"
   },
   {
     "image": "corot-italian-peasant-boy.webp",
@@ -3261,13 +2106,6 @@
     "ambience": "wind"
   },
   {
-    "image": "corot-rocks-in-the-forest-of-fontainebleau.webp",
-    "artist": "Jean-Baptiste-Camille Corot",
-    "name": "Rocks in the Forest of Fontainebleau",
-    "scientific": "1860/1865",
-    "ambience": "wind"
-  },
-  {
     "image": "corot-the-repose.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Repose",
@@ -3282,20 +2120,6 @@
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Moored Boatman: Souvenir of an Italian Lake",
     "scientific": "1861",
-    "ambience": "river"
-  },
-  {
-    "image": "corot-souvenir-of-terracina.webp",
-    "artist": "Jean-Baptiste-Camille Corot",
-    "name": "Souvenir of Terracina",
-    "scientific": "1864, reworked slightly later",
-    "ambience": "birds"
-  },
-  {
-    "image": "corot-ville-davray.webp",
-    "artist": "Jean-Baptiste-Camille Corot",
-    "name": "Ville-d'Avray",
-    "scientific": "c. 1865",
     "ambience": "river"
   },
   {
@@ -3318,30 +2142,10 @@
     "scientific": "c. 1868"
   },
   {
-    "image": "corot-river-view.webp",
-    "artist": "Jean-Baptiste-Camille Corot",
-    "name": "River View",
-    "scientific": "1868/1872",
-    "ambience": "river"
-  },
-  {
     "image": "corot-woman-reading-in-the-studio.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Woman Reading in the Studio",
     "scientific": "c. 1868"
-  },
-  {
-    "image": "corot-gypsy-woman-with-mandolin.webp",
-    "artist": "Jean-Baptiste-Camille Corot",
-    "name": "Gypsy Woman with Mandolin",
-    "scientific": "c. 1870"
-  },
-  {
-    "image": "corot-landscape.webp",
-    "artist": "Jean-Baptiste-Camille Corot",
-    "name": "Landscape",
-    "scientific": "c. 1870/1875",
-    "ambience": "river"
   },
   {
     "image": "corot-the-forest-of-coubron.webp",
@@ -3352,24 +2156,11 @@
     "ambience": "wind"
   },
   {
-    "image": "corot-italian-woman.webp",
-    "artist": "Jean-Baptiste-Camille Corot",
-    "name": "Italian Woman",
-    "scientific": "c. 1872"
-  },
-  {
     "image": "corot-madame-stumpf-and-her-daughter.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Madame Stumpf and Her Daughter",
     "scientific": "1872",
     "ambience": "birds"
-  },
-  {
-    "image": "corot-beach-near-etretat.webp",
-    "artist": "Jean-Baptiste-Camille Corot",
-    "name": "Beach near Etretat",
-    "scientific": "c. 1872",
-    "ambience": "shore"
   },
   {
     "image": "corot-saint-sebastian-succored-by-the-holy-women.webp",
@@ -3504,68 +2295,6 @@
     "name": "The Louvre, Afternoon, Rainy Weather",
     "scientific": "1900",
     "ambience": "rain"
-  },
-  {
-    "image": "whistler-battersea-reach.webp",
-    "artist": "James McNeill Whistler",
-    "name": "Battersea Reach",
-    "scientific": "c. 1863",
-    "ambience": "harbour"
-  },
-  {
-    "image": "whistler-wapping.webp",
-    "artist": "James McNeill Whistler",
-    "name": "Wapping",
-    "scientific": "1860-1864",
-    "focus": "100% 50%",
-    "ambience": "harbour"
-  },
-  {
-    "image": "whistler-symphony-in-white-no-1-the-white-girl.webp",
-    "artist": "James McNeill Whistler",
-    "name": "Symphony in White, No. 1: The White Girl",
-    "scientific": "1861-1863, 1872",
-    "focus": "50% 15%"
-  },
-  {
-    "image": "whistler-grey-and-silver-chelsea-wharf.webp",
-    "artist": "James McNeill Whistler",
-    "name": "Grey and Silver: Chelsea Wharf",
-    "scientific": "c. 1864/1868",
-    "ambience": "river"
-  },
-  {
-    "image": "whistler-mother-of-pearl-and-silver-the-andalusian.webp",
-    "artist": "James McNeill Whistler",
-    "name": "Mother of Pearl and Silver: The Andalusian",
-    "scientific": "1888(?)-1900",
-    "focus": "50% 10%"
-  },
-  {
-    "image": "whistler-alice-butt.webp",
-    "artist": "James McNeill Whistler",
-    "name": "Alice Butt",
-    "scientific": "c. 1895"
-  },
-  {
-    "image": "whistler-alexander-arnold-hannay.webp",
-    "artist": "James McNeill Whistler",
-    "name": "Alexander Arnold Hannay",
-    "scientific": "c. 1896",
-    "focus": "50% 20%"
-  },
-  {
-    "image": "whistler-gold-and-brown-self-portrait.webp",
-    "artist": "James McNeill Whistler",
-    "name": "Gold and Brown: Self-Portrait",
-    "scientific": "c. 1896-1898"
-  },
-  {
-    "image": "whistler-george-w-vanderbilt.webp",
-    "artist": "James McNeill Whistler",
-    "name": "George W. Vanderbilt",
-    "scientific": "1897/1903",
-    "focus": "50% 10%"
   },
   {
     "image": "gentileschi-esther-before-ahasuerus.webp",
@@ -3962,61 +2691,6 @@
     "scientific": "1913–1914"
   },
   {
-    "image": "crane-woman-seated-on-a-sofa.webp",
-    "artist": "Walter Crane",
-    "name": "Woman Seated on a Sofa",
-    "scientific": "undated"
-  },
-  {
-    "image": "crane-italian-farmhouse.webp",
-    "artist": "Walter Crane",
-    "name": "Italian Farmhouse",
-    "scientific": "1871–73",
-    "ambience": "birds"
-  },
-  {
-    "image": "crane-goody-two-shoes-picture-book.webp",
-    "artist": "Walter Crane",
-    "name": "Goody Two Shoes’ Picture Book",
-    "scientific": "1874–76"
-  },
-  {
-    "image": "crane-valentine.webp",
-    "artist": "Walter Crane",
-    "name": "Valentine",
-    "scientific": "a couple at a stile, 1876",
-    "ambience": "birds"
-  },
-  {
-    "image": "crane-valentine-765291.webp",
-    "artist": "Walter Crane",
-    "name": "Valentine",
-    "scientific": "a woman picking blossom, 1876",
-    "ambience": "birds"
-  },
-  {
-    "image": "crane-valentine-767102.webp",
-    "artist": "Walter Crane",
-    "name": "Valentine",
-    "scientific": "To My Love, 1876",
-    "ambience": "birds"
-  },
-  {
-    "image": "crane-the-mirror-of-venus.webp",
-    "artist": "Walter Crane",
-    "name": "The Mirror of Venus",
-    "scientific": "L’Art et Vie, c. 1890",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "crane-dancing-nymph.webp",
-    "artist": "Walter Crane",
-    "name": "Dancing Nymph",
-    "scientific": "Nymphe Danseuse, 1895"
-  },
-  {
     "image": "caravaggio-young-sick-bacchus.webp",
     "artist": "Caravaggio",
     "name": "Young Sick Bacchus",
@@ -4069,22 +2743,6 @@
     "ambience": "wings"
   },
   {
-    "image": "caravaggio-the-musicians.webp",
-    "artist": "Caravaggio",
-    "name": "The Musicians",
-    "scientific": "1597",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "caravaggio-the-lute-player.webp",
-    "artist": "Caravaggio",
-    "name": "The Lute Player",
-    "scientific": "c. 1596",
-    "article": "The Lute Player (Caravaggio)"
-  },
-  {
     "image": "caravaggio-bacchus.webp",
     "artist": "Caravaggio",
     "name": "Bacchus",
@@ -4094,37 +2752,10 @@
     ]
   },
   {
-    "image": "caravaggio-rest-on-the-flight-into-egypt.webp",
-    "artist": "Caravaggio",
-    "name": "Rest on the Flight into Egypt",
-    "scientific": "c. 1597",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true,
-    "ambience": "wings"
-  },
-  {
-    "image": "caravaggio-medusa.webp",
-    "artist": "Caravaggio",
-    "name": "Medusa",
-    "scientific": "c. 1597",
-    "content": [
-      "violence",
-      "frightening"
-    ]
-  },
-  {
     "image": "caravaggio-narcissus.webp",
     "artist": "Caravaggio",
     "name": "Narcissus",
     "scientific": "c. 1597–1599"
-  },
-  {
-    "image": "caravaggio-portrait-of-maffeo-barberini.webp",
-    "artist": "Caravaggio",
-    "name": "Portrait of Maffeo Barberini",
-    "scientific": "c. 1598"
   },
   {
     "image": "caravaggio-saint-catherine-of-alexandria.webp",
@@ -4153,12 +2784,6 @@
     "effect": "sword",
     "sacred": true,
     "focus": "80% 50%"
-  },
-  {
-    "image": "caravaggio-basket-of-fruit.webp",
-    "artist": "Caravaggio",
-    "name": "Basket of Fruit",
-    "scientific": "c. 1599"
   },
   {
     "image": "caravaggio-david-and-goliath.webp",
@@ -4192,18 +2817,6 @@
     "sacred": true
   },
   {
-    "image": "caravaggio-the-conversion-of-saint-paul.webp",
-    "artist": "Caravaggio",
-    "name": "The Conversion of Saint Paul",
-    "scientific": "1600–1601",
-    "content": [
-      "nudity",
-      "violence"
-    ],
-    "effect": "gallop",
-    "sacred": true
-  },
-  {
     "image": "caravaggio-conversion-on-the-way-to-damascus.webp",
     "artist": "Caravaggio",
     "name": "Conversion on the Way to Damascus",
@@ -4232,16 +2845,6 @@
     "focus": "55% 50%"
   },
   {
-    "image": "caravaggio-amor-vincit-omnia.webp",
-    "artist": "Caravaggio",
-    "name": "Amor Vincit Omnia",
-    "scientific": "1601–1602",
-    "content": [
-      "nudity"
-    ],
-    "ambience": "wings"
-  },
-  {
     "image": "caravaggio-the-incredulity-of-saint-thomas.webp",
     "artist": "Caravaggio",
     "name": "The Incredulity of Saint Thomas",
@@ -4252,16 +2855,6 @@
     ],
     "sacred": true,
     "christ": true
-  },
-  {
-    "image": "caravaggio-saint-john-the-baptist-youth-with-a-ram.webp",
-    "artist": "Caravaggio",
-    "name": "Saint John the Baptist (Youth with a Ram)",
-    "scientific": "1602",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
   },
   {
     "image": "caravaggio-the-taking-of-christ.webp",
@@ -4322,33 +2915,6 @@
     "christ": true
   },
   {
-    "image": "caravaggio-the-calling-of-saints-peter-and-andrew.webp",
-    "artist": "Caravaggio",
-    "name": "The Calling of Saints Peter and Andrew",
-    "scientific": "c. 1603–1606",
-    "sacred": true
-  },
-  {
-    "image": "caravaggio-saint-john-the-baptist-in-the-wilderness.webp",
-    "artist": "Caravaggio",
-    "name": "Saint John the Baptist in the Wilderness",
-    "scientific": "c. 1604",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "caravaggio-saint-john-the-baptist-corsini.webp",
-    "artist": "Caravaggio",
-    "name": "Saint John the Baptist",
-    "scientific": "Palazzo Corsini, Rome, c. 1604",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
     "image": "caravaggio-madonna-di-loreto.webp",
     "artist": "Caravaggio",
     "name": "Madonna di Loreto",
@@ -4357,28 +2923,6 @@
       "nudity"
     ],
     "sacred": true
-  },
-  {
-    "image": "caravaggio-death-of-the-virgin.webp",
-    "artist": "Caravaggio",
-    "name": "Death of the Virgin",
-    "scientific": "c. 1601–1606",
-    "content": [
-      "frightening"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "caravaggio-ecce-homo.webp",
-    "artist": "Caravaggio",
-    "name": "Ecce Homo",
-    "scientific": "c. 1605",
-    "content": [
-      "nudity",
-      "violence"
-    ],
-    "sacred": true,
-    "christ": true
   },
   {
     "image": "caravaggio-madonna-and-child-with-saint-anne.webp",
@@ -4393,66 +2937,6 @@
     "christ": true
   },
   {
-    "image": "caravaggio-saint-jerome-writing.webp",
-    "artist": "Caravaggio",
-    "name": "Saint Jerome Writing",
-    "scientific": "Rome, c. 1605–1606",
-    "content": [
-      "nudity",
-      "frightening"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "caravaggio-saint-francis-in-prayer.webp",
-    "artist": "Caravaggio",
-    "name": "Saint Francis in Prayer",
-    "scientific": "c. 1606",
-    "content": [
-      "frightening"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "caravaggio-saint-francis-in-meditation.webp",
-    "artist": "Caravaggio",
-    "name": "Saint Francis in Meditation",
-    "scientific": "c. 1606",
-    "content": [
-      "frightening"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "caravaggio-supper-at-emmaus-milan.webp",
-    "artist": "Caravaggio",
-    "name": "Supper at Emmaus",
-    "scientific": "Milan, 1606",
-    "sacred": true
-  },
-  {
-    "image": "caravaggio-the-seven-works-of-mercy.webp",
-    "artist": "Caravaggio",
-    "name": "The Seven Works of Mercy",
-    "scientific": "1607",
-    "content": [
-      "nudity",
-      "frightening"
-    ],
-    "sacred": true,
-    "ambience": "wings"
-  },
-  {
-    "image": "caravaggio-madonna-of-the-rosary.webp",
-    "artist": "Caravaggio",
-    "name": "Madonna of the Rosary",
-    "scientific": "c. 1607",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
     "image": "caravaggio-the-crucifixion-of-saint-andrew.webp",
     "artist": "Caravaggio",
     "name": "The Crucifixion of Saint Andrew",
@@ -4463,32 +2947,6 @@
       "frightening"
     ],
     "sacred": true
-  },
-  {
-    "image": "caravaggio-david-with-the-head-of-goliath-vienna.webp",
-    "artist": "Caravaggio",
-    "name": "David with the Head of Goliath",
-    "scientific": "Vienna, c. 1607",
-    "content": [
-      "nudity",
-      "violence",
-      "frightening"
-    ],
-    "effect": "sword",
-    "sacred": true,
-    "focus": "70% 50%"
-  },
-  {
-    "image": "caravaggio-the-flagellation-of-christ.webp",
-    "artist": "Caravaggio",
-    "name": "The Flagellation of Christ",
-    "scientific": "1607",
-    "content": [
-      "nudity",
-      "violence"
-    ],
-    "sacred": true,
-    "christ": true
   },
   {
     "image": "caravaggio-christ-at-the-column.webp",
@@ -4504,12 +2962,6 @@
     "focus": "10% 50%"
   },
   {
-    "image": "caravaggio-portrait-of-alof-de-wignacourt-and-his-page.webp",
-    "artist": "Caravaggio",
-    "name": "Portrait of Alof de Wignacourt and his Page",
-    "scientific": "1607–1608"
-  },
-  {
     "image": "caravaggio-saint-jerome-writing-valletta.webp",
     "artist": "Caravaggio",
     "name": "Saint Jerome Writing",
@@ -4519,12 +2971,6 @@
       "frightening"
     ],
     "sacred": true
-  },
-  {
-    "image": "caravaggio-portrait-of-fra-antonio-martelli.webp",
-    "artist": "Caravaggio",
-    "name": "Portrait of Fra Antonio Martelli",
-    "scientific": "c. 1608"
   },
   {
     "image": "caravaggio-the-beheading-of-saint-john-the-baptist.webp",
@@ -4540,67 +2986,10 @@
     "sacred": true
   },
   {
-    "image": "caravaggio-sleeping-cupid.webp",
-    "artist": "Caravaggio",
-    "name": "Sleeping Cupid",
-    "scientific": "1608",
-    "content": [
-      "nudity"
-    ],
-    "focus": "75% 50%"
-  },
-  {
-    "image": "caravaggio-the-burial-of-saint-lucy.webp",
-    "artist": "Caravaggio",
-    "name": "The Burial of Saint Lucy",
-    "scientific": "1608",
-    "content": [
-      "nudity",
-      "violence",
-      "frightening"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "caravaggio-the-raising-of-lazarus.webp",
-    "artist": "Caravaggio",
-    "name": "The Raising of Lazarus",
-    "scientific": "1609",
-    "content": [
-      "nudity",
-      "frightening"
-    ],
-    "sacred": true,
-    "christ": true
-  },
-  {
     "image": "caravaggio-adoration-of-the-shepherds.webp",
     "artist": "Caravaggio",
     "name": "Adoration of the Shepherds",
     "scientific": "1609",
-    "sacred": true
-  },
-  {
-    "image": "caravaggio-nativity-with-saint-francis-and-saint-lawrence.webp",
-    "artist": "Caravaggio",
-    "name": "Nativity with Saint Francis and Saint Lawrence",
-    "scientific": "1600 or 1609",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true,
-    "ambience": "wings"
-  },
-  {
-    "image": "caravaggio-salome-with-the-head-of-john-the-baptist-madrid.webp",
-    "artist": "Caravaggio",
-    "name": "Salome with the Head of John the Baptist",
-    "scientific": "Madrid, c. 1609",
-    "content": [
-      "nudity",
-      "violence",
-      "frightening"
-    ],
     "sacred": true
   },
   {
@@ -4614,16 +3003,6 @@
       "frightening"
     ],
     "effect": "sword",
-    "sacred": true
-  },
-  {
-    "image": "caravaggio-saint-john-the-baptist.webp",
-    "artist": "Caravaggio",
-    "name": "Saint John the Baptist",
-    "scientific": "Galleria Borghese, Rome, 1610",
-    "content": [
-      "nudity"
-    ],
     "sacred": true
   },
   {
@@ -4644,17 +3023,6 @@
     "artist": "Caravaggio",
     "name": "The Denial of Saint Peter",
     "scientific": "1610",
-    "sacred": true
-  },
-  {
-    "image": "caravaggio-the-martyrdom-of-saint-ursula.webp",
-    "artist": "Caravaggio",
-    "name": "The Martyrdom of Saint Ursula",
-    "scientific": "1610",
-    "content": [
-      "violence",
-      "frightening"
-    ],
     "sacred": true
   },
   {
@@ -4724,27 +3092,6 @@
     "sacred": true
   },
   {
-    "image": "leonardo-da-vinci-adoration-of-the-magi.webp",
-    "artist": "Leonardo da Vinci",
-    "name": "Adoration of the Magi",
-    "scientific": "unfinished, c. 1481–1482",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "leonardo-da-vinci-saint-jerome-in-the-wilderness.webp",
-    "artist": "Leonardo da Vinci",
-    "name": "Saint Jerome in the Wilderness",
-    "scientific": "unfinished, c. 1480–1490",
-    "content": [
-      "nudity",
-      "frightening"
-    ],
-    "sacred": true
-  },
-  {
     "image": "leonardo-da-vinci-virgin-of-the-rocks.webp",
     "artist": "Leonardo da Vinci",
     "name": "Virgin of the Rocks",
@@ -4766,380 +3113,6 @@
     "artist": "Leonardo da Vinci",
     "name": "La Belle Ferronnière",
     "scientific": "c. 1490–1497"
-  },
-  {
-    "image": "leonardo-da-vinci-the-virgin-and-child-with-saint-anne.webp",
-    "artist": "Leonardo da Vinci",
-    "name": "The Virgin and Child with Saint Anne",
-    "scientific": "c. 1503–1519",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "leonardo-da-vinci-saint-john-the-baptist.webp",
-    "artist": "Leonardo da Vinci",
-    "name": "Saint John the Baptist",
-    "scientific": "c. 1513–1516",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "leonardo-da-vinci-the-virgin-and-child-with-saint-anne-and-saint-john-the-baptist.webp",
-    "artist": "Leonardo da Vinci",
-    "name": "The Virgin and Child with Saint Anne and Saint John the Baptist",
-    "scientific": "cartoon, c. 1499–1508",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "leonardo-da-vinci-la-scapigliata.webp",
-    "artist": "Leonardo da Vinci",
-    "name": "La Scapigliata",
-    "scientific": "c. 1506–1508"
-  },
-  {
-    "image": "leonardo-da-vinci-vitruvian-man.webp",
-    "artist": "Leonardo da Vinci",
-    "name": "Vitruvian Man",
-    "scientific": "c. 1490",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "leonardo-da-vinci-portrait-of-a-man-in-red-chalk.webp",
-    "artist": "Leonardo da Vinci",
-    "name": "Portrait of a Man in Red Chalk",
-    "scientific": "thought to be a self-portrait, c. 1512"
-  },
-  {
-    "image": "leonardo-da-vinci-study-for-the-head-of-a-girl.webp",
-    "artist": "Leonardo da Vinci",
-    "name": "Study for the Head of a Girl",
-    "scientific": "c. 1483"
-  },
-  {
-    "image": "michelangelo-the-creation-of-adam.webp",
-    "artist": "Michelangelo",
-    "name": "The Creation of Adam",
-    "scientific": "Sistine Chapel ceiling, c. 1511",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true,
-    "focus": "10% 50%"
-  },
-  {
-    "image": "michelangelo-the-separation-of-light-from-darkness.webp",
-    "artist": "Michelangelo",
-    "name": "The Separation of Light from Darkness",
-    "scientific": "Sistine Chapel ceiling, c. 1512",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-creation-of-the-sun-moon-and-plants.webp",
-    "artist": "Michelangelo",
-    "name": "The Creation of the Sun, Moon and Plants",
-    "scientific": "Sistine Chapel ceiling, c. 1511",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-creation-of-eve.webp",
-    "artist": "Michelangelo",
-    "name": "The Creation of Eve",
-    "scientific": "Sistine Chapel ceiling, c. 1510",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-fall-and-expulsion-from-paradise.webp",
-    "artist": "Michelangelo",
-    "name": "The Fall and Expulsion from Paradise",
-    "scientific": "Sistine Chapel ceiling, c. 1509–1510",
-    "content": [
-      "nudity",
-      "violence"
-    ],
-    "effect": "sword",
-    "sacred": true,
-    "focus": "65% 50%"
-  },
-  {
-    "image": "michelangelo-the-sacrifice-of-noah.webp",
-    "artist": "Michelangelo",
-    "name": "The Sacrifice of Noah",
-    "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": [
-      "nudity",
-      "violence"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-deluge.webp",
-    "artist": "Michelangelo",
-    "name": "The Deluge",
-    "scientific": "Sistine Chapel ceiling, c. 1508–1509",
-    "content": [
-      "nudity",
-      "frightening"
-    ],
-    "sacred": true,
-    "ambience": "storm"
-  },
-  {
-    "image": "michelangelo-the-drunkenness-of-noah.webp",
-    "artist": "Michelangelo",
-    "name": "The Drunkenness of Noah",
-    "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-delphic-sibyl-fresco.webp",
-    "artist": "Michelangelo",
-    "name": "The Delphic Sibyl",
-    "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-libyan-sibyl.webp",
-    "artist": "Michelangelo",
-    "name": "The Libyan Sibyl",
-    "scientific": "Sistine Chapel ceiling, c. 1511",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-erythraean-sibyl.webp",
-    "artist": "Michelangelo",
-    "name": "The Erythraean Sibyl",
-    "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-persian-sibyl-fresco.webp",
-    "artist": "Michelangelo",
-    "name": "The Persian Sibyl",
-    "scientific": "Sistine Chapel ceiling, c. 1511",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-prophet-daniel.webp",
-    "artist": "Michelangelo",
-    "name": "The Prophet Daniel",
-    "scientific": "Sistine Chapel ceiling, c. 1511",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-prophet-isaiah.webp",
-    "artist": "Michelangelo",
-    "name": "The Prophet Isaiah",
-    "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-prophet-joel-fresco.webp",
-    "artist": "Michelangelo",
-    "name": "The Prophet Joel",
-    "scientific": "Sistine Chapel ceiling, c. 1509",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-prophet-jonah.webp",
-    "artist": "Michelangelo",
-    "name": "The Prophet Jonah",
-    "scientific": "Sistine Chapel ceiling, c. 1512",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-prophet-ezekiel-fresco.webp",
-    "artist": "Michelangelo",
-    "name": "The Prophet Ezekiel",
-    "scientific": "Sistine Chapel ceiling, c. 1510",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-the-torment-of-saint-anthony.webp",
-    "artist": "Michelangelo",
-    "name": "The Torment of Saint Anthony",
-    "scientific": "c. 1487–1488",
-    "content": [
-      "violence",
-      "frightening"
-    ],
-    "sacred": true
-  },
-  {
-    "image": "michelangelo-manchester-madonna.webp",
-    "artist": "Michelangelo",
-    "name": "The Manchester Madonna",
-    "scientific": "unfinished, c. 1497",
-    "content": [
-      "nudity"
-    ],
-    "sacred": true,
-    "ambience": "wings"
-  },
-  {
-    "image": "michelangelo-the-entombment.webp",
-    "artist": "Michelangelo",
-    "name": "The Entombment",
-    "scientific": "unfinished, c. 1500–1501",
-    "content": [
-      "nudity",
-      "frightening"
-    ],
-    "sacred": true,
-    "christ": true
-  },
-  {
-    "image": "michelangelo-the-conversion-of-saul.webp",
-    "artist": "Michelangelo",
-    "name": "The Conversion of Saul",
-    "scientific": "Cappella Paolina, c. 1542–1545",
-    "content": [
-      "nudity"
-    ],
-    "effect": "gallop",
-    "sacred": true
-  },
-  {
-    "image": "stella-battle-of-lights-coney-island-mardi-gras.webp",
-    "artist": "Joseph Stella",
-    "name": "Battle of Lights, Coney Island, Mardi Gras",
-    "scientific": "oil on canvas, 1913–14",
-    "article": "Coney Island"
-  },
-  {
-    "image": "stella-coney-island.webp",
-    "artist": "Joseph Stella",
-    "name": "Coney Island",
-    "scientific": "oil on canvas, c. 1914"
-  },
-  {
-    "image": "stella-luna-park.webp",
-    "artist": "Joseph Stella",
-    "name": "Luna Park",
-    "scientific": "c. 1913",
-    "article": "Luna Park (Coney Island, 1903)"
-  },
-  {
-    "image": "stella-der-rosenkavalier.webp",
-    "artist": "Joseph Stella",
-    "name": "Der Rosenkavalier",
-    "scientific": "1913–14",
-    "article": "Der Rosenkavalier"
-  },
-  {
-    "image": "stella-dog-in-motion.webp",
-    "artist": "Joseph Stella",
-    "name": "Dog in Motion",
-    "scientific": "1914"
-  },
-  {
-    "image": "stella-brooklyn-bridge.webp",
-    "artist": "Joseph Stella",
-    "name": "Brooklyn Bridge",
-    "scientific": "oil on canvas, 1919–20",
-    "article": "Brooklyn Bridge"
-  },
-  {
-    "image": "stella-study-for-brooklyn-bridge.webp",
-    "artist": "Joseph Stella",
-    "name": "Study for Brooklyn Bridge",
-    "scientific": "watercolour, 1922",
-    "article": "Brooklyn Bridge"
-  },
-  {
-    "image": "stella-skyscrapers.webp",
-    "artist": "Joseph Stella",
-    "name": "Skyscrapers",
-    "scientific": "watercolour, 1920"
-  },
-  {
-    "image": "stella-tree-of-my-life.webp",
-    "artist": "Joseph Stella",
-    "name": "Tree of My Life",
-    "scientific": "oil on canvas, 1919",
-    "ambience": "birds"
-  },
-  {
-    "image": "stella-tropical-sonata.webp",
-    "artist": "Joseph Stella",
-    "name": "Tropical Sonata",
-    "scientific": "1920–21"
-  },
-  {
-    "image": "stella-madonna.webp",
-    "artist": "Joseph Stella",
-    "name": "Madonna",
-    "scientific": "c. 1920",
-    "sacred": true
-  },
-  {
-    "image": "stella-purissima.webp",
-    "artist": "Joseph Stella",
-    "name": "Purissima",
-    "scientific": "oil on canvas, 1927",
-    "sacred": true
-  },
-  {
-    "image": "stella-sirens.webp",
-    "artist": "Joseph Stella",
-    "name": "Sirens (The Serene)",
-    "scientific": "1929",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "stella-self-portrait.webp",
-    "artist": "Joseph Stella",
-    "name": "Self-Portrait",
-    "scientific": "c. 1900"
   },
   {
     "image": "decamp-the-seamstress.webp",
@@ -5195,41 +3168,6 @@
     "artist": "Joseph DeCamp",
     "name": "Portrait of a Young Lady",
     "scientific": "c. 1896"
-  },
-  {
-    "image": "decamp-gloucester.webp",
-    "artist": "Joseph DeCamp",
-    "name": "Gloucester",
-    "scientific": "1900",
-    "ambience": "harbour"
-  },
-  {
-    "image": "decamp-red-roofs.webp",
-    "artist": "Joseph DeCamp",
-    "name": "Red Roofs",
-    "scientific": "undated",
-    "ambience": "birds"
-  },
-  {
-    "image": "decamp-street-scene-in-venice.webp",
-    "artist": "Joseph DeCamp",
-    "name": "Street Scene in Venice",
-    "scientific": "oil on canvas, 1881",
-    "ambience": "street"
-  },
-  {
-    "image": "decamp-sir-general-arthur-william-currie.webp",
-    "artist": "Joseph DeCamp",
-    "name": "Sir General Arthur William Currie",
-    "scientific": "1920",
-    "article": "Arthur Currie"
-  },
-  {
-    "image": "decamp-sir-robert-laird-borden.webp",
-    "artist": "Joseph DeCamp",
-    "name": "Sir Robert Laird Borden",
-    "scientific": "1920",
-    "article": "Robert Borden"
   },
   {
     "image": "millais-ophelia.webp",
@@ -5459,20 +3397,6 @@
     "scientific": "1865"
   },
   {
-    "image": "hunt-the-awakening-conscience.webp",
-    "artist": "William Holman Hunt",
-    "name": "The Awakening Conscience",
-    "scientific": "1853"
-  },
-  {
-    "image": "hunt-the-scapegoat.webp",
-    "artist": "William Holman Hunt",
-    "name": "The Scapegoat",
-    "scientific": "1854–1856",
-    "sacred": true,
-    "ambience": "wind"
-  },
-  {
     "image": "hunt-our-english-coasts-1852-strayed-sheep.webp",
     "artist": "William Holman Hunt",
     "name": "Our English Coasts, 1852 (Strayed Sheep)",
@@ -5487,15 +3411,6 @@
     "content": [
       "frightening"
     ]
-  },
-  {
-    "image": "hunt-the-finding-of-the-saviour-in-the-temple.webp",
-    "artist": "William Holman Hunt",
-    "name": "The Finding of the Saviour in the Temple",
-    "scientific": "1854–1860",
-    "sacred": true,
-    "effect": "knock",
-    "focus": "80% 50%"
   },
   {
     "image": "hunt-a-converted-british-family-sheltering-a-christian-missionary.webp",
@@ -5523,13 +3438,6 @@
     "scientific": "c. 1888–1905"
   },
   {
-    "image": "hunt-the-miracle-of-the-holy-fire.webp",
-    "artist": "William Holman Hunt",
-    "name": "The Miracle of the Holy Fire",
-    "scientific": "1892–1899",
-    "focus": "5% 50%"
-  },
-  {
     "image": "hunt-the-triumph-of-the-innocents.webp",
     "artist": "William Holman Hunt",
     "name": "The Triumph of the Innocents",
@@ -5550,32 +3458,12 @@
     "focus": "50% 45%"
   },
   {
-    "image": "hunt-london-bridge-on-the-night-of-the-marriage-of-the-prince-and.webp",
-    "artist": "William Holman Hunt",
-    "name": "London Bridge on the Night of the Marriage of the Prince and Princess of Wales",
-    "scientific": "1863–1866"
-  },
-  {
     "image": "hunt-may-morning-on-magdalen-tower.webp",
     "artist": "William Holman Hunt",
     "name": "May Morning on Magdalen Tower",
     "scientific": "1888–1891",
     "focus": "10% 50%",
     "ambience": "bells"
-  },
-  {
-    "image": "hunt-the-lantern-makers-courtship.webp",
-    "artist": "William Holman Hunt",
-    "name": "The Lantern Maker's Courtship",
-    "scientific": "1854–1861",
-    "ambience": "street"
-  },
-  {
-    "image": "hunt-dante-gabriel-rossetti-at-22.webp",
-    "artist": "William Holman Hunt",
-    "name": "Dante Gabriel Rossetti at 22",
-    "scientific": "1882–1883",
-    "article": "Dante Gabriel Rossetti"
   },
   {
     "image": "brown-the-last-of-england.webp",
@@ -5721,12 +3609,6 @@
     "ambience": "birds"
   },
   {
-    "image": "hughes-self-portrait.webp",
-    "artist": "Arthur Hughes",
-    "name": "Self-Portrait",
-    "scientific": "1851"
-  },
-  {
     "image": "hughes-a-christmas-carol-at-bracken-dene.webp",
     "artist": "Arthur Hughes",
     "name": "A Christmas Carol at Bracken Dene",
@@ -5772,13 +3654,6 @@
     "artist": "Arthur Hughes",
     "name": "Silver and Gold",
     "scientific": "1864"
-  },
-  {
-    "image": "hughes-the-landslip.webp",
-    "artist": "Arthur Hughes",
-    "name": "The Landslip",
-    "scientific": "c. 1916",
-    "ambience": "sea"
   },
   {
     "image": "burne-jones-the-beguiling-of-merlin.webp",
@@ -5943,14 +3818,6 @@
     "artist": "Marie Spartali Stillman",
     "name": "Mariana",
     "scientific": "c. 1867–1869"
-  },
-  {
-    "image": "stillman-the-lake-of-nemi.webp",
-    "artist": "Marie Spartali Stillman",
-    "name": "The Lake of Nemi",
-    "scientific": "c. 1890s",
-    "article": "Lake Nemi",
-    "ambience": "birds"
   },
   {
     "image": "stillman-a-lady-with-peacocks-in-a-garden.webp",
@@ -6391,27 +4258,6 @@
     ]
   },
   {
-    "image": "leighton-perseus-and-andromeda.webp",
-    "artist": "Frederic Leighton",
-    "name": "Perseus and Andromeda",
-    "scientific": "1891",
-    "content": [
-      "nudity",
-      "frightening"
-    ],
-    "ambience": "sea"
-  },
-  {
-    "image": "leighton-the-garden-of-the-hesperides.webp",
-    "artist": "Frederic Leighton",
-    "name": "The Garden of the Hesperides",
-    "scientific": "c. 1892",
-    "content": [
-      "nudity"
-    ],
-    "ambience": "birds"
-  },
-  {
     "image": "leighton-cymon-and-iphigenia.webp",
     "artist": "Frederic Leighton",
     "name": "Cymon and Iphigenia",
@@ -6427,16 +4273,6 @@
       "nudity"
     ],
     "focus": "25% 50%"
-  },
-  {
-    "image": "leighton-daphnephoria.webp",
-    "artist": "Frederic Leighton",
-    "name": "The Daphnephoria",
-    "scientific": "1874–1876",
-    "content": [
-      "nudity"
-    ],
-    "focus": "95% 50%"
   },
   {
     "image": "leighton-greek-girls-playing-at-ball.webp",
@@ -6476,13 +4312,6 @@
     "artist": "Frederic Leighton",
     "name": "Orpheus and Eurydice",
     "scientific": "1864"
-  },
-  {
-    "image": "leighton-lieder-ohne-worte.webp",
-    "artist": "Frederic Leighton",
-    "name": "Lieder ohne Worte",
-    "scientific": "c. 1861",
-    "article": "Songs Without Words"
   },
   {
     "image": "leighton-light-of-the-harem.webp",
@@ -6530,17 +4359,6 @@
     "article": "Condottiere"
   },
   {
-    "image": "leighton-and-the-sea-gave-up-the-dead-which-were-in-it.webp",
-    "artist": "Frederic Leighton",
-    "name": "And the Sea Gave Up the Dead Which Were in It",
-    "scientific": "1892",
-    "content": [
-      "nudity",
-      "frightening"
-    ],
-    "sacred": true
-  },
-  {
     "image": "leighton-elijah-in-the-wilderness.webp",
     "artist": "Frederic Leighton",
     "name": "Elijah in the Wilderness",
@@ -6562,13 +4380,6 @@
     "sacred": true
   },
   {
-    "image": "leighton-david.webp",
-    "artist": "Frederic Leighton",
-    "name": "David",
-    "scientific": "1865",
-    "sacred": true
-  },
-  {
     "image": "leighton-portrait-of-may-sartoris.webp",
     "artist": "Frederic Leighton",
     "name": "May Sartoris",
@@ -6587,625 +4398,6 @@
     "artist": "Frederic Leighton",
     "name": "Mrs James Guthrie",
     "scientific": "1864–1865"
-  },
-  {
-    "image": "leighton-lucia.webp",
-    "artist": "Frederic Leighton",
-    "name": "Lucia",
-    "scientific": "c. 1877"
-  },
-  {
-    "image": "leighton-garden-of-an-inn-capri.webp",
-    "artist": "Frederic Leighton",
-    "name": "Garden of an Inn, Capri",
-    "scientific": "1859",
-    "ambience": "birds"
-  },
-  {
-    "image": "leighton-lindos-rhodes.webp",
-    "artist": "Frederic Leighton",
-    "name": "Lindos, Rhodes",
-    "scientific": "1867",
-    "article": "Lindos",
-    "ambience": "shore"
-  },
-  {
-    "image": "leighton-the-return-of-persephone.webp",
-    "artist": "Frederic Leighton",
-    "name": "The Return of Persephone (oil sketch)",
-    "scientific": "c. 1890–1891"
-  },
-  {
-    "image": "egypt-ceiling-painting-from-the-palace-of-amenhotep-iii.webp",
-    "artist": "Ancient Egypt",
-    "name": "Ceiling Painting from the Palace of Amenhotep III",
-    "scientific": "Malqata, c. 1386–1347 BCE",
-    "article": "Malkata"
-  },
-  {
-    "image": "egypt-portrait-of-the-boy-eutyches.webp",
-    "artist": "Ancient Egypt",
-    "name": "Portrait of the Boy Eutyches",
-    "scientific": "Mummy portrait, 100–150 CE"
-  },
-  {
-    "image": "egypt-portrait-of-a-young-woman-in-red.webp",
-    "artist": "Ancient Egypt",
-    "name": "Portrait of a Young Woman in Red",
-    "scientific": "Mummy portrait, 90–120 CE",
-    "article": "Fayum mummy portraits"
-  },
-  {
-    "image": "egypt-portrait-of-a-young-woman-with-a-gilded-wreath.webp",
-    "artist": "Ancient Egypt",
-    "name": "Portrait of a Young Woman with a Gilded Wreath",
-    "scientific": "Mummy portrait, 120–140 CE",
-    "article": "Fayum mummy portraits"
-  },
-  {
-    "image": "egypt-mummy-mask-of-a-woman.webp",
-    "artist": "Ancient Egypt",
-    "name": "Mummy Mask of a Woman",
-    "scientific": "60–70 CE"
-  },
-  {
-    "image": "egypt-hippopotamus-william.webp",
-    "artist": "Ancient Egypt",
-    "name": "Hippopotamus (“William”)",
-    "scientific": "Faience, c. 1961–1878 BCE"
-  },
-  {
-    "image": "egypt-coffin-of-henettawy.webp",
-    "artist": "Ancient Egypt",
-    "name": "Coffin of the Chantress Henettawy",
-    "scientific": "c. 1000–945 BCE"
-  },
-  {
-    "image": "egypt-stela-of-mentuwoser.webp",
-    "artist": "Ancient Egypt",
-    "name": "Stela of the Steward Mentuwoser",
-    "scientific": "c. 1944 BCE",
-    "article": "Stele"
-  },
-  {
-    "image": "egypt-mentuhotep-ii-and-hathor.webp",
-    "artist": "Ancient Egypt",
-    "name": "Mentuhotep II and the Goddess Hathor",
-    "scientific": "c. 2010–2000 BCE",
-    "article": "Mentuhotep II"
-  },
-  {
-    "image": "egypt-temple-of-dendur.webp",
-    "artist": "Ancient Egypt",
-    "name": "The Temple of Dendur",
-    "scientific": "Completed by 10 CE",
-    "article": "Temple of Dendur"
-  },
-  {
-    "image": "egypt-nefertari-playing-senet.webp",
-    "artist": "Ancient Egypt",
-    "name": "Queen Nefertari Playing Senet",
-    "scientific": "Copy of a painting in her tomb, c. 1290–1224 BCE",
-    "article": "QV66"
-  },
-  {
-    "image": "egypt-nefertari-led-by-isis.webp",
-    "artist": "Ancient Egypt",
-    "name": "Queen Nefertari Led by Isis",
-    "scientific": "Copy of a painting in her tomb, c. 1290–1224 BCE"
-  },
-  {
-    "image": "egypt-nefertari-kneeling-in-adoration.webp",
-    "artist": "Ancient Egypt",
-    "name": "Queen Nefertari Kneeling in Adoration",
-    "scientific": "Copy of a painting in her tomb, c. 1290–1224 BCE",
-    "article": "QV66"
-  },
-  {
-    "image": "egypt-cat-killing-a-serpent.webp",
-    "artist": "Ancient Egypt",
-    "name": "Cat Killing a Serpent",
-    "scientific": "Copy of a tomb painting, c. 1300–1224 BCE",
-    "content": [
-      "violence"
-    ],
-    "article": "Apep"
-  },
-  {
-    "image": "egypt-carpenter-making-a-chair.webp",
-    "artist": "Ancient Egypt",
-    "name": "Carpenter Making a Chair",
-    "scientific": "Copy of a painting in the Tomb of Rekhmire, c. 1479–1425 BCE",
-    "article": "TT100"
-  },
-  {
-    "image": "egypt-funeral-ritual-in-a-garden.webp",
-    "artist": "Ancient Egypt",
-    "name": "Funeral Ritual in a Garden",
-    "scientific": "Copy of a painting in the Tomb of Nakhtmin, c. 1479–1425 BCE",
-    "music": "gnossienne"
-  },
-  {
-    "image": "egypt-nakhts-offering-chapel.webp",
-    "artist": "Ancient Egypt",
-    "name": "Nakht’s Offering Chapel",
-    "scientific": "Copy of a tomb painting, c. 1410–1370 BCE",
-    "content": [
-      "nudity",
-      "violence"
-    ],
-    "article": "TT52"
-  },
-  {
-    "image": "egypt-book-of-the-dead-of-nauny.webp",
-    "artist": "Ancient Egypt",
-    "name": "The Book of the Dead of Nauny",
-    "scientific": "Papyrus, c. 1050 BCE"
-  },
-  {
-    "image": "egypt-artists-painting-of-a-hippopotamus.webp",
-    "artist": "Ancient Egypt",
-    "name": "An Artist’s Painting of a Hippopotamus",
-    "scientific": "Painted flake of limestone, c. 1473–1458 BCE"
-  },
-  {
-    "image": "egypt-wall-painting-from-the-tomb-of-sebekhotep.webp",
-    "artist": "Ancient Egypt",
-    "name": "Wall Painting from the Tomb of Sebekhotep",
-    "scientific": "c. 1396–1386 BCE",
-    "article": "TT63"
-  },
-  {
-    "image": "egypt-painted-shroud-fragment.webp",
-    "artist": "Ancient Egypt",
-    "name": "Painted Shroud",
-    "scientific": "1st century BCE – 1st century CE"
-  },
-  {
-    "image": "egypt-cat.webp",
-    "artist": "Ancient Egypt",
-    "name": "Cat",
-    "scientific": "Bronze, 664–30 BCE",
-    "article": "Cats in ancient Egypt"
-  },
-  {
-    "image": "egypt-model-sailing-boat.webp",
-    "artist": "Ancient Egypt",
-    "name": "Model Sailing Boat",
-    "scientific": "c. 1981–1802 BCE",
-    "article": "Wooden tomb model"
-  },
-  {
-    "image": "egypt-travelling-boat-being-rowed.webp",
-    "artist": "Ancient Egypt",
-    "name": "Travelling Boat Being Rowed",
-    "scientific": "Model from the Tomb of Meketre, c. 1981–1975 BCE",
-    "article": "Meketre",
-    "ambience": "rowing"
-  },
-  {
-    "image": "egypt-estate-figure.webp",
-    "artist": "Ancient Egypt",
-    "name": "Offering Bearer",
-    "scientific": "Model from the Tomb of Meketre, c. 1981–1975 BCE",
-    "article": "Wooden tomb model"
-  },
-  {
-    "image": "near-east-panel-with-striding-lion.webp",
-    "artist": "Ancient Near East",
-    "name": "Panel with Striding Lion",
-    "scientific": "Babylon, c. 604–562 BCE",
-    "focus": "15% 50%"
-  },
-  {
-    "image": "near-east-lamassu.webp",
-    "artist": "Ancient Near East",
-    "name": "Human-Headed Winged Lion (Lamassu)",
-    "scientific": "Assyrian, c. 883–859 BCE",
-    "article": "Lamassu"
-  },
-  {
-    "image": "near-east-ashurnasirpal-relief.webp",
-    "artist": "Ancient Near East",
-    "name": "Ashurnasirpal II with an Attendant",
-    "scientific": "Assyrian relief, c. 883–859 BCE",
-    "article": "Ashurnasirpal II"
-  },
-  {
-    "image": "near-east-bahram-gur-and-azadeh.webp",
-    "artist": "Ancient Near East",
-    "name": "Bahram Gur and Azadeh",
-    "scientific": "Sasanian silver plate, 5th century CE",
-    "content": [
-      "violence"
-    ]
-  },
-  {
-    "image": "near-east-jar-with-mountain-goats.webp",
-    "artist": "Ancient Near East",
-    "name": "Storage Jar with Mountain Goats",
-    "scientific": "Iran, c. 4000–3600 BCE"
-  },
-  {
-    "image": "near-east-textile-with-a-walking-ram.webp",
-    "artist": "Ancient Near East",
-    "name": "Textile with a Walking Ram",
-    "scientific": "Sasanian, 7th century CE",
-    "article": "Sasanian art"
-  },
-  {
-    "image": "near-east-man-with-an-oryx.webp",
-    "artist": "Ancient Near East",
-    "name": "Man with an Oryx, a Monkey and a Leopard Skin",
-    "scientific": "Assyrian ivory, 8th century BCE",
-    "article": "Nimrud ivories"
-  },
-  {
-    "image": "near-east-gold-lion-rhyton.webp",
-    "artist": "Ancient Near East",
-    "name": "Gold Lion Rhyton",
-    "scientific": "Achaemenid, 5th century BCE"
-  },
-  {
-    "image": "greece-panathenaic-prize-amphora.webp",
-    "artist": "Ancient Greece",
-    "name": "Panathenaic Prize Amphora",
-    "scientific": "Athens, c. 530 BCE",
-    "content": [
-      "nudity"
-    ],
-    "article": "Panathenaic prize amphora by the Euphiletos Painter"
-  },
-  {
-    "image": "greece-geometric-krater.webp",
-    "artist": "Ancient Greece",
-    "name": "Geometric Krater",
-    "scientific": "Athens, c. 750–735 BCE",
-    "effect": "gallop",
-    "content": [
-      "frightening"
-    ],
-    "article": "Geometric art"
-  },
-  {
-    "image": "greece-stirrup-jar-with-octopus.webp",
-    "artist": "Ancient Greece",
-    "name": "Stirrup Jar with Octopus",
-    "scientific": "Mycenaean, c. 1200–1100 BCE",
-    "article": "Mycenaean pottery"
-  },
-  {
-    "image": "greece-seated-harp-player.webp",
-    "artist": "Ancient Greece",
-    "name": "Seated Harp Player",
-    "scientific": "Cycladic, 2800–2700 BCE",
-    "content": [
-      "nudity"
-    ],
-    "article": "Cycladic art"
-  },
-  {
-    "image": "greece-grave-stele-of-a-little-girl.webp",
-    "artist": "Ancient Greece",
-    "name": "Grave Stele of a Little Girl",
-    "scientific": "c. 450–440 BCE",
-    "music": "moonlight"
-  },
-  {
-    "image": "greece-funerary-plaque.webp",
-    "artist": "Ancient Greece",
-    "name": "Funerary Plaque",
-    "scientific": "Athens, c. 520–510 BCE",
-    "effect": "gallop",
-    "content": [
-      "frightening"
-    ]
-  },
-  {
-    "image": "greece-volute-krater.webp",
-    "artist": "Ancient Greece",
-    "name": "Volute-Krater with Battling Amazons",
-    "scientific": "Athens, c. 450 BCE",
-    "effect": "gallop",
-    "content": [
-      "nudity",
-      "violence"
-    ]
-  },
-  {
-    "image": "greece-calyx-krater.webp",
-    "artist": "Ancient Greece",
-    "name": "Calyx-Krater with Dancers",
-    "scientific": "Lucania, c. 400–390 BCE",
-    "content": [
-      "nudity"
-    ],
-    "article": "Lucanian vase painting"
-  },
-  {
-    "image": "greece-kouros.webp",
-    "artist": "Ancient Greece",
-    "name": "Kouros",
-    "scientific": "Athens, c. 590–580 BCE",
-    "content": [
-      "nudity"
-    ],
-    "focus": "50% 40%"
-  },
-  {
-    "image": "rome-boscoreale-bedroom.webp",
-    "artist": "Ancient Rome",
-    "name": "Bedroom from a Villa at Boscoreale",
-    "scientific": "c. 50–40 BCE"
-  },
-  {
-    "image": "rome-boscoreale-woman-with-a-kithara.webp",
-    "artist": "Ancient Rome",
-    "name": "Woman Playing a Kithara",
-    "scientific": "Boscoreale, c. 50–40 BCE",
-    "article": "Villa Boscoreale"
-  },
-  {
-    "image": "rome-boscoreale-garland-wall.webp",
-    "artist": "Ancient Rome",
-    "name": "Garland Wall",
-    "scientific": "Boscoreale, c. 50–40 BCE",
-    "article": "Villa Boscoreale"
-  },
-  {
-    "image": "rome-perseus-and-andromeda.webp",
-    "artist": "Ancient Rome",
-    "name": "Perseus and Andromeda",
-    "scientific": "Boscotrecase, c. 10 BCE",
-    "content": [
-      "nudity",
-      "frightening"
-    ]
-  },
-  {
-    "image": "rome-sarcophagus-triumph-of-dionysos.webp",
-    "artist": "Ancient Rome",
-    "name": "Sarcophagus with the Triumph of Dionysos",
-    "scientific": "c. 260–270 CE",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "rome-three-graces.webp",
-    "artist": "Ancient Rome",
-    "name": "The Three Graces",
-    "scientific": "2nd century CE",
-    "content": [
-      "nudity"
-    ]
-  },
-  {
-    "image": "rome-caracalla.webp",
-    "artist": "Ancient Rome",
-    "name": "The Emperor Caracalla",
-    "scientific": "212–217 CE",
-    "article": "Caracalla"
-  },
-  {
-    "image": "rome-glass-amphoriskos.webp",
-    "artist": "Ancient Rome",
-    "name": "Glass Amphoriskos",
-    "scientific": "1st century CE",
-    "article": "Roman glass"
-  },
-  {
-    "image": "anglo-saxon-disk-brooch.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Disk Brooch from Faversham",
-    "scientific": "Gold, garnets and glass, early 600s",
-    "article": "Anglo-Saxon brooches"
-  },
-  {
-    "image": "anglo-saxon-pendant-with-a-cross.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Pendant with a Cross of Garnets",
-    "scientific": "Gold, early 600s"
-  },
-  {
-    "image": "anglo-saxon-pendant-with-a-garnet.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Pendant with a Garnet",
-    "scientific": "Gold, early 600s"
-  },
-  {
-    "image": "anglo-saxon-bird-brooch.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Bird-Shaped Brooch",
-    "scientific": "Gilded silver and garnets, 500–550"
-  },
-  {
-    "image": "anglo-saxon-square-headed-bow-brooch.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Square-Headed Bow Brooch",
-    "scientific": "Gilded copper alloy, 500–600",
-    "article": "Anglo-Saxon brooches"
-  },
-  {
-    "image": "anglo-saxon-pectoral-with-christ-and-the-lamb.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Pectoral with Christ and the Lamb of God",
-    "scientific": "Walrus ivory, 1000–1050",
-    "sacred": true
-  },
-  {
-    "image": "anglo-saxon-glass-beaker.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Globular Beaker with Trails",
-    "scientific": "Glass, 5th–7th century",
-    "article": "Anglo-Saxon glass"
-  },
-  {
-    "image": "anglo-saxon-sword-pommel.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Sword Pommel",
-    "scientific": "Silver and niello, late 9th century"
-  },
-  {
-    "image": "anglo-saxon-bird-brooch-with-garnets.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Bird Brooch with Niello",
-    "scientific": "Gilded silver and garnets, 500–550"
-  },
-  {
-    "image": "anglo-saxon-disk-brooch-with-glass.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Disk Brooch",
-    "scientific": "Gold, glass and silvered bronze, 7th century"
-  },
-  {
-    "image": "anglo-saxon-square-headed-brooch.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Square-Headed Brooch",
-    "scientific": "Gilded silver, early 6th century"
-  },
-  {
-    "image": "anglo-saxon-miniature-brooch-with-a-garnet.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Miniature Brooch with a Garnet",
-    "scientific": "Gilded silver, early 6th century"
-  },
-  {
-    "image": "anglo-saxon-miniature-square-headed-brooch.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Miniature Square-Headed Brooch",
-    "scientific": "Gilded silver, early 6th century"
-  },
-  {
-    "image": "anglo-saxon-sceat.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Silver Sceat",
-    "scientific": "Coin, 7th–8th century",
-    "article": "Sceat"
-  },
-  {
-    "image": "anglo-saxon-wessex-penny.webp",
-    "artist": "Anglo-Saxon England",
-    "name": "Penny of Wessex",
-    "scientific": "Silver, 861–866",
-    "article": "Æthelberht, King of Wessex"
-  },
-  {
-    "image": "saxon-otto-i-presents-magdeburg-cathedral.webp",
-    "artist": "Saxony",
-    "name": "Otto I Presents Magdeburg Cathedral to Christ",
-    "scientific": "Ivory, c. 962–968",
-    "sacred": true
-  },
-  {
-    "image": "saxon-prophet-king.webp",
-    "artist": "Saxony",
-    "name": "A King from a Tree of Jesse",
-    "scientific": "Stained glass, c. 1260–1270",
-    "sacred": true
-  },
-  {
-    "image": "saxon-centaur-aquamanile.webp",
-    "artist": "Saxony",
-    "name": "Centaur Fighting a Dragon",
-    "scientific": "Aquamanile, Hildesheim (?), 1200–1225",
-    "effect": "sword",
-    "content": [
-      "violence",
-      "frightening"
-    ],
-    "article": "Aquamanile"
-  },
-  {
-    "image": "saxon-massacre-of-the-innocents.webp",
-    "artist": "Saxony",
-    "name": "The Massacre of the Innocents",
-    "scientific": "Enamel on gilded copper, c. 1150",
-    "sacred": true,
-    "effect": "sword",
-    "content": [
-      "nudity",
-      "violence",
-      "frightening"
-    ]
-  },
-  {
-    "image": "saxon-saint-bartholomew.webp",
-    "artist": "Saxony",
-    "name": "Saint Bartholomew",
-    "scientific": "Enamel on gilded copper, mid-12th century",
-    "sacred": true
-  },
-  {
-    "image": "saxon-saint-thomas.webp",
-    "artist": "Saxony",
-    "name": "Saint Thomas",
-    "scientific": "Enamel on gilded copper, mid-12th century",
-    "sacred": true
-  },
-  {
-    "image": "saxon-knight-aquamanile.webp",
-    "artist": "Saxony",
-    "name": "Knight on Horseback",
-    "scientific": "Aquamanile, Hildesheim (?), c. 1250",
-    "effect": "gallop",
-    "article": "Aquamanile"
-  },
-  {
-    "image": "saxon-monk-scribe-on-a-wyvern.webp",
-    "artist": "Saxony",
-    "name": "Monk-Scribe Astride a Wyvern",
-    "scientific": "Brass, Magdeburg, mid-12th century",
-    "content": [
-      "frightening"
-    ]
-  },
-  {
-    "image": "saxon-saint-john-at-his-desk.webp",
-    "artist": "Saxony",
-    "name": "Saint John the Evangelist at His Desk",
-    "scientific": "Painted and gilded wood, 1200–1225",
-    "sacred": true
-  },
-  {
-    "image": "saxon-prophet-daniel.webp",
-    "artist": "Saxony",
-    "name": "The Prophet Daniel (?)",
-    "scientific": "Painted and gilded wood, 1200–1225",
-    "sacred": true
-  },
-  {
-    "image": "saxon-prophet-isaiah.webp",
-    "artist": "Saxony",
-    "name": "The Prophet Isaiah",
-    "scientific": "Painted and gilded wood, 1200–1225",
-    "sacred": true
-  },
-  {
-    "image": "saxon-falconer-aquamanile.webp",
-    "artist": "Saxony",
-    "name": "Falconer on Horseback",
-    "scientific": "Aquamanile, 13th century",
-    "effect": "gallop"
-  },
-  {
-    "image": "saxon-rooster-aquamanile.webp",
-    "artist": "Saxony",
-    "name": "Rooster",
-    "scientific": "Aquamanile, 13th century"
-  },
-  {
-    "image": "saxon-pricket-candlestick.webp",
-    "artist": "Saxony",
-    "name": "Pricket Candlestick with Birds and Vines",
-    "scientific": "Enamel on gilded copper, Hildesheim (?), 1175–1200"
-  },
-  {
-    "image": "saxon-crucifix.webp",
-    "artist": "Saxony",
-    "name": "Crucifix",
-    "scientific": "Gilded copper alloy, 1125–1150",
-    "sacred": true
   },
   {
     "image": "paton-the-quarrel-of-oberon-and-titania.webp",
@@ -7289,13 +4481,6 @@
     "artist": "Frederick Sandys",
     "name": "Susanna Rose",
     "scientific": "1862"
-  },
-  {
-    "image": "sandys-whitlingham-norfolk.webp",
-    "artist": "Frederick Sandys",
-    "name": "Whitlingham, Norfolk",
-    "scientific": "C. 1860",
-    "ambience": "river"
   },
   {
     "image": "brett-the-stonebreaker.webp",
@@ -7486,22 +4671,6 @@
     "effect": "gallop"
   },
   {
-    "image": "landseer-the-cats-paw.webp",
-    "artist": "Edwin Landseer",
-    "name": "The Cat's Paw",
-    "scientific": "1824",
-    "content": [
-      "violence"
-    ],
-    "article": "The Monkey and the Cat"
-  },
-  {
-    "image": "landseer-donald-mcintyre.webp",
-    "artist": "Edwin Landseer",
-    "name": "Donald McIntyre",
-    "scientific": "C. 1830"
-  },
-  {
     "image": "landseer-a-highland-landscape.webp",
     "artist": "Edwin Landseer",
     "name": "A Highland Landscape",
@@ -7531,46 +4700,10 @@
     "ambience": "brook"
   },
   {
-    "image": "landseer-lion-defending-its-prey.webp",
-    "artist": "Edwin Landseer",
-    "name": "Lion Defending its Prey",
-    "scientific": "C. 1840",
-    "content": [
-      "violence",
-      "frightening"
-    ]
-  },
-  {
-    "image": "landseer-van-amburgh-and-his-animals.webp",
-    "artist": "Edwin Landseer",
-    "name": "Mr. Van Amburgh with His Animals",
-    "scientific": "1846–1847",
-    "content": [
-      "frightening"
-    ],
-    "article": "Isaac A. Van Amburgh"
-  },
-  {
-    "image": "landseer-members-of-the-sheridan-family.webp",
-    "artist": "Edwin Landseer",
-    "name": "Members of the Sheridan Family",
-    "scientific": "1847",
-    "focus": "60% 50%"
-  },
-  {
     "image": "landseer-a-group-of-animals-geneva.webp",
     "artist": "Edwin Landseer",
     "name": "A Group of Animals",
     "scientific": "1851",
     "effect": "gallop"
-  },
-  {
-    "image": "landseer-rent-day-in-the-wilderness.webp",
-    "artist": "Edwin Landseer",
-    "name": "Rent-Day in the Wilderness",
-    "scientific": "1855–1868",
-    "article": "Donald Murchison",
-    "focus": "55% 50%",
-    "ambience": "wind"
   }
 ]

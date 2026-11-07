@@ -68,14 +68,6 @@
     "cover": "raphael-the-small-cowper-madonna.webp"
   },
   {
-    "name": "Michelangelo",
-    "note": "Italian, 1475–1564",
-    "bio": "Sculptor, painter and architect of the High Renaissance, Michelangelo carved the marble David and painted the ceiling of the Sistine Chapel. His powerful, muscular figures inspired artists for centuries.",
-    "period": "Renaissance",
-    "cover": "michelangelo-the-creation-of-adam.webp",
-    "focus": "75% 50%"
-  },
-  {
     "name": "Berthe Morisot",
     "note": "French, 1841–1895",
     "bio": "A founding member of the Impressionist group, Morisot showed in all but one of its eight exhibitions. She painted women and children at home and in gardens with quick, feathery brushstrokes.",
@@ -111,13 +103,6 @@
     "cover": "botticelli-giuliano-de-medici.webp"
   },
   {
-    "name": "Giovanni Bellini",
-    "note": "Italian, c. 1430–1516",
-    "bio": "The leading painter of early Renaissance Venice, Bellini brought warm colour and soft, natural light to his Madonnas and portraits. Titian and Giorgione are said to have trained in his workshop.",
-    "period": "Renaissance",
-    "cover": "bellini-the-infant-bacchus.webp"
-  },
-  {
     "name": "Paul Cézanne",
     "note": "French, 1839–1906",
     "bio": "A French Post-Impressionist, Cézanne built his pictures from patches of colour, looking for the solid shapes beneath nature. Picasso and the Cubists saw him as the father of modern art.",
@@ -136,7 +121,7 @@
     "name": "Edouard Manet",
     "note": "French, 1832–1883",
     "bio": "Manet painted modern Paris in bold, flat colour, and his daring pictures shocked the official art world. The young Impressionists looked to him as their leader, though he never showed in their exhibitions.",
-    "period": "Impressionism",
+    "period": "Realism",
     "cover": "manet-the-railway.webp",
     "focus": "40% 50%"
   },
@@ -156,21 +141,6 @@
     "cover": "renoir-a-girl-with-a-watering-can.webp"
   },
   {
-    "name": "Amedeo Modigliani",
-    "note": "Italian, 1884–1920",
-    "bio": "An Italian who worked in Paris, Modigliani painted portraits with long necks, oval faces and almond-shaped eyes, inspired partly by African and ancient sculpture. He died poor at 35, just as his fame began to grow.",
-    "period": "Modern",
-    "cover": "modigliani-girl-in-a-green-blouse.webp",
-    "focus": "50% 0%"
-  },
-  {
-    "name": "Georges Seurat",
-    "note": "French, 1859–1891",
-    "bio": "Seurat invented pointillism, building his pictures from tiny dots of pure colour that blend in the eye. He died at only 31, but his careful, scientific method shaped Post-Impressionism.",
-    "period": "Post-Impressionism",
-    "cover": "seurat-the-lighthouse-at-honfleur.webp"
-  },
-  {
     "name": "Henri de Toulouse-Lautrec",
     "note": "French, 1864–1901",
     "bio": "Toulouse-Lautrec painted the nightlife of Montmartre in Paris, its dancers, singers and cafés, with quick, lively lines. His bold posters for the Moulin Rouge helped make the poster an art form.",
@@ -185,18 +155,11 @@
     "cover": "rodin-the-thinker.webp"
   },
   {
-    "name": "J. M. W. Turner",
-    "note": "British, 1775–1851",
-    "bio": "The great English painter of Romanticism, Turner turned storms, sunsets and steam into swirls of light and colour. His later, almost abstract pictures pointed the way to Impressionism.",
+    "name": "Edwin Landseer",
+    "note": "British, 1802–1873",
+    "bio": "Victorian Britain's best-loved animal painter and a favourite of Queen Victoria, Landseer gave the Romantic love of the Scottish Highlands its stags and noble dogs. He also modelled the bronze lions in Trafalgar Square.",
     "period": "Romanticism and Realism",
-    "cover": "turner-keelmen-heaving-in-coals-by-moonlight.webp"
-  },
-  {
-    "name": "Jean-Baptiste-Camille Corot",
-    "note": "French, 1796–1875",
-    "bio": "A bridge between Romantic landscape and Impressionism, Corot painted outdoors in France and Italy and is loved for the silvery, misty landscapes of his later years. The young Impressionists looked to him as a master.",
-    "period": "Romanticism and Realism",
-    "cover": "corot-agostina.webp"
+    "cover": "landseer-the-monarch-of-the-glen.webp"
   },
   {
     "name": "Hudson River School",
@@ -207,11 +170,18 @@
     "cover": "cole-the-oxbow.webp"
   },
   {
-    "name": "Edwin Landseer",
-    "note": "British, 1802–1873",
-    "bio": "Victorian Britain's best-loved animal painter and a favourite of Queen Victoria, Landseer gave the Romantic love of the Scottish Highlands its stags and noble dogs. He also modelled the bronze lions in Trafalgar Square.",
+    "name": "Jean-Baptiste-Camille Corot",
+    "note": "French, 1796–1875",
+    "bio": "A bridge between Romantic landscape and Impressionism, Corot painted outdoors in France and Italy and is loved for the silvery, misty landscapes of his later years. The young Impressionists looked to him as a master.",
     "period": "Romanticism and Realism",
-    "cover": "landseer-the-monarch-of-the-glen.webp"
+    "cover": "corot-agostina.webp"
+  },
+  {
+    "name": "J. M. W. Turner",
+    "note": "British, 1775–1851",
+    "bio": "The great English painter of Romanticism, Turner turned storms, sunsets and steam into swirls of light and colour. His later, almost abstract pictures pointed the way to Impressionism.",
+    "period": "Romanticism and Realism",
+    "cover": "turner-venice-the-dogana-and-san-giorgio-maggiore.webp"
   },
   {
     "name": "Camille Pissarro",
@@ -221,53 +191,11 @@
     "cover": "pissarro-orchard-in-bloom-louveciennes.webp"
   },
   {
-    "name": "James McNeill Whistler",
-    "note": "American, 1834–1903",
-    "bio": "An American who lived in London and Paris, Whistler painted misty river scenes and portraits in soft, harmonious tones. He named his pictures like music, as symphonies, nocturnes and arrangements.",
-    "period": "Impressionism",
-    "cover": "whistler-symphony-in-white-no-1-the-white-girl.webp",
-    "focus": "50% 0%"
-  },
-  {
     "name": "Joseph DeCamp",
     "note": "American, 1858–1923",
     "bio": "A Boston painter and a member of the Ten American Painters, a group of American Impressionists, DeCamp painted calm, light-filled rooms with women reading, sewing or playing music.",
     "period": "Impressionism",
     "cover": "decamp-the-seamstress.webp"
-  },
-  {
-    "name": "Michalina Janoszanka",
-    "note": "Polish, 1889–1952",
-    "bio": "A Polish painter of the Young Poland era, Janoszanka made dreamy, decorative pictures of birds, butterflies and the seasons, close in spirit to Art Nouveau.",
-    "period": "Modern",
-    "also": [
-      "Female Artists"
-    ],
-    "cover": "bird-of-paradise.webp"
-  },
-  {
-    "name": "Virginia Frances Sterrett",
-    "note": "American, 1900–1931",
-    "bio": "A young American illustrator, Sterrett drew fairy tales in fine lines and soft, glowing colour, working on through a long illness. She illustrated three books before her death at 30.",
-    "period": "Modern",
-    "also": [
-      "Female Artists"
-    ],
-    "cover": "marvellous-tree.webp"
-  },
-  {
-    "name": "Joseph Stella",
-    "note": "American, 1877–1946",
-    "bio": "An Italian-born American, Stella was one of the first to bring Futurism to the United States, painting Coney Island and the Brooklyn Bridge as bursts of light, colour and movement.",
-    "period": "Modern",
-    "cover": "stella-brooklyn-bridge.webp"
-  },
-  {
-    "name": "Walter Crane",
-    "note": "British, 1845–1915",
-    "bio": "A British illustrator and designer, Crane made some of the most beautiful children’s picture books of the Victorian age. A friend of William Morris, he was a leader of the Arts and Crafts movement.",
-    "period": "Post-Impressionism",
-    "cover": "crane-valentine-765291.webp"
   },
   {
     "name": "John Everett Millais",
@@ -388,51 +316,5 @@
     "bio": "The leading figure of Victorian Classicism, Leighton painted graceful scenes of ancient Greece and Rome in warm, glowing colour. He was the first painter to be made a lord.",
     "period": "Victorian Classicism",
     "cover": "leighton-the-music-lesson.webp"
-  },
-  {
-    "name": "Saxony",
-    "note": "Ottonian and Romanesque, c. 960–1270",
-    "bio": "Saxony was home to the Ottonian emperors, Saxon kings who ruled the Holy Roman Empire around the year 1000. They filled their churches with carved ivory, metalwork and painted books, and the Romanesque art that followed.",
-    "period": "Anglo-Saxon and Saxon Art",
-    "cover": "saxon-prophet-king.webp"
-  },
-  {
-    "name": "Anglo-Saxon England",
-    "sort": "Anglo-Saxon",
-    "note": "c. 450–1066",
-    "bio": "The art of the English from the fifth century to the Norman Conquest of 1066. Its finest pieces are jewellery of gold and red garnet, brooches and pendants worked in swirling patterns.",
-    "period": "Anglo-Saxon and Saxon Art",
-    "cover": "anglo-saxon-disk-brooch.webp"
-  },
-  {
-    "name": "Ancient Rome",
-    "note": "c. 100 BCE – 400 CE",
-    "bio": "The Romans borrowed much from Greek art but added lifelike portraits and grand wall paintings. Villas buried by Vesuvius in 79 CE kept their painted rooms, gardens and landscapes.",
-    "period": "Ancient Art",
-    "cover": "rome-boscoreale-woman-with-a-kithara.webp"
-  },
-  {
-    "name": "Ancient Greece",
-    "note": "c. 2800–100 BCE",
-    "bio": "Greek artists moved from patterned pots to lifelike figures, creating the ideal human body that later Western art looked back to. Their painted vases tell stories of gods and heroes in black figures on red clay, or red on black.",
-    "period": "Ancient Art",
-    "cover": "greece-volute-krater.webp"
-  },
-  {
-    "name": "Ancient Egypt",
-    "note": "c. 3100 BCE – 300 CE",
-    "bio": "For three thousand years, Egyptian artists followed strict rules, showing the head and legs from the side and the eye and shoulders from the front. Most of what survives was made for tombs and temples, to last forever.",
-    "period": "Ancient Art",
-    "cover": "egypt-nefertari-playing-senet.webp",
-    "focus": "20% 50%"
-  },
-  {
-    "name": "Ancient Near East",
-    "sort": "Near",
-    "note": "Mesopotamia and Iran, 4000 BCE – 700 CE",
-    "bio": "The art of Mesopotamia and Iran, the land between the Tigris and Euphrates where writing and the first cities began. Assyrian kings lined their palaces with carved reliefs of lions, gods and royal power.",
-    "period": "Ancient Art",
-    "cover": "near-east-panel-with-striding-lion.webp",
-    "focus": "15% 50%"
   }
 ]
