@@ -772,10 +772,11 @@ const sound = (() => {
   let wanted = [];
   let effect = {};
   let clashing = [];
-  // the ambient sound looping under the puzzle: { name, source, gain, ending },
-  // whether the current puzzle loops its ambience, whether it is still being
-  // put together, and the seamless loops made so far, by name
-  let bed = null;
+  // the ambient sounds looping under the puzzle, by name, each { name, source,
+  // gain, ending, timer }; whether the current puzzle loops its ambience,
+  // whether it is still being put together, and the seamless loops made so
+  // far, by name
+  const beds = {};
   let looping = false;
   let assembling = false;
   const loops = {};
@@ -826,7 +827,7 @@ const sound = (() => {
     effect = {};
     playing = null;
     clashing = [];
-    bed = null;
+    for (const name in beds) delete beds[name];
     greeting = null;
     intro = null;
     hiss = null;
@@ -1163,35 +1164,44 @@ const sound = (() => {
     return (loops[name] = out);
   }
 
-  // lets the looping sound die away over fade seconds
-  function stopBed(fade = 0.5) {
-    if (!bed) return;
-    clearTimeout(bed.timer);
-    try {
-      const now = ctx.currentTime;
-      const gain = bed.gain.gain;
-      gain.cancelScheduledValues(now);
-      gain.setValueAtTime(gain.value, now);
-      gain.linearRampToValueAtTime(0, now + fade);
-      bed.source.stop(now + fade);
-    } catch {}
-    bed = null;
+  // A puzzle may loop more than one ambient sound at once (a river and a
+  // rowing boat); together each is played a little softer, so that the two
+  // are not louder than one would be.
+  const share = () => (ambient().length > 1 ? 0.75 : 1);
+
+  // lets a looping sound die away over fade seconds; with no name, all of them
+  function stopBed(fade = 0.5, name = null) {
+    for (const key of name ? [name] : Object.keys(beds)) {
+      const bed = beds[key];
+      if (!bed) continue;
+      clearTimeout(bed.timer);
+      try {
+        const now = ctx.currentTime;
+        const gain = bed.gain.gain;
+        gain.cancelScheduledValues(now);
+        gain.setValueAtTime(gain.value, now);
+        gain.linearRampToValueAtTime(0, now + fade);
+        bed.source.stop(now + fade);
+      } catch {}
+      delete beds[key];
+    }
   }
 
-  // starts the ambient sound looping softly under the puzzle, coming in over
+  // starts an ambient sound looping softly under the puzzle, coming in over
   // two seconds; the same sound already looping, and not yet dying away, is
   // kept going, so that it carries on without a break into the next puzzle
   function startBed(name) {
     if (!on.effects || !ctx || !effect[name]) return;
-    const level = EFFECTS[name].level * UNDER;
+    const level = EFFECTS[name].level * UNDER * share();
     const now = ctx.currentTime;
-    if (bed && bed.name === name && !bed.ending) {
+    const bed = beds[name];
+    if (bed && !bed.ending) {
       bed.gain.gain.cancelScheduledValues(now);
       bed.gain.gain.setValueAtTime(bed.gain.gain.value, now);
       bed.gain.gain.linearRampToValueAtTime(level, now + 2);
       return;
     }
-    stopBed();
+    stopBed(0.5, name);
     const gain = ctx.createGain();
     gain.gain.setValueAtTime(0, now);
     gain.gain.linearRampToValueAtTime(level, now + 2);
@@ -1200,8 +1210,8 @@ const sound = (() => {
     source.loop = true;
     source.connect(gain).connect(ctx.destination);
     source.start(now);
-    bed = { name, source, gain, ending: false, timer: null };
-    if (EFFECTS[name].passers) passBy(bed, EFFECTS[name].passers, 8 + Math.random() * 10);
+    const made = (beds[name] = { name, source, gain, ending: false, timer: null });
+    if (EFFECTS[name].passers) passBy(made, EFFECTS[name].passers, 8 + Math.random() * 10);
   }
 
   // Someone walks by now and then while the puzzle is put together: the first
@@ -1210,10 +1220,10 @@ const sound = (() => {
   function passBy(mine, name, wait) {
     effects[name] = effects[name] || fetched(`sound-effects/${EFFECTS[name].file}`);
     mine.timer = setTimeout(() => {
-      if (bed !== mine || mine.ending || !on.effects) return;
+      if (beds[mine.name] !== mine || mine.ending || !on.effects) return;
       effects[name].then(
         (buffer) => {
-          if (bed !== mine || mine.ending || !ctx) return;
+          if (beds[mine.name] !== mine || mine.ending || !ctx) return;
           const gain = ctx.createGain();
           gain.gain.value = EFFECTS[name].level * UNDER * 2;
           const pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
@@ -1238,7 +1248,7 @@ const sound = (() => {
     assembling = asked.length > 0;
     effect = {};
     const under = ambient();
-    if (!bed || bed.ending || !under.includes(bed.name)) stopBed();
+    for (const name in beds) if (beds[name].ending || !under.includes(name)) stopBed(0.5, name);
     if (!asked.length || !unlock()) return;
     for (const name of asked) {
       effects[name] = effects[name] || fetched(`sound-effects/${EFFECTS[name].file}`);
@@ -1394,14 +1404,14 @@ const sound = (() => {
         clashing = Object.keys(effect)
           .filter((name) => !under.includes(name))
           .map((name) => sample(effect[name], EFFECTS[name].level, 0.7 + (EFFECTS[name].wait || 0), EFFECTS[name].lead, EFFECTS[name].fade));
-      // the looping sound rises to its full level as the music comes in and
-      // dies away with it, over its last four seconds; with no recording to
-      // end on it lasts as long as one would, and with the music off it dies
+      // the looping sounds rise to their full level as the music comes in and
+      // die away with it, over its last four seconds; with no recording to
+      // end on they last as long as one would, and with the music off they die
       // away at once, over three
-      if (bed) {
+      for (const bed of Object.values(beds)) {
         const now = ctx.currentTime;
         const gain = bed.gain.gain;
-        const full = EFFECTS[bed.name].level;
+        const full = EFFECTS[bed.name].level * share();
         const fade = on.music ? 4 : 3;
         const until = on.music ? 0.7 + (clip ? clip.duration : 30) - fade : 0;
         gain.cancelScheduledValues(now);
