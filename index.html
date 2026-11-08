@@ -139,9 +139,8 @@
       <p class="hint">Some artwork includes upsetting and disturbing subjects. Use the toggles below to customize what you see for the best puzzling experience.<br>(These categories are always hidden in Kids mode.)</p>
       <div id="content" class="options" role="group" aria-label="Artwork preferences">
         <button data-content="nudity">Nudity<small></small></button>
-        <button data-content="violence">Violence<span class="more">Depictions of war, violent acts, and violence against women</span><small></small></button>
+        <button data-content="violence">Violence<small></small></button>
         <button data-content="frightening">Frightening scenes<small></small></button>
-        <button id="spell">Spell out upsetting words<span class="more">Titles such as “The R+++ of Proserpine” are written in full</span><small></small></button>
       </div>
     </section>
     <section>
@@ -150,14 +149,18 @@
         <button data-sound="music">Music<small></small></button>
         <button data-sound="effects">Sound effects<small></small></button>
       </div>
+      <p class="subhead">Puzzle tones</p>
+      <div id="instruments" class="options" role="group" aria-label="Puzzle tones">
+        <button data-instrument="piano">Piano</button>
+        <button data-instrument="pizzicato">Pizzicato</button>
+        <button data-instrument="harp">Harp</button>
+      </div>
     </section>
     <section>
       <p class="eyebrow">Text size</p>
       <div id="textSizes" class="options" role="group" aria-label="Text size">
         <div class="slider">
-          <label for="textSize">Text</label>
-          <span class="more">The words on the cards, the bios and the notes on each painting</span>
-          <input id="textSize" type="range" min="0" max="2" step="1">
+          <input id="textSize" aria-label="Text size" type="range" min="0" max="2" step="1">
           <div class="stops">
             <button data-text="0">Standard</button>
             <button data-text="1">Larger</button>
@@ -171,25 +174,25 @@
       <div id="themes">
         <p class="subhead">Light</p>
         <div class="options" role="group" aria-label="Light themes">
-          <button data-theme="blush">Blush<small>light pink</small></button>
-          <button data-theme="lace">Antique Lace<small>cream</small></button>
-          <button data-theme="celadon">Celadon<small>soft blue-green</small></button>
-          <button data-theme="sage">Antiqued Sage<small>muted green</small></button>
+          <button data-theme="blush">Blush</button>
+          <button data-theme="lace">Lace</button>
+          <button data-theme="celadon">Celadon</button>
+          <button data-theme="sage">Sage</button>
         </div>
         <p class="subhead">Dark</p>
         <div class="options" role="group" aria-label="Dark themes">
-          <button data-theme="walnut">Walnut<small>deep brown</small></button>
-          <button data-theme="burgundy">Burgundy<small>deep plum</small></button>
-          <button data-theme="crimson">Crimson<small>deep red</small></button>
-          <button data-theme="peacock">Peacock<small>deep peacock blue</small></button>
+          <button data-theme="walnut">Walnut</button>
+          <button data-theme="burgundy">Burgundy</button>
+          <button data-theme="crimson">Crimson</button>
+          <button data-theme="peacock">Peacock</button>
         </div>
       </div>
     </section>
     <section>
       <p class="eyebrow">Frame</p>
       <div id="frames" class="options" role="group" aria-label="Frame">
-        <button data-frame="ornate">Ornate<small>carved and gilt</small></button>
-        <button data-frame="plain">Minimalist<small>a plain gilt edge</small></button>
+        <button data-frame="ornate">Ornate</button>
+        <button data-frame="plain">Minimalist</button>
       </div>
     </section>
     <section>

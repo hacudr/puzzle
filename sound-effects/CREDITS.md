@@ -7,6 +7,8 @@
 | `Door knock.m4a` | Three knocks on a door | as above | as above |
 | `harp.mp3` | A strum of a harp, heard as Chapter complete (or Collection complete) comes up | The first strum (0.08–2.6 s, faded out over its last 0.6 s and evened to −16 LUFS) of "harp strum" (Pixabay, uploaded by freesound_community, id 90205); the original is kept in `sources/` (out of git) | Pixabay Content License: free for commercial use, no credit asked (stated by the owner, 7 November 2026) |
 | `piano/*.mp3` | The puzzle's piano: 37 keys, C3 to C6, one file each | Recorded by the app's owner (stated 6 November 2026), cut and cleaned by `piano/make.js` from `sources/Piano Tones - Low C to Middle C to High C.m4a` (kept out of git) | The owner's own work |
+| `pizzicato/*.mp3` | Pizzicato strings, chosen in Settings in place of the piano: 17 notes, C2 to D6 | VSCO 2 Community Edition, Versilian Studios (https://github.com/sgossner/VSCO-2-CE): the violin section's pizzicato (`Strings/Violin Section/Pizz`), with the cello section's (`Strings/Cello Section/pizzT`) below G3; cut, faded and evened by `vsco.js`, the originals kept in `sources/vsco/` (out of git) | CC0 1.0 |
+| `harp/*.mp3` | A concert harp, chosen in Settings in place of the piano: 18 notes, B1 to A6 | as above: `Strings/Harp` | CC0 1.0 |
 
 ## Ambient sounds
 

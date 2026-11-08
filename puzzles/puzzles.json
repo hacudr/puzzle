@@ -2038,61 +2038,6 @@
     ]
   },
   {
-    "image": "turner-boats-carrying-out-anchors-to-the-dutch-men-of-war.webp",
-    "artist": "J. M. W. Turner",
-    "name": "Boats Carrying Out Anchors to the Dutch Men of War",
-    "scientific": "c. 1804",
-    "ambience": "sea"
-  },
-  {
-    "image": "turner-the-junction-of-the-thames-and-the-medway.webp",
-    "artist": "J. M. W. Turner",
-    "name": "The Junction of the Thames and the Medway",
-    "scientific": "1807",
-    "ambience": "sea"
-  },
-  {
-    "image": "turner-mortlake-terrace.webp",
-    "artist": "J. M. W. Turner",
-    "name": "Mortlake Terrace",
-    "scientific": "1827",
-    "ambience": [
-      "river",
-      "dog"
-    ]
-  },
-  {
-    "image": "turner-rotterdam-ferry-boat.webp",
-    "artist": "J. M. W. Turner",
-    "name": "Rotterdam Ferry-Boat",
-    "scientific": "1833",
-    "ambience": "harbour"
-  },
-  {
-    "image": "turner-venice-the-dogana-and-san-giorgio-maggiore.webp",
-    "artist": "J. M. W. Turner",
-    "name": "Venice: The Dogana and San Giorgio Maggiore",
-    "scientific": "1834",
-    "ambience": "harbour"
-  },
-  {
-    "image": "turner-the-rape-of-proserpine.webp",
-    "artist": "J. M. W. Turner",
-    "name": "The Rape of Proserpine",
-    "scientific": "1839",
-    "content": [
-      "violence"
-    ]
-  },
-  {
-    "image": "turner-the-evening-of-the-deluge.webp",
-    "artist": "J. M. W. Turner",
-    "name": "The Evening of the Deluge",
-    "scientific": "c. 1843",
-    "sacred": true,
-    "ambience": "storm"
-  },
-  {
     "image": "corot-italian-peasant-boy.webp",
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "Italian Peasant Boy",

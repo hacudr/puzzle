@@ -7,7 +7,6 @@ const TRAY_KEY = 'puzzle.tray';
 const PROGRESS_KEY = 'puzzle.progress';
 const KIDS_KEY = 'puzzle.kids';
 const HIDE_KEY = 'puzzle.hide';
-const SPELL_KEY = 'puzzle.spell';
 const THEME_KEY = 'puzzle.theme';
 const FRAME_KEY = 'puzzle.frame';
 // the pictures the splash has shown, and whether it has been shown since the app was opened
@@ -85,8 +84,6 @@ let chosen = loadLevel();
 let level = kids ? 'veryeasy' : chosen;
 // the kinds of picture switched off in the settings, from a puzzle's `content`
 let hide = loadHide();
-// whether a title's upsetting words are written in full
-let spell = loadSpell();
 let progress = loadProgress();
 let game = null;
 let drag = null;
@@ -126,14 +123,6 @@ function loadHide() {
     return new Set(JSON.parse(localStorage.getItem(HIDE_KEY) || '[]'));
   } catch {
     return new Set();
-  }
-}
-
-function loadSpell() {
-  try {
-    return localStorage.getItem(SPELL_KEY) === 'on';
-  } catch {
-    return false;
   }
 }
 
@@ -216,22 +205,6 @@ function showContent() {
     b.disabled = kids;
     b.querySelector('small').textContent = off ? 'hidden' : 'shown';
   });
-  const b = $('#spell');
-  b.setAttribute('aria-pressed', spelled());
-  b.disabled = kids;
-  b.querySelector('small').textContent = spelled() ? 'spelled out' : 'masked';
-}
-
-// Kids mode never spells them out
-const spelled = () => spell && !kids;
-
-function setSpell(on) {
-  spell = on;
-  try {
-    localStorage.setItem(SPELL_KEY, on ? 'on' : 'off');
-  } catch {}
-  showContent();
-  sift();
 }
 
 // Take the hidden pictures out of every artist's page. An artist whose cover is
@@ -306,6 +279,7 @@ function showSound() {
     b.setAttribute('aria-pressed', sound.on(b.dataset.sound));
     b.querySelector('small').textContent = sound.on(b.dataset.sound) ? 'on' : 'off';
   });
+  document.querySelectorAll('#instruments [data-instrument]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.instrument === sound.instrument()));
 }
 
 // The text size: every word is sized from the root, so one value on <html>
@@ -664,9 +638,9 @@ $('#splash').addEventListener('click', () => {
 const artistOf = (p) => everyone.find((a) => a.all.includes(p));
 // the collection an artist's page goes back to: the open one if they are in it, or their own
 const collectionOf = (a) => (collection && collection.artists.includes(a) ? collection : collections.find((c) => c.artists.includes(a)));
-// a title is shown without the word "rape" spelled out, as The R+++ of Proserpine,
-// unless the settings ask for it in full
-const titleOf = (p) => (spelled() ? p.name : p.name.replace(/\b(r)ape\b/gi, '$1+++'));
+// a puzzle's title as shown (a setting once masked one word in it; taken out when
+// no title held that word any more)
+const titleOf = (p) => p.name;
 
 // Every artist is a chapter, showing their pictures one at a time, in order. The first not yet solved is next,
 // under a blur of its colours alone (puzzles/veils/, made by veil.js), and
@@ -2209,10 +2183,9 @@ $('#settingsBack').addEventListener('click', async () => {
 // Sources & Credits, at the foot of Settings: only what a licence asks to be
 // credited. The recordings and fonts are written in index.html; the Wikipedia
 // articles and the Art Institute's descriptions (puzzles/blurbs.json) are filled
-// here each time it is opened, for the pictures in the app, with the word the
-// titles mask masked here too. Public-domain and CC0 sources are not listed.
+// here each time it is opened, for the pictures in the app. Public-domain and
+// CC0 sources are not listed.
 function fillCredits() {
-  const mask = (s) => (spelled() ? s : s.replace(/\b(r)ape\b/gi, '$1+++'));
   const link = (text, url) => {
     const a = document.createElement('a');
     a.href = url;
@@ -2231,7 +2204,7 @@ function fillCredits() {
   const byUrl = (list) => [...new Map(list.map((b) => [b.url, b])).values()];
 
   const wiki = byUrl(from('Wikipedia').flatMap(articlesOf)).sort((a, b) => a.article.localeCompare(b.article));
-  $('#creditsWiki').replaceChildren(...wiki.map((b) => item(link(mask(b.article), b.url))));
+  $('#creditsWiki').replaceChildren(...wiki.map((b) => item(link(b.article, b.url))));
 
   // the Art Institute names the work, not an article, so each is named by its picture
   const aic = puzzles.filter((p) => (blurbOf(p) || {}).source === 'Art Institute of Chicago');
@@ -2250,7 +2223,6 @@ document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('c
 document.querySelectorAll('#content [data-content]').forEach((b) =>
   b.addEventListener('click', () => setHidden(b.dataset.content, !hide.has(b.dataset.content)))
 );
-$('#spell').addEventListener('click', () => setSpell(!spell));
 
 // Kids mode goes on at a tap. Coming out of it is for a grown-up: Off has to be
 // held down while its line fills.
@@ -2277,6 +2249,13 @@ $('#kids [data-kids="on"]').addEventListener('click', () => kids || setKids(true
 document.querySelectorAll('#sounds [data-sound]').forEach((b) =>
   b.addEventListener('click', () => {
     sound.set(b.dataset.sound, !sound.on(b.dataset.sound));
+    showSound();
+  })
+);
+// the instrument the pieces' notes are played on; choosing one plays a few notes on it
+document.querySelectorAll('#instruments [data-instrument]').forEach((b) =>
+  b.addEventListener('click', () => {
+    sound.setInstrument(b.dataset.instrument);
     showSound();
   })
 );

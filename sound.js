@@ -1,4 +1,4 @@
-// Recorded piano and synthesised lute notes. Each correctly placed piece plays the next
+// Recorded notes, on the piano, pizzicato or harp as chosen in Settings. Each correctly placed piece plays the next
 // step of the puzzle's tune, so solving the puzzle slowly plays the music; any
 // other swap repeats the step it has reached.
 const sound = (() => {
@@ -22,10 +22,11 @@ const sound = (() => {
   // lets the ending be played in tempo. unit = seconds per unit, bar = units
   // per bar, lead = units of silence before the first step, pause = the ending
   // stops short of a step that comes more than this many units after the last.
-  // A tune is played on the piano unless it names another voice; those that do
-  // are kept for the pictures of violence and fright. A note may carry its own
+  // A tune that names the lute as its voice is one of the stormy ones, kept for
+  // the pictures of violence and fright; it is played on the instrument chosen
+  // in Settings like the rest, the lute being no longer used. A note may carry its own
   // length (F3:12 is twelve units long while the steps above it move on), and a
-  // step ending in ~ is a tremolo: one note, plucked again every unit.
+  // step ending in ~ is a tremolo: one note, struck again every unit.
   const octaveUp = (steps) => steps.replace(/[A-G][#b]?\d/g, (name) => name.slice(0, -1) + (+name.slice(-1) + 1));
   const octaveDown = (steps) => steps.replace(/[A-G][#b]?\d/g, (name) => name.slice(0, -1) + (name.slice(-1) - 1));
   const octaves = (steps) => steps.replace(/[A-G][#b]?\d/g, (name) => name + '+' + name.slice(0, -1) + (name.slice(-1) - 1));
@@ -775,6 +776,33 @@ const sound = (() => {
   ];
   // how loud a recorded key is played, against the synthesised note's level
   const KEY_LEVEL = 4.7;
+
+  // Settings chooses the instrument every tune's notes are played on, the
+  // stormy tunes' too (the lute they had is no longer used): the piano above,
+  // or pizzicato strings or a harp, from VSCO 2 Community Edition (CC0), made by
+  // node sound-effects/vsco.js. Those were recorded every third or fourth
+  // semitone, so a note is the nearest one there is, played slower or faster.
+  // notes = [pitch, cents from true]; level = against the synthesised note's.
+  // The pizzicato's E2 could not be measured, and its C5 is from a second
+  // reading, the first being off.
+  const INSTRUMENT_KEY = 'puzzle.instrument';
+  const INSTRUMENTS = {
+    piano: { notes: KEY_CENTS.map((cents, i) => [KEYS_FROM + i, cents]), level: KEY_LEVEL },
+    pizzicato: {
+      notes: [[36, 0], [40, 0], [43, -7], [47, -13], [50, 0], [53, 0], [55, 3], [57, 5], [59, 0], [62, 11], [66, -2], [69, -1], [72, -7], [76, -6], [79, 0], [83, 0], [86, 0]],
+      level: KEY_LEVEL,
+    },
+    harp: {
+      notes: [[35, -14], [38, -5], [41, -7], [45, -4], [48, 0], [52, -4], [55, -7], [59, -12], [62, -12], [65, -1], [69, -10], [72, -12], [76, -11], [79, -7], [83, -9], [86, -8], [89, -5], [93, -18]],
+      level: KEY_LEVEL / 2,
+    },
+  };
+  let instrument = 'piano';
+  try {
+    const chosen = localStorage.getItem(INSTRUMENT_KEY);
+    if (chosen in INSTRUMENTS) instrument = chosen;
+  } catch {}
+  // the chosen instrument's recorded notes, by pitch
   const keys = {};
   let keysAsked = false;
 
@@ -1021,66 +1049,66 @@ const sound = (() => {
     source.stop(end + 0.3);
   }
 
-  // Works out the current tune's notes ahead of their turn, if it is played on
-  // the lute, one at a time between other things, so that the first piece to
-  // land does not have to wait.
+  // fetches the chosen instrument's notes ahead of their turn, so that the
+  // first piece to land does not have to wait
   function ready() {
-    const mine = tune;
-    const v = VOICES[tune.voice || 'piano'];
-    if (!ctx) return;
-    if (!v.plucked) return askKeys();
-    const pitches = [...new Set(steps.flatMap((step) => step.notes.map((n) => midi(n.name))))];
-    const next = () => {
-      if (tune !== mine || !pitches.length) return;
-      plucked(v, pitches.shift());
-      setTimeout(next, 30);
-    };
-    setTimeout(next, 300);
+    if (ctx) askKeys();
   }
 
-  // fetches the recorded piano's keys, once for each audio context
+  // fetches the chosen instrument's recorded notes, once for each audio
+  // context and each choice
   function askKeys() {
     if (keysAsked) return;
     keysAsked = true;
     const NAMES = ['C', 'Cs', 'D', 'Ds', 'E', 'F', 'Fs', 'G', 'Gs', 'A', 'As', 'B'];
-    for (let pitch = KEYS_FROM; pitch <= KEYS_TO; pitch++) {
+    const mine = ctx;
+    const chosen = instrument;
+    for (const [pitch] of INSTRUMENTS[chosen].notes) {
       const file = NAMES[pitch % 12] + (Math.floor(pitch / 12) - 1);
-      const mine = ctx;
-      fetched(`sound-effects/piano/${file}.mp3`).then(
-        (buffer) => mine === ctx && (keys[pitch] = buffer),
+      fetched(`sound-effects/${chosen}/${file}.mp3`).then(
+        (buffer) => mine === ctx && chosen === instrument && (keys[pitch] = buffer),
         () => {}
       );
     }
   }
 
-  // a recorded key, moved by octaves into the range there is; false if it is not here yet
+  // a recorded note: one outside the range there is moves by octaves into it,
+  // then takes the nearest note recorded; false if that is not here yet
   function key(pitch, when, level) {
-    let near = pitch;
-    while (near < KEYS_FROM) near += 12;
-    while (near > KEYS_TO) near -= 12;
+    const { notes, level: loud } = INSTRUMENTS[instrument];
+    const low = notes[0][0];
+    const high = notes[notes.length - 1][0];
+    let into = pitch;
+    while (into < low) into += 12;
+    while (into > high) into -= 12;
+    let [near, cents] = notes[0];
+    for (const [p, c] of notes) if (Math.abs(p - into) < Math.abs(near - into)) [near, cents] = [p, c];
     if (!keys[near]) return false;
     const source = ctx.createBufferSource();
     source.buffer = keys[near];
-    source.playbackRate.value = Math.pow(2, (100 * (pitch - near) - KEY_CENTS[near - KEYS_FROM]) / 1200);
+    source.playbackRate.value = Math.pow(2, (100 * (pitch - near) - cents) / 1200);
     const gain = ctx.createGain();
-    gain.gain.value = level * KEY_LEVEL;
+    gain.gain.value = level * loud;
     source.connect(gain).connect(master);
     source.start(when);
     return true;
   }
 
-  // hold = seconds the note is written to last
+  // hold = seconds the note is written to last; shake = strokes a second, for
+  // a tremolo, the note struck again and again for as long as it is held
   function note(name, delay = 0, volume = 1, hold = 0.8, shake = 0) {
-    const v = VOICES[(tune && tune.voice) || 'piano'];
+    const v = VOICES.piano;
     const pitch = midi(name);
     const freq = 440 * Math.pow(2, (pitch - 69) / 12);
     const when = ctx.currentTime + delay;
-    if (v.plucked) return pluck(v, pitch, when, 0.3 * volume * (pitch < 48 ? 0.7 : 1), hold, shake);
     // low notes ring longer than high ones; bass notes sit behind the tune
     const decay = v.decay * Math.min(1.6, Math.max(0.5, Math.pow(262 / freq, 0.35)));
     const level = 0.3 * volume * (pitch < 48 ? 0.5 : 1);
     askKeys();
-    if (key(pitch, when, level)) return;
+    if (key(pitch, when, level)) {
+      if (shake) for (let k = 1; k < Math.round(hold * shake); k++) key(pitch, when + k / shake, level * 0.8);
+      return;
+    }
     const env = ctx.createGain();
     env.gain.setValueAtTime(0.0001, when);
     env.gain.exponentialRampToValueAtTime(level, when + v.attack);
@@ -1548,6 +1576,33 @@ const sound = (() => {
       tune = null;
       ['C4', 'E4', 'G4'].forEach((name, i) => note(name, i * 0.12));
       tune = playing;
+    },
+
+    // the instrument the puzzle's notes are played on: piano, pizzicato or harp
+    instrument: () => instrument,
+    setInstrument(name) {
+      if (!(name in INSTRUMENTS) || name === instrument) return;
+      instrument = name;
+      try {
+        localStorage.setItem(INSTRUMENT_KEY, name);
+      } catch {}
+      for (const pitch in keys) delete keys[pitch];
+      keysAsked = false;
+      // a few notes to hear it by, once they are fetched, if the notes are on
+      if (!on.effects || !unlock()) return;
+      askKeys();
+      const chosen = name;
+      const hear = (tries) => {
+        if (instrument !== chosen) return;
+        const wanted = ['C4', 'E4', 'G4', 'C5'];
+        const near = (n) => INSTRUMENTS[chosen].notes.reduce((a, b) => (Math.abs(b[0] - midi(n)) < Math.abs(a[0] - midi(n)) ? b : a))[0];
+        if (tries && !wanted.every((n) => keys[near(n)])) return setTimeout(() => hear(tries - 1), 100);
+        const playing = tune;
+        tune = null;
+        wanted.forEach((n, i) => note(n, i * 0.18));
+        tune = playing;
+      };
+      hear(30);
     },
   };
 })();
