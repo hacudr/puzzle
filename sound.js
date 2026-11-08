@@ -1341,6 +1341,20 @@ const sound = (() => {
       part(1.5);
     },
 
+    // An artist's last picture is solved (or a collection's): Chapter complete
+    // comes up to a strum of a harp over the ending music. sound-effects/harp.mp3
+    // is the first strum of a Pixabay recording (Pixabay Content License, no
+    // credit asked), see sound-effects/CREDITS.md. It goes with the effects.
+    cheer() {
+      if (!on.effects || !unlock()) return;
+      const mine = ctx;
+      effects.harp = effects.harp || fetched('sound-effects/harp.mp3');
+      effects.harp.then(
+        (buffer) => mine === ctx && on.effects && sample(buffer, 0.55, 0),
+        () => {}
+      );
+    },
+
     // A button was tapped: a stroke of a paintbrush on canvas. A breath of noise
     // with the bottom and the top taken off, which swells, darkens as it is
     // drawn out and is gone in under half a second, with a faint shiver in it

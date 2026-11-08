@@ -5,6 +5,7 @@
 | `Sword.m4a` | A clash of swords | Made by the app's owner (stated 11 October 2026) | The owner's own work |
 | `Gallop.m4a` | A horse's hooves | as above | as above |
 | `Door knock.m4a` | Three knocks on a door | as above | as above |
+| `harp.mp3` | A strum of a harp, heard as Chapter complete (or Collection complete) comes up | The first strum (0.08–2.6 s, faded out over its last 0.6 s and evened to −16 LUFS) of "harp strum" (Pixabay, uploaded by freesound_community, id 90205); the original is kept in `sources/` (out of git) | Pixabay Content License: free for commercial use, no credit asked (stated by the owner, 7 November 2026) |
 | `piano/*.mp3` | The puzzle's piano: 37 keys, C3 to C6, one file each | Recorded by the app's owner (stated 6 November 2026), cut and cleaned by `piano/make.js` from `sources/Piano Tones - Low C to Middle C to High C.m4a` (kept out of git) | The owner's own work |
 
 ## Ambient sounds

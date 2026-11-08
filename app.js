@@ -1574,6 +1574,7 @@ function showCheer({ artist: a, collection: c }) {
   $('#cheerName').textContent = c ? c.number : a.name;
   el.classList.remove('leaving');
   el.hidden = false;
+  sound.cheer();
   cancelAnimationFrame(leafFrame);
   const canvas = el.querySelector('.leaf');
   const ctx = canvas.getContext('2d');
