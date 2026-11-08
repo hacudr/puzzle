@@ -78,8 +78,6 @@ const CUTS = {
       { file: 'pages-465260', from: 79.5, length: 3, at: 24 },
     ],
   },
-  // oars dipping in, the rowlocks creaking, the water against the boat
-  oars: { id: 588307, from: 7, length: 30 },
   // a courtyard: pigeons, and the city beyond
   window: { id: 851386, from: 18, length: 30 },
   // the sounds heard once, at the end

@@ -216,7 +216,7 @@
     "artist": "Mary Cassatt",
     "name": "The Boating Party",
     "scientific": "1893/1894",
-    "ambience": "oars"
+    "ambience": "rowing"
   },
   {
     "image": "cassatt-woman-with-a-sunflower.webp",
@@ -1551,7 +1551,7 @@
     "name": "Boating",
     "scientific": "1874",
     "focus": "25% 50%",
-    "ambience": "oars"
+    "ambience": "rowing"
   },
   {
     "image": "manet-claude-monet-painting-in-his-studio-boat.webp",
@@ -1858,7 +1858,7 @@
     "name": "Oarsmen at Chatou",
     "scientific": "1879",
     "focus": "15% 50%",
-    "ambience": "oars"
+    "ambience": "rowing"
   },
   {
     "image": "renoir-the-mussel-harvest.webp",
@@ -2106,7 +2106,7 @@
     "artist": "Jean-Baptiste-Camille Corot",
     "name": "The Moored Boatman: Souvenir of an Italian Lake",
     "scientific": "1861",
-    "ambience": "oars"
+    "ambience": "rowing"
   },
   {
     "image": "corot-dance-under-the-trees-at-the-edge-of-the-lake.webp",
@@ -3993,7 +3993,7 @@
     "artist": "John William Waterhouse",
     "name": "The Lady of Shalott",
     "scientific": "1888",
-    "ambience": "oars"
+    "ambience": "rowing"
   },
   {
     "image": "waterhouse-hylas-and-the-nymphs.webp",
@@ -4060,7 +4060,7 @@
     "content": [
       "frightening"
     ],
-    "ambience": "oars"
+    "ambience": "rowing"
   },
   {
     "image": "waterhouse-jason-and-medea.webp",

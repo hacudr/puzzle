@@ -752,7 +752,6 @@ const sound = (() => {
     dinner: quiet('dinner.mp3'),
     pages: quiet('pages.mp3'),
     window: quiet('window.mp3'),
-    oars: quiet('oars.mp3'),
     // the creatures and things heard once, a few seconds into the music
     pour: later('pour.mp3'),
     owl: later('owl.mp3'),

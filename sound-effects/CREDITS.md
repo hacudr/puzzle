@@ -40,7 +40,6 @@ Heard faintly under a puzzle's ending music, chosen by its `ambience` in `puzzle
 | `ambience/flight.mp3` | A large bird flapping | [1. Wings Flapping](https://freesound.org/s/753219/), Lsoundaccount | CC0 |
 | `ambience/dinner.mp3` | A dinner party: voices, a knife and fork, four glasses touched together, mixed by `cut.js` from three recordings | [Dinner Party or Restaurant](https://freesound.org/s/480724/), craigsmith; [cutlery](https://freesound.org/s/466329/), justiningo; [Glass Clink Pack](https://freesound.org/s/565725/), ralph.whitehead | CC0, all three |
 | `ambience/pages.mp3` | Four pages of a book turned | [turning pages in book](https://freesound.org/s/465260/), P_Chester | CC0 |
-| `ambience/oars.mp3` | Oars and rowlocks, from inside a rowing boat | [rowing boat from inside](https://freesound.org/s/588307/), Fenodyrie | CC0 |
 | `ambience/window.mp3` | A courtyard, pigeons and the city beyond, for open windows and balconies | [Courtyard ambience with pigeons and city sounds](https://freesound.org/s/851386/), Garuda1982 | CC0 |
 | `ambience/pour.mp3` | Wine poured into a glass | [wine pouring](https://freesound.org/s/574563/), TRP | CC0 |
 | `ambience/owl.mp3` | A tawny owl | [Tawny owl hooting](https://freesound.org/s/745208/), Patrick_Corra | CC0 |
