@@ -95,10 +95,10 @@
     </button>
   </div>
   <header class="gallery-head">
-    <div id="artistCard" class="artist-card">
-      <p id="artistNote" class="eyebrow"></p>
-      <h1 id="artistName"></h1>
-      <div id="artistBio" class="bio" hidden><p class="bio-text"></p><button class="bio-more link">Show more</button></div>
+    <p id="artistNote" class="eyebrow"></p>
+    <div class="artist-head">
+    <h1 class="artist-title"><span id="artistName"></span><button id="bioBtn" class="info" aria-label="About the artist" aria-expanded="false" aria-controls="artistBio" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg></button></h1>
+    <div id="artistBio" class="bio-tip" role="tooltip" hidden><p class="bio-text"></p></div>
     </div>
     <p class="level-note"></p>
     <p id="artistOffer" class="offer" hidden><span></span><button class="link"></button></p>

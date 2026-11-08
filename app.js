@@ -756,52 +756,32 @@ function openCollection(c) {
   show('collection');
 }
 
-// The artist's card, with their name and bio, spans at least the columns of cards under it,
-// and where they are few and narrow reaches wider, up to 760px or the page's
-// width less a margin. The columns are centred and their number changes with the
-// width, so it is measured from the grid each time the grid changes size (which
-// includes the page being shown).
-function fitBio() {
-  const grid = $('#grid');
-  const cs = getComputedStyle(grid);
-  const cols = cs.gridTemplateColumns.split(' ').map(parseFloat).filter((n) => n > 0);
-  if (!cols.length) return;
-  const span = cols.reduce((s, n) => s + n, 0) + parseFloat(cs.columnGap) * (cols.length - 1);
-  const room = Math.min(760, grid.clientWidth - 32);
-  $('#artistCard').style.width = `${Math.round(Math.max(span, room))}px`;
-  foldBio();
+// The artist's bio stays out of the way: the ⓘ after their name opens it in a
+// tooltip under the name, and a tap on the ⓘ again, anywhere else or Escape
+// puts it away.
+function showBio(open) {
+  const tip = $('#artistBio');
+  tip.hidden = !open;
+  $('#bioBtn').setAttribute('aria-expanded', open);
+  if (!open) return;
+  // the tooltip's pointer stands under the ⓘ, wherever the name ends
+  const btn = $('#bioBtn').getBoundingClientRect();
+  const box = tip.getBoundingClientRect();
+  const x = btn.left + btn.width / 2 - box.left;
+  tip.style.setProperty('--point', `${Math.min(box.width - 18, Math.max(18, x))}px`);
 }
-new ResizeObserver(fitBio).observe($('#grid'));
-
-// A bio that fits on one line has nothing to fold away.
-function foldBio() {
-  const bio = $('#artistBio');
-  const text = bio.querySelector('.bio-text');
-  // not yet on show, it has no height to measure
-  if (!bio.classList.contains('folded') || bio.hidden || !text.scrollHeight) return;
-  if (text.scrollHeight <= parseFloat(getComputedStyle(text).lineHeight) * 1.5) bio.classList.remove('foldable', 'folded');
-}
-
-// Show more slides the rest of the bio open; Show less folds it back to its first line
-$('#artistBio .bio-more').addEventListener('click', (e) => {
-  const bio = $('#artistBio');
-  const text = bio.querySelector('.bio-text');
-  const opening = bio.classList.contains('folded');
-  text.style.maxHeight = text.clientHeight + 'px';
-  text.offsetHeight; // the height to slide from takes hold before the one to slide to
-  if (opening) {
-    bio.classList.remove('folded');
-    text.style.maxHeight = text.scrollHeight + 'px';
-  } else {
-    bio.classList.add('folded');
-    text.style.maxHeight = '';
-  }
-  e.currentTarget.textContent = opening ? 'Show less' : 'Show more';
-  // open, it is let grow with the page; folded, the class holds its height
-  text.addEventListener('transitionend', () => {
-    if (!bio.classList.contains('folded')) text.style.maxHeight = 'none';
-  }, { once: true });
+$('#bioBtn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  showBio($('#artistBio').hidden);
 });
+// a tap outside it only puts it away, so the card under it is not opened as well
+document.addEventListener('click', (e) => {
+  if ($('#artistBio').hidden || e.target.closest('#artistBio, #bioBtn')) return;
+  e.stopPropagation();
+  e.preventDefault();
+  showBio(false);
+}, true);
+document.addEventListener('keydown', (e) => e.key === 'Escape' && !$('#artistBio').hidden && showBio(false));
 
 // One artist's puzzles.
 function openArtist(a) {
@@ -812,8 +792,7 @@ function openArtist(a) {
     $('#artistNote').textContent = a.bio ? '' : a.note || '';
     $('#artistNote').hidden = !!a.bio;
     $('#artistName').textContent = a.name;
-    const bio = $('#artistBio');
-    const text = bio.querySelector('.bio-text');
+    const text = $('#artistBio .bio-text');
     text.textContent = a.bio || '';
     if (a.bio && a.note) {
       const note = document.createElement('em');
@@ -821,12 +800,8 @@ function openArtist(a) {
       note.textContent = a.note;
       text.append(' ', note);
     }
-    bio.hidden = !a.bio;
-    // it opens folded to its first line, unless that is all there is
-    text.style.maxHeight = '';
-    bio.classList.add('foldable', 'folded');
-    bio.querySelector('.bio-more').textContent = 'Show more';
-    requestAnimationFrame(foldBio);
+    $('#bioBtn').hidden = !a.bio;
+    showBio(false);
     const grid = $('#grid');
     grid.textContent = '';
     for (const p of a.puzzles) {
