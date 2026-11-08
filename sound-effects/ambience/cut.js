@@ -42,8 +42,6 @@ const CUTS = {
   sheep: { id: 430590, from: 105, length: 30 },
   // a horse and cart drawing near and going by
   cart: { id: 538438, from: 0, length: 30 },
-  // from the first half, recorded standing in one place in the market
-  market: { id: 371222, from: 621, length: 30 },
   street: { id: 423119, from: 0, length: 29 },
   // a full peal, Christmas morning in Hamburg
   bells: { id: 212037, from: 236, length: 30 },
@@ -82,15 +80,9 @@ const CUTS = {
   },
   // oars dipping in, the rowlocks creaking, the water against the boat
   oars: { id: 588307, from: 7, length: 30 },
-  // a hushed crowd in a museum
-  whisper: { id: 452955, from: 51, length: 30 },
-  // the hum of voices in a village church before a concert
-  murmur: { id: 143225, from: 121, length: 30 },
   // a courtyard: pigeons, and the city beyond
   window: { id: 851386, from: 18, length: 30 },
   // the sounds heard once, at the end
-  // four rocks of the chair, then still
-  rocking: { id: 110856, from: 0.3, length: 8.5, brief: true, fadeOut: 2 },
   pour: { id: 574563, from: 1.1, length: 9.4, brief: true },
   // three calls, the last a long one
   owl: { id: 745208, from: 4, length: 15, brief: true },
@@ -101,8 +93,6 @@ const CUTS = {
   dog: { id: 440865, from: 0.6, length: 9.6, brief: true },
   neigh: { id: 347036, from: 0, length: 10.5, brief: true },
   lion: { id: 488348, from: 0, length: 16.5, brief: true },
-  // a small crowd cheering, for a dance or a show
-  cheer: { id: 264377, from: 0, length: 10, brief: true, fadeOut: 3 },
 };
 
 // mixes a sound's parts into one file, to be cut as any recording is

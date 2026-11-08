@@ -9,7 +9,7 @@
 
 ## Ambient sounds
 
-Heard faintly under a puzzle's ending music, chosen by its `ambience` in `puzzles.json`. Each is a cut of up to thirty seconds from a Freesound recording: the high-quality preview (128 kbps MP3), which carries the same licence as the original. `ambience/cut.js` makes them from the recordings kept in `sources/ambience/` (kept out of git), and says where each cut starts. The seven under CC BY are credited in the app's Sources & Credits. Licences were read from each sound's own page on 6 November 2026.
+Heard faintly under a puzzle's ending music, chosen by its `ambience` in `puzzles.json`. Each is a cut of up to thirty seconds from a Freesound recording: the high-quality preview (128 kbps MP3), which carries the same licence as the original. `ambience/cut.js` makes them from the recordings kept in `sources/ambience/` (kept out of git), and says where each cut starts. The six under CC BY are credited in the app's Sources & Credits. Licences were read from each sound's own page on 6 November 2026.
 
 | File | What it is | Recording | Licence |
 |---|---|---|---|
@@ -29,7 +29,6 @@ Heard faintly under a puzzle's ending music, chosen by its `ambience` in `puzzle
 | `ambience/crickets.mp3` | Crickets at night | [Crickets At Night – Raw sound](https://freesound.org/s/522299/), Defelozedd94 | CC0 |
 | `ambience/sheep.mp3` | A flock with bells | [Sheep flow, mountain bells, Pyrenees](https://freesound.org/s/430590/), PLukx | CC0 |
 | `ambience/cart.mp3` | A horse and cart | [horse with old cart](https://freesound.org/s/538438/), bruno.auzet | CC0 |
-| `ambience/market.mp3` | Crowd at a medieval market | [Medieval market](https://freesound.org/s/371222/), Metzik | CC BY 4.0 |
 | `ambience/street.mp3` | A medieval street, made up from many sounds | [Medieval City – SAMPLE](https://freesound.org/s/423119/), OGsoundFX | CC BY 4.0 |
 | `ambience/bells.mp3` | Church bells, a full peal | [Church Bells, Borgweg, Hamburg, Germany 25th December Christmas](https://freesound.org/s/212037/), vonfleisch | CC BY 3.0 |
 | `ambience/train.mp3` | A steam train and its whistle | [Steam Train L To R](https://freesound.org/s/119125/), Benboncan | CC BY 4.0 |
@@ -39,10 +38,7 @@ Heard faintly under a puzzle's ending music, chosen by its `ambience` in `puzzle
 | `ambience/dinner.mp3` | A dinner party: voices, a knife and fork, four glasses touched together, mixed by `cut.js` from three recordings | [Dinner Party or Restaurant](https://freesound.org/s/480724/), craigsmith; [cutlery](https://freesound.org/s/466329/), justiningo; [Glass Clink Pack](https://freesound.org/s/565725/), ralph.whitehead | CC0, all three |
 | `ambience/pages.mp3` | Four pages of a book turned | [turning pages in book](https://freesound.org/s/465260/), P_Chester | CC0 |
 | `ambience/oars.mp3` | Oars and rowlocks, from inside a rowing boat | [rowing boat from inside](https://freesound.org/s/588307/), Fenodyrie | CC0 |
-| `ambience/whisper.mp3` | A hushed crowd | [crowd light whisper murmur hush, museum](https://freesound.org/s/452955/), kyles | CC0 |
-| `ambience/murmur.mp3` | The hum of a crowd's voices | [Hum of voices in a church before a concert](https://freesound.org/s/143225/), felix.blume | CC0 |
 | `ambience/window.mp3` | A courtyard, pigeons and the city beyond, for open windows and balconies | [Courtyard ambience with pigeons and city sounds](https://freesound.org/s/851386/), Garuda1982 | CC0 |
-| `ambience/rocking.mp3` | A rocking chair, four rocks | [rocking chair grand final](https://freesound.org/s/110856/), gauthier.grandgirard | CC0 |
 | `ambience/pour.mp3` | Wine poured into a glass | [wine pouring](https://freesound.org/s/574563/), TRP | CC0 |
 | `ambience/owl.mp3` | A tawny owl | [Tawny owl hooting](https://freesound.org/s/745208/), Patrick_Corra | CC0 |
 | `ambience/dove.mp3` | A dove cooing | [mourning dove](https://freesound.org/s/456930/), nathankwright | CC0 |
@@ -50,4 +46,3 @@ Heard faintly under a puzzle's ending music, chosen by its `ambience` in `puzzle
 | `ambience/dog.mp3` | A big dog barking some way off | [Angry big dog barking – Far](https://freesound.org/s/440865/), v23 | CC0 |
 | `ambience/neigh.mp3` | A horse's whinny | [horse's whinny](https://freesound.org/s/347036/), Kubuzz | CC0 |
 | `ambience/lion.mp3` | A lion growling | [Lion](https://freesound.org/s/488348/), GJ55GB | CC0 |
-| `ambience/cheer.mp3` | A small crowd cheering | [small crowd cheering](https://freesound.org/s/264377/), HowardV | CC0 |

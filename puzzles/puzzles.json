@@ -10,8 +10,7 @@
     "image": "monet-the-cradle.webp",
     "artist": "Claude Monet",
     "name": "The Cradle",
-    "scientific": "1867",
-    "ambience": "rocking"
+    "scientific": "1867"
   },
   {
     "image": "monet-argenteuil.webp",
@@ -39,6 +38,7 @@
     "artist": "Claude Monet",
     "name": "The Artist’s Garden in Argenteuil",
     "scientific": "1873",
+    "music": "flower",
     "ambience": "garden"
   },
   {
@@ -158,15 +158,13 @@
     "image": "cassatt-woman-with-a-fan.webp",
     "artist": "Mary Cassatt",
     "name": "Woman with a Fan",
-    "scientific": "c. 1878/1879",
-    "ambience": "whisper"
+    "scientific": "c. 1878/1879"
   },
   {
     "image": "cassatt-the-loge.webp",
     "artist": "Mary Cassatt",
     "name": "The Loge",
-    "scientific": "c. 1878-1880",
-    "ambience": "whisper"
+    "scientific": "c. 1878-1880"
   },
   {
     "image": "cassatt-little-girl-in-a-blue-armchair.webp",
@@ -619,8 +617,7 @@
       "violence"
     ],
     "sacred": true,
-    "christ": true,
-    "ambience": "market"
+    "christ": true
   },
   {
     "image": "el-greco-the-holy-family-with-saint-anne-and-the-infant-john-the-baptist.webp",
@@ -780,6 +777,7 @@
     "artist": "Vincent van Gogh",
     "name": "Memory of the Garden at Etten (Ladies of Arles)",
     "scientific": "1888",
+    "music": "flower",
     "focus": "10% 50%",
     "ambience": "garden"
   },
@@ -835,14 +833,14 @@
     "artist": "Vincent van Gogh",
     "name": "Lullaby (La Berceuse)",
     "scientific": "1889",
-    "article": "The Roulin Family",
-    "ambience": "rocking"
+    "article": "The Roulin Family"
   },
   {
     "image": "gogh-irises.webp",
     "artist": "Vincent van Gogh",
     "name": "Irises",
     "scientific": "1889",
+    "music": "flower",
     "ambience": "garden"
   },
   {
@@ -917,6 +915,7 @@
     "artist": "Vincent van Gogh",
     "name": "Almond Blossom",
     "scientific": "1890",
+    "music": "flower",
     "ambience": "garden"
   },
   {
@@ -1544,8 +1543,7 @@
     "artist": "Edouard Manet",
     "name": "Masked Ball at the Opera",
     "scientific": "1873",
-    "focus": "90% 50%",
-    "ambience": "murmur"
+    "focus": "90% 50%"
   },
   {
     "image": "manet-boating.webp",
@@ -1826,6 +1824,7 @@
     "artist": "Auguste Renoir",
     "name": "Picking Flowers",
     "scientific": "1875",
+    "music": "flower",
     "ambience": "garden"
   },
   {
@@ -1988,8 +1987,7 @@
     "image": "toulouse-lautrec-quadrille-at-the-moulin-rouge.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Quadrille at the Moulin Rouge",
-    "scientific": "1892",
-    "ambience": "cheer"
+    "scientific": "1892"
   },
   {
     "image": "toulouse-lautrec-alfred-la-guigne.webp",
@@ -2001,8 +1999,7 @@
     "image": "toulouse-lautrec-marcelle-lender-dancing-the-bolero-in-chilperic.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "Marcelle Lender Dancing the Bolero in \"Chilpéric\"",
-    "scientific": "1895-1896",
-    "ambience": "cheer"
+    "scientific": "1895-1896"
   },
   {
     "image": "toulouse-lautrec-maxime-dethomas.webp",
@@ -2020,8 +2017,7 @@
     "image": "toulouse-lautrec-the-englishman-at-the-moulin-rouge.webp",
     "artist": "Henri de Toulouse-Lautrec",
     "name": "The Englishman at the Moulin Rouge",
-    "scientific": "William Tom Warrener, 1892",
-    "ambience": "cheer"
+    "scientific": "William Tom Warrener, 1892"
   },
   {
     "image": "toulouse-lautrec-the-sofa.webp",
@@ -2244,6 +2240,7 @@
     "artist": "Camille Pissarro",
     "name": "Orchard in Bloom, Louveciennes",
     "scientific": "1872",
+    "music": "flower",
     "ambience": "garden"
   },
   {
@@ -2851,8 +2848,7 @@
     "artist": "Caravaggio",
     "name": "The Calling of Saint Matthew",
     "scientific": "1599–1600",
-    "sacred": true,
-    "ambience": "whisper"
+    "sacred": true
   },
   {
     "image": "caravaggio-the-martyrdom-of-saint-matthew.webp",
@@ -3545,7 +3541,6 @@
     "scientific": "1852–1865",
     "focus": "25% 50%",
     "ambience": [
-      "market",
       "dog",
       "cart"
     ]
@@ -3895,6 +3890,7 @@
     "artist": "Marie Spartali Stillman",
     "name": "A Lady with Peacocks in a Garden",
     "scientific": "c. 1896",
+    "music": "flower",
     "ambience": "birds"
   },
   {
@@ -3943,6 +3939,7 @@
     "artist": "Marie Spartali Stillman",
     "name": "A Lady in the Garden at Kelmscott Manor",
     "scientific": "c. 1905",
+    "music": "flower",
     "article": "Kelmscott Manor",
     "ambience": "birds"
   },
@@ -4147,7 +4144,8 @@
     "image": "waterhouse-gather-ye-rosebuds-while-ye-may.webp",
     "artist": "John William Waterhouse",
     "name": "Gather Ye Rosebuds While Ye May",
-    "scientific": "1908"
+    "scientific": "1908",
+    "music": "flower"
   },
   {
     "image": "waterhouse-i-am-half-sick-of-shadows-said-the-lady-of-shalott.webp",
@@ -4317,8 +4315,7 @@
     "artist": "Frederic Leighton",
     "name": "Cimabue's Celebrated Madonna",
     "scientific": "1853–1855",
-    "focus": "5% 50%",
-    "ambience": "market"
+    "focus": "5% 50%"
   },
   {
     "image": "leighton-the-bath-of-psyche.webp",
@@ -4676,6 +4673,7 @@
     "artist": "Sophie Gengembre Anderson",
     "name": "Girl with Lilac",
     "scientific": "Date unknown",
+    "music": "flower",
     "ambience": "birds"
   },
   {

@@ -382,6 +382,25 @@ const sound = (() => {
         'G5+A2/4 F#5/2 E5 D5 E5/2 A4/2',
       ].join(' '),
     },
+    // Chopin, Étude in E major, Op. 10 No. 3 ("Tristesse"), the passage the
+    // user marked in the score: from the held E after the climax down to the
+    // E where Poco più animato begins (bars 17-21), the tenuto notes falling
+    // a step each bar, E, D#, B, then G# and the grace note into E. In E, its
+    // own key and the recording's, which the ending is cut from at the same
+    // place. unit = a semiquaver
+    tristesse: {
+      composer: 'Frédéric Chopin',
+      title: 'Étude in E major, Op. 10 No. 3 (“Tristesse”)',
+      unit: 0.3,
+      bar: 8,
+      steps: [
+        'E5+G#4+E3:8/4 F#5 G#5 F#5 E5',
+        'D#5+B3+B2:8/4 E5 D#5 C#5/2',
+        'B4+G#3+E3:8/4 C#5 B4 A4/2',
+        'G#4+B3+E3:8/8',
+        'F#4 E4+G#3+E3:7/7',
+      ].join(' '),
+    },
     // Vivaldi, The Four Seasons, "Summer", Presto, bars 1-19 without the silent
     // bar 5; unit = a semiquaver
     summer: {
@@ -573,6 +592,32 @@ const sound = (() => {
         'Bb4:1.5+F1:3+F2:3 Eb4+F4/.5 A4:1.5/.5 F4+A4 G4:1.5+A4+C5 F4+A4/.5 A4:1.5/.5 Eb4+F4',
       ].join(' '),
     },
+    // Delibes, Lakmé, the Flower Duet, for the gardens and flowers that name
+    // it (`music: "flower"`); named = only for those, never taken in turn, so
+    // that no other puzzle's tune moves. "Sous le dôme épais", the four bars
+    // of the barcarolle the two voices sing in thirds over the held tonic,
+    // read from the piano score the user marked (B major) and put up a
+    // semitone into C, the key of the quartet's arrangement and its recording,
+    // which ends the puzzle from the same place. Written high, so down an
+    // octave. unit = a semiquaver; lead = the quaver's rest each bar opens on
+    flower: {
+      composer: 'Léo Delibes',
+      title: 'Lakmé, the Flower Duet (arranged for string quartet)',
+      named: true,
+      unit: 0.25,
+      bar: 12,
+      lead: 2,
+      steps: octaveDown([
+        // Sous le dôme épais
+        'E5+C5+C4:12 B4 C5 B4 G5+A4/2 D5+B4 E5+C5 F5+D5/4',
+        // où le blanc jasmin
+        'E5+C5+C4:12 B4 C5 B4 G5+A4/2 D5+B4 E5+C5 F5+D5/4',
+        // à la rose s'assem-
+        'F5+D5+C4:10 F5+D5 G5+E5 G5+E5 A5+F5 A5+F5 G5+E5 F5+D5 E5+C5 D5+B4',
+        // -ble
+        'E5+C5+C4:6 F5+D5 E5+C5 F5+D5 E5+C5 F5+D5 B4+G4+G3:6/8',
+      ].join(' ')),
+    },
     // Fauré, Cantique de Jean Racine, Op. 11, bars 13-19: the first line the
     // voices sing, and from bar 15 the voice that answers it above, read from
     // a setting for flutes in D and put back down into D flat, Fauré's key
@@ -598,7 +643,7 @@ const sound = (() => {
   // the tunes that take turns by a puzzle's position: the gentle ones for most
   // pictures, the stormy ones for those of violence and fright, and the sacred
   // ones for the religious pictures that are neither
-  const ORDER = Object.keys(TUNES).filter((name) => !TUNES[name].voice && !TUNES[name].sacred);
+  const ORDER = Object.keys(TUNES).filter((name) => !TUNES[name].voice && !TUNES[name].sacred && !TUNES[name].named);
   const STORMY = Object.keys(TUNES).filter((name) => TUNES[name].voice);
   const SACRED = Object.keys(TUNES).filter((name) => TUNES[name].sacred);
   const TURNS = { stormy: STORMY, sacred: SACRED };
@@ -626,6 +671,8 @@ const sound = (() => {
     largo: { by: 'Lea Desandre, Les Arts Florissants', licence: 'CC BY 3.0' },
     blacksmith: { by: 'Musopen' },
     hornpipe: { by: 'United States Marine Band' },
+    // public domain (the Public Domain Mark), so it carries no credit
+    tristesse: { by: 'Edward Neeman' },
     summer: { by: 'Modena Chamber Orchestra' },
     diesirae: { by: 'unnamed performers, from IMSLP', licence: 'CC BY-SA 3.0' },
     strife: { by: 'Skidmore College Orchestra' },
@@ -633,14 +680,15 @@ const sound = (() => {
     mountainking: { by: 'Czech National Symphony Orchestra' },
     baldmountain: { by: 'Musopen' },
     newworld: { by: 'Musopen' },
-    kyrie: { by: 'unnamed performers, from Musopen', short: true },
+    kyrie: { by: 'unnamed performers, from Musopen' },
     avemaria: { by: 'Free Tim' },
     cantique: { by: 'Ahots-Argiak choir' },
+    flower: { by: 'Four Seasons Quartet', licence: 'CC BY 3.0' },
   };
   // A sound to go with the ending, for a puzzle whose `effect` names one, or
   // lists several, from the files in sound-effects/. lead = the seconds of
   // silence the file opens on, which are skipped so that the sound comes in
-  // with the music; level = how loud it is played, fade =
+  // when it should (SOON, below); level = how loud it is played, fade =
   // the seconds it takes to die away at its end, for one that would stop short.
   // A puzzle's `ambience` names one more, a sound of the place the picture
   // shows (a river, rain, birdsong), heard faintly under the music as it ends.
@@ -653,15 +701,19 @@ const sound = (() => {
   // The sounds are of two kinds. once = a single event, played once as the
   // puzzle ends: the sword, hooves and knock, the wings, birds taking flight,
   // and the train and cart, each drawing near and going by. The rest are
-  // ambient, a sound of the place that goes on: it loops without a seam, at
-  // UNDER of its level, while the puzzle is put together, rises to its full
-  // level as it is finished and dies away with the ending music. (A puzzle
-  // opened without loop, which none is now, plays it once at the end, as the
-  // one-time sounds do.)
+  // ambient, a sound of the place that goes on: nothing of it is heard while
+  // the puzzle is put together, at the user's wish; as it is finished it
+  // starts looping without a seam, rising as the music comes in, and dies
+  // away with the ending music. (A puzzle opened without loop, which none is
+  // now, plays it once at the end, as the one-time sounds do.)
   const AMBIENT = 1 / 4;
-  const UNDER = 0.5;
   const MUSIC_LEVEL = 0.6;
   const quiet = (file, once = false) => ({ file: `ambience/${file}`, lead: 0, level: MUSIC_LEVEL * AMBIENT, once });
+  // A one-time sound comes in SOON seconds after the music has begun, or
+  // wait seconds for one that names its own. Where a recording takes a while
+  // to reach its sound, lead skips to just before it, and rise = the seconds
+  // it takes to come in from there, so that it does not start abruptly.
+  const SOON = 2;
   // a sound heard once, wait seconds after the music has come in
   const later = (file, wait = 3) => ({ ...quiet(file, true), wait });
   const EFFECTS = {
@@ -686,23 +738,21 @@ const sound = (() => {
     footsteps: { file: 'ambience/footsteps.mp3', lead: 0, level: MUSIC_LEVEL * AMBIENT * 0.8, once: true },
     crickets: quiet('crickets.mp3'),
     sheep: quiet('sheep.mp3'),
-    cart: quiet('cart.mp3', true),
-    market: quiet('market.mp3'),
+    // the cart is near by four seconds in, and loudest from nine
+    cart: { ...quiet('cart.mp3', true), lead: 3, rise: 1 },
     street: quiet('street.mp3'),
     bells: quiet('bells.mp3'),
-    train: quiet('train.mp3', true),
+    // the train is heard drawing near from eleven seconds in, and whistles at seventeen
+    train: { ...quiet('train.mp3', true), lead: 11, rise: 1 },
     fire: quiet('fire.mp3'),
     wings: quiet('wings.mp3', true),
     flight: quiet('flight.mp3', true),
     // indoors and among people
     dinner: quiet('dinner.mp3'),
     pages: quiet('pages.mp3'),
-    whisper: quiet('whisper.mp3'),
-    murmur: quiet('murmur.mp3'),
     window: quiet('window.mp3'),
     oars: quiet('oars.mp3'),
     // the creatures and things heard once, a few seconds into the music
-    rocking: later('rocking.mp3'),
     pour: later('pour.mp3'),
     owl: later('owl.mp3'),
     dove: later('dove.mp3'),
@@ -710,7 +760,6 @@ const sound = (() => {
     dog: later('dog.mp3'),
     neigh: later('neigh.mp3'),
     lion: later('lion.mp3'),
-    cheer: later('cheer.mp3'),
   };
 
   // The piano is the user's own, every key from C3 to C6 recorded one at a time,
@@ -772,13 +821,12 @@ const sound = (() => {
   let wanted = [];
   let effect = {};
   let clashing = [];
-  // the ambient sounds looping under the puzzle, by name, each { name, source,
-  // gain, ending, timer }; whether the current puzzle loops its ambience,
-  // whether it is still being put together, and the seamless loops made so
+  // the ambient sounds looping under the ending music, by name, each { name,
+  // source, gain, ends, timer } (ends = when it will have died away); whether
+  // the current puzzle loops its ambience; and the seamless loops made so
   // far, by name
   const beds = {};
   let looping = false;
-  let assembling = false;
   const loops = {};
   // the credit the current tune's recording must carry, if any
   let owed = null;
@@ -1085,8 +1133,8 @@ const sound = (() => {
 
   // a recording, played as it is, without the room the notes are given
   // from = seconds into it to start from, fade = seconds it takes to die away
-  // at its end
-  function sample(buffer, level, delay, from = 0, fade = 0) {
+  // at its end, rise = seconds it takes to come in
+  function sample(buffer, level, delay, from = 0, fade = 0, rise = 0) {
     const gain = ctx.createGain();
     gain.gain.value = level;
     const source = ctx.createBufferSource();
@@ -1094,8 +1142,12 @@ const sound = (() => {
     source.connect(gain).connect(ctx.destination);
     const start = ctx.currentTime + delay;
     const end = start + buffer.duration - from;
+    if (rise) {
+      gain.gain.setValueAtTime(0, start);
+      gain.gain.linearRampToValueAtTime(level, start + rise);
+    }
     if (fade) {
-      gain.gain.setValueAtTime(level, Math.max(start, end - fade));
+      gain.gain.setValueAtTime(level, Math.max(start + rise, end - fade));
       gain.gain.linearRampToValueAtTime(0, end);
     }
     source.start(start, from);
@@ -1187,45 +1239,37 @@ const sound = (() => {
     }
   }
 
-  // starts an ambient sound looping softly under the puzzle, coming in over
-  // two seconds; the same sound already looping, and not yet dying away, is
-  // kept going, so that it carries on without a break into the next puzzle
+  // starts an ambient sound looping, silent until finish() sets how it rises
+  // and dies away
   function startBed(name) {
     if (!on.effects || !ctx || !effect[name]) return;
-    const level = EFFECTS[name].level * UNDER * share();
-    const now = ctx.currentTime;
-    const bed = beds[name];
-    if (bed && !bed.ending) {
-      bed.gain.gain.cancelScheduledValues(now);
-      bed.gain.gain.setValueAtTime(bed.gain.gain.value, now);
-      bed.gain.gain.linearRampToValueAtTime(level, now + 2);
-      return;
-    }
     stopBed(0.5, name);
     const gain = ctx.createGain();
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(level, now + 2);
+    gain.gain.value = 0;
     const source = ctx.createBufferSource();
     source.buffer = seamless(name, effect[name]);
     source.loop = true;
     source.connect(gain).connect(ctx.destination);
-    source.start(now);
-    const made = (beds[name] = { name, source, gain, ending: false, timer: null });
-    if (EFFECTS[name].passers) passBy(made, EFFECTS[name].passers, 8 + Math.random() * 10);
+    source.start();
+    const made = (beds[name] = { name, source, gain, ends: 0, timer: null });
+    // the first passer-by comes soon after the music, as the one-time sounds do
+    if (EFFECTS[name].passers) passBy(made, EFFECTS[name].passers, 0.7 + SOON + 1);
   }
 
-  // Someone walks by now and then while the puzzle is put together: the first
-  // after `wait` seconds, the next every 25 to 50, each a little to the left
-  // or right and a touch faster or slower, so that no two sound the same.
+  // Someone walks by now and then under the ending: the first after `wait`
+  // seconds, the next every 15 to 25, each a little to the left or right and
+  // a touch faster or slower, so that no two sound the same; none starts that
+  // would still be walking when the loop has died away.
   function passBy(mine, name, wait) {
     effects[name] = effects[name] || fetched(`sound-effects/${EFFECTS[name].file}`);
+    const room = (buffer) => !mine.ends || ctx.currentTime + (buffer ? buffer.duration : 9) < mine.ends;
     mine.timer = setTimeout(() => {
-      if (beds[mine.name] !== mine || mine.ending || !on.effects) return;
+      if (beds[mine.name] !== mine || !on.effects || !room()) return;
       effects[name].then(
         (buffer) => {
-          if (beds[mine.name] !== mine || mine.ending || !ctx) return;
+          if (beds[mine.name] !== mine || !ctx || !room(buffer)) return;
           const gain = ctx.createGain();
-          gain.gain.value = EFFECTS[name].level * UNDER * 2;
+          gain.gain.value = EFFECTS[name].level;
           const pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
           if (pan) pan.pan.value = (Math.random() * 2 - 1) * 0.6;
           const source = ctx.createBufferSource();
@@ -1236,27 +1280,25 @@ const sound = (() => {
         },
         () => delete effects[name]
       );
-      passBy(mine, name, 25 + Math.random() * 25);
+      passBy(mine, name, 15 + Math.random() * 10);
     }, wait * 1000);
   }
 
   // fetches the effects a puzzle ends on, to be ready by the time it does;
-  // loop = its ambient sounds loop under it while it is put together
+  // loop = its ambient sounds loop under the ending music, rather than play
+  // once. Nothing ambient sounds while the puzzle is put together, at the
+  // user's wish, so whatever still lingers from the last one is let go.
   function askEffects(names, loop = looping) {
     const asked = (wanted = [].concat(names || []).filter((name) => name in EFFECTS));
     looping = !!loop;
-    assembling = asked.length > 0;
     effect = {};
-    const under = ambient();
-    for (const name in beds) if (beds[name].ending || !under.includes(name)) stopBed(0.5, name);
+    stopBed();
     if (!asked.length || !unlock()) return;
     for (const name of asked) {
       effects[name] = effects[name] || fetched(`sound-effects/${EFFECTS[name].file}`);
       effects[name].then(
         (buffer) => {
-          if (wanted !== asked) return;
-          effect[name] = buffer;
-          if (assembling && under.includes(name)) startBed(name);
+          if (wanted === asked) effect[name] = buffer;
         },
         () => delete effects[name]
       );
@@ -1398,31 +1440,28 @@ const sound = (() => {
     finish() {
       if (!unlock() || !steps.length) return;
       hush();
-      assembling = false;
       const under = ambient();
       if (on.effects)
         clashing = Object.keys(effect)
           .filter((name) => !under.includes(name))
-          .map((name) => sample(effect[name], EFFECTS[name].level, 0.7 + (EFFECTS[name].wait || 0), EFFECTS[name].lead, EFFECTS[name].fade));
-      // the looping sounds rise to their full level as the music comes in and
-      // die away with it, over its last four seconds; with no recording to
-      // end on they last as long as one would, and with the music off they die
-      // away at once, over three
+          .map((name) => sample(effect[name], EFFECTS[name].level, 0.7 + (EFFECTS[name].wait ?? SOON), EFFECTS[name].lead, EFFECTS[name].fade, EFFECTS[name].rise));
+      // the looping sounds start only now, rising to their full level as the
+      // music comes in, and die away with it over its last four seconds; with
+      // no recording to end on, or the music off, they last as long as one would
+      under.forEach((name) => startBed(name));
       for (const bed of Object.values(beds)) {
         const now = ctx.currentTime;
         const gain = bed.gain.gain;
         const full = EFFECTS[bed.name].level * share();
-        const fade = on.music ? 4 : 3;
-        const until = on.music ? 0.7 + (clip ? clip.duration : 30) - fade : 0;
+        const fade = 4;
+        const until = 0.7 + (on.music && clip ? clip.duration : 30) - fade;
         gain.cancelScheduledValues(now);
-        gain.setValueAtTime(gain.value, now);
-        if (on.music) {
-          gain.linearRampToValueAtTime(full, now + 2.7);
-          gain.setValueAtTime(full, now + until);
-        }
+        gain.setValueAtTime(0, now);
+        gain.linearRampToValueAtTime(full, now + 2.7);
+        gain.setValueAtTime(full, now + until);
         gain.linearRampToValueAtTime(0, now + until + fade);
         bed.source.stop(now + until + fade);
-        bed.ending = true;
+        bed.ends = now + until + fade;
       }
       if (!on.music) return;
       part();
@@ -1486,7 +1525,6 @@ const sound = (() => {
       on[kind] = !!value;
       if (!value) hush();
       if (!value && kind === 'effects') stopBed();
-      if (value && kind === 'effects' && assembling && unlock()) ambient().forEach(startBed);
       if (!value && kind === 'music') part();
       try {
         localStorage.setItem(KEYS[kind], value ? 'on' : 'off');
