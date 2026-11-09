@@ -1123,6 +1123,10 @@ button {
 @media (prefers-reduced-motion: reduce) { .about-more { animation: none; } .about-scroll { scroll-behavior: auto; } }
 .about .link { margin-top: 6px; font-size: 1.05rem; border-bottom: 1px solid #33291f; }
 .done-links .link { font-size: 1.05rem; padding: 10px 4px 2px; border-bottom-width: 1px; }
+/* Start Over and Next Puzzle: an icon beside the words, the underline under the words alone */
+.done-links .link:has(svg) { display: flex; align-items: center; gap: 8px; padding: 8px 0 0; border-bottom: 0; }
+.done-links .link span { padding: 2px 2px 1px; border-bottom: 1px solid var(--ink); }
+.done-links .link svg { flex: none; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
 @media (max-height: 760px) {
   .done-body { gap: 16px; padding-bottom: 16px; }

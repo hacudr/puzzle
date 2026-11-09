@@ -953,7 +953,7 @@ function scatter(g, count) {
 }
 
 // A picture already solved at this difficulty, and not begun again since, hangs
-// finished in its frame, where Solve Again deals it afresh. On Expert that
+// finished in its frame, where Start Over deals it afresh. On Expert that
 // takes having solved it in black and white, or the picture would be given away.
 const finished = (p) => (blind() ? mastered(p) : solved.has(p.id)) && !(progressKey(p) in progress);
 
@@ -1889,8 +1889,6 @@ function showOffers() {
   const offer = (el, c, a) => {
     el.hidden = kids || !c || owns(c);
     if (el.hidden) return;
-    const first = freeArtist();
-    el.querySelector('span').textContent = c === everyCollection[0] && (!a || a === first) ? `The first ${FREE} ${first.name} puzzles are free.` : '';
     el.querySelector('button').textContent = `Unlock the collection · ${priceOf(c)}`;
   };
   offer($('#collectionOffer'), collection);

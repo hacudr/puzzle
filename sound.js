@@ -796,10 +796,28 @@ const sound = (() => {
       level: KEY_LEVEL / 2,
     },
   };
+  // Or, in place of an instrument, a soft tap with no tune to it, the same
+  // each time a piece lands: the puzzle then plays no melody as it is put
+  // together, only its recording and effects at the end. From Pixabay (Pixabay
+  // Content License, no credit asked), see sound-effects/CREDITS.md.
+  // level = against the cheer's harp.
+  const TAPS = {
+    tap: { file: 'sound-effects/taps/tap.mp3', level: 0.35 },
+  };
+  const tapBuffers = {};
+  function tapSound(delay = 0, volume = 1) {
+    const { file, level } = TAPS[instrument];
+    const mine = ctx;
+    tapBuffers[file] = tapBuffers[file] || fetched(file);
+    tapBuffers[file].then(
+      (buffer) => mine === ctx && on.effects && sample(buffer, level * volume, delay),
+      () => delete tapBuffers[file]
+    );
+  }
   let instrument = 'piano';
   try {
     const chosen = localStorage.getItem(INSTRUMENT_KEY);
-    if (chosen in INSTRUMENTS) instrument = chosen;
+    if (chosen in INSTRUMENTS || chosen in TAPS) instrument = chosen;
   } catch {}
   // the chosen instrument's recorded notes, by pitch
   const keys = {};
@@ -1041,13 +1059,16 @@ const sound = (() => {
   // fetches the chosen instrument's notes ahead of their turn, so that the
   // first piece to land does not have to wait
   function ready() {
-    if (ctx) askKeys();
+    if (!ctx) return;
+    if (!(instrument in TAPS)) return askKeys();
+    const { file } = TAPS[instrument];
+    tapBuffers[file] = tapBuffers[file] || fetched(file).catch(() => delete tapBuffers[file]);
   }
 
   // fetches the chosen instrument's recorded notes, once for each audio
   // context and each choice
   function askKeys() {
-    if (keysAsked) return;
+    if (keysAsked || !(instrument in INSTRUMENTS)) return;
     keysAsked = true;
     const NAMES = ['C', 'Cs', 'D', 'Ds', 'E', 'F', 'Fs', 'G', 'Gs', 'A', 'As', 'B'];
     const mine = ctx;
@@ -1064,6 +1085,8 @@ const sound = (() => {
   // a recorded note: one outside the range there is moves by octaves into it,
   // then takes the nearest note recorded; false if that is not here yet
   function key(pitch, when, level) {
+    // a plain tap has no notes: the synthesised one is played instead
+    if (!(instrument in INSTRUMENTS)) return false;
     const { notes, level: loud } = INSTRUMENTS[instrument];
     const low = notes[0][0];
     const high = notes[notes.length - 1][0];
@@ -1476,6 +1499,10 @@ const sound = (() => {
     // pieces play go with the effects, not the music
     correct(count = 1) {
       if (!on.effects || !unlock() || !steps.length) return;
+      if (instrument in TAPS) {
+        for (let i = 0; i < count; i++) tapSound(i * 0.2);
+        return;
+      }
       for (let i = 0; i < count; i++) {
         const step = steps[++heard % steps.length];
         play(step, i * 0.2, 1, 0.7);
@@ -1485,6 +1512,7 @@ const sound = (() => {
     // a swap that put nothing in place: repeat the note the tune has reached
     swap() {
       if (!on.effects || !unlock() || !steps.length) return;
+      if (instrument in TAPS) return tapSound(0, 0.6);
       if (heard < 0) heard = 0;
       const step = steps[heard % steps.length];
       play(step, 0, 0.7, 0.5);
@@ -1506,6 +1534,8 @@ const sound = (() => {
         playing = sample(clip, MUSIC_LEVEL, 0.7);
         return;
       }
+      // with a plain tap in place of the notes, no tune is played to end on
+      if (instrument in TAPS) return;
       let i = (heard + 1) % steps.length;
       const from = steps[i].at;
       const least = tune.voice ? 4 : 0;
@@ -1576,14 +1606,22 @@ const sound = (() => {
       tune = playing;
     },
 
-    // the instrument the puzzle's notes are played on: piano, pizzicato or harp
+    // the instrument the puzzle's notes are played on: piano, pizzicato or
+    // harp, or the soft tap that plays no tune
     instrument: () => instrument,
     setInstrument(name) {
-      if (!(name in INSTRUMENTS) || name === instrument) return;
+      if (!(name in INSTRUMENTS || name in TAPS) || name === instrument) return;
       instrument = name;
       try {
         localStorage.setItem(INSTRUMENT_KEY, name);
       } catch {}
+      if (name in TAPS) {
+        // the tap itself, twice, to hear it by
+        if (!on.effects || !unlock()) return;
+        tapSound(0);
+        tapSound(0.45);
+        return;
+      }
       for (const pitch in keys) delete keys[pitch];
       keysAsked = false;
       // a few notes to hear it by, once they are fetched, if the notes are on
