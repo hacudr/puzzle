@@ -642,7 +642,7 @@ const collectionOf = (a) => (collection && collection.artists.includes(a) ? coll
 // no title held that word any more)
 const titleOf = (p) => p.name;
 // the way back from a puzzle names the artist, or Favorites when opened from there
-const backName = (p) => (fromFav ? 'My favorites' : artistOf(p).name);
+const backName = (p) => (fromFav ? 'My Favorites' : artistOf(p).name);
 
 // Every artist is a chapter, showing their pictures one at a time, in order. The first not yet solved is next,
 // under a blur of its colours alone (puzzles/veils/, made by veil.js), and
@@ -753,7 +753,7 @@ function renderFavCard() {
   if (old) old.remove();
   const list = favPuzzles();
   if (!list.length) return;
-  const card = makeCard(list[0].image, '', 'My favorites');
+  const card = makeCard(list[0].image, '', 'My Favorites');
   if (list[0].focus) card.querySelector('.card-img img').style.objectPosition = list[0].focus;
   card.querySelector('small').remove();
   card.classList.add('solved', 'fav-card');

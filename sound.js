@@ -785,8 +785,12 @@ const sound = (() => {
   // The pizzicato's E2 could not be measured, and its C5 is from a second
   // reading, the first being off.
   const INSTRUMENT_KEY = 'puzzle.instrument';
+  const RING = { hold: 0.6, fade: 1.2 };
   const INSTRUMENTS = {
-    piano: { notes: KEY_CENTS.map((cents, i) => [KEYS_FROM + i, cents]), level: KEY_LEVEL },
+    // ring = how a note is cut short: the piano's keys and the harp's strings
+    // ring on for seconds, which lingered, so each note is let sound for hold
+    // seconds and then fades out over fade, about 1.8 seconds in all, at the user's wish
+    piano: { notes: KEY_CENTS.map((cents, i) => [KEYS_FROM + i, cents]), level: KEY_LEVEL, ring: RING },
     pizzicato: {
       notes: [[36, 0], [40, 0], [43, -7], [47, -13], [50, 0], [53, 0], [55, 3], [57, 5], [59, 0], [62, 11], [66, -2], [69, -1], [72, -7], [76, -6], [79, 0], [83, 0], [86, 0]],
       level: KEY_LEVEL,
@@ -794,6 +798,7 @@ const sound = (() => {
     harp: {
       notes: [[35, -14], [38, -5], [41, -7], [45, -4], [48, 0], [52, -4], [55, -7], [59, -12], [62, -12], [65, -1], [69, -10], [72, -12], [76, -11], [79, -7], [83, -9], [86, -8], [89, -5], [93, -18]],
       level: KEY_LEVEL / 2,
+      ring: RING,
     },
   };
   // Or, in place of an instrument, a soft tap with no tune to it, the same
@@ -1088,7 +1093,7 @@ const sound = (() => {
   function key(pitch, when, level) {
     // a plain tap has no notes: the synthesised one is played instead
     if (!(instrument in INSTRUMENTS)) return false;
-    const { notes, level: loud } = INSTRUMENTS[instrument];
+    const { notes, level: loud, ring } = INSTRUMENTS[instrument];
     const low = notes[0][0];
     const high = notes[notes.length - 1][0];
     let into = pitch;
@@ -1104,6 +1109,12 @@ const sound = (() => {
     gain.gain.value = level * loud;
     source.connect(gain).connect(master);
     source.start(when);
+    if (ring) {
+      // held a moment, then gone: an exponential fade, so it dies away rather than stops
+      gain.gain.setValueAtTime(level * loud, when + ring.hold);
+      gain.gain.exponentialRampToValueAtTime(0.0001, when + ring.hold + ring.fade);
+      source.stop(when + ring.hold + ring.fade + 0.02);
+    }
     return true;
   }
 
