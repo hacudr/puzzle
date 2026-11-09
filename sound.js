@@ -934,19 +934,9 @@ const sound = (() => {
       };
       master = ctx.createGain();
       master.gain.value = 0.5;
+      // dry, with no reverb: the room the notes were once given rang on too
+      // long after them, and was taken out at the user's wish
       master.connect(ctx.destination);
-      // a little room: decaying noise as a reverb impulse
-      const length = Math.floor(ctx.sampleRate * 2.2);
-      const impulse = ctx.createBuffer(2, length, ctx.sampleRate);
-      for (let ch = 0; ch < 2; ch++) {
-        const data = impulse.getChannelData(ch);
-        for (let i = 0; i < length; i++) data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, 3);
-      }
-      const reverb = ctx.createConvolver();
-      reverb.buffer = impulse;
-      const wet = ctx.createGain();
-      wet.gain.value = 0.28;
-      master.connect(reverb).connect(wet).connect(ctx.destination);
     }
     if (ctx.state !== 'running') {
       // a context that cannot be woken, or does not wake, is dealt with at the next touch
@@ -1158,7 +1148,7 @@ const sound = (() => {
     clashing = [];
   }
 
-  // a recording, played as it is, without the room the notes are given
+  // a recording, played as it is
   // from = seconds into it to start from, fade = seconds it takes to die away
   // at its end, rise = seconds it takes to come in
   function sample(buffer, level, delay, from = 0, fade = 0, rise = 0) {
@@ -1332,6 +1322,34 @@ const sound = (() => {
     }
   }
 
+  // The puzzle's effects at its end, or when it is opened again solved, with
+  // the music beginning `at` seconds from now. The one-time sounds come a little
+  // after it; the looping sounds start only now, rising to their full level as
+  // the music comes in, and die away with it over its last four seconds; with
+  // no recording to end on, or the music off, they last as long as one would.
+  function endEffects(at) {
+    const under = ambient();
+    if (on.effects)
+      clashing = Object.keys(effect)
+        .filter((name) => !under.includes(name))
+        .map((name) => sample(effect[name], EFFECTS[name].level, at + (EFFECTS[name].wait ?? SOON), EFFECTS[name].lead, EFFECTS[name].fade, EFFECTS[name].rise));
+    under.forEach((name) => startBed(name));
+    for (const bed of Object.values(beds)) {
+      const now = ctx.currentTime;
+      const gain = bed.gain.gain;
+      const full = EFFECTS[bed.name].level * share();
+      const fade = 4;
+      const until = at + (on.music && clip ? clip.duration : 30) - fade;
+      gain.cancelScheduledValues(now);
+      gain.setValueAtTime(0, now);
+      gain.linearRampToValueAtTime(full, now + at + 2);
+      gain.setValueAtTime(full, now + until);
+      gain.linearRampToValueAtTime(0, now + until + fade);
+      bed.source.stop(now + until + fade);
+      bed.ends = now + until + fade;
+    }
+  }
+
   // Sounds a step. In tempo its notes last as written; on its own, a note
   // lasts long enough to be heard.
   function play(step, delay, first, rest, tempo) {
@@ -1385,8 +1403,8 @@ const sound = (() => {
     // A button was tapped: a stroke of a paintbrush on canvas. A breath of noise
     // with the bottom and the top taken off, which swells, darkens as it is
     // drawn out and is gone in under half a second, with a faint shiver in it
-    // for the weave of the cloth. It is a little different each time, and dry,
-    // without the room the notes are given. It goes with the effects.
+    // for the weave of the cloth. It is a little different each time.
+    // It goes with the effects.
     tap() {
       if (!on.effects || !unlock()) return;
       if (!hiss) {
@@ -1481,29 +1499,7 @@ const sound = (() => {
     finish() {
       if (!unlock() || !steps.length) return;
       hush();
-      const under = ambient();
-      if (on.effects)
-        clashing = Object.keys(effect)
-          .filter((name) => !under.includes(name))
-          .map((name) => sample(effect[name], EFFECTS[name].level, 0.7 + (EFFECTS[name].wait ?? SOON), EFFECTS[name].lead, EFFECTS[name].fade, EFFECTS[name].rise));
-      // the looping sounds start only now, rising to their full level as the
-      // music comes in, and die away with it over its last four seconds; with
-      // no recording to end on, or the music off, they last as long as one would
-      under.forEach((name) => startBed(name));
-      for (const bed of Object.values(beds)) {
-        const now = ctx.currentTime;
-        const gain = bed.gain.gain;
-        const full = EFFECTS[bed.name].level * share();
-        const fade = 4;
-        const until = 0.7 + (on.music && clip ? clip.duration : 30) - fade;
-        gain.cancelScheduledValues(now);
-        gain.setValueAtTime(0, now);
-        gain.linearRampToValueAtTime(full, now + 2.7);
-        gain.setValueAtTime(full, now + until);
-        gain.linearRampToValueAtTime(0, now + until + fade);
-        bed.source.stop(now + until + fade);
-        bed.ends = now + until + fade;
-      }
+      endEffects(0.7);
       if (!on.music) return;
       part();
       if (clip) {
@@ -1529,21 +1525,24 @@ const sound = (() => {
     },
 
     // A puzzle solved before is opened again in its frame: its recording plays,
-    // as soon as it is in, without the effects. still = whether it is still
-    // wanted by then, the puzzle not having been left in the meantime.
+    // as soon as it is in, and its effects with it, as at its end, if they are
+    // on. still = whether it is still wanted by then, the puzzle not having been
+    // left in the meantime. Resolves to whether the music played.
     reprise(still = () => true) {
-      if (!on.music || !unlock() || !tune) return Promise.resolve(false);
+      if ((!on.music && !on.effects) || !unlock() || !tune) return Promise.resolve(false);
       const mine = tune;
-      const asked = clips[clipUrl(tuneKey)] || Promise.reject();
-      return asked
-        .catch(() => {})
-        .then(() => {
-          if (tune !== mine || !on.music || !clip || !still()) return false;
-          hush();
-          part();
-          playing = sample(clip, MUSIC_LEVEL, 0.3);
-          return true;
-        });
+      const music = on.music ? (clips[clipUrl(tuneKey)] || Promise.reject()).catch(() => {}) : null;
+      const sounds = on.effects ? wanted.map((name) => effects[name] && effects[name].catch(() => {})) : [];
+      return Promise.all([music, ...sounds]).then(() => {
+        if (tune !== mine || !still()) return false;
+        const played = on.music && !!clip;
+        if (!played && !on.effects) return false;
+        hush();
+        part();
+        endEffects(0.3);
+        if (played) playing = sample(clip, MUSIC_LEVEL, 0.3);
+        return played;
+      });
     },
 
     // who wrote the current tune and what it is, and who is playing where the

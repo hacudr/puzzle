@@ -981,7 +981,8 @@ async function visit(p) {
   if (!finished(p)) return start(p);
   // its music is fetched while the picture is, and plays once it hangs
   chooseTune(p);
-  sound.setEffect(null);
+  // its effects are fetched too, and play with the music, as at its end
+  sound.setEffect([].concat(p.effect || [], p.ambience || []), true);
   let img;
   try {
     img = await loadImage(p.image);
