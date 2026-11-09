@@ -346,7 +346,7 @@ function labelCards() {
     card.classList.toggle('sepia', !litArtist(list[i]));
   };
   if (collection) document.querySelectorAll('#shelf .card').forEach(tally(collection.artists));
-  document.querySelectorAll('#collections .card').forEach((card, i) => card.classList.toggle('sepia', !lit(collections[i])));
+  document.querySelectorAll('#collections .card:not(.fav-card)').forEach((card, i) => card.classList.toggle('sepia', !lit(collections[i])));
   showOffers();
 }
 
@@ -485,7 +485,7 @@ async function checkFresh() {
 }
 function reloadIfStale() {
   const at = document.querySelector('.screen:not([hidden])');
-  if (stale && at && ['gallery', 'collection', 'artist'].includes(at.id) && $('#paywall').hidden) location.reload();
+  if (stale && at && ['gallery', 'collection', 'artist', 'favorites'].includes(at.id) && $('#paywall').hidden) location.reload();
 }
 document.addEventListener('visibilitychange', () => document.hidden || checkFresh());
 
@@ -641,6 +641,8 @@ const collectionOf = (a) => (collection && collection.artists.includes(a) ? coll
 // a puzzle's title as shown (a setting once masked one word in it; taken out when
 // no title held that word any more)
 const titleOf = (p) => p.name;
+// the way back from a puzzle names the artist, or Favorites when opened from there
+const backName = (p) => (fromFav ? 'My favorites' : artistOf(p).name);
 
 // Every artist is a chapter, showing their pictures one at a time, in order. The first not yet solved is next,
 // under a blur of its colours alone (puzzles/veils/, made by veil.js), and
@@ -726,11 +728,63 @@ function renderGallery() {
     card.addEventListener('click', () => openCollection(c));
     grid.append(card);
   }
+  renderFavCard();
   labelCards();
 }
 
+// Favorites: the solved pictures marked with the heart beside the finished
+// picture's menu, kept by their image in puzzle.favorites, the latest last. A
+// favorite hidden by the settings, or no longer playable, is left out.
+const FAV_KEY = 'puzzle.favorites';
+function favorites() {
+  try { return JSON.parse(localStorage.getItem(FAV_KEY)) || []; } catch { return []; }
+}
+const favPuzzles = () =>
+  favorites().reverse().map((img) => puzzles.find((p) => p.image === img)).filter((p) => p && visible(p) && playable(p));
+// opened from the Favorites page: the way back leads there, and a swipe keeps to them
+let fromFav = false;
+let favOrder = [];
+
+// The home page's fourth card, after the collections, shown once there is a
+// favorite, its cover the latest one.
+function renderFavCard() {
+  const grid = $('#collections');
+  const old = grid.querySelector('.fav-card');
+  if (old) old.remove();
+  const list = favPuzzles();
+  if (!list.length) return;
+  const card = makeCard(list[0].image, '', 'My favorites');
+  if (list[0].focus) card.querySelector('.card-img img').style.objectPosition = list[0].focus;
+  card.querySelector('small').remove();
+  card.classList.add('solved', 'fav-card');
+  card.addEventListener('click', openFavorites);
+  grid.append(card);
+}
+
+function openFavorites() {
+  game = null;
+  fromFav = true;
+  favOrder = favPuzzles();
+  const grid = $('#favGrid');
+  grid.textContent = '';
+  for (const p of favOrder) {
+    const card = makeCard(p.image, artistOf(p).name, titleOf(p));
+    if (p.focus) card.querySelector('.card-img img').style.objectPosition = p.focus;
+    card.querySelector('small').textContent = p.scientific || '';
+    card.classList.add('solved');
+    markShape(card);
+    card.addEventListener('click', () => visit(p));
+    grid.append(card);
+  }
+  $('#favEmpty').hidden = favOrder.length > 0;
+  show('favorites');
+}
+$('#favoritesBack').addEventListener('click', openGallery);
+
 function openGallery() {
   game = null;
+  fromFav = false;
+  renderFavCard();
   labelCards();
   show('gallery');
 }
@@ -738,6 +792,7 @@ function openGallery() {
 // One collection's artists, always lit.
 function openCollection(c) {
   game = null;
+  fromFav = false;
   if (c !== collection) {
     collection = c;
     $('#collectionName').textContent = c.number;
@@ -786,6 +841,7 @@ document.addEventListener('keydown', (e) => e.key === 'Escape' && !$('#artistBio
 // One artist's puzzles.
 function openArtist(a) {
   game = null;
+  fromFav = false;
   if (a !== artist) {
     artist = a;
     // with a bio, the italic note ("French, 1840–1926") ends it instead of standing over the name
@@ -934,7 +990,7 @@ async function visit(p) {
     return;
   }
   game = { p, aspect: img.naturalWidth / img.naturalHeight, held: [], done: true };
-  $('#doneBackName').textContent = artistOf(p).name;
+  $('#doneBackName').textContent = backName(p);
   showPlate(p, false);
   sound.reprise(() => game && game.p === p && !$('#done').hidden).then((played) => played && nameMusic());
 }
@@ -953,7 +1009,7 @@ async function start(p, fresh = false) {
     return;
   }
   $('#pause').hidden = true;
-  $('#playBackName').textContent = $('#doneBackName').textContent = artistOf(p).name;
+  $('#playBackName').textContent = $('#doneBackName').textContent = backName(p);
   show('play');
 
   const aspect = img.naturalWidth / img.naturalHeight;
@@ -1401,8 +1457,9 @@ let slideIn = 0;
 let slideOut = null;
 const swipe = { x: 0, y: 0, id: null, moved: false };
 
+// from the Favorites page, a swipe keeps to the favorites, in that page's order
 function finishedNear(p, step) {
-  const order = collections.flatMap((c) => c.artists.flatMap((a) => a.puzzles));
+  const order = fromFav ? favOrder : collections.flatMap((c) => c.artists.flatMap((a) => a.puzzles));
   for (let i = order.indexOf(p) + step; i >= 0 && i < order.length; i += step) {
     if (playable(order[i]) && finished(order[i])) return order[i];
   }
@@ -1488,6 +1545,7 @@ function showPlate(p, played = true) {
   nameMusic(played);
   $('#nextBtn').hidden = puzzles.length < 2;
   showAboutBtn(p);
+  showFav(p);
   $('#doneAbout').hidden = true;
   $('#doneCheer').hidden = true;
   closeZoom();
@@ -2050,7 +2108,7 @@ $('#pauseBtn').addEventListener('click', () => ($('#pause').hidden = false));
 $('#pauseSettings').addEventListener('click', () => openSettings('play'));
 $('#resumeBtn').addEventListener('click', () => ($('#pause').hidden = true));
 $('#restartBtn').addEventListener('click', () => start(game.p, true));
-$('#playBack').addEventListener('click', () => openArtist(artistOf(game.p)));
+$('#playBack').addEventListener('click', () => (fromFav ? openFavorites() : openArtist(artistOf(game.p))));
 
 $('#peekBtn').addEventListener('click', () => setGuide(guideEl.classList.contains('off')));
 // a tray with pieces in it stays, and shows why
@@ -2067,11 +2125,35 @@ guideEl.addEventListener('click', () => {
 
 // the solved screen's menu
 $('#donePauseBtn').addEventListener('click', () => ($('#donePause').hidden = false));
+
+// the heart beside the finished picture's menu
+function showFav(p) {
+  const b = $('#favBtn');
+  const on = favorites().includes(p.image);
+  b.setAttribute('aria-pressed', String(on));
+  b.setAttribute('aria-label', on ? 'Remove from favorites' : 'Add to favorites');
+  b.classList.remove('glow');
+}
+$('#favBtn').addEventListener('click', () => {
+  const p = game.p;
+  if (!p) return;
+  const list = favorites().filter((x) => x !== p.image);
+  const on = $('#favBtn').getAttribute('aria-pressed') !== 'true';
+  if (on) list.push(p.image);
+  try { localStorage.setItem(FAV_KEY, JSON.stringify(list)); } catch {}
+  showFav(p);
+  if (on) {
+    const b = $('#favBtn');
+    void b.offsetWidth; // so the glow starts again on a second tap
+    b.classList.add('glow');
+  }
+});
+$('#favBtn').addEventListener('animationend', (e) => e.currentTarget.classList.remove('glow'));
 $('#doneResume').addEventListener('click', () => ($('#donePause').hidden = true));
 $('#doneRestart').addEventListener('click', () => start(game.p, true));
 // Settings from the solved screen: the finished picture waits behind them
 $('#doneSettings').addEventListener('click', () => openSettings('done'));
-$('#doneBack').addEventListener('click', () => openArtist(artistOf(game.p)));
+$('#doneBack').addEventListener('click', () => (fromFav ? openFavorites() : openArtist(artistOf(game.p))));
 $('#aboutBtn').addEventListener('click', () => showAbout(game.p));
 $('.plate-face').addEventListener('click', () => {
   if (!$('#aboutBtn').hidden && Date.now() - facePinched > 800 && Date.now() - swiped > 500) {
@@ -2094,6 +2176,8 @@ $('#againBtn').addEventListener('click', () => start(game.p, true));
 // Next Puzzle; when it crosses into another collection, it says so first: a card
 // naming the collection begun, or, for one not yet bought, the pay screen for it.
 $('#nextBtn').addEventListener('click', () => {
+  // Next Puzzle leads on through the collections, so the way back is to the artist again
+  fromFav = false;
   const q = nextPuzzle(game.p);
   const from = shelfOf(artistOf(game.p)), to = shelfOf(artistOf(q));
   if (!from || !to || from === to) return visit(q);
@@ -2152,6 +2236,7 @@ $('#settingsBack').addEventListener('click', async () => {
     if (collections.includes(collectionBefore)) openCollection(collectionBefore);
     return openArtist(artistBefore);
   }
+  if (settingsFrom === 'favorites') return openFavorites();
   if (settingsFrom === 'collection') return collections.includes(collectionBefore) ? openCollection(collectionBefore) : openGallery();
   show(settingsFrom);
 });

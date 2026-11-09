@@ -618,6 +618,25 @@ button {
   border-radius: 50%;
 }
 .icon-btn[aria-pressed="false"] { opacity: .45; }
+/* The heart beside the finished picture's menu: an outline until the picture is
+   made a favorite, then filled, both in the colour of the other icons. Marking it
+   lets a soft golden glow bloom round it and fade away. */
+.icon-btn.fav[aria-pressed] { opacity: 1; }
+.fav svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  transition: fill .25s ease, stroke .25s ease;
+}
+.fav[aria-pressed="true"] svg path { fill: currentColor; }
+.fav.glow svg { animation: fav-glow 1.2s ease-out; }
+@keyframes fav-glow {
+  0%   { transform: scale(1);    filter: drop-shadow(0 0 0 rgba(240, 200, 100, 0)); }
+  18%  { transform: scale(1.22); filter: drop-shadow(0 0 7px rgba(240, 200, 100, .95)) drop-shadow(0 0 14px rgba(230, 180, 70, .7)); }
+  40%  { transform: scale(1);    filter: drop-shadow(0 0 6px rgba(240, 200, 100, .8)) drop-shadow(0 0 12px rgba(230, 180, 70, .5)); }
+  100% { transform: scale(1);    filter: drop-shadow(0 0 0 rgba(240, 200, 100, 0)); }
+}
 
 /* the lid of the puzzle box: a small, faded copy of the finished picture */
 .guide { flex: none; }
@@ -1193,7 +1212,6 @@ button {
 .padlock svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .card.sepia .padlock { opacity: 1; }
 #collections .card .padlock { bottom: 12px; left: 12px; }
-
 /* the line under a heading offering what is not yet bought */
 .offer { margin: 12px 0 0; font-style: italic; color: var(--ink-soft); }
 .offer span:not(:empty) { margin-right: .5em; }
