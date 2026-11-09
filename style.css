@@ -253,12 +253,12 @@ button {
 
 /* ---------- Collection ---------- */
 
-#gallery, #collection, #artist { overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--page); }
+#gallery, #collection, #artist, #favorites { overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--page); }
 
 /* The way back and the settings stay at the top while the page scrolls under
    them. The bar takes the room the screen would leave for a notch, so that
    nothing shows above it. */
-#gallery, #collection, #artist, #settings, #credits { padding-top: 0; }
+#gallery, #collection, #artist, #favorites, #settings, #credits { padding-top: 0; }
 .top, #settings .bar, #credits .bar {
   position: sticky;
   top: 0;
