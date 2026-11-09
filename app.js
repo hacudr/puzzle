@@ -1757,8 +1757,8 @@ function showAbout(p) {
 
 /* ---------- A personal note from the app creator ---------- */
 
-// The little scroll in the top-left corner of the home page wiggles until its letter has been opened.
-// Tapping it slips the ribbon off and unrolls it, and the letter unrolls between its rollers.
+// The little envelope in the top-left corner of the home page wiggles until its letter has been opened.
+// Tapping it breaks the seal and lifts the flap, and the letter comes out of a larger envelope and unfolds.
 let noteSeen = false;
 function noteRead() {
   try { return noteSeen || +localStorage.getItem(NOTE_KEY) >= NOTE; } catch { return noteSeen; }
@@ -1783,11 +1783,11 @@ $('#noteBtn').addEventListener('click', () => {
   try { localStorage.setItem(NOTE_KEY, String(NOTE)); } catch {}
   b.classList.remove('unread');
   b.classList.add('open');
-  // the ribbon slips off and the little scroll unrolls before the letter does
+  // the little envelope opens before the letter comes out
   setTimeout(openNote, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 620);
 });
 $('#noteScroll').addEventListener('scroll', noteEdges, { passive: true });
-// the fades are measured again once the letter has finished unrolling
+// the fades are measured again once the letter has finished unfolding
 $('#note .letter').addEventListener('animationend', noteEdges);
 $('#noteMore').addEventListener('click', () => {
   const s = $('#noteScroll');
