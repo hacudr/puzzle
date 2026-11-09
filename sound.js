@@ -802,11 +802,12 @@ const sound = (() => {
   // Content License, no credit asked), see sound-effects/CREDITS.md.
   // level = against the cheer's harp.
   const TAPS = {
-    tap: { file: 'sound-effects/taps/tap.mp3', level: 0.35 },
+    tap: { file: 'taps/tap.mp3', level: 0.35 },
   };
   const tapBuffers = {};
   function tapSound(delay = 0, volume = 1) {
-    const { file, level } = TAPS[instrument];
+    const { level } = TAPS[instrument];
+    const file = `sound-effects/${TAPS[instrument].file}`;
     const mine = ctx;
     tapBuffers[file] = tapBuffers[file] || fetched(file);
     tapBuffers[file].then(
@@ -1061,7 +1062,7 @@ const sound = (() => {
   function ready() {
     if (!ctx) return;
     if (!(instrument in TAPS)) return askKeys();
-    const { file } = TAPS[instrument];
+    const file = `sound-effects/${TAPS[instrument].file}`;
     tapBuffers[file] = tapBuffers[file] || fetched(file).catch(() => delete tapBuffers[file]);
   }
 

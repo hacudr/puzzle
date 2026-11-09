@@ -50,6 +50,8 @@ copyDir('sound-effects/piano', (n) => n.endsWith('.mp3'));
 // the pizzicato and harp that can be chosen in its place (sound-effects/vsco.js)
 copyDir('sound-effects/pizzicato', (n) => n.endsWith('.mp3'));
 copyDir('sound-effects/harp', (n) => n.endsWith('.mp3'));
+// the soft tap that can be chosen in place of the notes
+copyDir('sound-effects/taps', (n) => n.endsWith('.mp3'));
 // the sounds of the places the pictures show, heard under the ending music
 copyDir('sound-effects/ambience', (n) => n.endsWith('.mp3'));
 
