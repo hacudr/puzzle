@@ -972,7 +972,23 @@ function nameMusic(played = true) {
     ? `Music: ${credit.composer}, ${credit.title}` + (credit.performer ? ` · played by ${credit.performer}` : '')
     : '';
   $('#plateMusic').hidden = !credit;
+  requestAnimationFrame(fitPlate);
 }
+
+// The picture is sized to leave a set height (--rest) for the label, the music and
+// the links. When a long title or the music's line runs to a second line, that is
+// too little, and the label ran into Start Over and Next Puzzle on a phone: so
+// whatever spills over is measured and taken off the picture (--extra).
+function fitPlate() {
+  const plate = $('.plate');
+  const body = $('.done-body');
+  plate.style.setProperty('--extra', '0px');
+  if ($('#done').hidden || SIDEWAYS.matches) return;
+  const spill = Math.max(plate.scrollHeight - plate.clientHeight, body.scrollHeight - body.clientHeight, 0);
+  if (spill) plate.style.setProperty('--extra', Math.ceil(spill) + 4 + 'px');
+}
+addEventListener('resize', () => requestAnimationFrame(fitPlate));
+if (window.ResizeObserver) new ResizeObserver(() => fitPlate()).observe($('.done-body'));
 
 // Opens a picture from its card: the finished one if it has been solved, the
 // puzzle if not.

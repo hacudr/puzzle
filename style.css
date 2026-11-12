@@ -750,7 +750,11 @@ button {
   #play .mid .level-rest { display: none; }
   #play .mid .guide { grid-area: guide; justify-self: center; margin-bottom: 8px; }
   #play.no-guide .mid .guide, #play.blind .mid .guide { position: absolute; top: 0; left: 0; }
-  #play .stage { grid-area: stage; margin: 8px 14px 8px 6px; }
+  /* A touch that starts near the top edge is taken by iOS as pulling down
+     Notification Center, so the top row of pieces could not be dragged: the
+     puzzle is kept 40px clear of it, where the second row used to begin, which
+     could be dragged. */
+  #play .stage { grid-area: stage; margin: max(40px, calc(env(safe-area-inset-top) + 32px)) 14px 8px 6px; }
   #play .reserve {
     grid-area: tray;
     flex-direction: column;
@@ -911,7 +915,7 @@ button {
   --fw: calc(1 + var(--k, 1.25) * var(--frame-weight) * (var(--fl) + var(--fr)) / var(--frame-long));
   --fh: calc(1 / var(--aspect, .8) + var(--k, 1.25) * var(--frame-weight) * (var(--ft) + var(--fb)) / var(--frame-long));
   /* the picture's width: as large as lets it all show, frame included */
-  --pic: min(calc(min(var(--base) * var(--grow, 1), 100vw - 48px) / var(--fw)), calc((100dvh - var(--rest)) / var(--fh)));
+  --pic: min(calc(min(var(--base) * var(--grow, 1), 100vw - 48px) / var(--fw)), calc((100dvh - var(--rest) - var(--extra, 0px)) / var(--fh)));
   /* one pixel of the frame's file, on the screen */
   --u: calc(var(--pic) * var(--k, 1.25) * var(--frame-weight) / var(--frame-long));
   width: calc(var(--pic) * var(--fw));
@@ -977,7 +981,7 @@ button {
   /* height taken by everything but the picture: bar, frame, label, links */
   --rest: 400px;
   /* no wider than lets the whole picture show at its own shape */
-  width: min(calc(var(--base) * var(--grow, 1)), 100%, calc((100dvh - var(--rest)) * var(--aspect, .8) + 2 * var(--frame) + 2 * var(--fillet)));
+  width: min(calc(var(--base) * var(--grow, 1)), 100%, calc((100dvh - var(--rest) - var(--extra, 0px)) * var(--aspect, .8) + 2 * var(--frame) + 2 * var(--fillet)));
 }
 .plate.plain .plate-face { box-sizing: content-box; height: auto; aspect-ratio: var(--aspect, .8); min-height: 0; }
 .plate.plain .plate-img { inset: var(--fillet); }
