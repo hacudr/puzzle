@@ -71,6 +71,10 @@ All four are Non-Consumable. Display name [30] and description [45] as in `ios/A
 
 Each needs a screenshot of the pay screen for Apple's review.
 
+## Screenshots
+
+PNG, up to 10 per device. iPhone: `screenshots/iphone/`, 1290 × 2796 (Apple's 6.9" size, which it scales down for smaller iPhones), in the order to upload them, the first three being the ones shown in search: the solved picture in its frame, the splash, the Gallery, Collection 1, the wall card, Monet's page, Kids mode, Settings. They were made from copies 924 × 2000 the user sent from an iPhone (kept in `screenshots/iphone/received/`), enlarged and sharpened a little (ffmpeg's `unsharp=5:5:0.8`). iPad: `screenshots/ipad/`, 13" size, 2064 × 2752 (the last, the solved Heart of the Andes, landscape at 2752 × 2064), in upload order: the solved picture in its frame, the splash, the Gallery, a puzzle half done, a 100-piece puzzle, the wall card, the close look, an artist's bio, Up next, the landscape solved picture. Ten chosen from nineteen the user sent from an iPad at 1390 × 2000 (kept in `screenshots/ipad/received/`), a narrower shape than 3:4: the screens with a plain ground were widened by carrying their edge colour outwards, the splash and the close look cropped a little top and bottom, and all enlarged and sharpened as the iPhone ones were. Heart of the Andes is by the Hudson River School, whose files have no record of where they came from yet (see the rights list in CLAUDE.md); it is kept at the user's wish, but that record is still to be settled before the listing goes live.
+
 ## App Privacy
 
 Data Not Collected. Answer "No" to "Do you or your third-party partners collect data from this app?"
